@@ -20,7 +20,7 @@
  * License along with this software; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
-*/
+ */
 /*******************************************************************************/
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -34,7 +34,7 @@
 /*******************************************************************************/
 gint
 get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
-                                                    gboolean get_detail_data){
+        gboolean get_detail_data){
     xmlDoc  *doc = NULL;
     xmlNode *root_node = NULL;
     int    days_number = -1;
@@ -86,7 +86,7 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
                             return days_number;
                         }
                     }
-               }
+                }
             }else
                 doc = NULL;
         }
@@ -160,7 +160,7 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
             if(!xmlStrcmp(cur_node->name, (const xmlChar *) "loc" ) ){
                 temp_xml_string = xmlGetProp(cur_node, (const xmlChar*)"id");
                 snprintf(id_station, sizeof(id_station) - 1,
-                            "%s", temp_xml_string);
+                        "%s", temp_xml_string);
                 xmlFree(temp_xml_string);
                 /* If station in xml not station in config file exit */
                 if( strcmp(id_station, station_id) )
@@ -172,7 +172,7 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"dnam") ){
                             temp_xml_string = xmlNodeGetContent(child_node);
                             g_hash_table_insert(location, (gpointer)"station_name",
-                                                (gpointer)g_strdup((char*)temp_xml_string));
+                                    (gpointer)g_strdup((char*)temp_xml_string));
                             xmlFree(temp_xml_string);
                             continue;
                         }
@@ -180,7 +180,7 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"lat") ){
                             temp_xml_string = xmlNodeGetContent(child_node);
                             g_hash_table_insert(location, (gpointer)"station_latitude",
-                                                g_strdup((char*)temp_xml_string));
+                                    g_strdup((char*)temp_xml_string));
                             xmlFree(temp_xml_string);
                             continue;
                         }
@@ -188,7 +188,7 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"lon") ){
                             temp_xml_string = xmlNodeGetContent(child_node);
                             g_hash_table_insert(location, (gpointer)"station_longitude",
-                                                g_strdup((char*)temp_xml_string));
+                                    g_strdup((char*)temp_xml_string));
                             xmlFree(temp_xml_string);
                             continue;
                         }
@@ -196,7 +196,7 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"zone") ){
                             temp_xml_string = xmlNodeGetContent(child_node);
                             g_hash_table_insert(location, (gpointer)"station_time_zone",
-                                                g_strdup((char*)temp_xml_string));
+                                    g_strdup((char*)temp_xml_string));
                             xmlFree(temp_xml_string);
                             continue;
                         }
@@ -221,7 +221,7 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                             ( !xmlStrcmp(child_node->name, (const xmlChar *)"tmp") ) ){
                         temp_xml_string = xmlNodeGetContent(child_node);
                         g_hash_table_insert(current, (gpointer)"day_hi_temperature",
-                                            g_strdup((char*)temp_xml_string));
+                                g_strdup((char*)temp_xml_string));
                         xmlFree(temp_xml_string);
                         continue;
                     }
@@ -230,7 +230,7 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                             ( !xmlStrcmp(child_node->name, (const xmlChar *)"flik") ) ){
                         temp_xml_string = xmlNodeGetContent(child_node);
                         g_hash_table_insert(current, (gpointer)"feel_like",
-                                            g_strdup((char*)temp_xml_string));
+                                g_strdup((char*)temp_xml_string));
                         xmlFree(temp_xml_string);
                         continue;
                     }
@@ -245,7 +245,7 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                     if(!xmlStrcmp(child_node->name, (const xmlChar *)"icon") ){
                         temp_xml_string = xmlNodeGetContent(child_node);
                         g_hash_table_insert(current, (gpointer)"icon",
-                                            g_strdup((char*)temp_xml_string));
+                                g_strdup((char*)temp_xml_string));
                         xmlFree(temp_xml_string);
                         continue;
                     }
@@ -257,14 +257,14 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"r") ){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
                                     g_hash_table_insert(current, (gpointer)"pressure",
-                                                        g_strdup((char*)temp_xml_string));
+                                            g_strdup((char*)temp_xml_string));
                                     xmlFree(temp_xml_string);
                                 }
                                 /* direction */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"d") ){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
                                     g_hash_table_insert(current, (gpointer)"pressure_direction",
-                                                        g_strdup((char*)temp_xml_string));
+                                            g_strdup((char*)temp_xml_string));
                                     xmlFree(temp_xml_string);
                                 }
                             }
@@ -316,13 +316,13 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                         for(child_node2 = child_node->children; child_node2 != NULL; child_node2 = child_node2->next){
                             if( child_node2->type == XML_ELEMENT_NODE ){
                                 /* icon */
-/* not used now
-                                if(!xmlStrcmp(child_node2->name, (const xmlChar *)"icon") ){
-                                    temp_xml_string = xmlNodeGetContent(child_node2);
-                                    g_hash_table_insert(current, "moon_icon", g_strdup((char*)temp_xml_string));
-                                    xmlFree(temp_xml_string);
-                                }
-*/
+                                /* not used now
+                                   if(!xmlStrcmp(child_node2->name, (const xmlChar *)"icon") ){
+                                   temp_xml_string = xmlNodeGetContent(child_node2);
+                                   g_hash_table_insert(current, "moon_icon", g_strdup((char*)temp_xml_string));
+                                   xmlFree(temp_xml_string);
+                                   }
+                                   */
                                 /* phase */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"t") ){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
@@ -347,8 +347,8 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                         /* prepare locale value for day name */
                         memset(buff, 0, sizeof(buff));
                         memcpy(buff, temp_xml_string, (strlen((char*)temp_xml_string) > sizeof(buff)) ?
-                                            (sizeof(buff) - 1) :
-                                            (strlen((char*)temp_xml_string)));
+                                (sizeof(buff) - 1) :
+                                (strlen((char*)temp_xml_string)));
                         strptime(buff, "%A", &tmp_tm);
                         memset(buff, 0, sizeof(buff));
                         strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);
@@ -457,10 +457,10 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                                                             temp_xml_string = xmlNodeGetContent(child_node4);
                                                             if(!store2day)
                                                                 g_hash_table_insert(day, (gpointer)"night_wind_title",
-                                                                                    g_strdup((char*)temp_xml_string));
+                                                                        g_strdup((char*)temp_xml_string));
                                                             else
                                                                 g_hash_table_insert(day, (gpointer)"day_wind_title",
-                                                                                    g_strdup((char*)temp_xml_string));
+                                                                        g_strdup((char*)temp_xml_string));
                                                             xmlFree(temp_xml_string);
                                                             continue;
                                                         }
@@ -524,8 +524,8 @@ parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *d
                         /* prepare locale value for hour */
                         memset(buff, 0, sizeof(buff));
                         memcpy(buff, temp_xml_string, (strlen((char*)temp_xml_string)                                                                    > sizeof(buff)) ?
-                                                                 (sizeof(buff) - 1) :
-                                                   (strlen((char*)temp_xml_string)));
+                                (sizeof(buff) - 1) :
+                                (strlen((char*)temp_xml_string)));
                         strptime(buff, "%H", &tmp_tm);
                         memset(buff, 0, sizeof(buff));
                         strftime(buff, sizeof(buff) - 1, "%H", &tmp_tm);
@@ -534,35 +534,35 @@ parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *d
                         for(child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
                             if( child_node2->type == XML_ELEMENT_NODE){
                                 /* hour temperature */
-                               if(!xmlStrcmp(child_node2->name, (const xmlChar *)"tmp"))    {
+                                if(!xmlStrcmp(child_node2->name, (const xmlChar *)"tmp"))    {
                                     temp_xml_string = xmlNodeGetContent(child_node2);
                                     g_hash_table_insert(detail, (gpointer)"hour_temperature", g_strdup((char*)temp_xml_string));
                                     xmlFree(temp_xml_string);
                                     continue;
-                               }
-                               /* feels like for hour */
-                               if(!xmlStrcmp(child_node2->name, (const xmlChar *)"flik")){
+                                }
+                                /* feels like for hour */
+                                if(!xmlStrcmp(child_node2->name, (const xmlChar *)"flik")){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
                                     g_hash_table_insert(detail, (gpointer)"hour_feels_like", g_strdup((char*)temp_xml_string));
                                     xmlFree(temp_xml_string);
                                     continue;
-                               }
-                               /* icon for hour */
-                               if(!xmlStrcmp(child_node2->name, (const xmlChar *)"icon")){
+                                }
+                                /* icon for hour */
+                                if(!xmlStrcmp(child_node2->name, (const xmlChar *)"icon")){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
                                     g_hash_table_insert(detail, (gpointer)"hour_icon", g_strdup((char*)temp_xml_string));
                                     xmlFree(temp_xml_string);
                                     continue;
-                               }
-                               /* title for hour */
-                               if(!xmlStrcmp(child_node2->name, (const xmlChar *)"t")){
+                                }
+                                /* title for hour */
+                                if(!xmlStrcmp(child_node2->name, (const xmlChar *)"t")){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
                                     g_hash_table_insert(detail, (gpointer)"hour_title", g_strdup((char*)temp_xml_string));
                                     xmlFree(temp_xml_string);
                                     continue;
-                               }
-                               /* wind data for hour */
-                               if(!xmlStrcmp(child_node2->name, (const xmlChar *)"wind")){
+                                }
+                                /* wind data for hour */
+                                if(!xmlStrcmp(child_node2->name, (const xmlChar *)"wind")){
                                     for(child_node3 = child_node2->children; child_node3 != NULL; child_node3 = child_node3->next){
                                         if( child_node3->type == XML_ELEMENT_NODE ){
                                             /* speed */
@@ -585,14 +585,14 @@ parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *d
                                             }
                                         }
                                     }
-                               }
-                               /* hour humidity */
-                               if(!xmlStrcmp(child_node2->name, (const xmlChar *)"hmid") ){
+                                }
+                                /* hour humidity */
+                                if(!xmlStrcmp(child_node2->name, (const xmlChar *)"hmid") ){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
                                     g_hash_table_insert(detail, (gpointer)"hour_humidity", g_strdup((char*)temp_xml_string));
                                     xmlFree(temp_xml_string);
                                     continue;
-                               }
+                                }
                             }
                         }
                         if(detail){
@@ -636,11 +636,11 @@ parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, con
             if( !xmlStrcmp(cur_node->name, (const xmlChar *) "loc") ){
                 for(child_node = cur_node->children; child_node; child_node = child_node->next){
                     if( child_node->type == XML_ELEMENT_NODE ){
-                       /* station time zone */
+                        /* station time zone */
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"zone") ){
                             temp_xml_string = xmlNodeGetContent(child_node);
                             //    snprintf(timezone, sizeof(timezone) - 1, "%s", (char*)temp_xml_string);
-			                timezone_my = atoi((char*)temp_xml_string);
+                            timezone_my = atoi((char*)temp_xml_string);
                             xmlFree(temp_xml_string);
                             continue;
                         }
@@ -658,7 +658,7 @@ parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, con
                         setlocale(LC_TIME, "POSIX");
                         strptime((char *)temp_xml_string, "%D", &last_update_time);
                         last_update_time.tm_sec = 0; last_update_time.tm_min = 0;
-		       	        last_update_time.tm_hour = 0;
+                        last_update_time.tm_hour = 0;
                         last_update_time.tm_isdst = 0;
 
                         current_day = mktime(&last_update_time);
@@ -669,7 +669,7 @@ parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, con
                     if( child_node->type == XML_ELEMENT_NODE  &&
                             (!xmlStrcmp(child_node->name, (const xmlChar *)"hour") )){
                         if (xmlGetProp(child_node, (const xmlChar *)"c")){
-                            
+
                             /* Get an hour */
                             temp_xml_string = xmlGetProp(child_node, (const xmlChar *)"c");
                             hour = atoi((char*)temp_xml_string);
@@ -694,71 +694,71 @@ parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, con
                             for(child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
                                 if( child_node2->type == XML_ELEMENT_NODE){
                                     /* hour temperature */
-                                   if(!xmlStrcmp(child_node2->name, (const xmlChar *)"tmp"))    {
+                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"tmp"))    {
                                         temp_xml_string = xmlNodeGetContent(child_node2);
-			                fprintf(file_out,"     <temperature>%s</temperature>\n",
-						         (char*)temp_xml_string); 
+                                        fprintf(file_out,"     <temperature>%s</temperature>\n",
+                                                (char*)temp_xml_string); 
                                         xmlFree(temp_xml_string);
                                         continue;
-                                   }
-                                   /* feels like for hour */
-                                   if(!xmlStrcmp(child_node2->name, (const xmlChar *)"flik")){
+                                    }
+                                    /* feels like for hour */
+                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"flik")){
                                         temp_xml_string = xmlNodeGetContent(child_node2);
-			    	        fprintf(file_out,"     <flike>%s</flike>\n",
-						         (char*)temp_xml_string); 
+                                        fprintf(file_out,"     <flike>%s</flike>\n",
+                                                (char*)temp_xml_string); 
                                         xmlFree(temp_xml_string);
                                         continue;
-                                   }
-                                   /* icon for hour */
-                                   if(!xmlStrcmp(child_node2->name, (const xmlChar *)"icon")){
+                                    }
+                                    /* icon for hour */
+                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"icon")){
                                         temp_xml_string = xmlNodeGetContent(child_node2);
-			                fprintf(file_out,"     <icon>%s</icon>\n", 
-							   (char*)temp_xml_string);
+                                        fprintf(file_out,"     <icon>%s</icon>\n", 
+                                                (char*)temp_xml_string);
                                         xmlFree(temp_xml_string);
                                         continue;
-                                   }
-                                   /* title for hour */
-                                   if(!xmlStrcmp(child_node2->name, (const xmlChar *)"t")){
+                                    }
+                                    /* title for hour */
+                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"t")){
                                         temp_xml_string = xmlNodeGetContent(child_node2);
-			                fprintf(file_out,"     <description>%s</description>\n",
-							   (char*)temp_xml_string);
+                                        fprintf(file_out,"     <description>%s</description>\n",
+                                                (char*)temp_xml_string);
                                         xmlFree(temp_xml_string);
                                         continue;
-                                   }
-                                   /* wind data for hour */
-                                   if(!xmlStrcmp(child_node2->name, (const xmlChar *)"wind")){
+                                    }
+                                    /* wind data for hour */
+                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"wind")){
                                         for(child_node3 = child_node2->children; child_node3 != NULL; child_node3 = child_node3->next){
                                             if( child_node3->type == XML_ELEMENT_NODE ){
                                                 /* speed */
                                                 if(!xmlStrcmp(child_node3->name, (const xmlChar *)"s")){
                                                     temp_xml_string = xmlNodeGetContent(child_node3);
-			                            fprintf(file_out,"     <wind_speed>%1.f</wind_speed>\n", 
-						            (double)(atoi((char*)temp_xml_string)) * 1000/3600);
+                                                    fprintf(file_out,"     <wind_speed>%1.f</wind_speed>\n", 
+                                                            (double)(atoi((char*)temp_xml_string)) * 1000/3600);
                                                     xmlFree(temp_xml_string);
                                                 }
                                                 /* gust */
                                                 if(!xmlStrcmp(child_node3->name, (const xmlChar *)"gust") ){
                                                     temp_xml_string = xmlNodeGetContent(child_node3);
-			                            fprintf(file_out,"     <wind_gust>%s</wind_gust>\n", (char*)temp_xml_string);
+                                                    fprintf(file_out,"     <wind_gust>%s</wind_gust>\n", (char*)temp_xml_string);
                                                     xmlFree(temp_xml_string);
                                                 }
                                                 /* direction */
                                                 if(!xmlStrcmp(child_node3->name, (const xmlChar *)"t")){
                                                     temp_xml_string = xmlNodeGetContent(child_node3);
-			                            fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", (char*)temp_xml_string);
+                                                    fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", (char*)temp_xml_string);
                                                     xmlFree(temp_xml_string);
                                                 }
                                             }
                                         }
-                                   }
-                                   /* hour humidity */
-                                   if(!xmlStrcmp(child_node2->name, (const xmlChar *)"hmid") ){
+                                    }
+                                    /* hour humidity */
+                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"hmid") ){
                                         temp_xml_string = xmlNodeGetContent(child_node2);
-			                fprintf(file_out,"     <humidity>%s</humidity>\n",
-						         (char*)temp_xml_string);
+                                        fprintf(file_out,"     <humidity>%s</humidity>\n",
+                                                (char*)temp_xml_string);
                                         xmlFree(temp_xml_string);
                                         continue;
-                                   }
+                                    }
                                 }
                             }
                             fprintf(file_out,"    </period>\n");
@@ -798,15 +798,15 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                 ppcp_day[256],
                 ppcp_night[256],
                 description_day[1024],
-		        description_night[1024],
+                description_night[1024],
                 icon_day[256],
-      	        icon_night[256],
+                icon_night[256],
                 wind_speed_day[256],
                 wind_speed_night[256],
                 wind_gust[256],
                 wind_direction_day[256],
                 wind_direction_night[256],
-		        timezone_string[128],
+                timezone_string[128],
                 uv_index[128];
 
     struct tm   tmp_tm = {0,0,0,0,0,0,0,0,0,0,0}; 
@@ -827,11 +827,11 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-//    file_out = fopen ("myfile.txt","w"); 
+    //    file_out = fopen ("myfile.txt","w"); 
     file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
-/* Set localtimezone */
+    /* Set localtimezone */
 
 
     current_time = time(NULL);
@@ -843,7 +843,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
     localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
     fprintf(stderr,"Local Time Zone %i\n", localtimezone);
 
-  
+
 
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", station_id);
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
@@ -856,7 +856,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
 #if 0
                 temp_xml_string = xmlGetProp(cur_node, (const xmlChar*)"id");
                 snprintf(id_station, sizeof(id_station) - 1,
-                            "%s", temp_xml_string);
+                        "%s", temp_xml_string);
                 xmlFree(temp_xml_string);
                 /* If station in xml not station in config file exit */
                 if( strcmp(id_station, station_id) )
@@ -869,7 +869,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"dnam") ){
                             temp_xml_string = xmlNodeGetContent(child_node);
                             g_hash_table_insert(location, "station_name",
-                                                g_strdup((char*)temp_xml_string));
+                                    g_strdup((char*)temp_xml_string));
                             xmlFree(temp_xml_string);
                             continue;
                         }
@@ -877,7 +877,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"lat") ){
                             temp_xml_string = xmlNodeGetContent(child_node);
                             g_hash_table_insert(location, "station_latitude",
-                                                g_strdup((char*)temp_xml_string));
+                                    g_strdup((char*)temp_xml_string));
                             xmlFree(temp_xml_string);
                             continue;
                         }
@@ -885,7 +885,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"lon") ){
                             temp_xml_string = xmlNodeGetContent(child_node);
                             g_hash_table_insert(location, "station_longitude",
-                                                g_strdup((char*)temp_xml_string));
+                                    g_strdup((char*)temp_xml_string));
                             xmlFree(temp_xml_string);
                             continue;
                         }
@@ -895,7 +895,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                             temp_xml_string = xmlNodeGetContent(child_node);
                             snprintf(timezone_string, sizeof(timezone_string) - 1, "%s", (char*)temp_xml_string);
                             fprintf(file_out,"  <timezone>%s</timezone>\n", timezone_string);
-			                timezone_my = atoi((char*)temp_xml_string);
+                            timezone_my = atoi((char*)temp_xml_string);
                             xmlFree(temp_xml_string);
                             continue;
                         }
@@ -905,7 +905,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
 
             /* Fill current day */
             if(!xmlStrcmp(cur_node->name, (const xmlChar *) "cc" ) ){
-            //    current = g_hash_table_new(g_str_hash, g_str_equal);
+                //    current = g_hash_table_new(g_str_hash, g_str_equal);
                 memset(temp_hi, 0, sizeof(temp_hi));
                 memset(temp_flike, 0, sizeof(temp_flike));
                 memset(humidity_day, 0, sizeof(humidity_day));
@@ -980,7 +980,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"d") ){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
                                     snprintf(pressure_direction, sizeof(pressure_direction) - 1,
-                                             "%s", (char*)temp_xml_string);
+                                            "%s", (char*)temp_xml_string);
                                     xmlFree(temp_xml_string);
                                 }
                             }
@@ -1008,7 +1008,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                             if( child_node2->type == XML_ELEMENT_NODE ){
                                 /* speed */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"s") ){
-				    if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A"))
+                                    if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A"))
                                         temp_xml_string = xmlNodeGetContent(child_node2);
                                     snprintf(wind_speed_day, sizeof(wind_speed_day) - 1, 
                                             "%s", (char*)temp_xml_string);
@@ -1017,17 +1017,17 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                 /* gust */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"gust") ){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
-				    if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A"))
-                                    	snprintf(wind_gust, sizeof(wind_gust) - 1, 
-                                            "%s", (char*)temp_xml_string);
+                                    if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A"))
+                                        snprintf(wind_gust, sizeof(wind_gust) - 1, 
+                                                "%s", (char*)temp_xml_string);
                                     xmlFree(temp_xml_string);
                                 }
                                 /* direction */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"t") ){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
-				    if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A"))
+                                    if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A"))
                                         snprintf(wind_direction_day, sizeof(wind_direction_day) - 1, 
-                                            "%s", (char*)temp_xml_string);
+                                                "%s", (char*)temp_xml_string);
                                     xmlFree(temp_xml_string);
                                 }
                             }
@@ -1039,15 +1039,15 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                             if( child_node2->type == XML_ELEMENT_NODE ){
                                 /* UV index */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"i") ){
-				                    if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A"))
+                                    if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A"))
                                         temp_xml_string = xmlNodeGetContent(child_node2);
-                                        snprintf(uv_index, sizeof(uv_index) - 1, 
+                                    snprintf(uv_index, sizeof(uv_index) - 1, 
                                             "%s", (char*)temp_xml_string);
                                     xmlFree(temp_xml_string);
                                 }
                             }
                         }
-                            continue;
+                        continue;
                     }
 
 #if 0
@@ -1056,13 +1056,13 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                         for(child_node2 = child_node->children; child_node2 != NULL; child_node2 = child_node2->next){
                             if( child_node2->type == XML_ELEMENT_NODE ){
                                 /* icon */
-/* not used now
-                                if(!xmlStrcmp(child_node2->name, (const xmlChar *)"icon") ){
-                                    temp_xml_string = xmlNodeGetContent(child_node2);
-                                    g_hash_table_insert(current, "moon_icon", g_strdup((char*)temp_xml_string));
-                                    xmlFree(temp_xml_string);
-                                }
-*/
+                                /* not used now
+                                   if(!xmlStrcmp(child_node2->name, (const xmlChar *)"icon") ){
+                                   temp_xml_string = xmlNodeGetContent(child_node2);
+                                   g_hash_table_insert(current, "moon_icon", g_strdup((char*)temp_xml_string));
+                                   xmlFree(temp_xml_string);
+                                   }
+                                   */
                                 /* phase */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"t") ){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
@@ -1073,42 +1073,42 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                         }
                         continue;
                     }
-                #endif
+#endif
                 }/* end for */
 
-               // g_hash_table_insert(data, "current", (gpointer)current);
-                
-		if (temp_hi[0] != 0){
-			fprintf(file_out,"    <period start=\"%li\"", t_start - timezone_my*3600);
-                        /* 3 hours It must be parameter of start (may be) */
-			fprintf(file_out," end=\"%li\" current=\"true\">\n", t_start + 5*3600 - timezone_my*3600); 
-			if (temp_hi[0] != 0 ) 
-			    fprintf(file_out,"     <temperature>%s</temperature>\n", temp_hi); 
-			if (wind_speed_day[0] != 0)
-			    fprintf(file_out,"     <wind_speed>%1.f</wind_speed>\n",  (double)(atoi(wind_speed_day)) * 1000/3600);
-			if (wind_direction_day[0] != 0)
-			    fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_day);
-                        if (wind_gust[0] != 0)
-			    fprintf(file_out,"     <wind_gust>%s</wind_gust>\n", wind_gust);
-			if (humidity_day[0] != 0)
-			    fprintf(file_out,"     <humidity>%s</humidity>\n", humidity_day);
-			if (pressure[0] != 0)
-			    fprintf(file_out,"     <pressure>%s</pressure>\n", pressure);
-			if (pressure_direction[0] != 0)
-			    fprintf(file_out,"     <pressure_direction>%s</pressure_direction>\n", pressure_direction);
-            if (description_day[0] != 0)
-			    fprintf(file_out,"     <description>%s</description>\n", description_day);
-            if (temp_flike[0] != 0) 
-			    fprintf(file_out,"     <flike>%s</flike>\n", temp_hi); 
-            if (icon_day[0] != 0)
-			    fprintf(file_out,"     <icon>%s</icon>\n", icon_day);
-            if (visible[0] != 0)
-			    fprintf(file_out,"     <visible>%s</visible>\n", visible);
-            if (uv_index[0] != 0)
-			    fprintf(file_out,"     <uv_index>%s</uv_index>\n", uv_index);
+                // g_hash_table_insert(data, "current", (gpointer)current);
 
-			fprintf(file_out,"    </period>\n");
-		}
+                if (temp_hi[0] != 0){
+                    fprintf(file_out,"    <period start=\"%li\"", t_start - timezone_my*3600);
+                    /* 3 hours It must be parameter of start (may be) */
+                    fprintf(file_out," end=\"%li\" current=\"true\">\n", t_start + 5*3600 - timezone_my*3600); 
+                    if (temp_hi[0] != 0 ) 
+                        fprintf(file_out,"     <temperature>%s</temperature>\n", temp_hi); 
+                    if (wind_speed_day[0] != 0)
+                        fprintf(file_out,"     <wind_speed>%1.f</wind_speed>\n",  (double)(atoi(wind_speed_day)) * 1000/3600);
+                    if (wind_direction_day[0] != 0)
+                        fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_day);
+                    if (wind_gust[0] != 0)
+                        fprintf(file_out,"     <wind_gust>%s</wind_gust>\n", wind_gust);
+                    if (humidity_day[0] != 0)
+                        fprintf(file_out,"     <humidity>%s</humidity>\n", humidity_day);
+                    if (pressure[0] != 0)
+                        fprintf(file_out,"     <pressure>%s</pressure>\n", pressure);
+                    if (pressure_direction[0] != 0)
+                        fprintf(file_out,"     <pressure_direction>%s</pressure_direction>\n", pressure_direction);
+                    if (description_day[0] != 0)
+                        fprintf(file_out,"     <description>%s</description>\n", description_day);
+                    if (temp_flike[0] != 0) 
+                        fprintf(file_out,"     <flike>%s</flike>\n", temp_hi); 
+                    if (icon_day[0] != 0)
+                        fprintf(file_out,"     <icon>%s</icon>\n", icon_day);
+                    if (visible[0] != 0)
+                        fprintf(file_out,"     <visible>%s</visible>\n", visible);
+                    if (uv_index[0] != 0)
+                        fprintf(file_out,"     <uv_index>%s</uv_index>\n", uv_index);
+
+                    fprintf(file_out,"    </period>\n");
+                }
 
             }
             /* Fill other days */
@@ -1131,8 +1131,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                         t_start = mktime(&tmp_tm) + localtimezone*3600 -  timezone_my*3600;
 
                         /* for sunrise and sunset valid date */ 
-            			current_time = t_start + 12*3600;
-		                tm = localtime(&current_time);
+                        current_time = t_start + 12*3600;
+                        tm = localtime(&current_time);
 
                         xmlFree(temp_xml_string);
 
@@ -1156,7 +1156,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"hi")){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
                                     if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A"))
-                                    	snprintf(temp_hi, sizeof(temp_hi) - 1, "%s", (char*)temp_xml_string);
+                                        snprintf(temp_hi, sizeof(temp_hi) - 1, "%s", (char*)temp_xml_string);
                                     xmlFree(temp_xml_string);
                                     continue;
                                 }
@@ -1164,7 +1164,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"low")){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
                                     if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A"))
-                                    	snprintf(temp_low, sizeof(temp_hi) - 1, "%s", (char*)temp_xml_string);
+                                        snprintf(temp_low, sizeof(temp_hi) - 1, "%s", (char*)temp_xml_string);
                                     xmlFree(temp_xml_string);
                                     continue;
                                 }

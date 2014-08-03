@@ -4,15 +4,15 @@
 #
 # Translators:
 # Burak Kaan Kose <bkaankose@gmail.com>, 2012
-# fnldstntn <mehmetfnldstntn@gmail.com>, 2013-2014
+# Mehmet Ç. <mehmetfnldstntn@gmail.com>, 2013-2014
 # Vlad Vas <vasvlad@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-20 19:23+0300\n"
-"PO-Revision-Date: 2014-02-27 15:22+0000\n"
-"Last-Translator: fnldstntn <mehmetfnldstntn@gmail.com>\n"
+"POT-Creation-Date: 2014-08-03 11:48+0300\n"
+"PO-Revision-Date: 2014-07-22 20:20+0000\n"
+"Last-Translator: Mehmet Ç. <mehmetfnldstntn@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/meecast/language/"
 "tr/)\n"
 "Language: tr\n"
@@ -588,9 +588,8 @@ msgid "Cloudy, Light Rain, T-Storm"
 msgstr "Bulutlu , Hafif Yağmur , Fırtına"
 
 #: omweather/src/hash.data:56
-#, fuzzy
 msgid "Cloudy, Light Rain, Weak Heavy Rain"
-msgstr "Bulutlu , Sağnak Yağmur"
+msgstr "Bulutlu, Hafif Yağmur, Hafif Şiddetli Yağmur"
 
 #: omweather/src/hash.data:57
 msgid "Cloudy, Rain"
@@ -609,9 +608,8 @@ msgid "Cloudy, Snow"
 msgstr "Bulutlu , Kar"
 
 #: omweather/src/hash.data:52
-#, fuzzy
 msgid "Cloudy, Strong Rain, Heavy Rain"
-msgstr "Bulutlu , Sağnak Yağmur"
+msgstr "Bulutlu, Güçlü Yağmur, Şiddetli Yağmur"
 
 #: omweather/src/hash.data:60
 msgid "Cloudy, thunderstorms with rain"
@@ -990,7 +988,6 @@ msgid "Freezing Drizzle"
 msgstr "Dondurucu Çiseleyen Yagmur"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht, \n"
@@ -1030,11 +1027,13 @@ msgid ""
 " \tTomislav Veleckovik"
 msgstr ""
 "French -  Nicolas Granziano, \n"
-" \tPhilippe, Benot Knecht \n"
+" \tPhilippe, Benot Knecht, \n"
+" \tQuentin Caillard \n"
 " Russian - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
 " Finnish - Marko Vertainen\n"
-" German -  Claudius Henrichs\n"
+" German -  Claudius Henrichs,\n"
+" \tJens Klingen\n"
 " Italian - Lorenzo Facca,\n"
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
@@ -1051,6 +1050,7 @@ msgstr ""
 " \tMehmet Çilingir,\n"
 " Catalan - Agustí Clara,\n"
 " Arabic - Tarad Alfandi,\n"
+" Danish - Peter Jespersen,\n"
 " Serbian - Aleksandar Zaric,\n"
 " Norwegian - Peer-Atle Motland,\n"
 " Hungarian - Salmi,\n"
@@ -1139,19 +1139,15 @@ msgstr "Sis"
 
 #: omweather/src/hash.data:92
 msgid "Haze, Smoke or Dust"
-msgstr ""
+msgstr "Pus, Duman veya Toz"
 
 #: omweather/src/hash.data:93
-#, fuzzy
 msgid "Heavy Freezing Rain"
-msgstr "Yağmur / Dondurucu Yağmur"
+msgstr "Şiddetli Dondurucu Yağmur"
 
 #: omweather/src/hash.data:94
-#, fuzzy
 msgid "Heavy Precipitation"
-msgstr ""
-"\n"
-"Yağıs:"
+msgstr "Sert Yağış"
 
 #: omweather/src/hash.data:95
 msgid "Heavy Rain"
@@ -1166,19 +1162,16 @@ msgid "Heavy Rain Shower"
 msgstr "Siddetli Sağnak Yağmur"
 
 #: omweather/src/hash.data:98
-#, fuzzy
 msgid "Heavy Rain Showers"
-msgstr "Siddetli Sağnak Yağmur"
+msgstr "Şiddetli Sağnak Yağış"
 
 #: omweather/src/hash.data:99
-#, fuzzy
 msgid "Heavy Sleet"
-msgstr "Tipi Kar"
+msgstr "Şiddetli Karla Karışık Yağmur"
 
 #: omweather/src/hash.data:100
-#, fuzzy
 msgid "Heavy Sleet Showers"
-msgstr "Siddetli Sağnak Yağmur"
+msgstr "Şiddetli Sağanak Karla Karışık Yağmur"
 
 #: omweather/src/hash.data:101
 msgid "Heavy Snow"
@@ -1189,19 +1182,16 @@ msgid "Heavy Snow / Wind"
 msgstr "Ağır Kar / Rüzgar"
 
 #: omweather/src/hash.data:103
-#, fuzzy
 msgid "Heavy Snow Showers"
-msgstr "Karla Karışık Yağmur"
+msgstr "Şiddetli Sağanak Kar"
 
 #: omweather/src/hash.data:102
-#, fuzzy
 msgid "Heavy Snowfall"
-msgstr "Tipi Kar"
+msgstr "Şiddetli Kar Yağışı"
 
 #: omweather/src/hash.data:105
-#, fuzzy
 msgid "Heavy Thunder"
-msgstr "Gök gurültüsü"
+msgstr "Şiddetli Gök Gürültüsü"
 
 #: omweather/src/hash.data:388
 msgid "Heavy intensity rain"
@@ -1233,7 +1223,7 @@ msgstr "Nem:"
 
 #: omweather/src/hash.data:107
 msgid "Ice Pellets"
-msgstr ""
+msgstr "Buz Tanecikleri"
 
 #: omweather/src/weather-settings.c:3326
 msgid "Icon set:"
@@ -1371,9 +1361,8 @@ msgid "Light Rain Shower"
 msgstr "Hafif Sağnak Yağmur"
 
 #: omweather/src/hash.data:372
-#, fuzzy
 msgid "Light Rain Showers"
-msgstr "Hafif Sağnak Yağmur"
+msgstr "Hafif Sağanak Yağmur"
 
 #: omweather/src/hash.data:125
 msgid "Light Rain and Freezing Rain"
@@ -1392,14 +1381,12 @@ msgid "Light Rain with Thunder"
 msgstr "Fırtınayla Karışık Hafif Yağmur"
 
 #: omweather/src/hash.data:129
-#, fuzzy
 msgid "Light Sleet"
-msgstr "Hafif Kar"
+msgstr "Hafif Karla Karışık Yağmur"
 
 #: omweather/src/hash.data:130
-#, fuzzy
 msgid "Light Sleet Showers"
-msgstr "Hafif Sağnak Kar"
+msgstr "Hafif Sağanak Karla Karışık Yağmur"
 
 #: omweather/src/hash.data:131
 msgid "Light Snow"
@@ -1426,14 +1413,12 @@ msgid "Light Snow Shower"
 msgstr "Hafif Sağnak Kar"
 
 #: omweather/src/hash.data:138
-#, fuzzy
 msgid "Light Snow Showers"
-msgstr "Hafif Sağnak Kar"
+msgstr "Hafif Sağanak Karla Karışık Yağmur"
 
 #: omweather/src/hash.data:132
-#, fuzzy
 msgid "Light Snowfall"
-msgstr "Hafif Kar"
+msgstr "Hafif Kar Yağışı"
 
 #: omweather/src/hash.data:374
 msgid "Light intensity drizzle"
@@ -1445,7 +1430,7 @@ msgstr "Hafif aralıklı sağnak yağmur"
 
 #: omweather/src/hash.data:139
 msgid "Light or Moderate Precipitation"
-msgstr ""
+msgstr "Hafif veya Orta Yağış"
 
 #: omweather/src/hash.data:370
 msgid "Light rain"
@@ -1532,28 +1517,24 @@ msgid "Mist"
 msgstr "Pus"
 
 #: omweather/src/hash.data:146
-#, fuzzy
 msgid "Moderate Freezing Rain"
-msgstr "Orta Şiddetli Yağmur"
+msgstr "Orta Dondurucu Yağmur"
 
 #: omweather/src/hash.data:376
 msgid "Moderate Rain"
 msgstr "Orta Şiddetli Yağmur"
 
 #: omweather/src/hash.data:377
-#, fuzzy
 msgid "Moderate Rain Showers"
-msgstr "Orta Şiddetli Yağmur"
+msgstr "Orta Sağanak Yağmur"
 
 #: omweather/src/hash.data:145
-#, fuzzy
 msgid "Moderate Sleet"
-msgstr "Orta Şiddetli Yağmur"
+msgstr "Orta Karla Karışık Yağmur"
 
 #: omweather/src/hash.data:147
-#, fuzzy
 msgid "Moderate Snow Showers"
-msgstr "AM Sağnak Kar"
+msgstr "Orta Sağanak Kar"
 
 #: omweather/src/hash.data:375
 msgid "Moderate rain"
@@ -1645,9 +1626,8 @@ msgid "Mostly Cloudy, Light Rain, T-Storm"
 msgstr "Çoğunlukla Bulutlu , Hafif Yağmur , Fırtına"
 
 #: omweather/src/hash.data:170
-#, fuzzy
 msgid "Mostly Cloudy, Light Rain, Weak Heavy Rain"
-msgstr "Bulutlu , Sağnak Yağmur"
+msgstr "Çoğunlukla Bulutlu, Hafif Yağmur, Zayıf Şiddetli Yağmur"
 
 #: omweather/src/hash.data:171
 msgid "Mostly Cloudy, Rain"
@@ -1678,7 +1658,6 @@ msgid "Mostly clear"
 msgstr "Çoğunlukla açık"
 
 #: omweather/src/hash.data:177
-#, fuzzy
 msgid "Mostly sunny"
 msgstr "Çoğunlukla Güneşli"
 
@@ -1973,9 +1952,8 @@ msgid "Partly Cloudy / Wind"
 msgstr "Parçali Bulutlu / Rüzgar"
 
 #: omweather/src/hash.data:222
-#, fuzzy
 msgid "Partly Cloudy / Windy"
-msgstr "Parçali Bulutlu / Rüzgar"
+msgstr "Parçalı Bulutlu / Rüzgarlı"
 
 #: omweather/src/hash.data:223
 msgid "Partly Cloudy Few Snow"
@@ -2092,11 +2070,8 @@ msgid "Ppcp:"
 msgstr "Ppcp:"
 
 #: omweather/src/hash.data:249
-#, fuzzy
 msgid "Precipitation"
-msgstr ""
-"\n"
-"Yağıs:"
+msgstr "Yağış"
 
 #: omweather/src/weather-simple-settings.c:1653
 #: omweather/src/weather-simple-settings.c:2836
@@ -2144,9 +2119,8 @@ msgid "Provided by"
 msgstr "Sağlayıcı :"
 
 #: omweather/src/hash.data:250
-#, fuzzy
 msgid "Proximity shower rain"
-msgstr "Hafif aralıklı sağnak yağmur"
+msgstr "Proximity shower rain"
 
 #: omweather/src/hash.data:251
 msgid "Rain"
@@ -2238,7 +2212,7 @@ msgstr "Sensörü oku her:"
 
 #: omweather/src/hash.data:397
 msgid "Refresh"
-msgstr ""
+msgstr "Yenile"
 
 #: omweather/src/weather-simple-settings.c:733
 #: omweather/src/weather-simple-settings.c:786
@@ -2512,7 +2486,7 @@ msgstr "Çevredeki Sağanaklar"
 
 #: omweather/src/hash.data:296
 msgid "Showers or Intermittent Precipitation"
-msgstr ""
+msgstr "Sağanak veya Aralıklı Yağış"
 
 #: omweather/src/hash.data:383
 msgid "Sky is Clear"
@@ -2527,9 +2501,8 @@ msgid "Sleet"
 msgstr "Sulu Kar"
 
 #: omweather/src/hash.data:298
-#, fuzzy
 msgid "Sleet Showers"
-msgstr "Hafif Yağmur"
+msgstr "Sağanak Karla Karığık Yağmur"
 
 #: omweather/src/hash.data:299
 msgid "Smoke"
@@ -2552,9 +2525,8 @@ msgid "Snow Shower / Wind"
 msgstr "Sağnak Kar / Rüzgar"
 
 #: omweather/src/hash.data:305
-#, fuzzy
 msgid "Snow Showers"
-msgstr "Sağnak Kar"
+msgstr "Sağanak Kar"
 
 #: omweather/src/hash.data:306
 msgid "Snow Showers / Wind Early"
@@ -2585,9 +2557,8 @@ msgid "Snow to Wintry Mix / Wind"
 msgstr "Kardan Karışık Soğuk Havaya / Rüzgar"
 
 #: omweather/src/hash.data:301
-#, fuzzy
 msgid "Snowfall"
-msgstr "Kar"
+msgstr "Kar Yağışı"
 
 #: omweather/src/weather-simple-settings.c:2295
 msgid "Source"
@@ -2638,7 +2609,7 @@ msgstr "Fırtına"
 
 #: omweather/src/hash.data:314
 msgid "Strong Thundershowers"
-msgstr ""
+msgstr "Kuvvetli Gök Gürültülü Sağanak"
 
 #: omweather/src/weather-download.c:392
 msgid "Successfully loaded"
@@ -2782,9 +2753,8 @@ msgid "Thunder in the Vicinity"
 msgstr "Çevredeki Fırtına"
 
 #: omweather/src/hash.data:327
-#, fuzzy
 msgid "Thundershowers"
-msgstr "Gök gurültüsü"
+msgstr "Gök Gürültülü Sağanak"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
@@ -2806,9 +2776,8 @@ msgstr ""
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose\n"
 
 #: omweather/src/hash.data:398
-#, fuzzy
 msgid "Transparency"
-msgstr "Transparanlık:"
+msgstr "Şeffaflık"
 
 #: omweather/src/weather-settings.c:3272 omweather/src/weather-settings.c:3277
 #: omweather/src/weather-settings.c:3295
@@ -2909,9 +2878,8 @@ msgid "Very High"
 msgstr "Çok Yüksek"
 
 #: omweather/src/hash.data:393
-#, fuzzy
 msgid "Violent Rain Showers"
-msgstr "Hafif Sağnak Yağmur"
+msgstr "Şiddetli Sağanak Yağmur"
 
 #: omweather/src/weather-settings.c:3517 omweather/src/weather-settings.c:3522
 msgid "Visible items:"

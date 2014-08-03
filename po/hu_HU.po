@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-20 19:23+0300\n"
-"PO-Revision-Date: 2014-07-15 11:48+0000\n"
+"POT-Creation-Date: 2014-08-03 11:48+0300\n"
+"PO-Revision-Date: 2014-07-28 05:20+0000\n"
 "Last-Translator: Macilaci457 <laci.kara@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/meecast/"
 "language/hu/)\n"
@@ -1083,16 +1083,12 @@ msgid "Haze, Smoke or Dust"
 msgstr ""
 
 #: omweather/src/hash.data:93
-#, fuzzy
 msgid "Heavy Freezing Rain"
-msgstr "Eső / jégeső"
+msgstr ""
 
 #: omweather/src/hash.data:94
-#, fuzzy
 msgid "Heavy Precipitation"
 msgstr ""
-"\n"
-"Előrejelzés:"
 
 #: omweather/src/hash.data:95
 msgid "Heavy Rain"
@@ -1107,19 +1103,16 @@ msgid "Heavy Rain Shower"
 msgstr "Felhőszakadás"
 
 #: omweather/src/hash.data:98
-#, fuzzy
 msgid "Heavy Rain Showers"
-msgstr "Felhőszakadás"
+msgstr ""
 
 #: omweather/src/hash.data:99
-#, fuzzy
 msgid "Heavy Sleet"
-msgstr "Kiadós havazás"
+msgstr ""
 
 #: omweather/src/hash.data:100
-#, fuzzy
 msgid "Heavy Sleet Showers"
-msgstr "Felhőszakadás"
+msgstr ""
 
 #: omweather/src/hash.data:101
 msgid "Heavy Snow"
@@ -1130,19 +1123,16 @@ msgid "Heavy Snow / Wind"
 msgstr "Kiadós havazás / szél"
 
 #: omweather/src/hash.data:103
-#, fuzzy
 msgid "Heavy Snow Showers"
-msgstr "Elszórtan hózáporok"
+msgstr ""
 
 #: omweather/src/hash.data:102
-#, fuzzy
 msgid "Heavy Snowfall"
-msgstr "Kiadós havazás"
+msgstr ""
 
 #: omweather/src/hash.data:105
-#, fuzzy
 msgid "Heavy Thunder"
-msgstr "Mennydörgés"
+msgstr ""
 
 #: omweather/src/hash.data:388
 msgid "Heavy intensity rain"
@@ -1311,9 +1301,8 @@ msgid "Light Rain Shower"
 msgstr "Könnyű zápor"
 
 #: omweather/src/hash.data:372
-#, fuzzy
 msgid "Light Rain Showers"
-msgstr "Könnyű zápor"
+msgstr ""
 
 #: omweather/src/hash.data:125
 msgid "Light Rain and Freezing Rain"
@@ -1332,14 +1321,12 @@ msgid "Light Rain with Thunder"
 msgstr "Kisebb zivatarok"
 
 #: omweather/src/hash.data:129
-#, fuzzy
 msgid "Light Sleet"
-msgstr "Hószállingózás"
+msgstr ""
 
 #: omweather/src/hash.data:130
-#, fuzzy
 msgid "Light Sleet Showers"
-msgstr "Könnyű hózápor"
+msgstr ""
 
 #: omweather/src/hash.data:131
 msgid "Light Snow"
@@ -1366,14 +1353,12 @@ msgid "Light Snow Shower"
 msgstr "Könnyű hózápor"
 
 #: omweather/src/hash.data:138
-#, fuzzy
 msgid "Light Snow Showers"
-msgstr "Könnyű hózápor"
+msgstr ""
 
 #: omweather/src/hash.data:132
-#, fuzzy
 msgid "Light Snowfall"
-msgstr "Hószállingózás"
+msgstr ""
 
 #: omweather/src/hash.data:374
 msgid "Light intensity drizzle"
@@ -1472,28 +1457,24 @@ msgid "Mist"
 msgstr "Köd"
 
 #: omweather/src/hash.data:146
-#, fuzzy
 msgid "Moderate Freezing Rain"
-msgstr "Közepesen erős esőzés"
+msgstr ""
 
 #: omweather/src/hash.data:376
 msgid "Moderate Rain"
 msgstr "Közepesen erős esőzés"
 
 #: omweather/src/hash.data:377
-#, fuzzy
 msgid "Moderate Rain Showers"
-msgstr "Közepesen erős esőzés"
+msgstr ""
 
 #: omweather/src/hash.data:145
-#, fuzzy
 msgid "Moderate Sleet"
-msgstr "Közepesen erős esőzés"
+msgstr ""
 
 #: omweather/src/hash.data:147
-#, fuzzy
 msgid "Moderate Snow Showers"
-msgstr "de. hózáporok"
+msgstr ""
 
 #: omweather/src/hash.data:375
 msgid "Moderate rain"
@@ -1585,9 +1566,8 @@ msgid "Mostly Cloudy, Light Rain, T-Storm"
 msgstr "Többnyire felhős, könnyű eső, vihar"
 
 #: omweather/src/hash.data:170
-#, fuzzy
 msgid "Mostly Cloudy, Light Rain, Weak Heavy Rain"
-msgstr "Többnyire felhős, könnyű eső"
+msgstr ""
 
 #: omweather/src/hash.data:171
 msgid "Mostly Cloudy, Rain"
@@ -2030,11 +2010,8 @@ msgid "Ppcp:"
 msgstr "Csapadék esélye:"
 
 #: omweather/src/hash.data:249
-#, fuzzy
 msgid "Precipitation"
 msgstr ""
-"\n"
-"Előrejelzés:"
 
 #: omweather/src/weather-simple-settings.c:1653
 #: omweather/src/weather-simple-settings.c:2836
@@ -2464,9 +2441,8 @@ msgid "Sleet"
 msgstr "Ólmos eső, dara"
 
 #: omweather/src/hash.data:298
-#, fuzzy
 msgid "Sleet Showers"
-msgstr "Szorványos záporok"
+msgstr ""
 
 #: omweather/src/hash.data:299
 msgid "Smoke"
@@ -2489,9 +2465,8 @@ msgid "Snow Shower / Wind"
 msgstr "Tartós havazás / szél"
 
 #: omweather/src/hash.data:305
-#, fuzzy
 msgid "Snow Showers"
-msgstr "Tartós havazás"
+msgstr ""
 
 #: omweather/src/hash.data:306
 msgid "Snow Showers / Wind Early"
@@ -2522,9 +2497,8 @@ msgid "Snow to Wintry Mix / Wind"
 msgstr "Hó és havas eső / szél"
 
 #: omweather/src/hash.data:301
-#, fuzzy
 msgid "Snowfall"
-msgstr "Hó"
+msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2295
 msgid "Source"
@@ -2635,7 +2609,7 @@ msgstr "Zivatar"
 
 #: omweather/src/hash.data:324
 msgid "T-Storms"
-msgstr "Tivatarok"
+msgstr "Zivatarok"
 
 #: omweather/src/hash.data:322
 msgid "T-Storms Early"
@@ -2711,9 +2685,8 @@ msgid "Thunder in the Vicinity"
 msgstr "Zivatar a közelven"
 
 #: omweather/src/hash.data:327
-#, fuzzy
 msgid "Thundershowers"
-msgstr "Mennydörgés"
+msgstr ""
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
@@ -2837,9 +2810,8 @@ msgid "Very High"
 msgstr "Nagyon magas"
 
 #: omweather/src/hash.data:393
-#, fuzzy
 msgid "Violent Rain Showers"
-msgstr "Könnyű zápor"
+msgstr ""
 
 #: omweather/src/weather-settings.c:3517 omweather/src/weather-settings.c:3522
 msgid "Visible items:"

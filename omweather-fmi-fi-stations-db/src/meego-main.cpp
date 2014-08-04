@@ -633,6 +633,38 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             afternoon = false;
         }
     }
+    /* Sun info */
+    val = root["suninfo"].get(root["observations"].getMemberNames()[0], nullval);
+/*    std::cerr<<val<<std::endl;*/
+    time_t sunrise_time = 0;
+    time_t sunset_time = 0;
+    time_t day_begin = 0;
+
+    std::string sun_time;
+    if (val.get("sunrise","").asString() != ""){
+        setlocale(LC_TIME, "POSIX");
+        sun_time = val.get("sunrise","").asString();
+        strptime((const char*)sun_time.c_str(), "%Y%m%dT%H%M%S", &tmp_tm);
+        sunrise_time = mktime(&tmp_tm); 
+        tmp_tm.tm_hour = 0; tmp_tm.tm_min = 0; tmp_tm.tm_sec = 0;
+        day_begin = mktime(&tmp_tm); 
+        setlocale(LC_TIME, "");
+    }    
+    if (val.get("sunset","").asString() != ""){
+        sun_time = val.get("sunset","").asString();
+        setlocale(LC_TIME, "POSIX");
+        strptime((const char*)sun_time.c_str(), "%Y%m%dT%H%M%S", &tmp_tm);
+        setlocale(LC_TIME, "");
+        sunset_time = mktime(&tmp_tm); 
+    }    
+    if ((sunrise_time > 0) && (sunset_time > 0)){
+        fprintf(file_out,"    <period start=\"%li\"", day_begin);
+        fprintf(file_out," end=\"%li\">\n", day_begin +3600*24 -1);
+        fprintf(file_out,"     <sunrise>%li</sunrise>\n", sunrise_time);
+        fprintf(file_out,"     <sunset>%li</sunset>\n", sunset_time);
+        fprintf(file_out,"    </period>\n");
+    }
+
     fclose(file_out);
     setlocale(LC_NUMERIC, "");
     count_day=1;

@@ -1179,8 +1179,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     tmp_tm2.tm_isdst = 0;
                                     time_t result_time = timegm(&tmp_tm2); 
                                     /* set begin of day in localtime */
-                                    fprintf(stderr, "sunrise %li %li %s\n", result_time, timegm(&tmp_tm2), (const char*)temp_xml_string);
-                                    fprintf(stderr, "LocaltimeZone %i MyTimeZone %i\n", localtimezone, timezone_my);
+                                    /* fprintf(stderr, "sunrise %li %li %s\n", result_time, timegm(&tmp_tm2), (const char*)temp_xml_string); */
+                                    /* fprintf(stderr, "LocaltimeZone %i MyTimeZone %i\n", localtimezone, timezone_my); */
                                     t_sunrise = result_time - timezone_my*3600;
                                     //t_sunrise = mktime(&tmp_tm2) + localtimezone*3600 -  timezone_my*3600 ;
 //                                    t_sunrise = mktime(&tmp_tm2)  -  timezone_my*3600 + (timezone_my*3600 + 4*3600);
@@ -1395,7 +1395,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                             fprintf(file_out,"     <icon>%s</icon>\n", icon_night);
                             fprintf(file_out,"    </period>\n");
                         }
-			/* write sunset and sunrise data */
+            			/* write sunset and sunrise data */
                         fprintf(file_out,"    <period start=\"%li\"", t_start);
                         t_end = t_start + 3600*24 - 1;
                         fprintf(file_out," end=\"%li\">\n", t_end);

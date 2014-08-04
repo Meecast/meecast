@@ -1,3 +1,9 @@
+meecast (0.9.8) unstable; urgency=low
+
+  * Nothing
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 03 Aug 2014 22:31:23 +0200
+
 meecast (0.9.7) unstable; urgency=low
 
   * Fixed sunrise and sunset time for weather.com source again :)

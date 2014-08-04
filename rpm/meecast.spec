@@ -92,7 +92,7 @@ desktop-file-install --delete-original       \
 %changelog
 * Sun Aug 08 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.7
   * Fixed sunrise and sunset time for weather.com source again :)
-  * Updated Itailian, Hungarian, Turkish translations
+  * Updated Italian, Hungarian, Turkish translations
 
 * Tue Jul 22 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.6
   * Fixed donation link 

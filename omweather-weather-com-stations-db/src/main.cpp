@@ -1393,7 +1393,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                             fprintf(file_out,"     <icon>%s</icon>\n", icon_night);
                             fprintf(file_out,"    </period>\n");
                         }
-			/* write sunset and sunrise data */
+            			/* write sunset and sunrise data */
                         fprintf(file_out,"    <period start=\"%li\"", t_start);
                         t_end = t_start + 3600*24 - 1;
                         fprintf(file_out," end=\"%li\">\n", t_end);

@@ -711,7 +711,7 @@ Frementle için Dizayn : Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Bulutlu , Sağnak Yağmur</translation>
+            <translation>Bulutlu, Hafif Yağmur, Hafif Şiddetli Yağmur</translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
@@ -731,7 +731,7 @@ Frementle için Dizayn : Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Strong Rain, Heavy Rain</source>
-            <translation type="unfinished">Bulutlu , Sağnak Yağmur</translation>
+            <translation>Bulutlu, Güçlü Yağmur, Şiddetli Yağmur</translation>
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
@@ -1228,12 +1228,14 @@ paketini kaldırın.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
+            <translation>French -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
- German -  Claudius Henrichs
+ German -  Claudius Henrichs,
+ 	Jens Klingen
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1250,6 +1252,7 @@ paketini kaldırın.</translation>
  	Mehmet Çilingir,
  Catalan - Agustí Clara,
  Arabic - Tarad Alfandi,
+ Danish - Peter Jespersen,
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
@@ -1344,17 +1347,15 @@ Turkish - Burak Kaan Kose</translation>
         </message>
         <message>
             <source>Haze, Smoke or Dust</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Pus, Duman veya Toz</translation>
         </message>
         <message>
             <source>Heavy Freezing Rain</source>
-            <translation type="unfinished">Yağmur / Dondurucu Yağmur</translation>
+            <translation>Şiddetli Dondurucu Yağmur</translation>
         </message>
         <message>
             <source>Heavy Precipitation</source>
-            <translation type="unfinished">
-Yağıs:</translation>
+            <translation>Sert Yağış</translation>
         </message>
         <message>
             <source>Heavy Rain</source>
@@ -1370,15 +1371,15 @@ Yağıs:</translation>
         </message>
         <message>
             <source>Heavy Rain Showers</source>
-            <translation type="unfinished">Siddetli Sağnak Yağmur</translation>
+            <translation>Şiddetli Sağnak Yağış</translation>
         </message>
         <message>
             <source>Heavy Sleet</source>
-            <translation type="unfinished">Tipi Kar</translation>
+            <translation>Şiddetli Karla Karışık Yağmur</translation>
         </message>
         <message>
             <source>Heavy Sleet Showers</source>
-            <translation type="unfinished">Siddetli Sağnak Yağmur</translation>
+            <translation>Şiddetli Sağanak Karla Karışık Yağmur</translation>
         </message>
         <message>
             <source>Heavy Snow</source>
@@ -1390,15 +1391,15 @@ Yağıs:</translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
-            <translation type="unfinished">Karla Karışık Yağmur</translation>
+            <translation>Şiddetli Sağanak Kar</translation>
         </message>
         <message>
             <source>Heavy Snowfall</source>
-            <translation type="unfinished">Tipi Kar</translation>
+            <translation>Şiddetli Kar Yağışı</translation>
         </message>
         <message>
             <source>Heavy Thunder</source>
-            <translation type="unfinished">Gök gurültüsü</translation>
+            <translation>Şiddetli Gök Gürültüsü</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1446,8 +1447,7 @@ Yağıs:</translation>
         </message>
         <message>
             <source>Ice Pellets</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Buz Tanecikleri</translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1627,7 +1627,7 @@ Yağıs:</translation>
         </message>
         <message>
             <source>Light Rain Showers</source>
-            <translation type="unfinished">Hafif Sağnak Yağmur</translation>
+            <translation>Hafif Sağanak Yağmur</translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
@@ -1647,11 +1647,11 @@ Yağıs:</translation>
         </message>
         <message>
             <source>Light Sleet</source>
-            <translation type="unfinished">Hafif Kar</translation>
+            <translation>Hafif Karla Karışık Yağmur</translation>
         </message>
         <message>
             <source>Light Sleet Showers</source>
-            <translation type="unfinished">Hafif Sağnak Kar</translation>
+            <translation>Hafif Sağanak Karla Karışık Yağmur</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1679,11 +1679,11 @@ Yağıs:</translation>
         </message>
         <message>
             <source>Light Snow Showers</source>
-            <translation type="unfinished">Hafif Sağnak Kar</translation>
+            <translation>Hafif Sağanak Karla Karışık Yağmur</translation>
         </message>
         <message>
             <source>Light Snowfall</source>
-            <translation type="unfinished">Hafif Kar</translation>
+            <translation>Hafif Kar Yağışı</translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
@@ -1695,8 +1695,7 @@ Yağıs:</translation>
         </message>
         <message>
             <source>Light or Moderate Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hafif veya Orta Yağış</translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1786,7 +1785,7 @@ Yağıs:</translation>
         </message>
         <message>
             <source>Moderate Freezing Rain</source>
-            <translation type="unfinished">Orta Şiddetli Yağmur</translation>
+            <translation>Orta Dondurucu Yağmur</translation>
         </message>
         <message>
             <source>Moderate Rain</source>
@@ -1794,15 +1793,15 @@ Yağıs:</translation>
         </message>
         <message>
             <source>Moderate Rain Showers</source>
-            <translation type="unfinished">Orta Şiddetli Yağmur</translation>
+            <translation>Orta Sağanak Yağmur</translation>
         </message>
         <message>
             <source>Moderate Sleet</source>
-            <translation type="unfinished">Orta Şiddetli Yağmur</translation>
+            <translation>Orta Karla Karışık Yağmur</translation>
         </message>
         <message>
             <source>Moderate Snow Showers</source>
-            <translation type="unfinished">AM Sağnak Kar</translation>
+            <translation>Orta Sağanak Kar</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -1902,7 +1901,7 @@ Yağıs:</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Bulutlu , Sağnak Yağmur</translation>
+            <translation>Çoğunlukla Bulutlu, Hafif Yağmur, Zayıf Şiddetli Yağmur</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
@@ -1934,7 +1933,7 @@ Yağıs:</translation>
         </message>
         <message>
             <source>Mostly sunny</source>
-            <translation type="unfinished">Çoğunlukla Güneşli</translation>
+            <translation>Çoğunlukla Güneşli</translation>
         </message>
         <message>
             <source>N</source>
@@ -2358,7 +2357,7 @@ Yağıs:</translation>
         </message>
         <message>
             <source>Partly Cloudy / Windy</source>
-            <translation type="unfinished">Parçali Bulutlu / Rüzgar</translation>
+            <translation>Parçalı Bulutlu / Rüzgarlı</translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
@@ -2490,8 +2489,7 @@ Yağıs:</translation>
         </message>
         <message>
             <source>Precipitation</source>
-            <translation type="unfinished">
-Yağıs:</translation>
+            <translation>Yağış</translation>
         </message>
         <message>
             <source>Preference|Update</source>
@@ -2567,7 +2565,7 @@ Yağıs:</translation>
         </message>
         <message>
             <source>Proximity shower rain</source>
-            <translation type="unfinished">Hafif aralıklı sağnak yağmur</translation>
+            <translation>Proximity shower rain</translation>
         </message>
         <message>
             <source>Rain</source>
@@ -2663,8 +2661,7 @@ Yağıs:</translation>
         </message>
         <message>
             <source>Refresh</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Yenile</translation>
         </message>
         <message>
             <source>Region</source>
@@ -3008,8 +3005,7 @@ Yağıs:</translation>
         </message>
         <message>
             <source>Showers or Intermittent Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sağanak veya Aralıklı Yağış</translation>
         </message>
         <message>
             <source>Sky is Clear</source>
@@ -3025,7 +3021,7 @@ Yağıs:</translation>
         </message>
         <message>
             <source>Sleet Showers</source>
-            <translation type="unfinished">Hafif Yağmur</translation>
+            <translation>Sağanak Karla Karığık Yağmur</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3049,7 +3045,7 @@ Yağıs:</translation>
         </message>
         <message>
             <source>Snow Showers</source>
-            <translation type="unfinished">Sağnak Kar</translation>
+            <translation>Sağanak Kar</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -3081,7 +3077,7 @@ Yağıs:</translation>
         </message>
         <message>
             <source>Snowfall</source>
-            <translation type="unfinished">Kar</translation>
+            <translation>Kar Yağışı</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3173,8 +3169,7 @@ Yağıs:</translation>
         </message>
         <message>
             <source>Strong Thundershowers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kuvvetli Gök Gürültülü Sağanak</translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3361,7 +3356,7 @@ hem 2.1 versiyonu ve hem de (isteginize göre) farklı bir ileriki version olabi
         </message>
         <message>
             <source>Thundershowers</source>
-            <translation type="unfinished">Gök gurültüsü</translation>
+            <translation>Gök Gürültülü Sağanak</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3395,7 +3390,7 @@ hem 2.1 versiyonu ve hem de (isteginize göre) farklı bir ileriki version olabi
         </message>
         <message>
             <source>Transparency</source>
-            <translation type="unfinished">Transparanlık:</translation>
+            <translation>Şeffaflık</translation>
         </message>
         <message>
             <source>Transparency:</source>
@@ -3572,7 +3567,7 @@ GSM ve/veya WLAN kullan.
         </message>
         <message>
             <source>Violent Rain Showers</source>
-            <translation type="unfinished">Hafif Sağnak Yağmur</translation>
+            <translation>Şiddetli Sağanak Yağmur</translation>
         </message>
         <message>
             <source>Visible items:</source>

@@ -1330,12 +1330,13 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Heavy Freezing Rain</source>
-            <translation type="unfinished">Eső / jégeső</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy Precipitation</source>
             <translation type="unfinished">
-Előrejelzés:</translation>
+            </translation>
         </message>
         <message>
             <source>Heavy Rain</source>
@@ -1351,15 +1352,18 @@ Előrejelzés:</translation>
         </message>
         <message>
             <source>Heavy Rain Showers</source>
-            <translation type="unfinished">Felhőszakadás</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy Sleet</source>
-            <translation type="unfinished">Kiadós havazás</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy Sleet Showers</source>
-            <translation type="unfinished">Felhőszakadás</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy Snow</source>
@@ -1371,15 +1375,18 @@ Előrejelzés:</translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
-            <translation type="unfinished">Elszórtan hózáporok</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy Snowfall</source>
-            <translation type="unfinished">Kiadós havazás</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy Thunder</source>
-            <translation type="unfinished">Mennydörgés</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1608,7 +1615,8 @@ Előrejelzés:</translation>
         </message>
         <message>
             <source>Light Rain Showers</source>
-            <translation type="unfinished">Könnyű zápor</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
@@ -1628,11 +1636,13 @@ Előrejelzés:</translation>
         </message>
         <message>
             <source>Light Sleet</source>
-            <translation type="unfinished">Hószállingózás</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light Sleet Showers</source>
-            <translation type="unfinished">Könnyű hózápor</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1660,11 +1670,13 @@ Előrejelzés:</translation>
         </message>
         <message>
             <source>Light Snow Showers</source>
-            <translation type="unfinished">Könnyű hózápor</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light Snowfall</source>
-            <translation type="unfinished">Hószállingózás</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
@@ -1767,7 +1779,8 @@ Előrejelzés:</translation>
         </message>
         <message>
             <source>Moderate Freezing Rain</source>
-            <translation type="unfinished">Közepesen erős esőzés</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Moderate Rain</source>
@@ -1775,15 +1788,18 @@ Előrejelzés:</translation>
         </message>
         <message>
             <source>Moderate Rain Showers</source>
-            <translation type="unfinished">Közepesen erős esőzés</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Moderate Sleet</source>
-            <translation type="unfinished">Közepesen erős esőzés</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Moderate Snow Showers</source>
-            <translation type="unfinished">de. hózáporok</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -1883,7 +1899,8 @@ Előrejelzés:</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Többnyire felhős, könnyű eső</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
@@ -2472,7 +2489,7 @@ Előrejelzés:</translation>
         <message>
             <source>Precipitation</source>
             <translation type="unfinished">
-Előrejelzés:</translation>
+            </translation>
         </message>
         <message>
             <source>Preference|Update</source>
@@ -3005,7 +3022,8 @@ Előrejelzés:</translation>
         </message>
         <message>
             <source>Sleet Showers</source>
-            <translation type="unfinished">Szorványos záporok</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3029,7 +3047,8 @@ Előrejelzés:</translation>
         </message>
         <message>
             <source>Snow Showers</source>
-            <translation type="unfinished">Tartós havazás</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -3061,7 +3080,8 @@ Előrejelzés:</translation>
         </message>
         <message>
             <source>Snowfall</source>
-            <translation type="unfinished">Hó</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Source</source>
@@ -3234,7 +3254,7 @@ Előrejelzés:</translation>
         </message>
         <message>
             <source>T-Storms</source>
-            <translation>Tivatarok</translation>
+            <translation>Zivatarok</translation>
         </message>
         <message>
             <source>T-Storms Early</source>
@@ -3339,7 +3359,8 @@ Előrejelzés:</translation>
         </message>
         <message>
             <source>Thundershowers</source>
-            <translation type="unfinished">Mennydörgés</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Today</source>
@@ -3552,7 +3573,8 @@ adatok rendszeres frissítéséhet.
         </message>
         <message>
             <source>Violent Rain Showers</source>
-            <translation type="unfinished">Könnyű zápor</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Visible items:</source>

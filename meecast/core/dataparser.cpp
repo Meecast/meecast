@@ -140,6 +140,8 @@ namespace Core {
                     forecast_data->pressure().value(el.text().toFloat());
                 }else if (tag == "ppcp"){
                     forecast_data->Ppcp(el.text().toFloat());
+                }else if (tag == "precipitation"){
+                    forecast_data->Precipitation(el.text().toFloat());
                 }else if (tag == "sunrise"){
                     forecast_data->SunRiseTime(el.text().toInt());
                 }else if (tag == "sunset")

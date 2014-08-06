@@ -74,6 +74,7 @@ namespace Core{
         bool _current;
         bool _hour;
         float _ppcp;
+        float _precipitation;
         int _uv_index;
         public:
             Data();
@@ -129,6 +130,8 @@ namespace Core{
             Pressure& pressure();
             void  Ppcp(float ppcp);
             float Ppcp(void) const;
+            void  Precipitation(float ppcp);
+            float Precipitation(void) const;
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

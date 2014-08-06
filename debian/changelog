@@ -1,6 +1,7 @@
 meecast (0.9.8) unstable; urgency=low
 
   * Added Sunrise and sunset for fmi.fi source
+  * Added Precipitation
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 03 Aug 2014 22:31:23 +0200
 

@@ -636,7 +636,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     }
     /* Sun info */
     val = root["suninfo"].get(root["observations"].getMemberNames()[0], nullval);
-/*    std::cerr<<val<<std::endl;*/
+    /* std::cerr<<val<<std::endl; */
     time_t sunrise_time = 0;
     time_t sunset_time = 0;
     time_t day_begin = 0;

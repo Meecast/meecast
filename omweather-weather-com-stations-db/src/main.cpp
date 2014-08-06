@@ -32,7 +32,7 @@
 #include <sys/stat.h>
 #include <locale.h>
 /*******************************************************************************/
-gint
+int
 get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
         gboolean get_detail_data){
     xmlDoc  *doc = NULL;
@@ -133,7 +133,7 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
         return -1;/* file isn't accessability */
 }
 /*******************************************************************************/
-gint
+int
 parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
     xmlNode     *cur_node = NULL,
                 *child_node = NULL,
@@ -142,7 +142,7 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                 *child_node4 = NULL;
     xmlChar     *temp_xml_string = NULL;
     xmlChar     *part_of_day = NULL;
-    gint        store2day = 0,
+    int         store2day = 0,
                 count_day = 0;
     gchar       id_station[10],
                 buff[256];
@@ -487,7 +487,7 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
     return count_day;
 }
 /*******************************************************************************/
-gint
+int
 parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
     xmlNode     *cur_node = NULL,
                 *child_node = NULL,
@@ -496,7 +496,7 @@ parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *d
     GHashTable  *detail = NULL,
                 *hours_data = NULL;
     xmlChar     *temp_xml_string;
-    gint        count_hour = 0;
+    int         count_hour = 0;
     gchar       buff[256];
     struct tm   tmp_tm = {0,0,0,0,0,0,0,0,0,0,0}; 
     GSList      *hour_weather = NULL;
@@ -610,14 +610,14 @@ parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *d
     return count_hour;
 }
 /*******************************************************************************/
-gint
+int
 parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, const gchar *result_file){
     xmlNode     *cur_node = NULL,
                 *child_node = NULL,
                 *child_node2 = NULL,
                 *child_node3 = NULL;
     xmlChar     *temp_xml_string = NULL;
-    gint        count_hour = 0;
+    int         count_hour = 0;
     struct tm   last_update_time = {0,0,0,0,0,0,0,0,0,0,0}; 
     FILE        *file_out;
     int         timezone_my = 0;
@@ -784,9 +784,9 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                 *child_node4 = NULL;
     xmlChar     *temp_xml_string = NULL;
     xmlChar     *part_of_day = NULL;
-    gint        store2day = 0,
+    int         store2day = 0,
                 count_day = 0;
-    gint        timezone_my = 0;
+    int         timezone_my = 0;
     gchar       temp_hi[256],
                 temp_low[256],
                 temp_flike[256],
@@ -1411,12 +1411,12 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
 }
 
 /*******************************************************************************/
-gint
+int
 convert_station_weather_com_data(const char *station_id_with_path, const char *result_file,
 	                     const char *station_detail_id_with_path){
     xmlDoc  *doc = NULL;
     xmlNode *root_node = NULL;
-    gint    days_number = -1;
+    int     days_number = -1;
     gchar   buffer[1024],
             buffer2[1024],
             *delimiter = NULL;

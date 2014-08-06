@@ -67,6 +67,7 @@ class DataItem : public QObject, public Core::Data
         PressureRole,
         FlikeRole,
         PpcpRole,
+        PrecipitationRole,
         TemperatureLabelRole,
         HumidityLabelRole,
         WindLabelRole,
@@ -133,6 +134,7 @@ public:
     inline QString flike();
     QString pressure();
     inline QString ppcp();
+    inline QString precipitation();
     QString map_pattern();
     QString mapbackground_pattern();
     QString count_of_maps();

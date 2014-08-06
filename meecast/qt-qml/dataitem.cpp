@@ -97,6 +97,7 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[PressureRole] = "pressure";
     names[FlikeRole] = "flike";
     names[PpcpRole] = "ppcp";
+    names[PrecipitationRole] = "precipitation";
     names[SunRiseRole] = "sunrise";
     names[SunSetRole] = "sunset";
     names[LastUpdateRole] = "lastupdate";
@@ -172,6 +173,8 @@ QVariant DataItem::data(int role)
         return flike();
     case PpcpRole:
         return ppcp();
+    case PrecipitationRole:
+        return precipitation();
     case MapPatternRole:
         return map_pattern();
     case MapBackgroundPatternRole:
@@ -476,6 +479,17 @@ DataItem::ppcp() {
     }
     return c.number((DataItem::Data::Ppcp()), 'f', 0);
 }
+
+QString
+DataItem::precipitation() {
+    QString c;
+    if (DataItem::Data::Precipitation() == INT_MAX){
+        c = "N/A";
+        return c;
+    }
+    return c.number((DataItem::Data::Precipitation()), 'f', 0);
+}
+
 
 QString
 DataItem::uv_index() {

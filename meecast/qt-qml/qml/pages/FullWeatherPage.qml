@@ -84,6 +84,9 @@ Page {
             if ((model_current.getdata(day, "ppcp")) != "N/A")
                 condition.append({cond_name: Config.tr("Ppcp:"),
                          value: model_current.getdata(day, "ppcp") + '%'});
+            if ((model_current.getdata(day, "precipitation")) != "N/A")
+                condition.append({cond_name: Config.tr("Precipitation:"),
+                         value: model_current.getdata(day, "precipitation") + Config.tr("mm")});
             if ((model_current.getdata(day, "wind_gust")) != "N/A")
                 condition.append({cond_name: Config.tr("Wind gust:"),
                          value: model_current.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});
@@ -152,6 +155,9 @@ Page {
             if ((model_day.getdata(day, "ppcp")) != "N/A")
                 condition.append({cond_name: Config.tr("Ppcp:"),
                          value: model_day.getdata(day, "ppcp") + '%'});
+            if ((model_day.getdata(day, "precipitation")) != "N/A")
+                condition.append({cond_name: Config.tr("Precipitation:"),
+                         value: model_day.getdata(day, "precipitation") + Config.tr("mm")});
             if ((model_day.getdata(day, "wind_gust")) != "N/A")
                 condition.append({cond_name: Config.tr("Wind gust:"),
                          value: model_day.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});
@@ -212,6 +218,9 @@ Page {
             if ((model_night.getdata(day, "ppcp")) != "N/A")
                 condition.append({cond_name: Config.tr("Ppcp:"),
                          value: model_night.getdata(day, "ppcp") + '%'});
+            if ((model_night.getdata(day, "precipitation")) != "N/A")
+                condition.append({cond_name: Config.tr("Precipitation:"),
+                         value: model_night.getdata(day, "precipitation") + Config.tr("mm")});
             if ((model_night.getdata(day, "wind_gust")) != "N/A")
                 condition.append({cond_name: Config.tr("Wind gust:"),
                          value: model_night.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});

@@ -59,12 +59,12 @@ Rectangle {
                 Text {text: qsTr("Speed") + ": " + wind_speed}
                 Text {text: (wind_gust != "N/A") ?
                       (qsTr("Wind gust") + ": " + wind_gust) : ""}
-
                 Text {text: (ppcp != "N/A") ?
                       (qsTr("Ppcp") + ": " + ppcp + '%') : ""}
+                Text {text: (precipitation != "N/A") ?
+                      (qsTr("Precipitation") + ": " + precipitation + '%') : ""}
                 Text {text: (pressure != "N/A") ?
                       (qsTr("Pressure") + ": " + pressure) : ""}
-
             }
         }
     }

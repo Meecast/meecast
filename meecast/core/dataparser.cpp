@@ -136,6 +136,8 @@ namespace Core {
                     forecast_data->WindDirection(el.text().toStdString());
                 }else if (tag == "flike"){
                     forecast_data->Flike().value(el.text().toFloat());
+                }else if (tag == "dewpoint"){
+                    forecast_data->Dewpoint().value(el.text().toFloat());
                 }else if (tag == "pressure"){
                     //forecast_data->Pressure(el.text().toFloat());
                     forecast_data->pressure().value(el.text().toFloat());

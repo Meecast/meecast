@@ -36,7 +36,6 @@
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Data::Data(){
-        _flike = new Temperature;
         //_windSpeed = INT_MAX;
         _windSpeed = new Windspeed(INT_MAX, "m/s");
         _visible = new Visible(INT_MAX, "m");
@@ -57,6 +56,8 @@ namespace Core {
         _temperature_hi = new Temperature(INT_MAX, "C");
         _temperature_low = new Temperature(INT_MAX, "C");
         _temperature = new Temperature(INT_MAX, "C");
+        _flike = new Temperature(INT_MAX, "C");
+        _dewpoint = new Temperature(INT_MAX, "C");
         _current = false;
         _hour = false;
         _start_time = 0;
@@ -89,11 +90,12 @@ namespace Core {
         _temperature_hi = new Temperature(data->_temperature_hi->value(), data->_temperature_hi->units());
         _temperature_low = new Temperature(data->_temperature_low->value(), data->_temperature_low->units());
         _temperature = new Temperature(data->_temperature->value(), data->_temperature->units());
+        _flike = new Temperature(data->_flike->value(), data->_flike->units());
+        _dewpoint = new Temperature(data->_dewpoint->value(), data->_dewpoint->units());
         _current = data->_current;
         _hour = data->_hour;
         _start_time = data->_start_time;
         _end_time = data->_end_time;
-        _flike = new Temperature(data->_flike->value(), data->_flike->units());
         _ppcp = data->_ppcp;
         _precipitation = data->_precipitation;
         _uv_index = data->_uv_index;
@@ -189,6 +191,14 @@ namespace Core {
          return *_flike;
      }
 ////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+     Temperature&
+     Data::Dewpoint(){
+         /* need to check type (Celsius Farenheit ) */
+         return *_dewpoint;
+     }
+////////////////////////////////////////////////////////////////////////////////
+
      /*
      void
      Data::WindSpeed(float windspeed){
@@ -351,8 +361,9 @@ namespace Core {
        delete _temperature_hi;
        delete _temperature_low;
        delete _temperature;
-       delete _pressure;
        delete _flike;
+       delete _dewpoint;
+       delete _pressure;
        delete _short_day_name;
        delete _full_day_name;
        delete _full_month_name;

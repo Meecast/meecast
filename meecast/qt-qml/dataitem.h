@@ -66,6 +66,7 @@ class DataItem : public QObject, public Core::Data
         EndRole,
         PressureRole,
         FlikeRole,
+        DewpointRole,
         PpcpRole,
         PrecipitationRole,
         TemperatureLabelRole,
@@ -132,6 +133,7 @@ public:
     inline QString start();
     inline QString end();
     inline QString flike();
+    inline QString dewpoint();
     QString pressure();
     inline QString ppcp();
     inline QString precipitation();

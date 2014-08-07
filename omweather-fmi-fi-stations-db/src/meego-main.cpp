@@ -74,7 +74,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     if (!parsingSuccessful)
         return -1;
 
-
     file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
@@ -684,12 +683,11 @@ convert_station_fmi_fi_data(const char *days_data_path, const char *result_file)
 
     /* check file accessability */
     if(!access(days_data_path, R_OK)){
-            days_number = parse_and_write_days_xml_data(days_data_path, result_file);
+        days_number = parse_and_write_days_xml_data(days_data_path, result_file);
     }else{
         return -1;/* file isn't accessability */
     }
 
-    
     if (days_number > 0){
         file_out = fopen(result_file, "a");
         if (file_out){
@@ -706,7 +704,7 @@ int
 main(int argc, char *argv[]){
     int result; 
     if (argc < 2) {
-        fprintf(stderr, "fmifi <input_days_file> <output_file> <input_hours_file> <input_current_file>\n");
+        fprintf(stderr, "fmifi <input_days_file> <output_file> \n");
         return -1;
     }
     result = convert_station_fmi_fi_data(argv[1], argv[2]);

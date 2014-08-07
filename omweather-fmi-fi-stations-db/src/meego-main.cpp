@@ -57,7 +57,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     int current_dewpoint = INT_MAX;
     std::string current_description = "";
     int current_icon = 48;
-    float current_ppcp_rate = INT_MAX; 
+    float current_precipitation = INT_MAX; 
     int check_timezone = false;
     int timezone = 0;
     int localtimezone = 0;
@@ -174,9 +174,9 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 }    
                 if (val[i].get("RI_10MIN","").asString() != ""){
                     if (val[i].get("RI_10MIN","").asString() == "nan"){
-                        current_ppcp_rate = INT_MAX;
+                        current_precipitation = INT_MAX;
                     }else
-                        current_ppcp_rate = atof(val[i].get("RI_10MIN","").asCString());
+                        current_precipitation = atof(val[i].get("RI_10MIN","").asCString());
                 }    
                 if (val[i].get("WW_AWS","").asString() != "" && val[i].get("WW_AWS","").asString() != "nan"){
                     int code = atoi(val[i].get("WW_AWS","").asCString());
@@ -625,7 +625,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", current_wind_speed);
                 fprintf(file_out,"     <wind_gust>%i</wind_gust>\n", current_wind_gust);
                 fprintf(file_out,"     <dewpoint>%i</dewpoint>\n", current_dewpoint);
-                fprintf(file_out,"     <precipitation>%.1f</precipitation>\n", current_ppcp_rate);
+                fprintf(file_out,"     <precipitation>%.1f</precipitation>\n", current_precipitation);
                 fprintf(file_out,"     <visible>%i</visible>\n", current_visibility);
                 fprintf(file_out,"    </period>\n");
             }    

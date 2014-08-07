@@ -91,7 +91,9 @@ desktop-file-install --delete-original       \
 
 %changelog
 * Sun Aug 08 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.8
-  * Nothing
+  * Added Sunrise and sunset for fmi.fi source
+  * Added Precipitation
+  * Added Precipitation data to hourly page
 
 * Sun Aug 03 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.7
   * Fixed sunrise and sunset time for weather.com source again :)

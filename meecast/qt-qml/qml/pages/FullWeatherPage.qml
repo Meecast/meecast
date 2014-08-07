@@ -583,12 +583,23 @@ Page {
                                 smooth: true
                             }
                             Text {
+                                id: txt_precipitation
+				visible: (model.precipitation == "N/A") ? false : true
+                                font.pointSize: 14
+                                color: "white" 
+                                text: model.precipitation + Config.tr("mm")
+                                anchors.right: txt_temp.left
+                                anchors.rightMargin: 30
+                                height:parent.height
+                                verticalAlignment: Text.AlignVCenter
+                            }
+                            Text {
                                 id: txt_temp
                                 font.pointSize: 18
                                 color: getColor(temp_high)
                                 text: model.temp + '°'
                                 anchors.right: parent.right
-                                anchors.rightMargin: margin + 70
+                                anchors.rightMargin: (model.precipitation == "N/A") ? margin + 70 : margin + 30
                                 height:parent.height
                                 verticalAlignment: Text.AlignVCenter
                             }

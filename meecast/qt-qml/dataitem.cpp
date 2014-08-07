@@ -95,6 +95,7 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[EndRole] = "end";
     names[PressureRole] = "pressure";
     names[FlikeRole] = "flike";
+    names[DewpointRole] = "dewpoint";
     names[PpcpRole] = "ppcp";
     names[PrecipitationRole] = "precipitation";
     names[SunRiseRole] = "sunrise";
@@ -170,6 +171,8 @@ QVariant DataItem::data(int role)
         return daylength();
     case FlikeRole:
         return flike();
+    case DewpointRole:
+        return dewpoint();
     case PpcpRole:
         return ppcp();
     case PrecipitationRole:
@@ -243,6 +246,17 @@ DataItem::flike() {
         return c;
     }
     return c.number((DataItem::Data::Flike().value()),'f',0);
+}
+
+QString
+DataItem::dewpoint() {
+    QString c;
+    DataItem::Data::Dewpoint().units(temperatureunit.toStdString());
+    if (DataItem::Data::Dewpoint().value(true) == INT_MAX){
+        c = "N/A";
+        return c;
+    }
+    return c.number((DataItem::Data::Dewpoint().value()),'f',0);
 }
 
 QString

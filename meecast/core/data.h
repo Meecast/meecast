@@ -50,7 +50,6 @@ namespace Core{
         time_t _end_time;
         time_t _sunrise;
         time_t _sunset;
-        Temperature *_flike;
         //float _windSpeed;
         Windspeed *_windSpeed;
         Pressure *_pressure;
@@ -71,6 +70,8 @@ namespace Core{
         Temperature *_temperature_hi;
         Temperature *_temperature_low;
         Temperature *_temperature;
+        Temperature *_flike;
+        Temperature *_dewpoint;
         bool _current;
         bool _hour;
         float _ppcp;
@@ -125,6 +126,7 @@ namespace Core{
             Temperature& temperature_low();
             Temperature& temperature();
             Temperature& Flike();
+            Temperature& Dewpoint();
             //void  Pressure(float pressure);
             //int Pressure(void) const;
             Pressure& pressure();

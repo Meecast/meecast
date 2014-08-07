@@ -163,6 +163,9 @@ Page {
             if ((model_current.getdata(day, "flike")) != "N/A")
                 condition.append({cond_name: Config.tr("Flike") + ":",
                          value: model_current.getdata(day, "flike") + '°' + Config.temperatureunit});
+            if ((model_current.getdata(day, "dewpoint")) != "N/A")
+                condition.append({cond_name: Config.tr("Dewpoint") + ":",
+                         value: model_current.getdata(day, "dewpoint") + '°' + Config.temperatureunit});
             if ((model_current.getdata(day, "map_pattern")) != ""){
                 map_pattern = model_current.getdata(day, "map_pattern")
                 map_text.visible = true;
@@ -229,7 +232,9 @@ Page {
             if ((model_day.getdata(day, "flike")) != "N/A")
                 condition.append({cond_name: Config.tr("Flike") + ":",
                          value: model_day.getdata(day, "flike") + '°' + Config.temperatureunit});
-
+            if ((model_day.getdata(day, "dewpoint")) != "N/A")
+                condition.append({cond_name: Config.tr("Dewpoint") + ":",
+                         value: model_day.getdata(day, "dewpoint") + '°' + Config.temperatureunit});
             if ((model_day.getdata(day, "temp")) != "N/A")
                 temperature.text =  model_day.getdata(day, "temp") + '°'
 	        else{
@@ -287,6 +292,9 @@ Page {
             if ((model_night.getdata(day, "flike")) != "N/A")
                 condition.append({cond_name: Config.tr("Flike") + ":",
                          value: model_night.getdata(day, "flike") + '°' + Config.temperatureunit});
+            if ((model_night.getdata(day, "dewpoint")) != "N/A")
+                condition.append({cond_name: Config.tr("Dewpoint") + ":",
+                         value: model_night.getdata(day, "dewpoint") + '°' + Config.temperatureunit});
             if ((model_night.getdata(day, "temp")) != "N/A")
                 temperature.text =  model_night.getdata(day, "temp") + '°'
 	        else{

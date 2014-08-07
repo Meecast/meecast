@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-openweathermap-org-source - MeeCast
  *
- * Copyright (C) 2013 Vlad Vasilyeu
+ * Copyright (C) 2013-2014 Vlad Vasilyeu
  * 	for the code
  *
  * This software is free software; you can redistribute it and/or
@@ -47,7 +47,7 @@ parse_and_write_hours_data(htmlDocPtr doc, const char *result_file){
     int         temp_hi, temp_low;
     char        short_text[1024];
     char        icon[256],
-                ppcp[128],
+                precipitation[128],
                 wind_direction[10],
                 wind_speed[10],
                 pressure[10],
@@ -98,7 +98,7 @@ parse_and_write_hours_data(htmlDocPtr doc, const char *result_file){
                                 memset(icon, 0, sizeof(icon));
                                 memset(wind_direction, 0, sizeof(wind_direction));
                                 memset(wind_speed, 0, sizeof(wind_speed));
-                                memset(ppcp, 0, sizeof(ppcp));
+                                memset(precipitation, 0, sizeof(precipitation));
                                 memset(pressure, 0, sizeof(pressure));
                                 memset(humidity, 0, sizeof(humidity));
 
@@ -116,7 +116,7 @@ parse_and_write_hours_data(htmlDocPtr doc, const char *result_file){
                                     if (child_node->type == XML_ELEMENT_NODE ){
                                         if(!xmlStrcmp(child_node->name, (const xmlChar *) "precipitation")){
                                             if ((temp_prop = xmlGetProp(child_node, (const xmlChar*)"value")) != NULL){
-                                                snprintf(ppcp, sizeof(ppcp)-1,"%s",(char *)temp_prop);
+                                                snprintf(precipitation, sizeof(precipitation)-1,"%s",(char *)temp_prop);
                                                 xmlFree(temp_prop);
                                                 temp_prop = NULL;
                                             }
@@ -196,17 +196,14 @@ parse_and_write_hours_data(htmlDocPtr doc, const char *result_file){
                                     fprintf(file_out,"     <icon>%s</icon>\n", icon);
                                 if (temp_low != INT_MAX)
                                     fprintf(file_out,"     <temperature>%i</temperature>\n", temp_low);				                
-                                if (strlen (ppcp)>0)
-                                    fprintf(file_out,"     <ppcp>%s</ppcp>\n", ppcp);
-
+                                if (strlen (precipitation)>0)
+                                    fprintf(file_out,"     <precipitation>%s</precipitation>\n", precipitation);
                                 if (strlen (wind_direction)>0)
                                     fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction);
                                 if (strlen (wind_speed)>0)
                                     fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", wind_speed);
-                                
                                 if (strlen (pressure)>0)
                                     fprintf(file_out,"     <pressure>%s</pressure>\n", pressure);
-
                                 if (strlen (humidity)>0)
                                     fprintf(file_out,"     <humidity>%s</humidity>\n", humidity);
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-03 11:48+0300\n"
+"POT-Creation-Date: 2014-08-07 17:51+0300\n"
 "PO-Revision-Date: 2014-07-28 05:20+0000\n"
 "Last-Translator: Macilaci457 <laci.kara@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/meecast/"
@@ -90,11 +90,11 @@ msgid ""
 "W: "
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:488 meecast/qt-qml/dataitem.cpp:489
+#: meecast/qt-qml/dataitem.cpp:516 meecast/qt-qml/dataitem.cpp:517
 msgid "(Low)"
 msgstr "(alacsony)"
 
-#: meecast/qt-qml/dataitem.cpp:490 meecast/qt-qml/dataitem.cpp:491
+#: meecast/qt-qml/dataitem.cpp:518 meecast/qt-qml/dataitem.cpp:519
 msgid "(Moderate)"
 msgstr "(mérsékelt)"
 
@@ -625,7 +625,7 @@ msgid "Daily"
 msgstr "Naponta"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
-#: meecast/qt-qml/qml/FullWeatherPage.qml:194
+#: meecast/qt-qml/qml/FullWeatherPage.qml:201
 msgid "Day"
 msgstr "Nappal"
 
@@ -633,7 +633,7 @@ msgstr "Nappal"
 msgid "Day length"
 msgstr "Nappal hossza"
 
-#: omweather/src/hash.data:62 meecast/qt-qml/qml/FullWeatherPage.qml:314
+#: omweather/src/hash.data:62 meecast/qt-qml/qml/FullWeatherPage.qml:332
 msgid "Day length:"
 msgstr "Nappal hossza:"
 
@@ -656,6 +656,12 @@ msgstr ""
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
 msgid "Detailed"
 msgstr "Részletes"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:167
+#: meecast/qt-qml/qml/FullWeatherPage.qml:236
+#: meecast/qt-qml/qml/FullWeatherPage.qml:296
+msgid "Dewpoint"
+msgstr ""
 
 #: omweather/src/weather-settings.c:1128 omweather/src/weather-settings.c:1321
 #: omweather/src/weather-settings.c:1325
@@ -877,9 +883,9 @@ msgstr ""
 msgid "First Quarter"
 msgstr "Első negyed"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:160
-#: meecast/qt-qml/qml/FullWeatherPage.qml:223
-#: meecast/qt-qml/qml/FullWeatherPage.qml:278
+#: meecast/qt-qml/qml/FullWeatherPage.qml:164
+#: meecast/qt-qml/qml/FullWeatherPage.qml:233
+#: meecast/qt-qml/qml/FullWeatherPage.qml:293
 msgid "Flike"
 msgstr "Hőérzet"
 
@@ -1146,19 +1152,19 @@ msgstr "Magas"
 msgid "Hourly"
 msgstr "Óránként"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:296
+#: meecast/qt-qml/qml/FullWeatherPage.qml:314
 msgid "Hours"
 msgstr "Órák"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:136
-#: meecast/qt-qml/qml/FullWeatherPage.qml:200
-#: meecast/qt-qml/qml/FullWeatherPage.qml:255
+#: meecast/qt-qml/qml/FullWeatherPage.qml:137
+#: meecast/qt-qml/qml/FullWeatherPage.qml:207
+#: meecast/qt-qml/qml/FullWeatherPage.qml:267
 msgid "Humidity"
 msgstr "Páratartalom"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:187
+#: meecast/qt-qml/dataitem.cpp:193
 msgid "Humidity:"
 msgstr "Páratartalom:"
 
@@ -1233,7 +1239,7 @@ msgstr "Utolsó frissítés a szerveren:"
 msgid "Last update from server: "
 msgstr "Utolsó frissítés a szerverről:"
 
-#: omweather/src/hash.data:113 meecast/qt-qml/qml/FullWeatherPage.qml:317
+#: omweather/src/hash.data:113 meecast/qt-qml/qml/FullWeatherPage.qml:335
 msgid "Last update:"
 msgstr "Utolsó frissítés:"
 
@@ -1679,7 +1685,7 @@ msgid "Next update:"
 msgstr "Következő frissítés:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:588
-#: meecast/qt-qml/qml/FullWeatherPage.qml:241
+#: meecast/qt-qml/qml/FullWeatherPage.qml:253
 msgid "Night"
 msgstr "Éjjel"
 
@@ -1713,7 +1719,7 @@ msgstr "Nincs időjárás adat az állomásról."
 #: omweather/src/weather-simple-settings.c:2886
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
-#: meecast/qt-qml/dataitem.cpp:195 meecast/qt-qml/qml/FullWeatherPage.qml:130
+#: meecast/qt-qml/dataitem.cpp:201 meecast/qt-qml/qml/FullWeatherPage.qml:131
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Now"
 msgstr "Most"
@@ -2003,15 +2009,24 @@ msgstr "Időszak"
 msgid "Position:"
 msgstr "Pozíció:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:154
-#: meecast/qt-qml/qml/FullWeatherPage.qml:217
-#: meecast/qt-qml/qml/FullWeatherPage.qml:272
+#: meecast/qt-qml/qml/FullWeatherPage.qml:155
+#: meecast/qt-qml/qml/FullWeatherPage.qml:224
+#: meecast/qt-qml/qml/FullWeatherPage.qml:284
 msgid "Ppcp:"
 msgstr "Csapadék esélye:"
 
 #: omweather/src/hash.data:249
 msgid "Precipitation"
 msgstr ""
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:158
+#: meecast/qt-qml/qml/FullWeatherPage.qml:227
+#: meecast/qt-qml/qml/FullWeatherPage.qml:287
+#, fuzzy
+msgid "Precipitation:"
+msgstr ""
+"\n"
+"Előrejelzés:"
 
 #: omweather/src/weather-simple-settings.c:1653
 #: omweather/src/weather-simple-settings.c:2836
@@ -2032,9 +2047,9 @@ msgstr "Légnyomás mértékegységek:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
-#: meecast/qt-qml/dataitem.cpp:193 meecast/qt-qml/qml/FullWeatherPage.qml:142
-#: meecast/qt-qml/qml/FullWeatherPage.qml:206
-#: meecast/qt-qml/qml/FullWeatherPage.qml:261
+#: meecast/qt-qml/dataitem.cpp:199 meecast/qt-qml/qml/FullWeatherPage.qml:143
+#: meecast/qt-qml/qml/FullWeatherPage.qml:213
+#: meecast/qt-qml/qml/FullWeatherPage.qml:273
 msgid "Pressure:"
 msgstr "Légnyomás:"
 
@@ -2376,7 +2391,7 @@ msgstr "Nyilak mutatása"
 msgid "Show last update time"
 msgstr "Mutasd az utolsó frissítés idejét."
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:621
+#: meecast/qt-qml/qml/FullWeatherPage.qml:639
 msgid "Show on Map"
 msgstr "Mutasd a térképen"
 
@@ -2521,7 +2536,7 @@ msgstr "Sebesség"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: meecast/netbook-UX/meego-panel-omweather.cpp:772
-#: meecast/qt-qml/dataitem.cpp:191
+#: meecast/qt-qml/dataitem.cpp:197
 msgid "Speed:"
 msgstr "Sebesség:"
 
@@ -2567,7 +2582,7 @@ msgstr "Napos / szeles"
 msgid "Sunny periods and a few showers."
 msgstr "Napos, néhány záporral"
 
-#: omweather/src/hash.data:317 meecast/qt-qml/qml/FullWeatherPage.qml:308
+#: omweather/src/hash.data:317 meecast/qt-qml/qml/FullWeatherPage.qml:326
 msgid "Sunrise:"
 msgstr "Napfelkelte:"
 
@@ -2575,7 +2590,7 @@ msgstr "Napfelkelte:"
 msgid "Sunrise: "
 msgstr "Napfelkelte:"
 
-#: omweather/src/hash.data:318 meecast/qt-qml/qml/FullWeatherPage.qml:311
+#: omweather/src/hash.data:318 meecast/qt-qml/qml/FullWeatherPage.qml:329
 msgid "Sunset:"
 msgstr "Napnyugta:"
 
@@ -2635,7 +2650,7 @@ msgid "Temperature units:"
 msgstr "Hőmérséklet:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
-#: meecast/qt-qml/dataitem.cpp:185
+#: meecast/qt-qml/dataitem.cpp:191
 msgid "Temperature:"
 msgstr "Hőmérséklet:"
 
@@ -2690,7 +2705,7 @@ msgstr ""
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
-#: meecast/qt-qml/qml/FullWeatherPage.qml:443
+#: meecast/qt-qml/qml/FullWeatherPage.qml:461
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Today"
 msgstr "Ma"
@@ -2722,7 +2737,7 @@ msgstr "Kísérlet a frissítésre"
 msgid "Type of click:"
 msgstr "Kattintás típusa:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:180
+#: meecast/qt-qml/qml/FullWeatherPage.qml:187
 msgid "UV index:"
 msgstr "UV index:"
 
@@ -2822,7 +2837,7 @@ msgid "Visible units"
 msgstr "Távolság m.e."
 
 #: omweather/src/weather-popup.c:1288
-#: meecast/qt-qml/qml/FullWeatherPage.qml:177
+#: meecast/qt-qml/qml/FullWeatherPage.qml:184
 msgid "Visible:"
 msgstr "Látható:"
 
@@ -2926,9 +2941,9 @@ msgstr "Widget stílusa és ikoncsomag"
 msgid "Wind"
 msgstr "Szél"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:139
-#: meecast/qt-qml/qml/FullWeatherPage.qml:203
-#: meecast/qt-qml/qml/FullWeatherPage.qml:258
+#: meecast/qt-qml/qml/FullWeatherPage.qml:140
+#: meecast/qt-qml/qml/FullWeatherPage.qml:210
+#: meecast/qt-qml/qml/FullWeatherPage.qml:270
 msgid "Wind direction"
 msgstr "Szélirány"
 
@@ -2936,18 +2951,18 @@ msgstr "Szélirány"
 msgid "Wind direction:"
 msgstr "Szélirány:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:157
-#: meecast/qt-qml/qml/FullWeatherPage.qml:220
-#: meecast/qt-qml/qml/FullWeatherPage.qml:275
+#: meecast/qt-qml/qml/FullWeatherPage.qml:161
+#: meecast/qt-qml/qml/FullWeatherPage.qml:230
+#: meecast/qt-qml/qml/FullWeatherPage.qml:290
 msgid "Wind gust:"
 msgstr "Szélroham:"
 
-#: omweather/src/hash.data:346 meecast/qt-qml/qml/FullWeatherPage.qml:146
-#: meecast/qt-qml/qml/FullWeatherPage.qml:149
-#: meecast/qt-qml/qml/FullWeatherPage.qml:210
-#: meecast/qt-qml/qml/FullWeatherPage.qml:213
-#: meecast/qt-qml/qml/FullWeatherPage.qml:265
-#: meecast/qt-qml/qml/FullWeatherPage.qml:268
+#: omweather/src/hash.data:346 meecast/qt-qml/qml/FullWeatherPage.qml:147
+#: meecast/qt-qml/qml/FullWeatherPage.qml:150
+#: meecast/qt-qml/qml/FullWeatherPage.qml:217
+#: meecast/qt-qml/qml/FullWeatherPage.qml:220
+#: meecast/qt-qml/qml/FullWeatherPage.qml:277
+#: meecast/qt-qml/qml/FullWeatherPage.qml:280
 msgid "Wind speed"
 msgstr "Szélsebesség"
 
@@ -2962,7 +2977,7 @@ msgstr "Szélsebesség m.e.:"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
-#: meecast/qt-qml/dataitem.cpp:189
+#: meecast/qt-qml/dataitem.cpp:195
 msgid "Wind:"
 msgstr "Szél:"
 
@@ -3047,11 +3062,11 @@ msgstr "helyi idő"
 msgid "d:"
 msgstr "n:"
 
-#: meecast/qt-qml/dataitem.cpp:459
+#: meecast/qt-qml/dataitem.cpp:476
 msgid "day ago"
 msgstr "nappal ezelőtt"
 
-#: meecast/qt-qml/dataitem.cpp:461
+#: meecast/qt-qml/dataitem.cpp:478
 msgid "days ago"
 msgstr "nappal ezelőtt"
 
@@ -3095,11 +3110,11 @@ msgstr "csökkenő"
 msgid "feels like"
 msgstr "hőérzet"
 
-#: meecast/qt-qml/dataitem.cpp:453
+#: meecast/qt-qml/dataitem.cpp:470
 msgid "hour ago"
 msgstr "órája"
 
-#: meecast/qt-qml/dataitem.cpp:456
+#: meecast/qt-qml/dataitem.cpp:473
 msgid "hours ago"
 msgstr "órája"
 
@@ -3191,16 +3206,19 @@ msgstr "mph"
 msgid "mi/s"
 msgstr "mérföld/s"
 
-#: meecast/qt-qml/dataitem.cpp:447
+#: meecast/qt-qml/dataitem.cpp:464
 msgid "minute ago"
 msgstr "perce"
 
-#: meecast/qt-qml/dataitem.cpp:450
+#: meecast/qt-qml/dataitem.cpp:467
 msgid "minutes ago"
 msgstr "perce"
 
 #: omweather/src/weather-popup.c:961 omweather/src/weather-popup.c:1094
 #: omweather/src/weather-simple-settings.c:2727
+#: meecast/qt-qml/qml/FullWeatherPage.qml:159
+#: meecast/qt-qml/qml/FullWeatherPage.qml:228
+#: meecast/qt-qml/qml/FullWeatherPage.qml:288
 msgid "mm"
 msgstr "mm"
 
@@ -3239,7 +3257,7 @@ msgstr ""
 msgid "rising"
 msgstr "növekvő"
 
-#: meecast/qt-qml/dataitem.cpp:444
+#: meecast/qt-qml/dataitem.cpp:461
 msgid "seconds ago"
 msgstr "másodperce"
 

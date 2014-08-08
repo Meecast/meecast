@@ -839,6 +839,21 @@ Connection timeout is expired.</source>
             <translation>Detalhado</translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation>Mostrar</translation>
         </message>
@@ -2501,6 +2516,21 @@ Precipitação:</translation>
         </message>
         <message>
             <source>Precipitation</source>
+            <translation type="unfinished">
+Precipitação:</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Precipitação:</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Precipitação:</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
             <translation type="unfinished">
 Precipitação:</translation>
         </message>
@@ -4198,6 +4228,18 @@ para usar o Widget no Ecrãn de Espera</translation>
         <message>
             <source>minutes ago</source>
             <translation>minutos atrás</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>

@@ -830,6 +830,21 @@ Bağlantı süresi doldu.</translation>
             <translation>Detaylı</translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation>Görünüm</translation>
         </message>
@@ -2490,6 +2505,18 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Precipitation</source>
             <translation>Yağış</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">Yağış</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">Yağış</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">Yağış</translation>
         </message>
         <message>
             <source>Preference|Update</source>
@@ -4174,6 +4201,18 @@ aktiflestirmeniz gerekir.</translation>
         <message>
             <source>minutes ago</source>
             <translation>dakika önce</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>

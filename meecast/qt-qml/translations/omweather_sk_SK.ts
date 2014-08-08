@@ -843,6 +843,21 @@ Spojenie vypršalo.</translation>
             <translation>Podrobné</translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation>Zobrazenie</translation>
         </message>
@@ -2501,6 +2516,21 @@ Zrážky: </translation>
         </message>
         <message>
             <source>Precipitation</source>
+            <translation type="unfinished">
+Zrážky: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Zrážky: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Zrážky: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
             <translation type="unfinished">
 Zrážky: </translation>
         </message>
@@ -4210,6 +4240,18 @@ na pohotovostnom displeji</translation>
         <message>
             <source>minutes ago</source>
             <translation>minút dozadu</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>

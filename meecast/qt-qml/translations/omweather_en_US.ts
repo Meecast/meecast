@@ -840,6 +840,21 @@ Connection timeout is expired.</translation>
             <translation>Detailed</translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation>Display</translation>
         </message>
@@ -2502,6 +2517,21 @@ Precipitation: </translation>
         </message>
         <message>
             <source>Precipitation</source>
+            <translation type="unfinished">
+Precipitation: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Precipitation: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Precipitation: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
             <translation type="unfinished">
 Precipitation: </translation>
         </message>
@@ -4203,6 +4233,18 @@ or ZIP code!!!</translation>
         <message>
             <source>minutes ago</source>
             <translation>minutes ago</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>

@@ -840,6 +840,21 @@ Verbinding is verlopen.</translation>
             <translation>Gedetailleerd</translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation>Weergave</translation>
         </message>
@@ -2473,6 +2488,21 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Precipitation</source>
+            <translation type="unfinished">
+Neerslag: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Neerslag: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Neerslag: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
             <translation type="unfinished">
 Neerslag: </translation>
         </message>
@@ -4166,6 +4196,18 @@ voor Standby-scherm widget</translation>
         <message>
             <source>minutes ago</source>
             <translation>minuten geleden</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>

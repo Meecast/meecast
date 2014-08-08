@@ -838,6 +838,21 @@ Délai de connexion dépassé.</translation>
             <translation>Détaillé</translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation>Affichage</translation>
         </message>
@@ -2493,6 +2508,21 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Precipitation</source>
+            <translation type="unfinished">
+Précipitations : </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Précipitations : </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Précipitations : </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
             <translation type="unfinished">
 Précipitations : </translation>
         </message>
@@ -4189,6 +4219,18 @@ ou code postal !!!</translation>
         <message>
             <source>minutes ago</source>
             <translation>il y a plusieurs minutes</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>

@@ -834,6 +834,21 @@ Czas połączenia wygasł.</translation>
             <translation>Szczegółowo</translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation>Wyświetlanie</translation>
         </message>
@@ -2504,6 +2519,21 @@ Opady: </translation>
         </message>
         <message>
             <source>Precipitation</source>
+            <translation type="unfinished">
+Opady: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Opady: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Opady: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
             <translation type="unfinished">
 Opady: </translation>
         </message>
@@ -4226,6 +4256,18 @@ lub kod ZIP.</translation>
         <message>
             <source>minutes ago</source>
             <translation>minut temu</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>

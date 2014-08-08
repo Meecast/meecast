@@ -820,6 +820,21 @@ Időtúllépés ideje lejárt.</translation>
             <translation>Részletes</translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation>Kijelző</translation>
         </message>
@@ -2490,6 +2505,21 @@ Slovak - Roman Moravčík</source>
             <source>Precipitation</source>
             <translation type="unfinished">
             </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Előrejelzés:</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Előrejelzés:</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Előrejelzés:</translation>
         </message>
         <message>
             <source>Preference|Update</source>
@@ -4190,6 +4220,18 @@ vagy irányítószám!</translation>
         <message>
             <source>minutes ago</source>
             <translation>perce</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>

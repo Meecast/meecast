@@ -902,6 +902,21 @@ Connection timeout is expired.</source>
             </translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation type="unfinished">
             </translation>
@@ -2717,6 +2732,18 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Precipitation</source>
+            <translation type="unfinished">Välj väderstation</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">Välj väderstation</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">Välj väderstation</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
             <translation type="unfinished">Välj väderstation</translation>
         </message>
         <message>
@@ -4646,6 +4673,21 @@ väntelägeskärm.</translation>
         <message>
             <source>minutes ago</source>
             <translation>minuter sedan</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>mm</source>

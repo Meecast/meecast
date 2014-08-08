@@ -840,6 +840,21 @@ Tempo di connessione scaduto.</translation>
             <translation>Dettagliato</translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation>Visualizza</translation>
         </message>
@@ -2493,6 +2508,18 @@ Slovacco - Roman Moravčík</translation>
         <message>
             <source>Precipitation</source>
             <translation>Precipitazioni</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">Precipitazioni</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">Precipitazioni</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">Precipitazioni</translation>
         </message>
         <message>
             <source>Preference|Update</source>
@@ -4188,6 +4215,18 @@ o CAP errati !!</translation>
         <message>
             <source>minutes ago</source>
             <translation>minuti fa</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>

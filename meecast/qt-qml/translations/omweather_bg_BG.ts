@@ -843,6 +843,21 @@ Connection timeout is expired.</source>
             <translation>Детайли</translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation>Покажи</translation>
         </message>
@@ -2478,6 +2493,21 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Precipitation</source>
+            <translation type="unfinished">
+Валежи: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Валежи: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Валежи: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
             <translation type="unfinished">
 Валежи: </translation>
         </message>
@@ -4179,6 +4209,18 @@ or ZIP code!!!</source>
         <message>
             <source>minutes ago</source>
             <translation>преди минути</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>мм</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>мм</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>мм</translation>
         </message>
         <message>
             <source>mm</source>

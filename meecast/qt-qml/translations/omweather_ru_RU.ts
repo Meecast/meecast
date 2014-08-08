@@ -823,6 +823,21 @@ Connection timeout is expired.</source>
             <translation>Подробно</translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation>Отображение</translation>
         </message>
@@ -2466,6 +2481,21 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Precipitation</source>
+            <translation type="unfinished">
+Атмосферные осадки: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Атмосферные осадки: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Атмосферные осадки: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
             <translation type="unfinished">
 Атмосферные осадки: </translation>
         </message>
@@ -4166,6 +4196,18 @@ StandbyScreen виджета
         <message>
             <source>minutes ago</source>
             <translation>мин. назад</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>мм</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>мм</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>мм</translation>
         </message>
         <message>
             <source>mm</source>

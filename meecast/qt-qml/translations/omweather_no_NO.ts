@@ -842,6 +842,21 @@ Tilkoblingstiden er utløpt.</translation>
             <translation>Detaljert</translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation>Skjerm</translation>
         </message>
@@ -2508,6 +2523,21 @@ Nedbør:</translation>
         </message>
         <message>
             <source>Precipitation</source>
+            <translation type="unfinished">
+Nedbør:</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Nedbør:</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Nedbør:</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
             <translation type="unfinished">
 Nedbør:</translation>
         </message>
@@ -4200,6 +4230,18 @@ eller postkode!!!</translation>
         <message>
             <source>minutes ago</source>
             <translation>minutter siden</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>

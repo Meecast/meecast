@@ -840,6 +840,21 @@ Predodređeno vreme za povezivanje je isteklo.</translation>
             <translation>Detaljnije</translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation>Prikaz</translation>
         </message>
@@ -2505,6 +2520,21 @@ Padavine: </translation>
         </message>
         <message>
             <source>Precipitation</source>
+            <translation type="unfinished">
+Padavine: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Padavine: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Padavine: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
             <translation type="unfinished">
 Padavine: </translation>
         </message>
@@ -4197,6 +4227,18 @@ ili ZIP kod!!!</translation>
         <message>
             <source>minutes ago</source>
             <translation>minuta ranije</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>

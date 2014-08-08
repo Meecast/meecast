@@ -840,6 +840,21 @@ El temps d'espera de la connexió s'ha esgotat.</translation>
             <translation>Detallat</translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation>Mostra</translation>
         </message>
@@ -2508,6 +2523,21 @@ Precipitació: </translation>
         </message>
         <message>
             <source>Precipitation</source>
+            <translation type="unfinished">
+Precipitació: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Precipitació: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Precipitació: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
             <translation type="unfinished">
 Precipitació: </translation>
         </message>
@@ -4198,6 +4228,18 @@ per utilitzar el panell per a la pantalla d'espera</translation>
         <message>
             <source>minutes ago</source>
             <translation>minuts enrere</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>

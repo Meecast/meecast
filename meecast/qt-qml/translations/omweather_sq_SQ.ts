@@ -841,6 +841,21 @@ Koha për lidhjen mbaroi.</translation>
             <translation>Hollësitë</translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation>Trego</translation>
         </message>
@@ -2505,6 +2520,21 @@ Rreshjet: </translation>
         </message>
         <message>
             <source>Precipitation</source>
+            <translation type="unfinished">
+Rreshjet: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Rreshjet: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Rreshjet: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
             <translation type="unfinished">
 Rreshjet: </translation>
         </message>
@@ -4207,6 +4237,18 @@ për të parë widget-in në ekranin e fikur</translation>
         <message>
             <source>minutes ago</source>
             <translation>minuta më parë</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>

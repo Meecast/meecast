@@ -963,6 +963,21 @@ Connection timeout is expired.</source>
             </translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation type="unfinished">
             </translation>
@@ -2926,6 +2941,21 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Precipitation</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
             <translation type="unfinished">
             </translation>
         </message>
@@ -4988,6 +5018,21 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>minutes ago</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm</source>
             <translation type="unfinished">
             </translation>
         </message>

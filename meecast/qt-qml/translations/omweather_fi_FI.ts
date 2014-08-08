@@ -840,6 +840,21 @@ Yhteys on vanhentunut.</translation>
             <translation>Yksityiskohtainen</translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation>Näyttö</translation>
         </message>
@@ -2505,6 +2520,18 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Precipitation</source>
             <translation>Sadetta</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">Sadetta</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">Sadetta</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">Sadetta</translation>
         </message>
         <message>
             <source>Preference|Update</source>
@@ -4197,6 +4224,18 @@ tapahtumat-näkymässä' valinta</translation>
         <message>
             <source>minutes ago</source>
             <translation>minuuttia sitten</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>

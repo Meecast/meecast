@@ -841,6 +841,21 @@ Hết hạn hời gian kết nối hết.</translation>
             <translation>Chi tiết</translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation>Hiển thị</translation>
         </message>
@@ -2487,6 +2502,21 @@ Mưa:</translation>
         </message>
         <message>
             <source>Precipitation</source>
+            <translation type="unfinished">
+Mưa:</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Mưa:</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Mưa:</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
             <translation type="unfinished">
 Mưa:</translation>
         </message>
@@ -4186,6 +4216,18 @@ or ZIP code!!!</source>
         <message>
             <source>minutes ago</source>
             <translation>Phút trước</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>

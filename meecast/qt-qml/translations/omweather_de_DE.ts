@@ -841,6 +841,21 @@ Max. Verbindungszeit überschritten.</translation>
             <translation>Detailliert</translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation>Anzeige</translation>
         </message>
@@ -2508,6 +2523,21 @@ Niederschlag:</translation>
         </message>
         <message>
             <source>Precipitation</source>
+            <translation type="unfinished">
+Niederschlag:</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Niederschlag:</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Niederschlag:</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
             <translation type="unfinished">
 Niederschlag:</translation>
         </message>
@@ -4201,6 +4231,18 @@ für das Widget im Standby.</translation>
         <message>
             <source>minutes ago</source>
             <translation>Minuten her</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>

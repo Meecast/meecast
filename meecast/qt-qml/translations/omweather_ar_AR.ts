@@ -840,6 +840,21 @@ Connection timeout is expired.</source>
             <translation>مُفصل</translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation>عرض</translation>
         </message>
@@ -2475,6 +2490,21 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Precipitation</source>
+            <translation type="unfinished">
+الترسيب:</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+الترسيب:</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+الترسيب:</translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
             <translation type="unfinished">
 الترسيب:</translation>
         </message>
@@ -4169,6 +4199,18 @@ or ZIP code!!!</source>
         <message>
             <source>minutes ago</source>
             <translation>قبل دقائق</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>

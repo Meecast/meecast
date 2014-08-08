@@ -850,6 +850,21 @@ El tiempo de conexión expiró.</translation>
             <translation>Detallado</translation>
         </message>
         <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Dew point</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Display</source>
             <translation>Mostrar</translation>
         </message>
@@ -2499,6 +2514,21 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Precipitation</source>
+            <translation type="unfinished">
+Precipitación: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Precipitación: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
+            <translation type="unfinished">
+Precipitación: </translation>
+        </message>
+        <message>
+            <source>Precipitation:</source>
             <translation type="unfinished">
 Precipitación: </translation>
         </message>
@@ -4209,6 +4239,18 @@ para usar el panel LockScreen</translation>
         <message>
             <source>minutes ago</source>
             <translation>minutos atrás</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm</source>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>

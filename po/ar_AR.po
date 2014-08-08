@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-20 19:23+0300\n"
+"POT-Creation-Date: 2014-08-08 11:40+0300\n"
 "PO-Revision-Date: 2014-03-31 08:24+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/meecast/language/"
@@ -113,11 +113,11 @@ msgstr ""
 "\n"
 "W: "
 
-#: meecast/qt-qml/dataitem.cpp:488 meecast/qt-qml/dataitem.cpp:489
+#: meecast/qt-qml/dataitem.cpp:516 meecast/qt-qml/dataitem.cpp:517
 msgid "(Low)"
 msgstr "(صغرى)"
 
-#: meecast/qt-qml/dataitem.cpp:490 meecast/qt-qml/dataitem.cpp:491
+#: meecast/qt-qml/dataitem.cpp:518 meecast/qt-qml/dataitem.cpp:519
 msgid "(Moderate)"
 msgstr "(معتدل)"
 
@@ -668,7 +668,7 @@ msgid "Daily"
 msgstr "يومي"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
-#: meecast/qt-qml/qml/FullWeatherPage.qml:194
+#: meecast/qt-qml/qml/FullWeatherPage.qml:201
 msgid "Day"
 msgstr "يوم"
 
@@ -676,7 +676,7 @@ msgstr "يوم"
 msgid "Day length"
 msgstr "مدة النهار"
 
-#: omweather/src/hash.data:62 meecast/qt-qml/qml/FullWeatherPage.qml:314
+#: omweather/src/hash.data:62 meecast/qt-qml/qml/FullWeatherPage.qml:332
 msgid "Day length:"
 msgstr "مدة النهار:"
 
@@ -699,6 +699,12 @@ msgstr ""
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
 msgid "Detailed"
 msgstr "مُفصل"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:167
+#: meecast/qt-qml/qml/FullWeatherPage.qml:236
+#: meecast/qt-qml/qml/FullWeatherPage.qml:296
+msgid "Dew point"
+msgstr ""
 
 #: omweather/src/weather-settings.c:1128 omweather/src/weather-settings.c:1321
 #: omweather/src/weather-settings.c:1325
@@ -933,9 +939,9 @@ msgstr ""
 msgid "First Quarter"
 msgstr "الربع الأول"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:160
-#: meecast/qt-qml/qml/FullWeatherPage.qml:223
-#: meecast/qt-qml/qml/FullWeatherPage.qml:278
+#: meecast/qt-qml/qml/FullWeatherPage.qml:164
+#: meecast/qt-qml/qml/FullWeatherPage.qml:233
+#: meecast/qt-qml/qml/FullWeatherPage.qml:293
 msgid "Flike"
 msgstr "الشعور كـ:"
 
@@ -1189,19 +1195,19 @@ msgstr "العظمى"
 msgid "Hourly"
 msgstr "كل ساعه"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:296
+#: meecast/qt-qml/qml/FullWeatherPage.qml:314
 msgid "Hours"
 msgstr "ساعات"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:136
-#: meecast/qt-qml/qml/FullWeatherPage.qml:200
-#: meecast/qt-qml/qml/FullWeatherPage.qml:255
+#: meecast/qt-qml/qml/FullWeatherPage.qml:137
+#: meecast/qt-qml/qml/FullWeatherPage.qml:207
+#: meecast/qt-qml/qml/FullWeatherPage.qml:267
 msgid "Humidity"
 msgstr "الرطوبة"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:187
+#: meecast/qt-qml/dataitem.cpp:193
 msgid "Humidity:"
 msgstr "الرطوبة:"
 
@@ -1276,7 +1282,7 @@ msgstr "أخر تحديث في الخادم:"
 msgid "Last update from server: "
 msgstr "أخر تحديث من الخادم:"
 
-#: omweather/src/hash.data:113 meecast/qt-qml/qml/FullWeatherPage.qml:317
+#: omweather/src/hash.data:113 meecast/qt-qml/qml/FullWeatherPage.qml:335
 msgid "Last update:"
 msgstr "أخر تحديث:"
 
@@ -1732,7 +1738,7 @@ msgid "Next update:"
 msgstr "التحديث التالي:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:588
-#: meecast/qt-qml/qml/FullWeatherPage.qml:241
+#: meecast/qt-qml/qml/FullWeatherPage.qml:253
 msgid "Night"
 msgstr "مساءً"
 
@@ -1766,7 +1772,7 @@ msgstr "لايوجد أي معلومات عن الطقس لهذه المحطة."
 #: omweather/src/weather-simple-settings.c:2886
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
-#: meecast/qt-qml/dataitem.cpp:195 meecast/qt-qml/qml/FullWeatherPage.qml:130
+#: meecast/qt-qml/dataitem.cpp:201 meecast/qt-qml/qml/FullWeatherPage.qml:131
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Now"
 msgstr "الآن"
@@ -2056,15 +2062,24 @@ msgstr "المدة"
 msgid "Position:"
 msgstr "المكان:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:154
-#: meecast/qt-qml/qml/FullWeatherPage.qml:217
-#: meecast/qt-qml/qml/FullWeatherPage.qml:272
+#: meecast/qt-qml/qml/FullWeatherPage.qml:155
+#: meecast/qt-qml/qml/FullWeatherPage.qml:224
+#: meecast/qt-qml/qml/FullWeatherPage.qml:284
 msgid "Ppcp:"
 msgstr "Ppcp:"
 
 #: omweather/src/hash.data:249
 #, fuzzy
 msgid "Precipitation"
+msgstr ""
+"\n"
+"الترسيب:"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:158
+#: meecast/qt-qml/qml/FullWeatherPage.qml:227
+#: meecast/qt-qml/qml/FullWeatherPage.qml:287
+#, fuzzy
+msgid "Precipitation:"
 msgstr ""
 "\n"
 "الترسيب:"
@@ -2088,9 +2103,9 @@ msgstr "وحدات الضغط:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
-#: meecast/qt-qml/dataitem.cpp:193 meecast/qt-qml/qml/FullWeatherPage.qml:142
-#: meecast/qt-qml/qml/FullWeatherPage.qml:206
-#: meecast/qt-qml/qml/FullWeatherPage.qml:261
+#: meecast/qt-qml/dataitem.cpp:199 meecast/qt-qml/qml/FullWeatherPage.qml:143
+#: meecast/qt-qml/qml/FullWeatherPage.qml:213
+#: meecast/qt-qml/qml/FullWeatherPage.qml:273
 msgid "Pressure:"
 msgstr "الضغط:"
 
@@ -2433,7 +2448,7 @@ msgstr "إظهار الأسهم"
 msgid "Show last update time"
 msgstr ""
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:621
+#: meecast/qt-qml/qml/FullWeatherPage.qml:639
 msgid "Show on Map"
 msgstr "إظهار على الخريطة"
 
@@ -2581,7 +2596,7 @@ msgstr "السرعة"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: meecast/netbook-UX/meego-panel-omweather.cpp:772
-#: meecast/qt-qml/dataitem.cpp:191
+#: meecast/qt-qml/dataitem.cpp:197
 msgid "Speed:"
 msgstr "السرعة:"
 
@@ -2627,7 +2642,7 @@ msgstr "مُشمس / رياح"
 msgid "Sunny periods and a few showers."
 msgstr "فترات مشمسه مع زخات مطر قليلة"
 
-#: omweather/src/hash.data:317 meecast/qt-qml/qml/FullWeatherPage.qml:308
+#: omweather/src/hash.data:317 meecast/qt-qml/qml/FullWeatherPage.qml:326
 msgid "Sunrise:"
 msgstr "الشروق:"
 
@@ -2635,7 +2650,7 @@ msgstr "الشروق:"
 msgid "Sunrise: "
 msgstr "الشروق:"
 
-#: omweather/src/hash.data:318 meecast/qt-qml/qml/FullWeatherPage.qml:311
+#: omweather/src/hash.data:318 meecast/qt-qml/qml/FullWeatherPage.qml:329
 msgid "Sunset:"
 msgstr "الغروب:"
 
@@ -2695,7 +2710,7 @@ msgid "Temperature units:"
 msgstr "وحدات درجة الحرارة:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
-#: meecast/qt-qml/dataitem.cpp:185
+#: meecast/qt-qml/dataitem.cpp:191
 msgid "Temperature:"
 msgstr "الحرارة:"
 
@@ -2758,7 +2773,7 @@ msgstr "رعد"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
-#: meecast/qt-qml/qml/FullWeatherPage.qml:443
+#: meecast/qt-qml/qml/FullWeatherPage.qml:461
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Today"
 msgstr "اليوم"
@@ -2793,7 +2808,7 @@ msgstr "حاول التحديث"
 msgid "Type of click:"
 msgstr "نوع النقر:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:180
+#: meecast/qt-qml/qml/FullWeatherPage.qml:187
 msgid "UV index:"
 msgstr "مؤشر الأشعة فوق البنفسجية:"
 
@@ -2894,7 +2909,7 @@ msgid "Visible units"
 msgstr "وحدة الرؤيا"
 
 #: omweather/src/weather-popup.c:1288
-#: meecast/qt-qml/qml/FullWeatherPage.qml:177
+#: meecast/qt-qml/qml/FullWeatherPage.qml:184
 msgid "Visible:"
 msgstr "مرئي:"
 
@@ -2998,9 +3013,9 @@ msgstr "شكل الويدجت ومجموعة الأيقونات"
 msgid "Wind"
 msgstr "رياح"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:139
-#: meecast/qt-qml/qml/FullWeatherPage.qml:203
-#: meecast/qt-qml/qml/FullWeatherPage.qml:258
+#: meecast/qt-qml/qml/FullWeatherPage.qml:140
+#: meecast/qt-qml/qml/FullWeatherPage.qml:210
+#: meecast/qt-qml/qml/FullWeatherPage.qml:270
 msgid "Wind direction"
 msgstr "إتجاه الرياح"
 
@@ -3008,18 +3023,18 @@ msgstr "إتجاه الرياح"
 msgid "Wind direction:"
 msgstr "إتجاه الرياح:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:157
-#: meecast/qt-qml/qml/FullWeatherPage.qml:220
-#: meecast/qt-qml/qml/FullWeatherPage.qml:275
+#: meecast/qt-qml/qml/FullWeatherPage.qml:161
+#: meecast/qt-qml/qml/FullWeatherPage.qml:230
+#: meecast/qt-qml/qml/FullWeatherPage.qml:290
 msgid "Wind gust:"
 msgstr "قوة الرياح:"
 
-#: omweather/src/hash.data:346 meecast/qt-qml/qml/FullWeatherPage.qml:146
-#: meecast/qt-qml/qml/FullWeatherPage.qml:149
-#: meecast/qt-qml/qml/FullWeatherPage.qml:210
-#: meecast/qt-qml/qml/FullWeatherPage.qml:213
-#: meecast/qt-qml/qml/FullWeatherPage.qml:265
-#: meecast/qt-qml/qml/FullWeatherPage.qml:268
+#: omweather/src/hash.data:346 meecast/qt-qml/qml/FullWeatherPage.qml:147
+#: meecast/qt-qml/qml/FullWeatherPage.qml:150
+#: meecast/qt-qml/qml/FullWeatherPage.qml:217
+#: meecast/qt-qml/qml/FullWeatherPage.qml:220
+#: meecast/qt-qml/qml/FullWeatherPage.qml:277
+#: meecast/qt-qml/qml/FullWeatherPage.qml:280
 msgid "Wind speed"
 msgstr "سرعة الرياح:"
 
@@ -3034,7 +3049,7 @@ msgstr "وحدات سرعة الرياح:"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
-#: meecast/qt-qml/dataitem.cpp:189
+#: meecast/qt-qml/dataitem.cpp:195
 msgid "Wind:"
 msgstr "رياح:"
 
@@ -3127,11 +3142,11 @@ msgstr "التوقيت المحلي للموقع الحالي"
 msgid "d:"
 msgstr "d:"
 
-#: meecast/qt-qml/dataitem.cpp:459
+#: meecast/qt-qml/dataitem.cpp:476
 msgid "day ago"
 msgstr "قبل يوم"
 
-#: meecast/qt-qml/dataitem.cpp:461
+#: meecast/qt-qml/dataitem.cpp:478
 msgid "days ago"
 msgstr "قبل أيام"
 
@@ -3175,11 +3190,11 @@ msgstr "سقوط"
 msgid "feels like"
 msgstr "الشعور كـ:"
 
-#: meecast/qt-qml/dataitem.cpp:453
+#: meecast/qt-qml/dataitem.cpp:470
 msgid "hour ago"
 msgstr "قبل ساعة"
 
-#: meecast/qt-qml/dataitem.cpp:456
+#: meecast/qt-qml/dataitem.cpp:473
 msgid "hours ago"
 msgstr "قبل ساعات"
 
@@ -3271,16 +3286,19 @@ msgstr "ميل/س"
 msgid "mi/s"
 msgstr "ميل/ثانيه"
 
-#: meecast/qt-qml/dataitem.cpp:447
+#: meecast/qt-qml/dataitem.cpp:464
 msgid "minute ago"
 msgstr "قبل دقيقة"
 
-#: meecast/qt-qml/dataitem.cpp:450
+#: meecast/qt-qml/dataitem.cpp:467
 msgid "minutes ago"
 msgstr "قبل دقائق"
 
 #: omweather/src/weather-popup.c:961 omweather/src/weather-popup.c:1094
 #: omweather/src/weather-simple-settings.c:2727
+#: meecast/qt-qml/qml/FullWeatherPage.qml:159
+#: meecast/qt-qml/qml/FullWeatherPage.qml:228
+#: meecast/qt-qml/qml/FullWeatherPage.qml:288
 msgid "mm"
 msgstr "mm"
 
@@ -3319,7 +3337,7 @@ msgstr "nmi"
 msgid "rising"
 msgstr "مُتزايد"
 
-#: meecast/qt-qml/dataitem.cpp:444
+#: meecast/qt-qml/dataitem.cpp:461
 msgid "seconds ago"
 msgstr "قبل ثواني"
 

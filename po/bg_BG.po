@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-07 17:51+0300\n"
+"POT-Creation-Date: 2014-08-08 11:40+0300\n"
 "PO-Revision-Date: 2012-12-21 07:15+0000\n"
 "Last-Translator: zlatko <zlatko23@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/"
@@ -715,7 +715,7 @@ msgstr "Детайли"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:167
 #: meecast/qt-qml/qml/FullWeatherPage.qml:236
 #: meecast/qt-qml/qml/FullWeatherPage.qml:296
-msgid "Dewpoint"
+msgid "Dew point"
 msgstr ""
 
 #: omweather/src/weather-settings.c:1128 omweather/src/weather-settings.c:1321

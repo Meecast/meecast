@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-07 17:51+0300\n"
+"POT-Creation-Date: 2014-08-08 11:40+0300\n"
 "PO-Revision-Date: 2011-03-29 13:10+0200\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -705,7 +705,7 @@ msgstr "Podrobné"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:167
 #: meecast/qt-qml/qml/FullWeatherPage.qml:236
 #: meecast/qt-qml/qml/FullWeatherPage.qml:296
-msgid "Dewpoint"
+msgid "Dew point"
 msgstr ""
 
 #: omweather/src/weather-settings.c:1128 omweather/src/weather-settings.c:1321

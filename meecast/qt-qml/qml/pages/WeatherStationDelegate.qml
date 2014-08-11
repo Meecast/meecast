@@ -269,16 +269,6 @@ Component {
                                 horizontalAlignment: Text.AlignHCenter
 
                             }
-                            Image {
-                                id: icon
-                                source: main.current_model("current", main_index) == true ? Config.iconspath + "/" + Config.iconset + "/" + main.current_model("pict", main_index) : Config.iconspath + "/" + Config.iconset + "/" + main.forecast_model(index, "pict", main_index)
-                                width: icon_size 
-                                height: icon_size
-                                anchors.top: parent.top
-                                anchors.topMargin: -22
-                                anchors.left: now.right
-                                smooth: true    
-                            }
                             Text {
                                 anchors.top: parent.top
                                 anchors.left: icon.right
@@ -360,6 +350,16 @@ Component {
                                         running : main.current_model("current", main_index) == true ? ((main.current_model("description", main_index) >35) ? true : false) : ((main.forecast_model(index, "description", main_index) >35) ? true : false) ;  
                                     }  
                                 }  
+                            }
+			    Image {
+                                id: icon
+                                source: main.current_model("current", main_index) == true ? Config.iconspath + "/" + Config.iconset + "/" + main.current_model("pict", main_index) : Config.iconspath + "/" + Config.iconset + "/" + main.forecast_model(index, "pict", main_index)
+                                width: icon_size 
+                                height: icon_size
+                                anchors.top: parent.top
+                                anchors.topMargin: -25
+                                anchors.left: now.right
+                                smooth: true    
                             }
                             Image {
                                 id: humidity

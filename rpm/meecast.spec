@@ -94,6 +94,7 @@ desktop-file-install --delete-original       \
   * Added Sunrise and sunset for fmi.fi source
   * Added Precipitation
   * Added Precipitation data to hourly page
+  * Fixed problem with big icon on Main form
 
 * Sun Aug 03 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.7
   * Fixed sunrise and sunset time for weather.com source again :)

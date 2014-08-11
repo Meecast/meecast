@@ -212,6 +212,7 @@ public:
     Q_INVOKABLE int _current_station_id();
     Q_INVOKABLE void _current_station_id(int i);
     Q_INVOKABLE void refreshconfig();
+    Q_INVOKABLE void refreshconfig2();
     Q_INVOKABLE void check_and_update_station();
 signals:
     void iconsetChanged();

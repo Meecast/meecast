@@ -583,6 +583,7 @@ Page {
                                 verticalAlignment: Text.AlignVCenter
                             }
                             Image {
+				id: horly_icon
                                 source: Config.iconspath + "/" + Config.iconset + "/" + model.pict
                                 width: 64
                                 height: 64
@@ -594,10 +595,10 @@ Page {
                                 id: txt_precipitation
 				visible: (model.precipitation == "N/A") ? false : true
                                 font.pointSize: 14
-                                color: "white" 
+                                color: (model.precipitation == "0.0") ? "#889397" : "white" 
                                 text: model.precipitation + Config.tr("mm")
-                                anchors.right: txt_temp.left
-                                anchors.rightMargin: 30
+				anchors.left: parent.left 
+                                anchors.leftMargin: screen_width/2 + 64/2 + 30 
                                 height:parent.height
                                 verticalAlignment: Text.AlignVCenter
                             }

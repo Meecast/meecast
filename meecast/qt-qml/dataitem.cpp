@@ -501,7 +501,7 @@ DataItem::precipitation() {
         c = "N/A";
         return c;
     }
-    return c.number((DataItem::Data::Precipitation()), 'f', 0);
+    return c.number((DataItem::Data::Precipitation()), 'f', 1);
 }
 
 

@@ -679,17 +679,13 @@ ConfigQml::stations()
 void
 ConfigQml::removeStation(int index)
 {
-    std::cerr<<"removeStation"<<std::endl;
     stationsList().erase(stationsList().begin() + index);
     //stationlist->erase(stationlist->begin()+index);
     //ConfigQml::Config::stationsList(*stationlist);
-    std::cerr<<"removeStation2"<<std::endl;
     if (this->stationsList().size() > 0){
         this->current_station_id(0);
     }
-    std::cerr<<"removeStation3"<<std::endl;
     saveConfig();
-    std::cerr<<"removeStation4"<<std::endl;
     refreshconfig2();
 }
 QStringList

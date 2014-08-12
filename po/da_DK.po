@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-08 11:40+0300\n"
-"PO-Revision-Date: 2014-07-17 23:13+0000\n"
+"POT-Creation-Date: 2014-08-12 22:09+0300\n"
+"PO-Revision-Date: 2014-08-09 22:16+0000\n"
 "Last-Translator: Peter Jespersen <flywheeldk@gmail.com>\n"
 "Language-Team: Danish (Denmark) (http://www.transifex.com/projects/p/meecast/"
 "language/da_DK/)\n"
@@ -406,7 +406,7 @@ msgstr ""
 #: omweather/src/weather-config.c:383
 #, c-format
 msgid "Cannot get path to the HOME directory. Quitting.\n"
-msgstr "Kan ikke hente stien til hjemmebiblioteket. Afslutter.\n"
+msgstr "Kan ikke hente stien til hjemmebiblioteket. Afslutter."
 
 #: omweather/src/weather-settings.c:3864
 msgid "Celcius"
@@ -509,7 +509,7 @@ msgstr ""
 
 #: omweather/src/hash.data:46
 msgid "Cloudy and snow showers"
-msgstr ""
+msgstr "Overskyet og snebyger"
 
 #: omweather/src/hash.data:47
 msgid "Cloudy and wet snow showers"
@@ -573,7 +573,7 @@ msgstr ""
 
 #: omweather/src/hash.data:60
 msgid "Cloudy, thunderstorms with rain"
-msgstr ""
+msgstr "Overskyet, torden med regn"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:413
 msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
@@ -761,7 +761,7 @@ msgstr ""
 "Frank persisk - for idéen til det nye layout\n"
 "Brian Knight - for ideen om iconset, kritik og donation ;-)\n"
 "Andrew aka Tabster - for test og ideer\n"
-"Brad Jones aka kazrak - for test\n"
+"Brad Jones aka kazrak - for test"
 
 #: omweather/src/weather-simple-settings.c:330
 #: omweather/src/weather-simple-settings.c:421
@@ -882,7 +882,7 @@ msgid ""
 "Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
 msgstr ""
 "Finsk - Marko Vertainen; German - Claudius Henrichs; Spansk - Alejandro "
-"Lopez; Dutch - Tom Leenders; Slovakisk - Roman Moravčík\n"
+"Lopez; Dutch - Tom Leenders; Slovakisk - Roman Moravčík"
 
 #: omweather/src/hash.data:83
 msgid "First Quarter"
@@ -1101,16 +1101,12 @@ msgid "Haze, Smoke or Dust"
 msgstr ""
 
 #: omweather/src/hash.data:93
-#, fuzzy
 msgid "Heavy Freezing Rain"
-msgstr "Let isslag"
+msgstr ""
 
 #: omweather/src/hash.data:94
-#, fuzzy
 msgid "Heavy Precipitation"
 msgstr ""
-"\n"
-"Nedbør:"
 
 #: omweather/src/hash.data:95
 msgid "Heavy Rain"
@@ -1125,19 +1121,16 @@ msgid "Heavy Rain Shower"
 msgstr ""
 
 #: omweather/src/hash.data:98
-#, fuzzy
 msgid "Heavy Rain Showers"
-msgstr "Kraftig Regn"
+msgstr ""
 
 #: omweather/src/hash.data:99
-#, fuzzy
 msgid "Heavy Sleet"
-msgstr "Slud"
+msgstr ""
 
 #: omweather/src/hash.data:100
-#, fuzzy
 msgid "Heavy Sleet Showers"
-msgstr "Få Snebyger"
+msgstr ""
 
 #: omweather/src/hash.data:101
 msgid "Heavy Snow"
@@ -1148,18 +1141,16 @@ msgid "Heavy Snow / Wind"
 msgstr ""
 
 #: omweather/src/hash.data:103
-#, fuzzy
 msgid "Heavy Snow Showers"
-msgstr "Få Snebyger"
+msgstr ""
 
 #: omweather/src/hash.data:102
 msgid "Heavy Snowfall"
 msgstr ""
 
 #: omweather/src/hash.data:105
-#, fuzzy
 msgid "Heavy Thunder"
-msgstr "Torden"
+msgstr ""
 
 #: omweather/src/hash.data:388
 msgid "Heavy intensity rain"
@@ -1328,9 +1319,8 @@ msgid "Light Rain Shower"
 msgstr ""
 
 #: omweather/src/hash.data:372
-#, fuzzy
 msgid "Light Rain Showers"
-msgstr "Let Regn Sent"
+msgstr "Lette regnbyger"
 
 #: omweather/src/hash.data:125
 msgid "Light Rain and Freezing Rain"
@@ -1349,14 +1339,12 @@ msgid "Light Rain with Thunder"
 msgstr "Let tegn med torden"
 
 #: omweather/src/hash.data:129
-#, fuzzy
 msgid "Light Sleet"
-msgstr "Let Sne"
+msgstr ""
 
 #: omweather/src/hash.data:130
-#, fuzzy
 msgid "Light Sleet Showers"
-msgstr "Let Sne"
+msgstr ""
 
 #: omweather/src/hash.data:131
 msgid "Light Snow"
@@ -1383,14 +1371,12 @@ msgid "Light Snow Shower"
 msgstr ""
 
 #: omweather/src/hash.data:138
-#, fuzzy
 msgid "Light Snow Showers"
-msgstr "Få Snebyger"
+msgstr ""
 
 #: omweather/src/hash.data:132
-#, fuzzy
 msgid "Light Snowfall"
-msgstr "Let Sne"
+msgstr ""
 
 #: omweather/src/hash.data:374
 msgid "Light intensity drizzle"
@@ -1489,27 +1475,24 @@ msgid "Mist"
 msgstr "Dis"
 
 #: omweather/src/hash.data:146
-#, fuzzy
 msgid "Moderate Freezing Rain"
-msgstr "Let isslag"
+msgstr ""
 
 #: omweather/src/hash.data:376
 msgid "Moderate Rain"
 msgstr ""
 
 #: omweather/src/hash.data:377
-#, fuzzy
 msgid "Moderate Rain Showers"
-msgstr "Overskyet og snebyger"
+msgstr ""
 
 #: omweather/src/hash.data:145
 msgid "Moderate Sleet"
 msgstr ""
 
 #: omweather/src/hash.data:147
-#, fuzzy
 msgid "Moderate Snow Showers"
-msgstr "Få Snebyger"
+msgstr ""
 
 #: omweather/src/hash.data:375
 msgid "Moderate rain"
@@ -2045,20 +2028,14 @@ msgid "Ppcp:"
 msgstr ""
 
 #: omweather/src/hash.data:249
-#, fuzzy
 msgid "Precipitation"
 msgstr ""
-"\n"
-"Nedbør:"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:158
 #: meecast/qt-qml/qml/FullWeatherPage.qml:227
 #: meecast/qt-qml/qml/FullWeatherPage.qml:287
-#, fuzzy
 msgid "Precipitation:"
 msgstr ""
-"\n"
-"Nedbør:"
 
 #: omweather/src/weather-simple-settings.c:1653
 #: omweather/src/weather-simple-settings.c:2836
@@ -2488,9 +2465,8 @@ msgid "Sleet"
 msgstr "Slud"
 
 #: omweather/src/hash.data:298
-#, fuzzy
 msgid "Sleet Showers"
-msgstr "Få Byger"
+msgstr ""
 
 #: omweather/src/hash.data:299
 msgid "Smoke"
@@ -2513,9 +2489,8 @@ msgid "Snow Shower / Wind"
 msgstr ""
 
 #: omweather/src/hash.data:305
-#, fuzzy
 msgid "Snow Showers"
-msgstr "Få Snebyger"
+msgstr ""
 
 #: omweather/src/hash.data:306
 msgid "Snow Showers / Wind Early"
@@ -2546,9 +2521,8 @@ msgid "Snow to Wintry Mix / Wind"
 msgstr ""
 
 #: omweather/src/hash.data:301
-#, fuzzy
 msgid "Snowfall"
-msgstr "Sne"
+msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2295
 msgid "Source"
@@ -2737,9 +2711,8 @@ msgid "Thunder in the Vicinity"
 msgstr ""
 
 #: omweather/src/hash.data:327
-#, fuzzy
 msgid "Thundershowers"
-msgstr "Torden"
+msgstr ""
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
@@ -2859,9 +2832,8 @@ msgid "Very High"
 msgstr "Meget Høj"
 
 #: omweather/src/hash.data:393
-#, fuzzy
 msgid "Violent Rain Showers"
-msgstr "Få Snebyger"
+msgstr ""
 
 #: omweather/src/weather-settings.c:3517 omweather/src/weather-settings.c:3522
 msgid "Visible items:"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-08 11:40+0300\n"
-"PO-Revision-Date: 2014-07-08 13:08+0000\n"
+"POT-Creation-Date: 2014-08-12 22:09+0300\n"
+"PO-Revision-Date: 2014-08-09 16:18+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/meecast/language/"
 "ru/)\n"
@@ -682,7 +682,7 @@ msgstr "Подробно"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:236
 #: meecast/qt-qml/qml/FullWeatherPage.qml:296
 msgid "Dew point"
-msgstr ""
+msgstr "Точка росы"
 
 #: omweather/src/weather-settings.c:1128 omweather/src/weather-settings.c:1321
 #: omweather/src/weather-settings.c:1325
@@ -1095,16 +1095,12 @@ msgid "Haze, Smoke or Dust"
 msgstr ""
 
 #: omweather/src/hash.data:93
-#, fuzzy
 msgid "Heavy Freezing Rain"
-msgstr "Дождь / Холодный дождь"
+msgstr ""
 
 #: omweather/src/hash.data:94
-#, fuzzy
 msgid "Heavy Precipitation"
-msgstr ""
-"\n"
-"Атмосферные осадки: "
+msgstr "Сильные осадки"
 
 #: omweather/src/hash.data:95
 msgid "Heavy Rain"
@@ -1119,19 +1115,16 @@ msgid "Heavy Rain Shower"
 msgstr "Сильный ливневый дождь"
 
 #: omweather/src/hash.data:98
-#, fuzzy
 msgid "Heavy Rain Showers"
-msgstr "Сильный ливневый дождь"
+msgstr ""
 
 #: omweather/src/hash.data:99
-#, fuzzy
 msgid "Heavy Sleet"
-msgstr "Сильный снег"
+msgstr ""
 
 #: omweather/src/hash.data:100
-#, fuzzy
 msgid "Heavy Sleet Showers"
-msgstr "Сильный ливневый дождь"
+msgstr ""
 
 #: omweather/src/hash.data:101
 msgid "Heavy Snow"
@@ -1142,19 +1135,16 @@ msgid "Heavy Snow / Wind"
 msgstr "Сильный снег / Ветер"
 
 #: omweather/src/hash.data:103
-#, fuzzy
 msgid "Heavy Snow Showers"
-msgstr "Слабый снег"
+msgstr ""
 
 #: omweather/src/hash.data:102
-#, fuzzy
 msgid "Heavy Snowfall"
-msgstr "Сильный снег"
+msgstr ""
 
 #: omweather/src/hash.data:105
-#, fuzzy
 msgid "Heavy Thunder"
-msgstr "Гром"
+msgstr ""
 
 #: omweather/src/hash.data:388
 msgid "Heavy intensity rain"
@@ -1321,9 +1311,8 @@ msgid "Light Rain Shower"
 msgstr "Небольшой ливень"
 
 #: omweather/src/hash.data:372
-#, fuzzy
 msgid "Light Rain Showers"
-msgstr "Небольшой ливень"
+msgstr ""
 
 #: omweather/src/hash.data:125
 msgid "Light Rain and Freezing Rain"
@@ -1342,14 +1331,12 @@ msgid "Light Rain with Thunder"
 msgstr "Небольшой дождь с грозой"
 
 #: omweather/src/hash.data:129
-#, fuzzy
 msgid "Light Sleet"
-msgstr "Небольшой снег"
+msgstr ""
 
 #: omweather/src/hash.data:130
-#, fuzzy
 msgid "Light Sleet Showers"
-msgstr "Легкий снегопад"
+msgstr ""
 
 #: omweather/src/hash.data:131
 msgid "Light Snow"
@@ -1376,14 +1363,12 @@ msgid "Light Snow Shower"
 msgstr "Легкий снегопад"
 
 #: omweather/src/hash.data:138
-#, fuzzy
 msgid "Light Snow Showers"
-msgstr "Легкий снегопад"
+msgstr ""
 
 #: omweather/src/hash.data:132
-#, fuzzy
 msgid "Light Snowfall"
-msgstr "Небольшой снег"
+msgstr ""
 
 #: omweather/src/hash.data:374
 msgid "Light intensity drizzle"
@@ -1478,28 +1463,24 @@ msgid "Mist"
 msgstr "Легкий туман"
 
 #: omweather/src/hash.data:146
-#, fuzzy
 msgid "Moderate Freezing Rain"
-msgstr "Умеренный дождь"
+msgstr ""
 
 #: omweather/src/hash.data:376
 msgid "Moderate Rain"
 msgstr "Умеренный дождь"
 
 #: omweather/src/hash.data:377
-#, fuzzy
 msgid "Moderate Rain Showers"
-msgstr "Умеренный дождь"
+msgstr ""
 
 #: omweather/src/hash.data:145
-#, fuzzy
 msgid "Moderate Sleet"
-msgstr "Умеренный дождь"
+msgstr ""
 
 #: omweather/src/hash.data:147
-#, fuzzy
 msgid "Moderate Snow Showers"
-msgstr "До полудня снегопады"
+msgstr ""
 
 #: omweather/src/hash.data:375
 msgid "Moderate rain"
@@ -1591,9 +1572,8 @@ msgid "Mostly Cloudy, Light Rain, T-Storm"
 msgstr "Пасмурно, Небольшой дождь, Гроза"
 
 #: omweather/src/hash.data:170
-#, fuzzy
 msgid "Mostly Cloudy, Light Rain, Weak Heavy Rain"
-msgstr "Пасмурно, Небольшой дождь"
+msgstr ""
 
 #: omweather/src/hash.data:171
 msgid "Mostly Cloudy, Rain"
@@ -2036,20 +2016,14 @@ msgid "Ppcp:"
 msgstr ""
 
 #: omweather/src/hash.data:249
-#, fuzzy
 msgid "Precipitation"
-msgstr ""
-"\n"
-"Атмосферные осадки: "
+msgstr "Осадки"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:158
 #: meecast/qt-qml/qml/FullWeatherPage.qml:227
 #: meecast/qt-qml/qml/FullWeatherPage.qml:287
-#, fuzzy
 msgid "Precipitation:"
-msgstr ""
-"\n"
-"Атмосферные осадки: "
+msgstr "Осадки:"
 
 #: omweather/src/weather-simple-settings.c:1653
 #: omweather/src/weather-simple-settings.c:2836
@@ -2479,9 +2453,8 @@ msgid "Sleet"
 msgstr "Мокрый снег"
 
 #: omweather/src/hash.data:298
-#, fuzzy
 msgid "Sleet Showers"
-msgstr "Небольшие ливни"
+msgstr ""
 
 #: omweather/src/hash.data:299
 msgid "Smoke"
@@ -2504,9 +2477,8 @@ msgid "Snow Shower / Wind"
 msgstr "Снегопад / Ветер"
 
 #: omweather/src/hash.data:305
-#, fuzzy
 msgid "Snow Showers"
-msgstr "Снегопад"
+msgstr ""
 
 #: omweather/src/hash.data:306
 msgid "Snow Showers / Wind Early"
@@ -2537,9 +2509,8 @@ msgid "Snow to Wintry Mix / Wind"
 msgstr "Снег переходящий в поземку / Ветер"
 
 #: omweather/src/hash.data:301
-#, fuzzy
 msgid "Snowfall"
-msgstr "Снег"
+msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2295
 msgid "Source"
@@ -2727,9 +2698,8 @@ msgid "Thunder in the Vicinity"
 msgstr "Местами грозы"
 
 #: omweather/src/hash.data:327
-#, fuzzy
 msgid "Thundershowers"
-msgstr "Гром"
+msgstr ""
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
@@ -2854,9 +2824,8 @@ msgid "Very High"
 msgstr "Очень высокое"
 
 #: omweather/src/hash.data:393
-#, fuzzy
 msgid "Violent Rain Showers"
-msgstr "Небольшой ливень"
+msgstr ""
 
 #: omweather/src/weather-settings.c:3517 omweather/src/weather-settings.c:3522
 msgid "Visible items:"

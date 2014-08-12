@@ -4,7 +4,7 @@ meecast (0.9.8) unstable; urgency=low
   * Added Precipitation
   * Added Dewpoint
   * Added dewpoint for weather.com source
-  * Updated Catalan translations
+  * Updated Catalan, Spanish translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 03 Aug 2014 22:31:23 +0200
 

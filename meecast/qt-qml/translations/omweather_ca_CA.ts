@@ -841,18 +841,15 @@ El temps d'espera de la connexió s'ha esgotat.</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Punt de rosada</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Punt de rosada</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Punt de rosada</translation>
         </message>
         <message>
             <source>Display</source>
@@ -1377,17 +1374,15 @@ Català - Agustí Clara</translation>
         </message>
         <message>
             <source>Haze, Smoke or Dust</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Partícules, fum o pols</translation>
         </message>
         <message>
             <source>Heavy Freezing Rain</source>
-            <translation type="unfinished">Pluja / Pluja gebradora</translation>
+            <translation>Pluja gebradora intensa</translation>
         </message>
         <message>
             <source>Heavy Precipitation</source>
-            <translation type="unfinished">
-Precipitació: </translation>
+            <translation>Precipitació intensa</translation>
         </message>
         <message>
             <source>Heavy Rain</source>
@@ -1403,15 +1398,15 @@ Precipitació: </translation>
         </message>
         <message>
             <source>Heavy Rain Showers</source>
-            <translation type="unfinished">Ruixats intensos</translation>
+            <translation>Ruixats intensos</translation>
         </message>
         <message>
             <source>Heavy Sleet</source>
-            <translation type="unfinished">Neu intensa</translation>
+            <translation>Aiguaneu intensa</translation>
         </message>
         <message>
             <source>Heavy Sleet Showers</source>
-            <translation type="unfinished">Ruixats intensos</translation>
+            <translation>Ruixats d'aiguaneu intensos</translation>
         </message>
         <message>
             <source>Heavy Snow</source>
@@ -1423,15 +1418,15 @@ Precipitació: </translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
-            <translation type="unfinished">Alguns ruixats de neu</translation>
+            <translation>Ruixats de neu intensos</translation>
         </message>
         <message>
             <source>Heavy Snowfall</source>
-            <translation type="unfinished">Neu intensa</translation>
+            <translation>Neu intensa</translation>
         </message>
         <message>
             <source>Heavy Thunder</source>
-            <translation type="unfinished">Tempestes</translation>
+            <translation>Tempestes intenses</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1479,8 +1474,7 @@ Precipitació: </translation>
         </message>
         <message>
             <source>Ice Pellets</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Calamarsa</translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1660,7 +1654,7 @@ Precipitació: </translation>
         </message>
         <message>
             <source>Light Rain Showers</source>
-            <translation type="unfinished">Ruixat de pluja suau</translation>
+            <translation>Ruixats de pluja suaus</translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
@@ -1680,11 +1674,11 @@ Precipitació: </translation>
         </message>
         <message>
             <source>Light Sleet</source>
-            <translation type="unfinished">Neu poc intensa</translation>
+            <translation>Aguaneu suau</translation>
         </message>
         <message>
             <source>Light Sleet Showers</source>
-            <translation type="unfinished">Ruixats poc intensos de neu</translation>
+            <translation>Ruixats d'aiguaneu suaus</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1712,11 +1706,11 @@ Precipitació: </translation>
         </message>
         <message>
             <source>Light Snow Showers</source>
-            <translation type="unfinished">Ruixats poc intensos de neu</translation>
+            <translation>Ruixats de neu suaus</translation>
         </message>
         <message>
             <source>Light Snowfall</source>
-            <translation type="unfinished">Neu poc intensa</translation>
+            <translation>Neu poc intensa</translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
@@ -1728,8 +1722,7 @@ Precipitació: </translation>
         </message>
         <message>
             <source>Light or Moderate Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Precipitació suau o moderada</translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1819,7 +1812,7 @@ Precipitació: </translation>
         </message>
         <message>
             <source>Moderate Freezing Rain</source>
-            <translation type="unfinished">Pluja moderada</translation>
+            <translation>Pluja gebradora moderada</translation>
         </message>
         <message>
             <source>Moderate Rain</source>
@@ -1827,15 +1820,15 @@ Precipitació: </translation>
         </message>
         <message>
             <source>Moderate Rain Showers</source>
-            <translation type="unfinished">Pluja moderada</translation>
+            <translation>Ruixats moderats</translation>
         </message>
         <message>
             <source>Moderate Sleet</source>
-            <translation type="unfinished">Pluja moderada</translation>
+            <translation>Aiguaneu moderada</translation>
         </message>
         <message>
             <source>Moderate Snow Showers</source>
-            <translation type="unfinished">a.m.: Ruixats de neu</translation>
+            <translation>Ruixats de neu moderats</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -1935,7 +1928,7 @@ Precipitació: </translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Núvol, Pluja suau, Plugims</translation>
+            <translation>Força núvol, Pluja suau, Plugims</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
@@ -2523,23 +2516,19 @@ Precipitació: </translation>
         </message>
         <message>
             <source>Precipitation</source>
-            <translation type="unfinished">
-Precipitació: </translation>
+            <translation>Precipitació</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Precipitació: </translation>
+            <translation>Precipitació:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Precipitació: </translation>
+            <translation>Precipitació:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Precipitació: </translation>
+            <translation>Precipitació:</translation>
         </message>
         <message>
             <source>Preference|Update</source>
@@ -3055,8 +3044,7 @@ Precipitació: </translation>
         </message>
         <message>
             <source>Showers or Intermittent Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ruixats o precipitacions intermitents</translation>
         </message>
         <message>
             <source>Sky is Clear</source>
@@ -3072,7 +3060,7 @@ Precipitació: </translation>
         </message>
         <message>
             <source>Sleet Showers</source>
-            <translation type="unfinished">Alguns ruixats</translation>
+            <translation>Ruixats d'aiguaneu</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3096,7 +3084,7 @@ Precipitació: </translation>
         </message>
         <message>
             <source>Snow Showers</source>
-            <translation type="unfinished">Ruixats de neu</translation>
+            <translation>Ruixats de neu</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -3128,7 +3116,7 @@ Precipitació: </translation>
         </message>
         <message>
             <source>Snowfall</source>
-            <translation type="unfinished">Neu</translation>
+            <translation>Neu</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3220,8 +3208,7 @@ Precipitació: </translation>
         </message>
         <message>
             <source>Strong Thundershowers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tempestes fortes</translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3410,7 +3397,7 @@ qualsevol versió posterior.</translation>
         </message>
         <message>
             <source>Thundershowers</source>
-            <translation type="unfinished">Tempestes</translation>
+            <translation>Tempestes</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3622,7 +3609,7 @@ de la informació del temps.
         </message>
         <message>
             <source>Violent Rain Showers</source>
-            <translation type="unfinished">Ruixat de pluja suau</translation>
+            <translation>Ruixats violents</translation>
         </message>
         <message>
             <source>Visible items:</source>

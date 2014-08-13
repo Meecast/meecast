@@ -406,7 +406,7 @@ msgstr ""
 #: omweather/src/weather-config.c:383
 #, c-format
 msgid "Cannot get path to the HOME directory. Quitting.\n"
-msgstr "Kan ikke hente stien til hjemmebiblioteket. Afslutter."
+msgstr "Kan ikke hente stien til hjemmebiblioteket. Afslutter.\n"
 
 #: omweather/src/weather-settings.c:3864
 msgid "Celcius"
@@ -761,7 +761,7 @@ msgstr ""
 "Frank persisk - for idéen til det nye layout\n"
 "Brian Knight - for ideen om iconset, kritik og donation ;-)\n"
 "Andrew aka Tabster - for test og ideer\n"
-"Brad Jones aka kazrak - for test"
+"Brad Jones aka kazrak - for test\n"
 
 #: omweather/src/weather-simple-settings.c:330
 #: omweather/src/weather-simple-settings.c:421
@@ -882,7 +882,7 @@ msgid ""
 "Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
 msgstr ""
 "Finsk - Marko Vertainen; German - Claudius Henrichs; Spansk - Alejandro "
-"Lopez; Dutch - Tom Leenders; Slovakisk - Roman Moravčík"
+"Lopez; Dutch - Tom Leenders; Slovakisk - Roman Moravčík\n"
 
 #: omweather/src/hash.data:83
 msgid "First Quarter"

@@ -70,6 +70,7 @@ class DataItem : public QObject, public Core::Data
         DewpointRole,
         PpcpRole,
         PrecipitationRole,
+        PrecipitationRateRole,
         TemperatureLabelRole,
         HumidityLabelRole,
         WindLabelRole,

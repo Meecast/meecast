@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2014 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -99,6 +99,7 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[DewpointRole] = "dewpoint";
     names[PpcpRole] = "ppcp";
     names[PrecipitationRole] = "precipitation";
+    names[PrecipitationRateRole] = "precipitation_rate";
     names[SunRiseRole] = "sunrise";
     names[SunSetRole] = "sunset";
     names[LastUpdateRole] = "lastupdate";
@@ -178,6 +179,8 @@ QVariant DataItem::data(int role)
         return ppcp();
     case PrecipitationRole:
         return precipitation();
+    case PrecipitationRateRole:
+        return precipitation_rate();
     case MapPatternRole:
         return map_pattern();
     case MapBackgroundPatternRole:
@@ -504,6 +507,15 @@ DataItem::precipitation() {
     return c.number((DataItem::Data::Precipitation()), 'f', 1);
 }
 
+QString
+DataItem::precipitation_rate() {
+    QString c;
+    if (DataItem::Data::Precipitation_rate() == INT_MAX){
+        c = "N/A";
+        return c;
+    }
+    return c.number((DataItem::Data::Precipitation_rate()), 'f', 1);
+}
 
 QString
 DataItem::uv_index() {

@@ -66,6 +66,7 @@ namespace Core {
         _sunset = 0;
         _ppcp = INT_MAX;
         _precipitation = INT_MAX;
+        _precipitation_rate = INT_MAX;
         _uv_index = INT_MAX;
     }
     ////////////////////////////////////////////////////////////////////////////////
@@ -98,6 +99,7 @@ namespace Core {
         _end_time = data->_end_time;
         _ppcp = data->_ppcp;
         _precipitation = data->_precipitation;
+        _precipitation_rate = data->_precipitation_rate;
         _uv_index = data->_uv_index;
         _short_day_name = new std::string();
         _short_day_name->assign(data->_short_day_name->data());
@@ -419,4 +421,16 @@ namespace Core {
         /* need to check type ( ) */
         return _precipitation;
     }
+////////////////////////////////////////////////////////////////////////////////
+    void
+    Data::Precipitation_rate(float precipitation_rate){
+        _precipitation_rate = precipitation_rate;
+    }
+
+    float
+    Data::Precipitation_rate() const{
+        /* need to check type ( ) */
+        return _precipitation_rate;
+    }
+
 } // namespace Core

@@ -159,7 +159,7 @@ Page {
                          value: model_current.getdata(day, "precipitation") + Config.tr("mm")});
             if ((model_current.getdata(day, "precipitation_rate")) != "N/A")
                 condition.append({cond_name: Config.tr("Precipitation rate:"),
-                         value: model_current.getdata(day, "precipitation_rate") + Config.tr("mm/h")});
+                         value: model_current.getdata(day, "precipitation_rate") + ' ' + Config.tr("mm/h")});
             if ((model_current.getdata(day, "wind_gust")) != "N/A")
                 condition.append({cond_name: Config.tr("Wind gust:"),
                          value: model_current.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});
@@ -231,7 +231,7 @@ Page {
                          value: model_day.getdata(day, "precipitation") + Config.tr("mm")});
             if ((model_day.getdata(day, "precipitation_rate")) != "N/A")
                 condition.append({cond_name: Config.tr("Precipitation rate:"),
-                         value: model_day.getdata(day, "precipitation_rate") + Config.tr("mm/h")});
+                         value: model_day.getdata(day, "precipitation_rate") + ' ' + Config.tr("mm/h")});
             if ((model_day.getdata(day, "wind_gust")) != "N/A")
                 condition.append({cond_name: Config.tr("Wind gust:"),
                          value: model_day.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});
@@ -294,7 +294,7 @@ Page {
                          value: model_night.getdata(day, "precipitation") + Config.tr("mm")});
             if ((model_night.getdata(day, "precipitation_rate")) != "N/A")
                 condition.append({cond_name: Config.tr("Precipitation rate:"),
-                         value: model_night.getdata(day, "precipitation_rate") + Config.tr("mm/h")});
+                         value: model_night.getdata(day, "precipitation_rate") + ' ' + Config.tr("mm/h")});
             if ((model_night.getdata(day, "wind_gust")) != "N/A")
                 condition.append({cond_name: Config.tr("Wind gust:"),
                          value: model_night.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});

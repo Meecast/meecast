@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2014 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -136,6 +136,7 @@ public:
     QString pressure();
     inline QString ppcp();
     inline QString precipitation();
+    inline QString precipitation_rate();
     QString map_pattern();
     QString mapbackground_pattern();
     QString count_of_maps();

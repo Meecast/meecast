@@ -299,11 +299,11 @@ Vie: </translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
-            <translation>Chaparrones de lluvia o nieve por la mañana</translation>
+            <translation>Chubascos de lluvia o nieve por la mañana</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers / Wind</source>
-            <translation>Chaparrones / Nieve / Viento por la mañana</translation>
+            <translation>Chubascos / Nieve / Viento por la mañana</translation>
         </message>
         <message>
             <source>AM Rain / Wind</source>
@@ -311,11 +311,11 @@ Vie: </translation>
         </message>
         <message>
             <source>AM Showers</source>
-            <translation>Chaparrones por la mañana</translation>
+            <translation>Chubascos por la mañana</translation>
         </message>
         <message>
             <source>AM Showers / Wind</source>
-            <translation>Chaparrones / Viento por la mañana</translation>
+            <translation>Chubascos / Viento por la mañana</translation>
         </message>
         <message>
             <source>AM Snow</source>
@@ -323,15 +323,15 @@ Vie: </translation>
         </message>
         <message>
             <source>AM Snow Showers</source>
-            <translation>chaparrones de nieve por la mañana</translation>
+            <translation>Chubascos de nieve por la mañana</translation>
         </message>
         <message>
             <source>AM Snow Showers / Wind</source>
-            <translation>chaparrones de nieve / Viento por la mañana</translation>
+            <translation>Chubascos de nieve / Viento por la mañana</translation>
         </message>
         <message>
             <source>AM Snow Showers / Wind Late</source>
-            <translation>Por la mañana chaparrones de nieve / viento luego</translation>
+            <translation>Por la mañana chubascos de nieve / viento luego</translation>
         </message>
         <message>
             <source>About</source>
@@ -676,15 +676,15 @@ Diseño de la IU para Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy and showers</source>
-            <translation>Nublado y chaparrones</translation>
+            <translation>Nublado y chubascos</translation>
         </message>
         <message>
             <source>Cloudy and snow showers</source>
-            <translation>Nublado y chaparrones de nieve</translation>
+            <translation>Nublado y chubascos de nieve</translation>
         </message>
         <message>
             <source>Cloudy and wet snow showers</source>
-            <translation>Nublado y chaparrones de nieve húmeda</translation>
+            <translation>Nublado y chubascos de nieve húmeda</translation>
         </message>
         <message>
             <source>Cloudy with occasional rain.</source>
@@ -840,18 +840,15 @@ El tiempo de conexión expiró.</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Punto de rocío</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Punto de rocío</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Punto de rocío</translation>
         </message>
         <message>
             <source>Display</source>
@@ -1107,11 +1104,11 @@ Brad &quot;kazrak&quot; Jones - por testear
         </message>
         <message>
             <source>Few Showers</source>
-            <translation>Algunos chaparrones</translation>
+            <translation>Algunos chubascos</translation>
         </message>
         <message>
             <source>Few Showers / Wind</source>
-            <translation>Algunos chaparrones / Viento</translation>
+            <translation>Algunos chubascos / Viento</translation>
         </message>
         <message>
             <source>Few Snow</source>
@@ -1119,11 +1116,11 @@ Brad &quot;kazrak&quot; Jones - por testear
         </message>
         <message>
             <source>Few Snow Showers</source>
-            <translation>Pocos chaparrones de nieve</translation>
+            <translation>Pocos chubascos de nieve</translation>
         </message>
         <message>
             <source>Few Snow Showers / Wind</source>
-            <translation>Pocos chaparrones de nieve / Viento</translation>
+            <translation>Pocos chubascos de nieve / Viento</translation>
         </message>
         <message>
             <source>Few clouds</source>
@@ -1375,17 +1372,15 @@ Eslovaco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Haze, Smoke or Dust</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Partículas, Humo o Polvo</translation>
         </message>
         <message>
             <source>Heavy Freezing Rain</source>
-            <translation type="unfinished">Lluvia / Lluvia helada</translation>
+            <translation>Lluvia helada intensa</translation>
         </message>
         <message>
             <source>Heavy Precipitation</source>
-            <translation type="unfinished">
-Precipitación: </translation>
+            <translation>Precipitaciones intensas</translation>
         </message>
         <message>
             <source>Heavy Rain</source>
@@ -1397,19 +1392,19 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Heavy Rain Shower</source>
-            <translation>Chaparrones intensos</translation>
+            <translation>Chubascos intensos</translation>
         </message>
         <message>
             <source>Heavy Rain Showers</source>
-            <translation type="unfinished">Chaparrones intensos</translation>
+            <translation>Chubascos intensos</translation>
         </message>
         <message>
             <source>Heavy Sleet</source>
-            <translation type="unfinished">Nieve intensa</translation>
+            <translation>Aguanieve intensa</translation>
         </message>
         <message>
             <source>Heavy Sleet Showers</source>
-            <translation type="unfinished">Chaparrones intensos</translation>
+            <translation>Chubascos de aguanieve intensos</translation>
         </message>
         <message>
             <source>Heavy Snow</source>
@@ -1421,15 +1416,15 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
-            <translation type="unfinished">Pocos chaparrones de nieve</translation>
+            <translation>Chubascos de nieve intensos</translation>
         </message>
         <message>
             <source>Heavy Snowfall</source>
-            <translation type="unfinished">Nieve intensa</translation>
+            <translation>Nieve intensa</translation>
         </message>
         <message>
             <source>Heavy Thunder</source>
-            <translation type="unfinished">Tormenta eléctrica</translation>
+            <translation>Tormentas intensas</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1477,8 +1472,7 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Ice Pellets</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Granizo</translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1654,11 +1648,11 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Light Rain Shower</source>
-            <translation>Chaparrones ligeros</translation>
+            <translation>Chubascos ligeros</translation>
         </message>
         <message>
             <source>Light Rain Showers</source>
-            <translation type="unfinished">Chaparrones ligeros</translation>
+            <translation>Chubascos ligeros</translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
@@ -1666,7 +1660,7 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Light Rain and Shower</source>
-            <translation>Lluvia ligera y chaparrones</translation>
+            <translation>Lluvia ligera y chubascos</translation>
         </message>
         <message>
             <source>Light Rain and Windy</source>
@@ -1678,11 +1672,11 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Light Sleet</source>
-            <translation type="unfinished">Nieve ligera</translation>
+            <translation>Aguanieve ligera</translation>
         </message>
         <message>
             <source>Light Sleet Showers</source>
-            <translation type="unfinished">Ligero chaparrón de nieve</translation>
+            <translation>Chubascos de aguanieve ligeros</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1710,11 +1704,11 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Light Snow Showers</source>
-            <translation type="unfinished">Ligero chaparrón de nieve</translation>
+            <translation>Chubascos de nieve ligeros</translation>
         </message>
         <message>
             <source>Light Snowfall</source>
-            <translation type="unfinished">Nieve ligera</translation>
+            <translation>Nieve ligera</translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
@@ -1726,8 +1720,7 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Light or Moderate Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Precipitaciones ligeras o moderadas</translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1817,7 +1810,7 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Moderate Freezing Rain</source>
-            <translation type="unfinished">Lluvia moderada</translation>
+            <translation>Lluvia helada moderada</translation>
         </message>
         <message>
             <source>Moderate Rain</source>
@@ -1825,15 +1818,15 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Moderate Rain Showers</source>
-            <translation type="unfinished">Lluvia moderada</translation>
+            <translation>Chubascos moderados</translation>
         </message>
         <message>
             <source>Moderate Sleet</source>
-            <translation type="unfinished">Lluvia moderada</translation>
+            <translation>Aguanieve moderada</translation>
         </message>
         <message>
             <source>Moderate Snow Showers</source>
-            <translation type="unfinished">chaparrones de nieve por la mañana</translation>
+            <translation>Chubascos de nieve moderados</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -1933,7 +1926,7 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Nublado, Lluvia ligera, Llovizna</translation>
+            <translation>Bastante nublado, Lluvia ligera, Lloviznas</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
@@ -2289,7 +2282,7 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Overcast and showers</source>
-            <translation>Cubierto y chaparrones</translation>
+            <translation>Cubierto y chubascos</translation>
         </message>
         <message>
             <source>Overcast and snow</source>
@@ -2297,7 +2290,7 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Overcast and snow showers</source>
-            <translation>Cubierto y chaparrones de nieve</translation>
+            <translation>Cubierto y chubascos de nieve</translation>
         </message>
         <message>
             <source>Overcast and wet snow</source>
@@ -2349,11 +2342,11 @@ Precipitación: </translation>
         </message>
         <message>
             <source>PM Showers</source>
-            <translation>Chaparrones por la noche</translation>
+            <translation>Chubascos por la noche</translation>
         </message>
         <message>
             <source>PM Showers / Wind</source>
-            <translation>Chaparrones / Viento por la noche</translation>
+            <translation>Chubascos / Viento por la noche</translation>
         </message>
         <message>
             <source>PM Snow</source>
@@ -2361,15 +2354,15 @@ Precipitación: </translation>
         </message>
         <message>
             <source>PM Snow Showers</source>
-            <translation>chaparrones de nieve por la noche</translation>
+            <translation>Chubascos de nieve por la noche</translation>
         </message>
         <message>
             <source>PM Snow Showers / Wind</source>
-            <translation>chaparrones de nieve / Viento por la noche</translation>
+            <translation>Chubascos de nieve / Viento por la noche</translation>
         </message>
         <message>
             <source>PM T-Showers</source>
-            <translation>Chaparrones por la noche</translation>
+            <translation>Chubascos tormentosos por la noche</translation>
         </message>
         <message>
             <source>PM T-Storms</source>
@@ -2481,15 +2474,15 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Partly cloudy and showers</source>
-            <translation>Parcialmente nublado y chaparrones</translation>
+            <translation>Parcialmente nublado y chubascos</translation>
         </message>
         <message>
             <source>Partly cloudy and snow showers</source>
-            <translation>Parcialmente nublado y chaparrones de nieve</translation>
+            <translation>Parcialmente nublado y chubascos de nieve</translation>
         </message>
         <message>
             <source>Partly cloudy and wet snow showers</source>
-            <translation>Parcialmente nublado y chaparrones de nieve húmeda</translation>
+            <translation>Parcialmente nublado y chubascos de nieve húmeda</translation>
         </message>
         <message>
             <source>Partly cloudy, possible thunderstorms with rain</source>
@@ -2521,23 +2514,19 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Precipitation</source>
-            <translation type="unfinished">
-Precipitación: </translation>
+            <translation>Precipitación</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Precipitación: </translation>
+            <translation>Precipitación: </translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Precipitación: </translation>
+            <translation>Precipitación: </translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Precipitación: </translation>
+            <translation>Precipitación: </translation>
         </message>
         <message>
             <source>Preference|Update</source>
@@ -2641,15 +2630,15 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Rain / Snow Showers</source>
-            <translation>Lluvia / Chaparrones de nieve</translation>
+            <translation>Lluvia / Chubascos de nieve</translation>
         </message>
         <message>
             <source>Rain / Snow Showers / Wind</source>
-            <translation>Lluvia / Chaparrones de nieve / Viento</translation>
+            <translation>Lluvia / Chubascos de nieve / Viento</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>
-            <translation>Lluvia / Chaparrones de nieve tarde</translation>
+            <translation>Lluvia / Chubascos de nieve tarde</translation>
         </message>
         <message>
             <source>Rain / Thunder</source>
@@ -2673,15 +2662,15 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Rain Shower</source>
-            <translation>Chaparrones</translation>
+            <translation>Chubascos</translation>
         </message>
         <message>
             <source>Rain Shower and Windy</source>
-            <translation>Chaparrones y viento</translation>
+            <translation>Chubascos y viento</translation>
         </message>
         <message>
             <source>Rain Showers</source>
-            <translation>Chaparrones</translation>
+            <translation>Chubascos</translation>
         </message>
         <message>
             <source>Rain and Snow</source>
@@ -2801,7 +2790,7 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Scattered Showers</source>
-            <translation>Chaparrones aislados</translation>
+            <translation>Chubascos aislados</translation>
         </message>
         <message>
             <source>Scattered Snow</source>
@@ -2809,7 +2798,7 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Scattered Snow Showers</source>
-            <translation>Chaparrones de nieve dispersos</translation>
+            <translation>Chubascos de nieve dispersos</translation>
         </message>
         <message>
             <source>Scattered T-Storms</source>
@@ -3029,32 +3018,31 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Showers</source>
-            <translation>Chaparrones</translation>
+            <translation>Chubascos</translation>
         </message>
         <message>
             <source>Showers / Wind</source>
-            <translation>Chaparrones / Viento</translation>
+            <translation>Chubascos / Viento</translation>
         </message>
         <message>
             <source>Showers / Wind Early</source>
-            <translation>Chaparrones / Viento temprano</translation>
+            <translation>Chubascos / Viento temprano</translation>
         </message>
         <message>
             <source>Showers Early</source>
-            <translation>Chaparrones temprano</translation>
+            <translation>Chubascos temprano</translation>
         </message>
         <message>
             <source>Showers Late</source>
-            <translation>Chaparrones tarde</translation>
+            <translation>Chubascos tarde</translation>
         </message>
         <message>
             <source>Showers in the Vicinity</source>
-            <translation>Chaparrones localizados</translation>
+            <translation>Chubascos localizados</translation>
         </message>
         <message>
             <source>Showers or Intermittent Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chubascos o precipitaciones intermitentes</translation>
         </message>
         <message>
             <source>Sky is Clear</source>
@@ -3070,7 +3058,7 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Sleet Showers</source>
-            <translation type="unfinished">Algunos chaparrones</translation>
+            <translation>Chubascos de aguanieve</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3094,19 +3082,19 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Snow Showers</source>
-            <translation type="unfinished">Chaparrón de nieve</translation>
+            <translation>Chubascos de nieve</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
-            <translation>Chaparrones de nieve / Viento temprano</translation>
+            <translation>Chubascos de nieve / Viento temprano</translation>
         </message>
         <message>
             <source>Snow Showers Early</source>
-            <translation>Chaparrones de nieve temprano</translation>
+            <translation>Chubascos de nieve temprano</translation>
         </message>
         <message>
             <source>Snow Showers Late</source>
-            <translation>Chaparrones de nieve tarde</translation>
+            <translation>Chubascos de nieve tarde</translation>
         </message>
         <message>
             <source>Snow and Freezing Rain</source>
@@ -3126,7 +3114,7 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Snowfall</source>
-            <translation type="unfinished">Nieve</translation>
+            <translation>Nieve</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3218,8 +3206,7 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Strong Thundershowers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tormentas fuertes</translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3408,7 +3395,7 @@ ya sea la versión 2.1 de la licencia, o (a sudiscreción) cualquier versión po
         </message>
         <message>
             <source>Thundershowers</source>
-            <translation type="unfinished">Tormenta eléctrica</translation>
+            <translation>Tormentas</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3620,7 +3607,7 @@ la información del clima.
         </message>
         <message>
             <source>Violent Rain Showers</source>
-            <translation type="unfinished">Chaparrones ligeros</translation>
+            <translation>Chubascos violentos</translation>
         </message>
         <message>
             <source>Visible items:</source>

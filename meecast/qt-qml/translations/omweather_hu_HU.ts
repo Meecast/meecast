@@ -2507,6 +2507,21 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">
+Előrejelzés:</translation>
+        </message>
+        <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">
+Előrejelzés:</translation>
+        </message>
+        <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">
+Előrejelzés:</translation>
+        </message>
+        <message>
             <source>Precipitation:</source>
             <translation type="unfinished">
 Előrejelzés:</translation>
@@ -4244,6 +4259,21 @@ vagy irányítószám!</translation>
         <message>
             <source>mm</source>
             <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>mmHg</source>

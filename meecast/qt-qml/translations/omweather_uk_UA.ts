@@ -2491,6 +2491,21 @@ Slovak - Roman Moravčík</source>
 Атмосферні опади:</translation>
         </message>
         <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">
+Атмосферні опади:</translation>
+        </message>
+        <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">
+Атмосферні опади:</translation>
+        </message>
+        <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">
+Атмосферні опади:</translation>
+        </message>
+        <message>
             <source>Precipitation:</source>
             <translation type="unfinished">
 Атмосферні опади:</translation>
@@ -4234,6 +4249,21 @@ StandbyScreen віджета
         <message>
             <source>mm</source>
             <translation>мм</translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>mmHg</source>

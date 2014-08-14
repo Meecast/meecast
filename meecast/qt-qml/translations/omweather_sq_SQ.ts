@@ -2524,6 +2524,21 @@ Rreshjet: </translation>
 Rreshjet: </translation>
         </message>
         <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">
+Rreshjet: </translation>
+        </message>
+        <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">
+Rreshjet: </translation>
+        </message>
+        <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">
+Rreshjet: </translation>
+        </message>
+        <message>
             <source>Precipitation:</source>
             <translation type="unfinished">
 Rreshjet: </translation>
@@ -4261,6 +4276,21 @@ për të parë widget-in në ekranin e fikur</translation>
         <message>
             <source>mm</source>
             <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>mmHg</source>

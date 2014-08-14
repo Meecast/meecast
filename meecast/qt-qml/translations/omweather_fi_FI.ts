@@ -2522,6 +2522,18 @@ Slovakia - Roman Moravčík</translation>
             <translation>Sadetta</translation>
         </message>
         <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">Sadetta</translation>
+        </message>
+        <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">Sadetta</translation>
+        </message>
+        <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">Sadetta</translation>
+        </message>
+        <message>
             <source>Precipitation:</source>
             <translation type="unfinished">Sadetta</translation>
         </message>
@@ -4248,6 +4260,21 @@ tapahtumat-näkymässä' valinta</translation>
         <message>
             <source>mm</source>
             <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>mmHg</source>

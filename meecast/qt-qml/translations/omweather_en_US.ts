@@ -2521,6 +2521,21 @@ Precipitation: </translation>
 Precipitation: </translation>
         </message>
         <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">
+Precipitation: </translation>
+        </message>
+        <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">
+Precipitation: </translation>
+        </message>
+        <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">
+Precipitation: </translation>
+        </message>
+        <message>
             <source>Precipitation:</source>
             <translation type="unfinished">
 Precipitation: </translation>
@@ -4257,6 +4272,21 @@ or ZIP code!!!</translation>
         <message>
             <source>mm</source>
             <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>mmHg</source>

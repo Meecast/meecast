@@ -597,7 +597,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             }    
 
             fprintf(file_out,"    </period>\n");
-            if (first_day){
+            if (first_day && current_temperature != INT_MAX){
                 utc_time = current_time - localtimezone*3600;
                 fprintf(file_out,"    <period start=\"%li\"", utc_time - 2*3600);
                 fprintf(file_out," end=\"%li\" current=\"true\">\n", utc_time + 6*3600); 

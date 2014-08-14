@@ -2497,6 +2497,21 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
 Валежи: </translation>
         </message>
         <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">
+Валежи: </translation>
+        </message>
+        <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">
+Валежи: </translation>
+        </message>
+        <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">
+Валежи: </translation>
+        </message>
+        <message>
             <source>Precipitation:</source>
             <translation type="unfinished">
 Валежи: </translation>
@@ -4233,6 +4248,21 @@ or ZIP code!!!</source>
         <message>
             <source>mm</source>
             <translation>мм</translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>mmHg</source>

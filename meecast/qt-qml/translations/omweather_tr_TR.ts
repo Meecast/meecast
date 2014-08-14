@@ -2507,6 +2507,18 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Yağış</translation>
         </message>
         <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">Yağış</translation>
+        </message>
+        <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">Yağış</translation>
+        </message>
+        <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">Yağış</translation>
+        </message>
+        <message>
             <source>Precipitation:</source>
             <translation type="unfinished">Yağış</translation>
         </message>
@@ -4225,6 +4237,21 @@ aktiflestirmeniz gerekir.</translation>
         <message>
             <source>mm</source>
             <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>mmHg</source>

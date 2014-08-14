@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-08 11:40+0300\n"
+"POT-Creation-Date: 2014-08-13 21:39+0300\n"
 "PO-Revision-Date: 2012-12-20 12:13+0000\n"
 "Last-Translator: Ludmila Lisovskaya <ludmila.lisovskaya@gmail.com>\n"
 "Language-Team: Chinese (http://www.transifex.com/projects/p/meecast/language/"
@@ -113,11 +113,11 @@ msgstr ""
 "\n"
 "W: "
 
-#: meecast/qt-qml/dataitem.cpp:516 meecast/qt-qml/dataitem.cpp:517
+#: meecast/qt-qml/dataitem.cpp:528 meecast/qt-qml/dataitem.cpp:529
 msgid "(Low)"
 msgstr "(最低)"
 
-#: meecast/qt-qml/dataitem.cpp:518 meecast/qt-qml/dataitem.cpp:519
+#: meecast/qt-qml/dataitem.cpp:530 meecast/qt-qml/dataitem.cpp:531
 msgid "(Moderate)"
 msgstr "(中度)"
 
@@ -671,7 +671,7 @@ msgid "Daily"
 msgstr "每天"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
-#: meecast/qt-qml/qml/FullWeatherPage.qml:201
+#: meecast/qt-qml/qml/FullWeatherPage.qml:204
 msgid "Day"
 msgstr "白天"
 
@@ -679,7 +679,7 @@ msgstr "白天"
 msgid "Day length"
 msgstr "日长"
 
-#: omweather/src/hash.data:62 meecast/qt-qml/qml/FullWeatherPage.qml:332
+#: omweather/src/hash.data:62 meecast/qt-qml/qml/FullWeatherPage.qml:341
 msgid "Day length:"
 msgstr "日长:"
 
@@ -702,9 +702,9 @@ msgstr ""
 msgid "Detailed"
 msgstr "详细"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:167
-#: meecast/qt-qml/qml/FullWeatherPage.qml:236
-#: meecast/qt-qml/qml/FullWeatherPage.qml:296
+#: meecast/qt-qml/qml/FullWeatherPage.qml:170
+#: meecast/qt-qml/qml/FullWeatherPage.qml:242
+#: meecast/qt-qml/qml/FullWeatherPage.qml:305
 msgid "Dew point"
 msgstr ""
 
@@ -941,9 +941,9 @@ msgstr ""
 msgid "First Quarter"
 msgstr "第一季"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:164
-#: meecast/qt-qml/qml/FullWeatherPage.qml:233
-#: meecast/qt-qml/qml/FullWeatherPage.qml:293
+#: meecast/qt-qml/qml/FullWeatherPage.qml:167
+#: meecast/qt-qml/qml/FullWeatherPage.qml:239
+#: meecast/qt-qml/qml/FullWeatherPage.qml:302
 msgid "Flike"
 msgstr "体感温度"
 
@@ -1226,19 +1226,19 @@ msgstr "高"
 msgid "Hourly"
 msgstr "小时"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:314
+#: meecast/qt-qml/qml/FullWeatherPage.qml:323
 msgid "Hours"
 msgstr "小时"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:137
-#: meecast/qt-qml/qml/FullWeatherPage.qml:207
-#: meecast/qt-qml/qml/FullWeatherPage.qml:267
+#: meecast/qt-qml/qml/FullWeatherPage.qml:210
+#: meecast/qt-qml/qml/FullWeatherPage.qml:273
 msgid "Humidity"
 msgstr "湿度: "
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:193
+#: meecast/qt-qml/dataitem.cpp:196
 msgid "Humidity:"
 msgstr "湿度: "
 
@@ -1313,7 +1313,7 @@ msgstr "服务器最后更新: "
 msgid "Last update from server: "
 msgstr "最后从服务器更新: "
 
-#: omweather/src/hash.data:113 meecast/qt-qml/qml/FullWeatherPage.qml:335
+#: omweather/src/hash.data:113 meecast/qt-qml/qml/FullWeatherPage.qml:344
 msgid "Last update:"
 msgstr "最后更新: "
 
@@ -1780,7 +1780,7 @@ msgid "Next update:"
 msgstr "下次更新:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:588
-#: meecast/qt-qml/qml/FullWeatherPage.qml:253
+#: meecast/qt-qml/qml/FullWeatherPage.qml:259
 msgid "Night"
 msgstr "夜间"
 
@@ -1814,7 +1814,7 @@ msgstr "此地区没有天气数据."
 #: omweather/src/weather-simple-settings.c:2886
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
-#: meecast/qt-qml/dataitem.cpp:201 meecast/qt-qml/qml/FullWeatherPage.qml:131
+#: meecast/qt-qml/dataitem.cpp:204 meecast/qt-qml/qml/FullWeatherPage.qml:131
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Now"
 msgstr "现在"
@@ -2108,8 +2108,8 @@ msgid "Position:"
 msgstr "位置:"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:155
-#: meecast/qt-qml/qml/FullWeatherPage.qml:224
-#: meecast/qt-qml/qml/FullWeatherPage.qml:284
+#: meecast/qt-qml/qml/FullWeatherPage.qml:227
+#: meecast/qt-qml/qml/FullWeatherPage.qml:290
 msgid "Ppcp:"
 msgstr "Ppcp:"
 
@@ -2120,9 +2120,18 @@ msgstr ""
 "\n"
 "降水: "
 
+#: meecast/qt-qml/qml/FullWeatherPage.qml:161
+#: meecast/qt-qml/qml/FullWeatherPage.qml:233
+#: meecast/qt-qml/qml/FullWeatherPage.qml:296
+#, fuzzy
+msgid "Precipitation rate:"
+msgstr ""
+"\n"
+"降水: "
+
 #: meecast/qt-qml/qml/FullWeatherPage.qml:158
-#: meecast/qt-qml/qml/FullWeatherPage.qml:227
-#: meecast/qt-qml/qml/FullWeatherPage.qml:287
+#: meecast/qt-qml/qml/FullWeatherPage.qml:230
+#: meecast/qt-qml/qml/FullWeatherPage.qml:293
 #, fuzzy
 msgid "Precipitation:"
 msgstr ""
@@ -2148,9 +2157,9 @@ msgstr "气压单位: "
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
-#: meecast/qt-qml/dataitem.cpp:199 meecast/qt-qml/qml/FullWeatherPage.qml:143
-#: meecast/qt-qml/qml/FullWeatherPage.qml:213
-#: meecast/qt-qml/qml/FullWeatherPage.qml:273
+#: meecast/qt-qml/dataitem.cpp:202 meecast/qt-qml/qml/FullWeatherPage.qml:143
+#: meecast/qt-qml/qml/FullWeatherPage.qml:216
+#: meecast/qt-qml/qml/FullWeatherPage.qml:279
 msgid "Pressure:"
 msgstr "气压:"
 
@@ -2499,7 +2508,7 @@ msgstr "显示箭头"
 msgid "Show last update time"
 msgstr "最后更新: "
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:639
+#: meecast/qt-qml/qml/FullWeatherPage.qml:648
 msgid "Show on Map"
 msgstr "在地图里显示"
 
@@ -2650,7 +2659,7 @@ msgstr "风速"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: meecast/netbook-UX/meego-panel-omweather.cpp:772
-#: meecast/qt-qml/dataitem.cpp:197
+#: meecast/qt-qml/dataitem.cpp:200
 msgid "Speed:"
 msgstr "风速:"
 
@@ -2696,7 +2705,7 @@ msgstr ""
 msgid "Sunny periods and a few showers."
 msgstr ""
 
-#: omweather/src/hash.data:317 meecast/qt-qml/qml/FullWeatherPage.qml:326
+#: omweather/src/hash.data:317 meecast/qt-qml/qml/FullWeatherPage.qml:335
 msgid "Sunrise:"
 msgstr "日出:"
 
@@ -2704,7 +2713,7 @@ msgstr "日出:"
 msgid "Sunrise: "
 msgstr "日出: "
 
-#: omweather/src/hash.data:318 meecast/qt-qml/qml/FullWeatherPage.qml:329
+#: omweather/src/hash.data:318 meecast/qt-qml/qml/FullWeatherPage.qml:338
 msgid "Sunset:"
 msgstr "日落:"
 
@@ -2764,7 +2773,7 @@ msgid "Temperature units:"
 msgstr "温度单位:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
-#: meecast/qt-qml/dataitem.cpp:191
+#: meecast/qt-qml/dataitem.cpp:194
 msgid "Temperature:"
 msgstr "温度:"
 
@@ -2829,7 +2838,7 @@ msgstr "雷雨"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
-#: meecast/qt-qml/qml/FullWeatherPage.qml:461
+#: meecast/qt-qml/qml/FullWeatherPage.qml:470
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Today"
 msgstr "今天"
@@ -2864,7 +2873,7 @@ msgstr "更新试试"
 msgid "Type of click:"
 msgstr "点击率:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:187
+#: meecast/qt-qml/qml/FullWeatherPage.qml:190
 msgid "UV index:"
 msgstr "紫外线指数"
 
@@ -2965,7 +2974,7 @@ msgid "Visible units"
 msgstr "距离单位"
 
 #: omweather/src/weather-popup.c:1288
-#: meecast/qt-qml/qml/FullWeatherPage.qml:184
+#: meecast/qt-qml/qml/FullWeatherPage.qml:187
 msgid "Visible:"
 msgstr "可见度:"
 
@@ -3071,8 +3080,8 @@ msgid "Wind"
 msgstr "风"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:140
-#: meecast/qt-qml/qml/FullWeatherPage.qml:210
-#: meecast/qt-qml/qml/FullWeatherPage.qml:270
+#: meecast/qt-qml/qml/FullWeatherPage.qml:213
+#: meecast/qt-qml/qml/FullWeatherPage.qml:276
 msgid "Wind direction"
 msgstr "风向"
 
@@ -3080,18 +3089,18 @@ msgstr "风向"
 msgid "Wind direction:"
 msgstr "风向:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:161
-#: meecast/qt-qml/qml/FullWeatherPage.qml:230
-#: meecast/qt-qml/qml/FullWeatherPage.qml:290
+#: meecast/qt-qml/qml/FullWeatherPage.qml:164
+#: meecast/qt-qml/qml/FullWeatherPage.qml:236
+#: meecast/qt-qml/qml/FullWeatherPage.qml:299
 msgid "Wind gust:"
 msgstr "风力:"
 
 #: omweather/src/hash.data:346 meecast/qt-qml/qml/FullWeatherPage.qml:147
 #: meecast/qt-qml/qml/FullWeatherPage.qml:150
-#: meecast/qt-qml/qml/FullWeatherPage.qml:217
 #: meecast/qt-qml/qml/FullWeatherPage.qml:220
-#: meecast/qt-qml/qml/FullWeatherPage.qml:277
-#: meecast/qt-qml/qml/FullWeatherPage.qml:280
+#: meecast/qt-qml/qml/FullWeatherPage.qml:223
+#: meecast/qt-qml/qml/FullWeatherPage.qml:283
+#: meecast/qt-qml/qml/FullWeatherPage.qml:286
 msgid "Wind speed"
 msgstr "风速"
 
@@ -3106,7 +3115,7 @@ msgstr "风速单位:"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
-#: meecast/qt-qml/dataitem.cpp:195
+#: meecast/qt-qml/dataitem.cpp:198
 msgid "Wind:"
 msgstr "风向:"
 
@@ -3195,11 +3204,11 @@ msgstr "当前位置时间"
 msgid "d:"
 msgstr "d:"
 
-#: meecast/qt-qml/dataitem.cpp:476
+#: meecast/qt-qml/dataitem.cpp:479
 msgid "day ago"
 msgstr "天前"
 
-#: meecast/qt-qml/dataitem.cpp:478
+#: meecast/qt-qml/dataitem.cpp:481
 msgid "days ago"
 msgstr "天前"
 
@@ -3243,11 +3252,11 @@ msgstr "下降"
 msgid "feels like"
 msgstr "体感温度"
 
-#: meecast/qt-qml/dataitem.cpp:470
+#: meecast/qt-qml/dataitem.cpp:473
 msgid "hour ago"
 msgstr "小时前"
 
-#: meecast/qt-qml/dataitem.cpp:473
+#: meecast/qt-qml/dataitem.cpp:476
 msgid "hours ago"
 msgstr "小时前"
 
@@ -3339,21 +3348,27 @@ msgstr "mi/h"
 msgid "mi/s"
 msgstr "mi/s"
 
-#: meecast/qt-qml/dataitem.cpp:464
+#: meecast/qt-qml/dataitem.cpp:467
 msgid "minute ago"
 msgstr "分钟前"
 
-#: meecast/qt-qml/dataitem.cpp:467
+#: meecast/qt-qml/dataitem.cpp:470
 msgid "minutes ago"
 msgstr "分钟前"
 
 #: omweather/src/weather-popup.c:961 omweather/src/weather-popup.c:1094
 #: omweather/src/weather-simple-settings.c:2727
 #: meecast/qt-qml/qml/FullWeatherPage.qml:159
-#: meecast/qt-qml/qml/FullWeatherPage.qml:228
-#: meecast/qt-qml/qml/FullWeatherPage.qml:288
+#: meecast/qt-qml/qml/FullWeatherPage.qml:231
+#: meecast/qt-qml/qml/FullWeatherPage.qml:294
 msgid "mm"
 msgstr "mm"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:162
+#: meecast/qt-qml/qml/FullWeatherPage.qml:234
+#: meecast/qt-qml/qml/FullWeatherPage.qml:297
+msgid "mm/h"
+msgstr ""
 
 #: omweather/src/weather-home.c:1403 omweather/src/weather-home.c:1458
 #: omweather/src/weather-home.c:1606 omweather/src/weather-settings.c:4078
@@ -3390,7 +3405,7 @@ msgstr "nmi"
 msgid "rising"
 msgstr "上升"
 
-#: meecast/qt-qml/dataitem.cpp:461
+#: meecast/qt-qml/dataitem.cpp:464
 msgid "seconds ago"
 msgstr "秒前"
 

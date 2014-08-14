@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-08 11:40+0300\n"
+"POT-Creation-Date: 2014-08-13 21:39+0300\n"
 "PO-Revision-Date: 2014-04-28 16:33+0000\n"
 "Last-Translator: Jakub Kožíšek <nodevel@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/meecast/language/"
@@ -113,11 +113,11 @@ msgstr ""
 "\n"
 "W: "
 
-#: meecast/qt-qml/dataitem.cpp:516 meecast/qt-qml/dataitem.cpp:517
+#: meecast/qt-qml/dataitem.cpp:528 meecast/qt-qml/dataitem.cpp:529
 msgid "(Low)"
 msgstr "(nízký)"
 
-#: meecast/qt-qml/dataitem.cpp:518 meecast/qt-qml/dataitem.cpp:519
+#: meecast/qt-qml/dataitem.cpp:530 meecast/qt-qml/dataitem.cpp:531
 msgid "(Moderate)"
 msgstr "(mírný)"
 
@@ -668,7 +668,7 @@ msgid "Daily"
 msgstr "Denně"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
-#: meecast/qt-qml/qml/FullWeatherPage.qml:201
+#: meecast/qt-qml/qml/FullWeatherPage.qml:204
 msgid "Day"
 msgstr "Den"
 
@@ -676,7 +676,7 @@ msgstr "Den"
 msgid "Day length"
 msgstr "Délka dne"
 
-#: omweather/src/hash.data:62 meecast/qt-qml/qml/FullWeatherPage.qml:332
+#: omweather/src/hash.data:62 meecast/qt-qml/qml/FullWeatherPage.qml:341
 msgid "Day length:"
 msgstr "Délka dne:"
 
@@ -700,9 +700,9 @@ msgstr ""
 msgid "Detailed"
 msgstr "Podrobný"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:167
-#: meecast/qt-qml/qml/FullWeatherPage.qml:236
-#: meecast/qt-qml/qml/FullWeatherPage.qml:296
+#: meecast/qt-qml/qml/FullWeatherPage.qml:170
+#: meecast/qt-qml/qml/FullWeatherPage.qml:242
+#: meecast/qt-qml/qml/FullWeatherPage.qml:305
 msgid "Dew point"
 msgstr ""
 
@@ -938,9 +938,9 @@ msgstr ""
 msgid "First Quarter"
 msgstr "První čtvrtina"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:164
-#: meecast/qt-qml/qml/FullWeatherPage.qml:233
-#: meecast/qt-qml/qml/FullWeatherPage.qml:293
+#: meecast/qt-qml/qml/FullWeatherPage.qml:167
+#: meecast/qt-qml/qml/FullWeatherPage.qml:239
+#: meecast/qt-qml/qml/FullWeatherPage.qml:302
 msgid "Flike"
 msgstr "Pocit"
 
@@ -1228,19 +1228,19 @@ msgstr "Vysoký"
 msgid "Hourly"
 msgstr "Každou hodinu"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:314
+#: meecast/qt-qml/qml/FullWeatherPage.qml:323
 msgid "Hours"
 msgstr "Hodin"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:137
-#: meecast/qt-qml/qml/FullWeatherPage.qml:207
-#: meecast/qt-qml/qml/FullWeatherPage.qml:267
+#: meecast/qt-qml/qml/FullWeatherPage.qml:210
+#: meecast/qt-qml/qml/FullWeatherPage.qml:273
 msgid "Humidity"
 msgstr "Vlhkost vzduchu"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:193
+#: meecast/qt-qml/dataitem.cpp:196
 msgid "Humidity:"
 msgstr "Vlhkost:"
 
@@ -1315,7 +1315,7 @@ msgstr "Poslední aktualizace na serveru:"
 msgid "Last update from server: "
 msgstr "Poslední aktualizace ze serveru:"
 
-#: omweather/src/hash.data:113 meecast/qt-qml/qml/FullWeatherPage.qml:335
+#: omweather/src/hash.data:113 meecast/qt-qml/qml/FullWeatherPage.qml:344
 msgid "Last update:"
 msgstr "Poslední aktualizace:"
 
@@ -1772,7 +1772,7 @@ msgid "Next update:"
 msgstr "Další aktualizace:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:588
-#: meecast/qt-qml/qml/FullWeatherPage.qml:253
+#: meecast/qt-qml/qml/FullWeatherPage.qml:259
 msgid "Night"
 msgstr "Noc"
 
@@ -1806,7 +1806,7 @@ msgstr "Žádná data předpovědí pro tuto stanici."
 #: omweather/src/weather-simple-settings.c:2886
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
-#: meecast/qt-qml/dataitem.cpp:201 meecast/qt-qml/qml/FullWeatherPage.qml:131
+#: meecast/qt-qml/dataitem.cpp:204 meecast/qt-qml/qml/FullWeatherPage.qml:131
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Now"
 msgstr "Nyní"
@@ -2097,8 +2097,8 @@ msgid "Position:"
 msgstr "Pozice:"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:155
-#: meecast/qt-qml/qml/FullWeatherPage.qml:224
-#: meecast/qt-qml/qml/FullWeatherPage.qml:284
+#: meecast/qt-qml/qml/FullWeatherPage.qml:227
+#: meecast/qt-qml/qml/FullWeatherPage.qml:290
 msgid "Ppcp:"
 msgstr "Sráž."
 
@@ -2109,9 +2109,18 @@ msgstr ""
 "\n"
 "Srážky"
 
+#: meecast/qt-qml/qml/FullWeatherPage.qml:161
+#: meecast/qt-qml/qml/FullWeatherPage.qml:233
+#: meecast/qt-qml/qml/FullWeatherPage.qml:296
+#, fuzzy
+msgid "Precipitation rate:"
+msgstr ""
+"\n"
+"Srážky"
+
 #: meecast/qt-qml/qml/FullWeatherPage.qml:158
-#: meecast/qt-qml/qml/FullWeatherPage.qml:227
-#: meecast/qt-qml/qml/FullWeatherPage.qml:287
+#: meecast/qt-qml/qml/FullWeatherPage.qml:230
+#: meecast/qt-qml/qml/FullWeatherPage.qml:293
 #, fuzzy
 msgid "Precipitation:"
 msgstr ""
@@ -2137,9 +2146,9 @@ msgstr "Jednotky tlaku:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
-#: meecast/qt-qml/dataitem.cpp:199 meecast/qt-qml/qml/FullWeatherPage.qml:143
-#: meecast/qt-qml/qml/FullWeatherPage.qml:213
-#: meecast/qt-qml/qml/FullWeatherPage.qml:273
+#: meecast/qt-qml/dataitem.cpp:202 meecast/qt-qml/qml/FullWeatherPage.qml:143
+#: meecast/qt-qml/qml/FullWeatherPage.qml:216
+#: meecast/qt-qml/qml/FullWeatherPage.qml:279
 msgid "Pressure:"
 msgstr "Tlak:"
 
@@ -2482,7 +2491,7 @@ msgstr "Zobrazit šipky"
 msgid "Show last update time"
 msgstr "Ukázat čas poslední aktualizace"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:639
+#: meecast/qt-qml/qml/FullWeatherPage.qml:648
 msgid "Show on Map"
 msgstr "Ukázat na mapě"
 
@@ -2630,7 +2639,7 @@ msgstr "Rychlost"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: meecast/netbook-UX/meego-panel-omweather.cpp:772
-#: meecast/qt-qml/dataitem.cpp:197
+#: meecast/qt-qml/dataitem.cpp:200
 msgid "Speed:"
 msgstr "Rychlost:"
 
@@ -2676,7 +2685,7 @@ msgstr "Slunečno / vítr"
 msgid "Sunny periods and a few showers."
 msgstr "Slunečné období a pár přeháněk."
 
-#: omweather/src/hash.data:317 meecast/qt-qml/qml/FullWeatherPage.qml:326
+#: omweather/src/hash.data:317 meecast/qt-qml/qml/FullWeatherPage.qml:335
 msgid "Sunrise:"
 msgstr "Východ slunce:"
 
@@ -2684,7 +2693,7 @@ msgstr "Východ slunce:"
 msgid "Sunrise: "
 msgstr "Východ slunce:"
 
-#: omweather/src/hash.data:318 meecast/qt-qml/qml/FullWeatherPage.qml:329
+#: omweather/src/hash.data:318 meecast/qt-qml/qml/FullWeatherPage.qml:338
 msgid "Sunset:"
 msgstr "Západ slunce:"
 
@@ -2744,7 +2753,7 @@ msgid "Temperature units:"
 msgstr "Jednotky teploty:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
-#: meecast/qt-qml/dataitem.cpp:191
+#: meecast/qt-qml/dataitem.cpp:194
 msgid "Temperature:"
 msgstr "Teplota:"
 
@@ -2808,7 +2817,7 @@ msgstr "Bouřka"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
-#: meecast/qt-qml/qml/FullWeatherPage.qml:461
+#: meecast/qt-qml/qml/FullWeatherPage.qml:470
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Today"
 msgstr "Dnes"
@@ -2842,7 +2851,7 @@ msgstr "Zkusit aktualizovat"
 msgid "Type of click:"
 msgstr "Typ kliknutí:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:187
+#: meecast/qt-qml/qml/FullWeatherPage.qml:190
 msgid "UV index:"
 msgstr "UV index:"
 
@@ -2943,7 +2952,7 @@ msgid "Visible units"
 msgstr "Jednotky viditelnosti"
 
 #: omweather/src/weather-popup.c:1288
-#: meecast/qt-qml/qml/FullWeatherPage.qml:184
+#: meecast/qt-qml/qml/FullWeatherPage.qml:187
 msgid "Visible:"
 msgstr "Viditelné:"
 
@@ -3048,8 +3057,8 @@ msgid "Wind"
 msgstr "Vítr"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:140
-#: meecast/qt-qml/qml/FullWeatherPage.qml:210
-#: meecast/qt-qml/qml/FullWeatherPage.qml:270
+#: meecast/qt-qml/qml/FullWeatherPage.qml:213
+#: meecast/qt-qml/qml/FullWeatherPage.qml:276
 msgid "Wind direction"
 msgstr "Směr větru"
 
@@ -3057,18 +3066,18 @@ msgstr "Směr větru"
 msgid "Wind direction:"
 msgstr "Směr větru:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:161
-#: meecast/qt-qml/qml/FullWeatherPage.qml:230
-#: meecast/qt-qml/qml/FullWeatherPage.qml:290
+#: meecast/qt-qml/qml/FullWeatherPage.qml:164
+#: meecast/qt-qml/qml/FullWeatherPage.qml:236
+#: meecast/qt-qml/qml/FullWeatherPage.qml:299
 msgid "Wind gust:"
 msgstr "Nárazy větru:"
 
 #: omweather/src/hash.data:346 meecast/qt-qml/qml/FullWeatherPage.qml:147
 #: meecast/qt-qml/qml/FullWeatherPage.qml:150
-#: meecast/qt-qml/qml/FullWeatherPage.qml:217
 #: meecast/qt-qml/qml/FullWeatherPage.qml:220
-#: meecast/qt-qml/qml/FullWeatherPage.qml:277
-#: meecast/qt-qml/qml/FullWeatherPage.qml:280
+#: meecast/qt-qml/qml/FullWeatherPage.qml:223
+#: meecast/qt-qml/qml/FullWeatherPage.qml:283
+#: meecast/qt-qml/qml/FullWeatherPage.qml:286
 msgid "Wind speed"
 msgstr "Rychlost větru"
 
@@ -3083,7 +3092,7 @@ msgstr "Jednotky rychlosti větru:"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
-#: meecast/qt-qml/dataitem.cpp:195
+#: meecast/qt-qml/dataitem.cpp:198
 msgid "Wind:"
 msgstr "Vítr:"
 
@@ -3176,11 +3185,11 @@ msgstr "aktuální čas v místě"
 msgid "d:"
 msgstr "d:"
 
-#: meecast/qt-qml/dataitem.cpp:476
+#: meecast/qt-qml/dataitem.cpp:479
 msgid "day ago"
 msgstr "včera"
 
-#: meecast/qt-qml/dataitem.cpp:478
+#: meecast/qt-qml/dataitem.cpp:481
 msgid "days ago"
 msgstr "dny zpátky"
 
@@ -3224,11 +3233,11 @@ msgstr "padající"
 msgid "feels like"
 msgstr "pocitově"
 
-#: meecast/qt-qml/dataitem.cpp:470
+#: meecast/qt-qml/dataitem.cpp:473
 msgid "hour ago"
 msgstr "před hodinou"
 
-#: meecast/qt-qml/dataitem.cpp:473
+#: meecast/qt-qml/dataitem.cpp:476
 msgid "hours ago"
 msgstr "hodin nazpět"
 
@@ -3320,21 +3329,27 @@ msgstr "míle/h"
 msgid "mi/s"
 msgstr "mi/s"
 
-#: meecast/qt-qml/dataitem.cpp:464
+#: meecast/qt-qml/dataitem.cpp:467
 msgid "minute ago"
 msgstr "minutu nazpět"
 
-#: meecast/qt-qml/dataitem.cpp:467
+#: meecast/qt-qml/dataitem.cpp:470
 msgid "minutes ago"
 msgstr "minut nazpět"
 
 #: omweather/src/weather-popup.c:961 omweather/src/weather-popup.c:1094
 #: omweather/src/weather-simple-settings.c:2727
 #: meecast/qt-qml/qml/FullWeatherPage.qml:159
-#: meecast/qt-qml/qml/FullWeatherPage.qml:228
-#: meecast/qt-qml/qml/FullWeatherPage.qml:288
+#: meecast/qt-qml/qml/FullWeatherPage.qml:231
+#: meecast/qt-qml/qml/FullWeatherPage.qml:294
 msgid "mm"
 msgstr "mm"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:162
+#: meecast/qt-qml/qml/FullWeatherPage.qml:234
+#: meecast/qt-qml/qml/FullWeatherPage.qml:297
+msgid "mm/h"
+msgstr ""
 
 #: omweather/src/weather-home.c:1403 omweather/src/weather-home.c:1458
 #: omweather/src/weather-home.c:1606 omweather/src/weather-settings.c:4078
@@ -3371,7 +3386,7 @@ msgstr "nmi"
 msgid "rising"
 msgstr "vycházející"
 
-#: meecast/qt-qml/dataitem.cpp:461
+#: meecast/qt-qml/dataitem.cpp:464
 msgid "seconds ago"
 msgstr "sekund nazpět"
 

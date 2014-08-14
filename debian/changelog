@@ -2,11 +2,12 @@ meecast (0.9.8) unstable; urgency=low
 
   * Added Sunrise and sunset for fmi.fi source
   * Added Precipitation
+  * Added Precipitation rate
   * Added Dewpoint
   * Added dewpoint for weather.com source
   * Updated Catalan, Spanish, Russian, Dannish translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 03 Aug 2014 22:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 13 Aug 2014 23:31:23 +0200
 
 meecast (0.9.7) unstable; urgency=low
 

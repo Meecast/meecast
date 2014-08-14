@@ -2520,6 +2520,21 @@ Precipitação:</translation>
 Precipitação:</translation>
         </message>
         <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">
+Precipitação:</translation>
+        </message>
+        <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">
+Precipitação:</translation>
+        </message>
+        <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">
+Precipitação:</translation>
+        </message>
+        <message>
             <source>Precipitation:</source>
             <translation type="unfinished">
 Precipitação:</translation>
@@ -4252,6 +4267,21 @@ para usar o Widget no Ecrãn de Espera</translation>
         <message>
             <source>mm</source>
             <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>mmHg</source>

@@ -2519,6 +2519,18 @@ Català - Agustí Clara</translation>
             <translation>Precipitació</translation>
         </message>
         <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">Precipitació:</translation>
+        </message>
+        <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">Precipitació:</translation>
+        </message>
+        <message>
+            <source>Precipitation rate:</source>
+            <translation type="unfinished">Precipitació:</translation>
+        </message>
+        <message>
             <source>Precipitation:</source>
             <translation>Precipitació:</translation>
         </message>
@@ -4239,6 +4251,21 @@ per utilitzar el panell per a la pantalla d'espera</translation>
         <message>
             <source>mm</source>
             <translation>mm</translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mm/h</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>mmHg</source>

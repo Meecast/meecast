@@ -90,12 +90,16 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
-* Sun Aug 08 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.8
+* Thu Aug 14 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.8
   * Added Sunrise and sunset for fmi.fi source
   * Added Precipitation
+  * Added Precipitation rate
   * Added Precipitation data to hourly page
+  * Added Dewpoint
+  * Added dewpoint for weather.com source
   * Fixed problem with big icon on Main form
   * Fixed problem with a lag after removal station
+  * Updated Catalan, Spanish, Russian, Dannish translations
 
 * Sun Aug 03 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.7
   * Fixed sunrise and sunset time for weather.com source again :)

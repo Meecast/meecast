@@ -483,7 +483,10 @@ DataItem::lastupdate() {
 
 QString
 DataItem::lastupdatetime() {
-    return _lastupdate.toString("d MMM hh:mm");
+    if ((_lastupdate.toString(Qt::SystemLocaleShortDate)).indexOf("M",0, Qt::CaseInsensitive) > 0)
+        return _lastupdate.toString("d MMM hh:mm A");
+    else
+        return _lastupdate.toString("d MMM hh:mm");
 }
 
 QString

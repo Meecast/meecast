@@ -1,6 +1,6 @@
 meecast (0.9.9) unstable; urgency=low
 
-  * Nothing
+  * Fixed problem with USA like style time for last update, 
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 13 Aug 2014 23:31:23 +0200
 

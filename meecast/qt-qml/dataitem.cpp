@@ -337,7 +337,11 @@ DataItem::sunrise() {
         return c;
     }
     t.setTime_t(DataItem::Data::SunRiseTime());
-    return t.toString("hh:mm");
+
+    if ((t.toString(Qt::SystemLocaleShortDate)).indexOf("M",0, Qt::CaseInsensitive) > 0)
+        return t.toString("hh:mm A");
+    else
+        return t.toString("hh:mm");
 }
 
 QString
@@ -349,7 +353,10 @@ DataItem::sunset() {
         return c;
     }
     t.setTime_t(DataItem::Data::SunSetTime());
-    return t.toString("hh:mm");
+    if ((t.toString(Qt::SystemLocaleShortDate)).indexOf("M",0, Qt::CaseInsensitive) > 0)
+        return t.toString("hh:mm A");
+    else
+        return t.toString("hh:mm");
 }
 
 QString
@@ -408,9 +415,12 @@ DataItem::hourdate()
 {
     QDateTime t;
     t.setTime_t(DataItem::Data::StartTime());
-    return t.toString("HH:mm");
-    //return QString::fromUtf8(DataItem::ShortDayName().c_str());
 
+    if ((t.toString(Qt::SystemLocaleShortDate)).indexOf("M",0, Qt::CaseInsensitive) > 0)
+        return t.toString("hh:mm A");
+    else
+        return t.toString("hh:mm");
+    //return QString::fromUtf8(DataItem::ShortDayName().c_str());
 }
 
 QString

@@ -5,6 +5,8 @@ meecast (0.9.9) unstable; urgency=low
   * Added stations Lignano Pineta, Lignano Riviera, Lignano Sabbiadoro (Italy) to
     weather.com, foreca.com source  
   * Added stations Lignano Sabbiadoro (Italy) to gismeteo.ru source  
+  * Added all stations from Regione Autonoma Friuli Venezia Giulia to
+    openwearthermap.org source
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 13 Aug 2014 23:31:23 +0200
 

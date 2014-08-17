@@ -7,7 +7,7 @@ meecast (0.9.9) unstable; urgency=low
   * Added stations Lignano Sabbiadoro (Italy) to gismeteo.ru source  
   * Added all stations from Regione Autonoma Friuli Venezia Giulia to
     openwearthermap.org source
-  * Added station Cesena, ER, Italy to weather.com source  
+  * Added station Cesena, ER, Italy to weather.com, openweathermap.com source  
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 13 Aug 2014 23:31:23 +0200
 

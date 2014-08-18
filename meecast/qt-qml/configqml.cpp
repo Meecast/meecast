@@ -967,7 +967,7 @@ ConfigQml::changestation(){
        this->current_station_id(0);
    }
    this->saveConfig();
-   refreshconfig();
+   refreshconfig2();
 }
 
 void
@@ -979,7 +979,7 @@ ConfigQml::changestationback(){
        this->current_station_id(stationsList().size() - 1);
    }
    this->saveConfig();
-   refreshconfig();
+   refreshconfig2();
 }
 
 

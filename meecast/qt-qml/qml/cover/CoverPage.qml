@@ -242,7 +242,7 @@ CoverBackground {
     Rectangle {
         id: background_rect
         anchors.fill: parent
-        opacity: 0.1
+        opacity: 0.0
         color: "white"
     }
     Image {

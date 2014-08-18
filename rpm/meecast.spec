@@ -14,7 +14,7 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    0.9.8
+Version:    0.9.9
 Release:    1
 Group:      Utility
 License:    GPLv2.1
@@ -90,6 +90,19 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
+* Thu Aug 14 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.9
+  * Fixed problem with USA like style time for last update, sunrise, sunset
+    and hourly information 
+  * Added stations Lignano Pineta, Lignano Riviera, Lignano Sabbiadoro (Italy) to
+    weather.com, foreca.com source  
+  * Added stations Lignano Sabbiadoro (Italy) to gismeteo.ru source  
+  * Added all stations from Regione Autonoma Friuli Venezia Giulia to
+    openwearthermap.org source
+  * Added station Cesena, ER, Italy to weather.com, openweathermap.com source  
+  * Added many stations from Italy to yr.no source
+  * Changed value for opacity in backgaound on Cover Page to 0.0 
+  * Fixed problem with actions on Conver page
+
 * Thu Aug 14 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.8
   * Added Sunrise and sunset for fmi.fi source
   * Added Precipitation

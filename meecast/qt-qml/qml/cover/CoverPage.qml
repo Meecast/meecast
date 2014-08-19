@@ -107,20 +107,8 @@ CoverBackground {
         }
     }
 
-    MeeCastCover {
-        status: coverPage.active
-        onStatusChanged: { 
-            if (status)
-                Config.check_and_update_station();
-        }
-    }
-    Connections {
-        target: Config
-        onConfigChanged: {
-    //        Current.reload_data(Config.filename);
-    //        Current.update_model(0);
-
-        stationname.text = Config.stationname
+    function update_data_on_page(){
+            stationname.text = Config.stationname
 
 	    stationname.font.pixelSize = 35 
 	    if (stationname.text.length > 15)
@@ -237,6 +225,28 @@ CoverBackground {
                 description.anchors.top = icon.bottom
             }
             isUpdate = false;
+
+    }
+    MeeCastCover {
+        status: coverPage.active
+        onStatusChanged: { 
+            if (status)
+                Config.check_and_update_station();
+        }
+    }
+    Connections {
+        target: Config
+        onConfigReloadCoverPage: {
+            console.log("onConfigReloadCoverPage");
+            update_data_on_page();
+        }
+
+        onConfigChanged: {
+    //        Current.reload_data(Config.filename);
+    //        Current.update_model(0);
+
+            console.log("CoverPage.qml onConfigChanged ", Config.stationname)
+            update_data_on_page();
         }
     }
     Rectangle {

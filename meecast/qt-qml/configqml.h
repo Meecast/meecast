@@ -214,6 +214,7 @@ public:
     Q_INVOKABLE void refreshconfig();
     Q_INVOKABLE void refreshconfig2();
     Q_INVOKABLE void check_and_update_station();
+    Q_INVOKABLE void reload_config();
 signals:
     void iconsetChanged();
     void iconspathChanged();
@@ -240,6 +241,7 @@ signals:
     void versionChanged();
     void updateintervalChanged();
     void configChanged();
+    void configReloadCoverPage();
     void splashChanged();
     void logocoverpageChanged();
     void windcoverpageChanged();
@@ -248,7 +250,6 @@ signals:
     void lock_screen_x_positionChanged();
     void lock_screen_y_positionChanged();
 public Q_SLOTS:
-    void reload_config();
     void addGpsStation(double latitude, double longitude);
 private slots:
     void downloadFinishedSlot();

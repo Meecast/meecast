@@ -122,7 +122,7 @@ Page {
         isUpdate = true;
         Config.updatestations();
     }
-
+    
     function update_models (station_index){
     	Config._current_station_id(station_index)
         Current.reload_data(Config.data_filename);
@@ -180,12 +180,13 @@ Page {
     Connections {
         target: Config
         onConfigChanged: {
-            console.log("end update station name = "+Config.stationname);
+            console.log("WeatherWrapper.qml onConfigChanged() station - "+ Config.stationname);
             startview.visible = Config.stationname == "Unknown" ? true : false;
             listview.visible = Config.stationname == "Unknown" ? false : true;
             listModel.update()
             updatemodels();
             isUpdate = false;
+            listview.positionViewAtIndex(Config._current_station_id(), ListView.Beginning)
         }
     }
 
@@ -196,6 +197,8 @@ Page {
                 listview.positionViewAtIndex(real_current_id, ListView.Beginning)
                 Config._current_station_id(main.real_current_id)
                 Config.saveConfig()
+		//Config.refreshconfig();
+		Config.refreshconfig2();
             }
         }
     }

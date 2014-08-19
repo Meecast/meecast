@@ -962,8 +962,10 @@ ConfigQml::viewURL()
 void
 ConfigQml::changestation(){
    if ((uint)(this->current_station_id() + 1) < this->stationsList().size()){
+       std::cerr<<"+1 this->current_station_id() + 1 "<< this->current_station_id() + 1<<" this->stationsList().size() "<<this->stationsList().size()<<std::endl;
        this->current_station_id(this->current_station_id() + 1);
    }else {
+       std::cerr<<"0 this->current_station_id() + 1 "<< this->current_station_id() + 1<<" this->stationsList().size() "<<this->stationsList().size()<<std::endl;
        this->current_station_id(0);
    }
    this->saveConfig();
@@ -1022,7 +1024,9 @@ ConfigQml::prevstation()
 
 void
 ConfigQml::refreshconfig2(){
+    reload_config();
     emit ConfigQml::configChanged();
+    emit ConfigQml::configReloadCoverPage();
 }
 
 

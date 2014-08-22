@@ -5,7 +5,8 @@ import harbour.meecast.meecastcover 1.0
 
 CoverBackground {
     id: coverPage
-    property bool active: status == Cover.Active || applicationActive;
+//    property bool active: status == Cover.Active || applicationActive;
+    property bool active: status == Cover.Activating;
     property bool isUpdate: false
     anchors.fill: parent
     property double angle: 0.0
@@ -108,6 +109,7 @@ CoverBackground {
     }
 
     function update_data_on_page(){
+	    console.log("update_data_on_page()");
             stationname.text = Config.stationname
 
 	    stationname.font.pixelSize = 35 
@@ -230,8 +232,13 @@ CoverBackground {
     MeeCastCover {
         status: coverPage.active
         onStatusChanged: { 
-            if (status)
-                Config.check_and_update_station();
+            console.log(" Change status ", coverPage.active);		
+            if (status){
+    	    //    Config.reload_config();
+  	        Config.refreshconfig2()
+	        Config.check_and_update_station();
+                update_data_on_page();
+            }
         }
     }
     Connections {

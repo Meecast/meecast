@@ -194,11 +194,14 @@ Page {
         Timer{
             interval: 700; running: true; repeat: false
             onTriggered: { 
+		console.log("Timer 1");
                 listview.positionViewAtIndex(real_current_id, ListView.Beginning)
                 Config._current_station_id(main.real_current_id)
+		console.log("Timer 2");
                 Config.saveConfig()
 		//Config.refreshconfig();
 		Config.refreshconfig2();
+		console.log("Timer 3");
             }
         }
     }

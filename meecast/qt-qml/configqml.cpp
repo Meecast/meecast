@@ -919,10 +919,12 @@ ConfigQml::update_interval(int interval)
 QString
 ConfigQml::data_filename()
 {
-    std::cerr<<"current_station_id"<<this->current_station_id()<<std::endl;
+    std::cerr<<"current_station_id is "<<this->current_station_id()<<std::endl;
     if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
-                                                &&  this->stationsList().at(this->current_station_id()))
+                                                &&  this->stationsList().at(this->current_station_id())){
+        std::cerr<<"this->stationsList().at(this->current_station_id())->fileName().c_str() "<<this->stationsList().at(this->current_station_id())->fileName().c_str<<std::endl;
         return this->stationsList().at(this->current_station_id())->fileName().c_str();
+    }
     else
         return QString();
 }

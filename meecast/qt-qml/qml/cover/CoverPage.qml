@@ -104,12 +104,10 @@ CoverBackground {
             return (270+45);
         case 'SSE':
             return (360-22.5);
-
         }
     }
 
     function update_data_on_page(){
-	    console.log("update_data_on_page() ", Config.stationname);
         stationname.text = Config.stationname
 
 	    stationname.font.pixelSize = 35 

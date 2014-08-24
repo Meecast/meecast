@@ -243,6 +243,7 @@ signals:
     void updateintervalChanged();
     void configChanged();
     void configReloadCoverPage();
+    void configChangeStationOnMainPage();
     void splashChanged();
     void logocoverpageChanged();
     void windcoverpageChanged();

@@ -188,6 +188,10 @@ Page {
             isUpdate = false;
             listview.positionViewAtIndex(Config._current_station_id(), ListView.Beginning)
         }
+        onConfigChangeStationOnMainPage: {
+            console.log("WeatherWrapper.qml onConfigChangeStationOnMainPage ", Config._current_station_id());
+            listview.positionViewAtIndex(Config._current_station_id(), ListView.Beginning);
+        }
     }
 
     Item{

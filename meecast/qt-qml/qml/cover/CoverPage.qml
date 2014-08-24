@@ -250,6 +250,8 @@ CoverBackground {
     //        Current.update_model(0);
 
             console.log("CoverPage.qml onConfigChanged ", Config.stationname)
+            Config.refreshconfig3()
+            console.log("CoverPage.qml onConfigChanged ", Config.stationname)
             update_data_on_page();
         }
     }

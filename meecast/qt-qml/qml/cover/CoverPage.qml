@@ -109,8 +109,8 @@ CoverBackground {
     }
 
     function update_data_on_page(){
-	    console.log("update_data_on_page()");
-            stationname.text = Config.stationname
+	    console.log("update_data_on_page() ", Config.stationname);
+        stationname.text = Config.stationname
 
 	    stationname.font.pixelSize = 35 
 	    if (stationname.text.length > 15)
@@ -235,8 +235,8 @@ CoverBackground {
             console.log(" Change status ", coverPage.active);		
             if (status){
     	    //    Config.reload_config();
-  	        Config.refreshconfig2()
-	        Config.check_and_update_station();
+  	            Config.refreshconfig3()
+	            Config.check_and_update_station();
                 update_data_on_page();
             }
         }

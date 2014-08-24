@@ -877,7 +877,7 @@ QString
 ConfigQml::stationname_index(int i){
     QString qstr = "";
     if (i>=0 && i <this->stationsList().size()){
-        std::cerr<<"ConfigQml::stationname_index "<<i<<std::endl;
+        /* std::cerr<<"ConfigQml::stationname_index "<<i<<std::endl; */
         return qstr.fromUtf8(ConfigQml::Config::stationname(i).c_str()); 
     }else{
         return QString("Unknown");
@@ -886,6 +886,7 @@ ConfigQml::stationname_index(int i){
 
 QString
 ConfigQml::stationname(){
+    /* std::cerr<<"ConfigQml::stationname() "<<ConfigQml::Config::stationname()<<std::endl; */
     QString qstr = "";
     return qstr.fromUtf8(ConfigQml::Config::stationname().c_str()); 
 }
@@ -919,10 +920,10 @@ ConfigQml::update_interval(int interval)
 QString
 ConfigQml::data_filename()
 {
-    std::cerr<<"current_station_id is "<<this->current_station_id()<<std::endl;
+    std::cerr<<"current_station_id is "<<this->current_station_id()<<" ."<<std::endl;
     if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
                                                 &&  this->stationsList().at(this->current_station_id())){
-        std::cerr<<"this->stationsList().at(this->current_station_id())->fileName().c_str() "<<this->stationsList().at(this->current_station_id())->fileName().c_str<<std::endl;
+        std::cerr<<"this->stationsList().at(this->current_station_id())->fileName().c_str() "<<this->stationsList().at(this->current_station_id())->fileName()<<std::endl;
         return this->stationsList().at(this->current_station_id())->fileName().c_str();
     }
     else
@@ -1029,6 +1030,13 @@ ConfigQml::refreshconfig2(){
 //  reload_config();
     this->ReLoadConfig();
     emit ConfigQml::configChanged();
+//    emit ConfigQml::configReloadCoverPage();
+}
+
+void
+ConfigQml::refreshconfig3(){
+//  reload_config();
+    this->ReLoadConfig();
     emit ConfigQml::configReloadCoverPage();
 }
 

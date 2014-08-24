@@ -232,9 +232,8 @@ CoverBackground {
         onStatusChanged: { 
             console.log(" Change status ", coverPage.active);		
             if (status){
-    	    //    Config.reload_config();
-  	            Config.refreshconfig3()
-	            Config.check_and_update_station();
+                Config.refreshconfig3()
+                Config.check_and_update_station();
                 update_data_on_page();
             }
         }

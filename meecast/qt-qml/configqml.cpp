@@ -1025,7 +1025,6 @@ ConfigQml::prevstation()
 
 void
 ConfigQml::refreshconfig2(){
-    this->ReLoadConfig();
     emit ConfigQml::configChanged();
 }
 

@@ -497,8 +497,7 @@ Component {
                     clip: true
                     Component.onCompleted: {
                        console.log("list onCompleted ", main_index, forecast_stub.count)
-		       
-            	       console.log("WeatherStationDelegate.qml - Config.stationname ", Config.stationname)
+                       /* console.log("WeatherStationDelegate.qml - Config.stationname ", Config.stationname) */
                        list.height = 80 * forecast_model_count(main_index) 
                     }
                 }

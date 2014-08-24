@@ -1025,19 +1025,15 @@ ConfigQml::prevstation()
 
 void
 ConfigQml::refreshconfig2(){
-//  reload_config();
     this->ReLoadConfig();
     emit ConfigQml::configChanged();
-//    emit ConfigQml::configReloadCoverPage();
 }
 
 void
 ConfigQml::refreshconfig3(){
-//  reload_config();
     this->ReLoadConfig();
     emit ConfigQml::configReloadCoverPage();
 }
-
 
 void
 ConfigQml::refreshconfig(){

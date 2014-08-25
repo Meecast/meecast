@@ -244,6 +244,7 @@ CoverBackground {
             console.log("onConfigReloadCoverPage");
             console.log("Config.filename", Config.data_filename);
             Current.reload_data(Config.data_filename);
+	    console.log("CoverPage.qml Before update_model");
             Current.update_model(0);
             update_data_on_page();
         }

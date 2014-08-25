@@ -110,121 +110,121 @@ CoverBackground {
     function update_data_on_page(){
         stationname.text = Config.stationname
 
-	    stationname.font.pixelSize = 35 
-	    if (stationname.text.length > 15)
-            	stationname.font.pixelSize = 30 
-	    if (stationname.text.length > 20)
-            	stationname.font.pixelSize = 24 
-            current_temperature()
-            if (coverPage.current_model("current") != undefined){
-                now.visible = !coverPage.current_model("current")
-                if (coverPage.current_model("current") == true)
-                    now.text = Config.tr("Now")
-                else
-                    now.text = Config.tr("Today")
-                temp_text.font.bold = coverPage.current_model("current")
-            }else{
-                now.visible = false
-                temp_text.font.bold = false
-            }
-            if (temp_text.text.length < 5)
-                temp_text.font.pointSize = 44 
+        stationname.font.pixelSize = 35 
+        if (stationname.text.length > 15)
+        	stationname.font.pixelSize = 30 
+        if (stationname.text.length > 20)
+        	stationname.font.pixelSize = 24 
+        current_temperature()
+        if (coverPage.current_model("current") != undefined){
+            now.visible = !coverPage.current_model("current")
+            if (coverPage.current_model("current") == true)
+                now.text = Config.tr("Now")
             else
-                temp_text.font.pointSize = 40 
-	    if (coverPage.current_model("pict") == undefined){
-	        icon.source = Config.iconspath + "/" + Config.iconset + "/49.png"
-	    }else{
-	        icon.source = Config.iconspath + "/" + Config.iconset + "/" + coverPage.current_model("pict")
-            }
-            if (coverPage.current_model("description") != undefined)
-                description.text = coverPage.current_model("description")
-            else
-                description.text = ""
-            source_image.source = Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
-            if (Config.stationname == "Unknown") {
-                description.text = Config.tr("No locations are set up yet.")
-                stationname.text = "MeeCast"
+                now.text = Config.tr("Today")
+            temp_text.font.bold = coverPage.current_model("current")
+        }else{
+            now.visible = false
+            temp_text.font.bold = false
+        }
+        if (temp_text.text.length < 5)
+            temp_text.font.pointSize = 44 
+        else
+            temp_text.font.pointSize = 40 
+        if (coverPage.current_model("pict") == undefined){
+            icon.source = Config.iconspath + "/" + Config.iconset + "/49.png"
+        }else{
+            icon.source = Config.iconspath + "/" + Config.iconset + "/" + coverPage.current_model("pict")
+        }
+        if (coverPage.current_model("description") != undefined)
+            description.text = coverPage.current_model("description")
+        else
+            description.text = ""
+        source_image.source = Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
+        if (Config.stationname == "Unknown") {
+            description.text = Config.tr("No locations are set up yet.")
+            stationname.text = "MeeCast"
+            update_next_cover.enabled = false
+            update_cover = false
+            add_cover.enabled = true
+        }else {
+            if (Config.prevstationname == "" && Config.nextstationname == ""){
+                add_cover.enabled = false 
+                update_cover = true
                 update_next_cover.enabled = false
+            }else{
+                add_cover.enabled = false 
                 update_cover = false
-                add_cover.enabled = true
-            }else {
-                if (Config.prevstationname == "" && Config.nextstationname == ""){
-                    add_cover.enabled = false 
-                    update_cover = true
-                    update_next_cover.enabled = false
+                update_next_cover.enabled = true
+            }
+            if (Current.rowCount() == 0) {
+                description.text = Config.tr("Looks like there's no info for this location.")
                 }else{
-                    add_cover.enabled = false 
-                    update_cover = false
-                    update_next_cover.enabled = true
-                }
-                if (Current.rowCount() == 0) {
-                    description.text = Config.tr("Looks like there's no info for this location.")
-	            }else{
-                    description.text = coverPage.current_model("description")
-                }
+                description.text = coverPage.current_model("description")
             }
-            if (description.text.length < 31)
-                if (description.text.length < 10)
-                    description.font.pointSize = 32
-                else 
-                    if (description.text.length < 20)
-                        description.font.pointSize = 25
-                    else
-                        description.font.pointSize = 20
-            else
-                description.font.pointSize = 16
-            if ((Config.lastupdatecoverpage && coverPage.current_model("lastupdatetime") != undefined)){
-                lastupdate.visible = true
-            }else{
-                lastupdate.visible = false
-            }
-	    if (coverPage.current_model("lastupdatetime") != undefined){
-                if ((coverPage.current_model("lastupdatetime").length + Config.tr("Last update:").length) < 25)
-                    lastupdate.text = Config.tr("Last update:") + " " + coverPage.current_model("lastupdatetime")
+        }
+        if (description.text.length < 31)
+            if (description.text.length < 10)
+                description.font.pointSize = 32
+            else 
+                if (description.text.length < 20)
+                    description.font.pointSize = 25
                 else
-	            lastupdate.text = coverPage.current_model("lastupdatetime")
-            }
-
-            if (Config.logocoverpage)
-                source_image.visible = true
+                    description.font.pointSize = 20
+        else
+            description.font.pointSize = 16
+        if ((Config.lastupdatecoverpage && coverPage.current_model("lastupdatetime") != undefined)){
+            lastupdate.visible = true
+        }else{
+            lastupdate.visible = false
+        }
+        if (coverPage.current_model("lastupdatetime") != undefined){
+            if ((coverPage.current_model("lastupdatetime").length + Config.tr("Last update:").length) < 25)
+                lastupdate.text = Config.tr("Last update:") + " " + coverPage.current_model("lastupdatetime")
             else
-                source_image.visible = false
-            if (Config.windcoverpage){
-                icon.width = 140
-                icon.height = 140
-                if (coverPage.current_model("wind_speed") != undefined && coverPage.current_model("wind_speed") != "N/A"){
-                    wind_speed_text.text = (Config.windspeedunit == "Beaufort scale") ? coverPage.current_model("wind_speed") : coverPage.current_model("wind_speed") + ' ' + Config.tr(Config.windspeedunit)
-                    wind_speed_text.visible = true
-                    description.anchors.top = wind_speed_text.bottom
-                }else{
-                    wind_speed_text.visible = false
-                    description.anchors.top = icon.bottom
-                }
-                if (coverPage.current_model("wind_direction") != undefined && coverPage.current_model("wind_direction") != "N/A"){
-                    wind_direction_background.visible = true
-                    wind_direction.visible = true
-                    description.anchors.top = wind_direction_background.bottom
-                    if (coverPage.current_model("wind_direction") == undefined ||
-                        coverPage.current_model("wind_direction") == "CALM" ||
-                        coverPage.current_model("wind_direction") == "VAR" ||
-                        coverPage.current_model("wind_direction") == "N/A"){
-                        coverPage.angle = 0;
-                    }else{
-                        coverPage.angle = coverPage.getAngle(coverPage.current_model("wind_direction"))
-                    }
-                }else{
-                    wind_direction_background.visible = false
-                    wind_direction.visible = false
-                }
+                lastupdate.text = coverPage.current_model("lastupdatetime")
+        }
+    
+        if (Config.logocoverpage)
+            source_image.visible = true
+        else
+            source_image.visible = false
+        if (Config.windcoverpage){
+            icon.width = 140
+            icon.height = 140
+            if (coverPage.current_model("wind_speed") != undefined && coverPage.current_model("wind_speed") != "N/A"){
+                wind_speed_text.text = (Config.windspeedunit == "Beaufort scale") ? coverPage.current_model("wind_speed") : coverPage.current_model("wind_speed") + ' ' + Config.tr(Config.windspeedunit)
+                wind_speed_text.visible = true
+                description.anchors.top = wind_speed_text.bottom
             }else{
-                icon.width = 128
-                icon.height = 128
                 wind_speed_text.visible = false
-                wind_direction_background.visible = false
-                wind_direction.visible = false
                 description.anchors.top = icon.bottom
             }
-            isUpdate = false;
+            if (coverPage.current_model("wind_direction") != undefined && coverPage.current_model("wind_direction") != "N/A"){
+                wind_direction_background.visible = true
+                wind_direction.visible = true
+                description.anchors.top = wind_direction_background.bottom
+                if (coverPage.current_model("wind_direction") == undefined ||
+                    coverPage.current_model("wind_direction") == "CALM" ||
+                    coverPage.current_model("wind_direction") == "VAR" ||
+                    coverPage.current_model("wind_direction") == "N/A"){
+                    coverPage.angle = 0;
+                }else{
+                    coverPage.angle = coverPage.getAngle(coverPage.current_model("wind_direction"))
+                }
+            }else{
+                wind_direction_background.visible = false
+                wind_direction.visible = false
+            }
+        }else{
+            icon.width = 128
+            icon.height = 128
+            wind_speed_text.visible = false
+            wind_direction_background.visible = false
+            wind_direction.visible = false
+            description.anchors.top = icon.bottom
+        }
+        isUpdate = false;
 
     }
     MeeCastCover {
@@ -242,6 +242,9 @@ CoverBackground {
         target: Config
         onConfigReloadCoverPage: {
             console.log("onConfigReloadCoverPage");
+            console.log("Config.filename", Config.data_filename);
+            Current.reload_data(Config.data_filename);
+            Current.update_model(0);
             update_data_on_page();
         }
 

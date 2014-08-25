@@ -5,8 +5,8 @@ import harbour.meecast.meecastcover 1.0
 
 CoverBackground {
     id: coverPage
-//    property bool active: status == Cover.Active || applicationActive;
-    property bool active: status == Cover.Activating;
+    property bool active: status == Cover.Active || applicationActive;
+    property bool activating: status == Cover.Activating;
     property bool isUpdate: false
     anchors.fill: parent
     property double angle: 0.0
@@ -228,9 +228,9 @@ CoverBackground {
 
     }
     MeeCastCover {
-        status: coverPage.active
+        status: coverPage.activating
         onStatusChanged: { 
-            console.log(" Change status ", coverPage.active);		
+            console.log(" Change status ", coverPage.activating);		
             if (status){
                 Config.refreshconfig3()
                 Config.check_and_update_station();

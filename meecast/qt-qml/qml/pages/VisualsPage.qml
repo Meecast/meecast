@@ -4,10 +4,10 @@ import Sailfish.Silica 1.0
 Page {
     id: visuals
     property int margin: 16
-    property bool event_widget_status: Config.eventwidget
-    property bool lockscreen_widget_status: Config.lockscreen
-    property bool standbyscreen_widget_status: Config.standbyscreen
-    property bool splash_status: Config.splash
+//    property bool event_widget_status: Config.eventwidget
+//    property bool lockscreen_widget_status: Config.lockscreen
+//    property bool standbyscreen_widget_status: Config.standbyscreen
+//    property bool splash_status: Config.splash
     Rectangle {
         anchors.fill: parent
         color: Config.transparency ? "transparent" : "black"
@@ -23,13 +23,6 @@ Page {
         pageStack.push(Qt.resolvedUrl(file))
     }
 
-    function getIndex(model, value)
-    {
-        var i=0;
-        while (i<model.length && model[i]!=value) i++;
-        if (i == model.length) return -1;
-        else return i;
-    }
     Rectangle{
         anchors.fill: parent
         anchors.topMargin: 80
@@ -72,16 +65,13 @@ Page {
             PageHeader {
                 title: Config.tr("Appearance")
             }
-//            SectionHeader {
-//                text: " 111"
-//            }
             Row {
                 width: parent.width
                 height: 80
                 Label {
                     //anchors.leftMargin: margin
                     anchors.leftMargin: Theme.paddingLarge 
-                    text: Config.tr("Iconset")+": "+Config.iconset
+                    text: Config.tr("Iconset") + ": " + Config.iconset
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
                 }
@@ -105,7 +95,8 @@ Page {
                     text: Config.tr("Transparency")
                     checked: Config.transparency
                     onCheckedChanged: {
-                        Config.settransparency(transparency.checked);
+                        if (Config.transparency != checked)   
+                            Config.settransparency(transparency.checked);
                     }
                 }
             }
@@ -121,7 +112,8 @@ Page {
                     text: Config.tr("Show source logo")
                     checked: Config.logocoverpage
                     onCheckedChanged: {
-                        Config.setlogocoverpage(logocover.checked);
+                        if (Config.logocoverpage != checked)
+                            Config.setlogocoverpage(logocover.checked);
                     }
                 }
             }
@@ -132,7 +124,8 @@ Page {
                     text: Config.tr("Show wind")
                     checked: Config.windcoverpage
                     onCheckedChanged: {
-                        Config.setwindcoverpage(windcover.checked);
+                        if (Config.windcoverpage != checked)
+                            Config.setwindcoverpage(windcover.checked);
                     }
                 }
             }
@@ -143,7 +136,8 @@ Page {
                     text: Config.tr("Show last update time")
                     checked: Config.lastupdatecoverpage
                     onCheckedChanged: {
-                        Config.setlastupdatecoverpage(lastupdatecover.checked);
+                        if (Config.lastupdatecoverpage != checked)
+                            Config.setlastupdatecoverpage(lastupdatecover.checked);
                     }
                 }
             }

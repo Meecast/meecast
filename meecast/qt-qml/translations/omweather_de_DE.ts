@@ -842,18 +842,15 @@ Max. Verbindungszeit überschritten.</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Taupunkt</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Taupunkt</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Taupunkt</translation>
         </message>
         <message>
             <source>Display</source>
@@ -1377,17 +1374,15 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Haze, Smoke or Dust</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nebel, Rauch oder Staub</translation>
         </message>
         <message>
             <source>Heavy Freezing Rain</source>
-            <translation type="unfinished">Regen / überfrierender Regen</translation>
+            <translation>Starker Eisregen</translation>
         </message>
         <message>
             <source>Heavy Precipitation</source>
-            <translation type="unfinished">
-Niederschlag:</translation>
+            <translation>Starker Niederschlag</translation>
         </message>
         <message>
             <source>Heavy Rain</source>
@@ -1403,15 +1398,15 @@ Niederschlag:</translation>
         </message>
         <message>
             <source>Heavy Rain Showers</source>
-            <translation type="unfinished">Schwere Regenschauer</translation>
+            <translation>Starke Regenschauer</translation>
         </message>
         <message>
             <source>Heavy Sleet</source>
-            <translation type="unfinished">Starker Schneefall</translation>
+            <translation>Starker Graupel</translation>
         </message>
         <message>
             <source>Heavy Sleet Showers</source>
-            <translation type="unfinished">Schwere Regenschauer</translation>
+            <translation>Starke Graupelschauer</translation>
         </message>
         <message>
             <source>Heavy Snow</source>
@@ -1423,15 +1418,15 @@ Niederschlag:</translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
-            <translation type="unfinished">Leichte Schneeschauer</translation>
+            <translation>Starke Schneeschauer</translation>
         </message>
         <message>
             <source>Heavy Snowfall</source>
-            <translation type="unfinished">Starker Schneefall</translation>
+            <translation>Starker Schneefall</translation>
         </message>
         <message>
             <source>Heavy Thunder</source>
-            <translation type="unfinished">Donner</translation>
+            <translation>Starke Gewitter</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1479,8 +1474,7 @@ Niederschlag:</translation>
         </message>
         <message>
             <source>Ice Pellets</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Graupeln</translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1660,7 +1654,7 @@ Niederschlag:</translation>
         </message>
         <message>
             <source>Light Rain Showers</source>
-            <translation type="unfinished">Leichte Regenschauer</translation>
+            <translation>Leichte Regenschauer</translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
@@ -1680,11 +1674,11 @@ Niederschlag:</translation>
         </message>
         <message>
             <source>Light Sleet</source>
-            <translation type="unfinished">Leichter Schneefall</translation>
+            <translation>Leichter Graupel</translation>
         </message>
         <message>
             <source>Light Sleet Showers</source>
-            <translation type="unfinished">Leichte Schneeschauer</translation>
+            <translation>Leiche Graupelschauer</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1712,11 +1706,11 @@ Niederschlag:</translation>
         </message>
         <message>
             <source>Light Snow Showers</source>
-            <translation type="unfinished">Leichte Schneeschauer</translation>
+            <translation>Leichte Schneeschauer</translation>
         </message>
         <message>
             <source>Light Snowfall</source>
-            <translation type="unfinished">Leichter Schneefall</translation>
+            <translation>Leichter Schneefall</translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
@@ -1728,8 +1722,7 @@ Niederschlag:</translation>
         </message>
         <message>
             <source>Light or Moderate Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Leichter bis mäßiger Niederschlag</translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1819,7 +1812,7 @@ Niederschlag:</translation>
         </message>
         <message>
             <source>Moderate Freezing Rain</source>
-            <translation type="unfinished">Mäßiger Regen</translation>
+            <translation>Mäßiger Eisregen</translation>
         </message>
         <message>
             <source>Moderate Rain</source>
@@ -1827,15 +1820,15 @@ Niederschlag:</translation>
         </message>
         <message>
             <source>Moderate Rain Showers</source>
-            <translation type="unfinished">Mäßiger Regen</translation>
+            <translation>Mäßige Regenschauer</translation>
         </message>
         <message>
             <source>Moderate Sleet</source>
-            <translation type="unfinished">Mäßiger Regen</translation>
+            <translation>Mäßiger Graupel</translation>
         </message>
         <message>
             <source>Moderate Snow Showers</source>
-            <translation type="unfinished">Vormittags Schneeschauer</translation>
+            <translation>Mäßige Schneeschauer</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -1935,7 +1928,7 @@ Niederschlag:</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Bewölkt, Leichter Regen, Weak Heavy Rain</translation>
+            <translation>Überwiegend bewölkt, Leichtger Regen, Schacher Starkregen</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
@@ -2523,38 +2516,31 @@ Niederschlag:</translation>
         </message>
         <message>
             <source>Precipitation</source>
-            <translation type="unfinished">
-Niederschlag:</translation>
+            <translation>Niederschlag</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">
-Niederschlag:</translation>
+            <translation>Niederschlagsmenge:</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">
-Niederschlag:</translation>
+            <translation>Niederschlagsmenge:</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">
-Niederschlag:</translation>
+            <translation>Niederschlagsmenge:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Niederschlag:</translation>
+            <translation>Niederschlag:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Niederschlag:</translation>
+            <translation>Niederschlag:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Niederschlag:</translation>
+            <translation>Niederschlag:</translation>
         </message>
         <message>
             <source>Preference|Update</source>
@@ -3070,8 +3056,7 @@ Niederschlag:</translation>
         </message>
         <message>
             <source>Showers or Intermittent Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Schauer oder zeitweiliger Niederschlag</translation>
         </message>
         <message>
             <source>Sky is Clear</source>
@@ -3087,7 +3072,7 @@ Niederschlag:</translation>
         </message>
         <message>
             <source>Sleet Showers</source>
-            <translation type="unfinished">Leichte Schauer</translation>
+            <translation>Graupelschauer</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3111,7 +3096,7 @@ Niederschlag:</translation>
         </message>
         <message>
             <source>Snow Showers</source>
-            <translation type="unfinished">Schneeschauer</translation>
+            <translation>Schneeschauer</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -3143,7 +3128,7 @@ Niederschlag:</translation>
         </message>
         <message>
             <source>Snowfall</source>
-            <translation type="unfinished">Schnee</translation>
+            <translation>Schneefall</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3235,8 +3220,7 @@ Niederschlag:</translation>
         </message>
         <message>
             <source>Strong Thundershowers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Starke Gewitterschauer</translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3427,7 +3411,7 @@ Niederschlag:</translation>
         </message>
         <message>
             <source>Thundershowers</source>
-            <translation type="unfinished">Donner</translation>
+            <translation>Gewitterschauer</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3639,7 +3623,7 @@ um die Darstellung des Applets anzupassen</translation>
         </message>
         <message>
             <source>Violent Rain Showers</source>
-            <translation type="unfinished">Leichte Regenschauer</translation>
+            <translation>Heftige Regenschauer</translation>
         </message>
         <message>
             <source>Visible items:</source>
@@ -4273,18 +4257,15 @@ für das Widget im Standby.</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/Std</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/Std</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/Std</translation>
         </message>
         <message>
             <source>mmHg</source>

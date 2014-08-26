@@ -841,18 +841,15 @@ Yhteys on vanhentunut.</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kastepiste</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kastepiste</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kastepiste</translation>
         </message>
         <message>
             <source>Display</source>
@@ -2523,27 +2520,27 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Sadetta</translation>
+            <translation>Sadekertymä:</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Sadetta</translation>
+            <translation>Sadekertymä:</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Sadetta</translation>
+            <translation>Sadekertymä:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">Sadetta</translation>
+            <translation>Sademäärä:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">Sadetta</translation>
+            <translation>Sademäärä:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">Sadetta</translation>
+            <translation>Sademäärä:</translation>
         </message>
         <message>
             <source>Preference|Update</source>
@@ -4263,18 +4260,15 @@ tapahtumat-näkymässä' valinta</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mmHg</source>

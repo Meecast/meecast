@@ -5,8 +5,8 @@ import "./"
 Page {
     id: main
     property int margin: 16
-    property int screen_height : 960 
-    property int screen_width : 540 
+    property int screen_height : main.height 
+    property int screen_width : main.width 
     property int real_current_id : Config._current_station_id() 
     property bool isUpdate: false
     property real flick_start_position: 0

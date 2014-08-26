@@ -182,7 +182,7 @@ Component {
                     anchors.left: parent.left
                     anchors.top: parent.top
                     width: parent.width
-                    height: 92
+                    height: screen_height*0.1 
                     //color: Config.transparency ? "transparent" : "black"
                     color: "transparent"
                     visible: isUpdate ? false : true

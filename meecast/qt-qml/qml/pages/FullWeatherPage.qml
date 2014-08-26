@@ -3,8 +3,8 @@ import Sailfish.Silica 1.0
 
 Page {
     id: fullweather
-    property int screen_height : 960
-    property int screen_width : 540
+    property int screen_height : fullweather.height
+    property int screen_width : fullweather.width 
     property int icon_size: 128
     property int margin: 16
     property int day: 0
@@ -122,10 +122,10 @@ Page {
 	}
 
         if (day_period == "day"){
-	        toolbarnow.checked = false 
-	        toolbarday.checked = true
-	        toolbarnight.checked = false
-	        toolbarclock.checked = false
+            toolbarnow.checked = false 
+            toolbarday.checked = true
+            toolbarnight.checked = false
+            toolbarclock.checked = false
             day_rect.visible = true;
             current_rect.visible = true;
             hours_list.visible = false;
@@ -356,7 +356,7 @@ Page {
                 anchors.left: parent.left
                 anchors.top: parent.top
                 width: parent.width
-                height: 92
+                height: screen_height*0.1 
                 color: "transparent"
 
             Rectangle {

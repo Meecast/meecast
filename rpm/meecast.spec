@@ -101,8 +101,9 @@ desktop-file-install --delete-original       \
   * Added station Cesena, ER, Italy to weather.com, openweathermap.com source  
   * Added many stations from Italy to yr.no source
   * Changed value for opacity in backgaound on Cover Page to 0.0 
-  * Fixed problem with actions on Conver page
+  * Fixed problem with actions on Cover page
   * Fixed problem with function 'Next station' on Cover page
+  * Updated Finnish, Germany translations
 
 * Thu Aug 14 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.8
   * Added Sunrise and sunset for fmi.fi source

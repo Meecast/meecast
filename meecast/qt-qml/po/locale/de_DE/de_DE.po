@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-13 21:39+0300\n"
-"PO-Revision-Date: 2014-07-18 12:58+0000\n"
-"Last-Translator: Mee_Germany_Go\n"
+"POT-Creation-Date: 2014-08-26 14:29+0300\n"
+"PO-Revision-Date: 2014-08-17 20:30+0000\n"
+"Last-Translator: jklingen <jklingen@users.sourceforge.net>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/meecast/"
 "language/de_DE/)\n"
 "Language: de_DE\n"
@@ -115,11 +115,11 @@ msgstr ""
 "\n"
 "W: "
 
-#: meecast/qt-qml/dataitem.cpp:528 meecast/qt-qml/dataitem.cpp:529
+#: meecast/qt-qml/dataitem.cpp:541 meecast/qt-qml/dataitem.cpp:542
 msgid "(Low)"
 msgstr "(Niedrig)"
 
-#: meecast/qt-qml/dataitem.cpp:530 meecast/qt-qml/dataitem.cpp:531
+#: meecast/qt-qml/dataitem.cpp:543 meecast/qt-qml/dataitem.cpp:544
 msgid "(Moderate)"
 msgstr "(Mäßig)"
 
@@ -706,7 +706,7 @@ msgstr "Detailliert"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:242
 #: meecast/qt-qml/qml/FullWeatherPage.qml:305
 msgid "Dew point"
-msgstr ""
+msgstr "Taupunkt"
 
 #: omweather/src/weather-settings.c:1128 omweather/src/weather-settings.c:1321
 #: omweather/src/weather-settings.c:1325
@@ -1156,19 +1156,15 @@ msgstr "Dunst"
 
 #: omweather/src/hash.data:92
 msgid "Haze, Smoke or Dust"
-msgstr ""
+msgstr "Nebel, Rauch oder Staub"
 
 #: omweather/src/hash.data:93
-#, fuzzy
 msgid "Heavy Freezing Rain"
-msgstr "Regen / überfrierender Regen"
+msgstr "Starker Eisregen"
 
 #: omweather/src/hash.data:94
-#, fuzzy
 msgid "Heavy Precipitation"
-msgstr ""
-"\n"
-"Niederschlag:"
+msgstr "Starker Niederschlag"
 
 #: omweather/src/hash.data:95
 msgid "Heavy Rain"
@@ -1183,19 +1179,16 @@ msgid "Heavy Rain Shower"
 msgstr "Schwere Regenschauer"
 
 #: omweather/src/hash.data:98
-#, fuzzy
 msgid "Heavy Rain Showers"
-msgstr "Schwere Regenschauer"
+msgstr "Starke Regenschauer"
 
 #: omweather/src/hash.data:99
-#, fuzzy
 msgid "Heavy Sleet"
-msgstr "Starker Schneefall"
+msgstr "Starker Graupel"
 
 #: omweather/src/hash.data:100
-#, fuzzy
 msgid "Heavy Sleet Showers"
-msgstr "Schwere Regenschauer"
+msgstr "Starke Graupelschauer"
 
 #: omweather/src/hash.data:101
 msgid "Heavy Snow"
@@ -1206,19 +1199,16 @@ msgid "Heavy Snow / Wind"
 msgstr "Starker Schneefall / Wind"
 
 #: omweather/src/hash.data:103
-#, fuzzy
 msgid "Heavy Snow Showers"
-msgstr "Leichte Schneeschauer"
+msgstr "Starke Schneeschauer"
 
 #: omweather/src/hash.data:102
-#, fuzzy
 msgid "Heavy Snowfall"
 msgstr "Starker Schneefall"
 
 #: omweather/src/hash.data:105
-#, fuzzy
 msgid "Heavy Thunder"
-msgstr "Donner"
+msgstr "Starke Gewitter"
 
 #: omweather/src/hash.data:388
 msgid "Heavy intensity rain"
@@ -1250,7 +1240,7 @@ msgstr "Luftfeuchtigkeit: "
 
 #: omweather/src/hash.data:107
 msgid "Ice Pellets"
-msgstr ""
+msgstr "Graupeln"
 
 #: omweather/src/weather-settings.c:3326
 msgid "Icon set:"
@@ -1387,7 +1377,6 @@ msgid "Light Rain Shower"
 msgstr "Leichte Regenschauer"
 
 #: omweather/src/hash.data:372
-#, fuzzy
 msgid "Light Rain Showers"
 msgstr "Leichte Regenschauer"
 
@@ -1408,14 +1397,12 @@ msgid "Light Rain with Thunder"
 msgstr "Leichter Regen mit Gewitter"
 
 #: omweather/src/hash.data:129
-#, fuzzy
 msgid "Light Sleet"
-msgstr "Leichter Schneefall"
+msgstr "Leichter Graupel"
 
 #: omweather/src/hash.data:130
-#, fuzzy
 msgid "Light Sleet Showers"
-msgstr "Leichte Schneeschauer"
+msgstr "Leiche Graupelschauer"
 
 #: omweather/src/hash.data:131
 msgid "Light Snow"
@@ -1442,12 +1429,10 @@ msgid "Light Snow Shower"
 msgstr "Leichte Schneeschauer"
 
 #: omweather/src/hash.data:138
-#, fuzzy
 msgid "Light Snow Showers"
 msgstr "Leichte Schneeschauer"
 
 #: omweather/src/hash.data:132
-#, fuzzy
 msgid "Light Snowfall"
 msgstr "Leichter Schneefall"
 
@@ -1461,7 +1446,7 @@ msgstr "Leichte Regenschauer"
 
 #: omweather/src/hash.data:139
 msgid "Light or Moderate Precipitation"
-msgstr ""
+msgstr "Leichter bis mäßiger Niederschlag"
 
 #: omweather/src/hash.data:370
 msgid "Light rain"
@@ -1549,28 +1534,24 @@ msgid "Mist"
 msgstr "Leichter Nebel"
 
 #: omweather/src/hash.data:146
-#, fuzzy
 msgid "Moderate Freezing Rain"
-msgstr "Mäßiger Regen"
+msgstr "Mäßiger Eisregen"
 
 #: omweather/src/hash.data:376
 msgid "Moderate Rain"
 msgstr "Mäßiger Regen"
 
 #: omweather/src/hash.data:377
-#, fuzzy
 msgid "Moderate Rain Showers"
-msgstr "Mäßiger Regen"
+msgstr "Mäßige Regenschauer"
 
 #: omweather/src/hash.data:145
-#, fuzzy
 msgid "Moderate Sleet"
-msgstr "Mäßiger Regen"
+msgstr "Mäßiger Graupel"
 
 #: omweather/src/hash.data:147
-#, fuzzy
 msgid "Moderate Snow Showers"
-msgstr "Vormittags Schneeschauer"
+msgstr "Mäßige Schneeschauer"
 
 #: omweather/src/hash.data:375
 msgid "Moderate rain"
@@ -1662,9 +1643,8 @@ msgid "Mostly Cloudy, Light Rain, T-Storm"
 msgstr "Überwiegend bewölkt, Leichter Regen, Gewitter"
 
 #: omweather/src/hash.data:170
-#, fuzzy
 msgid "Mostly Cloudy, Light Rain, Weak Heavy Rain"
-msgstr "Bewölkt, Leichter Regen, Weak Heavy Rain"
+msgstr "Überwiegend bewölkt, Leichtger Regen, Schacher Starkregen"
 
 #: omweather/src/hash.data:171
 msgid "Mostly Cloudy, Rain"
@@ -2107,29 +2087,20 @@ msgid "Ppcp:"
 msgstr "Niederschlagsrisiko:"
 
 #: omweather/src/hash.data:249
-#, fuzzy
 msgid "Precipitation"
-msgstr ""
-"\n"
-"Niederschlag:"
+msgstr "Niederschlag"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:161
 #: meecast/qt-qml/qml/FullWeatherPage.qml:233
 #: meecast/qt-qml/qml/FullWeatherPage.qml:296
-#, fuzzy
 msgid "Precipitation rate:"
-msgstr ""
-"\n"
-"Niederschlag:"
+msgstr "Niederschlagsmenge:"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:158
 #: meecast/qt-qml/qml/FullWeatherPage.qml:230
 #: meecast/qt-qml/qml/FullWeatherPage.qml:293
-#, fuzzy
 msgid "Precipitation:"
-msgstr ""
-"\n"
-"Niederschlag:"
+msgstr "Niederschlag:"
 
 #: omweather/src/weather-simple-settings.c:1653
 #: omweather/src/weather-simple-settings.c:2836
@@ -2544,7 +2515,7 @@ msgstr "Schauer in der Nähe"
 
 #: omweather/src/hash.data:296
 msgid "Showers or Intermittent Precipitation"
-msgstr ""
+msgstr "Schauer oder zeitweiliger Niederschlag"
 
 #: omweather/src/hash.data:383
 msgid "Sky is Clear"
@@ -2559,9 +2530,8 @@ msgid "Sleet"
 msgstr "Graupel"
 
 #: omweather/src/hash.data:298
-#, fuzzy
 msgid "Sleet Showers"
-msgstr "Leichte Schauer"
+msgstr "Graupelschauer"
 
 #: omweather/src/hash.data:299
 msgid "Smoke"
@@ -2584,7 +2554,6 @@ msgid "Snow Shower / Wind"
 msgstr "Schneeschauer / Wind"
 
 #: omweather/src/hash.data:305
-#, fuzzy
 msgid "Snow Showers"
 msgstr "Schneeschauer"
 
@@ -2617,9 +2586,8 @@ msgid "Snow to Wintry Mix / Wind"
 msgstr "Schneefall bis winterlich / Wind"
 
 #: omweather/src/hash.data:301
-#, fuzzy
 msgid "Snowfall"
-msgstr "Schnee"
+msgstr "Schneefall"
 
 #: omweather/src/weather-simple-settings.c:2295
 msgid "Source"
@@ -2670,7 +2638,7 @@ msgstr "Sturm"
 
 #: omweather/src/hash.data:314
 msgid "Strong Thundershowers"
-msgstr ""
+msgstr "Starke Gewitterschauer"
 
 #: omweather/src/weather-download.c:392
 msgid "Successfully loaded"
@@ -2816,9 +2784,8 @@ msgid "Thunder in the Vicinity"
 msgstr "Donner in der Nähe"
 
 #: omweather/src/hash.data:327
-#, fuzzy
 msgid "Thundershowers"
-msgstr "Donner"
+msgstr "Gewitterschauer"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
@@ -2944,9 +2911,8 @@ msgid "Very High"
 msgstr "Sehr hoch"
 
 #: omweather/src/hash.data:393
-#, fuzzy
 msgid "Violent Rain Showers"
-msgstr "Leichte Regenschauer"
+msgstr "Heftige Regenschauer"
 
 #: omweather/src/weather-settings.c:3517 omweather/src/weather-settings.c:3522
 msgid "Visible items:"
@@ -3191,11 +3157,11 @@ msgstr "Ortszeit des aktuellen Standorts"
 msgid "d:"
 msgstr "T:"
 
-#: meecast/qt-qml/dataitem.cpp:479
+#: meecast/qt-qml/dataitem.cpp:489
 msgid "day ago"
 msgstr "Tag her"
 
-#: meecast/qt-qml/dataitem.cpp:481
+#: meecast/qt-qml/dataitem.cpp:491
 msgid "days ago"
 msgstr "Tage her"
 
@@ -3239,11 +3205,11 @@ msgstr "fallend"
 msgid "feels like"
 msgstr "gefühlt"
 
-#: meecast/qt-qml/dataitem.cpp:473
+#: meecast/qt-qml/dataitem.cpp:483
 msgid "hour ago"
 msgstr "Stunde her"
 
-#: meecast/qt-qml/dataitem.cpp:476
+#: meecast/qt-qml/dataitem.cpp:486
 msgid "hours ago"
 msgstr "Stunden her"
 
@@ -3335,11 +3301,11 @@ msgstr "mi/h"
 msgid "mi/s"
 msgstr "mi/s"
 
-#: meecast/qt-qml/dataitem.cpp:467
+#: meecast/qt-qml/dataitem.cpp:477
 msgid "minute ago"
 msgstr "Minute her"
 
-#: meecast/qt-qml/dataitem.cpp:470
+#: meecast/qt-qml/dataitem.cpp:480
 msgid "minutes ago"
 msgstr "Minuten her"
 
@@ -3355,7 +3321,7 @@ msgstr "mm"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:234
 #: meecast/qt-qml/qml/FullWeatherPage.qml:297
 msgid "mm/h"
-msgstr ""
+msgstr "mm/Std"
 
 #: omweather/src/weather-home.c:1403 omweather/src/weather-home.c:1458
 #: omweather/src/weather-home.c:1606 omweather/src/weather-settings.c:4078
@@ -3392,7 +3358,7 @@ msgstr "nmi"
 msgid "rising"
 msgstr "steigend"
 
-#: meecast/qt-qml/dataitem.cpp:464
+#: meecast/qt-qml/dataitem.cpp:474
 msgid "seconds ago"
 msgstr "Sekunden her"
 

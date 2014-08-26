@@ -110,7 +110,7 @@ public:
     DataItem();
     DataItem(const Core::Data *data);
     virtual ~DataItem(){ 
-        std::cerr<<"DataItem::~DataItem()"<<std::endl;
+    //    std::cerr<<"DataItem::~DataItem()"<<std::endl;
     }
     QVariant data(int role);
     int getRole(QString roleName);

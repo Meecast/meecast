@@ -12,7 +12,6 @@ Page {
     property real flick_start_position: 0
     property bool menuitemgps: Config.gps
     property bool flipmoving: false
-    property int  previous_station_index: 0
 
     objectName: "WeatherPage"
 
@@ -125,19 +124,15 @@ Page {
     }
     
     function update_models (station_index){
-        console.log("update_models ", station_index);
-	previous_station_index = Config._current_station_id();
+        /* console.log("update_models ", station_index); */
     	Config._current_station_id(station_index)
         Current.reload_data(Config.data_filename);
-	console.log("WeatherWrapper.qml before Current.update_model(0)");
         Current.update_model(0);
         Forecast_model.update_model(2);
         /* hack */
         forecast_stub.append({"id": 0})
         startview.visible = Config.stationname == "Unknown" ? true : false;
         listview.visible = Config.stationname == "Unknown" ? false : true;
-    	Config._current_station_id(previous_station_index)
-
     }
     function current_model_count(station_index){
         console.log("current_model_count ", station_index);
@@ -148,7 +143,7 @@ Page {
     }
 
     function forecast_model_count(station_index){
-        console.log("forecast_model_count ", station_index);
+        /* console.log("forecast_model_count ", station_index); */
         if (station_index >= 0 && station_index != Config._current_station_id()){
             update_models(station_index)
         }
@@ -156,7 +151,7 @@ Page {
     }
 
     function current_model(name, station_index){
-        console.log("current_model ", station_index);
+        /* console.log("current_model ", station_index); */
         if (station_index >= 0 && station_index != Config._current_station_id()){
             update_models(station_index)
         }

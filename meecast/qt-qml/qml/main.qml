@@ -5,10 +5,8 @@ import "pages"
 
 ApplicationWindow {
     id: app
-    property string temperature : ""
     initialPage: WeatherWrapper {}
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
-  //  cover: CoverPage {} 
     Component.onDestruction : {   
         console.log("Component.onDestruction")
     }

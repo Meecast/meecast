@@ -7,6 +7,7 @@ CoverBackground {
     id: coverPage
     property bool active: status == Cover.Active || applicationActive;
     property bool activating: status == Cover.Activating;
+    property bool deactivating: status == Cover.Deactivating;
     property bool isUpdate: false
     anchors.fill: parent
     property double angle: 0.0
@@ -238,6 +239,16 @@ CoverBackground {
             }
         }
     }
+    MeeCastCover {
+        status: coverPage.deactivating
+        onStatusChanged: { 
+            console.log(" Change deactivating status ", coverPage.deactivating);		
+            if (status){
+		    Config.configChangeStationOnMainPage();
+            }
+        }
+    }
+
     Connections {
         target: Config
         onConfigReloadCoverPage: {

@@ -973,7 +973,6 @@ ConfigQml::changestation(){
    }
    std::cerr<<"this->current_station_id()"<< this->current_station_id()<<std::endl;
    this->saveConfig();
-   emit ConfigQml::configChangeStationOnMainPage();
    emit ConfigQml::configReloadCoverPage();
 //   refreshconfig2();
 }
@@ -987,7 +986,6 @@ ConfigQml::changestationback(){
        this->current_station_id(stationsList().size() - 1);
    }
    this->saveConfig();
-   emit ConfigQml::configChangeStationOnMainPage();
    emit ConfigQml::configReloadCoverPage();
 //   refreshconfig2();
 }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-13 21:39+0300\n"
+"POT-Creation-Date: 2014-08-26 14:29+0300\n"
 "PO-Revision-Date: 2014-05-15 13:55+0000\n"
 "Last-Translator: osk2 <sc60714@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/meecast/"
@@ -112,11 +112,11 @@ msgstr ""
 "\n"
 "W: "
 
-#: meecast/qt-qml/dataitem.cpp:528 meecast/qt-qml/dataitem.cpp:529
+#: meecast/qt-qml/dataitem.cpp:541 meecast/qt-qml/dataitem.cpp:542
 msgid "(Low)"
 msgstr "(Low)"
 
-#: meecast/qt-qml/dataitem.cpp:530 meecast/qt-qml/dataitem.cpp:531
+#: meecast/qt-qml/dataitem.cpp:543 meecast/qt-qml/dataitem.cpp:544
 msgid "(Moderate)"
 msgstr "(Moderate)"
 
@@ -3168,11 +3168,11 @@ msgstr "目前位置的當地時間"
 msgid "d:"
 msgstr "d:"
 
-#: meecast/qt-qml/dataitem.cpp:479
+#: meecast/qt-qml/dataitem.cpp:489
 msgid "day ago"
 msgstr "天以前"
 
-#: meecast/qt-qml/dataitem.cpp:481
+#: meecast/qt-qml/dataitem.cpp:491
 msgid "days ago"
 msgstr "天以前"
 
@@ -3216,11 +3216,11 @@ msgstr "falling"
 msgid "feels like"
 msgstr "體感溫度"
 
-#: meecast/qt-qml/dataitem.cpp:473
+#: meecast/qt-qml/dataitem.cpp:483
 msgid "hour ago"
 msgstr "小時前"
 
-#: meecast/qt-qml/dataitem.cpp:476
+#: meecast/qt-qml/dataitem.cpp:486
 msgid "hours ago"
 msgstr "小時前"
 
@@ -3312,11 +3312,11 @@ msgstr "英里／小時"
 msgid "mi/s"
 msgstr "英里／秒"
 
-#: meecast/qt-qml/dataitem.cpp:467
+#: meecast/qt-qml/dataitem.cpp:477
 msgid "minute ago"
 msgstr "分鐘前"
 
-#: meecast/qt-qml/dataitem.cpp:470
+#: meecast/qt-qml/dataitem.cpp:480
 msgid "minutes ago"
 msgstr "分鐘前"
 
@@ -3369,7 +3369,7 @@ msgstr "nmi"
 msgid "rising"
 msgstr "rising"
 
-#: meecast/qt-qml/dataitem.cpp:464
+#: meecast/qt-qml/dataitem.cpp:474
 msgid "seconds ago"
 msgstr "秒前"
 

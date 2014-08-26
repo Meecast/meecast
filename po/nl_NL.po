@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-13 21:39+0300\n"
+"POT-Creation-Date: 2014-08-26 14:29+0300\n"
 "PO-Revision-Date: 2014-01-18 13:43+0000\n"
 "Last-Translator: Michiel Pater <michiel@wateennaam.nl>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/meecast/language/"
@@ -114,11 +114,11 @@ msgstr ""
 "\n"
 "W:"
 
-#: meecast/qt-qml/dataitem.cpp:528 meecast/qt-qml/dataitem.cpp:529
+#: meecast/qt-qml/dataitem.cpp:541 meecast/qt-qml/dataitem.cpp:542
 msgid "(Low)"
 msgstr "(Laag)"
 
-#: meecast/qt-qml/dataitem.cpp:530 meecast/qt-qml/dataitem.cpp:531
+#: meecast/qt-qml/dataitem.cpp:543 meecast/qt-qml/dataitem.cpp:544
 msgid "(Moderate)"
 msgstr "(Gemiddeld)"
 
@@ -3161,11 +3161,11 @@ msgstr "lokale tijd huidige locatie"
 msgid "d:"
 msgstr "d:"
 
-#: meecast/qt-qml/dataitem.cpp:479
+#: meecast/qt-qml/dataitem.cpp:489
 msgid "day ago"
 msgstr "dag geleden"
 
-#: meecast/qt-qml/dataitem.cpp:481
+#: meecast/qt-qml/dataitem.cpp:491
 msgid "days ago"
 msgstr "dagen geleden"
 
@@ -3209,11 +3209,11 @@ msgstr "vallende"
 msgid "feels like"
 msgstr "voelt als"
 
-#: meecast/qt-qml/dataitem.cpp:473
+#: meecast/qt-qml/dataitem.cpp:483
 msgid "hour ago"
 msgstr "uur geleden"
 
-#: meecast/qt-qml/dataitem.cpp:476
+#: meecast/qt-qml/dataitem.cpp:486
 msgid "hours ago"
 msgstr "uren geleden"
 
@@ -3305,11 +3305,11 @@ msgstr "mi/h"
 msgid "mi/s"
 msgstr "mi/s"
 
-#: meecast/qt-qml/dataitem.cpp:467
+#: meecast/qt-qml/dataitem.cpp:477
 msgid "minute ago"
 msgstr "minuut geleden"
 
-#: meecast/qt-qml/dataitem.cpp:470
+#: meecast/qt-qml/dataitem.cpp:480
 msgid "minutes ago"
 msgstr "minuten geleden"
 
@@ -3362,7 +3362,7 @@ msgstr "nmi"
 msgid "rising"
 msgstr "opkomende"
 
-#: meecast/qt-qml/dataitem.cpp:464
+#: meecast/qt-qml/dataitem.cpp:474
 msgid "seconds ago"
 msgstr "seconden geleden"
 

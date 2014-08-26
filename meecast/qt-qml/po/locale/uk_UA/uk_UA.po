@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-13 21:39+0300\n"
+"POT-Creation-Date: 2014-08-26 14:29+0300\n"
 "PO-Revision-Date: 2013-11-20 16:44+0000\n"
 "Last-Translator: oksana_berry <mkalinkevich@gmail.com>\n"
 "Language-Team: Ukrainian (Ukraine) (http://www.transifex.com/projects/p/"
@@ -99,11 +99,11 @@ msgstr ""
 "\n"
 "В:"
 
-#: meecast/qt-qml/dataitem.cpp:528 meecast/qt-qml/dataitem.cpp:529
+#: meecast/qt-qml/dataitem.cpp:541 meecast/qt-qml/dataitem.cpp:542
 msgid "(Low)"
 msgstr "(Низький)"
 
-#: meecast/qt-qml/dataitem.cpp:530 meecast/qt-qml/dataitem.cpp:531
+#: meecast/qt-qml/dataitem.cpp:543 meecast/qt-qml/dataitem.cpp:544
 msgid "(Moderate)"
 msgstr "(Помірний)"
 
@@ -3125,11 +3125,11 @@ msgstr "місцевий час поточного місцезнаходжен�
 msgid "d:"
 msgstr "д:"
 
-#: meecast/qt-qml/dataitem.cpp:479
+#: meecast/qt-qml/dataitem.cpp:489
 msgid "day ago"
 msgstr "день назад"
 
-#: meecast/qt-qml/dataitem.cpp:481
+#: meecast/qt-qml/dataitem.cpp:491
 msgid "days ago"
 msgstr "днів назад"
 
@@ -3173,11 +3173,11 @@ msgstr "падає"
 msgid "feels like"
 msgstr "по відчуттям"
 
-#: meecast/qt-qml/dataitem.cpp:473
+#: meecast/qt-qml/dataitem.cpp:483
 msgid "hour ago"
 msgstr "годину тому"
 
-#: meecast/qt-qml/dataitem.cpp:476
+#: meecast/qt-qml/dataitem.cpp:486
 msgid "hours ago"
 msgstr "годин тому"
 
@@ -3269,11 +3269,11 @@ msgstr "ми/год"
 msgid "mi/s"
 msgstr "ми/с"
 
-#: meecast/qt-qml/dataitem.cpp:467
+#: meecast/qt-qml/dataitem.cpp:477
 msgid "minute ago"
 msgstr "хвилину тому"
 
-#: meecast/qt-qml/dataitem.cpp:470
+#: meecast/qt-qml/dataitem.cpp:480
 msgid "minutes ago"
 msgstr "хвилин тому"
 
@@ -3326,7 +3326,7 @@ msgstr "м.ми"
 msgid "rising"
 msgstr "зростає"
 
-#: meecast/qt-qml/dataitem.cpp:464
+#: meecast/qt-qml/dataitem.cpp:474
 msgid "seconds ago"
 msgstr "секунд назад"
 

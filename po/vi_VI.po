@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-13 21:39+0300\n"
+"POT-Creation-Date: 2014-08-26 14:29+0300\n"
 "PO-Revision-Date: 2012-10-05 08:15+0000\n"
 "Last-Translator: quytrong287 <quytrong287@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/meecast/"
@@ -117,11 +117,11 @@ msgstr ""
 "\n"
 "W:"
 
-#: meecast/qt-qml/dataitem.cpp:528 meecast/qt-qml/dataitem.cpp:529
+#: meecast/qt-qml/dataitem.cpp:541 meecast/qt-qml/dataitem.cpp:542
 msgid "(Low)"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:530 meecast/qt-qml/dataitem.cpp:531
+#: meecast/qt-qml/dataitem.cpp:543 meecast/qt-qml/dataitem.cpp:544
 msgid "(Moderate)"
 msgstr ""
 
@@ -3182,11 +3182,11 @@ msgstr "Thời gian vị trí địa phương hiện tại"
 msgid "d:"
 msgstr "d:"
 
-#: meecast/qt-qml/dataitem.cpp:479
+#: meecast/qt-qml/dataitem.cpp:489
 msgid "day ago"
 msgstr "ngày trước"
 
-#: meecast/qt-qml/dataitem.cpp:481
+#: meecast/qt-qml/dataitem.cpp:491
 msgid "days ago"
 msgstr "Ngày trước"
 
@@ -3230,11 +3230,11 @@ msgstr "giảm"
 msgid "feels like"
 msgstr "cảm giác như"
 
-#: meecast/qt-qml/dataitem.cpp:473
+#: meecast/qt-qml/dataitem.cpp:483
 msgid "hour ago"
 msgstr "Giờ trước"
 
-#: meecast/qt-qml/dataitem.cpp:476
+#: meecast/qt-qml/dataitem.cpp:486
 msgid "hours ago"
 msgstr "Giờ trước"
 
@@ -3326,11 +3326,11 @@ msgstr "mi/h"
 msgid "mi/s"
 msgstr "mi/s"
 
-#: meecast/qt-qml/dataitem.cpp:467
+#: meecast/qt-qml/dataitem.cpp:477
 msgid "minute ago"
 msgstr "Phút trước"
 
-#: meecast/qt-qml/dataitem.cpp:470
+#: meecast/qt-qml/dataitem.cpp:480
 msgid "minutes ago"
 msgstr "Phút trước"
 
@@ -3383,7 +3383,7 @@ msgstr "nmi"
 msgid "rising"
 msgstr "tăng lên"
 
-#: meecast/qt-qml/dataitem.cpp:464
+#: meecast/qt-qml/dataitem.cpp:474
 msgid "seconds ago"
 msgstr "giây trước"
 

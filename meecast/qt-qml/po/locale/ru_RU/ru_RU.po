@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-13 21:39+0300\n"
+"POT-Creation-Date: 2014-08-26 14:29+0300\n"
 "PO-Revision-Date: 2014-08-09 16:18+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/meecast/language/"
@@ -99,11 +99,11 @@ msgstr ""
 "\n"
 "В: "
 
-#: meecast/qt-qml/dataitem.cpp:528 meecast/qt-qml/dataitem.cpp:529
+#: meecast/qt-qml/dataitem.cpp:541 meecast/qt-qml/dataitem.cpp:542
 msgid "(Low)"
 msgstr "(Низкий)"
 
-#: meecast/qt-qml/dataitem.cpp:530 meecast/qt-qml/dataitem.cpp:531
+#: meecast/qt-qml/dataitem.cpp:543 meecast/qt-qml/dataitem.cpp:544
 msgid "(Moderate)"
 msgstr "(Умеренный)"
 
@@ -3078,11 +3078,11 @@ msgstr "местное время текущего местонахождени�
 msgid "d:"
 msgstr "д:"
 
-#: meecast/qt-qml/dataitem.cpp:479
+#: meecast/qt-qml/dataitem.cpp:489
 msgid "day ago"
 msgstr "день назад"
 
-#: meecast/qt-qml/dataitem.cpp:481
+#: meecast/qt-qml/dataitem.cpp:491
 msgid "days ago"
 msgstr "дн. назад"
 
@@ -3126,11 +3126,11 @@ msgstr "падает"
 msgid "feels like"
 msgstr "по ощущениям"
 
-#: meecast/qt-qml/dataitem.cpp:473
+#: meecast/qt-qml/dataitem.cpp:483
 msgid "hour ago"
 msgstr "час назад"
 
-#: meecast/qt-qml/dataitem.cpp:476
+#: meecast/qt-qml/dataitem.cpp:486
 msgid "hours ago"
 msgstr "час. назад"
 
@@ -3222,11 +3222,11 @@ msgstr "ми/ч"
 msgid "mi/s"
 msgstr "ми/с"
 
-#: meecast/qt-qml/dataitem.cpp:467
+#: meecast/qt-qml/dataitem.cpp:477
 msgid "minute ago"
 msgstr "минуту назад"
 
-#: meecast/qt-qml/dataitem.cpp:470
+#: meecast/qt-qml/dataitem.cpp:480
 msgid "minutes ago"
 msgstr "мин. назад"
 
@@ -3279,7 +3279,7 @@ msgstr "м.ми"
 msgid "rising"
 msgstr "возрастает"
 
-#: meecast/qt-qml/dataitem.cpp:464
+#: meecast/qt-qml/dataitem.cpp:474
 msgid "seconds ago"
 msgstr "сек. назад"
 

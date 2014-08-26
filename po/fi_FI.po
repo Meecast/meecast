@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-13 21:39+0300\n"
-"PO-Revision-Date: 2014-07-21 11:36+0000\n"
+"POT-Creation-Date: 2014-08-26 14:29+0300\n"
+"PO-Revision-Date: 2014-08-24 16:44+0000\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/"
 "meecast/language/fi_FI/)\n"
@@ -118,11 +118,11 @@ msgstr ""
 "\n"
 "T: "
 
-#: meecast/qt-qml/dataitem.cpp:528 meecast/qt-qml/dataitem.cpp:529
+#: meecast/qt-qml/dataitem.cpp:541 meecast/qt-qml/dataitem.cpp:542
 msgid "(Low)"
 msgstr "(Matala)"
 
-#: meecast/qt-qml/dataitem.cpp:530 meecast/qt-qml/dataitem.cpp:531
+#: meecast/qt-qml/dataitem.cpp:543 meecast/qt-qml/dataitem.cpp:544
 msgid "(Moderate)"
 msgstr "(Kohtalainen)"
 
@@ -707,7 +707,7 @@ msgstr "Yksityiskohtainen"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:242
 #: meecast/qt-qml/qml/FullWeatherPage.qml:305
 msgid "Dew point"
-msgstr ""
+msgstr "Kastepiste"
 
 #: omweather/src/weather-settings.c:1128 omweather/src/weather-settings.c:1321
 #: omweather/src/weather-settings.c:1325
@@ -2094,16 +2094,14 @@ msgstr "Sadetta"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:161
 #: meecast/qt-qml/qml/FullWeatherPage.qml:233
 #: meecast/qt-qml/qml/FullWeatherPage.qml:296
-#, fuzzy
 msgid "Precipitation rate:"
-msgstr "Sadetta"
+msgstr "Sadekertymä:"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:158
 #: meecast/qt-qml/qml/FullWeatherPage.qml:230
 #: meecast/qt-qml/qml/FullWeatherPage.qml:293
-#, fuzzy
 msgid "Precipitation:"
-msgstr "Sadetta"
+msgstr "Sademäärä:"
 
 #: omweather/src/weather-simple-settings.c:1653
 #: omweather/src/weather-simple-settings.c:2836
@@ -3163,11 +3161,11 @@ msgstr "sijainnin paikallisaika"
 msgid "d:"
 msgstr "d:"
 
-#: meecast/qt-qml/dataitem.cpp:479
+#: meecast/qt-qml/dataitem.cpp:489
 msgid "day ago"
 msgstr "päivä sitten"
 
-#: meecast/qt-qml/dataitem.cpp:481
+#: meecast/qt-qml/dataitem.cpp:491
 msgid "days ago"
 msgstr "päivää sitten"
 
@@ -3211,11 +3209,11 @@ msgstr "laskeva"
 msgid "feels like"
 msgstr "tuntuu kuin"
 
-#: meecast/qt-qml/dataitem.cpp:473
+#: meecast/qt-qml/dataitem.cpp:483
 msgid "hour ago"
 msgstr "tunti sitten"
 
-#: meecast/qt-qml/dataitem.cpp:476
+#: meecast/qt-qml/dataitem.cpp:486
 msgid "hours ago"
 msgstr "tuntia sitten"
 
@@ -3307,11 +3305,11 @@ msgstr "mi/h"
 msgid "mi/s"
 msgstr "mi/s"
 
-#: meecast/qt-qml/dataitem.cpp:467
+#: meecast/qt-qml/dataitem.cpp:477
 msgid "minute ago"
 msgstr "minuutti sitten"
 
-#: meecast/qt-qml/dataitem.cpp:470
+#: meecast/qt-qml/dataitem.cpp:480
 msgid "minutes ago"
 msgstr "minuuttia sitten"
 
@@ -3327,7 +3325,7 @@ msgstr "mm"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:234
 #: meecast/qt-qml/qml/FullWeatherPage.qml:297
 msgid "mm/h"
-msgstr ""
+msgstr "mm/h"
 
 #: omweather/src/weather-home.c:1403 omweather/src/weather-home.c:1458
 #: omweather/src/weather-home.c:1606 omweather/src/weather-settings.c:4078
@@ -3364,7 +3362,7 @@ msgstr "nmi"
 msgid "rising"
 msgstr "nousussa"
 
-#: meecast/qt-qml/dataitem.cpp:464
+#: meecast/qt-qml/dataitem.cpp:474
 msgid "seconds ago"
 msgstr "sekuntia sitten"
 

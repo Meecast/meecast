@@ -9,6 +9,7 @@ meecast (0.9.9) unstable; urgency=low
     openwearthermap.org source
   * Added station Cesena, ER, Italy to weather.com, openweathermap.com source  
   * Added many stations from Italy to yr.no source
+  * Updated Finnish, Germany translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 13 Aug 2014 23:31:23 +0200
 

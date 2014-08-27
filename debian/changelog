@@ -1,3 +1,9 @@
+meecast (0.9.10) unstable; urgency=low
+
+  * Added translation string for gismeteo.ru
+
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 27 Aug 2014 10:31:23 +0200
+
 meecast (0.9.9) unstable; urgency=low
 
   * Fixed problem with USA like style time for last update, sunrise, sunset
@@ -11,7 +17,7 @@ meecast (0.9.9) unstable; urgency=low
   * Added many stations from Italy to yr.no source
   * Updated Finnish, Germany translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 13 Aug 2014 23:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 27 Aug 2014 10:31:23 +0200
 
 meecast (0.9.8) unstable; urgency=low
 

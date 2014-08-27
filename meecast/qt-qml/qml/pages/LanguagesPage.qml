@@ -3,6 +3,8 @@ import Sailfish.Silica 1.0
 
 Page {
     id: languagespage
+    property int screen_height : languagespage.height
+    property int screen_width : languagespage.width 
     property int margin: 16
     Rectangle {
         anchors.fill: parent
@@ -16,7 +18,7 @@ Page {
     Rectangle {
         anchors.fill: parent
         anchors.top: parent.top
-        anchors.topMargin: 80
+        anchors.topMargin: 0.0805*screen_height
         anchors.leftMargin: margin
         anchors.rightMargin: margin
         color: "transparent" 
@@ -50,7 +52,7 @@ Page {
             Item {
                 id: wrapper
                 width: parent.width 
-                height: 80
+                height: 0.0805*screen_height
                    Label {
                        id: lang_label
                        anchors.leftMargin: margin

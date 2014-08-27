@@ -634,13 +634,13 @@ Page {
             color: Config.transparency ? Theme.secondaryHighlightColor : "black"
             opacity: 0.8
             id: toolbar
-            height: 90 
+            height: 0.094*screen_height 
             Row {
                 spacing: Theme.paddingLarge
                 //spacing: Theme.itemSizeSmall
                 anchors.horizontalCenter: parent.horizontalCenter
                 Switch {
-                    y: -24
+                    y: -0.028*screen_height 
                     id: "toolbarnow"
                     icon.source: Config.imagespath + "/now.png" 
                     visible: (current && day == 0) ? true : false
@@ -650,7 +650,7 @@ Page {
                     }
                 }
                 Switch {
-                    y: -24
+                    y: -0.028*screen_height 
                     id: "toolbarday"
                     icon.source:  Config.imagespath + "/day.png"
                     onClicked: {
@@ -659,7 +659,7 @@ Page {
                     }
                 }
                 Switch {
-                    y: -24
+                    y: -0.028*screen_height 
                     id: "toolbarnight"
                     icon.source:  Config.imagespath + "/night.png"
                     onClicked: {
@@ -668,7 +668,7 @@ Page {
                     }
                 }
                 Switch {
-                    y: -24
+                    y: -0.028*screen_height 
                     id: "toolbarclock"
                     visible: check_hours()
                     icon.source:  Config.imagespath + "/clock.png"

@@ -3,6 +3,9 @@ import Sailfish.Silica 1.0
 
 Page {
     id: about
+    property int screen_height : about.height
+    property int screen_width : about.width 
+
     Rectangle {
         anchors.fill: parent
         color: Config.transparency ? "transparent" : "black"
@@ -16,12 +19,12 @@ Page {
         }
         Rectangle {
             color: "transparent"
-            x: 0; y: 80; width: parent.width; height: 274
+            x: 0; y: 0.0805*screen_height; width: parent.width; height: 274
         }
         Image {
             id: backgroundmask
             source: Config.imagespath + "/mask_background.png"
-            x: 0; y: 80; width: parent.width;
+            x: 0; y: 0.0805*screen_height; width: parent.width;
             smooth: true
         }
         Image {

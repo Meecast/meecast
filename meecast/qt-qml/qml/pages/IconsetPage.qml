@@ -3,6 +3,8 @@ import Sailfish.Silica 1.0
 
 Page {
     id: iconsetpage
+    property int screen_height : iconsetpage.height
+    property int screen_width : iconsetpage.width 
     property int margin: 16
     Rectangle {
         anchors.fill: parent
@@ -15,7 +17,7 @@ Page {
 
     Rectangle{
         anchors.fill: parent
-        anchors.topMargin: 80
+        anchors.topMargin: 0.0805*screen_height
         anchors.leftMargin: margin
         anchors.rightMargin: margin
         color:  "transparent" 
@@ -48,7 +50,7 @@ Page {
             model: Config.icon_list()
 
             delegate: Item {
-                height: 80
+                height: 0.0805*screen_height
                 width: parent.width
 
                 Label {

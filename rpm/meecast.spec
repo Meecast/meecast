@@ -14,7 +14,7 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    0.9.9
+Version:    0.9.10
 Release:    1
 Group:      Utility
 License:    GPLv2.1
@@ -90,6 +90,9 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
+* Thu Aug 26 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.10
+  * Added translation string for gismeteo.ru
+
 * Thu Aug 26 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.9
   * Fixed problem with USA like style time for last update, sunrise, sunset
     and hourly information 

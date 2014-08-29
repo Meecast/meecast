@@ -11,12 +11,15 @@ CoverBackground {
     property bool isUpdate: false
     anchors.fill: parent
     property double angle: 0.0
+    property int screen_height : coverPage.height
+    property int screen_width : coverPage.width 
+
+//  allowResize: true
 
     function current_model(name){
         return Current.getdata(0, name);
     }
     function current_temperature(){
-
         if (coverPage.current_model("temp") == undefined){
             temp_text.text = ""
             return;
@@ -191,8 +194,8 @@ CoverBackground {
         else
             source_image.visible = false
         if (Config.windcoverpage){
-            icon.width = 140
-            icon.height = 140
+            icon.width = 0.374*screen_height 
+            icon.height = 0.374*screen_height 
             if (coverPage.current_model("wind_speed") != undefined && coverPage.current_model("wind_speed") != "N/A"){
                 wind_speed_text.text = (Config.windspeedunit == "Beaufort scale") ? coverPage.current_model("wind_speed") : coverPage.current_model("wind_speed") + ' ' + Config.tr(Config.windspeedunit)
                 wind_speed_text.visible = true
@@ -218,8 +221,8 @@ CoverBackground {
                 wind_direction.visible = false
             }
         }else{
-            icon.width = 128
-            icon.height = 128
+            icon.width = 0.342*screen_height
+            icon.height = 0.342*screen_height
             wind_speed_text.visible = false
             wind_direction_background.visible = false
             wind_direction.visible = false
@@ -317,7 +320,7 @@ CoverBackground {
         anchors.leftMargin: 0 
         anchors.left: icon.right
         wrapMode: TextEdit.WordWrap
-        height: 108 
+        height: 0.289*screen_height 
         color: "white"
         lineHeight: 0.7
         text: Current.temp + '°'
@@ -331,8 +334,8 @@ CoverBackground {
         id: icon
         visible: isUpdate ? false : true
         source: (Config.stationname == "Unknown" || Current.rowCount() == 0 || coverPage.current_model("pict") == undefined) ? Config.iconspath + "/" + Config.iconset + "/49.png" : Config.iconspath + "/" + Config.iconset + "/" + coverPage.current_model("pict") 
-        width:  Config.windcoverpage ? 128 : 100
-        height: Config.windcoverpage ? 128 : 100
+        width:  Config.windcoverpage ? 0.342*screen_height : 0.267*screen_height
+        height: Config.windcoverpage ? 0.342*screen_height : 0.267*screen_height
         anchors.top: stationname.bottom
         anchors.topMargin: 5 
         smooth: true
@@ -382,7 +385,7 @@ CoverBackground {
         visible: isUpdate ? false : true
         anchors.top: Config.windcoverpage ? wind_direction.bottom : icon.bottom
         width: parent.width 
-        height: 135 
+        height: 0.36*screen_height 
         elide : Text.ElideRight
         color: "white"
         wrapMode:  TextEdit.WordWrap
@@ -405,9 +408,9 @@ CoverBackground {
         visible: (Config.logocoverpage && !isUpdate)  ? true : false
         id: source_image 
         source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
-        anchors.bottomMargin: 22
+        anchors.bottomMargin: 0.059*screen_height 
         anchors.bottom: lastupdate.top
-        width: 80
+        width: 0.214*screen_height 
         smooth: true    
         fillMode: Image.PreserveAspectFit
         anchors.horizontalCenter: parent.horizontalCenter

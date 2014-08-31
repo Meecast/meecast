@@ -1215,8 +1215,9 @@ ConfigQml::_current_station_id(int i){
 
 void
 ConfigQml::check_and_update_station(){
-    std::cerr<<"ConfigQml::check_and_update_station"<<std::endl;
+    std::cerr<<"ConfigQml::check_and_update_station "<< _time_for_updating <<" "<< time(NULL)<< std::endl;
     if (_time_for_updating < time(NULL)){
+        std::cerr<<"ConfigQml::check_and_update_stationi2"<<std::endl;
         Core::DataParser* dp = NULL;
         dp = Core::DataParser::Instance();
         if (dp && (time(NULL) - dp->LastUpdate()) > this->UpdatePeriod()){

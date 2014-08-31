@@ -257,7 +257,8 @@ DataModel::update_model(int period)
                 uint result_time = 0;
                 if (_config->UpdatePeriod() != INT_MAX){
                     if ((time(NULL) - dp->LastUpdate()) > _config->UpdatePeriod())
-                        result_time = time(NULL) + 10;
+                        //result_time = time(NULL) + 10;
+                        result_time = time(NULL) - 10;
                     else
                         if (dp->LastUpdate() + _config->UpdatePeriod() < temp_data->EndTime())
                            result_time = dp->LastUpdate() + _config->UpdatePeriod();  

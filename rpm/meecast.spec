@@ -90,9 +90,11 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
-* Thu Aug 26 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.10
+* Mon Sep 01 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.10
   * Added translation string for gismeteo.ru
   * Adapted for big size screen
+  * Updated Slovenian, Italian, Swedish translations
+  * Fixed issue with auto update 
 
 * Thu Aug 26 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.9
   * Fixed problem with USA like style time for last update, sunrise, sunset

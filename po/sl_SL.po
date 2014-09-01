@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-26 14:29+0300\n"
-"PO-Revision-Date: 2014-07-01 13:21+0000\n"
+"POT-Creation-Date: 2014-09-01 16:18+0300\n"
+"PO-Revision-Date: 2014-08-29 14:25+0000\n"
 "Last-Translator: Boštjan Štrumbelj <sponka@gmail.com>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/projects/p/"
 "meecast/language/sl_SI/)\n"
@@ -703,7 +703,7 @@ msgstr "Podrobno"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:242
 #: meecast/qt-qml/qml/FullWeatherPage.qml:305
 msgid "Dew point"
-msgstr ""
+msgstr "Rosišče"
 
 #: omweather/src/weather-settings.c:1128 omweather/src/weather-settings.c:1321
 #: omweather/src/weather-settings.c:1325
@@ -1154,19 +1154,15 @@ msgstr "Meglica"
 
 #: omweather/src/hash.data:92
 msgid "Haze, Smoke or Dust"
-msgstr ""
+msgstr "Meglica, dim ali prah"
 
 #: omweather/src/hash.data:93
-#, fuzzy
 msgid "Heavy Freezing Rain"
-msgstr "Dež / pomrznjen dež"
+msgstr "Močan pomrznjen dež"
 
 #: omweather/src/hash.data:94
-#, fuzzy
 msgid "Heavy Precipitation"
-msgstr ""
-"\n"
-"Padavine:"
+msgstr "Močne padavine"
 
 #: omweather/src/hash.data:95
 msgid "Heavy Rain"
@@ -1181,19 +1177,16 @@ msgid "Heavy Rain Shower"
 msgstr "Močna ploha"
 
 #: omweather/src/hash.data:98
-#, fuzzy
 msgid "Heavy Rain Showers"
-msgstr "Močna ploha"
+msgstr "Močne plohe"
 
 #: omweather/src/hash.data:99
-#, fuzzy
 msgid "Heavy Sleet"
-msgstr "Močno sneženje"
+msgstr "Močna sodra"
 
 #: omweather/src/hash.data:100
-#, fuzzy
 msgid "Heavy Sleet Showers"
-msgstr "Močna ploha"
+msgstr "Močna ploha s sodro"
 
 #: omweather/src/hash.data:101
 msgid "Heavy Snow"
@@ -1204,19 +1197,16 @@ msgid "Heavy Snow / Wind"
 msgstr "Močno sneženje / veter"
 
 #: omweather/src/hash.data:103
-#, fuzzy
 msgid "Heavy Snow Showers"
-msgstr "Nekaj snežnih ploh"
+msgstr "Močne snežene plohe"
 
 #: omweather/src/hash.data:102
-#, fuzzy
 msgid "Heavy Snowfall"
 msgstr "Močno sneženje"
 
 #: omweather/src/hash.data:105
-#, fuzzy
 msgid "Heavy Thunder"
-msgstr "Grmenje"
+msgstr "Močna nevihta"
 
 #: omweather/src/hash.data:388
 msgid "Heavy intensity rain"
@@ -1248,7 +1238,7 @@ msgstr "Vlažnost:"
 
 #: omweather/src/hash.data:107
 msgid "Ice Pellets"
-msgstr ""
+msgstr "Sodra"
 
 #: omweather/src/weather-settings.c:3326
 msgid "Icon set:"
@@ -1385,9 +1375,8 @@ msgid "Light Rain Shower"
 msgstr "Rahla dežna ploha"
 
 #: omweather/src/hash.data:372
-#, fuzzy
 msgid "Light Rain Showers"
-msgstr "Rahla dežna ploha"
+msgstr "Rahle dežne plohe"
 
 #: omweather/src/hash.data:125
 msgid "Light Rain and Freezing Rain"
@@ -1406,14 +1395,12 @@ msgid "Light Rain with Thunder"
 msgstr "Nevihta z rahlim dežjem"
 
 #: omweather/src/hash.data:129
-#, fuzzy
 msgid "Light Sleet"
-msgstr "Rahlo sneženje"
+msgstr "Rahla sodra"
 
 #: omweather/src/hash.data:130
-#, fuzzy
 msgid "Light Sleet Showers"
-msgstr "Rahla snežne ploha"
+msgstr "Rahla ploha s sodro"
 
 #: omweather/src/hash.data:131
 msgid "Light Snow"
@@ -1437,15 +1424,13 @@ msgstr "Rahlo sneženje popoldan"
 
 #: omweather/src/hash.data:137
 msgid "Light Snow Shower"
-msgstr "Rahla snežne ploha"
+msgstr "Rahla snežna ploha"
 
 #: omweather/src/hash.data:138
-#, fuzzy
 msgid "Light Snow Showers"
-msgstr "Rahla snežne ploha"
+msgstr "Rahle snežne plohe"
 
 #: omweather/src/hash.data:132
-#, fuzzy
 msgid "Light Snowfall"
 msgstr "Rahlo sneženje"
 
@@ -1459,7 +1444,7 @@ msgstr "Rahlo intenzivna dežna ploha"
 
 #: omweather/src/hash.data:139
 msgid "Light or Moderate Precipitation"
-msgstr ""
+msgstr "Rahle ali zmerne padavine"
 
 #: omweather/src/hash.data:370
 msgid "Light rain"
@@ -1546,28 +1531,24 @@ msgid "Mist"
 msgstr "Meglica"
 
 #: omweather/src/hash.data:146
-#, fuzzy
 msgid "Moderate Freezing Rain"
-msgstr "Zmeren dež"
+msgstr "Zmeren pomrznjen dež"
 
 #: omweather/src/hash.data:376
 msgid "Moderate Rain"
 msgstr "Zmeren dež"
 
 #: omweather/src/hash.data:377
-#, fuzzy
 msgid "Moderate Rain Showers"
-msgstr "Zmeren dež"
+msgstr "Rahle dežne plohe"
 
 #: omweather/src/hash.data:145
-#, fuzzy
 msgid "Moderate Sleet"
-msgstr "Zmeren dež"
+msgstr "Zmerna sodra"
 
 #: omweather/src/hash.data:147
-#, fuzzy
 msgid "Moderate Snow Showers"
-msgstr "Dopoldanske snežne plohe"
+msgstr "Zmerne snežne plohe"
 
 #: omweather/src/hash.data:375
 msgid "Moderate rain"
@@ -1659,9 +1640,8 @@ msgid "Mostly Cloudy, Light Rain, T-Storm"
 msgstr "Pretežno oblačno, rahel dež, nevihta z grmenjem"
 
 #: omweather/src/hash.data:170
-#, fuzzy
 msgid "Mostly Cloudy, Light Rain, Weak Heavy Rain"
-msgstr "Oblačno, rahel dež"
+msgstr "Pretežno oblačno, rahel dež"
 
 #: omweather/src/hash.data:171
 msgid "Mostly Cloudy, Rain"
@@ -2104,29 +2084,20 @@ msgid "Ppcp:"
 msgstr "Padav:"
 
 #: omweather/src/hash.data:249
-#, fuzzy
 msgid "Precipitation"
-msgstr ""
-"\n"
-"Padavine:"
+msgstr "Padavine"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:161
 #: meecast/qt-qml/qml/FullWeatherPage.qml:233
 #: meecast/qt-qml/qml/FullWeatherPage.qml:296
-#, fuzzy
 msgid "Precipitation rate:"
-msgstr ""
-"\n"
-"Padavine:"
+msgstr "Količina padavin:"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:158
 #: meecast/qt-qml/qml/FullWeatherPage.qml:230
 #: meecast/qt-qml/qml/FullWeatherPage.qml:293
-#, fuzzy
 msgid "Precipitation:"
-msgstr ""
-"\n"
-"Padavine:"
+msgstr "Padavine:"
 
 #: omweather/src/weather-simple-settings.c:1653
 #: omweather/src/weather-simple-settings.c:2836
@@ -2541,7 +2512,7 @@ msgstr "Plohe v okolici"
 
 #: omweather/src/hash.data:296
 msgid "Showers or Intermittent Precipitation"
-msgstr ""
+msgstr "Plohe ali občasne padavine"
 
 #: omweather/src/hash.data:383
 msgid "Sky is Clear"
@@ -2556,9 +2527,8 @@ msgid "Sleet"
 msgstr "Sodra"
 
 #: omweather/src/hash.data:298
-#, fuzzy
 msgid "Sleet Showers"
-msgstr "Nekaj ploh"
+msgstr "Ploha s sodro"
 
 #: omweather/src/hash.data:299
 msgid "Smoke"
@@ -2581,9 +2551,8 @@ msgid "Snow Shower / Wind"
 msgstr "Snežna ploha / veter"
 
 #: omweather/src/hash.data:305
-#, fuzzy
 msgid "Snow Showers"
-msgstr "Snežna ploha"
+msgstr "Snežne plohe"
 
 #: omweather/src/hash.data:306
 msgid "Snow Showers / Wind Early"
@@ -2614,9 +2583,8 @@ msgid "Snow to Wintry Mix / Wind"
 msgstr "Sneg z dežjem / veter"
 
 #: omweather/src/hash.data:301
-#, fuzzy
 msgid "Snowfall"
-msgstr "Sneg"
+msgstr "Sneženje"
 
 #: omweather/src/weather-simple-settings.c:2295
 msgid "Source"
@@ -2667,7 +2635,7 @@ msgstr "Nevihta"
 
 #: omweather/src/hash.data:314
 msgid "Strong Thundershowers"
-msgstr ""
+msgstr "Močne plohe z grmenjem"
 
 #: omweather/src/weather-download.c:392
 msgid "Successfully loaded"
@@ -2812,9 +2780,8 @@ msgid "Thunder in the Vicinity"
 msgstr "Grmenje v okolici"
 
 #: omweather/src/hash.data:327
-#, fuzzy
 msgid "Thundershowers"
-msgstr "Grmenje"
+msgstr "Plohe z grmenjem"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
@@ -2940,9 +2907,8 @@ msgid "Very High"
 msgstr "Zelo visoko"
 
 #: omweather/src/hash.data:393
-#, fuzzy
 msgid "Violent Rain Showers"
-msgstr "Rahla dežna ploha"
+msgstr "Močan naliv"
 
 #: omweather/src/weather-settings.c:3517 omweather/src/weather-settings.c:3522
 msgid "Visible items:"
@@ -3350,7 +3316,7 @@ msgstr "mm"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:234
 #: meecast/qt-qml/qml/FullWeatherPage.qml:297
 msgid "mm/h"
-msgstr ""
+msgstr "mm/h"
 
 #: omweather/src/weather-home.c:1403 omweather/src/weather-home.c:1458
 #: omweather/src/weather-home.c:1606 omweather/src/weather-settings.c:4078

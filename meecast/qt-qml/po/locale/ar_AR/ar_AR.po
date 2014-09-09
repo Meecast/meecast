@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-26 14:29+0300\n"
+"POT-Creation-Date: 2014-09-09 15:00+0300\n"
 "PO-Revision-Date: 2014-03-31 08:24+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/meecast/language/"
@@ -658,6 +658,10 @@ msgstr "الدولة"
 #: omweather/src/weather-settings.c:510
 msgid "Country:"
 msgstr "الدولة:"
+
+#: omweather/src/hash.data:399
+msgid "Cover Page"
+msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2896
 msgid "Custom"
@@ -3368,34 +3372,34 @@ msgstr "إسم الوقع"
 msgid "steady"
 msgstr "ثابت"
 
-#: omweather/src/hash.data:399
+#: omweather/src/hash.data:400
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:400
+#: omweather/src/hash.data:401
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:401
+#: omweather/src/hash.data:402
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:402
+#: omweather/src/hash.data:403
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:403
+#: omweather/src/hash.data:404
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:404
+#: omweather/src/hash.data:405
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:405
+#: omweather/src/hash.data:406
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:406
+#: omweather/src/hash.data:407
 msgid "Ю-З"
 msgstr "Ю-З"

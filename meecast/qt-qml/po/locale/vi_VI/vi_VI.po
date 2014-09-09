@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-26 14:29+0300\n"
+"POT-Creation-Date: 2014-09-09 15:00+0300\n"
 "PO-Revision-Date: 2012-10-05 08:15+0000\n"
 "Last-Translator: quytrong287 <quytrong287@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/meecast/"
@@ -661,6 +661,10 @@ msgstr "Nước:"
 #: omweather/src/weather-settings.c:510
 msgid "Country:"
 msgstr "Nước:"
+
+#: omweather/src/hash.data:399
+msgid "Cover Page"
+msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2896
 msgid "Custom"
@@ -3399,35 +3403,35 @@ msgstr "Tên quốc gia"
 msgid "steady"
 msgstr "Ổn định"
 
-#: omweather/src/hash.data:399
+#: omweather/src/hash.data:400
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:400
+#: omweather/src/hash.data:401
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:401
+#: omweather/src/hash.data:402
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:402
+#: omweather/src/hash.data:403
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:403
+#: omweather/src/hash.data:404
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:404
+#: omweather/src/hash.data:405
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:405
+#: omweather/src/hash.data:406
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:406
+#: omweather/src/hash.data:407
 msgid "Ю-З"
 msgstr "Ю-З"
 

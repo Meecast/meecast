@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-09 15:00+0300\n"
+"POT-Creation-Date: 2014-09-16 08:29+0300\n"
 "PO-Revision-Date: 2012-12-21 07:15+0000\n"
 "Last-Translator: zlatko <zlatko23@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/"
@@ -3350,7 +3350,6 @@ msgstr "mi"
 #: omweather/src/weather-settings.c:4008 omweather/src/hash.data:358
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
-#: meecast/qt-qml/qml/UnitsPage.qml:166
 msgid "mi/h"
 msgstr "mi/h"
 
@@ -3388,6 +3387,11 @@ msgstr ""
 #: meecast/qt-qml/qml/UnitsPage.qml:213
 msgid "mmHg"
 msgstr "mmHg"
+
+#: meecast/qt-qml/qml/UnitsPage.qml:166
+#, fuzzy
+msgid "mph"
+msgstr "м/ч"
 
 #: omweather/src/weather-simple-popup.c:489
 msgid "n:"

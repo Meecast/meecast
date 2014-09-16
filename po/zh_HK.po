@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-09 15:00+0300\n"
+"POT-Creation-Date: 2014-09-16 08:29+0300\n"
 "PO-Revision-Date: 2013-07-23 05:02+0000\n"
 "Last-Translator: michaelmhk <micmhk@gmail.com>\n"
 "Language-Team: Chinese (Hong Kong) (http://www.transifex.com/projects/p/"
@@ -3325,7 +3325,6 @@ msgstr "里"
 #: omweather/src/weather-settings.c:4008 omweather/src/hash.data:358
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
-#: meecast/qt-qml/qml/UnitsPage.qml:166
 msgid "mi/h"
 msgstr "里／小時"
 
@@ -3363,6 +3362,11 @@ msgstr ""
 #: meecast/qt-qml/qml/UnitsPage.qml:213
 msgid "mmHg"
 msgstr "mmHg"
+
+#: meecast/qt-qml/qml/UnitsPage.qml:166
+#, fuzzy
+msgid "mph"
+msgstr "公尺／小時"
 
 #: omweather/src/weather-simple-popup.c:489
 msgid "n:"

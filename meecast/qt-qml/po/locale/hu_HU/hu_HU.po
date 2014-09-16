@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-09 15:00+0300\n"
+"POT-Creation-Date: 2014-09-16 08:29+0300\n"
 "PO-Revision-Date: 2014-07-28 05:20+0000\n"
 "Last-Translator: Macilaci457 <laci.kara@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/meecast/"
@@ -3211,7 +3211,6 @@ msgstr "mérföld"
 #: omweather/src/weather-settings.c:4008 omweather/src/hash.data:358
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
-#: meecast/qt-qml/qml/UnitsPage.qml:166
 msgid "mi/h"
 msgstr "mph"
 
@@ -3249,6 +3248,11 @@ msgstr ""
 #: meecast/qt-qml/qml/UnitsPage.qml:213
 msgid "mmHg"
 msgstr "Hgmm"
+
+#: meecast/qt-qml/qml/UnitsPage.qml:166
+#, fuzzy
+msgid "mph"
+msgstr "m/h"
 
 #: omweather/src/weather-simple-popup.c:489
 msgid "n:"

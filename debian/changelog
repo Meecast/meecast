@@ -1,7 +1,8 @@
-meecast (0.9.10) unstable; urgency=low
+meecast (0.9.11) unstable; urgency=low
 
   * Added translation string for gismeteo.ru
   * Updated Slovenian, Italian, Swedish translations
+  * Changed unit mi/h to mph
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 27 Aug 2014 10:31:23 +0200
 

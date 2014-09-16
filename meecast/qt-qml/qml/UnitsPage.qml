@@ -163,8 +163,8 @@ Page {
 						}
 					}
 					Button {
-						text: Config.tr("mi/h")
-						checked: (Config.windspeedunit == "mi/h")
+						text: Config.tr("mph")
+						checked: (Config.windspeedunit == "mi/h" || Config.windspeedunit == "mph")
 						onClicked: {
 							Config.windspeed_unit("2");
 						}

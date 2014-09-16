@@ -61,6 +61,7 @@
 #include <locale.h>
 
 #include "selectmodel.h"
+#include "networkingcontrol.h"
 
 #define _(String) gettext(String)
 

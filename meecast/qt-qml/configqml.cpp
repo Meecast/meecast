@@ -54,6 +54,10 @@ ConfigQml::~ConfigQml(){
         delete db;
     if (thread)
         delete thread;
+    if (networkingcontrol){
+        networkingcontrol->disconnectSession();
+        delete networkingcontrol;
+    }
 }
 
 ConfigQml* 
@@ -161,7 +165,7 @@ void ConfigQml::init()
                     "/home/user/.cache/com.meecast.omweather/splash.png");
         }
     }
-
+    networkingcontrol = new NetworkingControl(this);
 }
 
 void

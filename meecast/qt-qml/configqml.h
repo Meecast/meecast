@@ -46,6 +46,7 @@
 
 #include <libintl.h>
 #include <locale.h>
+#include  "networkingcontrol.h"
 
 
 #define _(String) gettext(String)
@@ -196,6 +197,7 @@ public:
     Q_INVOKABLE int _current_station_id();
     Q_INVOKABLE void _current_station_id(int i);
     void refreshconfig();
+    NetworkingControl *networkingcontrol; 
 signals:
     void iconsetChanged();
     void iconspathChanged();

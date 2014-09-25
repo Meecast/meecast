@@ -1,9 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
- * Copyright (C) 2010-2011 Tanya Makova
+ * Copyright (C) 2006-2014 Vlad Vasiliev
  *     for the code
  *
  * Copyright (C) 2008 Andrew Zhilin
@@ -37,6 +36,24 @@ bool NetworkingControl::omw_isSessionActive = false;
 NetworkingControl::NetworkingControl(QObject *parent): QObject(parent), omw_networkConfigManager(0), omw_networkSession(NULL), omw_isOnline(false){
 //NetworkingControl::NetworkingControl(QObject *parent){
      omw_networkConfigManager = new QNetworkConfigurationManager();
+     
+     QNetworkConfiguration netConf  = omw_networkConfigManager->defaultConfiguration(); 
+
+     switch (netConf.type()) {
+         case QNetworkConfiguration::InternetAccessPoint:
+             std::cerr<<"QNetworkConfiguration::InternetAccessPoint"<<std::endl;
+             break;
+         case QNetworkConfiguration::ServiceNetwork:
+             std::cerr<<"QNetworkConfiguration::ServiceNetwork"<<std::endl;
+             break;
+         case QNetworkConfiguration::UserChoice:
+             std::cerr<<"QNetworkConfiguration::UserChoice"<<std::endl;
+             break;
+         case QNetworkConfiguration::Invalid:
+             std::cerr<<"QNetworkConfiguration::Invalid:"<<std::endl;
+             break;
+     }
+
      connect(omw_networkConfigManager, SIGNAL(onlineStateChanged(bool)),
              SLOT(slotOnlineStateChanged(bool)));
      omw_isOnline = omw_networkConfigManager->isOnline();
@@ -65,6 +82,34 @@ NetworkingControl::isOnline(){
         return false;
 }
 
+void NetworkingControl::connectSession(bool background ){
+    if(omw_isSessionActive){
+        std::cerr<<"Network session already active, ignoring connect call"<<std::endl;
+        omw_refCount++;
+        emit connectionSuccess();
+        return;
+    }else if(!omw_networkSession){
+        QNetworkConfiguration netConfig = omw_networkConfigManager->defaultConfiguration();
+        omw_networkSession = new QNetworkSession(netConfig);
+        connect(omw_networkSession, SIGNAL(error(QNetworkSession::SessionError)),
+                SLOT(slotSessionError(QNetworkSession::SessionError)));
+        connect(omw_networkSession, SIGNAL(stateChanged(QNetworkSession::State)),
+                SLOT(slotSessionState(QNetworkSession::State)));
+        /*
+         * connect(m_networkSession, SIGNAL(opened()),
+         * SLOT(slotSessionOpened()));
+         * */
+
+ //       std::cerr<<"netConfig.isValid() "<<netConfig.isValid()<<std::endl;
+    }
+    omw_networkSession->setSessionProperty("ConnectInBackground", background);
+//    const bool canStartIAP = (omw_networkConfigManager->capabilities()
+//                                           & QNetworkConfigurationManager::CanStartAndStopInterfaces);
+
+//    std::cerr<<"canStartIAP "<<canStartIAP<<std::endl;
+    omw_networkSession->open();
+    omw_networkSession->waitForOpened(60000);
+}
 
 void NetworkingControl::disconnectSession(){
     if(omw_refCount > 0){
@@ -109,8 +154,7 @@ void NetworkingControl::slotSessionError(QNetworkSession::SessionError error){
 
 void NetworkingControl::slotSessionState(QNetworkSession::State status)
 {
-    switch(status)
-    {
+    switch(status){
         case QNetworkSession::Invalid:
             std::cerr<<"QNetworkSession::Invalid"<<std::endl;
             omw_isSessionActive = false;

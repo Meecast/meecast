@@ -44,7 +44,7 @@ public:
     NetworkingControl(QObject *parent = 0);
     ~NetworkingControl();
     bool isOnline();
-    void connectSession(bool connectInBackground = false);
+    void connectSession(bool background = false);
     void disconnectSession();
 signals:
     void valueChanged(bool aConnected);

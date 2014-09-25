@@ -93,9 +93,10 @@ ConfigQml::DeleteInstance(){
     return false;
 }
 
-void ConfigQml::init()
-{
+void
+ConfigQml::init(){
     int index;
+    need_updating = false;
     db = new Core::DatabaseSqlite("");
 
     /* setting for stndbyscreen */
@@ -166,11 +167,59 @@ void ConfigQml::init()
         }
     }
     networkingcontrol = new NetworkingControl(this);
+    connect(networkingcontrol, SIGNAL(connectionSuccess()),
+                    SLOT(onNetworkSessionOpened()), Qt::QueuedConnection);
+    connect(networkingcontrol, SIGNAL(connectionError()),
+                   SLOT(onNetworkSessionError()), Qt::QueuedConnection);
+
+}
+
+void 
+ConfigQml::onNetworkSessionError(){
+
+    std::cerr<<"ConfigQml::onNetworkSessionError()"<<std::endl;
+    if(networkingcontrol){
+        // Disconnect all slots connected to the network manager
+       disconnect(networkingcontrol, SIGNAL(connectionSuccess()),
+                   this, SLOT(onNetworkSessionOpened()));
+       disconnect(networkingcontrol, SIGNAL(connectionError()),
+                    this, SLOT(onNetworkSessionError()));
+        networkingcontrol->disconnectSession();
+    }
+}
+void 
+ConfigQml::onNetworkSessionOpened(){
+    std::cerr<<"ConfigQml::onNetworkSessionOpened()"<<std::endl;
+    thread->start();
+    if(networkingcontrol){
+        // Disconnect all slots connected to the network manager
+        disconnect(networkingcontrol, SIGNAL(connectionSuccess()),
+                    this, SLOT(onNetworkSessionOpened()));
+        disconnect(networkingcontrol, SIGNAL(connectionError()),
+                    this, SLOT(onNetworkSessionError()));
+    }
+}
+
+
+
+bool
+ConfigQml::isOnline(){
+    if (networkingcontrol){
+        return networkingcontrol->isOnline();
+    }else
+        return true;
 }
 
 void
-ConfigQml::saveConfig()
-{
+ConfigQml::connectSession(bool background){
+    if (networkingcontrol){
+        networkingcontrol->connectSession(background);
+    }
+}
+
+
+void
+ConfigQml::saveConfig(){
     standby_settings->setValue("color_font_stationname", _standby_color_font_stationname);
     standby_settings->setValue("color_font_temperature", _standby_color_font_temperature);
     standby_settings->setValue("color_font_current_temperature", _standby_color_font_current_temperature);
@@ -823,7 +872,7 @@ ConfigQml::stationname_index(int i){
         std::cerr<<"ConfigQml::stationname_index "<<i<<std::endl;
         return qstr.fromUtf8(ConfigQml::Config::stationname(i).c_str()); 
     }else
-        QString("Unknown");
+        return QString("Unknown");
 }
 
 QString
@@ -1006,7 +1055,9 @@ ConfigQml::showwebsupport()
 void
 ConfigQml::downloadFinishedSlot()
 {
-    emit configChanged();
+    std::cerr<<"ConfigQml::downloadFinishedSlot()"<<std::endl;
+    if (!need_updating)
+        emit configChanged();
 }
 
 

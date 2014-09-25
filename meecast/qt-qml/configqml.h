@@ -198,6 +198,13 @@ public:
     Q_INVOKABLE void _current_station_id(int i);
     void refreshconfig();
     NetworkingControl *networkingcontrol; 
+    bool isOnline();
+    void connectSession(bool background);
+    bool need_updating;
+private slots:    
+    void onNetworkSessionOpened();
+    void onNetworkSessionError();
+
 signals:
     void iconsetChanged();
     void iconspathChanged();

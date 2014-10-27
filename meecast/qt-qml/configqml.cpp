@@ -171,6 +171,11 @@ ConfigQml::init(){
                     SLOT(onNetworkSessionOpened()), Qt::QueuedConnection);
     connect(networkingcontrol, SIGNAL(connectionError()),
                    SLOT(onNetworkSessionError()), Qt::QueuedConnection);
+    connect(networkingcontrol, SIGNAL(connectionError()),
+                   SLOT(onNetworkSessionError()), Qt::QueuedConnection);
+//    connect(networkongcontrol, SIGNAL(valueChanged(bool)),
+//                        this, SLOT(onInternetStateChanged(bool)) /*, Qt::QueuedConnection*/);
+
 
 }
 
@@ -191,6 +196,7 @@ void
 ConfigQml::onNetworkSessionOpened(){
     std::cerr<<"ConfigQml::onNetworkSessionOpened()"<<std::endl;
     thread->start();
+    /*
     if(networkingcontrol){
         // Disconnect all slots connected to the network manager
         disconnect(networkingcontrol, SIGNAL(connectionSuccess()),
@@ -198,6 +204,7 @@ ConfigQml::onNetworkSessionOpened(){
         disconnect(networkingcontrol, SIGNAL(connectionError()),
                     this, SLOT(onNetworkSessionError()));
     }
+    */
 }
 
 
@@ -1047,8 +1054,7 @@ ConfigQml::showwebdonation()
 }
 
 void
-ConfigQml::showwebsupport()
-{
+ConfigQml::showwebsupport(){
     QDesktopServices::openUrl(QUrl("http://meecast.com"));     
 }
 

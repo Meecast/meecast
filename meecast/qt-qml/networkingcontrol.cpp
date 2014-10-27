@@ -202,6 +202,8 @@ void NetworkingControl::slotOnlineStateChanged(bool isOnline){
     std::cerr<<"Online status changed, is online is now: "<< isOnline<<std::endl;
     if(omw_isOnline != isOnline){
         omw_isOnline = isOnline;
+        if (!omw_isOnline)
+           omw_isSessionActive = false; 
         emit valueChanged(omw_isOnline);
     }
 }

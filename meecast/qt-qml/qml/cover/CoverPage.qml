@@ -149,16 +149,16 @@ CoverBackground {
             description.text = Config.tr("No locations are set up yet.")
             stationname.text = "MeeCast"
             update_next_cover.enabled = false
-            update_cover = false
+            update_cover.enabled = false
             add_cover.enabled = true
         }else {
             if (Config.prevstationname == "" && Config.nextstationname == ""){
                 add_cover.enabled = false 
-                update_cover = true
+                update_cover.enabled = true
                 update_next_cover.enabled = false
             }else{
                 add_cover.enabled = false 
-                update_cover = false
+                update_cover.enabled = false
                 update_next_cover.enabled = true
             }
             if (Current.rowCount() == 0) {

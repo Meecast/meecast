@@ -1,6 +1,6 @@
 meecast (0.9.12) unstable; urgency=low
 
-  * Added Palanga(Lithuania) to weather.com source 
+  * Added Palanga(Lithuania) to weather.com, yr.no sources
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 27 Aug 2014 10:31:23 +0200
 

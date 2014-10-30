@@ -177,23 +177,6 @@ ConfigQml::init(){
 #endif
 }
 
-void
-ConfigQml::saveConfig()
-{
-#if 0
-    networkingcontrol = new NetworkingControl(this);
-    connect(networkingcontrol, SIGNAL(connectionSuccess()),
-                    SLOT(onNetworkSessionOpened()), Qt::QueuedConnection);
-    connect(networkingcontrol, SIGNAL(connectionError()),
-                   SLOT(onNetworkSessionError()), Qt::QueuedConnection);
-    connect(networkingcontrol, SIGNAL(connectionError()),
-                   SLOT(onNetworkSessionError()), Qt::QueuedConnection);
-//    connect(networkongcontrol, SIGNAL(valueChanged(bool)),
-//                        this, SLOT(onInternetStateChanged(bool)) /*, Qt::QueuedConnection*/);
-
-
-}
-
 void 
 ConfigQml::onNetworkSessionError(){
 
@@ -241,8 +224,20 @@ ConfigQml::connectSession(bool background){
 
 
 void
-ConfigQml::saveConfig(){
->>>>>>> master
+ConfigQml::saveConfig()
+{
+    networkingcontrol = new NetworkingControl(this);
+    connect(networkingcontrol, SIGNAL(connectionSuccess()),
+                    SLOT(onNetworkSessionOpened()), Qt::QueuedConnection);
+    connect(networkingcontrol, SIGNAL(connectionError()),
+                   SLOT(onNetworkSessionError()), Qt::QueuedConnection);
+    connect(networkingcontrol, SIGNAL(connectionError()),
+                   SLOT(onNetworkSessionError()), Qt::QueuedConnection);
+//    connect(networkongcontrol, SIGNAL(valueChanged(bool)),
+//                        this, SLOT(onInternetStateChanged(bool)) /*, Qt::QueuedConnection*/);
+
+
+#if 0
     standby_settings->setValue("color_font_stationname", _standby_color_font_stationname);
     standby_settings->setValue("color_font_temperature", _standby_color_font_temperature);
     standby_settings->setValue("color_font_current_temperature", _standby_color_font_current_temperature);

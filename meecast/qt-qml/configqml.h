@@ -217,7 +217,7 @@ public:
     Q_INVOKABLE void refreshconfig3();
     Q_INVOKABLE void check_and_update_station();
     Q_INVOKABLE void reload_config();
-    void refreshconfig();
+//    void refreshconfig();
     NetworkingControl *networkingcontrol; 
     bool isOnline();
     void connectSession(bool background);

@@ -31,13 +31,12 @@
 #include "configqml.h"
 
 UpdateThread::UpdateThread(QObject *parent) :
-    QThread(parent)
-{
+    QThread(parent){
 }
 
 void
-UpdateThread::run()
-{
+UpdateThread::run(){
+    std::cerr<<"UpdateThread::run()"<<std::endl;
     ConfigQml *config = NULL;
     try{
         config = ConfigQml::Instance(Core::AbstractConfig::getConfigPath()+
@@ -56,8 +55,16 @@ UpdateThread::run()
         config =  ConfigQml::Instance();
         config->saveConfig();
     }
+    if (!config->isOnline()){
+        std::cerr<<"Not connect to Internet"<<std::endl;
+        config->connectSession(false);
+        //config->connectSession(true);
+        config->need_updating = true;
+        return;
+    }
     /* std::cerr<<"Size of StationList "<< config->stationsList().size()<<std::endl; */
     for (short i=0; i < config->stationsList().size();i++){
         config->stationsList().at(i)->updateData(true);
     }
+    config->need_updating = false;
 }

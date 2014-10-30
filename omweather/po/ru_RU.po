@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-26 14:29+0300\n"
+"POT-Creation-Date: 2014-09-16 08:29+0300\n"
 "PO-Revision-Date: 2014-08-09 16:18+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/meecast/language/"
@@ -636,6 +636,10 @@ msgstr "Страна"
 #: omweather/src/weather-settings.c:510
 msgid "Country:"
 msgstr "Страна:"
+
+#: omweather/src/hash.data:399
+msgid "Cover Page"
+msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2896
 msgid "Custom"
@@ -3214,7 +3218,6 @@ msgstr "ми"
 #: omweather/src/weather-settings.c:4008 omweather/src/hash.data:358
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
-#: meecast/qt-qml/qml/UnitsPage.qml:166
 msgid "mi/h"
 msgstr "ми/ч"
 
@@ -3252,6 +3255,11 @@ msgstr ""
 #: meecast/qt-qml/qml/UnitsPage.qml:213
 msgid "mmHg"
 msgstr "мм рт.ст."
+
+#: meecast/qt-qml/qml/UnitsPage.qml:166
+#, fuzzy
+msgid "mph"
+msgstr "м/ч"
 
 #: omweather/src/weather-simple-popup.c:489
 msgid "n:"
@@ -3295,34 +3303,34 @@ msgstr "в названии станции"
 msgid "steady"
 msgstr "устойчивое"
 
-#: omweather/src/hash.data:399
+#: omweather/src/hash.data:400
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:400
+#: omweather/src/hash.data:401
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:401
+#: omweather/src/hash.data:402
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:402
+#: omweather/src/hash.data:403
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:403
+#: omweather/src/hash.data:404
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:404
+#: omweather/src/hash.data:405
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:405
+#: omweather/src/hash.data:406
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:406
+#: omweather/src/hash.data:407
 msgid "Ю-З"
 msgstr ""

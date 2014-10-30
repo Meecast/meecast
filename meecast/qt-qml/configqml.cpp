@@ -58,6 +58,10 @@ ConfigQml::~ConfigQml(){
         delete db;
     if (thread)
         delete thread;
+    if (networkingcontrol){
+        networkingcontrol->disconnectSession();
+        delete networkingcontrol;
+    }
 }
 
 ConfigQml* 
@@ -94,10 +98,11 @@ ConfigQml::DeleteInstance(){
     return false;
 }
 
-void ConfigQml::init()
-{
+void
+ConfigQml::init(){
     int index;
     _time_for_updating = 0;
+    need_updating = false;
     db = new Core::DatabaseSqlite("");
 
 #if 0
@@ -176,6 +181,68 @@ void
 ConfigQml::saveConfig()
 {
 #if 0
+    networkingcontrol = new NetworkingControl(this);
+    connect(networkingcontrol, SIGNAL(connectionSuccess()),
+                    SLOT(onNetworkSessionOpened()), Qt::QueuedConnection);
+    connect(networkingcontrol, SIGNAL(connectionError()),
+                   SLOT(onNetworkSessionError()), Qt::QueuedConnection);
+    connect(networkingcontrol, SIGNAL(connectionError()),
+                   SLOT(onNetworkSessionError()), Qt::QueuedConnection);
+//    connect(networkongcontrol, SIGNAL(valueChanged(bool)),
+//                        this, SLOT(onInternetStateChanged(bool)) /*, Qt::QueuedConnection*/);
+
+
+}
+
+void 
+ConfigQml::onNetworkSessionError(){
+
+    std::cerr<<"ConfigQml::onNetworkSessionError()"<<std::endl;
+    if(networkingcontrol){
+        // Disconnect all slots connected to the network manager
+       disconnect(networkingcontrol, SIGNAL(connectionSuccess()),
+                   this, SLOT(onNetworkSessionOpened()));
+       disconnect(networkingcontrol, SIGNAL(connectionError()),
+                    this, SLOT(onNetworkSessionError()));
+        networkingcontrol->disconnectSession();
+    }
+}
+void 
+ConfigQml::onNetworkSessionOpened(){
+    std::cerr<<"ConfigQml::onNetworkSessionOpened()"<<std::endl;
+    thread->start();
+    /*
+    if(networkingcontrol){
+        // Disconnect all slots connected to the network manager
+        disconnect(networkingcontrol, SIGNAL(connectionSuccess()),
+                    this, SLOT(onNetworkSessionOpened()));
+        disconnect(networkingcontrol, SIGNAL(connectionError()),
+                    this, SLOT(onNetworkSessionError()));
+    }
+    */
+}
+
+
+
+bool
+ConfigQml::isOnline(){
+    if (networkingcontrol){
+        return networkingcontrol->isOnline();
+    }else
+        return true;
+}
+
+void
+ConfigQml::connectSession(bool background){
+    if (networkingcontrol){
+        networkingcontrol->connectSession(background);
+    }
+}
+
+
+void
+ConfigQml::saveConfig(){
+>>>>>>> master
     standby_settings->setValue("color_font_stationname", _standby_color_font_stationname);
     standby_settings->setValue("color_font_temperature", _standby_color_font_temperature);
     standby_settings->setValue("color_font_current_temperature", _standby_color_font_current_temperature);
@@ -879,9 +946,8 @@ ConfigQml::stationname_index(int i){
     if (i>=0 && i <this->stationsList().size()){
         /* std::cerr<<"ConfigQml::stationname_index "<<i<<std::endl; */
         return qstr.fromUtf8(ConfigQml::Config::stationname(i).c_str()); 
-    }else{
+    }else
         return QString("Unknown");
-    }
 }
 
 QString
@@ -1092,15 +1158,16 @@ ConfigQml::showwebdonation()
 }
 
 void
-ConfigQml::showwebsupport()
-{
+ConfigQml::showwebsupport(){
     QDesktopServices::openUrl(QUrl("http://meecast.com"));     
 }
 
 void
 ConfigQml::downloadFinishedSlot()
 {
-    emit configChanged();
+    std::cerr<<"ConfigQml::downloadFinishedSlot()"<<std::endl;
+    if (!need_updating)
+        emit configChanged();
 }
 
 

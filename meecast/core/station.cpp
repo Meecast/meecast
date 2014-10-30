@@ -447,6 +447,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         bool result = false;
         std::string command;
         /* To do */
+        std::cerr<<"Station::updateData(bool force)"<<std::endl;
         /* Check connection and if force true update connection */
         force = false;
         /* TimeZone */

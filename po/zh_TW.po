@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-26 14:29+0300\n"
+"POT-Creation-Date: 2014-09-16 08:29+0300\n"
 "PO-Revision-Date: 2014-05-15 13:55+0000\n"
 "Last-Translator: osk2 <sc60714@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/meecast/"
@@ -655,6 +655,10 @@ msgstr "國家"
 #: omweather/src/weather-settings.c:510
 msgid "Country:"
 msgstr "國家："
+
+#: omweather/src/hash.data:399
+msgid "Cover Page"
+msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2896
 msgid "Custom"
@@ -3304,7 +3308,6 @@ msgstr "英里"
 #: omweather/src/weather-settings.c:4008 omweather/src/hash.data:358
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
-#: meecast/qt-qml/qml/UnitsPage.qml:166
 msgid "mi/h"
 msgstr "英里／小時"
 
@@ -3342,6 +3345,11 @@ msgstr ""
 #: meecast/qt-qml/qml/UnitsPage.qml:213
 msgid "mmHg"
 msgstr "mmHg"
+
+#: meecast/qt-qml/qml/UnitsPage.qml:166
+#, fuzzy
+msgid "mph"
+msgstr "公尺／小時"
 
 #: omweather/src/weather-simple-popup.c:489
 msgid "n:"
@@ -3385,34 +3393,34 @@ msgstr "站點名稱"
 msgid "steady"
 msgstr "steady"
 
-#: omweather/src/hash.data:399
+#: omweather/src/hash.data:400
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:400
+#: omweather/src/hash.data:401
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:401
+#: omweather/src/hash.data:402
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:402
+#: omweather/src/hash.data:403
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:403
+#: omweather/src/hash.data:404
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:404
+#: omweather/src/hash.data:405
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:405
+#: omweather/src/hash.data:406
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:406
+#: omweather/src/hash.data:407
 msgid "Ю-З"
 msgstr "Ю-З"

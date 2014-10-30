@@ -47,6 +47,7 @@
 
 #include <libintl.h>
 #include <locale.h>
+#include  "networkingcontrol.h"
 
 
 //#define _(String) gettext(String)
@@ -216,6 +217,15 @@ public:
     Q_INVOKABLE void refreshconfig3();
     Q_INVOKABLE void check_and_update_station();
     Q_INVOKABLE void reload_config();
+    void refreshconfig();
+    NetworkingControl *networkingcontrol; 
+    bool isOnline();
+    void connectSession(bool background);
+    bool need_updating;
+private slots:    
+    void onNetworkSessionOpened();
+    void onNetworkSessionError();
+
 signals:
     void iconsetChanged();
     void iconspathChanged();

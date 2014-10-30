@@ -2,8 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
- * Copyright (C) 2010-2011 Tanya Makova
+ * Copyright (C) 2006-2014 Vlad Vasiliev
  *     for the code
  *
  * Copyright (C) 2008 Andrew Zhilin
@@ -30,15 +29,37 @@
 
 #ifndef NETWORKINGCONTROL_H
 #define NETWORKINGCONTROL_H
+#include <iostream>
+#include <stdio.h>
+#include <QObject>
 #include <QNetworkConfigurationManager>
+#include <QNetworkSession>
 
-class NetworkingControl 
+class QNetworkConfigurationManager;
+
+class NetworkingControl : public QObject
 {
+Q_OBJECT
 public:
-    NetworkingControl();
-    virtual ~NetworkingControl(){};
-    public:
+    NetworkingControl(QObject *parent = 0);
+    ~NetworkingControl();
     bool isOnline();
+    void connectSession(bool background = false);
+    void disconnectSession();
+signals:
+    void valueChanged(bool aConnected);
+    void connectionSuccess();
+    void connectionError();
+private:
+    QNetworkConfigurationManager *omw_networkConfigManager; 
+    QNetworkSession *omw_networkSession; 
+    static bool omw_isSessionActive; 
+    bool omw_isOnline; 
+    static int omw_refCount; 
+private slots:
+    void slotOnlineStateChanged(bool isOnline);
+    void slotSessionState(QNetworkSession::State status);
+    void slotSessionError(QNetworkSession::SessionError error);
 };
 
-#endif // QMLLAYOUTITEM_H
+#endif //NETWORKINGCONTROL_H 

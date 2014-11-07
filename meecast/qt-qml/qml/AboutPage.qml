@@ -106,23 +106,23 @@ Page {
         }
 
 	}
-	Image {
-        signal clicked
-        id: donate_button
-	    source: Config.imagespath + "/btn_donate_LG.png" 
-	    anchors.top: projectsitetext.bottom
-	    anchors.rightMargin: 20
-	    anchors.right: parent.right
-        smooth: true	
-        MouseArea {
-            id: mouseArea
-            anchors.fill: parent
-            onReleased: {
-                Config.showwebdonation();
-            }
-        }
-
-    }
+//	Image {
+//        signal clicked
+//        id: donate_button
+//	    source: Config.imagespath + "/btn_donate_LG.png" 
+//	    anchors.top: projectsitetext.bottom
+//	    anchors.rightMargin: 20
+//	    anchors.right: parent.right
+//        smooth: true	
+//        MouseArea {
+//            id: mouseArea
+//            anchors.fill: parent
+//            onReleased: {
+//                Config.showwebdonation();
+//            }
+//        }
+//
+//    }
 
 	Rectangle {
 	    id: splitter

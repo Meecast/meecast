@@ -10,8 +10,8 @@ import os
 import re
 import string
 import zipfile
-country = "Italy"
-country_code = "IT"
+country = "Denmark"
+country_code = "DK"
                 
 
 def normalizing4 (source):
@@ -71,7 +71,7 @@ regions_name = {}
 regions_name_second = {}
 fh = open(country_code + ".txt")
 for line in fh.readlines():
-    print line
+#    print line
     pattern = re.split('(\t)', line)
     if (pattern[14] == "ADM1"):
         regions_name[pattern[20]] = normalizing(pattern[4])
@@ -116,7 +116,7 @@ for line in fh.readlines():
 #    if (pattern[14] == "PPLA" or pattern[14] == "PPLA2" or pattern[14] == "PPLC" or pattern[14] == "PPL"):    
     if (pattern[14] == "PPLA" or pattern[14] == "PPLA2" or pattern[14] == "PPLA3" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
         print "%s %s" %(pattern[4], pattern[28]) 
-        if (pattern[20] != "" and int(pattern[28]) >= 10000):
+        if (pattern[20] != "" and int(pattern[28]) >= 0):
             if (regions_name.get(pattern[20]) == None):
                 continue
             fixed_regions_name = urllib.quote(regions_name[pattern[20]])

@@ -76,6 +76,7 @@ NetworkingControl::isOnline(){
     QNetworkConfigurationManager mgr;
 
     QList<QNetworkConfiguration> activeConfigs = mgr.allConfigurations(QNetworkConfiguration::Active);
+    std::cerr<<"activeConfigs for QNetworkConfiguration" << activeConfigs.count()<<std::endl;
     if (activeConfigs.count() > 0)
         return true;
     else

@@ -4,7 +4,7 @@ meecast (0.9.12) unstable; urgency=low
   * Remover donation link
   * Added wake up internet connection for refresh weather forecast
   * Added station Poselok rudnika Kupol to gismeteo.ru source
-  * Fixed problem with Denmark stations in openweathermap.org source
+  * Fixed problem with Denmark, Germany stations in openweathermap.org source
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 27 Aug 2014 10:31:23 +0200
 

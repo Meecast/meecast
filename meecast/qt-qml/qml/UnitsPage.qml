@@ -203,8 +203,8 @@ Page {
 						}
 					}
 					Button {
-						text: Config.tr("Pa")
-						checked: (Config.pressureunit == "Pa")
+						text: Config.tr("kPa")
+						checked: (Config.pressureunit == "Pa" || Config.pressureunit == "kPa")
 						onClicked: {
 							Config.pressure_unit("1");
 						}

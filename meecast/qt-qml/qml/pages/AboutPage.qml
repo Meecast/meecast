@@ -113,7 +113,7 @@ anchors.right: parent.right
     //        anchors.top: projectfulltext.bottom
             anchors.top: projectsitetext.bottom
             anchors.leftMargin: 20
-            anchors.topMargin: 30
+            anchors.topMargin: 50
         }
         Label {
             id: projectadministratortext
@@ -219,29 +219,29 @@ Italian - Lorenzo Facca,\n \
 \tPavel Fialko, Alessandro Pasotti,\n \
 \tSalvatore Fiorenzo, Ilir Gjika,\n \
 \tLuca Onnis\n \
-Spanish - Alejandro Lopez, Agustí Clara\n \
+Spanish - Alejandro Lopez, AgustÃ­ Clara\n \
 Polish - Tomasz Dominikowski\n \
-Slovak - Roman Moravcík\n \
+Slovak - Roman MoravcÃ­k\n \
 Dutch - Tom Leenders, Michiel Pater\n \
 Bulgarian - Zlatko Enikov\n \
 Albanian - Ilir Gjika\n \
 Chinese - Wong Man Kong, Michael\n \
 Portuguese - Jose Narciso,\n \
 Turkish - Burak Kaan Kose,\n \
-\tMehmet Çilingir,\n \
-Catalan - Agustí Clara,\n \
+\tMehmet Ã‡ilingir,\n \
+Catalan - AgustÃ­ Clara,\n \
 Arabic - Tarad Alfandi,\n \
 Danish - Peter Jespersen,\n \
 Serbian - Aleksandar Zaric,\n \
 Norwegian - Peer-Atle Motland,\n \
 Hungarian - Salmi,\n \
-Slovenian - Boštjan,\n \
-Czech - Jakub Kožíšek, Pavel Šrubar,\n \
+Slovenian - BoÅ¡tjan,\n \
+Czech - Jakub KoÅ¾Ã­Å¡ek, Pavel Å rubar,\n \
 Chinese(Taiwan) - osk2, \n \
 Vietnamese - Hieu Nguyen\n \
 \tAnh Duong and truongnx, \n \
 Swedish - Angela Nennebrandt,\n \
-\tNiklas Åkerström, \n \
+\tNiklas Ã…kerstrÃ¶m, \n \
 \tTomislav Veleckovik")
 anchors.leftMargin: 20
 anchors.left: parent.left

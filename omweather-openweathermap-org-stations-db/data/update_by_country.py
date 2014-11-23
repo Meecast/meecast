@@ -10,8 +10,8 @@ import os
 import re
 import string
 import zipfile
-country = "Italy"
-country_code = "IT"
+country = "Germany"
+country_code = "DE"
                 
 
 def normalizing4 (source):
@@ -71,7 +71,7 @@ regions_name = {}
 regions_name_second = {}
 fh = open(country_code + ".txt")
 for line in fh.readlines():
-    print line
+#    print line
     pattern = re.split('(\t)', line)
     if (pattern[14] == "ADM1"):
         regions_name[pattern[20]] = normalizing(pattern[4])

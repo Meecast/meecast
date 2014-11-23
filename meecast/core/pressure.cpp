@@ -40,7 +40,7 @@ namespace Core {
     Pressure::Pressure(const float value, const std::string& units){
         _units = new std::string;
         _units->assign(units);
-        if(*_units == "Pa")
+        if(*_units == "Pa" || *_units == "kPa")
              _value = value * 10;
         else if (*_units == "mmHg")
                  _value = _value / 0.75006f;
@@ -79,7 +79,7 @@ namespace Core {
     float Pressure::value(const bool absolute){
         if (absolute)
             return _value;
-        if(*_units == "Pa")
+        if(*_units == "Pa" || *_units == "kPa")
              return(_value / 10);
         else if (*_units == "mmHg")
                  return round(_value * 0.75006f);

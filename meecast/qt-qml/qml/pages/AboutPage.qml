@@ -63,31 +63,31 @@ Page {
             wrapMode: Text.Wrap
             width: parent.width - 20
 }
-    Label {
+        Label {
             id: projectsitetext
             text: Config.tr("Support") + ":"
-anchors.top: aboutfulltext.bottom
-anchors.topMargin: 30
-anchors.leftMargin: 20
-anchors.left: parent.left
-color: "#999999"
+            anchors.top: aboutfulltext.bottom
+            anchors.topMargin: 30
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            color: "#999999"
         }
-Label {
-        signal clicked
-        id: projectfulltext
-text: "support@meecast.org"
-anchors.leftMargin: 20
-anchors.left: parent.left
-anchors.top: projectsitetext.bottom
-        MouseArea {
-            id: mouseArea_web_support
-            anchors.fill: parent
-            onReleased: {
-                Config.showwebsupport();
+        Label {
+            signal clicked
+            id: projectfulltext
+            text: "support@meecast.org"
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            anchors.top: projectsitetext.bottom
+            MouseArea {
+                id: mouseArea_web_support
+                anchors.fill: parent
+                onReleased: {
+                    Config.showwebsupport();
+                }
             }
         }
-
-}
+/*
 Image {
         signal clicked
         id: donate_button
@@ -105,95 +105,96 @@ anchors.right: parent.right
         }
     }
 
-Rectangle {
-id: splitter
-        color: "#999999"
-        x: 20; width: parent.width - 40; height: 2
-anchors.top: projectfulltext.bottom
-anchors.leftMargin: 20
-anchors.topMargin: 30
-    }
-
-    Label {
-        id: projectadministratortext
-        text: Config.tr("Project administrator") + ":"
-        anchors.top: splitter.bottom
-        anchors.topMargin: 30
-        anchors.leftMargin: 20
-        anchors.left: parent.left
-        color: "#999999"
-    }
-    Label {
-            id: prohectadministatorfulltext
-        text: "Vlad Vasilyeu"
-        anchors.leftMargin: 20
-        anchors.left: parent.left
-        anchors.top: projectadministratortext.bottom
-    }
-    Label {
-        id: leadprogrammertext
-        text: Config.tr ("Programmer") + ":"
-anchors.top: prohectadministatorfulltext.bottom
-anchors.topMargin: 30
-anchors.leftMargin: 20
-anchors.left: parent.left
-color: "#999999"
-    }
-Label {
-        id: leadprogrammerfulltext
-text: "Vlad Vasilyeu"
-anchors.leftMargin: 20
-anchors.left: parent.left
-anchors.top: leadprogrammertext.bottom
-}
-    Label {
-        id: localizationtext
-        text: Config.tr ("Localization platform") + ":"
-anchors.top: leadprogrammerfulltext.bottom
-anchors.topMargin: 30
-anchors.leftMargin: 20
-anchors.left: parent.left
-color: "#999999"
-    }
-Label {
-        id: localizationfulltext
-text: "http://transifex.net"
-anchors.leftMargin: 20
-anchors.left: parent.left
-anchors.top: localizationtext.bottom
-}
-Label {
-        id: leaddesignertext
-        text: Config.tr("Lead designers") + ":"
-anchors.top: localizationfulltext.bottom
-anchors.topMargin: 30
-anchors.leftMargin: 20
-anchors.left: parent.left
-color: "#999999"
+    */
+        Rectangle {
+            id: splitter
+            color: "#999999"
+            x: 20; width: parent.width - 40; height: 2
+    //        anchors.top: projectfulltext.bottom
+            anchors.top: projectsitetext.bottom
+            anchors.leftMargin: 20
+            anchors.topMargin: 30
         }
-Label {
-        id: leaddesignerfulltext
-text: "Andrew Zhilin, Stephan Beyerle"
-anchors.leftMargin: 20
-anchors.left: parent.left
-anchors.top: leaddesignertext.bottom
-}
-Label {
+        Label {
+            id: projectadministratortext
+            text: Config.tr("Project administrator") + ":"
+            anchors.top: splitter.bottom
+            anchors.topMargin: 30
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            color: "#999999"
+        }
+        Label {
+            id: prohectadministatorfulltext
+            text: "Vlad Vasilyeu"
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            anchors.top: projectadministratortext.bottom
+        }
+        Label {
+            id: leadprogrammertext
+            text: Config.tr ("Programmer") + ":"
+            anchors.top: prohectadministatorfulltext.bottom
+            anchors.topMargin: 30
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            color: "#999999"
+        }
+        Label {
+            id: leadprogrammerfulltext
+            text: "Vlad Vasilyeu"
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            anchors.top: leadprogrammertext.bottom
+        }
+        Label {
+            id: localizationtext
+            text: Config.tr ("Localization platform") + ":"
+            anchors.top: leadprogrammerfulltext.bottom
+            anchors.topMargin: 30
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            color: "#999999"
+        }
+        Label {
+            id: localizationfulltext
+            text: "http://transifex.net"
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            anchors.top: localizationtext.bottom
+        }
+        Label {
+            id: leaddesignertext
+            text: Config.tr("Lead designers") + ":"
+            anchors.top: localizationfulltext.bottom
+            anchors.topMargin: 30
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            color: "#999999"
+        }
+        Label {
+            id: leaddesignerfulltext
+            text: "Andrew Zhilin, Stephan Beyerle"
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            anchors.top: leaddesignertext.bottom
+        }
+        Label {
             id: projectmanagertext
             text: Config.tr("Project manager") + ":"
-anchors.top: leaddesignerfulltext.bottom
-anchors.topMargin: 30
-anchors.leftMargin: 20
-anchors.left: parent.left
-color: "#999999"
+            anchors.top: leaddesignerfulltext.bottom
+            anchors.topMargin: 30
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            color: "#999999"
         }
-Label {
+        Label {
             id: projectmanagerfulltext
-text: "Ludmila Lisovskaya"
-anchors.leftMargin: 20
-anchors.left: parent.left
-anchors.top: projectmanagertext.bottom
-}
+            text: "Ludmila Lisovskaya"
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            anchors.top: projectmanagertext.bottom
+        }
         Label {
             id: translatorstext
             text: Config.tr("Translators") + ":"
@@ -246,7 +247,7 @@ anchors.leftMargin: 20
 anchors.left: parent.left
 anchors.top: translatorstext.bottom
 }
-    Label {
+        Label {
             id: iconsetext
             text: Config.tr("Iconsets") + ":"
             anchors.top: translatorsfulltext.bottom
@@ -254,7 +255,7 @@ anchors.top: translatorstext.bottom
             anchors.leftMargin: 20
             anchors.left: parent.left
             color: "#999999"
-        }
+       }
 Label {
             id: iconsetfulltext
 text: "Beginning - \n \
@@ -280,7 +281,7 @@ anchors.left: parent.left
 anchors.top: iconsetext.bottom
 font.pixelSize: 26
 }
-    Label {
+        Label {
             id: licensetext
             text: Config.tr("License") + ":"
             anchors.top: iconsetfulltext.bottom
@@ -288,7 +289,7 @@ font.pixelSize: 26
             anchors.leftMargin: 20
             anchors.left: parent.left
             color: "#999999"
-    }
+        }
 Label {
         id: licensefulltext
 text: Config.tr ("This software is free software; you can\n \
@@ -303,7 +304,7 @@ anchors.left: parent.left
 anchors.top: licensetext.bottom
 font.pixelSize: 30
 }
-Label {
+        Label {
             id: sourcetext
             text: Config.tr("Source code") + ":"
             anchors.top: licensefulltext.bottom
@@ -311,14 +312,14 @@ Label {
             anchors.leftMargin: 20
             anchors.left: parent.left
             color: "#999999"
-    }
-Label {
-        id: sourcefulltext
-text: Config.tr ("http://github.com/Meecast/meecast");
-anchors.leftMargin: 20
-anchors.left: parent.left
-anchors.top: sourcetext.bottom
-font.pixelSize: 30
-}
+            }
+        Label {
+            id: sourcefulltext
+            text: Config.tr ("http://github.com/Meecast/meecast");
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            anchors.top: sourcetext.bottom
+            font.pixelSize: 30
+        }
     }
 }

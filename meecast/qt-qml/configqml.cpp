@@ -119,7 +119,7 @@ ConfigQml::init(){
 
     _gps = NULL;
 
-    wind_list << "m/s" << "km/h" << "mi/h" << "kn" << "Beaufort scale";
+    wind_list << "m/s" << "km/h" << "mph" << "kn" << "Beaufort scale";
     press_list << "mbar" << "kPa" << "mmHg";
     vis_list << "m" << "km" << "mi";
 

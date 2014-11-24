@@ -92,6 +92,7 @@ desktop-file-install --delete-original       \
 %changelog
 * Tue Oct 28 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.12
   * Added possibility create network connection
+  * Fixed problem with hourly forecast view
 
 * Tue Oct 28 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.11
   * Fixed broken cover (for new firmware)

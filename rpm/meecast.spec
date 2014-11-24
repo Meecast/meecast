@@ -91,8 +91,15 @@ desktop-file-install --delete-original       \
 
 %changelog
 * Tue Oct 28 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.12
-  * Added possibility create network connection
   * Fixed problem with hourly forecast view
+  * Added Palanga(Lithuania) to weather.com, yr.no, openweathermap.org sources
+  * Removed donation link
+  * Added wake up internet connection for refresh weather forecast
+  * Added station Poselok rudnika Kupol to gismeteo.ru source
+  * Fixed problem with Denmark, Germany stations in openweathermap.org source
+  * Fixed incorrect name of pressure from "Pa" to "kPa"
+
+
 
 * Tue Oct 28 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.11
   * Fixed broken cover (for new firmware)

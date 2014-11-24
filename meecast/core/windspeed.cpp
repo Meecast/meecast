@@ -43,7 +43,7 @@ namespace Core {
         if(*_units == "km/h"){
              _value = value / 3.6f;
              return;
-        }else if (*_units == "mi/h"){
+        }else if (*_units == "mi/h" || *_units == "mph"){
                  _value = _value / 3.6f * 1.609344f;
                  return;
               }else if (*_units == "kn"){
@@ -140,7 +140,7 @@ namespace Core {
             return _value;
         if(*_units == "km/h")
              return(_value * 3.6f);
-        else if (*_units == "mi/h")
+        else if (*_units == "mi/h" || *_units == "mph" )
                  return round(_value * 3.6f / 1.609344f);
              else if (*_units == "kn"){
                         return round(_value * 1.944);

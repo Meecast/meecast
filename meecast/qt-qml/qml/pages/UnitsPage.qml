@@ -91,7 +91,7 @@ Page {
                             onClicked: { Config.windspeed_unit("1") } 
                         }
                         MenuItem {
-                            text: Config.tr("mi/h")
+                            text: Config.tr("mph")
                             onClicked: { Config.windspeed_unit("2") } 
                         }
                         MenuItem {

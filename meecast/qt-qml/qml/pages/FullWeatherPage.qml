@@ -23,10 +23,10 @@ Page {
     property variant model_night:  (current) ? Current_night : Forecast_night_model
     property variant model_hours:  Forecast_hours_model
 
-    function check_hours (){
+    function check_hours(){
         var i = 0;
         var result = false;
-        console.log("check_hours ()");
+        console.log("check_hours()");
         var fulldate = model_day.getdata(day, "fulldate");
         while (i<model_hours.rowCount()){   
             if (model_hours.getdata(i, "fulldate") == fulldate){
@@ -269,7 +269,6 @@ Page {
             current_rect.visible = false;
             hours_list.visible = true;
             flickable.contentHeight = hours_list.height + day_rect.height;
-
 	}
         if ((model_day.getdata(day, "sunrise")) != "N/A")
             condition2.append({cond_name: Config.tr("Sunrise:"),

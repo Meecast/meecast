@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 08:29+0300\n"
+"POT-Creation-Date: 2014-11-25 08:30+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1830,10 +1830,6 @@ msgstr ""
 msgid "PM T-Storms"
 msgstr ""
 
-#: meecast/qt-qml/qml/UnitsPage.qml:206
-msgid "Pa"
-msgstr ""
-
 #: omweather/src/hash.data:220
 msgid "Partly Cloudy"
 msgstr ""
@@ -3072,6 +3068,10 @@ msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2722
 msgid "inch"
+msgstr ""
+
+#: meecast/qt-qml/qml/UnitsPage.qml:206
+msgid "kPa"
 msgstr ""
 
 #: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1297

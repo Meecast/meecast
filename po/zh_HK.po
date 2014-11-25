@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 08:29+0300\n"
+"POT-Creation-Date: 2014-11-25 08:30+0300\n"
 "PO-Revision-Date: 2013-07-23 05:02+0000\n"
 "Last-Translator: michaelmhk <micmhk@gmail.com>\n"
 "Language-Team: Chinese (Hong Kong) (http://www.transifex.com/projects/p/"
@@ -1976,10 +1976,6 @@ msgstr "午後雷雨"
 msgid "PM T-Storms"
 msgstr "午後雷雨"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:206
-msgid "Pa"
-msgstr "帕"
-
 #: omweather/src/hash.data:220
 msgid "Partly Cloudy"
 msgstr "多雲"
@@ -3260,6 +3256,11 @@ msgstr "inHg"
 #: omweather/src/weather-simple-settings.c:2722
 msgid "inch"
 msgstr "吋"
+
+#: meecast/qt-qml/qml/UnitsPage.qml:206
+#, fuzzy
+msgid "kPa"
+msgstr "帕"
 
 #: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1297
 #: omweather/src/weather-simple-settings.c:1336

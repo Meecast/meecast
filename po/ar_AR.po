@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 08:29+0300\n"
+"POT-Creation-Date: 2014-11-25 08:30+0300\n"
 "PO-Revision-Date: 2014-03-31 08:24+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/meecast/language/"
@@ -1942,10 +1942,6 @@ msgstr "عواصف ثلجيه مساءً"
 msgid "PM T-Storms"
 msgstr "عواصف رعديه مساءً"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:206
-msgid "Pa"
-msgstr "باسكال"
-
 #: omweather/src/hash.data:220
 msgid "Partly Cloudy"
 msgstr "غائم جزئياً"
@@ -3226,6 +3222,11 @@ msgstr "inHg"
 #: omweather/src/weather-simple-settings.c:2722
 msgid "inch"
 msgstr "انش"
+
+#: meecast/qt-qml/qml/UnitsPage.qml:206
+#, fuzzy
+msgid "kPa"
+msgstr "باسكال"
 
 #: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1297
 #: omweather/src/weather-simple-settings.c:1336

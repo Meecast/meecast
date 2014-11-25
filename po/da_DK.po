@@ -50,7 +50,9 @@ msgstr ""
 msgid ""
 "\n"
 "Humidity: "
-msgstr "Luftfugtighed:"
+msgstr ""
+"\n"
+"Luftfugtighed:"
 
 #: omweather/src/weather-home.c:1608
 msgid ""
@@ -71,7 +73,9 @@ msgstr ""
 msgid ""
 "\n"
 "Pressure: "
-msgstr "Tryk:"
+msgstr ""
+"\n"
+"Tryk: "
 
 #: omweather/src/weather-home.c:1577
 msgid ""
@@ -344,7 +348,7 @@ msgstr ""
 "Vedligeholdelse: Pavel Fialko, <pavelnf@gmail.com>\n"
 "Dokumentation: Marko Vertainen\n"
 "Design af brugergrænseflade og standard ikonsæt: Andrew Zhilin\n"
-"Design af brugergrænseflade til Fremantle: Krebber Jan Niemelä Ulla"
+"Design af brugergrænseflade til Fremantle: Krebber Jan Niemelä Ulla\n"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:415
 msgid "Author and maintenance: Vlad Vasilyeu, <vlad@gas.by>\n"
@@ -411,7 +415,7 @@ msgstr "Afbryd"
 #: omweather/src/weather-config.c:383
 #, c-format
 msgid "Cannot get path to the HOME directory. Quitting.\n"
-msgstr "Kan ikke hente stien til hjemmebiblioteket. Afslutter."
+msgstr "Kan ikke hente stien til hjemmebiblioteket. Afslutter.\n"
 
 #: omweather/src/weather-settings.c:3864
 msgid "Celcius"
@@ -657,7 +661,7 @@ msgid ""
 "zhilin@ovi.com>\n"
 msgstr ""
 "Design af brugergrænseflade og standard iconsæt: Copyright 2006-2011 Andrew "
-"Zhilin, <andrew.zhilin@ovi.com>"
+"Zhilin, <andrew.zhilin@ovi.com>\n"
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
 msgid "Detailed"
@@ -772,7 +776,7 @@ msgstr ""
 "Frank persisk - for idéen til det nye layout\n"
 "Brian Knight - for ideen om iconset, kritik og donation ;-)\n"
 "Andrew aka Tabster - for test og ideer\n"
-"Brad Jones aka kazrak - for test"
+"Brad Jones aka kazrak - for test\n"
 
 #: omweather/src/weather-simple-settings.c:330
 #: omweather/src/weather-simple-settings.c:421
@@ -790,7 +794,7 @@ msgstr "Indtast søgning"
 #: omweather/src/weather-home.c:841
 #, c-format
 msgid "Error in xml file\n"
-msgstr "Fejl i XML-fil"
+msgstr "Fejl i XML-fil\n"
 
 #: omweather/src/weather-home.c:914
 msgid "Error initializing the OMWeather applet"
@@ -893,7 +897,7 @@ msgid ""
 "Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
 msgstr ""
 "Finsk - Marko Vertainen; German - Claudius Henrichs; Spansk - Alejandro "
-"Lopez; Dutch - Tom Leenders; Slovakisk - Roman Moravčík"
+"Lopez; Dutch - Tom Leenders; Slovakisk - Roman Moravčík\n"
 
 #: omweather/src/hash.data:83
 msgid "First Quarter"
@@ -952,7 +956,7 @@ msgstr "Prognose ved:"
 
 #: omweather/src/weather-home.c:1355
 msgid "Forecast: \n"
-msgstr "Prognose:"
+msgstr "Prognose: \n"
 
 #: omweather/src/hash.data:89
 msgid "Freezing Drizzle"
@@ -2748,7 +2752,7 @@ msgid ""
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 msgstr ""
 "Oversættere: Fransk - Nicolas Granziano, Philippe, Benot Knecht; Russisk - "
-"Pavel Fialko, Vlad Vasiliev, Ed Bartosh;"
+"Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 
 #: omweather/src/hash.data:398
 msgid "Transparency"

@@ -1,28 +1,31 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Peer-Atle Motland <PeerAtle@online.no>, 2012-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 08:29+0300\n"
+"POT-Creation-Date: 2014-11-25 08:30+0300\n"
 "PO-Revision-Date: 2014-10-13 19:30+0000\n"
 "Last-Translator: Peer-Atle Motland <PeerAtle@online.no>\n"
-"Language-Team: Norwegian (Norway) (http://www.transifex.com/projects/p/meecast/language/no_NO/)\n"
+"Language-Team: Norwegian (Norway) (http://www.transifex.com/projects/p/"
+"meecast/language/no_NO/)\n"
+"Language: no_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: no_NO\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: omweather/src/weather-home.c:1567
 msgid ""
 "\n"
 "H: "
-msgstr "\nH: "
+msgstr ""
+"\n"
+"H: "
 
 #: omweather/src/weather-help.c:80
 #, c-format
@@ -42,45 +45,72 @@ msgid ""
 "Andrew Olmsted\n"
 "for Semi-transparency\n"
 "and coloured backgrounds\n"
-msgstr "\nHildon desktop applet\nNokia N800/N810/N900\nfor å vise værprognoser.\nVersion %s Build: %s\nCopyright (c) 2006-2011\nVlad Vasiliev, Pavel Fialko\nCopyright (c) 2008\nfor standard ikon sett (Glance)\nog utforming av grensesnittet\nAndrew Zhilin\nCopyright (c) 2008\nAndrew Olmsted\nfor Semi-transparent\nog farget bakgrunn\n"
+msgstr ""
+"\n"
+"Hildon desktop applet\n"
+"Nokia N800/N810/N900\n"
+"for å vise værprognoser.\n"
+"Version %s Build: %s\n"
+"Copyright (c) 2006-2011\n"
+"Vlad Vasiliev, Pavel Fialko\n"
+"Copyright (c) 2008\n"
+"for standard ikon sett (Glance)\n"
+"og utforming av grensesnittet\n"
+"Andrew Zhilin\n"
+"Copyright (c) 2008\n"
+"Andrew Olmsted\n"
+"for Semi-transparent\n"
+"og farget bakgrunn\n"
 
 #: omweather/src/weather-home.c:1383 omweather/src/weather-home.c:1439
 #: omweather/src/weather-popup.c:965 omweather/src/weather-popup.c:1098
 msgid ""
 "\n"
 "Humidity: "
-msgstr "\nFuktighet:"
+msgstr ""
+"\n"
+"Fuktighet:"
 
 #: omweather/src/weather-home.c:1608
 msgid ""
 "\n"
 "P: "
-msgstr "\nP:"
+msgstr ""
+"\n"
+"P:"
 
 #: omweather/src/weather-popup.c:954 omweather/src/weather-popup.c:959
 #: omweather/src/weather-popup.c:1087 omweather/src/weather-popup.c:1092
 msgid ""
 "\n"
 "Precipitation: "
-msgstr "\nNedbør:"
+msgstr ""
+"\n"
+"Nedbør:"
 
 #: omweather/src/weather-popup.c:976 omweather/src/weather-popup.c:1108
 msgid ""
 "\n"
 "Pressure: "
-msgstr "\nTrykk:"
+msgstr ""
+"\n"
+"Trykk:"
 
 #: omweather/src/weather-home.c:1577
 msgid ""
 "\n"
 "V: "
-msgstr "\nV:"
+msgstr ""
+"\n"
+"V:"
 
 #: omweather/src/weather-home.c:1614
 msgid ""
 "\n"
 "W: "
-msgstr "\nW:"
+msgstr ""
+"\n"
+"W:"
 
 #: meecast/qt-qml/dataitem.cpp:541 meecast/qt-qml/dataitem.cpp:542
 msgid "(Low)"
@@ -124,7 +154,9 @@ msgstr "15 minutter"
 
 #: omweather/src/weather-settings.c:4242 meecast/qt-qml/qml/UpdatePage.qml:161
 msgid "2 hours"
-msgstr " \n2 timer"
+msgstr ""
+" \n"
+"2 timer"
 
 #: omweather/src/weather-settings.c:4194
 msgid "20 seconds"
@@ -297,7 +329,16 @@ msgid ""
 "Alexander Savchenko aka dizel - for testing\n"
 "Timeless - for patches \n"
 "Eric Link - for feature request and donation\n"
-msgstr "Alexis Iglauer - for testing\nEugene Roytenberg - for testing\nJarek Szczepanski aka Imrahil - for testing\n Vladimir Shakhov aka Mendoza - for testing\nMarc Dillon - for staving / stil sjekk av engelsk tekst\nArkady Glazov aka Globster - for testing\nAlexander Savchenko aka Dizel - for testing\nTimeless - for patcher\nEric Link - for funksjonsforespørsel og donasjon\n"
+msgstr ""
+"Alexis Iglauer - for testing\n"
+"Eugene Roytenberg - for testing\n"
+"Jarek Szczepanski aka Imrahil - for testing\n"
+" Vladimir Shakhov aka Mendoza - for testing\n"
+"Marc Dillon - for staving / stil sjekk av engelsk tekst\n"
+"Arkady Glazov aka Globster - for testing\n"
+"Alexander Savchenko aka Dizel - for testing\n"
+"Timeless - for patcher\n"
+"Eric Link - for funksjonsforespørsel og donasjon\n"
 
 #: omweather/src/weather-download.c:397
 msgid "An unknown error has occurred."
@@ -317,7 +358,11 @@ msgid ""
 "for installing package 'MeeCast applet'.\n"
 "You should uninstall AccuWeather \n"
 "before installing this package"
-msgstr "Programbehandling vil nå starte\n for å installere pakken \"MeeCast applet\".\nDu bør avinstallere AccuWeather\nfør du installerer denne pakken"
+msgstr ""
+"Programbehandling vil nå starte\n"
+" for å installere pakken \"MeeCast applet\".\n"
+"Du bør avinstallere AccuWeather\n"
+"før du installerer denne pakken"
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -334,7 +379,12 @@ msgid ""
 "Documentation: Marko Vertainen\n"
 "Design UI and default iconset: Andrew Zhilin\n"
 "Design UI for Fremantle: Krebber Jan Niemelä Ulla\n"
-msgstr "Forfatter og vedlikehold: Vlad Vasiliev, <vlad@gas.by>\nVedlikehold: Pavel Fialko, <pavelnf@gmail.com>\nDokumentasjon: Marko Vertainen\nDesign UI og standard iconset: Andrew Zhilin\nDesign UI for Fremantle: Krebber Jan Niemelä Ulla\n"
+msgstr ""
+"Forfatter og vedlikehold: Vlad Vasiliev, <vlad@gas.by>\n"
+"Vedlikehold: Pavel Fialko, <pavelnf@gmail.com>\n"
+"Dokumentasjon: Marko Vertainen\n"
+"Design UI og standard iconset: Andrew Zhilin\n"
+"Design UI for Fremantle: Krebber Jan Niemelä Ulla\n"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:415
 msgid "Author and maintenance: Vlad Vasilyeu, <vlad@gas.by>\n"
@@ -582,7 +632,9 @@ msgstr "Copyright(c) 2010-2011 by Tanya Makova\n"
 msgid ""
 "Could not connecting to Internet.\n"
 "Connection timeout is expired."
-msgstr "Kunne ikke koble til Internett.\nTilkoblingstiden er utløpt."
+msgstr ""
+"Kunne ikke koble til Internett.\n"
+"Tilkoblingstiden er utløpt."
 
 #: omweather/src/weather-config.c:401
 #, c-format
@@ -641,9 +693,11 @@ msgstr "Slette sted?"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
-"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, "
-"<andrew.zhilin@ovi.com>\n"
-msgstr "Design av UI og standard ikonset: Copyright 2006-2011 Andrew Zhilin, <andrew.zhilin@ovi.com>\n"
+"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
+"zhilin@ovi.com>\n"
+msgstr ""
+"Design av UI og standard ikonset: Copyright 2006-2011 Andrew Zhilin, <andrew."
+"zhilin@ovi.com>\n"
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
 msgid "Detailed"
@@ -672,7 +726,9 @@ msgstr "Avstandsenheter:"
 msgid ""
 "Does not to add station, because no one\n"
 "of 'omweather-*-stations-db' packages was installed."
-msgstr "Ikke å legge til stasjon, fordi ingen\nav \"omweather-*-stations-db 'pakker ble installert."
+msgstr ""
+"Ikke å legge til stasjon, fordi ingen\n"
+"av \"omweather-*-stations-db 'pakker ble installert."
 
 #: omweather/src/weather-simple-popup.c:1171
 #: omweather/src/weather-simple-popup.c:1220
@@ -748,7 +804,17 @@ msgid ""
 "Brian Knight - for idea of iconset, criticism and donation ;-)\n"
 "Andrew aka Tabster - for testing and ideas\n"
 "Brad Jones aka kazrak - for testing\n"
-msgstr "Ed Bartosh - for flere funksjonsforespørsler, støtte og tilbakemelding\nDaniel Wilms - for funksjonsforespørsler og testing\nEugen Kaluta aka tren - for funksjonsforespørsler og støtte\nMaxim Kalinkevish aka spark -  for testing\nYuri Komyakov - for Nokia 770-enheten\nGreg Thompson - for støtte stations.txt fil\nFrank Persisk - for ideen om ny layout\nBrian Knight - for ideen om iconset, tilbakemelding og donasjon;-)\nAndrew aka Tabster - for testing og ideer\nBrad Jones aka kazrak - for testing\n"
+msgstr ""
+"Ed Bartosh - for flere funksjonsforespørsler, støtte og tilbakemelding\n"
+"Daniel Wilms - for funksjonsforespørsler og testing\n"
+"Eugen Kaluta aka tren - for funksjonsforespørsler og støtte\n"
+"Maxim Kalinkevish aka spark -  for testing\n"
+"Yuri Komyakov - for Nokia 770-enheten\n"
+"Greg Thompson - for støtte stations.txt fil\n"
+"Frank Persisk - for ideen om ny layout\n"
+"Brian Knight - for ideen om iconset, tilbakemelding og donasjon;-)\n"
+"Andrew aka Tabster - for testing og ideer\n"
+"Brad Jones aka kazrak - for testing\n"
 
 #: omweather/src/weather-simple-settings.c:330
 #: omweather/src/weather-simple-settings.c:421
@@ -867,7 +933,9 @@ msgstr "Finn sted vha. GPS"
 msgid ""
 "Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro "
 "Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
-msgstr "Finsk - Marko Vertainen; Tysk - Claudius Henrichs; Spansk - Alejandro Lopez; Nederlansk - Tom Leenders; Slovakia - Roman Moravčík\n"
+msgstr ""
+"Finsk - Marko Vertainen; Tysk - Claudius Henrichs; Spansk - Alejandro Lopez; "
+"Nederlansk - Tom Leenders; Slovakia - Roman Moravčík\n"
 
 #: omweather/src/hash.data:83
 msgid "First Quarter"
@@ -913,7 +981,11 @@ msgid ""
 "you should uninstall package\n"
 "'Activating MeeCast Applet'\n"
 "using Application manager"
-msgstr "For å deaktivere MeeCast widget,\nbør du avinstallere pakken\n'Aktivere MeeCast Applet'\n ved hjelp av Programbehandlingen"
+msgstr ""
+"For å deaktivere MeeCast widget,\n"
+"bør du avinstallere pakken\n"
+"'Aktivere MeeCast Applet'\n"
+" ved hjelp av Programbehandlingen"
 
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
@@ -970,7 +1042,43 @@ msgid ""
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
-msgstr "Fransk -  Nicolas Granziano, \n \tPhilippe, Benot Knecht, \n \tQuentin Caillard \n Russisk - Pavel Fialko, Vlad Vasiliev, \n \tEd Bartosh\n Finsk - Marko Vertainen\n Tysk -  Claudius Henrichs,\n \tJens Klingen\n Italiensk - Lorenzo Facca,\n \tPavel Fialko, Alessandro Pasotti,\n \tSalvatore Fiorenzo, Ilir Gjika,\n \tLuca Onnis\n Spansk - Alejandro Lopez, Agustí Clara\n Polsk - Tomasz Dominikowski\n Slovakisk - Roman Moravčík\n Nederlansk - Tom Leenders, Michiel Pater\n Bulgarsk - Zlatko Enikov\n Albansk - Ilir Gjika\n Kinesisk - Wong Man Kong, Michael\n Portugisisk - Jose Narciso,\n Tyrkisk - Burak Kaan Kose,\n \tMehmet Çilingir,\n Katalansk - Agustí Clara,\n Arabisk - Tarad Alfandi,\n Dansk - Peter Jespersen,\n Serbisk - Aleksandar Zaric,\n Norsk - Peer-Atle Motland,\n Ungarsk - Salmi,\n Slovakisk -  Boštjan,\n Tsjekkisk  - Jakub Kožíšek, Pavel Šrubař,\n Kinesisk (Taiwan) - osk2, \n Vietnamesisk - Hieu Nguyen\n \tAnh Dương and truongnx, \n Svensk - Angela Nennebrandt,\n \tNiklas Åkerström, \n \tTomislav Veleckovik"
+msgstr ""
+"Fransk -  Nicolas Granziano, \n"
+" \tPhilippe, Benot Knecht, \n"
+" \tQuentin Caillard \n"
+" Russisk - Pavel Fialko, Vlad Vasiliev, \n"
+" \tEd Bartosh\n"
+" Finsk - Marko Vertainen\n"
+" Tysk -  Claudius Henrichs,\n"
+" \tJens Klingen\n"
+" Italiensk - Lorenzo Facca,\n"
+" \tPavel Fialko, Alessandro Pasotti,\n"
+" \tSalvatore Fiorenzo, Ilir Gjika,\n"
+" \tLuca Onnis\n"
+" Spansk - Alejandro Lopez, Agustí Clara\n"
+" Polsk - Tomasz Dominikowski\n"
+" Slovakisk - Roman Moravčík\n"
+" Nederlansk - Tom Leenders, Michiel Pater\n"
+" Bulgarsk - Zlatko Enikov\n"
+" Albansk - Ilir Gjika\n"
+" Kinesisk - Wong Man Kong, Michael\n"
+" Portugisisk - Jose Narciso,\n"
+" Tyrkisk - Burak Kaan Kose,\n"
+" \tMehmet Çilingir,\n"
+" Katalansk - Agustí Clara,\n"
+" Arabisk - Tarad Alfandi,\n"
+" Dansk - Peter Jespersen,\n"
+" Serbisk - Aleksandar Zaric,\n"
+" Norsk - Peer-Atle Motland,\n"
+" Ungarsk - Salmi,\n"
+" Slovakisk -  Boštjan,\n"
+" Tsjekkisk  - Jakub Kožíšek, Pavel Šrubař,\n"
+" Kinesisk (Taiwan) - osk2, \n"
+" Vietnamesisk - Hieu Nguyen\n"
+" \tAnh Dương and truongnx, \n"
+" Svensk - Angela Nennebrandt,\n"
+" \tNiklas Åkerström, \n"
+" \tTomislav Veleckovik"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -983,7 +1091,16 @@ msgid ""
 "Spanish - Alejandro Lopez\n"
 "Polish - Tomasz Dominikowski\n"
 "Slovak - Roman Moravčík"
-msgstr "Fransk - Nicolas Granziano, Philippe, Benot Knecht\nRussisk - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\nFinsk - Marko Vertainen\nTysk - Claudius Henrichs\nItaliensk - Pavel Fialko, Alessandro Pasotti,\nSalvatore Fiorenzo, Luca Onnis\nSpansk - Alejandro Lopez\nPolsk - Tomasz Dominikowski\nSlovak - Roman Moravčík"
+msgstr ""
+"Fransk - Nicolas Granziano, Philippe, Benot Knecht\n"
+"Russisk - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
+"Finsk - Marko Vertainen\n"
+"Tysk - Claudius Henrichs\n"
+"Italiensk - Pavel Fialko, Alessandro Pasotti,\n"
+"Salvatore Fiorenzo, Luca Onnis\n"
+"Spansk - Alejandro Lopez\n"
+"Polsk - Tomasz Dominikowski\n"
+"Slovak - Roman Moravčík"
 
 #: omweather/src/hash.data:90
 msgid "Full"
@@ -1022,7 +1139,8 @@ msgstr "GUI|Tøm"
 #: meecast/netbook-UX/meego-panel-omweather.cpp:418
 msgid ""
 "Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka.pl>"
-msgstr "Grzanka's Iconset: Copyright 2005 ved Wojciech Grzanka, <wojciech@grzanka.pl>"
+msgstr ""
+"Grzanka's Iconset: Copyright 2005 ved Wojciech Grzanka, <wojciech@grzanka.pl>"
 
 #: omweather/src/weather-popup.c:1354 omweather/src/weather-popup.c:1493
 msgid "Gust:"
@@ -1163,7 +1281,9 @@ msgstr "Isolert Torden / Vind"
 msgid ""
 "Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
 "Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov"
-msgstr "Italiensk - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polsk - Tomasz Dominikowski; Bulgarsk - Zlatko Enikov"
+msgstr ""
+"Italiensk - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca "
+"Onnis; Polsk - Tomasz Dominikowski; Bulgarsk - Zlatko Enikov"
 
 #: omweather/src/weather-settings.c:3915
 msgid "Kilometers"
@@ -1366,9 +1486,11 @@ msgstr "Hovedsaklig skyet med sporadisk regn."
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
-"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
-"<tanyshk@gmail.com>\n"
-msgstr "Vedlikehold: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail.com>\n"
+"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
+"com>\n"
+msgstr ""
+"Vedlikehold: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
+"com>\n"
 
 #: omweather/src/hash.data:143 meecast/qt-qml/qml/StationsPage.qml:158
 msgid "Manage locations"
@@ -1390,7 +1512,9 @@ msgstr "MeeCast"
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2014"
-msgstr "MeeCast - multiplattform lett tilpasselig åpen kildekode værmeldings klient basert på OMWeather kode. Copyright (C) 2006-2014"
+msgstr ""
+"MeeCast - multiplattform lett tilpasselig åpen kildekode værmeldings klient "
+"basert på OMWeather kode. Copyright (C) 2006-2014"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -1830,10 +1954,6 @@ msgstr "Ettermiddag Tordenbyger"
 #: omweather/src/hash.data:218
 msgid "PM T-Storms"
 msgstr "Ettermiddag Torden"
-
-#: meecast/qt-qml/qml/UnitsPage.qml:206
-msgid "Pa"
-msgstr "Pa"
 
 #: omweather/src/hash.data:220
 msgid "Partly Cloudy"
@@ -2632,13 +2752,22 @@ msgid ""
 " Foundation; either version 2.1 of the \n"
 " License, or (at your option) any \n"
 " later version."
-msgstr "Denne programvaren er fri programvare, du kan\n  redistribuere den og / eller modifisere den under\n  vilkårene i GNU General Public\n  License som publisert av Free Software\n  Foundation, enten versjon 2.1 av\n  Lisensen, eller (valgfritt) en\n  senere versjon."
+msgstr ""
+"Denne programvaren er fri programvare, du kan\n"
+"  redistribuere den og / eller modifisere den under\n"
+"  vilkårene i GNU General Public\n"
+"  License som publisert av Free Software\n"
+"  Foundation, enten versjon 2.1 av\n"
+"  Lisensen, eller (valgfritt) en\n"
+"  senere versjon."
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:438
 msgid ""
 "This software is free software; you can redistribute it and/or modify it "
 "under the terms of the GNU General Public License\n"
-msgstr "Denne programvaren er fri programvare; du kan redistribuere den og / eller modifisere den under vilkårene i GNU General Public License\n"
+msgstr ""
+"Denne programvaren er fri programvare; du kan redistribuere den og / eller "
+"modifisere den under vilkårene i GNU General Public License\n"
 
 #: omweather/src/hash.data:326
 msgid "Thunder"
@@ -2667,7 +2796,9 @@ msgstr "Oversettere"
 msgid ""
 "Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - "
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
-msgstr "Oversettere: Fransk - Nicolas Granziano, Philippe, Benot Knecht; Russisk - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
+msgstr ""
+"Oversettere: Fransk - Nicolas Granziano, Philippe, Benot Knecht; Russisk - "
+"Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 
 #: omweather/src/hash.data:398
 msgid "Transparency"
@@ -2745,13 +2876,17 @@ msgstr "Oppdaterer vær"
 msgid ""
 "Use Edit layout \n"
 "for tuning images of applet"
-msgstr "Use Edit layout \nfor tuning images of applet"
+msgstr ""
+"Use Edit layout \n"
+"for tuning images of applet"
 
 #: omweather/src/weather-simple-settings.c:1835
 msgid ""
 "Use GSM and/or WLAN for periodic updating\n"
 " the weather information.\n"
-msgstr "Bruk GSM og/eller WLAN for periodisk oppdatering\nav værinformasjonen.\n"
+msgstr ""
+"Bruk GSM og/eller WLAN for periodisk oppdatering\n"
+"av værinformasjonen.\n"
 
 #: omweather/src/weather-sensor.c:65
 msgid "Use device temperature sensor"
@@ -2951,7 +3086,9 @@ msgstr "Glatt Føre til Snøvær"
 msgid ""
 "Wrong station code \n"
 "or ZIP code!!!"
-msgstr "Feil stasjonskode \neller postkode!!!"
+msgstr ""
+"Feil stasjonskode \n"
+"eller postkode!!!"
 
 #: omweather/src/weather-settings.c:824 meecast/qt-qml/qml/StationsPage.qml:77
 msgid "Yes"
@@ -2966,20 +3103,28 @@ msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using LockScreen widget"
-msgstr "Du må aktivere\n'Widget i hendelses visningen'\n for å bruke LåseSkjerm widget"
+msgstr ""
+"Du må aktivere\n"
+"'Widget i hendelses visningen'\n"
+" for å bruke LåseSkjerm widget"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:256
 msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using StandbyScreen widget"
-msgstr "Du må aktivere\n'Widget i hendelses visningen'\n for å bruke DvaleSkjerm widget"
+msgstr ""
+"Du må aktivere\n"
+"'Widget i hendelses visningen'\n"
+" for å bruke DvaleSkjerm widget"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:73
 msgid ""
-"You should activate 'Widget in the events view' option in MeeCast appearance"
-" settings for auto update."
-msgstr "Du må aktivere \"Widget i hendelses visningen 'i MeeCast utseende innstillinger for automatisk oppdatering."
+"You should activate 'Widget in the events view' option in MeeCast appearance "
+"settings for auto update."
+msgstr ""
+"Du må aktivere \"Widget i hendelses visningen 'i MeeCast utseende "
+"innstillinger for automatisk oppdatering."
 
 #: omweather/src/weather-simple-settings.c:2758
 msgid "Zoom in popup window "
@@ -2993,7 +3138,9 @@ msgstr "Forstørrer popup-vinduet"
 msgid ""
 "as published by the Free Software Foundation; either version 2.1 of the "
 "License, or (at your option) any later version."
-msgstr "som publisert av Free Software Foundation, enten versjon 2.1 av lisensen, eller (hvis du ønsker det) en nyere versjon."
+msgstr ""
+"som publisert av Free Software Foundation, enten versjon 2.1 av lisensen, "
+"eller (hvis du ønsker det) en nyere versjon."
 
 #: omweather/src/weather-popup.c:286
 msgid "current location local time"
@@ -3074,6 +3221,11 @@ msgstr "inHg"
 #: omweather/src/weather-simple-settings.c:2722
 msgid "inch"
 msgstr "inch"
+
+#: meecast/qt-qml/qml/UnitsPage.qml:206
+#, fuzzy
+msgid "kPa"
+msgstr "Pa"
 
 #: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1297
 #: omweather/src/weather-simple-settings.c:1336

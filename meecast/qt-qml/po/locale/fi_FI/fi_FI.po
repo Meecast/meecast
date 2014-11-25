@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 08:29+0300\n"
-"PO-Revision-Date: 2014-08-24 16:44+0000\n"
+"POT-Creation-Date: 2014-11-25 08:30+0300\n"
+"PO-Revision-Date: 2014-09-17 15:37+0000\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/"
 "meecast/language/fi_FI/)\n"
@@ -664,7 +664,7 @@ msgstr "Maa:"
 
 #: omweather/src/hash.data:399
 msgid "Cover Page"
-msgstr ""
+msgstr "Kansilehti"
 
 #: omweather/src/weather-simple-settings.c:2896
 msgid "Custom"
@@ -1961,10 +1961,6 @@ msgstr "ip: Ukkoskuuroja"
 msgid "PM T-Storms"
 msgstr "ip: Ukkosta"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:206
-msgid "Pa"
-msgstr "Pa"
-
 #: omweather/src/hash.data:220
 msgid "Partly Cloudy"
 msgstr "Puolipilvistä"
@@ -3237,6 +3233,11 @@ msgstr "inHg"
 msgid "inch"
 msgstr "tuuma"
 
+#: meecast/qt-qml/qml/UnitsPage.qml:206
+#, fuzzy
+msgid "kPa"
+msgstr "Pa"
+
 #: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1297
 #: omweather/src/weather-simple-settings.c:1336
 #: omweather/src/weather-simple-settings.c:2670
@@ -3340,9 +3341,8 @@ msgid "mmHg"
 msgstr "mmHg"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:166
-#, fuzzy
 msgid "mph"
-msgstr "m/h"
+msgstr "mph"
 
 #: omweather/src/weather-simple-popup.c:489
 msgid "n:"

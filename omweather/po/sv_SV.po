@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 08:29+0300\n"
+"POT-Creation-Date: 2014-11-25 08:30+0300\n"
 "PO-Revision-Date: 2014-09-01 06:50+0000\n"
 "Last-Translator: Åke Engelbrektson <eson57@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/meecast/language/"
@@ -1934,10 +1934,6 @@ msgstr "EM Åskskurar"
 msgid "PM T-Storms"
 msgstr "EM Åska"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:206
-msgid "Pa"
-msgstr "Pa"
-
 #: omweather/src/hash.data:220
 msgid "Partly Cloudy"
 msgstr "Delvis Molnigt"
@@ -3205,6 +3201,11 @@ msgstr "inHg"
 #: omweather/src/weather-simple-settings.c:2722
 msgid "inch"
 msgstr "tum"
+
+#: meecast/qt-qml/qml/UnitsPage.qml:206
+#, fuzzy
+msgid "kPa"
+msgstr "Pa"
 
 #: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1297
 #: omweather/src/weather-simple-settings.c:1336

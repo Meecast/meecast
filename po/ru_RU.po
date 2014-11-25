@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 08:29+0300\n"
+"POT-Creation-Date: 2014-11-25 08:30+0300\n"
 "PO-Revision-Date: 2014-08-09 16:18+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/meecast/language/"
@@ -1889,10 +1889,6 @@ msgstr "После грозовые ливни"
 msgid "PM T-Storms"
 msgstr "После обеда грозы"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:206
-msgid "Pa"
-msgstr "Па"
-
 #: omweather/src/hash.data:220
 msgid "Partly Cloudy"
 msgstr "Небольшая облачность"
@@ -3153,6 +3149,11 @@ msgstr "дм рт.ст."
 #: omweather/src/weather-simple-settings.c:2722
 msgid "inch"
 msgstr "дюймы"
+
+#: meecast/qt-qml/qml/UnitsPage.qml:206
+#, fuzzy
+msgid "kPa"
+msgstr "Па"
 
 #: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1297
 #: omweather/src/weather-simple-settings.c:1336

@@ -770,6 +770,11 @@ Időtúllépés ideje lejárt.</translation>
             <translation>Ország:</translation>
         </message>
         <message>
+            <source>Cover Page</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Custom</source>
             <translation>Egyedi</translation>
         </message>
@@ -2356,10 +2361,6 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>PM T-Storms</source>
             <translation>du. viharok</translation>
-        </message>
-        <message>
-            <source>Pa</source>
-            <translation>Pa</translation>
         </message>
         <message>
             <source>Partly Cloudy</source>
@@ -4035,6 +4036,10 @@ vagy irányítószám!</translation>
             <translation>hüvelyk</translation>
         </message>
         <message>
+            <source>kPa</source>
+            <translation type="unfinished">Pa</translation>
+        </message>
+        <message>
             <source>km</source>
             <translation>km</translation>
         </message>
@@ -4221,10 +4226,6 @@ vagy irányítószám!</translation>
             <translation>mph</translation>
         </message>
         <message>
-            <source>mi/h</source>
-            <translation>mph</translation>
-        </message>
-        <message>
             <source>mi/s</source>
             <translation>mérföld/s</translation>
         </message>
@@ -4310,6 +4311,10 @@ vagy irányítószám!</translation>
         <message>
             <source>mmHg</source>
             <translation>Hgmm</translation>
+        </message>
+        <message>
+            <source>mph</source>
+            <translation type="unfinished">m/h</translation>
         </message>
         <message>
             <source>n:</source>

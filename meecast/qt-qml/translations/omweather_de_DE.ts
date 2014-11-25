@@ -791,6 +791,10 @@ Max. Verbindungszeit überschritten.</translation>
             <translation>Land:</translation>
         </message>
         <message>
+            <source>Cover Page</source>
+            <translation>Startseite</translation>
+        </message>
+        <message>
             <source>Custom</source>
             <translation>Angepasst</translation>
         </message>
@@ -2369,10 +2373,6 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>PM T-Storms</source>
             <translation>Nachmittags Gewitter</translation>
-        </message>
-        <message>
-            <source>Pa</source>
-            <translation>Pa</translation>
         </message>
         <message>
             <source>Partly Cloudy</source>
@@ -4040,6 +4040,10 @@ für das Widget im Standby.</translation>
             <translation>Zoll</translation>
         </message>
         <message>
+            <source>kPa</source>
+            <translation type="unfinished">Pa</translation>
+        </message>
+        <message>
             <source>km</source>
             <translation>km</translation>
         </message>
@@ -4216,10 +4220,6 @@ für das Widget im Standby.</translation>
             <translation>mi/h</translation>
         </message>
         <message>
-            <source>mi/h</source>
-            <translation>mi/h</translation>
-        </message>
-        <message>
             <source>mi/s</source>
             <translation>mi/s</translation>
         </message>
@@ -4302,6 +4302,10 @@ für das Widget im Standby.</translation>
         <message>
             <source>mmHg</source>
             <translation>mmHg</translation>
+        </message>
+        <message>
+            <source>mph</source>
+            <translation>mph</translation>
         </message>
         <message>
             <source>n:</source>

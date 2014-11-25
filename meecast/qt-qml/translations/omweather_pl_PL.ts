@@ -784,6 +784,11 @@ Czas połączenia wygasł.</translation>
             <translation>Kraj:</translation>
         </message>
         <message>
+            <source>Cover Page</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Custom</source>
             <translation>Własny</translation>
         </message>
@@ -2369,10 +2374,6 @@ Opady: </translation>
         <message>
             <source>PM T-Storms</source>
             <translation>Po południu burze</translation>
-        </message>
-        <message>
-            <source>Pa</source>
-            <translation>Pa</translation>
         </message>
         <message>
             <source>Partly Cloudy</source>
@@ -4079,6 +4080,10 @@ lub kod ZIP.</translation>
             <translation>cale</translation>
         </message>
         <message>
+            <source>kPa</source>
+            <translation type="unfinished">Pa</translation>
+        </message>
+        <message>
             <source>km</source>
             <translation>km</translation>
         </message>
@@ -4257,10 +4262,6 @@ lub kod ZIP.</translation>
             <translation>mi/h</translation>
         </message>
         <message>
-            <source>mi/h</source>
-            <translation>mi/h</translation>
-        </message>
-        <message>
             <source>mi/s</source>
             <translation>mi/s</translation>
         </message>
@@ -4346,6 +4347,10 @@ lub kod ZIP.</translation>
         <message>
             <source>mmHg</source>
             <translation>mmHg</translation>
+        </message>
+        <message>
+            <source>mph</source>
+            <translation type="unfinished">m/h</translation>
         </message>
         <message>
             <source>n:</source>

@@ -7,7 +7,7 @@
             <source>
 H: </source>
             <translation>
-H:</translation>
+H: </translation>
         </message>
         <message>
             <source>
@@ -723,7 +723,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Skyet, Mye Regn</translation>
+            <translation>Skyet, lett regn</translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
@@ -743,7 +743,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Strong Rain, Heavy Rain</source>
-            <translation type="unfinished">Skyet, Mye Regn</translation>
+            <translation>Skyet, Kraftig Regn, Mye Regn</translation>
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
@@ -790,6 +790,10 @@ Tilkoblingstiden er utløpt.</translation>
         <message>
             <source>Country:</source>
             <translation>Land:</translation>
+        </message>
+        <message>
+            <source>Cover Page</source>
+            <translation>Forside</translation>
         </message>
         <message>
             <source>Custom</source>
@@ -843,18 +847,15 @@ Tilkoblingstiden er utløpt.</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Duggpunkt</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Duggpunkt</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Duggpunkt</translation>
         </message>
         <message>
             <source>Display</source>
@@ -1259,8 +1260,9 @@ bør du avinstallere pakken
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Fransk -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
+            <translation>Fransk -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
  Russisk - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finsk - Marko Vertainen
@@ -1286,9 +1288,9 @@ bør du avinstallere pakken
  Serbisk - Aleksandar Zaric,
  Norsk - Peer-Atle Motland,
  Ungarsk - Salmi,
- Slovensk -  Boštjan,
- Tsjekkisk - Jakub Kožíšek, Pavel Šrubař,
- Kinesisk(Taiwan) - osk2, 
+ Slovakisk -  Boštjan,
+ Tsjekkisk  - Jakub Kožíšek, Pavel Šrubař,
+ Kinesisk (Taiwan) - osk2, 
  Vietnamesisk - Hieu Nguyen
  	Anh Dương and truongnx, 
  Svensk - Angela Nennebrandt,
@@ -1377,17 +1379,15 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Haze, Smoke or Dust</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Røyk eller Støv</translation>
         </message>
         <message>
             <source>Heavy Freezing Rain</source>
-            <translation type="unfinished">Regn / Underkjølt Regn</translation>
+            <translation>Mye Underkjølt Regn</translation>
         </message>
         <message>
             <source>Heavy Precipitation</source>
-            <translation type="unfinished">
-Nedbør:</translation>
+            <translation>Mye Nedbør</translation>
         </message>
         <message>
             <source>Heavy Rain</source>
@@ -1403,15 +1403,15 @@ Nedbør:</translation>
         </message>
         <message>
             <source>Heavy Rain Showers</source>
-            <translation type="unfinished">Mye Regnbyger</translation>
+            <translation>Tunge Regnbyger</translation>
         </message>
         <message>
             <source>Heavy Sleet</source>
-            <translation type="unfinished">Mye Snø</translation>
+            <translation>Mye Sludd</translation>
         </message>
         <message>
             <source>Heavy Sleet Showers</source>
-            <translation type="unfinished">Mye Regnbyger</translation>
+            <translation>Tunge Sluddbyger</translation>
         </message>
         <message>
             <source>Heavy Snow</source>
@@ -1423,15 +1423,15 @@ Nedbør:</translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
-            <translation type="unfinished">Noen Snøbyger</translation>
+            <translation>Tung Snøbyger</translation>
         </message>
         <message>
             <source>Heavy Snowfall</source>
-            <translation type="unfinished">Mye Snø</translation>
+            <translation>Tungt Snøfall</translation>
         </message>
         <message>
             <source>Heavy Thunder</source>
-            <translation type="unfinished">Torden</translation>
+            <translation>Mye Torden</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1479,8 +1479,7 @@ Nedbør:</translation>
         </message>
         <message>
             <source>Ice Pellets</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ishagl</translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1660,7 +1659,7 @@ Nedbør:</translation>
         </message>
         <message>
             <source>Light Rain Showers</source>
-            <translation type="unfinished">Lett Duskregn</translation>
+            <translation>Lette Regnbyger</translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
@@ -1680,11 +1679,11 @@ Nedbør:</translation>
         </message>
         <message>
             <source>Light Sleet</source>
-            <translation type="unfinished">Lett Snø</translation>
+            <translation>Lette Sludd</translation>
         </message>
         <message>
             <source>Light Sleet Showers</source>
-            <translation type="unfinished">Lett Dusksnø</translation>
+            <translation>Lette Sluddbyger</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1712,11 +1711,11 @@ Nedbør:</translation>
         </message>
         <message>
             <source>Light Snow Showers</source>
-            <translation type="unfinished">Lett Dusksnø</translation>
+            <translation>Lette Snøbyger</translation>
         </message>
         <message>
             <source>Light Snowfall</source>
-            <translation type="unfinished">Lett Snø</translation>
+            <translation>Lett Snøfall</translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
@@ -1728,8 +1727,7 @@ Nedbør:</translation>
         </message>
         <message>
             <source>Light or Moderate Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lett eller Moderat Nedbør</translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1819,7 +1817,7 @@ Nedbør:</translation>
         </message>
         <message>
             <source>Moderate Freezing Rain</source>
-            <translation type="unfinished">Moderat Regn</translation>
+            <translation>Moderat Underkjølt Regn</translation>
         </message>
         <message>
             <source>Moderate Rain</source>
@@ -1827,15 +1825,15 @@ Nedbør:</translation>
         </message>
         <message>
             <source>Moderate Rain Showers</source>
-            <translation type="unfinished">Moderat Regn</translation>
+            <translation>Moderate Regnbyger</translation>
         </message>
         <message>
             <source>Moderate Sleet</source>
-            <translation type="unfinished">Moderat Regn</translation>
+            <translation>Moderat Sludd</translation>
         </message>
         <message>
             <source>Moderate Snow Showers</source>
-            <translation type="unfinished">Formiddag Snøbyger</translation>
+            <translation>Moderat Snøbyger</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -1935,7 +1933,7 @@ Nedbør:</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Skyet, Mye Regn</translation>
+            <translation>For det meste Skyet, Lett Regn, Svakt Regn</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
@@ -2378,10 +2376,6 @@ Nedbør:</translation>
             <translation>Ettermiddag Torden</translation>
         </message>
         <message>
-            <source>Pa</source>
-            <translation>Pa</translation>
-        </message>
-        <message>
             <source>Partly Cloudy</source>
             <translation>Delvis Skyet</translation>
         </message>
@@ -2523,38 +2517,31 @@ Nedbør:</translation>
         </message>
         <message>
             <source>Precipitation</source>
-            <translation type="unfinished">
-Nedbør:</translation>
+            <translation>Nedbør</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">
-Nedbør:</translation>
+            <translation>Fuktighet:</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">
-Nedbør:</translation>
+            <translation>Fuktighet:</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">
-Nedbør:</translation>
+            <translation>Fuktighet:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Nedbør:</translation>
+            <translation>Nedbør</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Nedbør:</translation>
+            <translation>Nedbør</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Nedbør:</translation>
+            <translation>Nedbør</translation>
         </message>
         <message>
             <source>Preference|Update</source>
@@ -3070,8 +3057,7 @@ Nedbør:</translation>
         </message>
         <message>
             <source>Showers or Intermittent Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Byger eller tilfeldig nedbør</translation>
         </message>
         <message>
             <source>Sky is Clear</source>
@@ -3087,7 +3073,7 @@ Nedbør:</translation>
         </message>
         <message>
             <source>Sleet Showers</source>
-            <translation type="unfinished">Noen Regnbyger</translation>
+            <translation>Sluddbyger</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3111,7 +3097,7 @@ Nedbør:</translation>
         </message>
         <message>
             <source>Snow Showers</source>
-            <translation type="unfinished">Snø Byger</translation>
+            <translation>Snøbyger</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -3143,7 +3129,7 @@ Nedbør:</translation>
         </message>
         <message>
             <source>Snowfall</source>
-            <translation type="unfinished">Snø</translation>
+            <translation>Snøfall</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3235,8 +3221,7 @@ Nedbør:</translation>
         </message>
         <message>
             <source>Strong Thundershowers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tunge Tordenbyger</translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3426,7 +3411,7 @@ Nedbør:</translation>
         </message>
         <message>
             <source>Thundershowers</source>
-            <translation type="unfinished">Torden</translation>
+            <translation>Tordenbyger</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3638,7 +3623,7 @@ av værinformasjonen.
         </message>
         <message>
             <source>Violent Rain Showers</source>
-            <translation type="unfinished">Lett Duskregn</translation>
+            <translation>Voldsomme Regnbyger</translation>
         </message>
         <message>
             <source>Visible items:</source>
@@ -4055,6 +4040,10 @@ eller postkode!!!</translation>
             <translation>inch</translation>
         </message>
         <message>
+            <source>kPa</source>
+            <translation type="unfinished">Pa</translation>
+        </message>
+        <message>
             <source>km</source>
             <translation>km</translation>
         </message>
@@ -4231,10 +4220,6 @@ eller postkode!!!</translation>
             <translation>mi/t</translation>
         </message>
         <message>
-            <source>mi/h</source>
-            <translation>mi/t</translation>
-        </message>
-        <message>
             <source>mi/s</source>
             <translation>mi/s</translation>
         </message>
@@ -4272,18 +4257,15 @@ eller postkode!!!</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mmHg</source>
@@ -4320,6 +4302,10 @@ eller postkode!!!</translation>
         <message>
             <source>mmHg</source>
             <translation>mmHg</translation>
+        </message>
+        <message>
+            <source>mph</source>
+            <translation>mph</translation>
         </message>
         <message>
             <source>n:</source>

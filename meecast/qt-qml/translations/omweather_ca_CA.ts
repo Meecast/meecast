@@ -790,6 +790,10 @@ El temps d'espera de la connexió s'ha esgotat.</translation>
             <translation>País:</translation>
         </message>
         <message>
+            <source>Cover Page</source>
+            <translation>Pàgina de portada</translation>
+        </message>
+        <message>
             <source>Custom</source>
             <translation>Personalitza</translation>
         </message>
@@ -2371,10 +2375,6 @@ Català - Agustí Clara</translation>
             <translation>p.m.: Tempestes</translation>
         </message>
         <message>
-            <source>Pa</source>
-            <translation>Pa</translation>
-        </message>
-        <message>
             <source>Partly Cloudy</source>
             <translation>En part núvol</translation>
         </message>
@@ -2520,15 +2520,15 @@ Català - Agustí Clara</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Precipitació:</translation>
+            <translation>Intensitat de precipitació:</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Precipitació:</translation>
+            <translation>Intensitat de precipitació:</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Precipitació:</translation>
+            <translation>Intensitat de precipitació:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
@@ -4037,6 +4037,10 @@ per utilitzar el panell per a la pantalla d'espera</translation>
             <translation>polzada</translation>
         </message>
         <message>
+            <source>kPa</source>
+            <translation type="unfinished">Pa</translation>
+        </message>
+        <message>
             <source>km</source>
             <translation>km</translation>
         </message>
@@ -4213,10 +4217,6 @@ per utilitzar el panell per a la pantalla d'espera</translation>
             <translation>mi/h</translation>
         </message>
         <message>
-            <source>mi/h</source>
-            <translation>mi/h</translation>
-        </message>
-        <message>
             <source>mi/s</source>
             <translation>mi/s</translation>
         </message>
@@ -4254,18 +4254,15 @@ per utilitzar el panell per a la pantalla d'espera</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mmHg</source>
@@ -4302,6 +4299,10 @@ per utilitzar el panell per a la pantalla d'espera</translation>
         <message>
             <source>mmHg</source>
             <translation>mm Hg</translation>
+        </message>
+        <message>
+            <source>mph</source>
+            <translation>mph</translation>
         </message>
         <message>
             <source>n:</source>

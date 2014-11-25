@@ -771,6 +771,11 @@ Connection timeout is expired.</source>
             <translation>Країна:</translation>
         </message>
         <message>
+            <source>Cover Page</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Custom</source>
             <translation type="unfinished">
             </translation>
@@ -2337,10 +2342,6 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>PM T-Storms</source>
             <translation>Після полудня грозові зливи</translation>
-        </message>
-        <message>
-            <source>Pa</source>
-            <translation>Па</translation>
         </message>
         <message>
             <source>Partly Cloudy</source>
@@ -4034,6 +4035,10 @@ StandbyScreen віджета
             <translation>дюйми</translation>
         </message>
         <message>
+            <source>kPa</source>
+            <translation type="unfinished">Па</translation>
+        </message>
+        <message>
             <source>km</source>
             <translation>км</translation>
         </message>
@@ -4211,10 +4216,6 @@ StandbyScreen віджета
             <translation>ми/год</translation>
         </message>
         <message>
-            <source>mi/h</source>
-            <translation>ми/год</translation>
-        </message>
-        <message>
             <source>mi/s</source>
             <translation>ми/с</translation>
         </message>
@@ -4300,6 +4301,10 @@ StandbyScreen віджета
         <message>
             <source>mmHg</source>
             <translation>мм рт. ст.</translation>
+        </message>
+        <message>
+            <source>mph</source>
+            <translation type="unfinished">м/год</translation>
         </message>
         <message>
             <source>n:</source>

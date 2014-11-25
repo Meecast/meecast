@@ -780,6 +780,11 @@ Bağlantı süresi doldu.</translation>
             <translation>Ülke:</translation>
         </message>
         <message>
+            <source>Cover Page</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Custom</source>
             <translation>Özel</translation>
         </message>
@@ -2357,10 +2362,6 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>PM T-Storms</source>
             <translation>PM Şiddetli Fırtına</translation>
-        </message>
-        <message>
-            <source>Pa</source>
-            <translation>Pa</translation>
         </message>
         <message>
             <source>Partly Cloudy</source>
@@ -4023,6 +4024,10 @@ aktiflestirmeniz gerekir.</translation>
             <translation>inç</translation>
         </message>
         <message>
+            <source>kPa</source>
+            <translation type="unfinished">Pa</translation>
+        </message>
+        <message>
             <source>km</source>
             <translation>km</translation>
         </message>
@@ -4199,10 +4204,6 @@ aktiflestirmeniz gerekir.</translation>
             <translation>mi/saat</translation>
         </message>
         <message>
-            <source>mi/h</source>
-            <translation>mi/saat</translation>
-        </message>
-        <message>
             <source>mi/s</source>
             <translation>mi/saniye</translation>
         </message>
@@ -4288,6 +4289,10 @@ aktiflestirmeniz gerekir.</translation>
         <message>
             <source>mmHg</source>
             <translation>mmHg</translation>
+        </message>
+        <message>
+            <source>mph</source>
+            <translation type="unfinished">m/saat</translation>
         </message>
         <message>
             <source>n:</source>

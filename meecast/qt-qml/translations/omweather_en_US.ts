@@ -790,6 +790,11 @@ Connection timeout is expired.</translation>
             <translation>Country:</translation>
         </message>
         <message>
+            <source>Cover Page</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Custom</source>
             <translation>Custom</translation>
         </message>
@@ -2370,10 +2375,6 @@ Precipitation: </translation>
         <message>
             <source>PM T-Storms</source>
             <translation>PM T-Storms</translation>
-        </message>
-        <message>
-            <source>Pa</source>
-            <translation>Pa</translation>
         </message>
         <message>
             <source>Partly Cloudy</source>
@@ -4057,6 +4058,10 @@ or ZIP code!!!</translation>
             <translation>inch</translation>
         </message>
         <message>
+            <source>kPa</source>
+            <translation type="unfinished">Pa</translation>
+        </message>
+        <message>
             <source>km</source>
             <translation>km</translation>
         </message>
@@ -4234,10 +4239,6 @@ or ZIP code!!!</translation>
             <translation>mi/h</translation>
         </message>
         <message>
-            <source>mi/h</source>
-            <translation>mi/h</translation>
-        </message>
-        <message>
             <source>mi/s</source>
             <translation>mi/s</translation>
         </message>
@@ -4323,6 +4324,10 @@ or ZIP code!!!</translation>
         <message>
             <source>mmHg</source>
             <translation>mmHg</translation>
+        </message>
+        <message>
+            <source>mph</source>
+            <translation type="unfinished">m/h</translation>
         </message>
         <message>
             <source>n:</source>

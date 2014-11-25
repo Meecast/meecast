@@ -904,6 +904,11 @@ Connection timeout is expired.</source>
             </translation>
         </message>
         <message>
+            <source>Cover Page</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Custom</source>
             <translation type="unfinished">
             </translation>
@@ -2765,11 +2770,6 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>PM T-Storms</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Pa</source>
             <translation type="unfinished">
             </translation>
         </message>
@@ -4822,6 +4822,11 @@ or ZIP code!!!</source>
             </translation>
         </message>
         <message>
+            <source>kPa</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>km</source>
             <translation type="unfinished">
             </translation>
@@ -5042,11 +5047,6 @@ or ZIP code!!!</source>
             </translation>
         </message>
         <message>
-            <source>mi/h</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
             <source>mi/s</source>
             <translation type="unfinished">
             </translation>
@@ -5148,6 +5148,11 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>mmHg</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>mph</source>
             <translation type="unfinished">
             </translation>
         </message>

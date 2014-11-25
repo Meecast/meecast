@@ -789,6 +789,10 @@ El tiempo de conexión expiró.</translation>
             <translation>País: </translation>
         </message>
         <message>
+            <source>Cover Page</source>
+            <translation>Página de portada</translation>
+        </message>
+        <message>
             <source>Custom</source>
             <translation>Personal</translation>
         </message>
@@ -2369,10 +2373,6 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Tormentas eléctricas aisladas por la noche</translation>
         </message>
         <message>
-            <source>Pa</source>
-            <translation>Pa</translation>
-        </message>
-        <message>
             <source>Partly Cloudy</source>
             <translation>Parcialmente nublado</translation>
         </message>
@@ -2518,15 +2518,15 @@ Eslovaco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Precipitación: </translation>
+            <translation>Intensidad de precipitación:</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Precipitación: </translation>
+            <translation>Intensidad de precipitación:</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Precipitación: </translation>
+            <translation>Intensidad de precipitación:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
@@ -4036,6 +4036,10 @@ para usar el panel LockScreen</translation>
             <translation>pulgada</translation>
         </message>
         <message>
+            <source>kPa</source>
+            <translation type="unfinished">Pa</translation>
+        </message>
+        <message>
             <source>km</source>
             <translation>km</translation>
         </message>
@@ -4212,10 +4216,6 @@ para usar el panel LockScreen</translation>
             <translation>mi/h</translation>
         </message>
         <message>
-            <source>mi/h</source>
-            <translation>mi/h</translation>
-        </message>
-        <message>
             <source>mi/s</source>
             <translation>mi/s</translation>
         </message>
@@ -4253,18 +4253,15 @@ para usar el panel LockScreen</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mmHg</source>
@@ -4301,6 +4298,10 @@ para usar el panel LockScreen</translation>
         <message>
             <source>mmHg</source>
             <translation>mm Hg</translation>
+        </message>
+        <message>
+            <source>mph</source>
+            <translation>mph</translation>
         </message>
         <message>
             <source>n:</source>

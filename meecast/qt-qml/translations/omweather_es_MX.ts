@@ -799,6 +799,11 @@ El tiempo de conexión expiró.</translation>
             <translation>País: </translation>
         </message>
         <message>
+            <source>Cover Page</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Custom</source>
             <translation>Personal</translation>
         </message>
@@ -2365,10 +2370,6 @@ Precipitación: </translation>
         <message>
             <source>PM T-Storms</source>
             <translation>Tormentas eléctricas aisladas por la noche</translation>
-        </message>
-        <message>
-            <source>Pa</source>
-            <translation>Pa</translation>
         </message>
         <message>
             <source>Partly Cloudy</source>
@@ -4063,6 +4064,10 @@ para usar el panel LockScreen</translation>
             <translation>pulgada</translation>
         </message>
         <message>
+            <source>kPa</source>
+            <translation type="unfinished">Pa</translation>
+        </message>
+        <message>
             <source>km</source>
             <translation>km</translation>
         </message>
@@ -4240,10 +4245,6 @@ para usar el panel LockScreen</translation>
             <translation>mi/h</translation>
         </message>
         <message>
-            <source>mi/h</source>
-            <translation>mi/h</translation>
-        </message>
-        <message>
             <source>mi/s</source>
             <translation>mi/s</translation>
         </message>
@@ -4329,6 +4330,10 @@ para usar el panel LockScreen</translation>
         <message>
             <source>mmHg</source>
             <translation>mm Hg</translation>
+        </message>
+        <message>
+            <source>mph</source>
+            <translation type="unfinished">m/h</translation>
         </message>
         <message>
             <source>n:</source>

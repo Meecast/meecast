@@ -271,23 +271,23 @@ W: </translation>
         </message>
         <message>
             <source>AM Light Rain</source>
-            <translation>Deboli piogge al matt.</translation>
+            <translation>Deboli Piogge al matt.</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
-            <translation>Deboli piogge al matt. / Vento</translation>
+            <translation>Deboli Piogge al matt. / Vento</translation>
         </message>
         <message>
             <source>AM Light Snow</source>
-            <translation>Deboli nevicate al matt.</translation>
+            <translation>Deboli Nevicate al matt.</translation>
         </message>
         <message>
             <source>AM Light Snow / Wind</source>
-            <translation>Deboli nevicate al matt. / Vento</translation>
+            <translation>Deboli Nevicate al matt. / Vento</translation>
         </message>
         <message>
             <source>AM Light Wintry Mix</source>
-            <translation>Debole nevischio al matt.</translation>
+            <translation>Debole Nevischio al matt.</translation>
         </message>
         <message>
             <source>AM Rain</source>
@@ -323,15 +323,15 @@ W: </translation>
         </message>
         <message>
             <source>AM Snow Showers</source>
-            <translation>Nevicate sparse al matt.</translation>
+            <translation>Rovesci Nevosi al matt.</translation>
         </message>
         <message>
             <source>AM Snow Showers / Wind</source>
-            <translation>Rovesci nevosi al matt. / Vento</translation>
+            <translation>Rovesci Nevosi al matt. / Vento</translation>
         </message>
         <message>
             <source>AM Snow Showers / Wind Late</source>
-            <translation>Rovesci nevosi al matt. / Vento sul tardi</translation>
+            <translation>Rovesci Nevosi al matt. / Vento sul tardi</translation>
         </message>
         <message>
             <source>About</source>
@@ -503,7 +503,7 @@ Design UI per Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Blowing Snow</source>
-            <translation>Sollevamento di neve</translation>
+            <translation>Sollevamento di Neve</translation>
         </message>
         <message>
             <source>Broken Clouds</source>
@@ -649,11 +649,11 @@ Design UI per Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy Few Snow</source>
-            <translation>Nuvoloso con poca Neve</translation>
+            <translation>Nuvoloso con Poca Neve</translation>
         </message>
         <message>
             <source>Cloudy Light Rain</source>
-            <translation>Nuvoloso con deboli Piogge</translation>
+            <translation>Nuvoloso con Deboli Piogge</translation>
         </message>
         <message>
             <source>Cloudy T-Storm</source>
@@ -665,7 +665,7 @@ Design UI per Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy and light rain</source>
-            <translation>Nuvoloso e deboli piogge</translation>
+            <translation>Nuvoloso e debole pioggia</translation>
         </message>
         <message>
             <source>Cloudy and light snow</source>
@@ -790,6 +790,11 @@ Tempo di connessione scaduto.</translation>
             <translation>Paese:</translation>
         </message>
         <message>
+            <source>Cover Page</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Custom</source>
             <translation>Personalizzato</translation>
         </message>
@@ -828,7 +833,7 @@ Tempo di connessione scaduto.</translation>
         <message>
             <source>Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
 </source>
-            <translation>UI Design e standard set di icone: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
+            <translation>Design UI e set di icone standard: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
 </translation>
         </message>
         <message>
@@ -841,18 +846,15 @@ Tempo di connessione scaduto.</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Punto di rugiada</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Punto di rugiada</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Punto di rugiada</translation>
         </message>
         <message>
             <source>Display</source>
@@ -1196,10 +1198,10 @@ Brad Jones alias kazrak - per il testing
 you should uninstall package
 'Activating MeeCast Applet'
 using Application manager</source>
-            <translation>Per disabiltare MeeCast widget,
+            <translation>Per disabiltare il widget MeeCast,
 devi disinstallare il pacchetto
 'Activating MeeCast Applet'
-da Application manager</translation>
+dal Gestore Applicazioni</translation>
         </message>
         <message>
             <source>Forecast</source>
@@ -1277,7 +1279,8 @@ Slovak - Roman Moravčík</source>
 Russo - Pavel Fialko, Vlad Vasiliev, Ed Bartosh
 Finlandese - Marko Vertainen
 Tedesco - Claudius Henrichs
-Italiano - Pavel Fialko, Alessandro Pasotti,
+Italiano - Lorenzo Facca, Pavel Fialko,
+        Alessandro Pasotti,
 	Salvatore Fiorenzo, Luca Onnis
 Spagnolo - Alejandro Lopez
 Polacco - Tomasz Dominikowski
@@ -1345,18 +1348,15 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Haze, Smoke or Dust</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nebbia, Caligine</translation>
         </message>
         <message>
             <source>Heavy Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Forte pioggia congelantesi</translation>
         </message>
         <message>
             <source>Heavy Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Forti precipitazioni</translation>
         </message>
         <message>
             <source>Heavy Rain</source>
@@ -1372,18 +1372,15 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Heavy Rain Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Forti rovesci piovosi</translation>
         </message>
         <message>
             <source>Heavy Sleet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Forti nevischi</translation>
         </message>
         <message>
             <source>Heavy Sleet Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Forti rovesci di nevischio</translation>
         </message>
         <message>
             <source>Heavy Snow</source>
@@ -1395,18 +1392,15 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Forti rovesci nevosi</translation>
         </message>
         <message>
             <source>Heavy Snowfall</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Forti nevicate</translation>
         </message>
         <message>
             <source>Heavy Thunder</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Forti tuoni</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1454,8 +1448,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Ice Pellets</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Grandine</translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1635,8 +1628,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light Rain Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Rovesci con deboli piogge</translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
@@ -1656,13 +1648,11 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light Sleet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Debole nevischio</translation>
         </message>
         <message>
             <source>Light Sleet Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Deboli rovesci di nevischio</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1686,17 +1676,15 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light Snow Shower</source>
-            <translation>Rovesci di deboli nevicate</translation>
+            <translation>Deboli rovesci nevosi</translation>
         </message>
         <message>
             <source>Light Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Deboli rovesci nevosi</translation>
         </message>
         <message>
             <source>Light Snowfall</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Deboli nevicate</translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
@@ -1708,8 +1696,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light or Moderate Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Deboli/Moderate precipitazioni</translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1799,8 +1786,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Moderate Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Moderata pioggia congelantesi</translation>
         </message>
         <message>
             <source>Moderate Rain</source>
@@ -1808,18 +1794,15 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Moderate Rain Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Moderati rovesci piovosi</translation>
         </message>
         <message>
             <source>Moderate Sleet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Moderate nevicate</translation>
         </message>
         <message>
             <source>Moderate Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Moderati rovesci nevosi</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -1931,7 +1914,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Smoke</source>
-            <translation>Prevalentemente nuvoloso, Caligine</translation>
+            <translation>Prevalentemente Nuvoloso, Caligine</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Snow</source>
@@ -2362,10 +2345,6 @@ Slovacco - Roman Moravčík</translation>
             <translation>Temporali pom.</translation>
         </message>
         <message>
-            <source>Pa</source>
-            <translation>Pa</translation>
-        </message>
-        <message>
             <source>Partly Cloudy</source>
             <translation>Parzialmente nuvoloso</translation>
         </message>
@@ -2439,7 +2418,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Partly Cloudy, Smoke</source>
-            <translation>Parzialmente nuvoloso, Caligine</translation>
+            <translation>Parzialmente Nuvoloso, Caligine</translation>
         </message>
         <message>
             <source>Partly Cloudy, Snow</source>
@@ -2511,27 +2490,27 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Precipitazioni</translation>
+            <translation>Tasso di precipitazioni</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Precipitazioni</translation>
+            <translation>Tasso di precipitazioni</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Precipitazioni</translation>
+            <translation>Tasso di precipitazioni</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">Precipitazioni</translation>
+            <translation>Precipitazioni:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">Precipitazioni</translation>
+            <translation>Precipitazioni:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">Precipitazioni</translation>
+            <translation>Precipitazioni:</translation>
         </message>
         <message>
             <source>Preference|Update</source>
@@ -2607,8 +2586,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Proximity shower rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Rovescio piovoso in vicinanza</translation>
         </message>
         <message>
             <source>Rain</source>
@@ -3048,8 +3026,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Showers or Intermittent Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Rovesci intermittenti</translation>
         </message>
         <message>
             <source>Sky is Clear</source>
@@ -3065,8 +3042,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Sleet Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Rovesci di nevischio</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3122,8 +3098,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Snowfall</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nevicata</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3215,8 +3190,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Strong Thundershowers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Forti temporali</translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3372,7 +3346,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>This is experimental feature. Only English is supported.</source>
-            <translation>Questa è una funzione in sperimentazione. L'inglese è l'unica lingua supportata</translation>
+            <translation>Questa è una funzione in sperimentazione. L'inglese è l'unica lingua supportata.</translation>
         </message>
         <message>
             <source>This software is free software; you can
@@ -3406,8 +3380,7 @@ later version.</translation>
         </message>
         <message>
             <source>Thundershowers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Temporali</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3708,7 +3681,7 @@ meteo periodicamente.
         </message>
         <message>
             <source>Waning Gibbous</source>
-            <translation>Calante gibbosa</translation>
+            <translation>Calante Gibbosa</translation>
         </message>
         <message>
             <source>Warning</source>
@@ -3720,7 +3693,7 @@ meteo periodicamente.
         </message>
         <message>
             <source>Waxing Gibbous</source>
-            <translation>Crescente gibbosa</translation>
+            <translation>Crescente Gibbosa</translation>
         </message>
         <message>
             <source>Weather data provided by: </source>
@@ -3926,7 +3899,7 @@ o CAP errati !!</translation>
         </message>
         <message>
             <source>Zooming in popup window</source>
-            <translation>Sto zoomando in una finestra popup</translation>
+            <translation>Sto ingrandendo in una finestra popup</translation>
         </message>
         <message>
             <source>as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</source>
@@ -4035,6 +4008,10 @@ o CAP errati !!</translation>
         <message>
             <source>inch</source>
             <translation>pollici</translation>
+        </message>
+        <message>
+            <source>kPa</source>
+            <translation type="unfinished">Pa</translation>
         </message>
         <message>
             <source>km</source>
@@ -4213,10 +4190,6 @@ o CAP errati !!</translation>
             <translation>mi/h</translation>
         </message>
         <message>
-            <source>mi/h</source>
-            <translation>mi/h</translation>
-        </message>
-        <message>
             <source>mi/s</source>
             <translation>mi/s</translation>
         </message>
@@ -4254,18 +4227,15 @@ o CAP errati !!</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mmHg</source>
@@ -4302,6 +4272,10 @@ o CAP errati !!</translation>
         <message>
             <source>mmHg</source>
             <translation>mmHg</translation>
+        </message>
+        <message>
+            <source>mph</source>
+            <translation>mph</translation>
         </message>
         <message>
             <source>n:</source>

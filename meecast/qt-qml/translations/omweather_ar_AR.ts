@@ -790,6 +790,11 @@ Connection timeout is expired.</source>
             <translation>الدولة:</translation>
         </message>
         <message>
+            <source>Cover Page</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Custom</source>
             <translation>مخصص</translation>
         </message>
@@ -2342,10 +2347,6 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>PM T-Storms</source>
             <translation>عواصف رعديه مساءً</translation>
-        </message>
-        <message>
-            <source>Pa</source>
-            <translation>باسكال</translation>
         </message>
         <message>
             <source>Partly Cloudy</source>
@@ -4024,6 +4025,10 @@ or ZIP code!!!</source>
             <translation>انش</translation>
         </message>
         <message>
+            <source>kPa</source>
+            <translation type="unfinished">باسكال</translation>
+        </message>
+        <message>
             <source>km</source>
             <translation>كم </translation>
         </message>
@@ -4200,10 +4205,6 @@ or ZIP code!!!</source>
             <translation>ميل/س</translation>
         </message>
         <message>
-            <source>mi/h</source>
-            <translation>ميل/س</translation>
-        </message>
-        <message>
             <source>mi/s</source>
             <translation>ميل/ثانيه</translation>
         </message>
@@ -4289,6 +4290,10 @@ or ZIP code!!!</source>
         <message>
             <source>mmHg</source>
             <translation>mmHg</translation>
+        </message>
+        <message>
+            <source>mph</source>
+            <translation type="unfinished">م/س</translation>
         </message>
         <message>
             <source>n:</source>

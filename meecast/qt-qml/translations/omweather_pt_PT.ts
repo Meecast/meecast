@@ -789,6 +789,11 @@ Connection timeout is expired.</source>
             <translation>País:</translation>
         </message>
         <message>
+            <source>Cover Page</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Custom</source>
             <translation>Personalizar</translation>
         </message>
@@ -2369,10 +2374,6 @@ Precipitação:</translation>
         <message>
             <source>PM T-Storms</source>
             <translation>PM Trovoadas</translation>
-        </message>
-        <message>
-            <source>Pa</source>
-            <translation>Pa</translation>
         </message>
         <message>
             <source>Partly Cloudy</source>
@@ -4052,6 +4053,10 @@ para usar o Widget no Ecrãn de Espera</translation>
             <translation>polegada</translation>
         </message>
         <message>
+            <source>kPa</source>
+            <translation type="unfinished">Pa</translation>
+        </message>
+        <message>
             <source>km</source>
             <translation>km</translation>
         </message>
@@ -4229,10 +4234,6 @@ para usar o Widget no Ecrãn de Espera</translation>
             <translation>mi/h</translation>
         </message>
         <message>
-            <source>mi/h</source>
-            <translation>mi/h</translation>
-        </message>
-        <message>
             <source>mi/s</source>
             <translation>mi/s</translation>
         </message>
@@ -4318,6 +4319,10 @@ para usar o Widget no Ecrãn de Espera</translation>
         <message>
             <source>mmHg</source>
             <translation>mmHg</translation>
+        </message>
+        <message>
+            <source>mph</source>
+            <translation type="unfinished">m/h</translation>
         </message>
         <message>
             <source>n:</source>

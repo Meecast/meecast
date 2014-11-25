@@ -721,7 +721,7 @@ Ontwerp UI voor Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Bewolkt, Zware Regen</translation>
+            <translation>Bewolkt, Lichte Regen, Zwakke Hevige Regen</translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
@@ -741,7 +741,7 @@ Ontwerp UI voor Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Strong Rain, Heavy Rain</source>
-            <translation type="unfinished">Bewolkt, Zware Regen</translation>
+            <translation>Bewolkt, Zware Regen, Hevige Regen</translation>
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
@@ -788,6 +788,10 @@ Verbinding is verlopen.</translation>
         <message>
             <source>Country:</source>
             <translation>Land:</translation>
+        </message>
+        <message>
+            <source>Cover Page</source>
+            <translation>Hoespagina</translation>
         </message>
         <message>
             <source>Custom</source>
@@ -841,18 +845,15 @@ Verbinding is verlopen.</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dauwpunt</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dauwpunt</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dauwpunt</translation>
         </message>
         <message>
             <source>Display</source>
@@ -1257,8 +1258,42 @@ worden.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Frans -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
+ Russisch - Pavel Fialko, Vlad Vasiliev, 
+ 	Ed Bartosh
+ Fins - Marko Vertainen
+ Duits -  Claudius Henrichs,
+ 	Jens Klingen
+ Italiaans - Lorenzo Facca,
+ 	Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+ Spaans - Alejandro Lopez, Agustí Clara
+ Pools - Tomasz Dominikowski
+ Slowaaks - Roman Moravčík
+ Nederlands - Tom Leenders, Michiel Pater, Heimen Stoffels
+ Bulgaars - Zlatko Enikov
+ Albanisch - Ilir Gjika
+ Chinees - Wong Man Kong, Michael
+ Portugees - Jose Narciso,
+ Turks - Burak Kaan Kose,
+ 	Mehmet Çilingir,
+ Catalaans - Agustí Clara,
+ Arabisch - Tarad Alfandi,
+ Deens - Peter Jespersen,
+ Servisch - Aleksandar Zaric,
+ Noors - Peer-Atle Motland,
+ Hongaars - Salmi,
+ Sloveens -  Boštjan,
+ Tjechisch - Jakub Kožíšek, Pavel Šrubař,
+ Chinees (Taiwan) - osk2, 
+ Vietnamees - Hieu Nguyen
+ 	Anh Dương and truongnx, 
+ Zweeds - Angela Nennebrandt,
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1342,17 +1377,15 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Haze, Smoke or Dust</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mist, Rook of Stof</translation>
         </message>
         <message>
             <source>Heavy Freezing Rain</source>
-            <translation type="unfinished">Regen / IJzel</translation>
+            <translation>Hevige IJsregen</translation>
         </message>
         <message>
             <source>Heavy Precipitation</source>
-            <translation type="unfinished">
-Neerslag: </translation>
+            <translation>Hevige Neerslag</translation>
         </message>
         <message>
             <source>Heavy Rain</source>
@@ -1368,15 +1401,15 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Heavy Rain Showers</source>
-            <translation type="unfinished">Zware Regenbui</translation>
+            <translation>Hevige Regenbuien</translation>
         </message>
         <message>
             <source>Heavy Sleet</source>
-            <translation type="unfinished">Zware Sneeuwval</translation>
+            <translation>Hevige Sneeuwval</translation>
         </message>
         <message>
             <source>Heavy Sleet Showers</source>
-            <translation type="unfinished">Zware Regenbui</translation>
+            <translation>Hevige Sneeuwbuien</translation>
         </message>
         <message>
             <source>Heavy Snow</source>
@@ -1388,15 +1421,15 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
-            <translation type="unfinished">Enkele Sneeuwbuien</translation>
+            <translation>Hevige Sneeuwbuien</translation>
         </message>
         <message>
             <source>Heavy Snowfall</source>
-            <translation type="unfinished">Zware Sneeuwval</translation>
+            <translation>Hevige Sneeuwval</translation>
         </message>
         <message>
             <source>Heavy Thunder</source>
-            <translation type="unfinished">Onweer</translation>
+            <translation>Hevig Onweer</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1444,8 +1477,7 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Ice Pellets</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hagel</translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1573,7 +1605,7 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Lead designers</source>
-            <translation type="unfinished">Hoofdontwerper</translation>
+            <translation>Hoofdontwerpers</translation>
         </message>
         <message>
             <source>License</source>
@@ -1585,7 +1617,7 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Light Freezing Drizzle</source>
-            <translation type="unfinished">Lichte IJzel</translation>
+            <translation>Lichte IJzel</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -1625,7 +1657,7 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Light Rain Showers</source>
-            <translation type="unfinished">Lichte Regenbui</translation>
+            <translation>Lichte Regenbuien</translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
@@ -1645,11 +1677,11 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Light Sleet</source>
-            <translation type="unfinished">Lichte Sneeuw</translation>
+            <translation>Lichte Sneeuw</translation>
         </message>
         <message>
             <source>Light Sleet Showers</source>
-            <translation type="unfinished">Lichte Sneeuwbui</translation>
+            <translation>Lichte Sneeuwbuien</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1677,11 +1709,11 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Light Snow Showers</source>
-            <translation type="unfinished">Lichte Sneeuwbui</translation>
+            <translation>Lichte Sneeuwbuien</translation>
         </message>
         <message>
             <source>Light Snowfall</source>
-            <translation type="unfinished">Lichte Sneeuw</translation>
+            <translation>Lichte Sneeuwval</translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
@@ -1693,8 +1725,7 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Light or Moderate Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lichte of Middelmatige Neerslag</translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1764,7 +1795,7 @@ Neerslag: </translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
-            <translation type="unfinished">MeeCast - Een zeer aanpasbare open source multiplatform weerbericht cliënt op basis van OMWeather code. Copyright (C) 2006-2013</translation>
+            <translation>MeeCast - Een zeer aanpasbare open source multiplatform weerbericht-client op basis van OMWeather-code. Copyright (C) 2006-2014</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -1784,7 +1815,7 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Moderate Freezing Rain</source>
-            <translation type="unfinished">Matige Regen</translation>
+            <translation>Middelmatige IJregen</translation>
         </message>
         <message>
             <source>Moderate Rain</source>
@@ -1792,15 +1823,15 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Moderate Rain Showers</source>
-            <translation type="unfinished">Matige Regen</translation>
+            <translation>Middelmatige Regenbuien</translation>
         </message>
         <message>
             <source>Moderate Sleet</source>
-            <translation type="unfinished">Matige Regen</translation>
+            <translation>Middelmatige Sneeuw</translation>
         </message>
         <message>
             <source>Moderate Snow Showers</source>
-            <translation type="unfinished">AM Sneeuwbuien</translation>
+            <translation>Middelmatige Sneeuwbuien</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -1900,7 +1931,7 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Bewolkt, Zware Regen</translation>
+            <translation>Overwegend Bewolkt, Lichte Regen, Zwakke Hevige Regen</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
@@ -1932,7 +1963,7 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Mostly sunny</source>
-            <translation type="unfinished">Overwegend Zonnig</translation>
+            <translation>Overwegend Zonnig</translation>
         </message>
         <message>
             <source>N</source>
@@ -2343,10 +2374,6 @@ Neerslag: </translation>
             <translation>PM Onweer</translation>
         </message>
         <message>
-            <source>Pa</source>
-            <translation>Pa</translation>
-        </message>
-        <message>
             <source>Partly Cloudy</source>
             <translation>Deels Bewolkt</translation>
         </message>
@@ -2356,7 +2383,7 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Partly Cloudy / Windy</source>
-            <translation type="unfinished">Deels Bewolkt / Wind</translation>
+            <translation>Deels Bewolkt / Winderig</translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
@@ -2488,38 +2515,31 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Precipitation</source>
-            <translation type="unfinished">
-Neerslag: </translation>
+            <translation>Neerslag</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">
-Neerslag: </translation>
+            <translation>Mate van neerslag:</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">
-Neerslag: </translation>
+            <translation>Mate van neerslag:</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">
-Neerslag: </translation>
+            <translation>Mate van neerslag:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Neerslag: </translation>
+            <translation>Neerslag:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Neerslag: </translation>
+            <translation>Neerslag:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Neerslag: </translation>
+            <translation>Neerslag:</translation>
         </message>
         <message>
             <source>Preference|Update</source>
@@ -2595,7 +2615,7 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Proximity shower rain</source>
-            <translation type="unfinished">Korte hevige regenbui</translation>
+            <translation>Omvang van regenbui</translation>
         </message>
         <message>
             <source>Rain</source>
@@ -2691,8 +2711,7 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Refresh</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Verversen</translation>
         </message>
         <message>
             <source>Region</source>
@@ -2984,7 +3003,7 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Show last update time</source>
-            <translation type="unfinished">Laatste update</translation>
+            <translation>Toon laatste bijwerkingstijd</translation>
         </message>
         <message>
             <source>Show on Map</source>
@@ -2996,8 +3015,7 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Show source logo</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Toon logo van bron</translation>
         </message>
         <message>
             <source>Show station name</source>
@@ -3037,8 +3055,7 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Showers or Intermittent Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Regenbuien of Aanhoudende Neerslag</translation>
         </message>
         <message>
             <source>Sky is Clear</source>
@@ -3054,7 +3071,7 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Sleet Showers</source>
-            <translation type="unfinished">Enkele Buien</translation>
+            <translation>Sneeuwbuien</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3078,7 +3095,7 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Snow Showers</source>
-            <translation type="unfinished">Sneeuwbui</translation>
+            <translation>Sneeuwbuien</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -3110,7 +3127,7 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Snowfall</source>
-            <translation type="unfinished">Sneeuw</translation>
+            <translation>Sneeuwval</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3202,8 +3219,7 @@ Neerslag: </translation>
         </message>
         <message>
             <source>Strong Thundershowers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zware Onweersbuien</translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3392,7 +3408,7 @@ Foundation; versie 2.1 of latere versies.</translation>
         </message>
         <message>
             <source>Thundershowers</source>
-            <translation type="unfinished">Onweer</translation>
+            <translation>Onweersbuien</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3426,7 +3442,7 @@ Foundation; versie 2.1 of latere versies.</translation>
         </message>
         <message>
             <source>Transparency</source>
-            <translation type="unfinished">Transparantie:</translation>
+            <translation>Doorzichtigheid</translation>
         </message>
         <message>
             <source>Transparency:</source>
@@ -3604,7 +3620,7 @@ van weerinformatie.
         </message>
         <message>
             <source>Violent Rain Showers</source>
-            <translation type="unfinished">Lichte Regenbui</translation>
+            <translation>Heftige Regenbuien</translation>
         </message>
         <message>
             <source>Visible items:</source>
@@ -4021,6 +4037,10 @@ voor Standby-scherm widget</translation>
             <translation>inch</translation>
         </message>
         <message>
+            <source>kPa</source>
+            <translation type="unfinished">Pa</translation>
+        </message>
+        <message>
             <source>km</source>
             <translation>km</translation>
         </message>
@@ -4197,10 +4217,6 @@ voor Standby-scherm widget</translation>
             <translation>mi/h</translation>
         </message>
         <message>
-            <source>mi/h</source>
-            <translation>mi/h</translation>
-        </message>
-        <message>
             <source>mi/s</source>
             <translation>mi/s</translation>
         </message>
@@ -4238,18 +4254,15 @@ voor Standby-scherm widget</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mmHg</source>
@@ -4286,6 +4299,10 @@ voor Standby-scherm widget</translation>
         <message>
             <source>mmHg</source>
             <translation>mmHg</translation>
+        </message>
+        <message>
+            <source>mph</source>
+            <translation>mph</translation>
         </message>
         <message>
             <source>n:</source>

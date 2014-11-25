@@ -790,6 +790,11 @@ Predodređeno vreme za povezivanje je isteklo.</translation>
             <translation>Država</translation>
         </message>
         <message>
+            <source>Cover Page</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Custom</source>
             <translation>Po želji</translation>
         </message>
@@ -2373,10 +2378,6 @@ Padavine: </translation>
         <message>
             <source>PM T-Storms</source>
             <translation>Popodne oluje sa grmljavinom</translation>
-        </message>
-        <message>
-            <source>Pa</source>
-            <translation>Pa</translation>
         </message>
         <message>
             <source>Partly Cloudy</source>
@@ -4052,6 +4053,10 @@ ili ZIP kod!!!</translation>
             <translation>inch</translation>
         </message>
         <message>
+            <source>kPa</source>
+            <translation type="unfinished">Pa</translation>
+        </message>
+        <message>
             <source>km</source>
             <translation>km</translation>
         </message>
@@ -4228,10 +4233,6 @@ ili ZIP kod!!!</translation>
             <translation>mi/h</translation>
         </message>
         <message>
-            <source>mi/h</source>
-            <translation>mi/h</translation>
-        </message>
-        <message>
             <source>mi/s</source>
             <translation>mi/s</translation>
         </message>
@@ -4317,6 +4318,10 @@ ili ZIP kod!!!</translation>
         <message>
             <source>mmHg</source>
             <translation>mmHg</translation>
+        </message>
+        <message>
+            <source>mph</source>
+            <translation type="unfinished">m/h</translation>
         </message>
         <message>
             <source>n:</source>

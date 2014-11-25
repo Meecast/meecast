@@ -32,26 +32,26 @@ and coloured backgrounds
         <message>
             <source>
 Humidity: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Luftfuktighet:</translation>
         </message>
         <message>
             <source>
 Humidity: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Luftfuktighet:</translation>
         </message>
         <message>
             <source>
 Humidity: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Luftfuktighet:</translation>
         </message>
         <message>
             <source>
 Humidity: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Luftfuktighet:</translation>
         </message>
         <message>
             <source>
@@ -62,38 +62,38 @@ P: </source>
         <message>
             <source>
 Precipitation: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Nederbörd:</translation>
         </message>
         <message>
             <source>
 Precipitation: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Nederbörd:</translation>
         </message>
         <message>
             <source>
 Precipitation: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Nederbörd:</translation>
         </message>
         <message>
             <source>
 Precipitation: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Nederbörd:</translation>
         </message>
         <message>
             <source>
 Pressure: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Lufttryck:</translation>
         </message>
         <message>
             <source>
 Pressure: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Lufttryck:</translation>
         </message>
         <message>
             <source>
@@ -109,23 +109,19 @@ W: </source>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(låg)</translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(låg)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Måttlig)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Måttlig)</translation>
         </message>
         <message>
             <source>1 day</source>
@@ -241,108 +237,87 @@ W: </source>
         </message>
         <message>
             <source>AM Clouds / PM Sun</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Moln / EM Sol</translation>
         </message>
         <message>
             <source>AM Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Duggregn</translation>
         </message>
         <message>
             <source>AM Drizzle / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Duggregn / Vind</translation>
         </message>
         <message>
             <source>AM Fog / PM Clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Dimma / EM Moln</translation>
         </message>
         <message>
             <source>AM Fog / PM Sun</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Dimma / EM Sol</translation>
         </message>
         <message>
             <source>AM Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Lätt regn</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Lätt regn / Vind</translation>
         </message>
         <message>
             <source>AM Light Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Lätt snöfall</translation>
         </message>
         <message>
             <source>AM Light Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Lätt snöfall / Vind</translation>
         </message>
         <message>
             <source>AM Light Wintry Mix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Lätt vintermix</translation>
         </message>
         <message>
             <source>AM Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Regn</translation>
         </message>
         <message>
             <source>AM Rain / Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Regn / Snö</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Regn / Snöbyar</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Regn / Snöbyar / Vind</translation>
         </message>
         <message>
             <source>AM Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Regn / Vind</translation>
         </message>
         <message>
             <source>AM Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Regnskurar</translation>
         </message>
         <message>
             <source>AM Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Regnskurar / Vind</translation>
         </message>
         <message>
             <source>AM Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Snö</translation>
         </message>
         <message>
             <source>AM Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Snöbyar</translation>
         </message>
         <message>
             <source>AM Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Snöbyar / Vind</translation>
         </message>
         <message>
             <source>AM Snow Showers / Wind Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Snöbyar / Senare vind</translation>
         </message>
         <message>
             <source>About</source>
@@ -374,23 +349,19 @@ W: </source>
         </message>
         <message>
             <source>Access denied to the given URL.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Åtkomst nekad till angiven URL.</translation>
         </message>
         <message>
             <source>Action|Update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Åtgärd|Uppdatera</translation>
         </message>
         <message>
             <source>Add</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lägg till</translation>
         </message>
         <message>
             <source>Add Station</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lägg till väderstation</translation>
         </message>
         <message>
             <source>Adjust GPS station</source>
@@ -398,18 +369,15 @@ W: </source>
         </message>
         <message>
             <source>Alerts</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Varningar</translation>
         </message>
         <message>
             <source>Alerts</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Varningar</translation>
         </message>
         <message>
             <source>Alerts</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Varningar</translation>
         </message>
         <message>
             <source>Alexis Iglauer - for testing
@@ -422,18 +390,24 @@ Alexander Savchenko aka dizel - for testing
 Timeless - for patches 
 Eric Link - for feature request and donation
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alexis Iglauer - för testning
+Eugene Roytenberg - för testning
+Jarek Szczepanski aka Imrahil - för testning
+Vladimir Shakhov aka Mendoza - för testning 
+Marc Dillon - för stavnings-/stilkontroll av Engelsk text
+Arkady Glazov aka Globster - för testning
+Alexander Savchenko aka dizel - för testning
+Timeless - för patchar 
+Eric Link - för funktionsförfrågan och donation
+</translation>
         </message>
         <message>
             <source>An unknown error has occurred.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ett okänt fel har uppstått.</translation>
         </message>
         <message>
             <source>Animation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Animation</translation>
         </message>
         <message>
             <source>Appearance</source>
@@ -451,13 +425,11 @@ innan installation av detta paket</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vill du verkligen ta bort den här stationen?</translation>
         </message>
         <message>
             <source>Are you sure?</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Är du säker?</translation>
         </message>
         <message>
             <source>Author and maintenance: Vlad Vasiliev, &lt;vlad@gas.by&gt;
@@ -466,123 +438,110 @@ Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
 Design UI for Fremantle: Krebber Jan Niemelä Ulla
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Utveckling och underhåll: Vlad Vasiliev, &lt;vlad@gas.by&gt;
+Underhåll: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
+Dokumentation: Marko Vertainen
+Design UI och standardikoner: Andrew Zhilin
+Design UI för Fremantle: Krebber Jan Niemelä Ulla
+</translation>
         </message>
         <message>
             <source>Author and maintenance: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Utveckling och underhåll: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
+</translation>
         </message>
         <message>
             <source>Authors</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Utvecklare</translation>
         </message>
         <message>
             <source>Automatically update data when connecting to the Internet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Uppdatera väderdata automatiskt vid anslutning till Internet</translation>
         </message>
         <message>
             <source>Back</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tillbaka</translation>
         </message>
         <message>
             <source>Background color:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bakgrundsfärg:</translation>
         </message>
         <message>
             <source>Background color:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bakgrundsfärg:</translation>
         </message>
         <message>
             <source>Beauf.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Beauf.</translation>
         </message>
         <message>
             <source>Beaufort scale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Beaufort-skalan</translation>
         </message>
         <message>
             <source>Beaufort scale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Beaufort-skalan</translation>
         </message>
         <message>
             <source>Beaufort scale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Beaufort-skalan</translation>
         </message>
         <message>
             <source>Blowing Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Snödrev</translation>
         </message>
         <message>
             <source>Broken Clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Uppsprucken molnighet</translation>
         </message>
         <message>
             <source>Broken clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Uppsprucken molnighet</translation>
         </message>
         <message>
             <source>C</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C</translation>
         </message>
         <message>
             <source>C</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C</translation>
         </message>
         <message>
             <source>C</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C</translation>
         </message>
         <message>
             <source>C</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C</translation>
         </message>
         <message>
             <source>C</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C</translation>
         </message>
         <message>
             <source>C
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C
+</translation>
         </message>
         <message>
             <source>C
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C
+</translation>
         </message>
         <message>
             <source>C
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C
+</translation>
         </message>
         <message>
             <source>C
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C
+</translation>
         </message>
         <message>
             <source>CALM</source>
@@ -596,43 +555,36 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Cannot get path to the HOME directory. Quitting.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kan inte hitta sökvägen till HOME-mappen. Avslutar.
+</translation>
         </message>
         <message>
             <source>Celcius</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Celcius</translation>
         </message>
         <message>
             <source>Celsius</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Celsius</translation>
         </message>
         <message>
             <source>City</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ort</translation>
         </message>
         <message>
             <source>City</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ort</translation>
         </message>
         <message>
             <source>City</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ort</translation>
         </message>
         <message>
             <source>City</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ort</translation>
         </message>
         <message>
             <source>City:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ort:</translation>
         </message>
         <message>
             <source>Clear</source>
@@ -660,23 +612,19 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Clear, Haze</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Klart, Dis</translation>
         </message>
         <message>
             <source>Clear, Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Klart, Rök</translation>
         </message>
         <message>
             <source>Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Stäng</translation>
         </message>
         <message>
             <source>Clouds Early / Clearing Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tidig molnighet / Senare uppklarnande</translation>
         </message>
         <message>
             <source>Cloudy</source>
@@ -688,12 +636,11 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Molnigt med lite snö</translation>
         </message>
         <message>
             <source>Cloudy Light Rain</source>
-            <translation>Molnigt Lätt Regn</translation>
+            <translation>Molnigt med lätt regn</translation>
         </message>
         <message>
             <source>Cloudy T-Storm</source>
@@ -705,38 +652,31 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy and light rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Molnigt med lätt regn</translation>
         </message>
         <message>
             <source>Cloudy and light snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Molnigt med lätt snöfall</translation>
         </message>
         <message>
             <source>Cloudy and light wet snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Molnigt med lätt blötsnö</translation>
         </message>
         <message>
             <source>Cloudy and showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Molnigt med regnskurar</translation>
         </message>
         <message>
             <source>Cloudy and snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Molningt med snöbyar</translation>
         </message>
         <message>
             <source>Cloudy and wet snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Molningt med byar av blötsnö</translation>
         </message>
         <message>
             <source>Cloudy with occasional rain.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Molningt med sporadiskt regn</translation>
         </message>
         <message>
             <source>Cloudy, Drifting Snow</source>
@@ -744,35 +684,31 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Molnigt, lite snö</translation>
         </message>
         <message>
             <source>Cloudy, Heavy Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Molnigt, Kraftigt regn</translation>
         </message>
         <message>
             <source>Cloudy, Heavy Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Molnigt, Kraftigt regn, Åska</translation>
         </message>
         <message>
             <source>Cloudy, Heavy Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Molnigt, Mycket snö</translation>
         </message>
         <message>
             <source>Cloudy, Light Rain</source>
-            <translation>Molnigt, Lätt Regn</translation>
+            <translation>Molnigt, lätt regn</translation>
         </message>
         <message>
             <source>Cloudy, Light Rain, T-Storm</source>
-            <translation>Molnigt, Lätt Regn, Åskväder</translation>
+            <translation>Molnigt, Lätt regn, Åskväder</translation>
         </message>
         <message>
             <source>Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Mestadels Molnigt, Mycket Regn</translation>
+            <translation>Molnigt, Lätt regn, Ganska mycket regn</translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
@@ -784,8 +720,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Molnigt, Rök</translation>
         </message>
         <message>
             <source>Cloudy, Snow</source>
@@ -793,65 +728,62 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Strong Rain, Heavy Rain</source>
-            <translation type="unfinished">Mestadels Molnigt, Mycket Regn</translation>
+            <translation>Molnigt, Kraftigt regn, Mycket Regn</translation>
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Molnigt, Åska med regn</translation>
         </message>
         <message>
             <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </translation>
         </message>
         <message>
             <source>Copyright(c) 2010-2011 by Tanya Makova
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Copyright(c) 2010-2011 by Tanya Makova
+</translation>
         </message>
         <message>
             <source>Could not connecting to Internet.
 Connection timeout is expired.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kan inte ansluta till Internet.
+Anslutnings-timeout har överskridits.</translation>
         </message>
         <message>
             <source>Could not create weather cache directory.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kunde inte skapa cache-mapp.
+</translation>
         </message>
         <message>
             <source>Couldn't resolve host.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kunde inte matcha värdnamnet.</translation>
         </message>
         <message>
             <source>Couldn't resolve proxy.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kunde inte matcha proxyservern.</translation>
         </message>
         <message>
             <source>Country</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Land</translation>
         </message>
         <message>
             <source>Country</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Land</translation>
         </message>
         <message>
             <source>Country:</source>
+            <translation>Land:</translation>
+        </message>
+        <message>
+            <source>Cover Page</source>
             <translation type="unfinished">
             </translation>
         </message>
         <message>
             <source>Custom</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Anpassat</translation>
         </message>
         <message>
             <source>Daily</source>
@@ -888,33 +820,28 @@ Connection timeout is expired.</source>
         <message>
             <source>Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Design UI och standardikoner: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
+</translation>
         </message>
         <message>
             <source>Detailed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Detaljerat</translation>
         </message>
         <message>
             <source>Detailed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Detaljerat</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Daggpunkt</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Daggpunkt</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Daggpunkt</translation>
         </message>
         <message>
             <source>Display</source>
@@ -933,44 +860,37 @@ Connection timeout is expired.</source>
         </message>
         <message>
             <source>Distance</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Distans</translation>
         </message>
         <message>
             <source>Distance units:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Distansenheter:</translation>
         </message>
         <message>
             <source>Does not to add station, because no one
 of 'omweather-*-stations-db' packages was installed.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lägger inte till station, eftersom inget av
+'omweather-*-stations-db' databaspaket installerats.</translation>
         </message>
         <message>
             <source>Donation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Donation</translation>
         </message>
         <message>
             <source>Donation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Donation</translation>
         </message>
         <message>
             <source>Donation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Donation</translation>
         </message>
         <message>
             <source>Download and show detailed weather</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ladda ner och visa detaljerad väderinfo</translation>
         </message>
         <message>
             <source>Download timed out.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nedladdningen överskred sin timeout.</translation>
         </message>
         <message>
             <source>Drifting Snow</source>
@@ -986,8 +906,7 @@ of 'omweather-*-stations-db' packages was installed.</source>
         </message>
         <message>
             <source>Drizzle / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Duggregn / Vind</translation>
         </message>
         <message>
             <source>Drizzle Early</source>
@@ -1007,8 +926,7 @@ of 'omweather-*-stations-db' packages was installed.</source>
         </message>
         <message>
             <source>ENE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ONO</translation>
         </message>
         <message>
             <source>ESE</source>
@@ -1016,13 +934,11 @@ of 'omweather-*-stations-db' packages was installed.</source>
         </message>
         <message>
             <source>ESE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OSO</translation>
         </message>
         <message>
             <source>E_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>O</translation>
         </message>
         <message>
             <source>Ed Bartosh - for more feature requests, support and criticism
@@ -1036,18 +952,25 @@ Brian Knight - for idea of iconset, criticism and donation ;-)
 Andrew aka Tabster - for testing and ideas
 Brad Jones aka kazrak - for testing
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ed Bartosh - för fler funktionsförslag, support och kritik
+Daniel Wilms - för funktionsförslag och testning
+Eugen Kaluta aka tren - för funktionsförslag och support
+Maxim Kalinkevish aka spark för testning
+Yuri Komyakov - för Nokia 770-enhet 
+Greg Thompson för support ang. stations.txt
+Frank Persian - för idé om nytt utseende
+Brian Knight - för idé om ikoner, kritik och donation ;-)
+Andrew aka Tabster - för testning och idéer
+Brad Jones aka kazrak - för testning
+</translation>
         </message>
         <message>
             <source>Edit custom layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Redigera anpassat useende</translation>
         </message>
         <message>
             <source>Edit custom layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Redigera anpassat useende</translation>
         </message>
         <message>
             <source>Enable GPS</source>
@@ -1055,39 +978,33 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Enter search</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sök</translation>
         </message>
         <message>
             <source>Error in xml file
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Fel i xml-fil
+</translation>
         </message>
         <message>
             <source>Error initializing the OMWeather applet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Fel vid start av OMWeather-applet</translation>
         </message>
         <message>
             <source>Exit</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Avsluta</translation>
         </message>
         <message>
             <source>Extended Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Utökade inställningar</translation>
         </message>
         <message>
             <source>Extended Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Utökade inställningar</translation>
         </message>
         <message>
             <source>Extreme</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Extrem</translation>
         </message>
         <message>
             <source>F</source>
@@ -1145,55 +1062,47 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Fahrenheit</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Fahrenheit</translation>
         </message>
         <message>
             <source>Fahrenheit</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Fahrenheit</translation>
         </message>
         <message>
             <source>Failed to connect to host or proxy.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kunde inte ansluta till värddator eller proxyserver.</translation>
         </message>
         <message>
             <source>Failed to initialize GConf. Quitting.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kunde inte starta GConf. Avslutar.
+</translation>
         </message>
         <message>
             <source>Failed to initialize GConf. Settings were not saved.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kunde inte starta GConf. Inställningarna sparades inte.
+</translation>
         </message>
         <message>
             <source>Fair</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ganska bra</translation>
         </message>
         <message>
             <source>Feels like</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Känns som</translation>
         </message>
         <message>
             <source>Feels like:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Känns som:</translation>
         </message>
         <message>
             <source>Feels like:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Känns som:</translation>
         </message>
         <message>
             <source>Few Clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spridda moln</translation>
         </message>
         <message>
             <source>Few Showers</source>
@@ -1217,8 +1126,7 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Few clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spridda moln</translation>
         </message>
         <message>
             <source>Find location via GPS</source>
@@ -1227,13 +1135,12 @@ Brad Jones aka kazrak - for testing
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Finska - Marko Vertainen; Tyska - Claudius Henrichs; Spanska - Alejandro Lopez; Nederländska - Tom Leenders; Slovakiska - Roman Moravčík
+</translation>
         </message>
         <message>
             <source>First Quarter</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Första kvartalet</translation>
         </message>
         <message>
             <source>Flike</source>
@@ -1264,8 +1171,7 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Fog early / Clearing late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Morgondimma / Uppklarnande</translation>
         </message>
         <message>
             <source>Foggy</source>
@@ -1273,18 +1179,15 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Font color:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Teckenfärg:</translation>
         </message>
         <message>
             <source>Font:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Teckensnitt:</translation>
         </message>
         <message>
             <source>Font:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Teckensnitt:</translation>
         </message>
         <message>
             <source>For disabling MeeCast widget,
@@ -1298,24 +1201,21 @@ Hantera program.</translation>
         </message>
         <message>
             <source>Forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Prognos</translation>
         </message>
         <message>
             <source>Forecast at: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Prognos vid:</translation>
         </message>
         <message>
             <source>Forecast at: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Prognos vid:</translation>
         </message>
         <message>
             <source>Forecast: 
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Prognos:
+</translation>
         </message>
         <message>
             <source>Freezing Drizzle</source>
@@ -1358,8 +1258,43 @@ Hantera program.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Franska -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
+ Ryska - Pavel Fialko, Vlad Vasiliev, 
+ 	Ed Bartosh
+ Finska - Marko Vertainen
+ Tyska -  Claudius Henrichs,
+ 	Jens Klingen
+ Italienska - Lorenzo Facca,
+ 	Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+ Spanska - Alejandro Lopez, Agustí Clara
+ Polska - Tomasz Dominikowski
+ Slovakiska - Roman Moravčík
+ Nederländska - Tom Leenders, Michiel Pater
+ Bulgariska - Zlatko Enikov
+ Albanska - Ilir Gjika
+ Kinesiska - Wong Man Kong, Michael
+ Portugisiska - Jose Narciso,
+ Turkiska - Burak Kaan Kose,
+ 	Mehmet Çilingir,
+ Katalanska - Agustí Clara,
+ Arabiska - Tarad Alfandi,
+ Danska - Peter Jespersen,
+ Serbiska - Aleksandar Zaric,
+ Norska - Peer-Atle Motland,
+ Ungerska - Salmi,
+ Slovenska -  Boštjan,
+ Tjeckiska - Jakub Kožíšek, Pavel Šrubař,
+ Kinesiska(Taiwan) - osk2, 
+ Vietnamesiska - Hieu Nguyen
+ 	Anh Dương and truongnx, 
+ Svenska - Angela Nennebrandt,
+ 	Niklas Åkerström, 
+ 	Åke Engelbrektson
+ 	Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1371,18 +1306,23 @@ Italian - Pavel Fialko, Alessandro Pasotti,
 Spanish - Alejandro Lopez
 Polish - Tomasz Dominikowski
 Slovak - Roman Moravčík</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Franska - Nicolas Granziano, Philippe, Benot Knecht
+Ryska - Pavel Fialko, Vlad Vasiliev, Ed Bartosh
+Finska - Marko Vertainen
+Tyska - Claudius Henrichs
+Italienska - Pavel Fialko, Alessandro Pasotti,
+	Salvatore Fiorenzo, Luca Onnis
+Spanska - Alejandro Lopez
+Polska - Tomasz Dominikowski
+Slovakiska - Roman Moravčík</translation>
         </message>
         <message>
             <source>Full</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Fullständig</translation>
         </message>
         <message>
             <source>Full forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Fullständig prognos</translation>
         </message>
         <message>
             <source>Fullscreen mode</source>
@@ -1395,53 +1335,43 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>GPS</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GPS</translation>
         </message>
         <message>
             <source>GSM</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GSM</translation>
         </message>
         <message>
             <source>GSM</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GSM</translation>
         </message>
         <message>
             <source>GSM</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GSM</translation>
         </message>
         <message>
             <source>GSM+WLAN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GSM+WLAN</translation>
         </message>
         <message>
             <source>GUI|Clear</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GUI|Rensa</translation>
         </message>
         <message>
             <source>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Grzanka's Ikonset: Copyright 2005 av Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</translation>
         </message>
         <message>
             <source>Gust:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vindby:</translation>
         </message>
         <message>
             <source>Gust:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vindby:</translation>
         </message>
         <message>
             <source>HTTP error.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>HTTP-fel.</translation>
         </message>
         <message>
             <source>Haze</source>
@@ -1449,16 +1379,15 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Haze, Smoke or Dust</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dis, rök eller damm</translation>
         </message>
         <message>
             <source>Heavy Freezing Rain</source>
-            <translation type="unfinished">Regn / Underkyld Regn</translation>
+            <translation>Kraftigt underkylt regn</translation>
         </message>
         <message>
             <source>Heavy Precipitation</source>
-            <translation type="unfinished">Kraftigt regn</translation>
+            <translation>Kraftig nederbörd</translation>
         </message>
         <message>
             <source>Heavy Rain</source>
@@ -1474,15 +1403,15 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Heavy Rain Showers</source>
-            <translation type="unfinished">Kraftiga regnskurar</translation>
+            <translation>Kraftiga regnskurar</translation>
         </message>
         <message>
             <source>Heavy Sleet</source>
-            <translation type="unfinished">Kraftigt snöfall</translation>
+            <translation>Kraftigt snöblandat regn</translation>
         </message>
         <message>
             <source>Heavy Sleet Showers</source>
-            <translation type="unfinished">Kraftiga regnskurar</translation>
+            <translation>Kraftiga snöblande regnskurar</translation>
         </message>
         <message>
             <source>Heavy Snow</source>
@@ -1490,55 +1419,47 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kraftigt snöfall / Vind</translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
-            <translation type="unfinished">Mindre snöfall</translation>
+            <translation>Kraftiga snöbyar</translation>
         </message>
         <message>
             <source>Heavy Snowfall</source>
-            <translation type="unfinished">Kraftigt snöfall</translation>
+            <translation>Kraftigt snöfall</translation>
         </message>
         <message>
             <source>Heavy Thunder</source>
-            <translation type="unfinished">Åska</translation>
+            <translation>Kraftig åska</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kraftigt intensivt regn</translation>
         </message>
         <message>
             <source>High</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hög</translation>
         </message>
         <message>
             <source>Hourly</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Timvis</translation>
         </message>
         <message>
             <source>Hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Timmar</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Luftfuktighet</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Luftfuktighet</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Luftfuktighet</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1558,23 +1479,19 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Ice Pellets</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ishagel</translation>
         </message>
         <message>
             <source>Icon set:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ikonset:</translation>
         </message>
         <message>
             <source>Icon size:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ikonstorlek:</translation>
         </message>
         <message>
             <source>Icon size:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ikonstorlek:</translation>
         </message>
         <message>
             <source>Icons</source>
@@ -1602,48 +1519,39 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Information</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Information</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Information</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Information</translation>
         </message>
         <message>
             <source>Isolated T-Storms</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lokala åskbyar</translation>
         </message>
         <message>
             <source>Isolated T-Storms / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lokala åskbyar / Vind</translation>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Italienska - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polska - Tomasz Dominikowski; Bulgariska - Zlatko Enikov</translation>
         </message>
         <message>
             <source>Kilometers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kilometer</translation>
         </message>
         <message>
             <source>Knots</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Knop</translation>
         </message>
         <message>
             <source>Language</source>
@@ -1651,23 +1559,19 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Last Quarter</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Senaste kvartalet</translation>
         </message>
         <message>
             <source>Last update at server: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Senaste serveruppdatering: </translation>
         </message>
         <message>
             <source>Last update from server: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Senaste uppdatering från servern:</translation>
         </message>
         <message>
             <source>Last update from server: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Senaste uppdatering från servern:</translation>
         </message>
         <message>
             <source>Last update:</source>
@@ -1691,22 +1595,19 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Lawn and Garden Weather</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Park och trädgårdsväder</translation>
         </message>
         <message>
             <source>Layout:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Utseende:</translation>
         </message>
         <message>
             <source>Layout:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Utseende:</translation>
         </message>
         <message>
             <source>Lead designers</source>
-            <translation type="unfinished">Chefsdesigner</translation>
+            <translation>Ledande designers</translation>
         </message>
         <message>
             <source>License</source>
@@ -1714,45 +1615,43 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Light Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lätt duggregn</translation>
         </message>
         <message>
             <source>Light Freezing Drizzle</source>
-            <translation type="unfinished">Underkylt Duggregn</translation>
+            <translation>Lätt underkylt duggregn</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lätt underkylt regn</translation>
         </message>
         <message>
             <source>Light Rain</source>
-            <translation>Lätt Regn</translation>
+            <translation>Lätt regn</translation>
         </message>
         <message>
             <source>Light Rain</source>
-            <translation>Lätt Regn</translation>
+            <translation>Lätt regn</translation>
         </message>
         <message>
             <source>Light Rain / Fog</source>
-            <translation>Lätt Regn / Dimma</translation>
+            <translation>Lätt regn / Dimma</translation>
         </message>
         <message>
             <source>Light Rain / Wind</source>
-            <translation>Lätt Regn / Dimma</translation>
+            <translation>Lätt regn / Dimma</translation>
         </message>
         <message>
             <source>Light Rain / Wind Late</source>
-            <translation>Lätt Regn / Vind Sent</translation>
+            <translation>Lätt regn / Vind senare</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
-            <translation>Lätt Regn Tidigt</translation>
+            <translation> Tidigt lätt regn</translation>
         </message>
         <message>
             <source>Light Rain Late</source>
-            <translation>Lätt Regn Sent</translation>
+            <translation>Senare lätt regn</translation>
         </message>
         <message>
             <source>Light Rain Shower</source>
@@ -1760,7 +1659,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Light Rain Showers</source>
-            <translation type="unfinished">Lätta regnskurar</translation>
+            <translation>Lätta regnskurar</translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
@@ -1772,98 +1671,87 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Light Rain and Windy</source>
-            <translation>Lätt Regn och Blåsigt</translation>
+            <translation>Lätt regn och blåsigt</translation>
         </message>
         <message>
             <source>Light Rain with Thunder</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lätt regn med åska</translation>
         </message>
         <message>
             <source>Light Sleet</source>
-            <translation type="unfinished">Lätt Snöfall</translation>
+            <translation>Lätt snöblandat regn</translation>
         </message>
         <message>
             <source>Light Sleet Showers</source>
-            <translation type="unfinished">Lätta regnskurar</translation>
+            <translation>Lätta snöblande regnskurar</translation>
         </message>
         <message>
             <source>Light Snow</source>
-            <translation>Lätt Snöfall</translation>
+            <translation>Lätt snöfall</translation>
         </message>
         <message>
             <source>Light Snow / Fog</source>
-            <translation>Lätt Snöfall / Dimma</translation>
+            <translation>Lätt snöfall / Dimma</translation>
         </message>
         <message>
             <source>Light Snow / Wind</source>
-            <translation>Lätt Snöfall / Vind</translation>
+            <translation>Lätt snöfall / Vind</translation>
         </message>
         <message>
             <source>Light Snow Early</source>
-            <translation>Lätt Snö Tidigt</translation>
+            <translation> Tidigt lätt snö</translation>
         </message>
         <message>
             <source>Light Snow Late</source>
-            <translation>Lätt Snö Sent</translation>
+            <translation>Lätt snö senare</translation>
         </message>
         <message>
             <source>Light Snow Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lätta snöbyar</translation>
         </message>
         <message>
             <source>Light Snow Showers</source>
-            <translation type="unfinished">Lätta regnskurar</translation>
+            <translation>Lätta snöbyar</translation>
         </message>
         <message>
             <source>Light Snowfall</source>
-            <translation type="unfinished">Lätt Snöfall</translation>
+            <translation>Lätt snöfall</translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lätt intensivt duggregn</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lätta intensiva regnskurar</translation>
         </message>
         <message>
             <source>Light or Moderate Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lätt eller måttlig nederbörd</translation>
         </message>
         <message>
             <source>Light rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lätt regn</translation>
         </message>
         <message>
             <source>Light snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lätt snöfall</translation>
         </message>
         <message>
             <source>Loading station list</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Läser in stationslista</translation>
         </message>
         <message>
             <source>Local Pollen Reports</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lokal pollenrapport</translation>
         </message>
         <message>
             <source>Localization platform</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Översättningsplattform</translation>
         </message>
         <message>
             <source>Long</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lång</translation>
         </message>
         <message>
             <source>Looks like there's no info for this location.</source>
@@ -1875,19 +1763,17 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Low</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Låg</translation>
         </message>
         <message>
             <source>Mainly cloudy with occasional rain.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Huvudsakligen molningt med sporadiskt regn</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Underhåll: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
+</translation>
         </message>
         <message>
             <source>Manage locations</source>
@@ -1899,8 +1785,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Manual</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Manuell</translation>
         </message>
         <message>
             <source>Measurement units</source>
@@ -1908,13 +1793,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>MeeCast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>MeeCast</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>MeeCast - Anpassningsbar väderprognosklient. Plattformsoberoende och öppen källkod. Baserad på OMWeather-kod. Copyright (C) 2006-2014</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -1922,22 +1805,19 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Meters</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Meter</translation>
         </message>
         <message>
             <source>Miles</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Miles</translation>
         </message>
         <message>
             <source>Mist</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dimma</translation>
         </message>
         <message>
             <source>Moderate Freezing Rain</source>
-            <translation type="unfinished">Måttligt regn</translation>
+            <translation>Måttligt underkylt regn</translation>
         </message>
         <message>
             <source>Moderate Rain</source>
@@ -1945,15 +1825,15 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Moderate Rain Showers</source>
-            <translation type="unfinished">Måttligt regn</translation>
+            <translation>Måttliga regnskurar</translation>
         </message>
         <message>
             <source>Moderate Sleet</source>
-            <translation type="unfinished">Måttligt regn</translation>
+            <translation>Kraftigt snöblandat regn</translation>
         </message>
         <message>
             <source>Moderate Snow Showers</source>
-            <translation type="unfinished">Mindre snöfall</translation>
+            <translation>Måttliga snöbyar</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -1961,134 +1841,131 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Modification</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ändring</translation>
         </message>
         <message>
             <source>Mostly Clear</source>
-            <translation>Mestadels Klart</translation>
+            <translation>Mestadels klart</translation>
         </message>
         <message>
             <source>Mostly Cloudy</source>
-            <translation>Mestadels Molnigt</translation>
+            <translation>Mestadels molnigt</translation>
         </message>
         <message>
             <source>Mostly Cloudy / Wind</source>
-            <translation>Mestadels Molnigt / Vind</translation>
+            <translation>Mestadels molnigt / Vind</translation>
         </message>
         <message>
             <source>Mostly Cloudy Few Snow</source>
-            <translation>Mestadels Molnigt Lite Snö</translation>
+            <translation>Mestadels molnigt, Lite snö</translation>
         </message>
         <message>
             <source>Mostly Cloudy Light Rain</source>
-            <translation>Mestadels Molnigt Lätt Regn</translation>
+            <translation>Mestadels molnigt, Lätt regn</translation>
         </message>
         <message>
             <source>Mostly Cloudy Rain</source>
-            <translation>Mestadels Molnigt Regn</translation>
+            <translation>Mestadels molnigt, Regn</translation>
         </message>
         <message>
             <source>Mostly Cloudy Snow</source>
-            <translation>Mestadels Molnigt Snö</translation>
+            <translation>Mestadels molnigt, Snö</translation>
         </message>
         <message>
             <source>Mostly Cloudy T-Storm</source>
-            <translation>Mestadels Molnigt Åskväder</translation>
+            <translation>Mestadels molnigt, Åskväder</translation>
         </message>
         <message>
             <source>Mostly Cloudy and Windy</source>
-            <translation>Mestadels Molnigt och Blåsigt</translation>
+            <translation>Mestadels molnigt och blåsigt</translation>
         </message>
         <message>
             <source>Mostly Cloudy and Windy</source>
-            <translation>Mestadels Molnigt och Blåsigt</translation>
+            <translation>Mestadels molnigt och blåsigt</translation>
         </message>
         <message>
             <source>Mostly Cloudy and Windy</source>
-            <translation>Mestadels Molnigt och Blåsigt</translation>
+            <translation>Mestadels molnigt och blåsigt</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Drifting Snow</source>
-            <translation>Mestadels Molnigt, Snödrev</translation>
+            <translation>Mestadels molnigt, Snödrev</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Few Snow</source>
-            <translation>Mestadels Molnigt, Lite Snö</translation>
+            <translation>Mestadels molnigt, Lite snö</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Fog</source>
-            <translation>Mestadels Molnigt, Dimma</translation>
+            <translation>Mestadels molnigt, Dimma</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Fog, Drizzle</source>
-            <translation>Mestadels Molnigt, Dimma, Duggregn</translation>
+            <translation>Mestadels molnigt, Dimma, Duggregn</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Rain</source>
-            <translation>Mestadels Molnigt, Mycket Regn</translation>
+            <translation>Mestadels molnigt, Mycket regn</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Rain, T-Storm</source>
-            <translation>Mestadels Molnigt, Mycket Regn, Åskväder</translation>
+            <translation>Mestadels molnigt, Mycket regn, Åskväder</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Snow</source>
-            <translation>Mestadels Molnigt, Mycket Snö</translation>
+            <translation>Mestadels molnigt, Mycket snö</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Snow, Freezing Rain</source>
-            <translation>Mestadels Molnigt, Mycket Snö, Underkylld Regn</translation>
+            <translation>Mestadels molnigt, Mycket snö, Underkylt regn</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain</source>
-            <translation>Mestadels Molnigt, Lätt Regn</translation>
+            <translation>Mestadels molnigt, Lätt regn</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Drizzle</source>
-            <translation>Mestadels Molnigt, Lätt Regn, Duggregn</translation>
+            <translation>Mestadels molnigt, Lätt regn, Duggregn</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, T-Storm</source>
-            <translation>Mestadels Molnigt, Lätt Regn, Åskväder</translation>
+            <translation>Mestadels molnigt, Lätt regn, Åskväder</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Mestadels Molnigt, Mycket Regn</translation>
+            <translation>Mestadels molningt, Lätt regn, Ganska mycket regn</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
-            <translation>Mestadels Molngit, Regn</translation>
+            <translation>Mestadels molnigt, Regn</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain, T-Storm</source>
-            <translation>Mestadels Molnigt, Regn, Åskväder</translation>
+            <translation>Mestadels molnigt, Regn, Åskväder</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mest molnigt, Rök</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Snow</source>
-            <translation>Mestadels Molnigt, Snö</translation>
+            <translation>Mestadels molnigt, Snö</translation>
         </message>
         <message>
             <source>Mostly Cloudy, T-Storm</source>
-            <translation>Mestadels Molnigt, Åskväder</translation>
+            <translation>Mestadels molnigt, Åskväder</translation>
         </message>
         <message>
             <source>Mostly Sunny</source>
-            <translation>Mestadels Soligt</translation>
+            <translation>Mestadels soligt</translation>
         </message>
         <message>
             <source>Mostly clear</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mest klart</translation>
         </message>
         <message>
             <source>Mostly sunny</source>
-            <translation type="unfinished">Mestadels Soligt</translation>
+            <translation>Mest sol</translation>
         </message>
         <message>
             <source>N</source>
@@ -2096,68 +1973,55 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>NE</source>
@@ -2165,8 +2029,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>NE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>NO</translation>
         </message>
         <message>
             <source>NNE</source>
@@ -2174,8 +2037,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>NNE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>NNO</translation>
         </message>
         <message>
             <source>NNW</source>
@@ -2183,13 +2045,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>NNW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>NNV</translation>
         </message>
         <message>
             <source>NO STATION</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>INGEN VÄDERSTATION</translation>
         </message>
         <message>
             <source>NW</source>
@@ -2197,18 +2057,15 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>NW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>NV</translation>
         </message>
         <message>
             <source>N_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>N</translation>
         </message>
         <message>
             <source>Name:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Namn:</translation>
         </message>
         <message>
             <source>Never</source>
@@ -2236,8 +2093,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>New</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nytt</translation>
         </message>
         <message>
             <source>New location</source>
@@ -2269,8 +2125,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>No current weather data.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ingen aktuell väderdata.</translation>
         </message>
         <message>
             <source>No locations are set up yet.</source>
@@ -2282,18 +2137,15 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>No weather data for this day.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ingen väderdata för den här dagen.</translation>
         </message>
         <message>
             <source>No weather data for this station.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ingen väderdata för denna station.</translation>
         </message>
         <message>
             <source>No weather data for this station.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ingen väderdata för denna station.</translation>
         </message>
         <message>
             <source>Now</source>
@@ -2341,238 +2193,187 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Now + 2 days vert.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nu + 2 dagar vert.</translation>
         </message>
         <message>
             <source>Now + 3 days hor.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nu + 3 dagar hor.</translation>
         </message>
         <message>
             <source>Now + 3 days vert.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nu + 3 dagar vert.</translation>
         </message>
         <message>
             <source>Now + 7 days vert.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nu + 7 dagar vert.</translation>
         </message>
         <message>
             <source>Now: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nu:</translation>
         </message>
         <message>
             <source>OK</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OK</translation>
         </message>
         <message>
             <source>OK</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OK</translation>
         </message>
         <message>
             <source>OK</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OK</translation>
         </message>
         <message>
             <source>OMWeather Forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OMWeather Prognos</translation>
         </message>
         <message>
             <source>OMWeather Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OMWeather Inställningar</translation>
         </message>
         <message>
             <source>OMWeather Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OMWeather Inställningar</translation>
         </message>
         <message>
             <source>OMWeather settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OMWeather-inställningar</translation>
         </message>
         <message>
             <source>OMWeather settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OMWeather-inställningar</translation>
         </message>
         <message>
             <source>Ok</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ok</translation>
         </message>
         <message>
             <source>Ok</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ok</translation>
         </message>
         <message>
             <source>Ok</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ok</translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Annan Maemo väderinfo</translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Annan Maemo väderinfo</translation>
         </message>
         <message>
             <source>Overcast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mulet</translation>
         </message>
         <message>
             <source>Overcast Clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mulet</translation>
         </message>
         <message>
             <source>Overcast and light rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mulet med lätt regn</translation>
         </message>
         <message>
             <source>Overcast and light snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mulet med lätt snöfall</translation>
         </message>
         <message>
             <source>Overcast and light wet snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mulet med lätt blötsnö</translation>
         </message>
         <message>
             <source>Overcast and rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mulet med regn</translation>
         </message>
         <message>
             <source>Overcast and showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mulet med regnskurar</translation>
         </message>
         <message>
             <source>Overcast and snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mulet med snö</translation>
         </message>
         <message>
             <source>Overcast and snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mulet med snöbyar</translation>
         </message>
         <message>
             <source>Overcast and wet snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mulet med blötsnö</translation>
         </message>
         <message>
             <source>Overcast and wet snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mulet med byar av blötsnö</translation>
         </message>
         <message>
             <source>Overcast clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mulet och molnigt</translation>
         </message>
         <message>
             <source>Overcast, thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mulet, åska med regn</translation>
         </message>
         <message>
             <source>PM Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>EM Dimma</translation>
         </message>
         <message>
             <source>PM Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Lätt regn</translation>
         </message>
         <message>
             <source>PM Light Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Lätt regn / Vind</translation>
         </message>
         <message>
             <source>PM Light Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Lätt snöfall</translation>
         </message>
         <message>
             <source>PM Light Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Lätt snöfall / Vind</translation>
         </message>
         <message>
             <source>PM Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Regn</translation>
         </message>
         <message>
             <source>PM Rain / Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Regn / Snö</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Regn / Vind</translation>
         </message>
         <message>
             <source>PM Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Regnskurar</translation>
         </message>
         <message>
             <source>PM Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Regnskurar / Vind</translation>
         </message>
         <message>
             <source>PM Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Snö</translation>
         </message>
         <message>
             <source>PM Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Snöbyar</translation>
         </message>
         <message>
             <source>PM Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Snöbyar / Vind</translation>
         </message>
         <message>
             <source>PM T-Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>EM Åskskurar</translation>
         </message>
         <message>
             <source>PM T-Storms</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Pa</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>EM Åska</translation>
         </message>
         <message>
             <source>Partly Cloudy</source>
@@ -2584,7 +2385,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Partly Cloudy / Windy</source>
-            <translation type="unfinished">Delvis Molnigt / Vind</translation>
+            <translation>Delvis molnigt / Blåsigt</translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
@@ -2592,7 +2393,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Partly Cloudy Light Rain</source>
-            <translation>Delvis Molnigt Lätt Regn</translation>
+            <translation>Delvis molnigt, Lätt regn</translation>
         </message>
         <message>
             <source>Partly Cloudy T-Storm</source>
@@ -2600,120 +2401,107 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Partly Cloudy and Windly</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Delvis molnigt och blåsigt</translation>
         </message>
         <message>
             <source>Partly Cloudy and Windy</source>
-            <translation>Delvis Molnigt och Blåsigt</translation>
+            <translation>Delvis molnigt och blåsigt</translation>
         </message>
         <message>
             <source>Partly Cloudy and Windy</source>
-            <translation>Delvis Molnigt och Blåsigt</translation>
+            <translation>Delvis molnigt och blåsigt</translation>
         </message>
         <message>
             <source>Partly Cloudy, Few Snow</source>
-            <translation>Delvis Molnigt, Lite Snö</translation>
+            <translation>Delvis molnigt, Lite snö</translation>
         </message>
         <message>
             <source>Partly Cloudy, Haze</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Delvis molnigt, Dis</translation>
         </message>
         <message>
             <source>Partly Cloudy, Heavy Rain</source>
-            <translation>Delvis Molnigt, Mycket Regn</translation>
+            <translation>Delvis molnigt, Mycket regn</translation>
         </message>
         <message>
             <source>Partly Cloudy, Heavy Rain, T-Storm</source>
-            <translation>Delvis Molnigt, Mycket Regn, Åskväder</translation>
+            <translation>Delvis molnigt, Mycket regn, Åskväder</translation>
         </message>
         <message>
             <source>Partly Cloudy, Heavy Snow</source>
-            <translation>Delvis Molnigt, Mycket Snö</translation>
+            <translation>Delvis molnigt, Mycket snö</translation>
         </message>
         <message>
             <source>Partly Cloudy, Light Rain</source>
-            <translation>Delvis Molnigt, Lätt Regn</translation>
+            <translation>Delvis molnigt, Lätt regn</translation>
         </message>
         <message>
             <source>Partly Cloudy, Light Rain, T-Storm</source>
-            <translation>Delvis Molnigt, Lätt Regn, Åskväder</translation>
+            <translation>Delvis molnigt, Lätt regn, Åskväder</translation>
         </message>
         <message>
             <source>Partly Cloudy, Rain</source>
-            <translation>Delvis Molnigt, Regn</translation>
+            <translation>Delvis molnigt, Regn</translation>
         </message>
         <message>
             <source>Partly Cloudy, Rain, T-Storm</source>
-            <translation>Delvis Molnigt, Regn, Åskväder</translation>
+            <translation>Delvis molnigt, Regn, Åskväder</translation>
         </message>
         <message>
             <source>Partly Cloudy, Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Delvis molnigt, Rök</translation>
         </message>
         <message>
             <source>Partly Cloudy, Snow</source>
-            <translation>Delvis Molnigt, Snö</translation>
+            <translation>Delvis molnigt, Snö</translation>
         </message>
         <message>
             <source>Partly Cloudy, T-Storm</source>
-            <translation>Delvis Molnigt, Åskväder</translation>
+            <translation>Delvis molnigt, Åskväder</translation>
         </message>
         <message>
             <source>Partly cloudy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Delvis molnigt</translation>
         </message>
         <message>
             <source>Partly cloudy and light rain</source>
-            <translation>Delvis Molnigt med lätt regn</translation>
+            <translation>Delvis molnigt med lätt regn</translation>
         </message>
         <message>
             <source>Partly cloudy and light snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Delvis molnigt och lätt snö</translation>
         </message>
         <message>
             <source>Partly cloudy and light wet snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Delvis molnigt och lätt blötsnö</translation>
         </message>
         <message>
             <source>Partly cloudy and showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Delvis molnigt med regnskurar</translation>
         </message>
         <message>
             <source>Partly cloudy and snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Delvis molnigt med snöbyar</translation>
         </message>
         <message>
             <source>Partly cloudy and wet snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Delvis molnigt med blötsnö i byar</translation>
         </message>
         <message>
             <source>Partly cloudy, possible thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Delvis molnigt, möjligen åska med regn</translation>
         </message>
         <message>
             <source>Partly cloudy, possible thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Delvis molnigt, möjligen åska med regn</translation>
         </message>
         <message>
             <source>Period</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Period</translation>
         </message>
         <message>
             <source>Position:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Plats:</translation>
         </message>
         <message>
             <source>Ppcp:</source>
@@ -2732,46 +2520,43 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Precipitation</source>
-            <translation type="unfinished">Välj väderstation</translation>
+            <translation>Nederbörd</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Välj väderstation</translation>
+            <translation>Nederbördsklassning:</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Välj väderstation</translation>
+            <translation>Nederbördsklassning:</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Välj väderstation</translation>
+            <translation>Nederbördsklassning:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">Välj väderstation</translation>
+            <translation>Nederbörd:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">Välj väderstation</translation>
+            <translation>Nederbörd:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">Välj väderstation</translation>
+            <translation>Nederbörd:</translation>
         </message>
         <message>
             <source>Preference|Update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Inställningar|Uppdatering</translation>
         </message>
         <message>
             <source>Preference|Update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Inställningar|Uppdatering</translation>
         </message>
         <message>
             <source>Pressure</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lufttryck</translation>
         </message>
         <message>
             <source>Pressure units</source>
@@ -2819,13 +2604,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Programmer</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Programmerare</translation>
         </message>
         <message>
             <source>Project administrators</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Projektadministratörer</translation>
         </message>
         <message>
             <source>Project manager</source>
@@ -2833,13 +2616,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Provided by</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tillhandahållen av</translation>
         </message>
         <message>
             <source>Proximity shower rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Anslutning till regnskurar</translation>
         </message>
         <message>
             <source>Rain</source>
@@ -2847,7 +2628,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rain / Freezing Rain</source>
-            <translation>Regn / Underkyld Regn</translation>
+            <translation>Regn / Underkylt regn</translation>
         </message>
         <message>
             <source>Rain / Snow</source>
@@ -2859,31 +2640,27 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rain / Snow Early</source>
-            <translation>Regn / Snö Tidigt</translation>
+            <translation>Regn / Tidigt snö</translation>
         </message>
         <message>
             <source>Rain / Snow Late</source>
-            <translation>Regn / Snö Sent</translation>
+            <translation>Regn / Snö senare</translation>
         </message>
         <message>
             <source>Rain / Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Regn / Snöbyar</translation>
         </message>
         <message>
             <source>Rain / Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Regn / Snöbyar / Vind</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Regn / Snöbyar senare</translation>
         </message>
         <message>
             <source>Rain / Thunder</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Regn / Åska</translation>
         </message>
         <message>
             <source>Rain / Wind</source>
@@ -2891,83 +2668,71 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rain / Wind Early</source>
-            <translation>Regn / Vind Tidigt</translation>
+            <translation>Regn / Tidigt vind</translation>
         </message>
         <message>
             <source>Rain Early</source>
-            <translation>Regn Tidigt</translation>
+            <translation>Tidigt regn</translation>
         </message>
         <message>
             <source>Rain Late</source>
-            <translation>Regn Sent</translation>
+            <translation>Sent regn</translation>
         </message>
         <message>
             <source>Rain Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Regnskurar</translation>
         </message>
         <message>
             <source>Rain Shower and Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Regnskurar och blåsigt</translation>
         </message>
         <message>
             <source>Rain Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Regnskurar</translation>
         </message>
         <message>
             <source>Rain and Snow</source>
-            <translation>Regn och Snö</translation>
+            <translation>Regn och snö</translation>
         </message>
         <message>
             <source>Rain and Snow</source>
-            <translation>Regn och Snö</translation>
+            <translation>Regn och snö</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Regn övergående till snö / Vind</translation>
         </message>
         <message>
             <source>Rain to Wintry Mix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Regn till snöblandat/underkylt regn eller hagel</translation>
         </message>
         <message>
             <source>Rain to Wintry Mix / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Regn till snöblandat/underkylt regn eller hagel / Vind</translation>
         </message>
         <message>
             <source>Read sensor every:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Avläs sensorn:</translation>
         </message>
         <message>
             <source>Refresh</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Uppdatera</translation>
         </message>
         <message>
             <source>Region</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Region</translation>
         </message>
         <message>
             <source>Region</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Region</translation>
         </message>
         <message>
             <source>Region</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Region</translation>
         </message>
         <message>
             <source>Rush Hour Traffic</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Rusningstrafik</translation>
         </message>
         <message>
             <source>S</source>
@@ -2979,8 +2744,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>SE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>SO</translation>
         </message>
         <message>
             <source>SSE</source>
@@ -2988,8 +2752,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>SSE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>SSO</translation>
         </message>
         <message>
             <source>SSW</source>
@@ -2997,8 +2760,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>SSW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>SSV</translation>
         </message>
         <message>
             <source>SW</source>
@@ -3006,78 +2768,63 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>SW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>SV</translation>
         </message>
         <message>
             <source>S_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>S</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spara</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spara</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spara</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spara</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spara</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spara</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spara</translation>
         </message>
         <message>
             <source>Scattered Clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Växlande molnighet</translation>
         </message>
         <message>
             <source>Scattered Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spridda skurar</translation>
         </message>
         <message>
             <source>Scattered Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spridd snö</translation>
         </message>
         <message>
             <source>Scattered Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spridda snöbyar</translation>
         </message>
         <message>
             <source>Scattered T-Storms</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spridda åskbyar</translation>
         </message>
         <message>
             <source>Scattered clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Växlande molnighet</translation>
         </message>
         <message>
             <source>Sea miles</source>
@@ -3129,13 +2876,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Select source</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Välj källa</translation>
         </message>
         <message>
             <source>Select source</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Välj källa</translation>
         </message>
         <message>
             <source>Select the X-position for left corner of widget</source>
@@ -3147,15 +2892,15 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Select the color of font for current temperature</source>
-            <translation>Välj typsnittsfärg på nuvarande temperatur</translation>
+            <translation>Välj teckensnittsfärg på nuvarande temperatur</translation>
         </message>
         <message>
             <source>Select the color of font for station name</source>
-            <translation>Välj typsnittsfärg för områdesnamn</translation>
+            <translation>Välj teckensnittsfärg för stationsnamn</translation>
         </message>
         <message>
             <source>Select the color of font for temperature</source>
-            <translation>Välj typsnittsfärg på temperatur</translation>
+            <translation>Välj teckensnittsfärg på temperatur</translation>
         </message>
         <message>
             <source>Select the iconset</source>
@@ -3179,8 +2924,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Selecting source</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Väljer källa</translation>
         </message>
         <message>
             <source>Selecting station</source>
@@ -3188,28 +2932,23 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sensor</translation>
         </message>
         <message>
             <source>Sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sensor</translation>
         </message>
         <message>
             <source>Sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sensor</translation>
         </message>
         <message>
             <source>Sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sensor</translation>
         </message>
         <message>
             <source>Set</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Set</translation>
         </message>
         <message>
             <source>Set locations</source>
@@ -3257,97 +2996,79 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Shallow Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lätt dimma</translation>
         </message>
         <message>
             <source>Short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kort</translation>
         </message>
         <message>
             <source>Show arrows</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Visa pilar</translation>
         </message>
         <message>
             <source>Show last update time</source>
-            <translation type="unfinished">Senast uppdaterad: </translation>
+            <translation>Visa senaste uppdateringstid</translation>
         </message>
         <message>
             <source>Show on Map</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Visa på kartan</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Visa endast aktuellt väder på första ikonen</translation>
         </message>
         <message>
             <source>Show source logo</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Visa källans logotyp</translation>
         </message>
         <message>
             <source>Show station name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Visa väderstationens namn</translation>
         </message>
         <message>
             <source>Show temperature at:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Visa temperatur vid:</translation>
         </message>
         <message>
             <source>Show wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Visa vindstyrka</translation>
         </message>
         <message>
             <source>Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Regnskurar</translation>
         </message>
         <message>
             <source>Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Regnskurar / Vind</translation>
         </message>
         <message>
             <source>Showers / Wind Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Regnskurar / Vind i början</translation>
         </message>
         <message>
             <source>Showers Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Regnskurar i början</translation>
         </message>
         <message>
             <source>Showers Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Regnskurar senare</translation>
         </message>
         <message>
             <source>Showers in the Vicinity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Regnskurar i grannskapet</translation>
         </message>
         <message>
             <source>Showers or Intermittent Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Regnskurar eller Intermittent nederbörd</translation>
         </message>
         <message>
             <source>Sky is Clear</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Klar himmel</translation>
         </message>
         <message>
             <source>Sky is clear</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Klar himmel</translation>
         </message>
         <message>
             <source>Sleet</source>
@@ -3355,12 +3076,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Sleet Showers</source>
-            <translation type="unfinished">Fåtal skurar</translation>
+            <translation>Byar av snöblandat regn</translation>
         </message>
         <message>
             <source>Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Rök</translation>
         </message>
         <message>
             <source>Snow</source>
@@ -3372,71 +3092,59 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Snow Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Snöbyar</translation>
         </message>
         <message>
             <source>Snow Shower / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Snöbyar / Vind</translation>
         </message>
         <message>
             <source>Snow Showers</source>
-            <translation type="unfinished">Mindre snöfall</translation>
+            <translation>Snöbyar</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Snöbyar / Vind i början</translation>
         </message>
         <message>
             <source>Snow Showers Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Snöbyar i början</translation>
         </message>
         <message>
             <source>Snow Showers Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Snöbyar senare</translation>
         </message>
         <message>
             <source>Snow and Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Snö och underkylt regn</translation>
         </message>
         <message>
             <source>Snow to Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Snö till regn</translation>
         </message>
         <message>
             <source>Snow to Wintry Mix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Snö till </translation>
         </message>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Snö till snöblandat/underkylt regn eller hagel / Vind</translation>
         </message>
         <message>
             <source>Snowfall</source>
-            <translation type="unfinished">Snö</translation>
+            <translation>Snöfall</translation>
         </message>
         <message>
             <source>Source</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Källa</translation>
         </message>
         <message>
             <source>Source code</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Källkod</translation>
         </message>
         <message>
             <source>Source:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Källa:</translation>
         </message>
         <message>
             <source>Speed</source>
@@ -3488,28 +3196,23 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>State:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Land:</translation>
         </message>
         <message>
             <source>Station %i</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Väderstation %i</translation>
         </message>
         <message>
             <source>Stations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Väderstationer</translation>
         </message>
         <message>
             <source>Stations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Väderstationer</translation>
         </message>
         <message>
             <source>Stations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Väderstationer</translation>
         </message>
         <message>
             <source>Storm</source>
@@ -3521,13 +3224,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Strong Thundershowers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Starka åskskurar</translation>
         </message>
         <message>
             <source>Successfully loaded</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Korrekt inläst</translation>
         </message>
         <message>
             <source>Sunny</source>
@@ -3539,13 +3240,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Sunny periods and a few showers.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tidvis soligt och spridda skurar</translation>
         </message>
         <message>
             <source>Sunny periods and a few showers.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tidvis soligt och spridda skurar</translation>
         </message>
         <message>
             <source>Sunrise:</source>
@@ -3581,28 +3280,23 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Support</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Support</translation>
         </message>
         <message>
             <source>Swap hi/low temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Växla hög/låg temperatur</translation>
         </message>
         <message>
             <source>Switch to the next station after:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Växla till nästa väderstation efter:</translation>
         </message>
         <message>
             <source>T-Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Åskskurar</translation>
         </message>
         <message>
             <source>T-Showers Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Åskskurar i början</translation>
         </message>
         <message>
             <source>T-Storm</source>
@@ -3614,36 +3308,31 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>T-Storms Early</source>
-            <translation>Åskväder Tidigt</translation>
+            <translation>Tidigt åskväder</translation>
         </message>
         <message>
             <source>T-Storms Late</source>
-            <translation>Åskväder Sent</translation>
+            <translation>Sent åskväder</translation>
         </message>
         <message>
             <source>Temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Temperatur</translation>
         </message>
         <message>
             <source>Temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Temperatur</translation>
         </message>
         <message>
             <source>Temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Temperatur</translation>
         </message>
         <message>
             <source>Temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Temperatur</translation>
         </message>
         <message>
             <source>Temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Temperatur</translation>
         </message>
         <message>
             <source>Temperature units</source>
@@ -3659,8 +3348,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Temperature units:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Temperaturenheter:</translation>
         </message>
         <message>
             <source>Temperature:</source>
@@ -3680,23 +3368,19 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Thanks</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tack</translation>
         </message>
         <message>
             <source>The weather has been updated.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Väderdata har uppdaterats.</translation>
         </message>
         <message>
             <source>There are no stations to show in this view of the list</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Det finns inga stationer i denna listvyn</translation>
         </message>
         <message>
             <source>This is experimental feature. Only English is supported.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Experimentell funktion. Endast Engelskt språkstöd.</translation>
         </message>
         <message>
             <source>This software is free software; you can
@@ -3706,14 +3390,19 @@ Slovak - Roman Moravčík</source>
  Foundation; either version 2.1 of the 
  License, or (at your option) any 
  later version.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Denna mjukvara är gratis. Du kan
+vidaredistribuera den och/eller modifiera
+den under GNU General Public License,
+såsom den publiceras av Free Software
+Foundation. Antingen version 2.1 av 
+licensen, eller senare.</translation>
         </message>
         <message>
             <source>This software is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Denna mjukvara är gratis. Du kan vidaredistribuera den och/eller 
+modifiera den under GNU General Public License.
+</translation>
         </message>
         <message>
             <source>Thunder</source>
@@ -3721,12 +3410,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Thunder in the Vicinity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Åska i grannskapet</translation>
         </message>
         <message>
             <source>Thundershowers</source>
-            <translation type="unfinished">Åska</translation>
+            <translation>Åskskurar</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3755,27 +3443,24 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Översättare: Franska - Nicolas Granziano, Philippe, Benot Knecht; Ryska - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
+</translation>
         </message>
         <message>
             <source>Transparency</source>
-            <translation type="unfinished">Översättare</translation>
+            <translation>Transparens</translation>
         </message>
         <message>
             <source>Transparency:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Transparens:</translation>
         </message>
         <message>
             <source>Transparency:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Transparens:</translation>
         </message>
         <message>
             <source>Transparency:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Transparens:</translation>
         </message>
         <message>
             <source>Try to update</source>
@@ -3787,113 +3472,91 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Type of click:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Klicktyp:</translation>
         </message>
         <message>
             <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>UV-index:</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Enheter</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Enheter</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Enheter</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Enheter</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Enheter</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Okänd</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Okänd</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Okänd</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Okänd</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Okänd</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Okänd</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Okänd</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Okänd</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Okänd</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Okänd</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Okänd</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Okänd</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Okänd</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Okänd</translation>
         </message>
         <message>
             <source>Unlimited</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Obegränsad</translation>
         </message>
         <message>
             <source>Update</source>
@@ -3909,8 +3572,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Update already running.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Uppdatering körs redan.</translation>
         </message>
         <message>
             <source>Update interval</source>
@@ -3926,31 +3588,29 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Updating of weather data:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Uppdatering av väderdata:</translation>
         </message>
         <message>
             <source>Updating weather</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Uppdaterar väderdata</translation>
         </message>
         <message>
             <source>Use Edit layout 
 for tuning images of applet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Använd Redigera utseende
+för trimning av applet-bilder</translation>
         </message>
         <message>
             <source>Use GSM and/or WLAN for periodic updating
  the weather information.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Använd GSM och/eller WLAN för periodisk 
+uppdaterng av väderinformation.
+</translation>
         </message>
         <message>
             <source>Use device temperature sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Använd enhetens temperatursensor</translation>
         </message>
         <message>
             <source>VAR</source>
@@ -3959,70 +3619,59 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Valid time for current weather:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Giltighetstid för aktuellt väder:</translation>
         </message>
         <message>
             <source>Very High</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mycket hög</translation>
         </message>
         <message>
             <source>Violent Rain Showers</source>
-            <translation type="unfinished">Lätta regnskurar</translation>
+            <translation>Våldsamma regnskurar</translation>
         </message>
         <message>
             <source>Visible items:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Synliga objekt:</translation>
         </message>
         <message>
             <source>Visible items:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Synliga objekt:</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation>Synliga enheter</translation>
+            <translation>Distansenheter:</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation>Synliga enheter</translation>
+            <translation>Distansenheter:</translation>
         </message>
         <message>
             <source>Visible:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Synligt:</translation>
         </message>
         <message>
             <source>Visible:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Synligt:</translation>
         </message>
         <message>
             <source>Visuals</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Illustrationer</translation>
         </message>
         <message>
             <source>Visuals</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Illustrationer</translation>
         </message>
         <message>
             <source>Visuals</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Illustrationer</translation>
         </message>
         <message>
             <source>Voice forecast button on a widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Röstprognosknapp på en widget</translation>
         </message>
         <message>
             <source>Voice weather forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Röstprognos</translation>
         </message>
         <message>
             <source>W</source>
@@ -4030,18 +3679,15 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>WLAN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>WLAN</translation>
         </message>
         <message>
             <source>WLAN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>WLAN</translation>
         </message>
         <message>
             <source>WLAN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>WLAN</translation>
         </message>
         <message>
             <source>WNW</source>
@@ -4049,8 +3695,7 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>WNW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>VNV</translation>
         </message>
         <message>
             <source>WSW</source>
@@ -4058,53 +3703,43 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>WSW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>VSV</translation>
         </message>
         <message>
             <source>W_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>V</translation>
         </message>
         <message>
             <source>Waning Crescent</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Avtagande skära</translation>
         </message>
         <message>
             <source>Waning Gibbous</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Avtagande måne</translation>
         </message>
         <message>
             <source>Warning</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Varning</translation>
         </message>
         <message>
             <source>Waxing Crescent</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tilltagande skära</translation>
         </message>
         <message>
             <source>Waxing Gibbous</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tilltagande måne</translation>
         </message>
         <message>
             <source>Weather data provided by: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Väderdata tillhandahållen av:</translation>
         </message>
         <message>
             <source>Weather forecast for the Meego. Version </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Väderprognos för Meego. Version</translation>
         </message>
         <message>
             <source>Widget OMWeather is reloading</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OMWeather-widget startar om</translation>
         </message>
         <message>
             <source>Widget in LockScreen</source>
@@ -4120,18 +3755,15 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Widget style</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Widget-stil</translation>
         </message>
         <message>
             <source>Widget style</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Widget-stil</translation>
         </message>
         <message>
             <source>Widget style and Iconset</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Widget-stil och ikoner</translation>
         </message>
         <message>
             <source>Wind</source>
@@ -4207,70 +3839,61 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Wind speed units:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vindhastighetsenheter:</translation>
         </message>
         <message>
             <source>Wind:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vind:</translation>
         </message>
         <message>
             <source>Wind:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vind:</translation>
         </message>
         <message>
             <source>Wind:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vind:</translation>
         </message>
         <message>
             <source>Wind:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vind:</translation>
         </message>
         <message>
             <source>Wind: </source>
-            <translation>Vind</translation>
+            <translation>Vind:</translation>
         </message>
         <message>
             <source>Wind: </source>
-            <translation>Vind</translation>
+            <translation>Vind:</translation>
         </message>
         <message>
             <source>Wind: </source>
-            <translation>Vind</translation>
+            <translation>Vind:</translation>
         </message>
         <message>
             <source>Wind: </source>
-            <translation>Vind</translation>
+            <translation>Vind:</translation>
         </message>
         <message>
             <source>Wintry Mix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Snöblandat/underkylt regn eller hagel</translation>
         </message>
         <message>
             <source>Wintry Mix / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Snöblandat/underkylt regn eller hagel / Vind</translation>
         </message>
         <message>
             <source>Wintry Mix / Wind Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Snöblandat/underkylt regn eller hagel / Blåsigt i början</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Snöblandat/underkylt regn eller hagel till snö</translation>
         </message>
         <message>
             <source>Wrong station code 
 or ZIP code!!!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Fel stationskod 
+eller zip-kod</translation>
         </message>
         <message>
             <source>Yes</source>
@@ -4282,8 +3905,7 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>You can make donation here: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Du kan donera här:</translation>
         </message>
         <message>
             <source>You should activate 
@@ -4309,23 +3931,19 @@ väntelägeskärm.</translation>
         </message>
         <message>
             <source>Zoom in popup window </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zooma in popup-fönster</translation>
         </message>
         <message>
             <source>Zooming in popup window</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zoomar in popup-fönster</translation>
         </message>
         <message>
             <source>as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Såsom den publiceras av Free Software Foundation. Antingen version 2.1 av licensen, eller senare.</translation>
         </message>
         <message>
             <source>current location local time</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lokal tid för aktuell plats</translation>
         </message>
         <message>
             <source>d:</source>
@@ -4342,53 +3960,43 @@ väntelägeskärm.</translation>
         </message>
         <message>
             <source>every 2 hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>varannan timma</translation>
         </message>
         <message>
             <source>every 24 hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>var 24:e timma</translation>
         </message>
         <message>
             <source>every 30 minutes</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>var 30:e minut</translation>
         </message>
         <message>
             <source>every 4 hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>var 4:e timma</translation>
         </message>
         <message>
             <source>every 5 minutes</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>var 5:e minut</translation>
         </message>
         <message>
             <source>every 8 hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>var 8:e timma</translation>
         </message>
         <message>
             <source>every hour</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>varje timma</translation>
         </message>
         <message>
             <source>every minute (Debug)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>varje minut (felsökning)</translation>
         </message>
         <message>
             <source>falling</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>fallande</translation>
         </message>
         <message>
             <source>feels like</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>känns som</translation>
         </message>
         <message>
             <source>hour ago</source>
@@ -4400,283 +4008,227 @@ väntelägeskärm.</translation>
         </message>
         <message>
             <source>http://github.com/Meecast/meecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>http://github.com/Meecast/meecast</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inch</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>tum</translation>
+        </message>
+        <message>
+            <source>kPa</source>
+            <translation type="unfinished">Pa</translation>
         </message>
         <message>
             <source>km</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km</translation>
         </message>
         <message>
             <source>km</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km</translation>
         </message>
         <message>
             <source>km</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km</translation>
         </message>
         <message>
             <source>km</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km</translation>
         </message>
         <message>
             <source>km</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km</translation>
         </message>
         <message>
             <source>km/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km/h</translation>
         </message>
         <message>
             <source>km/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km/h</translation>
         </message>
         <message>
             <source>km/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km/h</translation>
         </message>
         <message>
             <source>km/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km/h</translation>
         </message>
         <message>
             <source>km/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km/h</translation>
         </message>
         <message>
             <source>km/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km/s</translation>
         </message>
         <message>
             <source>kn</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>kn</translation>
         </message>
         <message>
             <source>m</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m</translation>
         </message>
         <message>
             <source>m</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m</translation>
         </message>
         <message>
             <source>m</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m</translation>
         </message>
         <message>
             <source>m</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m</translation>
         </message>
         <message>
             <source>m</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m</translation>
         </message>
         <message>
             <source>m/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m/h</translation>
         </message>
         <message>
             <source>m/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m/s</translation>
         </message>
         <message>
             <source>m/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m/s</translation>
         </message>
         <message>
             <source>m/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m/s</translation>
         </message>
         <message>
             <source>m/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m/s</translation>
         </message>
         <message>
             <source>m/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m/s</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mbar</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mbar</translation>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi</translation>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi</translation>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi</translation>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi</translation>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi</translation>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi</translation>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi</translation>
         </message>
         <message>
             <source>mi/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi/h</translation>
         </message>
         <message>
             <source>mi/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi/h</translation>
         </message>
         <message>
             <source>mi/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi/h</translation>
         </message>
         <message>
             <source>mi/h</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>mi/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi/h</translation>
         </message>
         <message>
             <source>mi/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi/s</translation>
         </message>
         <message>
             <source>minute ago</source>
@@ -4688,48 +4240,39 @@ väntelägeskärm.</translation>
         </message>
         <message>
             <source>mm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mmHg</source>
@@ -4775,6 +4318,10 @@ väntelägeskärm.</translation>
             <source>mmHg</source>
             <translation type="unfinished">
             </translation>
+        </message>
+        <message>
+            <source>mph</source>
+            <translation type="unfinished">m/h</translation>
         </message>
         <message>
             <source>n:</source>
@@ -4783,23 +4330,19 @@ väntelägeskärm.</translation>
         </message>
         <message>
             <source>never</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>aldrig</translation>
         </message>
         <message>
             <source>new icon</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ny ikon</translation>
         </message>
         <message>
             <source>next</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>nästa</translation>
         </message>
         <message>
             <source>next</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>nästa</translation>
         </message>
         <message>
             <source>nmi</source>
@@ -4813,8 +4356,7 @@ väntelägeskärm.</translation>
         </message>
         <message>
             <source>rising</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>stigande</translation>
         </message>
         <message>
             <source>seconds ago</source>
@@ -4822,18 +4364,15 @@ väntelägeskärm.</translation>
         </message>
         <message>
             <source>station local time</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>lokal stationstid</translation>
         </message>
         <message>
             <source>station name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>stationsnamn</translation>
         </message>
         <message>
             <source>steady</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>stadig</translation>
         </message>
         <message>
             <source>В</source>

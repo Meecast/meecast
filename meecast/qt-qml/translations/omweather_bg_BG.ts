@@ -793,6 +793,11 @@ Connection timeout is expired.</source>
             <translation>Страна:</translation>
         </message>
         <message>
+            <source>Cover Page</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Custom</source>
             <translation>Собствен</translation>
         </message>
@@ -2346,10 +2351,6 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <message>
             <source>PM T-Storms</source>
             <translation>РМ Гръмотевици</translation>
-        </message>
-        <message>
-            <source>Pa</source>
-            <translation>Ра</translation>
         </message>
         <message>
             <source>Partly Cloudy</source>
@@ -4033,6 +4034,10 @@ or ZIP code!!!</source>
             <translation>инч</translation>
         </message>
         <message>
+            <source>kPa</source>
+            <translation type="unfinished">Ра</translation>
+        </message>
+        <message>
             <source>km</source>
             <translation>км</translation>
         </message>
@@ -4210,10 +4215,6 @@ or ZIP code!!!</source>
             <translation>mi/h</translation>
         </message>
         <message>
-            <source>mi/h</source>
-            <translation>mi/h</translation>
-        </message>
-        <message>
             <source>mi/s</source>
             <translation>mi/s</translation>
         </message>
@@ -4299,6 +4300,10 @@ or ZIP code!!!</source>
         <message>
             <source>mmHg</source>
             <translation>mmHg</translation>
+        </message>
+        <message>
+            <source>mph</source>
+            <translation type="unfinished">м/ч</translation>
         </message>
         <message>
             <source>n:</source>

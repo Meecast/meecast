@@ -788,6 +788,11 @@ Délai de connexion dépassé.</translation>
             <translation>Pays :</translation>
         </message>
         <message>
+            <source>Cover Page</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Custom</source>
             <translation>Personnalisé</translation>
         </message>
@@ -2357,10 +2362,6 @@ Précipitations : </translation>
         <message>
             <source>PM T-Storms</source>
             <translation>Orages l'après-midi</translation>
-        </message>
-        <message>
-            <source>Pa</source>
-            <translation>Pa</translation>
         </message>
         <message>
             <source>Partly Cloudy</source>
@@ -4044,6 +4045,10 @@ ou code postal !!!</translation>
             <translation>pouce</translation>
         </message>
         <message>
+            <source>kPa</source>
+            <translation type="unfinished">Pa</translation>
+        </message>
+        <message>
             <source>km</source>
             <translation>km</translation>
         </message>
@@ -4220,10 +4225,6 @@ ou code postal !!!</translation>
             <translation>mi/h</translation>
         </message>
         <message>
-            <source>mi/h</source>
-            <translation>mi/h</translation>
-        </message>
-        <message>
             <source>mi/s</source>
             <translation>mi/s</translation>
         </message>
@@ -4309,6 +4310,10 @@ ou code postal !!!</translation>
         <message>
             <source>mmHg</source>
             <translation>mmHg</translation>
+        </message>
+        <message>
+            <source>mph</source>
+            <translation type="unfinished">m/h</translation>
         </message>
         <message>
             <source>n:</source>

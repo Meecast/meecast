@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Jakub Kožíšek <nodevel@gmail.com>, 2014
 # Pavel Šrubař <sansat@centrum.cz>, 2014
@@ -10,23 +10,20 @@ msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-16 08:29+0300\n"
-"PO-Revision-Date: 2014-04-28 16:33+0000\n"
+"PO-Revision-Date: 2014-10-09 14:47+0000\n"
 "Last-Translator: Jakub Kožíšek <nodevel@gmail.com>\n"
-"Language-Team: Czech (http://www.transifex.com/projects/p/meecast/language/"
-"cs/)\n"
-"Language: cs\n"
+"Language-Team: Czech (http://www.transifex.com/projects/p/meecast/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: omweather/src/weather-home.c:1567
 msgid ""
 "\n"
 "H: "
-msgstr ""
-"\n"
-"V:"
+msgstr "\nV:"
 
 #: omweather/src/weather-help.c:80
 #, c-format
@@ -46,72 +43,45 @@ msgid ""
 "Andrew Olmsted\n"
 "for Semi-transparency\n"
 "and coloured backgrounds\n"
-msgstr ""
-"\n"
-"Hildon desktop applet\n"
-"pro Nokia N800/N810/N900\n"
-"který zobrazuje předpovědi počasí.\n"
-"Verze %s Build: %s\n"
-"Copyright(c) 2006-2011\n"
-"Vlad Vasiliev, Pavel Fialko\n"
-"Copyright(c) 2008\n"
-"pro výchozí sadu ikon (Glance)\n"
-"a design rozhraní\n"
-"Andrew Zhilin\n"
-"Copyright(c) 2008\n"
-"Andrew Olmsted\n"
-"pro poloprůhlednost\n"
-"a barevná pozadí\n"
+msgstr "\nHildon desktop applet\npro Nokia N800/N810/N900\nkterý zobrazuje předpovědi počasí.\nVerze %s Build: %s\nCopyright(c) 2006-2011\nVlad Vasiliev, Pavel Fialko\nCopyright(c) 2008\npro výchozí sadu ikon (Glance)\na design rozhraní\nAndrew Zhilin\nCopyright(c) 2008\nAndrew Olmsted\npro poloprůhlednost\na barevná pozadí\n"
 
 #: omweather/src/weather-home.c:1383 omweather/src/weather-home.c:1439
 #: omweather/src/weather-popup.c:965 omweather/src/weather-popup.c:1098
 msgid ""
 "\n"
 "Humidity: "
-msgstr ""
-"\n"
-"Vlhkost vzduchu: "
+msgstr "\nVlhkost vzduchu: "
 
 #: omweather/src/weather-home.c:1608
 msgid ""
 "\n"
 "P: "
-msgstr ""
-"\n"
-"S:"
+msgstr "\nS:"
 
 #: omweather/src/weather-popup.c:954 omweather/src/weather-popup.c:959
 #: omweather/src/weather-popup.c:1087 omweather/src/weather-popup.c:1092
 msgid ""
 "\n"
 "Precipitation: "
-msgstr ""
-"\n"
-"Srážky"
+msgstr "\nSrážky"
 
 #: omweather/src/weather-popup.c:976 omweather/src/weather-popup.c:1108
 msgid ""
 "\n"
 "Pressure: "
-msgstr ""
-"\n"
-"Tlak"
+msgstr "\nTlak"
 
 #: omweather/src/weather-home.c:1577
 msgid ""
 "\n"
 "V: "
-msgstr ""
-"\n"
-"V: "
+msgstr "\nV: "
 
 #: omweather/src/weather-home.c:1614
 msgid ""
 "\n"
 "W: "
-msgstr ""
-"\n"
-"W: "
+msgstr "\nW: "
 
 #: meecast/qt-qml/dataitem.cpp:541 meecast/qt-qml/dataitem.cpp:542
 msgid "(Low)"
@@ -328,16 +298,7 @@ msgid ""
 "Alexander Savchenko aka dizel - for testing\n"
 "Timeless - for patches \n"
 "Eric Link - for feature request and donation\n"
-msgstr ""
-"Alexis Iglauer - za testování\n"
-"Eugene Roytenberg - za testování\n"
-"Jarek Szczepanski aka Imrahil - za testování\n"
-"Vladimir Shakhov aka Mendoza - za testování\n"
-"Marc Dillon - za opravy anglického textu\n"
-"Arkady Glazov aka Globster - za testování\n"
-"Alexander Savchenko aka dizel - za testování\n"
-"Timeless - za opravy\n"
-"Eric Link - za nápad a příspěvek\n"
+msgstr "Alexis Iglauer - za testování\nEugene Roytenberg - za testování\nJarek Szczepanski aka Imrahil - za testování\nVladimir Shakhov aka Mendoza - za testování\nMarc Dillon - za opravy anglického textu\nArkady Glazov aka Globster - za testování\nAlexander Savchenko aka dizel - za testování\nTimeless - za opravy\nEric Link - za nápad a příspěvek\n"
 
 #: omweather/src/weather-download.c:397
 msgid "An unknown error has occurred."
@@ -357,11 +318,7 @@ msgid ""
 "for installing package 'MeeCast applet'.\n"
 "You should uninstall AccuWeather \n"
 "before installing this package"
-msgstr ""
-"Správce aplikací nyní začne\n"
-"instalaci balíčku 'MeeCast applet'.\n"
-"Před touto instalací byste měli\n"
-"odinstalovat AccuWeather"
+msgstr "Správce aplikací nyní začne\ninstalaci balíčku 'MeeCast applet'.\nPřed touto instalací byste měli\nodinstalovat AccuWeather"
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -378,12 +335,7 @@ msgid ""
 "Documentation: Marko Vertainen\n"
 "Design UI and default iconset: Andrew Zhilin\n"
 "Design UI for Fremantle: Krebber Jan Niemelä Ulla\n"
-msgstr ""
-"Autor a údržba: Vlad Vasiliev, <vlad@gas.by>\n"
-"Údržba: Pavel Fialko, <pavelnf@gmail.com>\n"
-"Dokumentace: Marko Vertainen\n"
-"Design UI a výchozích ikon: Andrew Zhilin\n"
-"Design UI pro Fremantle: Krebber Jan Niemelä Ulla\n"
+msgstr "Autor a údržba: Vlad Vasiliev, <vlad@gas.by>\nÚdržba: Pavel Fialko, <pavelnf@gmail.com>\nDokumentace: Marko Vertainen\nDesign UI a výchozích ikon: Andrew Zhilin\nDesign UI pro Fremantle: Krebber Jan Niemelä Ulla\n"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:415
 msgid "Author and maintenance: Vlad Vasilyeu, <vlad@gas.by>\n"
@@ -592,9 +544,8 @@ msgid "Cloudy, Light Rain, T-Storm"
 msgstr "Oblačno, slabý déšť, bouřka"
 
 #: omweather/src/hash.data:56
-#, fuzzy
 msgid "Cloudy, Light Rain, Weak Heavy Rain"
-msgstr "Oblačno, těžký déšť"
+msgstr ""
 
 #: omweather/src/hash.data:57
 msgid "Cloudy, Rain"
@@ -613,9 +564,8 @@ msgid "Cloudy, Snow"
 msgstr "Oblačno, sníh"
 
 #: omweather/src/hash.data:52
-#, fuzzy
 msgid "Cloudy, Strong Rain, Heavy Rain"
-msgstr "Oblačno, těžký déšť"
+msgstr ""
 
 #: omweather/src/hash.data:60
 msgid "Cloudy, thunderstorms with rain"
@@ -633,9 +583,7 @@ msgstr "Copyright(c) 2010-2011 Tanya Makova\n"
 msgid ""
 "Could not connecting to Internet.\n"
 "Connection timeout is expired."
-msgstr ""
-"Nelze se připojit na internet.\n"
-"Vypršel časový limit."
+msgstr "Nelze se připojit na internet.\nVypršel časový limit."
 
 #: omweather/src/weather-config.c:401
 #, c-format
@@ -694,11 +642,9 @@ msgstr "Odstranit místo?"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
-"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
-"zhilin@ovi.com>\n"
-msgstr ""
-"Design UI a výchozí sada ikon: Copyright 2006-2011 Andrew Zhilin, <andrew."
-"zhilin@ovi.com>\n"
+"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, "
+"<andrew.zhilin@ovi.com>\n"
+msgstr "Design UI a výchozí sada ikon: Copyright 2006-2011 Andrew Zhilin, <andrew.zhilin@ovi.com>\n"
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
 msgid "Detailed"
@@ -727,9 +673,7 @@ msgstr "Jednotky vzdálenosti"
 msgid ""
 "Does not to add station, because no one\n"
 "of 'omweather-*-stations-db' packages was installed."
-msgstr ""
-"Nemohu přidat stanici, protože nebyl\n"
-"nainstalován žádný 'omweather-*-stations-db' balíček."
+msgstr "Nemohu přidat stanici, protože nebyl\nnainstalován žádný 'omweather-*-stations-db' balíček."
 
 #: omweather/src/weather-simple-popup.c:1171
 #: omweather/src/weather-simple-popup.c:1220
@@ -805,17 +749,7 @@ msgid ""
 "Brian Knight - for idea of iconset, criticism and donation ;-)\n"
 "Andrew aka Tabster - for testing and ideas\n"
 "Brad Jones aka kazrak - for testing\n"
-msgstr ""
-"Ed Bartosh - pro požadavky na nové funkce, podporu a kritiku\n"
-"Daniel Wilms - pro požadavky na nové funkce a testování\n"
-"Eugen Kaluta (tren) - pro požadavky na nové funkce a podporu\n"
-"Maxim Kalinkevish (spark) - pro testování\n"
-"Yuri Komyakov - pro zařízení Nokia 770 \n"
-"Greg Thompson - pro podporu souboru stations.txt\n"
-"Frank Persian - pro nápady ohledně nového layoutu\n"
-"Brian Knight - pro nápady ohledně sady ikon, kritiky a finanční podpory ;-)\n"
-"Andrew aka Tabster - pro testování a nápady\n"
-"Brad Jones (kazrak) - pro testování\n"
+msgstr "Ed Bartosh - pro požadavky na nové funkce, podporu a kritiku\nDaniel Wilms - pro požadavky na nové funkce a testování\nEugen Kaluta (tren) - pro požadavky na nové funkce a podporu\nMaxim Kalinkevish (spark) - pro testování\nYuri Komyakov - pro zařízení Nokia 770 \nGreg Thompson - pro podporu souboru stations.txt\nFrank Persian - pro nápady ohledně nového layoutu\nBrian Knight - pro nápady ohledně sady ikon, kritiky a finanční podpory ;-)\nAndrew aka Tabster - pro testování a nápady\nBrad Jones (kazrak) - pro testování\n"
 
 #: omweather/src/weather-simple-settings.c:330
 #: omweather/src/weather-simple-settings.c:421
@@ -934,9 +868,7 @@ msgstr "Najít místo pomocí GPS"
 msgid ""
 "Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro "
 "Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
-msgstr ""
-"Finština - Marko Vertainen; Němčina - Claudius Henrichs; Španělština - "
-"Alejandro Lopez; Holandština - Tom Leenders; Slovenština - Roman Moravčík\n"
+msgstr "Finština - Marko Vertainen; Němčina - Claudius Henrichs; Španělština - Alejandro Lopez; Holandština - Tom Leenders; Slovenština - Roman Moravčík\n"
 
 #: omweather/src/hash.data:83
 msgid "First Quarter"
@@ -982,11 +914,7 @@ msgid ""
 "you should uninstall package\n"
 "'Activating MeeCast Applet'\n"
 "using Application manager"
-msgstr ""
-"Pro zakázání MeeCast widgetu\n"
-"prosím odinstalujte balíček\n"
-"'Activating MeeCast Applet'\n"
-"pomocí správce aplikací"
+msgstr "Pro zakázání MeeCast widgetu\nprosím odinstalujte balíček\n'Activating MeeCast Applet'\npomocí správce aplikací"
 
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
@@ -1006,7 +934,6 @@ msgid "Freezing Drizzle"
 msgstr "Mrznoucí mrholení"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht, \n"
@@ -1045,40 +972,6 @@ msgid ""
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
-"Francouzština -  Nicolas Granziano, Philippe\n"
-"\tBenot Knecht \n"
-" Ruština - Pavel Fialko, Vlad Vasiliev, \n"
-" \tEd Bartosh\n"
-" Finština - Marko Vertainen\n"
-" Němčina -  Claudius Henrichs\n"
-"\tJens Klingen\n"
-" Italština - Lorenzo Facca,\n"
-" \tPavel Fialko, Alessandro Pasotti,\n"
-" \tSalvatore Fiorenzo, Ilir Gjika,\n"
-" \tLuca Onnis\n"
-" Španělština - Alejandro Lopez, Agustí Clara\n"
-" Polština - Tomasz Dominikowski\n"
-" Slovenština - Roman Moravčík\n"
-" Holandština - Tom Leenders, Michiel Pater\n"
-" Bulharština - Zlatko Enikov\n"
-" Albánština - Ilir Gjika\n"
-" Čínština - Wong Man Kong, Michael\n"
-" Portugalština - Jose Narciso,\n"
-" Turečtina - Burak Kaan Kose,\n"
-" \tMehmet Çilingir,\n"
-" Katalánština - Agustí Clara,\n"
-" Arabština - Tarad Alfandi,\n"
-" Srbština - Aleksandar Zaric,\n"
-" Norština - Peer-Atle Motland,\n"
-" Maďarština - Salmi,\n"
-" Slovinština -  Boštjan,\n"
-" Čeština - Jakub Kožíšek, Pavel Šrubař,\n"
-" Čínština (Tchaj-wan) - osk2, \n"
-" Vietnamština - Hieu Nguyen\n"
-" \tAnh Dương and truongnx, \n"
-" Švédština - Angela Nennebrandt,\n"
-" \tNiklas Åkerström, \n"
-" \tTomislav Veleckovik"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1091,16 +984,7 @@ msgid ""
 "Spanish - Alejandro Lopez\n"
 "Polish - Tomasz Dominikowski\n"
 "Slovak - Roman Moravčík"
-msgstr ""
-"Francouzština - Nicolas Granziano, Philippe, Benot Knecht\n"
-"Ruština - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
-"Finština - Marko Vertainen\n"
-"Němčina - Claudius Henrichs\n"
-"Italština - Pavel Fialko, Alessandro Pasotti,\n"
-"\tSalvatore Fiorenzo, Luca Onnis\n"
-"Španělština - Alejandro Lopez\n"
-"Polština - Tomasz Dominikowski\n"
-"Slovenština - Roman Moravčík"
+msgstr "Francouzština - Nicolas Granziano, Philippe, Benot Knecht\nRuština - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\nFinština - Marko Vertainen\nNěmčina - Claudius Henrichs\nItalština - Pavel Fialko, Alessandro Pasotti,\n\tSalvatore Fiorenzo, Luca Onnis\nŠpanělština - Alejandro Lopez\nPolština - Tomasz Dominikowski\nSlovenština - Roman Moravčík"
 
 #: omweather/src/hash.data:90
 msgid "Full"
@@ -1139,8 +1023,7 @@ msgstr "Grafika|Prosté"
 #: meecast/netbook-UX/meego-panel-omweather.cpp:418
 msgid ""
 "Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka.pl>"
-msgstr ""
-"Sada ikon Grzanka: Copyright 2005 Wojciech Grzanka, <wojciech@grzanka.pl>"
+msgstr "Sada ikon Grzanka: Copyright 2005 Wojciech Grzanka, <wojciech@grzanka.pl>"
 
 #: omweather/src/weather-popup.c:1354 omweather/src/weather-popup.c:1493
 msgid "Gust:"
@@ -1159,16 +1042,12 @@ msgid "Haze, Smoke or Dust"
 msgstr ""
 
 #: omweather/src/hash.data:93
-#, fuzzy
 msgid "Heavy Freezing Rain"
-msgstr "Déšť / mrznoucí déšť"
+msgstr ""
 
 #: omweather/src/hash.data:94
-#, fuzzy
 msgid "Heavy Precipitation"
 msgstr ""
-"\n"
-"Srážky"
 
 #: omweather/src/hash.data:95
 msgid "Heavy Rain"
@@ -1183,19 +1062,16 @@ msgid "Heavy Rain Shower"
 msgstr "Vydatná dešťová přeháňka"
 
 #: omweather/src/hash.data:98
-#, fuzzy
 msgid "Heavy Rain Showers"
-msgstr "Vydatná dešťová přeháňka"
+msgstr ""
 
 #: omweather/src/hash.data:99
-#, fuzzy
 msgid "Heavy Sleet"
-msgstr "Husté sněžení"
+msgstr ""
 
 #: omweather/src/hash.data:100
-#, fuzzy
 msgid "Heavy Sleet Showers"
-msgstr "Vydatná dešťová přeháňka"
+msgstr ""
 
 #: omweather/src/hash.data:101
 msgid "Heavy Snow"
@@ -1206,19 +1082,16 @@ msgid "Heavy Snow / Wind"
 msgstr "Silné sněžení / vítr"
 
 #: omweather/src/hash.data:103
-#, fuzzy
 msgid "Heavy Snow Showers"
-msgstr "Několik sněhových přeháňek"
+msgstr ""
 
 #: omweather/src/hash.data:102
-#, fuzzy
 msgid "Heavy Snowfall"
-msgstr "Husté sněžení"
+msgstr ""
 
 #: omweather/src/hash.data:105
-#, fuzzy
 msgid "Heavy Thunder"
-msgstr "Bouřka"
+msgstr ""
 
 #: omweather/src/hash.data:388
 msgid "Heavy intensity rain"
@@ -1291,9 +1164,7 @@ msgstr "Izolované bouřky / vítr"
 msgid ""
 "Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
 "Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov"
-msgstr ""
-"Italština - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca "
-"Onnis; Polština - Tomasz Dominikowski; Bulharština - Zlatko Enikov"
+msgstr "Italština - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polština - Tomasz Dominikowski; Bulharština - Zlatko Enikov"
 
 #: omweather/src/weather-settings.c:3915
 msgid "Kilometers"
@@ -1387,9 +1258,8 @@ msgid "Light Rain Shower"
 msgstr "Slabá dešťová přeháňka"
 
 #: omweather/src/hash.data:372
-#, fuzzy
 msgid "Light Rain Showers"
-msgstr "Slabá dešťová přeháňka"
+msgstr ""
 
 #: omweather/src/hash.data:125
 msgid "Light Rain and Freezing Rain"
@@ -1408,14 +1278,12 @@ msgid "Light Rain with Thunder"
 msgstr "Slabý déšť se hřměním"
 
 #: omweather/src/hash.data:129
-#, fuzzy
 msgid "Light Sleet"
-msgstr "Slabé sněžení"
+msgstr ""
 
 #: omweather/src/hash.data:130
-#, fuzzy
 msgid "Light Sleet Showers"
-msgstr "Slabé sněhové přeháňky"
+msgstr ""
 
 #: omweather/src/hash.data:131
 msgid "Light Snow"
@@ -1442,14 +1310,12 @@ msgid "Light Snow Shower"
 msgstr "Slabé sněhové přeháňky"
 
 #: omweather/src/hash.data:138
-#, fuzzy
 msgid "Light Snow Showers"
-msgstr "Slabé sněhové přeháňky"
+msgstr "Lehké sněhové přeháňky"
 
 #: omweather/src/hash.data:132
-#, fuzzy
 msgid "Light Snowfall"
-msgstr "Slabé sněžení"
+msgstr "Lehké sněžení"
 
 #: omweather/src/hash.data:374
 msgid "Light intensity drizzle"
@@ -1501,11 +1367,9 @@ msgstr "Převážně oblačno s občasným deštěm."
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
-"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
-"com>\n"
-msgstr ""
-"Údržba: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
-"com>\n"
+"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
+"<tanyshk@gmail.com>\n"
+msgstr "Údržba: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail.com>\n"
 
 #: omweather/src/hash.data:143 meecast/qt-qml/qml/StationsPage.qml:158
 msgid "Manage locations"
@@ -1527,9 +1391,7 @@ msgstr "MeeCast"
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2014"
-msgstr ""
-"MeeCast - multiplatformní, velmi přizpůsobitelný, open source klient pro "
-"předpověď počasí, založený na kódu OMWeather. Copyright (C) 2006-2014"
+msgstr "MeeCast - multiplatformní, velmi přizpůsobitelný, open source klient pro předpověď počasí, založený na kódu OMWeather. Copyright (C) 2006-2014"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -1548,28 +1410,24 @@ msgid "Mist"
 msgstr "Mlha"
 
 #: omweather/src/hash.data:146
-#, fuzzy
 msgid "Moderate Freezing Rain"
-msgstr "Mírný déšť"
+msgstr ""
 
 #: omweather/src/hash.data:376
 msgid "Moderate Rain"
 msgstr "Mírný déšť"
 
 #: omweather/src/hash.data:377
-#, fuzzy
 msgid "Moderate Rain Showers"
-msgstr "Mírný déšť"
+msgstr ""
 
 #: omweather/src/hash.data:145
-#, fuzzy
 msgid "Moderate Sleet"
-msgstr "Mírný déšť"
+msgstr ""
 
 #: omweather/src/hash.data:147
-#, fuzzy
 msgid "Moderate Snow Showers"
-msgstr "Dop. Sněhové přeháňky"
+msgstr ""
 
 #: omweather/src/hash.data:375
 msgid "Moderate rain"
@@ -1661,9 +1519,8 @@ msgid "Mostly Cloudy, Light Rain, T-Storm"
 msgstr "Převážně zataženo, slabý déšť, bouřky"
 
 #: omweather/src/hash.data:170
-#, fuzzy
 msgid "Mostly Cloudy, Light Rain, Weak Heavy Rain"
-msgstr "Oblačno, těžký déšť"
+msgstr ""
 
 #: omweather/src/hash.data:171
 msgid "Mostly Cloudy, Rain"
@@ -1694,7 +1551,6 @@ msgid "Mostly clear"
 msgstr "Převážně jasno"
 
 #: omweather/src/hash.data:177
-#, fuzzy
 msgid "Mostly sunny"
 msgstr "Převážně slunečno"
 
@@ -2107,29 +1963,20 @@ msgid "Ppcp:"
 msgstr "Sráž."
 
 #: omweather/src/hash.data:249
-#, fuzzy
 msgid "Precipitation"
-msgstr ""
-"\n"
-"Srážky"
+msgstr "Srážky"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:161
 #: meecast/qt-qml/qml/FullWeatherPage.qml:233
 #: meecast/qt-qml/qml/FullWeatherPage.qml:296
-#, fuzzy
 msgid "Precipitation rate:"
 msgstr ""
-"\n"
-"Srážky"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:158
 #: meecast/qt-qml/qml/FullWeatherPage.qml:230
 #: meecast/qt-qml/qml/FullWeatherPage.qml:293
-#, fuzzy
 msgid "Precipitation:"
-msgstr ""
-"\n"
-"Srážky"
+msgstr "Srážky:"
 
 #: omweather/src/weather-simple-settings.c:1653
 #: omweather/src/weather-simple-settings.c:2836
@@ -2177,9 +2024,8 @@ msgid "Provided by"
 msgstr "Poskytnuto"
 
 #: omweather/src/hash.data:250
-#, fuzzy
 msgid "Proximity shower rain"
-msgstr "Slabé dešťové přeháňky"
+msgstr ""
 
 #: omweather/src/hash.data:251
 msgid "Rain"
@@ -2560,9 +2406,8 @@ msgid "Sleet"
 msgstr "Plískanice"
 
 #: omweather/src/hash.data:298
-#, fuzzy
 msgid "Sleet Showers"
-msgstr "Několik přeháněk"
+msgstr ""
 
 #: omweather/src/hash.data:299
 msgid "Smoke"
@@ -2585,7 +2430,6 @@ msgid "Snow Shower / Wind"
 msgstr "Sněhové přeháňky / vítr"
 
 #: omweather/src/hash.data:305
-#, fuzzy
 msgid "Snow Showers"
 msgstr "Sněhové přeháňky"
 
@@ -2618,7 +2462,6 @@ msgid "Snow to Wintry Mix / Wind"
 msgstr "Sníh až mráz / vítr"
 
 #: omweather/src/hash.data:301
-#, fuzzy
 msgid "Snowfall"
 msgstr "Sněžení"
 
@@ -2790,21 +2633,13 @@ msgid ""
 " Foundation; either version 2.1 of the \n"
 " License, or (at your option) any \n"
 " later version."
-msgstr ""
-"Tento software je svobodně šiřitelný;\n"
-"můžete jej distribuovat dále a/nebo\n"
-"modifikovat za podmínek GNU General\n"
-"Public License publikovanou Free Software\n"
-"Foundation; buď její verzí 2.1, nebo (podle\n"
-"uvážení) jakoukoliv pozdější."
+msgstr "Tento software je svobodně šiřitelný;\nmůžete jej distribuovat dále a/nebo\nmodifikovat za podmínek GNU General\nPublic License publikovanou Free Software\nFoundation; buď její verzí 2.1, nebo (podle\nuvážení) jakoukoliv pozdější."
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:438
 msgid ""
 "This software is free software; you can redistribute it and/or modify it "
 "under the terms of the GNU General Public License\n"
-msgstr ""
-"Tento software je svobodně šiřitelný; můžete ho distribuovat dále a/nebo "
-"modifikovat za podmínek GNU General Public License\n"
+msgstr "Tento software je svobodně šiřitelný; můžete ho distribuovat dále a/nebo modifikovat za podmínek GNU General Public License\n"
 
 #: omweather/src/hash.data:326
 msgid "Thunder"
@@ -2815,9 +2650,8 @@ msgid "Thunder in the Vicinity"
 msgstr "Hřmění v okolí"
 
 #: omweather/src/hash.data:327
-#, fuzzy
 msgid "Thundershowers"
-msgstr "Bouřka"
+msgstr ""
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
@@ -2834,9 +2668,7 @@ msgstr "Překladatelé"
 msgid ""
 "Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - "
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
-msgstr ""
-"Překladatelé: Francouzština - Nicolas Granziano, Philippe, Benot Knecht; "
-"Ruština - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
+msgstr "Překladatelé: Francouzština - Nicolas Granziano, Philippe, Benot Knecht; Ruština - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 
 #: omweather/src/hash.data:398
 msgid "Transparency"
@@ -2914,17 +2746,13 @@ msgstr "Aktualizuji počasí"
 msgid ""
 "Use Edit layout \n"
 "for tuning images of applet"
-msgstr ""
-"Použijte Upravit rozvržení\n"
-"pro tuning obrázků appletu"
+msgstr "Použijte Upravit rozvržení\npro tuning obrázků appletu"
 
 #: omweather/src/weather-simple-settings.c:1835
 msgid ""
 "Use GSM and/or WLAN for periodic updating\n"
 " the weather information.\n"
-msgstr ""
-"Používat GSM a/nebo WLAN pro periodickou\n"
-"aktualizaci informací o počasí\n"
+msgstr "Používat GSM a/nebo WLAN pro periodickou\naktualizaci informací o počasí\n"
 
 #: omweather/src/weather-sensor.c:65
 msgid "Use device temperature sensor"
@@ -2943,9 +2771,8 @@ msgid "Very High"
 msgstr "Velmi vysoký"
 
 #: omweather/src/hash.data:393
-#, fuzzy
 msgid "Violent Rain Showers"
-msgstr "Slabá dešťová přeháňka"
+msgstr ""
 
 #: omweather/src/weather-settings.c:3517 omweather/src/weather-settings.c:3522
 msgid "Visible items:"
@@ -3125,9 +2952,7 @@ msgstr "Zimní mix až sníh"
 msgid ""
 "Wrong station code \n"
 "or ZIP code!!!"
-msgstr ""
-"Špatný kód meteostanice\n"
-"či špatné PSČ!!!"
+msgstr "Špatný kód meteostanice\nči špatné PSČ!!!"
 
 #: omweather/src/weather-settings.c:824 meecast/qt-qml/qml/StationsPage.qml:77
 msgid "Yes"
@@ -3142,28 +2967,20 @@ msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using LockScreen widget"
-msgstr ""
-"Pro použití widgetu na\n"
-"zamykací obrazovce aktivujte\n"
-"'Widgety v Událostech' "
+msgstr "Pro použití widgetu na\nzamykací obrazovce aktivujte\n'Widgety v Událostech' "
 
 #: meecast/qt-qml/qml/VisualsPage.qml:256
 msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using StandbyScreen widget"
-msgstr ""
-"Pro použití widgetu na\n"
-"pohotovostní obrazovce\n"
-"aktivujte 'Widgety v Událostech' "
+msgstr "Pro použití widgetu na\npohotovostní obrazovce\naktivujte 'Widgety v Událostech' "
 
 #: meecast/qt-qml/qml/UpdatePage.qml:73
 msgid ""
-"You should activate 'Widget in the events view' option in MeeCast appearance "
-"settings for auto update."
-msgstr ""
-"Pro použití automatických aktualizací 'Widgety v Událostech' v nastavení "
-"vzhledu MeeCast."
+"You should activate 'Widget in the events view' option in MeeCast appearance"
+" settings for auto update."
+msgstr "Pro použití automatických aktualizací 'Widgety v Událostech' v nastavení vzhledu MeeCast."
 
 #: omweather/src/weather-simple-settings.c:2758
 msgid "Zoom in popup window "
@@ -3177,9 +2994,7 @@ msgstr "Přiblížení ve vyskakovacím okně"
 msgid ""
 "as published by the Free Software Foundation; either version 2.1 of the "
 "License, or (at your option) any later version."
-msgstr ""
-"jako publikováno Free Software Foundation; buďto ve verzi 2.1 této Licence, "
-"či (podle vašeho uvážení) v jakékoli pozdější verzi"
+msgstr "jako publikováno Free Software Foundation; buďto ve verzi 2.1 této Licence, či (podle vašeho uvážení) v jakékoli pozdější verzi"
 
 #: omweather/src/weather-popup.c:286
 msgid "current location local time"
@@ -3364,9 +3179,8 @@ msgid "mmHg"
 msgstr "mmHg"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:166
-#, fuzzy
 msgid "mph"
-msgstr "m/h"
+msgstr ""
 
 #: omweather/src/weather-simple-popup.c:489
 msgid "n:"

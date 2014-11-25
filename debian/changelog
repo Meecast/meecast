@@ -7,7 +7,7 @@ meecast (0.9.12) unstable; urgency=low
   * Fixed problem with Denmark, Germany stations in openweathermap.org source
   * Fixed incorrect name of pressure from "Pa" to "kPa"
   * Updated Catalan, Dutch, Finnish, Germany, Norway, Slovenian, Spanish,
-    Italian translations
+    Italian, Czech, Danish translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 27 Aug 2014 10:31:23 +0200
 

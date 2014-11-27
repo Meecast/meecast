@@ -90,7 +90,7 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
-* Tue Oct 28 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.12
+* Thu Nov 27 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.12
   * Fixed problem with hourly forecast view
   * Added Palanga(Lithuania) to weather.com, yr.no, openweathermap.org sources
   * Removed donation link
@@ -98,8 +98,8 @@ desktop-file-install --delete-original       \
   * Added station Poselok rudnika Kupol to gismeteo.ru source
   * Fixed problem with Denmark, Germany stations in openweathermap.org source
   * Fixed incorrect name of pressure from "Pa" to "kPa"
-
-
+  * Updated Catalan, Dutch, Finnish, Germany, Norway, Slovenian, Spanish,
+    Italian, Czech, Danish translations
 
 * Tue Oct 28 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.11
   * Fixed broken cover (for new firmware)

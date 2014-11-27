@@ -17,7 +17,7 @@ meecast (0.9.10) unstable; urgency=low
   * Updated Slovenian, Italian, Swedish translations
   * Changed unit mi/h to mph
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 27 Aug 2014 10:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 27 Aug 2014 10:31:23 +0200 
 
 meecast (0.9.9) unstable; urgency=low
 

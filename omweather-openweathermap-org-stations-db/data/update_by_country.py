@@ -10,8 +10,8 @@ import os
 import re
 import string
 import zipfile
-country = "Sweden"
-country_code = "SE"
+country = "India"
+country_code = "IN"
                 
 
 def normalizing4 (source):
@@ -114,7 +114,7 @@ for line in fh.readlines():
 #    print "Station %s" %(line)
 #    if (pattern[14] == "PPLA" or pattern[14] == "PPLA2" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
     if (pattern[14] == "PPLA" or pattern[14] == "PPLA2" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
-        if (pattern[20] != "" and int(pattern[28]) >= 1000):
+        if (pattern[20] != "" and int(pattern[28]) >= 100000):
             if (regions_name.get(pattern[20]) == None):
                 continue
             fixed_regions_name = urllib.quote(regions_name[pattern[20]])

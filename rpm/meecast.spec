@@ -14,7 +14,7 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    0.9.12
+Version:    0.9.13
 Release:    1
 Group:      Utility
 License:    GPLv2.1
@@ -90,6 +90,11 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
+* Thu Nov 27 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.13
+  * Added Durovka to gismeteo.ru and foreca.com sources
+  * Added India to Openweathermap.org
+  * Decreased font size in station name on cover page for station name length from 19 to 20
+
 * Thu Nov 27 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.12
   * Fixed problem with hourly forecast view
   * Added Palanga(Lithuania) to weather.com, yr.no, openweathermap.org sources

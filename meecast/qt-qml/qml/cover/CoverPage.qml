@@ -117,6 +117,8 @@ CoverBackground {
         stationname.font.pixelSize = 35 
         if (stationname.text.length > 15)
         	stationname.font.pixelSize = 30 
+        if (stationname.text.length > 18)
+        	stationname.font.pixelSize = 28 
         if (stationname.text.length > 20)
         	stationname.font.pixelSize = 24 
         current_temperature()
@@ -266,9 +268,9 @@ CoverBackground {
     //        Current.reload_data(Config.filename);
     //        Current.update_model(0);
 
-            console.log("CoverPage.qml onConfigChanged ", Config.stationname)
+//            console.log("CoverPage.qml onConfigChanged ", Config.stationname)
             Config.refreshconfig3()
-            console.log("CoverPage.qml onConfigChanged ", Config.stationname)
+  //          console.log("CoverPage.qml onConfigChanged ", Config.stationname)
             update_data_on_page();
         }
     }
@@ -292,7 +294,7 @@ CoverBackground {
         anchors.top: parent.top
         anchors.horizontalCenter: parent.horizontalCenter
         text: Config.stationname == "Unknown" ? "MeeCast" : Config.stationname
-        font.pixelSize: text.length > 20 ? 24 : (text.length > 15 ? 30 : 35)
+        font.pixelSize: text.length > 20 ? 24 : (text.length > 18 ? 28 : (text.length > 15 ? 30 : 35))
     }
     Text {
         id: now

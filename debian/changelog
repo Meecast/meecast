@@ -1,3 +1,10 @@
+meecast (0.9.13) unstable; urgency=low
+
+  * Added Durovka to gismeteo.ru and foreca.com sources
+  * Added India to Openweathermap.org
+
+ -- Vlad Vasiliev <vlad@gas.by>  Tue, 27 Nov 2014 19:31:23 +0200
+
 meecast (0.9.12) unstable; urgency=low
 
   * Added Palanga(Lithuania) to weather.com, yr.no, openweathermap.org sources
@@ -16,7 +23,7 @@ meecast (0.9.10) unstable; urgency=low
   * Updated Slovenian, Italian, Swedish translations
   * Changed unit mi/h to mph
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 27 Aug 2014 10:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 27 Aug 2014 10:31:23 +0200 
 
 meecast (0.9.9) unstable; urgency=low
 

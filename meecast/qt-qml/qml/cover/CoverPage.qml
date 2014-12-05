@@ -507,19 +507,6 @@ CoverBackground {
                 lastupdate.visible = false
 	        }
         }
-        CoverAction {
-            iconSource: "image://theme/icon-cover-refresh"
-	        onTriggered: { 
-                Config.updatestations(); 
-                isUpdate = true;  
-                wind_speed_text.visible = false
-                wind_direction_background.visible = false
-                wind_direction.visible = false
-                source_image.visible = false
-                now.visible = false
-                lastupdate.visible = false
-	        }
-        }
     }
 
     Component.onDestruction : {   

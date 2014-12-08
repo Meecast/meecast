@@ -145,7 +145,7 @@ namespace Core {
              else if (*_units == "kn"){
                         return round(_value * 1.944);
                     }else if (*_units == "Beaufort scale"){
-                        float value = _value / 3.6f;
+                        float value = _value * 3.6f;
                         if(value < 1){
                             value = 0.0f;
                             return value;

@@ -4,7 +4,7 @@ meecast (0.9.13) unstable; urgency=low
   * Added India to Openweathermap.org
   * Fixed problem with Beaufort Wind unit
   * Updated Catalan, Dutch, Finnish, Germany, Slovenian, Spanish, Italian,
-    Czech, Swedish, Russian translations
+    Czech, Swedish, Russian, Danish translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Tue, 27 Nov 2014 19:31:23 +0200
 

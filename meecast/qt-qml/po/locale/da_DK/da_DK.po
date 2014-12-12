@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-25 08:30+0300\n"
-"PO-Revision-Date: 2014-10-18 20:15+0000\n"
+"POT-Creation-Date: 2014-12-12 16:18+0300\n"
+"PO-Revision-Date: 2014-12-07 22:40+0000\n"
 "Last-Translator: Peter Jespersen <flywheeldk@gmail.com>\n"
 "Language-Team: Danish (Denmark) (http://www.transifex.com/projects/p/meecast/"
 "language/da_DK/)\n"
@@ -50,9 +50,7 @@ msgstr ""
 msgid ""
 "\n"
 "Humidity: "
-msgstr ""
-"\n"
-"Luftfugtighed:"
+msgstr "Luftfugtighed:"
 
 #: omweather/src/weather-home.c:1608
 msgid ""
@@ -73,9 +71,7 @@ msgstr ""
 msgid ""
 "\n"
 "Pressure: "
-msgstr ""
-"\n"
-"Tryk: "
+msgstr "Tryk:"
 
 #: omweather/src/weather-home.c:1577
 msgid ""
@@ -348,7 +344,7 @@ msgstr ""
 "Vedligeholdelse: Pavel Fialko, <pavelnf@gmail.com>\n"
 "Dokumentation: Marko Vertainen\n"
 "Design af brugergrænseflade og standard ikonsæt: Andrew Zhilin\n"
-"Design af brugergrænseflade til Fremantle: Krebber Jan Niemelä Ulla\n"
+"Design af brugergrænseflade til Fremantle: Krebber Jan Niemelä Ulla"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:415
 msgid "Author and maintenance: Vlad Vasilyeu, <vlad@gas.by>\n"
@@ -415,7 +411,7 @@ msgstr "Afbryd"
 #: omweather/src/weather-config.c:383
 #, c-format
 msgid "Cannot get path to the HOME directory. Quitting.\n"
-msgstr "Kan ikke hente stien til hjemmebiblioteket. Afslutter.\n"
+msgstr "Kan ikke hente stien til hjemmebiblioteket. Afslutter."
 
 #: omweather/src/weather-settings.c:3864
 msgid "Celcius"
@@ -624,7 +620,7 @@ msgstr "Land:"
 
 #: omweather/src/hash.data:399
 msgid "Cover Page"
-msgstr ""
+msgstr "Miniature"
 
 #: omweather/src/weather-simple-settings.c:2896
 msgid "Custom"
@@ -661,7 +657,7 @@ msgid ""
 "zhilin@ovi.com>\n"
 msgstr ""
 "Design af brugergrænseflade og standard iconsæt: Copyright 2006-2011 Andrew "
-"Zhilin, <andrew.zhilin@ovi.com>\n"
+"Zhilin, <andrew.zhilin@ovi.com>"
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
 msgid "Detailed"
@@ -776,7 +772,7 @@ msgstr ""
 "Frank persisk - for idéen til det nye layout\n"
 "Brian Knight - for ideen om iconset, kritik og donation ;-)\n"
 "Andrew aka Tabster - for test og ideer\n"
-"Brad Jones aka kazrak - for test\n"
+"Brad Jones aka kazrak - for test"
 
 #: omweather/src/weather-simple-settings.c:330
 #: omweather/src/weather-simple-settings.c:421
@@ -794,7 +790,7 @@ msgstr "Indtast søgning"
 #: omweather/src/weather-home.c:841
 #, c-format
 msgid "Error in xml file\n"
-msgstr "Fejl i XML-fil\n"
+msgstr "Fejl i XML-fil"
 
 #: omweather/src/weather-home.c:914
 msgid "Error initializing the OMWeather applet"
@@ -802,7 +798,7 @@ msgstr ""
 
 #: omweather/src/hash.data:75
 msgid "Exit"
-msgstr ""
+msgstr "Afslut"
 
 #: omweather/src/weather-simple-settings.c:1892
 #: omweather/src/weather-simple-settings.c:2771
@@ -897,7 +893,7 @@ msgid ""
 "Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
 msgstr ""
 "Finsk - Marko Vertainen; German - Claudius Henrichs; Spansk - Alejandro "
-"Lopez; Dutch - Tom Leenders; Slovakisk - Roman Moravčík\n"
+"Lopez; Dutch - Tom Leenders; Slovakisk - Roman Moravčík"
 
 #: omweather/src/hash.data:83
 msgid "First Quarter"
@@ -956,7 +952,7 @@ msgstr "Prognose ved:"
 
 #: omweather/src/weather-home.c:1355
 msgid "Forecast: \n"
-msgstr "Prognose: \n"
+msgstr "Prognose:"
 
 #: omweather/src/hash.data:89
 msgid "Freezing Drizzle"
@@ -1145,7 +1141,7 @@ msgstr ""
 
 #: omweather/src/hash.data:100
 msgid "Heavy Sleet Showers"
-msgstr ""
+msgstr "Tunge sludbyger"
 
 #: omweather/src/hash.data:101
 msgid "Heavy Snow"
@@ -1802,7 +1798,7 @@ msgstr ""
 
 #: omweather/src/hash.data:203
 msgid "Overcast"
-msgstr ""
+msgstr "Overskyet"
 
 #: omweather/src/hash.data:379
 msgid "Overcast Clouds"
@@ -2752,7 +2748,7 @@ msgid ""
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 msgstr ""
 "Oversættere: Fransk - Nicolas Granziano, Philippe, Benot Knecht; Russisk - "
-"Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
+"Pavel Fialko, Vlad Vasiliev, Ed Bartosh;"
 
 #: omweather/src/hash.data:398
 msgid "Transparency"
@@ -3084,7 +3080,7 @@ msgstr ""
 
 #: omweather/src/weather-popup.c:286
 msgid "current location local time"
-msgstr ""
+msgstr "lokal tid for aktuelle placering"
 
 #: omweather/src/weather-simple-popup.c:432
 msgid "d:"
@@ -3270,7 +3266,7 @@ msgstr "mmHg"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:166
 msgid "mph"
-msgstr ""
+msgstr "mph"
 
 #: omweather/src/weather-simple-popup.c:489
 msgid "n:"

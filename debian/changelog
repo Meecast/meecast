@@ -3,7 +3,7 @@ meecast (0.9.13) unstable; urgency=low
   * Added Durovka to gismeteo.ru and foreca.com sources
   * Added India to Openweathermap.org
   * Fixed problem with Beaufort Wind unit
-  * Updated Catalan, Dutch translations
+  * Updated Catalan, Dutch, Finnish, Germany, Slovenian translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Tue, 27 Nov 2014 19:31:23 +0200
 

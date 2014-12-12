@@ -90,10 +90,13 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
-* Thu Nov 27 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.13
+* Fri Dec 12 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.13
   * Added Durovka to gismeteo.ru and foreca.com sources
   * Added India to Openweathermap.org
   * Decreased font size in station name on cover page for station name length from 19 to 20
+  * Fixed problem with Beaufort Wind unit
+  * Updated Catalan, Dutch, Finnish, Germany, Slovenian, Spanish, Italian,
+    Czech, Swedish, Russian, Danish translations
 
 * Thu Nov 27 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.12
   * Fixed problem with hourly forecast view

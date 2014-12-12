@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-25 08:30+0300\n"
-"PO-Revision-Date: 2014-08-09 16:18+0000\n"
+"POT-Creation-Date: 2014-12-12 16:18+0300\n"
+"PO-Revision-Date: 2014-12-10 09:27+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/meecast/language/"
 "ru/)\n"
@@ -593,7 +593,7 @@ msgstr "Облачно, Cнег"
 
 #: omweather/src/hash.data:52
 msgid "Cloudy, Strong Rain, Heavy Rain"
-msgstr ""
+msgstr "Пасмурно, Сильный Дождь, Проливной дождь"
 
 #: omweather/src/hash.data:60
 msgid "Cloudy, thunderstorms with rain"
@@ -1148,7 +1148,7 @@ msgstr ""
 
 #: omweather/src/hash.data:105
 msgid "Heavy Thunder"
-msgstr ""
+msgstr "Сильный Гром"
 
 #: omweather/src/hash.data:388
 msgid "Heavy intensity rain"
@@ -1372,7 +1372,7 @@ msgstr ""
 
 #: omweather/src/hash.data:132
 msgid "Light Snowfall"
-msgstr ""
+msgstr "Легкий снегопад"
 
 #: omweather/src/hash.data:374
 msgid "Light intensity drizzle"
@@ -1609,7 +1609,7 @@ msgstr "В основном безоблачно"
 
 #: omweather/src/hash.data:177
 msgid "Mostly sunny"
-msgstr ""
+msgstr "В основном солнечно"
 
 #: omweather/src/hash.data:179
 msgid "N"
@@ -2022,9 +2022,8 @@ msgstr "Осадки"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:161
 #: meecast/qt-qml/qml/FullWeatherPage.qml:233
 #: meecast/qt-qml/qml/FullWeatherPage.qml:296
-#, fuzzy
 msgid "Precipitation rate:"
-msgstr "Осадки:"
+msgstr ""
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:158
 #: meecast/qt-qml/qml/FullWeatherPage.qml:230
@@ -2485,7 +2484,7 @@ msgstr "Снегопад / Ветер"
 
 #: omweather/src/hash.data:305
 msgid "Snow Showers"
-msgstr ""
+msgstr "Снегопады"
 
 #: omweather/src/hash.data:306
 msgid "Snow Showers / Wind Early"
@@ -2517,7 +2516,7 @@ msgstr "Снег переходящий в поземку / Ветер"
 
 #: omweather/src/hash.data:301
 msgid "Snowfall"
-msgstr ""
+msgstr "Снегопад"
 
 #: omweather/src/weather-simple-settings.c:2295
 msgid "Source"
@@ -3151,9 +3150,8 @@ msgid "inch"
 msgstr "дюймы"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:206
-#, fuzzy
 msgid "kPa"
-msgstr "Па"
+msgstr "кПа"
 
 #: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1297
 #: omweather/src/weather-simple-settings.c:1336
@@ -3246,7 +3244,7 @@ msgstr "мм"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:234
 #: meecast/qt-qml/qml/FullWeatherPage.qml:297
 msgid "mm/h"
-msgstr ""
+msgstr "мм/ч"
 
 #: omweather/src/weather-home.c:1403 omweather/src/weather-home.c:1458
 #: omweather/src/weather-home.c:1606 omweather/src/weather-settings.c:4078
@@ -3258,9 +3256,8 @@ msgid "mmHg"
 msgstr "мм рт.ст."
 
 #: meecast/qt-qml/qml/UnitsPage.qml:166
-#, fuzzy
 msgid "mph"
-msgstr "м/ч"
+msgstr "ми/ч"
 
 #: omweather/src/weather-simple-popup.c:489
 msgid "n:"

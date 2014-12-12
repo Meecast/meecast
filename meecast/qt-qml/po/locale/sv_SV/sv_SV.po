@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-25 08:30+0300\n"
-"PO-Revision-Date: 2014-09-01 06:50+0000\n"
+"POT-Creation-Date: 2014-12-12 16:18+0300\n"
+"PO-Revision-Date: 2014-11-25 15:10+0000\n"
 "Last-Translator: Åke Engelbrektson <eson57@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/meecast/language/"
 "sv/)\n"
@@ -47,6 +47,21 @@ msgid ""
 "for Semi-transparency\n"
 "and coloured backgrounds\n"
 msgstr ""
+"\n"
+"Hildon skrivbords-applet\n"
+"till Nokia N800/N810/N900\n"
+"för att visa väderprognoser.\n"
+"Version %s Build: %s\n"
+"Copyright(c) 2006-2011\n"
+"Vlad Vasiliev, Pavel Fialko\n"
+"Copyright(c) 2008\n"
+"för standardikoner (Glance)\n"
+"och design av användargränssnitt\n"
+"Andrew Zhilin\n"
+"Copyright(c) 2008\n"
+"Andrew Olmsted\n"
+"för semitransparens\n"
+"och färgade bakgrunder\n"
 
 #: omweather/src/weather-home.c:1383 omweather/src/weather-home.c:1439
 #: omweather/src/weather-popup.c:965 omweather/src/weather-popup.c:1098
@@ -638,7 +653,7 @@ msgstr "Land:"
 
 #: omweather/src/hash.data:399
 msgid "Cover Page"
-msgstr ""
+msgstr "Programminiatyr"
 
 #: omweather/src/weather-simple-settings.c:2896
 msgid "Custom"
@@ -1119,7 +1134,8 @@ msgstr "GUI|Rensa"
 msgid ""
 "Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka.pl>"
 msgstr ""
-"Grzanka's Ikonset: Copyright 2005 av Wojciech Grzanka, <wojciech@grzanka.pl>"
+"Grzanka's ikonuppsättning: Copyright 2005 av Wojciech Grzanka, "
+"<wojciech@grzanka.pl>"
 
 #: omweather/src/weather-popup.c:1354 omweather/src/weather-popup.c:1493
 msgid "Gust:"
@@ -1235,7 +1251,7 @@ msgstr "Ikoner"
 
 #: omweather/src/hash.data:108 meecast/qt-qml/qml/VisualsPage.qml:391
 msgid "Iconset"
-msgstr "Ikoninställningar"
+msgstr "Ikonset"
 
 #: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:270
 msgid "Iconsets"
@@ -3203,9 +3219,8 @@ msgid "inch"
 msgstr "tum"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:206
-#, fuzzy
 msgid "kPa"
-msgstr "Pa"
+msgstr "kPa"
 
 #: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1297
 #: omweather/src/weather-simple-settings.c:1336
@@ -3310,9 +3325,8 @@ msgid "mmHg"
 msgstr ""
 
 #: meecast/qt-qml/qml/UnitsPage.qml:166
-#, fuzzy
 msgid "mph"
-msgstr "m/h"
+msgstr ""
 
 #: omweather/src/weather-simple-popup.c:489
 msgid "n:"

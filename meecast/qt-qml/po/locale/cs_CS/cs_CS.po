@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Cocovina, 2014
 # Jakub Kožíšek <nodevel@gmail.com>, 2014
 # Pavel Šrubař <sansat@centrum.cz>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-25 08:30+0300\n"
-"PO-Revision-Date: 2014-10-09 14:47+0000\n"
-"Last-Translator: Jakub Kožíšek <nodevel@gmail.com>\n"
+"POT-Creation-Date: 2014-12-12 16:18+0300\n"
+"PO-Revision-Date: 2014-11-26 11:17+0000\n"
+"Last-Translator: Cocovina\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/meecast/language/"
 "cs/)\n"
 "Language: cs\n"
@@ -613,7 +614,7 @@ msgstr "Oblačno, sníh"
 
 #: omweather/src/hash.data:52
 msgid "Cloudy, Strong Rain, Heavy Rain"
-msgstr ""
+msgstr "Zataženo, Silný déšť, Prudký déšť"
 
 #: omweather/src/hash.data:60
 msgid "Cloudy, thunderstorms with rain"
@@ -706,7 +707,7 @@ msgstr "Podrobný"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:242
 #: meecast/qt-qml/qml/FullWeatherPage.qml:305
 msgid "Dew point"
-msgstr ""
+msgstr "Rosný bod"
 
 #: omweather/src/weather-settings.c:1128 omweather/src/weather-settings.c:1321
 #: omweather/src/weather-settings.c:1325
@@ -1123,11 +1124,11 @@ msgstr ""
 
 #: omweather/src/hash.data:93
 msgid "Heavy Freezing Rain"
-msgstr ""
+msgstr "Prudký mrznoucí déšť"
 
 #: omweather/src/hash.data:94
 msgid "Heavy Precipitation"
-msgstr ""
+msgstr "Vydatné srážky"
 
 #: omweather/src/hash.data:95
 msgid "Heavy Rain"
@@ -1143,15 +1144,15 @@ msgstr "Vydatná dešťová přeháňka"
 
 #: omweather/src/hash.data:98
 msgid "Heavy Rain Showers"
-msgstr ""
+msgstr "Prudké dešťové přeháňky"
 
 #: omweather/src/hash.data:99
 msgid "Heavy Sleet"
-msgstr ""
+msgstr "Prudký déšť se kroupami"
 
 #: omweather/src/hash.data:100
 msgid "Heavy Sleet Showers"
-msgstr ""
+msgstr "Přeháňky s kroupami"
 
 #: omweather/src/hash.data:101
 msgid "Heavy Snow"
@@ -1163,15 +1164,15 @@ msgstr "Silné sněžení / vítr"
 
 #: omweather/src/hash.data:103
 msgid "Heavy Snow Showers"
-msgstr ""
+msgstr "Přeháňky se sněhem"
 
 #: omweather/src/hash.data:102
 msgid "Heavy Snowfall"
-msgstr ""
+msgstr "Husté sněžení"
 
 #: omweather/src/hash.data:105
 msgid "Heavy Thunder"
-msgstr ""
+msgstr "Prudká bouře"
 
 #: omweather/src/hash.data:388
 msgid "Heavy intensity rain"
@@ -1203,7 +1204,7 @@ msgstr "Vlhkost:"
 
 #: omweather/src/hash.data:107
 msgid "Ice Pellets"
-msgstr ""
+msgstr "Zmrzlý déšť"
 
 #: omweather/src/weather-settings.c:3326
 msgid "Icon set:"
@@ -1341,7 +1342,7 @@ msgstr "Slabá dešťová přeháňka"
 
 #: omweather/src/hash.data:372
 msgid "Light Rain Showers"
-msgstr ""
+msgstr "Slabé dešťové přeháňky"
 
 #: omweather/src/hash.data:125
 msgid "Light Rain and Freezing Rain"
@@ -1361,11 +1362,11 @@ msgstr "Slabý déšť se hřměním"
 
 #: omweather/src/hash.data:129
 msgid "Light Sleet"
-msgstr ""
+msgstr "Slabé krupobití"
 
 #: omweather/src/hash.data:130
 msgid "Light Sleet Showers"
-msgstr ""
+msgstr "Slabé přeháňky se sněhem"
 
 #: omweather/src/hash.data:131
 msgid "Light Snow"
@@ -1409,7 +1410,7 @@ msgstr "Slabé dešťové přeháňky"
 
 #: omweather/src/hash.data:139
 msgid "Light or Moderate Precipitation"
-msgstr ""
+msgstr "Slabé nebo střední srážky"
 
 #: omweather/src/hash.data:370
 msgid "Light rain"
@@ -1497,7 +1498,7 @@ msgstr "Mlha"
 
 #: omweather/src/hash.data:146
 msgid "Moderate Freezing Rain"
-msgstr ""
+msgstr "Mrznoucí déšť"
 
 #: omweather/src/hash.data:376
 msgid "Moderate Rain"
@@ -1505,15 +1506,15 @@ msgstr "Mírný déšť"
 
 #: omweather/src/hash.data:377
 msgid "Moderate Rain Showers"
-msgstr ""
+msgstr "Dešťové přeháňky"
 
 #: omweather/src/hash.data:145
 msgid "Moderate Sleet"
-msgstr ""
+msgstr "Déšť se sněhem"
 
 #: omweather/src/hash.data:147
 msgid "Moderate Snow Showers"
-msgstr ""
+msgstr "Sněhové přeháňky"
 
 #: omweather/src/hash.data:375
 msgid "Moderate rain"
@@ -2473,7 +2474,7 @@ msgstr "Přeháňky v okolí"
 
 #: omweather/src/hash.data:296
 msgid "Showers or Intermittent Precipitation"
-msgstr ""
+msgstr "Dešťové přeháňky nebo občasné srážky"
 
 #: omweather/src/hash.data:383
 msgid "Sky is Clear"
@@ -2489,7 +2490,7 @@ msgstr "Plískanice"
 
 #: omweather/src/hash.data:298
 msgid "Sleet Showers"
-msgstr ""
+msgstr "Přeháňky se sněhěm"
 
 #: omweather/src/hash.data:299
 msgid "Smoke"
@@ -2596,7 +2597,7 @@ msgstr "Bouřka"
 
 #: omweather/src/hash.data:314
 msgid "Strong Thundershowers"
-msgstr ""
+msgstr "Silné bouřkové přeháňky"
 
 #: omweather/src/weather-download.c:392
 msgid "Successfully loaded"
@@ -2741,7 +2742,7 @@ msgstr "Hřmění v okolí"
 
 #: omweather/src/hash.data:327
 msgid "Thundershowers"
-msgstr ""
+msgstr "Bouřkové přeháňky"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
@@ -2868,7 +2869,7 @@ msgstr "Velmi vysoký"
 
 #: omweather/src/hash.data:393
 msgid "Violent Rain Showers"
-msgstr ""
+msgstr "Náhlé dešťové přeháňky"
 
 #: omweather/src/weather-settings.c:3517 omweather/src/weather-settings.c:3522
 msgid "Visible items:"
@@ -3185,9 +3186,8 @@ msgid "inch"
 msgstr "palec"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:206
-#, fuzzy
 msgid "kPa"
-msgstr "Pa"
+msgstr ""
 
 #: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1297
 #: omweather/src/weather-simple-settings.c:1336

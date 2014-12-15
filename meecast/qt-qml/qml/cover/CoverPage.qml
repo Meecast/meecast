@@ -189,10 +189,14 @@ CoverBackground {
                 lastupdate.text = coverPage.current_model("lastupdatetime")
         }
     
-        if (Config.logocoverpage)
+        if (Config.logocoverpage) {
             source_image.visible = true
-        else
+            icon.top = source_image.bottom
+        } else {
             source_image.visible = false
+            icon.top = stationname.bottom
+        }
+
         if (Config.windcoverpage){
             icon.width = 0.374*screen_height 
             icon.height = 0.374*screen_height 
@@ -335,7 +339,7 @@ CoverBackground {
         source: (Config.stationname == "Unknown" || Current.rowCount() == 0 || coverPage.current_model("pict") == undefined) ? Config.iconspath + "/" + Config.iconset + "/49.png" : Config.iconspath + "/" + Config.iconset + "/" + coverPage.current_model("pict") 
         width:  Config.windcoverpage ? 0.342*screen_height : 0.267*screen_height
         height: Config.windcoverpage ? 0.342*screen_height : 0.267*screen_height
-        anchors.top: stationname.bottom
+        anchors.top: Config.logocoverpage ? source_image.bottom : stationname.bottom
         anchors.topMargin: 5 
         smooth: true
     }
@@ -383,8 +387,9 @@ CoverBackground {
         id: description
         visible: isUpdate ? false : true
         anchors.top: Config.windcoverpage ? wind_direction.bottom : icon.bottom
-        width: parent.width 
-        height: 0.36*screen_height 
+        anchors.topMargin: 5
+        width: parent.width
+        // height: 0.36*screen_height
         elide : Text.ElideRight
         color: "white"
         wrapMode:  TextEdit.WordWrap
@@ -407,12 +412,11 @@ CoverBackground {
         visible: (Config.logocoverpage && !isUpdate)  ? true : false
         id: source_image 
         source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
-        anchors.bottomMargin: 0.059*screen_height 
-        anchors.bottom: lastupdate.top
+        anchors.top: stationname.bottom
         width: 0.214*screen_height 
         smooth: true    
         fillMode: Image.PreserveAspectFit
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.horizontalCenter: icon.horizontalCenter
       //  scale: 0.8
     }
     Label {

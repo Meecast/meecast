@@ -14,7 +14,7 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    0.9.13
+Version:    0.9.14
 Release:    1
 Group:      Utility
 License:    GPLv2.1
@@ -90,6 +90,9 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
+* Thu Dec 18 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.14
+  * Nothing 
+
 * Fri Dec 12 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.13
   * Added Durovka to gismeteo.ru and foreca.com sources
   * Added India to Openweathermap.org

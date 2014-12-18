@@ -723,8 +723,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Strong Rain, Heavy Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Пасмурно, Сильный Дождь, Проливной дождь</translation>
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
@@ -1388,8 +1387,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Heavy Thunder</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Сильный Гром</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1680,8 +1678,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Light Snowfall</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Легкий снегопад</translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
@@ -1939,8 +1936,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Mostly sunny</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>В основном солнечно</translation>
         </message>
         <message>
             <source>N</source>
@@ -2499,15 +2495,18 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Осадки:</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Осадки:</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Осадки:</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Precipitation:</source>
@@ -3082,8 +3081,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Снегопады</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -3115,8 +3113,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Snowfall</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Снегопад</translation>
         </message>
         <message>
             <source>Source</source>
@@ -4034,7 +4031,7 @@ StandbyScreen виджета
         </message>
         <message>
             <source>kPa</source>
-            <translation type="unfinished">Па</translation>
+            <translation>кПа</translation>
         </message>
         <message>
             <source>km</source>
@@ -4250,18 +4247,15 @@ StandbyScreen виджета
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>мм/ч</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>мм/ч</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>мм/ч</translation>
         </message>
         <message>
             <source>mmHg</source>
@@ -4301,7 +4295,7 @@ StandbyScreen виджета
         </message>
         <message>
             <source>mph</source>
-            <translation type="unfinished">м/ч</translation>
+            <translation>ми/ч</translation>
         </message>
         <message>
             <source>n:</source>

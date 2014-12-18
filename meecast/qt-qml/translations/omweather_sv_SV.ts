@@ -26,8 +26,22 @@ Andrew Olmsted
 for Semi-transparency
 and coloured backgrounds
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Hildon skrivbords-applet
+till Nokia N800/N810/N900
+för att visa väderprognoser.
+Version %s Build: %s
+Copyright(c) 2006-2011
+Vlad Vasiliev, Pavel Fialko
+Copyright(c) 2008
+för standardikoner (Glance)
+och design av användargränssnitt
+Andrew Zhilin
+Copyright(c) 2008
+Andrew Olmsted
+för semitransparens
+och färgade bakgrunder
+</translation>
         </message>
         <message>
             <source>
@@ -778,8 +792,7 @@ Anslutnings-timeout har överskridits.</translation>
         </message>
         <message>
             <source>Cover Page</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Programminiatyr</translation>
         </message>
         <message>
             <source>Custom</source>
@@ -1359,7 +1372,7 @@ Slovakiska - Roman Moravčík</translation>
         </message>
         <message>
             <source>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
-            <translation>Grzanka's Ikonset: Copyright 2005 av Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</translation>
+            <translation>Grzanka's ikonuppsättning: Copyright 2005 av Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</translation>
         </message>
         <message>
             <source>Gust:</source>
@@ -1503,11 +1516,11 @@ Slovakiska - Roman Moravčík</translation>
         </message>
         <message>
             <source>Iconset</source>
-            <translation>Ikoninställningar</translation>
+            <translation>Ikonset</translation>
         </message>
         <message>
             <source>Iconset</source>
-            <translation>Ikoninställningar</translation>
+            <translation>Ikonset</translation>
         </message>
         <message>
             <source>Iconsets</source>
@@ -4048,7 +4061,7 @@ väntelägeskärm.</translation>
         </message>
         <message>
             <source>kPa</source>
-            <translation type="unfinished">Pa</translation>
+            <translation>kPa</translation>
         </message>
         <message>
             <source>km</source>
@@ -4321,7 +4334,8 @@ väntelägeskärm.</translation>
         </message>
         <message>
             <source>mph</source>
-            <translation type="unfinished">m/h</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>n:</source>

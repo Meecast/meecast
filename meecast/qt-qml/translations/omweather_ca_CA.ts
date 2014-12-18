@@ -4038,7 +4038,7 @@ per utilitzar el panell per a la pantalla d'espera</translation>
         </message>
         <message>
             <source>kPa</source>
-            <translation type="unfinished">Pa</translation>
+            <translation>kPa</translation>
         </message>
         <message>
             <source>km</source>

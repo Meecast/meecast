@@ -791,8 +791,7 @@ Tempo di connessione scaduto.</translation>
         </message>
         <message>
             <source>Cover Page</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Copertina</translation>
         </message>
         <message>
             <source>Custom</source>
@@ -4011,7 +4010,7 @@ o CAP errati !!</translation>
         </message>
         <message>
             <source>kPa</source>
-            <translation type="unfinished">Pa</translation>
+            <translation>kPa</translation>
         </message>
         <message>
             <source>km</source>

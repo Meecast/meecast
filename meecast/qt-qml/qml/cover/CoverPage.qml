@@ -388,7 +388,7 @@ CoverBackground {
     Text {
         id: description
         visible: isUpdate ? false : true
-        anchors.top: Config.windcoverpage ? wind_direction.bottom : icon.bottom
+        anchors.top: Config.windcoverpage && coverPage.current_model("wind_speed") != "N/A" ? wind_direction.bottom : icon.bottom
         anchors.topMargin: 5
         width: parent.width
         // height: 0.36*screen_height

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-25 08:30+0300\n"
+"POT-Creation-Date: 2014-12-22 12:44+0300\n"
 "PO-Revision-Date: 2012-04-19 10:31+0000\n"
 "Last-Translator: ludmilalisovskaya <ludmila.lisovskaya@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2254,8 +2254,13 @@ msgstr "Chaparrones y viento"
 msgid "Rain Showers"
 msgstr "Chaparrones"
 
-#: omweather/src/hash.data:268 omweather/src/hash.data:269
+#: omweather/src/hash.data:268
 msgid "Rain and Snow"
+msgstr "Lluvia / Nieve"
+
+#: omweather/src/hash.data:269
+#, fuzzy
+msgid "Rain and snow"
 msgstr "Lluvia / Nieve"
 
 #: omweather/src/hash.data:270

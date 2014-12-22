@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-25 08:30+0300\n"
+"POT-Creation-Date: 2014-12-22 12:44+0300\n"
 "PO-Revision-Date: 2014-10-13 19:30+0000\n"
 "Last-Translator: Peer-Atle Motland <PeerAtle@online.no>\n"
 "Language-Team: Norwegian (Norway) (http://www.transifex.com/projects/p/"
@@ -2214,8 +2214,13 @@ msgstr "Regnbyge og Vind"
 msgid "Rain Showers"
 msgstr "Regnbyger"
 
-#: omweather/src/hash.data:268 omweather/src/hash.data:269
+#: omweather/src/hash.data:268
 msgid "Rain and Snow"
+msgstr "Regn og Snø"
+
+#: omweather/src/hash.data:269
+#, fuzzy
+msgid "Rain and snow"
 msgstr "Regn og Snø"
 
 #: omweather/src/hash.data:270

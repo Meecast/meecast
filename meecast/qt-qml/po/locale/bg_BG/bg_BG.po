@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-25 08:30+0300\n"
+"POT-Creation-Date: 2014-12-22 12:44+0300\n"
 "PO-Revision-Date: 2012-12-21 07:15+0000\n"
 "Last-Translator: zlatko <zlatko23@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/"
@@ -2258,8 +2258,13 @@ msgstr "Превалявания и Вятър"
 msgid "Rain Showers"
 msgstr "Превалявания"
 
-#: omweather/src/hash.data:268 omweather/src/hash.data:269
+#: omweather/src/hash.data:268
 msgid "Rain and Snow"
+msgstr "Дъжд и Сняг"
+
+#: omweather/src/hash.data:269
+#, fuzzy
+msgid "Rain and snow"
 msgstr "Дъжд и Сняг"
 
 #: omweather/src/hash.data:270

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-25 08:30+0300\n"
+"POT-Creation-Date: 2014-12-22 12:44+0300\n"
 "PO-Revision-Date: 2011-03-29 13:10+0200\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -2258,8 +2258,13 @@ msgstr "Dažďové prehánky a veterno"
 msgid "Rain Showers"
 msgstr "Dažďové prehánky"
 
-#: omweather/src/hash.data:268 omweather/src/hash.data:269
+#: omweather/src/hash.data:268
 msgid "Rain and Snow"
+msgstr "Dážď a sneženie"
+
+#: omweather/src/hash.data:269
+#, fuzzy
+msgid "Rain and snow"
 msgstr "Dážď a sneženie"
 
 #: omweather/src/hash.data:270

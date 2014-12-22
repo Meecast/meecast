@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-12 16:18+0300\n"
+"POT-Creation-Date: 2014-12-22 12:44+0300\n"
 "PO-Revision-Date: 2014-12-10 09:27+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/meecast/language/"
@@ -2148,8 +2148,13 @@ msgstr "Ливневый дождь и ветрено"
 msgid "Rain Showers"
 msgstr "Ливневые дожди"
 
-#: omweather/src/hash.data:268 omweather/src/hash.data:269
+#: omweather/src/hash.data:268
 msgid "Rain and Snow"
+msgstr "Дождь со снегом"
+
+#: omweather/src/hash.data:269
+#, fuzzy
+msgid "Rain and snow"
 msgstr "Дождь со снегом"
 
 #: omweather/src/hash.data:270

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-12 16:18+0300\n"
+"POT-Creation-Date: 2014-12-22 12:44+0300\n"
 "PO-Revision-Date: 2014-11-26 22:35+0000\n"
 "Last-Translator: DeadHorseRiding <D3adHorseRIdlng@Gmail.com>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/meecast/"
@@ -2220,8 +2220,13 @@ msgstr "Regenschauer und windig"
 msgid "Rain Showers"
 msgstr "Regenschauer"
 
-#: omweather/src/hash.data:268 omweather/src/hash.data:269
+#: omweather/src/hash.data:268
 msgid "Rain and Snow"
+msgstr "Regen und Schnee"
+
+#: omweather/src/hash.data:269
+#, fuzzy
+msgid "Rain and snow"
 msgstr "Regen und Schnee"
 
 #: omweather/src/hash.data:270

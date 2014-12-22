@@ -4,6 +4,7 @@ meecast (0.9.14) unstable; urgency=low
   * Removed unnecessary second refresh action on cover page. Thanks George Nikandrov
   * Set source logo to top of cover page. Thanks George Nikandrov
   * Fixed problem with Icon and Null wind speed data on cover page
+  * Fixed problem with 'Next station' and 'Update' buttons on cover page
 
  -- Vlad Vasiliev <vlad@gas.by> Fri, 12 Dec 2014 17:31:23 +0200
 

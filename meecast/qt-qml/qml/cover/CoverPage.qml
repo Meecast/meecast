@@ -205,15 +205,15 @@ CoverBackground {
             if (coverPage.current_model("wind_speed") != undefined && coverPage.current_model("wind_speed") != "N/A"){
                 wind_speed_text.text = (Config.windspeedunit == "Beaufort scale") ? coverPage.current_model("wind_speed") : coverPage.current_model("wind_speed") + ' ' + Config.tr(Config.windspeedunit)
                 wind_speed_text.visible = true
-                description.anchors.top = wind_speed_text.bottom
+                //description.anchors.top = wind_speed_text.bottom
             }else{
                 wind_speed_text.visible = false
-                description.anchors.top = icon.bottom
+                //description.anchors.top = icon.bottom
             }
             if (coverPage.current_model("wind_direction") != undefined && coverPage.current_model("wind_direction") != "N/A"){
                 wind_direction_background.visible = true
                 wind_direction.visible = true
-                description.anchors.top = wind_direction_background.bottom
+                //description.anchors.top = wind_direction_background.bottom
                 if (coverPage.current_model("wind_direction") == undefined ||
                     coverPage.current_model("wind_direction") == "CALM" ||
                     coverPage.current_model("wind_direction") == "VAR" ||
@@ -232,7 +232,7 @@ CoverBackground {
             wind_speed_text.visible = false
             wind_direction_background.visible = false
             wind_direction.visible = false
-            description.anchors.top = icon.bottom
+            //description.anchors.top = icon.bottom
         }
         isUpdate = false;
 
@@ -245,6 +245,26 @@ CoverBackground {
                 Config.refreshconfig3()
                 Config.check_and_update_station();
                 update_data_on_page();
+                if (!isUpdate && Config.stationname != "Unknown"){
+                    add_cover.enabled = false;
+                    update_cover.enabled = false;
+                    update_next_cover.enabled = true;
+                }
+                if (!isUpdate && Config.stationname == "Unknown"){
+                    update_next_cover.enabled = false;
+                    update_cover.enabled = false;
+                    add_cover.enabled = true;
+                }
+                if (!isUpdate && Config.stationname != "Unknown" && Config.nextstationname == "" && Config.prevstationname == "" ){
+                    update_next_cover.enabled = false;
+                    add_cover.enabled = false;
+                    update_cover.enabled = true;
+                }
+                if (isUpdate){
+                    update_next_cover.enabled = false;
+                    add_cover.enabled = false;
+                    update_cover.enabled = false;
+                }
             }
         }
     }
@@ -388,8 +408,9 @@ CoverBackground {
     Text {
         id: description
         visible: isUpdate ? false : true
-        anchors.top: Config.windcoverpage && coverPage.current_model("wind_speed") != "N/A" ? wind_direction.bottom : icon.bottom
-        anchors.topMargin: 5
+//        anchors.top: Config.windcoverpage && coverPage.current_model("wind_speed") != "N/A" ? wind_direction.bottom : icon.bottom
+        anchors.top: icon.bottom
+        anchors.topMargin: -10
         width: parent.width
         // height: 0.36*screen_height
         elide : Text.ElideRight
@@ -467,7 +488,8 @@ CoverBackground {
 
     CoverActionList {
         id: update_next_cover 
-        enabled: (Config.stationname == "Unknown") || isUpdate || (Config.nextstationname == "" && Config.prevstationname == "") ? false : true
+        //enabled: (Config.stationname == "Unknown") || isUpdate || (Config.nextstationname == "" && Config.prevstationname == "") ? false : true
+        enabled: true
         CoverAction {
             iconSource: "image://theme/icon-cover-next"
             onTriggered: { Config.changestation();}
@@ -488,7 +510,8 @@ CoverBackground {
     }
     CoverActionList {
         id: add_cover 
-        enabled: (isUpdate || Config.stationname != "Unknown") ? false : true
+        //enabled: (isUpdate || Config.stationname != "Unknown") ? false : true
+        enabled: false
         CoverAction {
             iconSource: "image://theme/icon-cover-new"
             onTriggered: { 
@@ -499,10 +522,14 @@ CoverBackground {
     }
     CoverActionList {
         id: update_cover 
-        enabled: (isUpdate || Config.stationname == "Unknown" || Config.nextstationname != "" || Config.prevstationname != "" ) ? false : true
+        //enabled: (isUpdate || Config.stationname == "Unknown" || Config.nextstationname != "" || Config.prevstationname != "" ) ? false : true
+        enabled: false 
         CoverAction {
             iconSource: "image://theme/icon-cover-refresh"
 	        onTriggered: { 
+                update_cover.enabled = false
+                update_next_cover.enabled = false
+                add_cover.enabled = false 
                 Config.updatestations(); 
                 isUpdate = true;  
                 wind_speed_text.visible = false

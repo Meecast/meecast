@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-25 08:30+0300\n"
+"POT-Creation-Date: 2014-12-22 12:44+0300\n"
 "PO-Revision-Date: 2014-07-22 20:20+0000\n"
 "Last-Translator: Mehmet Ç. <mehmetfnldstntn@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/meecast/language/"
@@ -2210,8 +2210,13 @@ msgstr "Sağnak Yağmur ve Rüzgar"
 msgid "Rain Showers"
 msgstr "Sağnak Yağmur"
 
-#: omweather/src/hash.data:268 omweather/src/hash.data:269
+#: omweather/src/hash.data:268
 msgid "Rain and Snow"
+msgstr "Yağmur ve Kar"
+
+#: omweather/src/hash.data:269
+#, fuzzy
+msgid "Rain and snow"
 msgstr "Yağmur ve Kar"
 
 #: omweather/src/hash.data:270

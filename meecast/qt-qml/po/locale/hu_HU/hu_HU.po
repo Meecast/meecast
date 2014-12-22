@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-25 08:30+0300\n"
+"POT-Creation-Date: 2014-12-22 12:44+0300\n"
 "PO-Revision-Date: 2014-07-28 05:20+0000\n"
 "Last-Translator: Macilaci457 <laci.kara@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/meecast/"
@@ -2154,8 +2154,13 @@ msgstr "Zápor és szél"
 msgid "Rain Showers"
 msgstr "Záporok"
 
-#: omweather/src/hash.data:268 omweather/src/hash.data:269
+#: omweather/src/hash.data:268
 msgid "Rain and Snow"
+msgstr "Eső és hó"
+
+#: omweather/src/hash.data:269
+#, fuzzy
+msgid "Rain and snow"
 msgstr "Eső és hó"
 
 #: omweather/src/hash.data:270

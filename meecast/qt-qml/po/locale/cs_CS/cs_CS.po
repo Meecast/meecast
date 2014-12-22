@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-12 16:18+0300\n"
+"POT-Creation-Date: 2014-12-22 12:44+0300\n"
 "PO-Revision-Date: 2014-11-26 11:17+0000\n"
 "Last-Translator: Cocovina\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/meecast/language/"
@@ -2178,8 +2178,13 @@ msgstr "Přeháňka a větrno"
 msgid "Rain Showers"
 msgstr "Přeháňky"
 
-#: omweather/src/hash.data:268 omweather/src/hash.data:269
+#: omweather/src/hash.data:268
 msgid "Rain and Snow"
+msgstr "Déšť se sněhem"
+
+#: omweather/src/hash.data:269
+#, fuzzy
+msgid "Rain and snow"
 msgstr "Déšť se sněhem"
 
 #: omweather/src/hash.data:270

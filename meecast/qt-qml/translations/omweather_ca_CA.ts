@@ -2691,8 +2691,8 @@ Català - Agustí Clara</translation>
             <translation>Pluja i Neu</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>Pluja i Neu</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">Pluja i Neu</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

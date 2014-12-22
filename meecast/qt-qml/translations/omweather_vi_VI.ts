@@ -2685,8 +2685,8 @@ Mưa:</translation>
             <translation> Mưa và tuyết</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation> Mưa và tuyết</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished"> Mưa và tuyết</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

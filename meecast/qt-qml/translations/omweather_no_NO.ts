@@ -2692,8 +2692,8 @@ Slovak - Roman Moravčík</translation>
             <translation>Regn og Snø</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>Regn og Snø</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">Regn og Snø</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

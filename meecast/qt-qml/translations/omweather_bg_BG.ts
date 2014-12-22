@@ -2676,8 +2676,8 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Дъжд и Сняг</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>Дъжд и Сняг</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">Дъжд и Сняг</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

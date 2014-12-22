@@ -2699,8 +2699,8 @@ Precipitação:</translation>
             <translation>Chuva e Neve</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>Chuva e Neve</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">Chuva e Neve</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

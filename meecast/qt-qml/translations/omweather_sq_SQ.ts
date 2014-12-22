@@ -2703,8 +2703,8 @@ Rreshjet: </translation>
             <translation>Shi dhe dëbore</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>Shi dhe dëbore</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">Shi dhe dëbore</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

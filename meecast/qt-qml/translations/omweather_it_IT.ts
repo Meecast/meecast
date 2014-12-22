@@ -2660,8 +2660,8 @@ Slovacco - Roman Moravčík</translation>
             <translation>Pioggia e Neve</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>Pioggia e Neve</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">Pioggia e Neve</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

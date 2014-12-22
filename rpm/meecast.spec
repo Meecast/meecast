@@ -90,8 +90,13 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
-* Thu Dec 18 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.14
-  * Nothing 
+* Mon Dec 22 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.14
+
+  * Added string for translation from openweathermap.org source 
+  * Removed unnecessary second refresh action on cover page. Thanks George Nikandrov
+  * Set source logo to top of cover page. Thanks George Nikandrov
+  * Fixed problem with Icon and Null wind speed data on cover page
+  * Fixed problem with 'Next station' and 'Update' buttons on cover page. Thanks TMavica
 
 * Fri Dec 12 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.13
   * Added Durovka to gismeteo.ru and foreca.com sources

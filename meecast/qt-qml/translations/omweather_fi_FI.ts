@@ -2691,8 +2691,8 @@ Slovakia - Roman Moravčík</translation>
             <translation>Vesi- ja lumisadetta</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>Vesi- ja lumisadetta</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">Vesi- ja lumisadetta</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

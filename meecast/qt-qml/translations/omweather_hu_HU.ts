@@ -2686,8 +2686,8 @@ Előrejelzés:</translation>
             <translation>Eső és hó</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>Eső és hó</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">Eső és hó</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

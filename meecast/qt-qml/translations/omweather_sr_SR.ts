@@ -2703,8 +2703,8 @@ Padavine: </translation>
             <translation>Kiša i sneg</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>Kiša i sneg</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">Kiša i sneg</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

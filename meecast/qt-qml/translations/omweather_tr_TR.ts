@@ -2680,8 +2680,8 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Yağmur ve Kar</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>Yağmur ve Kar</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">Yağmur ve Kar</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

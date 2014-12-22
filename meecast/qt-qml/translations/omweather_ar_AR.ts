@@ -2673,8 +2673,8 @@ Slovak - Roman Moravčík</source>
             <translation>أمطار وثلوج</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>أمطار وثلوج</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">أمطار وثلوج</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

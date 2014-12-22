@@ -2699,8 +2699,8 @@ Zrážky: </translation>
             <translation>Dážď a sneženie</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>Dážď a sneženie</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">Dážď a sneženie</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

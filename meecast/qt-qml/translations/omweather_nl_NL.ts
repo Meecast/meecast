@@ -2690,8 +2690,8 @@ Slowaaks - Roman Moravčík</translation>
             <translation>Regen en Sneeuw</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>Regen en Sneeuw</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">Regen en Sneeuw</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

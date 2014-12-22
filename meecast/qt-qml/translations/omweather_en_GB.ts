@@ -3159,7 +3159,7 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
+            <source>Rain and snow</source>
             <translation type="unfinished">
             </translation>
         </message>

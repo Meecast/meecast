@@ -2671,8 +2671,8 @@ Slovak - Roman Moravčík</source>
             <translation>Дождь со снегом</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>Дождь со снегом</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">Дождь со снегом</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

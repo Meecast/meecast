@@ -2749,8 +2749,8 @@ Slovak - Roman Moravčík</translation>
             <translation>雨夹雪</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>雨夹雪</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">雨夹雪</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

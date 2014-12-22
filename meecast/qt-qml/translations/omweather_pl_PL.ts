@@ -2702,8 +2702,8 @@ Opady: </translation>
             <translation>Deszcz i śnieg</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>Deszcz i śnieg</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">Deszcz i śnieg</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

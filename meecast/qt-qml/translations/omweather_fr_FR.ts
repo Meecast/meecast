@@ -2692,8 +2692,8 @@ Précipitations : </translation>
             <translation>Pluie et vent</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>Pluie et vent</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">Pluie et vent</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

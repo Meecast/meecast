@@ -2708,8 +2708,8 @@ Slovakiska - Roman Moravčík</translation>
             <translation>Regn och snö</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>Regn och snö</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">Regn och snö</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

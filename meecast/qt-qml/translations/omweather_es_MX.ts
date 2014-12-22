@@ -2697,8 +2697,8 @@ Precipitación: </translation>
             <translation>Lluvia / Nieve</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>Lluvia / Nieve</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">Lluvia / Nieve</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

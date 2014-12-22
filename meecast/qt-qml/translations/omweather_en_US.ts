@@ -2700,8 +2700,8 @@ Precipitation: </translation>
             <translation>Rain and Snow</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>Rain and Snow</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">Rain and Snow</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

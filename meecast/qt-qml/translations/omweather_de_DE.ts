@@ -2691,8 +2691,8 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Regen und Schnee</translation>
         </message>
         <message>
-            <source>Rain and Snow</source>
-            <translation>Regen und Schnee</translation>
+            <source>Rain and snow</source>
+            <translation type="unfinished">Regen und Schnee</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

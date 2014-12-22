@@ -1,6 +1,8 @@
 meecast (0.9.14) unstable; urgency=low
 
   * Added string for translation from openweathermap.org source 
+  * Removed unnecessary second refresh action on cover page. Thanks George Nikandrov
+  * Set source logo to top of cover page. Thanks George Nikandrov
 
  -- Vlad Vasiliev <vlad@gas.by> Fri, 12 Dec 2014 17:31:23 +0200
 

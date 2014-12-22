@@ -193,10 +193,10 @@ CoverBackground {
     
         if (Config.logocoverpage) {
             source_image.visible = true
-            icon.top = source_image.bottom
+            icon.anchors.top = source_image.bottom
         } else {
             source_image.visible = false
-            icon.top = stationname.bottom
+            icon.anchors.top = stationname.bottom
         }
 
         if (Config.windcoverpage){

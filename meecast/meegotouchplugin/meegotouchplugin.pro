@@ -1,20 +1,32 @@
 
-QT += declarative network
+QT += network quick
+#QT += widgets
+QT += concurrent
+PKGCONFIG += mlite5 
+PKGCONFIG += dconf
+CONFIG += link_pkgconfig
+PKGCONFIG += sailfishapp
+#
 
-TEMPLATE = lib
-#TEMPLATE = app
-CONFIG += plugin \
-    dbus \
-    qdbus \
+#TEMPLATE = lib
+TEMPLATE = app
+CONFIG += console
+CONFIG += sailfishapp
+CONFIG += dbus \
     gui \
-    link_pkgconfig \
-    mobility \
-    meegotouch
+    link_pkgconfig 
 
-MOBILITY = publishsubscribe
 
-HEADERS = meegotouchplugin.h dbusadaptor.h eventfeedif.h  weatherdataif.h
-SOURCES = meegotouchplugin.cpp dbusadaptor.cpp eventfeedif.cpp  weatherdataif.cpp
+HEADERS = meegotouchplugin.h dbusadaptor.h eventfeedif.h  weatherdataif.h \
+    ../dconf/dconfvalue.h \
+    ../dconf/mdconf_p.h \
+    ../dconf/mdconfitem.h \
+    ../dconf/dconfmigration.h
+
+SOURCES = meegotouchplugin.cpp dbusadaptor.cpp eventfeedif.cpp  weatherdataif.cpp \
+    ../dconf/dconfvalue.cpp \
+    ../dconf/mdconf.cpp \
+    ../dconf/mdconfitem.cpp
 
 
 TARGET = $$qtLibraryTarget(events-meecast)

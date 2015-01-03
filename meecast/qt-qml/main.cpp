@@ -169,7 +169,6 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     QDBusConnection connection = QDBusConnection::sessionBus();
     connection.registerService("org.meego.omweather");
     connection.registerObject("/org/meego/omweather", controller);
-
     QQuickView *qview;
     qview = controller->qview();
     QUrl qmlPath(SailfishApp::pathTo("qml/main.qml"));

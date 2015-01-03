@@ -30,46 +30,31 @@
 #define MEEGOTOUCHPLUGIN_H
 
 #include <QString>
-#include <MWidget>
-#include <QLabel>
-#include <MImageWidget>
 #include <QObject>
-#include <MApplicationExtensionInterface>
 #include <MGConfItem>
 #include <QProcess>
 #include <QDir>
-#include <QGraphicsAnchorLayout>
 #include <QDate>
 #include <QTimer>
 #include <QNetworkConfigurationManager>
 
+#include "../dconf/dconfvalue.h"
 // Debug
 /*
 #include <QFile>
 #include <QTextStream>
 */
-#include <qvaluespace.h>
-#include <qmobilityglobal.h>
-#include <qvaluespacepublisher.h>
 #include <QCoreApplication>
 
 
-QTM_BEGIN_NAMESPACE
- class QValueSpacePublisher;
-QTM_END_NAMESPACE
-
-QTM_USE_NAMESPACE
 
 
 
-
-
-class MyMWidget : public MWidget
+class MyMWidget : public QObject
 {
    Q_OBJECT                                                                                                                                                                       
 private:
     QProcess process;
-    QValueSpacePublisher *publisher;
     QString  _stationname;
     QString  _temperature;
     QString  _temperature_high;
@@ -81,12 +66,11 @@ private:
     bool    _lockscreen;
     bool    _standbyscreen;
     QTimer  *_timer;
-    MGConfItem *_wallpaperItem;
-    MGConfItem *_standbyItem;
-    MGConfItem *_original_wallpaperItem;
+    MDConfItem *_wallpaperItem;
+    MDConfItem *_standbyItem;
+    MDConfItem *_original_wallpaperItem;
     QString _wallpaper_path;
     QImage *_image;
-    MImageWidget *_icon;
     QImage *_events_image;
     bool _down;
 public:
@@ -94,21 +78,7 @@ public:
     MyMWidget();
     ~MyMWidget();
    
-    void
-    mousePressEvent(QGraphicsSceneMouseEvent *event){
-        _down = true;
-    }
-
-    void
-    mouseReleaseEvent(QGraphicsSceneMouseEvent *event){
-        if (_down)
-           startapplication();
-        _down = false;
-    }
-
     void refreshwallpaper(bool new_wallpaper = false);
-    void refresheventswidget(void);
-    void refreshstandby(void);
 
     Q_INVOKABLE void startapplication(){
         QString executable("/usr/bin/invoker");    
@@ -223,11 +193,7 @@ public:
         }
         // Debug end 
 #endif
-          refresheventswidget();
-          refreshwallpaper();           
-          if (_standbyscreen)
-              refreshstandby();
-	   
+          refreshwallpaper();
     };
 
 public Q_SLOTS:
@@ -248,33 +214,7 @@ signals:
     void currentChanged();
 };
 
-class WeatherExtensionInterface : public MApplicationExtensionInterface
-{
-    Q_INTERFACES(MApplicationExtensionInterface)
-
-public:
-    virtual void weatherExtensionSpecificOperation() = 0;
-};
-
-Q_DECLARE_INTERFACE(WeatherExtensionInterface, "com.nokia.home.EventsExtensionInterface/1.0")
-
 
 class MyMWidget;
-
-class WeatherApplicationExtension : public QObject, public WeatherExtensionInterface
-{
-    Q_OBJECT
-    Q_INTERFACES(WeatherExtensionInterface MApplicationExtensionInterface)
-
-public:
-    WeatherApplicationExtension();
-    virtual ~WeatherApplicationExtension();
-
-    virtual void weatherExtensionSpecificOperation();
-    virtual bool initialize(const QString &interface);
-    virtual MWidget *widget();
-private:
-    MyMWidget *box;
-};
 
 #endif //MEEGOTOUCHPLUGIN_H

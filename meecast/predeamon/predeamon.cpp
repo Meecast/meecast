@@ -151,16 +151,16 @@ main (int argc, char *argv[])
         temp_data->temperature_hi().units(config->TemperatureUnit());
         temp_data->temperature().units(config->TemperatureUnit());
         temp_data->Text(_(temp_data->Text().c_str()));
-        if (temp_data->temperature().value(TRUE) == INT_MAX){
+        if (temp_data->temperature().value(true) == INT_MAX){
             temp = "N/A";
         }else
             temp = temp.number((temp_data->temperature().value()),'f',0);
-        if (temp_data->temperature_hi().value(TRUE) == INT_MAX){
+        if (temp_data->temperature_hi().value(true) == INT_MAX){
             temp_high = "N/A";
         }else
             temp_high = temp.number((temp_data->temperature_hi().value()),'f',0);
 
-        if (temp_data->temperature_low().value(TRUE) == INT_MAX){
+        if (temp_data->temperature_low().value(true) == INT_MAX){
             temp_low = "N/A";
         }else
             temp_low = temp.number((temp_data->temperature_low().value()),'f',0);

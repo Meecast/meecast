@@ -52,8 +52,7 @@
 #endif
 using namespace QtConcurrent;
 
-AmbiencedIf* client;
-
+QTemporaryFile *tempfile;
 void 
 drawwallpaper(QImage image, QHash <QString, QString> hash){
     std::cerr<<" drawwallpaper"<<std::endl;
@@ -137,39 +136,15 @@ drawwallpaper(QImage image, QHash <QString, QString> hash){
         file.close();
     }
 #endif
-    QTemporaryFile *tempfile = new QTemporaryFile;
+    if (tempfile)
+        delete tempfile;
+    tempfile = new QTemporaryFile("/home/nemo/.cache/harbour-meecast/meecast.XXXXXXX.png");
     if (tempfile->open()){ 
-        image.save(tempfile->fileName()+".png");
-        //image.save("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast.png");
-#if 0
-        // Debug begin
-        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-            QTextStream out(&file);
-            out <<  "Refreshwallpaper /home/user/.cache/com.meecast.omweather/wallpaper_MeeCast.png  saved \n";
-            file.close();
-        }
-#endif
-
+        image.save(tempfile->fileName());
         std::cerr<<"Set new wallpaper "<<tempfile->fileName().toStdString().c_str()<<std::endl;
         MDConfItem  wallpaperItem("/desktop/jolla/background/portrait/home_picture_filename"); 
-    //  wallpaperItem.set("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
-       // wallpaperItem.set("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast.png");
-        wallpaperItem.set(tempfile->fileName()+".png");
-
-    //    client->createAmbience("file:///home/nemo/.cache/harbour-meecast/wallpaper_MeeCast.png");
-// `       client->createAmbience("file://"+tempfile->fileName()+".png");
-
-//        client->refreshAmbiences();
+        wallpaperItem.set(tempfile->fileName());
     }
-//    delete tempfile;
-#if 0
-    // Debug begin
-    if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-        QTextStream out(&file);
-        out <<  "Stop refreshwallpaper"<< " \n";
-        file.close();
-    }
-#endif
 }
 
 MyMWidget::MyMWidget(){
@@ -262,9 +237,19 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
     std::cerr<<"MyMWidget::SetCurrentData"<<std::endl;
    if (lockscreen() && !lockscreen_param){
         this->current(current);
-    std::cerr<<"MyMWidget::SetCurrentData111111111111111111111111"<<std::endl;
 	    _wallpaperItem->set("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
    }
+   if ((this->temperature() == temperature) &&
+       (this->temperature_high() == temperature_high) &&
+       (this->temperature_low() == temperature_low) &&
+       (this->station() == station) && 
+       (this->icon() == icon) &&
+       (this->current() == current) &&
+       (this->lockscreen() == lockscreen_param) &&
+       (this->lastupdate() == last_update) &&
+       (this->description() == description))
+       return;
+
    QDateTime utc_time;
    utc_time = QDateTime::currentDateTimeUtc();
 
@@ -361,7 +346,7 @@ void MyMWidget::updateWallpaperPath(){
 
         if (!(QFile::exists(new_wallpaper_path)))
             return;  
-        if ( new_wallpaper_path.indexOf("events-meecast",0) == -1 && new_wallpaper_path.indexOf("MeeCast",0) == -1 && new_wallpaper_path != ""){
+        if ( new_wallpaper_path.indexOf("meecast",0) == -1 && new_wallpaper_path.indexOf("MeeCast",0) == -1 && new_wallpaper_path != ""){
         
 #if 0
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -462,6 +447,7 @@ MyMWidget::ambiencedChanged(){
 
 
 int main (int argc, char *argv[]) {
+    tempfile = NULL;
 
     QGuiApplication app(argc, argv);
 
@@ -482,10 +468,6 @@ int main (int argc, char *argv[]) {
    QDBusConnection connection = QDBusConnection::sessionBus();
    bool ret = connection.registerService("com.meecast.applet");
    ret = connection.registerObject("/com/meecast/applet", box);
-   //AmbiencedIf* client =  new AmbiencedIf("com.jolla.ambienced", "com/jolla/ambienced",
-   client =  new AmbiencedIf("com.jolla.ambienced", "/com/jolla/ambienced",
-                                           QDBusConnection::sessionBus(), 0); 
-   QObject::connect(client, SIGNAL(contentChanged(int)), box, SLOT(ambiencedChanged()));  
 
    QTimer::singleShot(1000, box, SLOT(refreshRequested()));
 

@@ -17,13 +17,13 @@ CONFIG += dbus \
     link_pkgconfig 
 
 
-HEADERS = meegotouchplugin.h dbusadaptor.h ambiencedif.h weatherdataif.h \
+HEADERS = meegotouchplugin.h dbusadaptor.h weatherdataif.h \
     ../dconf/dconfvalue.h \
     ../dconf/mdconf_p.h \
     ../dconf/mdconfitem.h \
     ../dconf/dconfmigration.h
 
-SOURCES = meegotouchplugin.cpp dbusadaptor.cpp ambiencedif.cpp weatherdataif.cpp \
+SOURCES = meegotouchplugin.cpp dbusadaptor.cpp weatherdataif.cpp \
     ../dconf/dconfvalue.cpp \
     ../dconf/mdconf.cpp \
     ../dconf/mdconfitem.cpp

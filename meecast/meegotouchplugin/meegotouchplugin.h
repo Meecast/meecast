@@ -46,7 +46,6 @@
 #include <QCoreApplication>
 #include <QGuiApplication>
 
-#include "ambiencedif.h"
 
 
 

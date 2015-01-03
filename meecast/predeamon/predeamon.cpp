@@ -2,8 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2013 Vlad Vasilyeu
- * Copyright (C) 2010-2011 Tanya Makova
+ * Copyright (C) 2006-2015 Vlad Vasilyeu
  *     for the code
  *
  * Copyright (C) 2008 Andrew Zhilin
@@ -103,7 +102,7 @@ main (int argc, char *argv[])
 
     QCoreApplication a(argc, argv);
     textdomain("omweather");
-    bindtextdomain("omweather", "/opt/com.meecast.omweather/share/locale");
+    bindtextdomain("omweather", "/usr/share/harbour-meecast/share/locale");
 
     config = create_and_fill_config();
     /* Check time for previous updating */
@@ -184,6 +183,8 @@ main (int argc, char *argv[])
         QDateTime t;
         t.setTime_t(dp->LastUpdate());
         QString description ="";
+
+        std::cerr<<"Send DBUS message"<< std::endl;
         dbusclient->SetCurrentData(stationname.fromUtf8(config->stationname().c_str()),
                                    temp, temp_high, temp_low, 
                                    icon_string, description.fromUtf8(temp_data->Text().c_str()),

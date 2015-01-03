@@ -17,13 +17,13 @@ CONFIG += dbus \
     link_pkgconfig 
 
 
-HEADERS = meegotouchplugin.h dbusadaptor.h eventfeedif.h  weatherdataif.h \
+HEADERS = meegotouchplugin.h dbusadaptor.h ambiencedif.h weatherdataif.h \
     ../dconf/dconfvalue.h \
     ../dconf/mdconf_p.h \
     ../dconf/mdconfitem.h \
     ../dconf/dconfmigration.h
 
-SOURCES = meegotouchplugin.cpp dbusadaptor.cpp eventfeedif.cpp  weatherdataif.cpp \
+SOURCES = meegotouchplugin.cpp dbusadaptor.cpp ambiencedif.cpp weatherdataif.cpp \
     ../dconf/dconfvalue.cpp \
     ../dconf/mdconf.cpp \
     ../dconf/mdconfitem.cpp
@@ -49,6 +49,3 @@ package.files = *.deb
 datasmallcontour.files += data/smallcontour/*.png
 datasmallcontour.path = /opt/com.meecast.omweather/share/images/smallcontour
 
-contextreg.files = data/meecast.context
-contextreg.path = /usr/share/contextkit/providers
-INSTALLS += contextreg

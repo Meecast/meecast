@@ -27,7 +27,6 @@
 /*******************************************************************************/
 #include "meegotouchplugin.h"
 #include "dbusadaptor.h"
-#include "eventfeedif.h"
 #include "weatherdataif.h"
 #include <QThread>
 #include <QColor>
@@ -37,6 +36,7 @@
 #include <QTimer>
 #include <QtCore>
 #include <QtConcurrent>
+#include <QTemporaryFile>
 
 #include <iostream>
 
@@ -52,7 +52,11 @@
 #endif
 using namespace QtConcurrent;
 
-void drawwallpaper(QImage image, QHash <QString, QString> hash){
+AmbiencedIf* client;
+
+void 
+drawwallpaper(QImage image, QHash <QString, QString> hash){
+    std::cerr<<" drawwallpaper"<<std::endl;
 
     QString temperature_hi = hash["temperature_hi"];
     QString temperature = hash["temperature"];
@@ -63,13 +67,13 @@ void drawwallpaper(QImage image, QHash <QString, QString> hash){
     
     /* Left corner */
     int x = 275;
-    int y = 240;
+    int y = 180;
 
     QSettings *lockscreen_settings;
     lockscreen_settings = new QSettings("/home/nemo/.config/harbour-meecast/lockscreen.conf",QSettings::NativeFormat); 
     QVariant v = lockscreen_settings->value("x_position", int(275));
     x = v.value<int>();
-    v = lockscreen_settings->value("y_position", int(240));
+    v = lockscreen_settings->value("y_position", int(180));
     y = v.value<int>();
 
     
@@ -94,18 +98,19 @@ void drawwallpaper(QImage image, QHash <QString, QString> hash){
     icon.load(iconpath);
     paint.drawImage(point, icon.scaledToHeight(128, Qt::SmoothTransformation)); 
         
+
     /* Station */
     if (stationname.length() > 21)
-        paint.setFont(QFont("Nokia Pure Light", 13));
+        paint.setFont(QFont("Sail Sans Pro Light", 13));
     else
         if (stationname.length() > 18)
-            paint.setFont(QFont("Nokia Pure Light", 15));
+            paint.setFont(QFont("Sail Sans Pro Light", 15));
         else
-            paint.setFont(QFont("Nokia Pure Light", 18));
+            paint.setFont(QFont("Sail Sans Pro Light", 18));
     paint.drawText( x + 1, y, 196, 28, Qt::AlignHCenter, stationname.mid(0, 23));
 
     /* Temperature */
-    paint.setFont(QFont("Nokia Pure", 22));
+    paint.setFont(QFont("Droid Serif", 22));
     if (temperature == "N/A" || temperature == ""){
         QString temp_string = temperature_hi + QString::fromUtf8("°");
         paint.drawText(x + 10, y + 40, 60, 40, Qt::AlignHCenter, temp_string); 
@@ -113,13 +118,14 @@ void drawwallpaper(QImage image, QHash <QString, QString> hash){
         paint.drawText(x + 10, y + 80, 60, 40, Qt::AlignHCenter, temp_string); 
     }else{
         if (hash["current"] == "TRUE")
-            paint.setFont(QFont("Nokia Pure Bold", 24));
+            paint.setFont(QFont("Droid Serif Bold", 24));
         QString temp_string = temperature + QString::fromUtf8("°");
         paint.drawText(x + 10, y + 55, 60, 40, Qt::AlignHCenter, temp_string); 
     }
 
+
     /* Last update */
-    paint.setFont(QFont("Nokia Pure", 13));
+    paint.setFont(QFont("Droid Sans", 13));
     paint.drawText(x + 10, y + 138, 170, 35, Qt::AlignHCenter, lastupdate); 
 
     paint.end();
@@ -131,20 +137,31 @@ void drawwallpaper(QImage image, QHash <QString, QString> hash){
         file.close();
     }
 #endif
-
-    image.save("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast.png");
+    QTemporaryFile *tempfile = new QTemporaryFile;
+    if (tempfile->open()){ 
+        image.save(tempfile->fileName()+".png");
+        //image.save("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast.png");
 #if 0
-    // Debug begin
-    if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-        QTextStream out(&file);
-        out <<  "Refreshwallpaper /home/user/.cache/com.meecast.omweather/wallpaper_MeeCast.png  saved \n";
-        file.close();
-    }
+        // Debug begin
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out <<  "Refreshwallpaper /home/user/.cache/com.meecast.omweather/wallpaper_MeeCast.png  saved \n";
+            file.close();
+        }
 #endif
 
-    MDConfItem  wallpaperItem("/desktop/meego/background/portrait/picture_filename"); 
-    wallpaperItem.set("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png");
-    wallpaperItem.set("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast.png");
+        std::cerr<<"Set new wallpaper "<<tempfile->fileName().toStdString().c_str()<<std::endl;
+        MDConfItem  wallpaperItem("/desktop/jolla/background/portrait/home_picture_filename"); 
+    //  wallpaperItem.set("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
+       // wallpaperItem.set("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast.png");
+        wallpaperItem.set(tempfile->fileName()+".png");
+
+    //    client->createAmbience("file:///home/nemo/.cache/harbour-meecast/wallpaper_MeeCast.png");
+// `       client->createAmbience("file://"+tempfile->fileName()+".png");
+
+//        client->refreshAmbiences();
+    }
+//    delete tempfile;
 #if 0
     // Debug begin
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -154,7 +171,6 @@ void drawwallpaper(QImage image, QHash <QString, QString> hash){
     }
 #endif
 }
-
 
 MyMWidget::MyMWidget(){
 
@@ -182,7 +198,7 @@ MyMWidget::MyMWidget(){
       
     
       /* preparing for wallpaper widget */
-      _wallpaperItem = new MDConfItem ("desktop/jolla/background/portrait/home_picture_filename"); 
+      _wallpaperItem = new MDConfItem ("/desktop/jolla/background/portrait/home_picture_filename"); 
       connect(_wallpaperItem, SIGNAL(valueChanged()), this, SLOT(updateWallpaperPath()));
       if (!_wallpaperItem || _wallpaperItem->value() == QVariant::Invalid)
         _wallpaper_path = "/home/nemo/.wallpapers/wallpaper.png";
@@ -243,11 +259,12 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
                           const QString &temperature_high, const QString &temperature_low,  
                           const QString &icon, const QString &description, const uint until_valid_time, bool current, bool lockscreen_param, bool standbyscreen_param, const QString &last_update){
 
+    std::cerr<<"MyMWidget::SetCurrentData"<<std::endl;
    if (lockscreen() && !lockscreen_param){
         this->current(current);
+    std::cerr<<"MyMWidget::SetCurrentData111111111111111111111111"<<std::endl;
 	    _wallpaperItem->set("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
    }
-/* To do check standbyscreen */
    QDateTime utc_time;
    utc_time = QDateTime::currentDateTimeUtc();
 
@@ -340,10 +357,11 @@ void MyMWidget::updateWallpaperPath(){
 
    if (_wallpaperItem && _wallpaperItem->value() != QVariant::Invalid){
          QString new_wallpaper_path = _wallpaperItem->value().toString();
+         std::cerr<<"Update Wallpaper Path "<<new_wallpaper_path.toStdString().c_str()<<std::endl;
 
         if (!(QFile::exists(new_wallpaper_path)))
             return;  
-        if (new_wallpaper_path.indexOf("MeeCast",0) == -1 && new_wallpaper_path != ""){
+        if ( new_wallpaper_path.indexOf("events-meecast",0) == -1 && new_wallpaper_path.indexOf("MeeCast",0) == -1 && new_wallpaper_path != ""){
         
 #if 0
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -355,7 +373,7 @@ void MyMWidget::updateWallpaperPath(){
             _wallpaper_path = new_wallpaper_path;
             this->refreshwallpaper(true);
         }
-    }
+   }
 
 #if 0
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -369,6 +387,7 @@ void MyMWidget::updateWallpaperPath(){
 
 void MyMWidget::refreshwallpaper(bool new_wallpaper){
 
+        std::cerr<<"refreshwallpaper"<<std::endl;
 #if 0	    
 	    // Debug begin
         QFile file("/tmp/1.log");
@@ -381,7 +400,7 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
         QDir dir("/home/nemo/.cache/harbour-meecast");
         
         if (!dir.exists())
-            dir.mkpath("/home/user/.cache/harbour-meecast");
+            dir.mkpath("/home/nemo/.cache/harbour-meecast");
 
 #if 0	    
 	    // Debug begin
@@ -392,6 +411,7 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
         }
 #endif
         if (new_wallpaper){
+            std::cerr<<"Save original file"<<std::endl;
             delete _image;
             _image = new QImage;
             _image->load(_wallpaper_path);
@@ -409,7 +429,6 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
             }
 #endif
         }
-
         if (!lockscreen())
             return;
 #if 0
@@ -420,6 +439,7 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
             file.close();
         }
 #endif
+        
         QHash <QString, QString> hash;
         hash["temperature"] = _temperature;
         hash["temperature_low"] = _temperature_low;
@@ -432,19 +452,20 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
         else
             hash["current"] = "FALSE";
         QFuture<void> f1 =  QtConcurrent::run(drawwallpaper, QImage(_image->copy()), QHash <QString, QString> (hash));
-    }
+}
 
-
+void
+MyMWidget::ambiencedChanged(){
+    std::cerr<<"ambiencedChanged()"<<std::endl;
+}
 
 
 
 int main (int argc, char *argv[]) {
 
-    //QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
+    QGuiApplication app(argc, argv);
 
-    QCoreApplication app(argc, argv);
-    std::cerr<<"11111 "<<std::endl;
-    MDConfItem dconf(QString("desktop/jolla/background/portrait/home_picture_filename"));
+    MDConfItem dconf(QString("/desktop/jolla/background/portrait/home_picture_filename"));
 
     std::cerr<<"22222 "<<std::endl;
     QString Value = dconf.value().toString();;
@@ -452,8 +473,8 @@ int main (int argc, char *argv[]) {
 
     std::cerr<<"4444 "<<std::endl;
 
-   MyMWidget *box;
-   box = new MyMWidget();
+    MyMWidget *box;
+    box = new MyMWidget();
 
    /* D-BUS */
    new MeecastIf(box);
@@ -461,10 +482,10 @@ int main (int argc, char *argv[]) {
    QDBusConnection connection = QDBusConnection::sessionBus();
    bool ret = connection.registerService("com.meecast.applet");
    ret = connection.registerObject("/com/meecast/applet", box);
-   //  signal sender=:1.9 -> dest=(null destination) serial=5824 path=/eventfeed; interface=com.nokia.home.EventFeed; member=refreshRequested
-   EventFeedIf* client =  new EventFeedIf("com.nokia.home.EventFeed", "/eventfeed",
+   //AmbiencedIf* client =  new AmbiencedIf("com.jolla.ambienced", "com/jolla/ambienced",
+   client =  new AmbiencedIf("com.jolla.ambienced", "/com/jolla/ambienced",
                                            QDBusConnection::sessionBus(), 0); 
-   QObject::connect(client, SIGNAL(refreshRequested()), box, SLOT(refreshRequested()));  
+   QObject::connect(client, SIGNAL(contentChanged(int)), box, SLOT(ambiencedChanged()));  
 
    QTimer::singleShot(1000, box, SLOT(refreshRequested()));
 
@@ -481,7 +502,7 @@ int main (int argc, char *argv[]) {
            dir.mkpath("/home/nemo/.cache/harbour-meecast");
 
        MGConfItem *wallpaperItem;
-       wallpaperItem = new MGConfItem ("desktop/jolla/background/portrait/home_picture_filename"); 
+       wallpaperItem = new MGConfItem ("/desktop/jolla/background/portrait/home_picture_filename"); 
 
        if (QFile::exists(wallpaperItem->value().toString()))
            QFile::copy(wallpaperItem->value().toString(),

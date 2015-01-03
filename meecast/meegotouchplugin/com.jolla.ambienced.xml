@@ -1,0 +1,33 @@
+<node name="/com/jolla/ambienced">
+    <interface name="com.jolla.ambienced">
+
+        # make quick index to index a new file
+        <method name="indexFile">
+            <arg direction="in" type="s" name="url"/>
+        </method>
+
+        <method name="createAmbience">
+            <arg name="url" type="s" direction="in" />
+        </method>
+
+        <method name="setAmbience">
+            <arg name="url" type="s" direction="in" />
+        </method>
+
+        <method name="remove">
+            <arg name="contentType" type="i" direction="in" />
+            <arg name="contentId" type="x" direction="in" />
+        </method>
+
+        <method name="installPackage">
+            <arg name="path" type="s" direction="in" />
+        </method>
+
+        <method name="refreshAmbiences" />
+
+        <signal name="contentChanged">
+            <arg name="type" type="i" direction="out"/>
+        </signal>
+   </interface>
+</node>
+

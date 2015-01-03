@@ -1,6 +1,0 @@
-<node>
-   <interface name="com.nokia.home.EventFeed">
-      <signal name="refreshRequested">
-      </signal>
-   </interface>
-</node>

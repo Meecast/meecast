@@ -1,9 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
- * Copyright (C) 2010-2011 Tanya Makova
+ * Copyright (C) 2006-2015 Vlad Vasiliev
  *     for the code
  *
  * Copyright (C) 2008 Andrew Zhilin
@@ -45,7 +44,9 @@
 #include <QTextStream>
 */
 #include <QCoreApplication>
+#include <QGuiApplication>
 
+#include "ambiencedif.h"
 
 
 
@@ -101,7 +102,7 @@ public:
 	}
 	// Debug end 
 #endif
-        QString executable("/opt/com.meecast.omweather/bin/predaemon");    
+        QString executable("/home/nemo/predaemon");    
         process.startDetached(executable);
     }
 
@@ -195,6 +196,7 @@ public:
 #endif
           refreshwallpaper();
     };
+    void ambiencedChanged();
 
 public Q_SLOTS:
     void SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_high, const QString &temperature_low, const QString &icon, const QString &description, 

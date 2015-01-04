@@ -77,6 +77,7 @@ drawwallpaper(QImage image, QHash <QString, QString> hash){
     x = v.value<int>();
     v = lockscreen_settings->value("y_position", int(180));
     y = v.value<int>();
+    delete lockscreen_settings;
 
     
     QPainter paint;
@@ -141,7 +142,9 @@ drawwallpaper(QImage image, QHash <QString, QString> hash){
 #endif
     if (tempfile)
         delete tempfile;
-    tempfile = new QTemporaryFile("/home/nemo/.cache/harbour-meecast/meecast.XXXXXXX.png");
+//    QString path = "/home/nemo/.cache/harbour-meecast/meecast." + QDateTime::currentDateTime().
+    QString path = "/home/nemo/.cache/harbour-meecast/meecast." + QString::number(QDateTime::currentMSecsSinceEpoch()) + ".XXXXXXX.png";
+    tempfile = new QTemporaryFile(path);
     if (tempfile->open()){ 
         image.save(tempfile->fileName());
         std::cerr<<"Set new wallpaper "<<tempfile->fileName().toStdString().c_str()<<std::endl;
@@ -171,9 +174,9 @@ MyMWidget::MyMWidget(){
       _lockscreen = false;
       _standbyscreen = false;
       _timer = new QTimer(this);
+      _timer->setSingleShot(true);
       _lazyrenderingtimer = new QTimer(this);
       _lazyrenderingtimer->setSingleShot(true);
-      _timer->setSingleShot(true);
       _down = false;
       
     
@@ -219,9 +222,10 @@ MyMWidget::MyMWidget(){
 }
  
 MyMWidget::~MyMWidget(){
-    delete _image;
     delete _timer;
     delete _lazyrenderingtimer;
+    delete _wallpaperItem; 
+    delete _image;
 }
 
 QString 
@@ -273,7 +277,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
    this->lastupdate(last_update);
    this->description(description);
 
-   /* std::cerr<<"MyMWidget::SetCurrentData pre refreshview"<<std::endl; */
+   std::cerr<<"MyMWidget::SetCurrentData pre refreshview"<<std::endl; 
    _lazyrenderingtimer->start(3000);
   // this->refreshview();
 
@@ -385,7 +389,7 @@ void MyMWidget::updateWallpaperPath(){
 void 
 MyMWidget::refreshwallpaper(bool new_wallpaper){
 
-    /* std::cerr<<"refreshwallpaper"<<std::endl; */
+     std::cerr<<"refreshwallpaper"<<std::endl; 
 #if 0	    
 	    // Debug begin
         QFile file("/tmp/1.log");
@@ -438,6 +442,7 @@ MyMWidget::refreshwallpaper(bool new_wallpaper){
 
 void 
 MyMWidget::refreshview(){
+    std::cerr<<"MyMWidget::refreshview()"<<std::endl;
 #if 0
         // Debug begin
         QFile file("/tmp/1.log");
@@ -467,7 +472,7 @@ int main (int argc, char *argv[]) {
     tempfile = NULL;
 
     QGuiApplication app(argc, argv);
-
+/*
     MDConfItem dconf(QString("/desktop/jolla/background/portrait/home_picture_filename"));
 
     std::cerr<<"22222 "<<std::endl;
@@ -475,7 +480,7 @@ int main (int argc, char *argv[]) {
     std::cerr<<Value.toStdString().c_str()<<std::endl;
 
     std::cerr<<"4444 "<<std::endl;
-
+*/
     box = new MyMWidget();
 
     /* D-BUS */

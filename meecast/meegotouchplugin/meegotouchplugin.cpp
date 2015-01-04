@@ -39,6 +39,7 @@
 #include <QTemporaryFile>
 
 #include <iostream>
+#include <signal.h>
 
 
 // Debug
@@ -53,6 +54,8 @@
 using namespace QtConcurrent;
 
 QTemporaryFile *tempfile;
+MyMWidget *box;
+
 void 
 drawwallpaper(QImage image, QHash <QString, QString> hash){
     std::cerr<<" drawwallpaper"<<std::endl;
@@ -447,6 +450,17 @@ MyMWidget::refreshview(){
           refreshwallpaper();
 };
 
+void 
+signalhandler(int sig) {
+    delete box;
+    std::cerr<<"signalhandler"<<std::endl;
+    if (sig == SIGINT) {
+        qApp->quit();
+    }
+    else if (sig == SIGTERM) {
+        qApp->quit();
+    }
+}
 
 int main (int argc, char *argv[]) {
     tempfile = NULL;
@@ -461,7 +475,6 @@ int main (int argc, char *argv[]) {
 
     std::cerr<<"4444 "<<std::endl;
 
-    MyMWidget *box;
     box = new MyMWidget();
 
     /* D-BUS */
@@ -492,6 +505,8 @@ int main (int argc, char *argv[]) {
             QFile::copy(wallpaperItem->value().toString(),
                     "/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png"); 
     }
+    signal(SIGINT, signalhandler);
+    signal(SIGTERM, signalhandler);
 
     int result = app.exec();
     return result;

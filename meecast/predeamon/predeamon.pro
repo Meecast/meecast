@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 
-TARGET = predaemon 
+TARGET = meecast_predaemon 
 TEMPLATE = app
 
 
@@ -61,6 +61,6 @@ system(pkg-config --exists Qt5Xml) {
 
 
 #install
-target.path = /opt/com.meecast.omweather/bin
+target.path = /usr/bin
 INSTALLS += target 
 

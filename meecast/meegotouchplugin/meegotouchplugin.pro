@@ -32,7 +32,7 @@ SOURCES = meegotouchplugin.cpp dbusadaptor.cpp weatherdataif.cpp \
 TARGET = meecastd
 DESTDIR = bin 
 target.path += /usr/lib/meegotouch/applicationextensions/ 
-INSTALLS += target meecastdservice desktop_entry applet package datasmallcontour
+INSTALLS += target meecastdservice
 
 meecastdservice.files = $${TARGET}.service
 meecastdservice.path = /usr/lib/systemd/user

@@ -219,6 +219,7 @@ MyMWidget::MyMWidget(){
 }
  
 MyMWidget::~MyMWidget(){
+    delete _image;
     delete _timer;
     delete _lazyrenderingtimer;
 }

@@ -46,6 +46,13 @@ BuildRequires: qt5-qtpositioning-devel
 %description
 MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code
 
+%package meecastd
+Version: 0.1
+Summary: Daemon for Weather forecast application MeeCast on SailfishOS
+Group:      Utility
+License:    GPLv2.1
+%description meecastd
+MeeCastd - daemon for multiplatform highly customizable open source weather forecast client based on OMWeather code
 
 
 %prep
@@ -88,6 +95,13 @@ desktop-file-install --delete-original       \
 #/usr/share/iconsets
 /usr/share/icons/hicolor/86x86/apps
 #/opt/com.meecast.omweather/share
+
+%files meecastd
+%defattr(-,root,root,-)
+/usr/bin/meecastd
+/usr/bin/meecast_predaemon
+/usr/lib/systemd/user/meecastd.service
+
 
 %changelog
 * Mon Dec 22 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.14

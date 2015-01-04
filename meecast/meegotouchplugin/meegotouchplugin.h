@@ -92,7 +92,7 @@ public:
 	}
 	// Debug end 
 #endif
-        QString executable("/home/nemo/predaemon");    
+        QString executable("/usr/bin/meecast_predaemon");    
         process.startDetached(executable);
     }
 

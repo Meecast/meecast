@@ -29,11 +29,14 @@ SOURCES = meegotouchplugin.cpp dbusadaptor.cpp weatherdataif.cpp \
     ../dconf/mdconfitem.cpp
 
 
-TARGET = $$qtLibraryTarget(events-meecast)
-#TARGET = test
-DESTDIR = lib
+TARGET = meecastd
+DESTDIR = bin 
 target.path += /usr/lib/meegotouch/applicationextensions/ 
-INSTALLS += target desktop_entry applet package datasmallcontour
+INSTALLS += target meecastdservice desktop_entry applet package datasmallcontour
+
+meecastdservice.files = $${TARGET}.service
+meecastdservice.path = /usr/lib/systemd/user
+
 
 #desktop_entry.path =  /usr/share/meegotouch/applicationextensions/ 
 desktop_entry.path =  /opt/com.meecast.omweather/share/applet 

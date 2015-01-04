@@ -65,7 +65,8 @@ private:
     bool    _current;
     bool    _lockscreen;
     bool    _standbyscreen;
-    QTimer  *_timer;
+    QTimer  *_timer; /* Main timer */
+    QTimer  *_lazyrenderingtimer; /* Timer lazy rendering */
     MDConfItem *_wallpaperItem;
     MDConfItem *_standbyItem;
     MDConfItem *_original_wallpaperItem;
@@ -79,16 +80,6 @@ public:
     ~MyMWidget();
    
     void refreshwallpaper(bool new_wallpaper = false);
-
-    Q_INVOKABLE void startapplication(){
-        QString executable("/usr/bin/invoker");    
-        QStringList arguments;
-        arguments << "--single-instance";
-        arguments << "--splash=/home/user/.cache/com.meecast.omweather/splash.png";
-        arguments << "--type=d";
-        arguments <<"/opt/com.meecast.omweather/bin/omweather-qml";	
-        process.startDetached(executable, arguments);
-    }
 
     Q_INVOKABLE void startpredeamon(){
 #if 0
@@ -182,21 +173,6 @@ public:
         return _standbyscreen;
     }
 
-    void refreshview(){
-#if 0
-        // Debug begin
-        QFile file("/tmp/1.log");
-        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-            QTextStream out(&file);
-            out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "refreshview"<< " \n";
-            file.close();
-        }
-        // Debug end 
-#endif
-          refreshwallpaper();
-    };
-    void ambiencedChanged();
-
 public Q_SLOTS:
     void SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_high, const QString &temperature_low, const QString &icon, const QString &description, 
                         const uint until_valid_time, bool current, bool lockscreen_param, bool standbyscreen_param, const QString &last_update);
@@ -206,6 +182,7 @@ public Q_SLOTS:
     void refreshRequested();
     void updateWallpaperPath();
     void updateStandbyPath();
+    void refreshview();
 signals:
     void iconChanged();
     void stationChanged();

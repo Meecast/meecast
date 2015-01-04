@@ -168,6 +168,8 @@ MyMWidget::MyMWidget(){
       _lockscreen = false;
       _standbyscreen = false;
       _timer = new QTimer(this);
+      _lazyrenderingtimer = new QTimer(this);
+      _lazyrenderingtimer->setSingleShot(true);
       _timer->setSingleShot(true);
       _down = false;
       
@@ -202,6 +204,7 @@ MyMWidget::MyMWidget(){
       }
 
       connect(_timer, SIGNAL(timeout()), this, SLOT(update_data()));
+      connect(_lazyrenderingtimer, SIGNAL(timeout()), this, SLOT(refreshview()));
 #if 0
     // Debug begin
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -214,6 +217,7 @@ MyMWidget::MyMWidget(){
  
 MyMWidget::~MyMWidget(){
     delete _timer;
+    delete _lazyrenderingtimer;
 }
 
 QString 
@@ -234,11 +238,12 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
                           const QString &temperature_high, const QString &temperature_low,  
                           const QString &icon, const QString &description, const uint until_valid_time, bool current, bool lockscreen_param, bool standbyscreen_param, const QString &last_update){
 
-    std::cerr<<"MyMWidget::SetCurrentData"<<std::endl;
+   std::cerr<<"MyMWidget::SetCurrentData"<<std::endl;
    if (lockscreen() && !lockscreen_param){
         this->current(current);
 	    _wallpaperItem->set("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
    }
+   /* Check similar data */
    if ((this->temperature() == temperature) &&
        (this->temperature_high() == temperature_high) &&
        (this->temperature_low() == temperature_low) &&
@@ -263,7 +268,10 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
    this->standbyscreen(standbyscreen_param);
    this->lastupdate(last_update);
    this->description(description);
-   this->refreshview();
+
+   /* std::cerr<<"MyMWidget::SetCurrentData pre refreshview"<<std::endl; */
+   _lazyrenderingtimer->start(3000);
+  // this->refreshview();
 
    if ((until_valid_time - utc_time.toTime_t()) > 0 && 
        (until_valid_time - utc_time.toTime_t()) < 12* 3600){
@@ -370,9 +378,10 @@ void MyMWidget::updateWallpaperPath(){
 #endif
 }
 
-void MyMWidget::refreshwallpaper(bool new_wallpaper){
+void 
+MyMWidget::refreshwallpaper(bool new_wallpaper){
 
-        std::cerr<<"refreshwallpaper"<<std::endl;
+    /* std::cerr<<"refreshwallpaper"<<std::endl; */
 #if 0	    
 	    // Debug begin
         QFile file("/tmp/1.log");
@@ -387,14 +396,6 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
         if (!dir.exists())
             dir.mkpath("/home/nemo/.cache/harbour-meecast");
 
-#if 0	    
-	    // Debug begin
-        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-            QTextStream out(&file);
-            out <<  "Refreshwallpaper "<<_wallpaper_path<< " \n";
-            file.close();
-        }
-#endif
         if (new_wallpaper){
             std::cerr<<"Save original file"<<std::endl;
             delete _image;
@@ -405,14 +406,6 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
                 _image->setDotsPerMeterY(3780);
             }
             _image->save("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
-#if 0
-            // Debug begin
-            if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-                QTextStream out(&file);
-                out <<  "Refreshwallpaper saved "<<_wallpaper_path<< " to original\n";
-                file.close();
-            }
-#endif
         }
         if (!lockscreen())
             return;
@@ -439,11 +432,20 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
         QFuture<void> f1 =  QtConcurrent::run(drawwallpaper, QImage(_image->copy()), QHash <QString, QString> (hash));
 }
 
-void
-MyMWidget::ambiencedChanged(){
-    std::cerr<<"ambiencedChanged()"<<std::endl;
-}
-
+void 
+MyMWidget::refreshview(){
+#if 0
+        // Debug begin
+        QFile file("/tmp/1.log");
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "refreshview"<< " \n";
+            file.close();
+        }
+        // Debug end 
+#endif
+          refreshwallpaper();
+};
 
 
 int main (int argc, char *argv[]) {
@@ -462,49 +464,35 @@ int main (int argc, char *argv[]) {
     MyMWidget *box;
     box = new MyMWidget();
 
-   /* D-BUS */
-   new MeecastIf(box);
-   new WeatherDataIf(box);
-   QDBusConnection connection = QDBusConnection::sessionBus();
-   bool ret = connection.registerService("com.meecast.applet");
-   ret = connection.registerObject("/com/meecast/applet", box);
+    /* D-BUS */
+    new MeecastIf(box);
+    new WeatherDataIf(box);
+    QDBusConnection connection = QDBusConnection::sessionBus();
+    bool ret = connection.registerService("com.meecast.applet");
+    ret = connection.registerObject("/com/meecast/applet", box);
+ 
+    QTimer::singleShot(1000, box, SLOT(refreshRequested()));
+ 
+    ret = connection.registerService("com.meecast.data");
+    ret = connection.registerObject("/com/meecast/data", box);
+    //WeatherDataIf* data_client =  new WeatherDataIf("com.meecast.data", "/",
+    //                                        QDBusConnection::sessionBus(), 0); 
+    //QObject::connect(data_client, SIGNAL(GetCurrentWeather()), box, SLOT(refreshRequested()));  
+ 
+    /* Copy wallpaper */
+    if (!(QFile::exists("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png"))){
+        QDir dir("/home/nemo/.cache/harbour-meecast");
+        if (!dir.exists())
+            dir.mkpath("/home/nemo/.cache/harbour-meecast");
+ 
+        MGConfItem *wallpaperItem;
+        wallpaperItem = new MGConfItem ("/desktop/jolla/background/portrait/home_picture_filename"); 
+ 
+        if (QFile::exists(wallpaperItem->value().toString()))
+            QFile::copy(wallpaperItem->value().toString(),
+                    "/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png"); 
+    }
 
-   QTimer::singleShot(1000, box, SLOT(refreshRequested()));
-
-   ret = connection.registerService("com.meecast.data");
-   ret = connection.registerObject("/com/meecast/data", box);
-   //WeatherDataIf* data_client =  new WeatherDataIf("com.meecast.data", "/",
-   //                                        QDBusConnection::sessionBus(), 0); 
-   //QObject::connect(data_client, SIGNAL(GetCurrentWeather()), box, SLOT(refreshRequested()));  
-
-   /* Copy wallpaper */
-   if (!(QFile::exists("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png"))){
-       QDir dir("/home/nemo/.cache/harbour-meecast");
-       if (!dir.exists())
-           dir.mkpath("/home/nemo/.cache/harbour-meecast");
-
-       MGConfItem *wallpaperItem;
-       wallpaperItem = new MGConfItem ("/desktop/jolla/background/portrait/home_picture_filename"); 
-
-       if (QFile::exists(wallpaperItem->value().toString()))
-           QFile::copy(wallpaperItem->value().toString(),
-                   "/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png"); 
-   }
-
-
-
-//    MApplication app(argc, argv);
-//    MApplicationWindow window;
-//    window.showFullScreen();
-//    MApplicationPage page;
-//    page.setPannable(false);
-//    page.appear(MApplication::instance()->activeWindow());
-
-//    WeatherApplicationExtension *WAE;
-//    WAE = new WeatherApplicationExtension();
-//    WAE->initialize("dddd");
-
-//    page.setCentralWidget(WAE->widget());
     int result = app.exec();
     return result;
 }

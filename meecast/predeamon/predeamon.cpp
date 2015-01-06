@@ -30,6 +30,12 @@
 #include "dbusadaptor_applet.h"
 #include <libintl.h>
 #include <locale.h>
+// Debug
+
+#include <QFile>
+#include <QTextStream>
+
+
 #define _(String) gettext(String)
 #define DATA_XSD_PATH "/opt/com.meecast.omweather/share/xsd/data.xsd"
 void init_omweather_core(void);
@@ -137,8 +143,30 @@ main (int argc, char *argv[])
 //        current_day = current_day + 3600*dp->timezone();
 
     current_day = mktime(tm);
+//#if 0
+      // Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "Predeamon "<<"\n";
+	    file.close();
+	}
+	// Debug end 
+//#endif
+
     /* fill current date */
     if (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL)))) {
+//#if 0
+      // Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "Predeamon2 "<<"\n";
+	    file.close();
+	}
+	// Debug end 
+//#endif
+
         QString icon_string =  config->iconspath().c_str();
         QString icon_number;
         icon_string.append("/") ;

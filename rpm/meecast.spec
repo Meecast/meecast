@@ -36,6 +36,7 @@ BuildRequires:  pkgconfig(dbus-glib-1)
 BuildRequires:  pkgconfig(libxml-2.0)
 #BuildRequires:  libxml2-devel
 BuildRequires:  gettext
+BuildRequires:  pkgconfig(dconf) 
 #BuildRequires:  libqt-devel
 BuildRequires: qt5-qtpositioning-devel
 #Requires:      qt5-qtpositioning 

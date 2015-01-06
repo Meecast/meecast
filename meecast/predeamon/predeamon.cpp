@@ -106,6 +106,17 @@ main (int argc, char *argv[])
   QString temp_high;
   QString temp_low;
 
+//#if 0
+      // Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "Predeamon beginn";
+	    file.close();
+	}
+	// Debug end 
+//#endif
+
     QCoreApplication a(argc, argv);
     textdomain("omweather");
     bindtextdomain("omweather", "/usr/share/harbour-meecast/share/locale");

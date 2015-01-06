@@ -67,6 +67,7 @@ private:
     bool    _standbyscreen;
     QTimer  *_timer; /* Main timer */
     QTimer  *_lazyrenderingtimer; /* Timer lazy rendering */
+    QTimer  *_additionaltimer; /* Additional Timer */
     MDConfItem *_wallpaperItem;
     MDConfItem *_standbyItem;
     MDConfItem *_original_wallpaperItem;
@@ -81,20 +82,7 @@ public:
    
     void refreshwallpaper(bool new_wallpaper = false);
 
-    Q_INVOKABLE void startpredeamon(){
-//#if 0
-	// Debug begin
-	QFile file("/tmp/1.log");
-	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-	    QTextStream out(&file);
-	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "startpredeamon "<< _stationname<< "\n";
-	    file.close();
-	}
-	// Debug end 
-//#endif
-        QString executable("/usr/bin/meecast_predaemon");    
-        process.startDetached(executable);
-    }
+    Q_INVOKABLE void startpredeamon(); 
 
 
     void icon(const QString &iconpath){
@@ -179,6 +167,7 @@ public Q_SLOTS:
 
     QString GetCurrentWeather(QString &temperature, QString &temperature_hi, QString &temperature_low, QString &icon, QString &description, bool &current, QString &last_update);
     void update_data();
+    void intervalupdate();
     void refreshRequested();
     void updateWallpaperPath();
     void updateStandbyPath();

@@ -165,20 +165,21 @@ MyMWidget::MyMWidget(){
 	}
 #endif
 
-      _stationname = "Unknown";
-      _temperature = "";
-      _temperature_low = "";
-      _temperature_high = "";
-      _iconpath = "/usr/share/harbour-meecast/iconsets/Meecast/49.png";
-      _current = false;
-      _lockscreen = false;
-      _standbyscreen = false;
-      _timer = new QTimer(this);
-      _timer->setSingleShot(true);
-      _lazyrenderingtimer = new QTimer(this);
-      _lazyrenderingtimer->setSingleShot(true);
-      _down = false;
-      
+        _stationname = "Unknown";
+        _temperature = "";
+        _temperature_low = "";
+        _temperature_high = "";
+        _iconpath = "/usr/share/harbour-meecast/iconsets/Meecast/49.png";
+        _current = false;
+        _lockscreen = false;
+        _standbyscreen = false;
+        _timer = new QTimer(this);
+        _timer->setSingleShot(true);
+        _lazyrenderingtimer = new QTimer(this);
+        _lazyrenderingtimer->setSingleShot(true);
+        _additionaltimer = new QTimer(this);
+        _down = false;
+                
     
       /* preparing for wallpaper widget */
       _wallpaperItem = new MDConfItem ("/desktop/jolla/background/portrait/home_picture_filename"); 
@@ -211,6 +212,8 @@ MyMWidget::MyMWidget(){
 
       connect(_timer, SIGNAL(timeout()), this, SLOT(update_data()));
       connect(_lazyrenderingtimer, SIGNAL(timeout()), this, SLOT(refreshview()));
+      connect(_additionaltimer, SIGNAL(timeout()), this, SLOT(intervalupdate()));
+      _additionaltimer->start(3600000/4); /* Every 15 minutes */
 #if 0
     // Debug begin
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -222,6 +225,7 @@ MyMWidget::MyMWidget(){
 }
  
 MyMWidget::~MyMWidget(){
+    delete _additionaltimer;
     delete _timer;
     delete _lazyrenderingtimer;
     delete _wallpaperItem; 
@@ -457,6 +461,37 @@ MyMWidget::refreshview(){
 #endif
           refreshwallpaper();
 };
+
+void 
+MyMWidget::startpredeamon(){
+//#if 0
+	// Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "startpredeamon "<< _stationname<< "\n";
+	    file.close();
+	}
+	// Debug end 
+//#endif
+    QString executable("/usr/bin/meecast_predaemon"); 
+    process.startDetached(executable);
+}
+
+void 
+MyMWidget::intervalupdate(){
+//#if 0
+	// Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "interval update "<< "\n";
+	    file.close();
+	}
+	// Debug end 
+//#endif
+}
+
 
 void 
 signalhandler(int sig) {

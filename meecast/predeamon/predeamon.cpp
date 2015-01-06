@@ -156,7 +156,7 @@ main (int argc, char *argv[])
     current_day = mktime(tm);
 //#if 0
       // Debug begin
-	QFile file("/tmp/1.log");
+	//QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "Predeamon "<<"\n";
@@ -169,7 +169,7 @@ main (int argc, char *argv[])
     if (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL)))) {
 //#if 0
       // Debug begin
-	QFile file("/tmp/1.log");
+//	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "Predeamon2 "<<"\n";

@@ -39,10 +39,10 @@
 
 #include "../dconf/dconfvalue.h"
 // Debug
-/*
+
 #include <QFile>
 #include <QTextStream>
-*/
+
 #include <QCoreApplication>
 #include <QGuiApplication>
 
@@ -82,7 +82,7 @@ public:
     void refreshwallpaper(bool new_wallpaper = false);
 
     Q_INVOKABLE void startpredeamon(){
-#if 0
+//#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -91,7 +91,7 @@ public:
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
         QString executable("/usr/bin/meecast_predaemon");    
         process.startDetached(executable);
     }

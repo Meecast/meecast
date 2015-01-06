@@ -283,19 +283,19 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
 
    if ((until_valid_time - utc_time.toTime_t()) > 0 && 
        (until_valid_time - utc_time.toTime_t()) < 12* 3600){
-#if 0
+//#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
-	    out << station << " "<< publisher->path() <<" "<< QCoreApplication::organizationDomain() <<" "<<QCoreApplication::applicationName() <<" "<< QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "SetCurrentData next call "<< (until_valid_time - utc_time.toTime_t())<<"s "<<((until_valid_time - utc_time.toTime_t()+60)*1000)<<"ms\n";
+	    out << station << " "<<  QCoreApplication::organizationDomain() <<" "<<QCoreApplication::applicationName() <<" "<< QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "SetCurrentData next call "<< (until_valid_time - utc_time.toTime_t())<<"s "<<((until_valid_time - utc_time.toTime_t()+60)*1000)<<"ms\n";
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
         _timer->start(((until_valid_time - utc_time.toTime_t() + 60)*1000));
    }else{
-#if 0
+//#if 0
       // Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -304,7 +304,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
         _timer->start(3600000);
    }
 
@@ -324,7 +324,7 @@ MyMWidget::refreshRequested(){
     this->startpredeamon();
 }
 void MyMWidget::update_data(){
-#if 0
+//#if 0
     // Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -333,11 +333,13 @@ void MyMWidget::update_data(){
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
     QNetworkConfigurationManager m_network;
     if  (m_network.isOnline()){
         fprintf(stderr," Connection!!!!!!!!!!!!!!!\n");
         this->startpredeamon();
+    }else{
+        _timer->start(3600000/4); /* Every 15 minutes */
     }
 }
 void MyMWidget::updateStandbyPath(){

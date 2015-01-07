@@ -38,6 +38,7 @@
 #include <QNetworkConfigurationManager>
 
 #include "../dconf/dconfvalue.h"
+#include "keepalive/backgroundactivity.h"
 // Debug
 
 #include <QFile>
@@ -45,6 +46,12 @@
 
 #include <QCoreApplication>
 #include <QGuiApplication>
+
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QNetworkAccessManager>
+#include <QNetworkConfigurationManager>
+#include <QNetworkSession>
 
 
 
@@ -65,9 +72,8 @@ private:
     bool    _current;
     bool    _lockscreen;
     bool    _standbyscreen;
-    QTimer  *_timer; /* Main timer */
     QTimer  *_lazyrenderingtimer; /* Timer lazy rendering */
-    QTimer  *_additionaltimer; /* Additional Timer */
+    BackgroundActivity *keepalive;
     MDConfItem *_wallpaperItem;
     MDConfItem *_standbyItem;
     MDConfItem *_original_wallpaperItem;
@@ -75,12 +81,25 @@ private:
     QImage *_image;
     QImage *_events_image;
     bool _down;
+    bool _isOnline;
+    uint _next_time_for_check;
+
+
+    QNetworkAccessManager* nam;
+    QNetworkConfigurationManager *manager;
+
+
+private slots:
+    void networkStatusChanged(bool isOnline);
+    void connectionActivated();
+    void connectionDeactivated();
 public:
 
     MyMWidget();
     ~MyMWidget();
    
     void refreshwallpaper(bool new_wallpaper = false);
+    void updateIntervalChanged(int interval);
 
     Q_INVOKABLE void startpredeamon(); 
 
@@ -172,6 +191,9 @@ public Q_SLOTS:
     void updateWallpaperPath();
     void updateStandbyPath();
     void refreshview();
+    void checkActivity();
+    void wakeupStopped();
+    bool isNetworkAvailable();
 signals:
     void iconChanged();
     void stationChanged();

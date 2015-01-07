@@ -58,7 +58,7 @@ MyMWidget *box;
 
 void 
 drawwallpaper(QImage image, QHash <QString, QString> hash){
-    std::cerr<<" drawwallpaper"<<std::endl;
+    /* std::cerr<<" drawwallpaper"<<std::endl; */
 
     QString temperature_hi = hash["temperature_hi"];
     QString temperature = hash["temperature"];
@@ -154,66 +154,100 @@ drawwallpaper(QImage image, QHash <QString, QString> hash){
 }
 
 MyMWidget::MyMWidget(){
-
         
-#if 0
+//#if 0
     QFile file("/tmp/1.log");
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "Begin PreInit MyWidget ."<<".\n";
 	    file.close();
 	}
-#endif
+//#endif
 
-        _stationname = "Unknown";
-        _temperature = "";
-        _temperature_low = "";
-        _temperature_high = "";
-        _iconpath = "/usr/share/harbour-meecast/iconsets/Meecast/49.png";
-        _current = false;
-        _lockscreen = false;
-        _standbyscreen = false;
-        _timer = new QTimer(this);
-        _timer->setSingleShot(true);
-        _lazyrenderingtimer = new QTimer(this);
-        _lazyrenderingtimer->setSingleShot(true);
-        _additionaltimer = new QTimer(this);
-        _down = false;
-                
+    _stationname = "Unknown";
+    _temperature = "";
+    _temperature_low = "";
+    _temperature_high = "";
+    _iconpath = "/usr/share/harbour-meecast/iconsets/Meecast/49.png";
+    _current = false;
+    _lockscreen = false;
+    _standbyscreen = false;
+    _lazyrenderingtimer = new QTimer(this);
+    _lazyrenderingtimer->setSingleShot(true);
+    _down = false;
+            
     
-      /* preparing for wallpaper widget */
-      _wallpaperItem = new MDConfItem ("/desktop/jolla/background/portrait/home_picture_filename"); 
-      connect(_wallpaperItem, SIGNAL(valueChanged()), this, SLOT(updateWallpaperPath()));
-      if (!_wallpaperItem || _wallpaperItem->value() == QVariant::Invalid)
-        _wallpaper_path = "/home/nemo/.wallpapers/wallpaper.png";
-      else{
+    /* preparing for wallpaper widget */
+    _wallpaperItem = new MDConfItem ("/desktop/jolla/background/portrait/home_picture_filename"); 
+    connect(_wallpaperItem, SIGNAL(valueChanged()), this, SLOT(updateWallpaperPath()));
+    if (!_wallpaperItem || _wallpaperItem->value() == QVariant::Invalid)
+    _wallpaper_path = "/home/nemo/.wallpapers/wallpaper.png";
+    else{
 #if 0
-          // Debug begin
-	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+      // Debug begin
+    if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+    QTextStream out(&file);
+    out <<  "PreInit MyWidget ."<<_wallpaperItem->value().toString()<<".\n";
+    file.close();
+    }
+#endif
+    _wallpaper_path = _wallpaperItem->value().toString();
+    if (_wallpaper_path.indexOf("MeeCast",0) != -1){
+        _wallpaper_path = "/home/nemo/.cache/harbour-meecastr/wallpaper_MeeCast_original.png";
+    }
+    }
+    _image = new QImage;
+    _image->load(_wallpaper_path);
+    if (_image->dotsPerMeterX() != 3780 || _image->dotsPerMeterY() != 3780 ){
+    _image->setDotsPerMeterX(3780);
+    _image->setDotsPerMeterY(3780);
+    }
+    if (_wallpaper_path.indexOf("MeeCast",0) == -1){
+    _image->save("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
+    }
+
+    connect(_lazyrenderingtimer, SIGNAL(timeout()), this, SLOT(refreshview()));
+
+    // Network Manager Configutarion
+
+    nam = new QNetworkAccessManager(this);
+
+    manager = new QNetworkConfigurationManager(this);
+    connect(manager,SIGNAL(onlineStateChanged(bool)),
+            this,SLOT(networkStatusChanged(bool)));
+
+    if (manager->isOnline()) {
+//#if 0
+    QFile file("/tmp/1.log");
+    if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
-	    out <<  "PreInit MyWidget ."<<_wallpaperItem->value().toString()<<".\n";
+	    out <<  "Have connection!"<<".\n";
 	    file.close();
 	}
-#endif
-        _wallpaper_path = _wallpaperItem->value().toString();
-        if (_wallpaper_path.indexOf("MeeCast",0) != -1){
-            _wallpaper_path = "/home/nemo/.cache/harbour-meecastr/wallpaper_MeeCast_original.png";
-        }
-      }
-      _image = new QImage;
-      _image->load(_wallpaper_path);
-      if (_image->dotsPerMeterX() != 3780 || _image->dotsPerMeterY() != 3780 ){
-        _image->setDotsPerMeterX(3780);
-        _image->setDotsPerMeterY(3780);
-      }
-      if (_wallpaper_path.indexOf("MeeCast",0) == -1){
-        _image->save("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
-      }
+//#endif
 
-      connect(_timer, SIGNAL(timeout()), this, SLOT(update_data()));
-      connect(_lazyrenderingtimer, SIGNAL(timeout()), this, SLOT(refreshview()));
-      connect(_additionaltimer, SIGNAL(timeout()), this, SLOT(intervalupdate()));
-      _additionaltimer->start(3600000/4); /* Every 15 minutes */
+    }
+    else {
+//#if 0
+    QFile file("/tmp/1.log");
+    if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  "Have no connection!"<<".\n";
+	    file.close();
+	}
+//#endif
+    }
+
+
+
+    keepalive = new BackgroundActivity(this);
+    connect(keepalive, SIGNAL(running()), this, SLOT(checkActivity()));
+    connect(keepalive, SIGNAL(stopped()), this, SLOT(wakeupStopped()));
+    keepalive->setWakeupFrequency(BackgroundActivity::Range);
+
+    updateIntervalChanged(15*60);
+
+
 #if 0
     // Debug begin
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -225,8 +259,8 @@ MyMWidget::MyMWidget(){
 }
  
 MyMWidget::~MyMWidget(){
-    delete _additionaltimer;
-    delete _timer;
+    delete manager;
+    delete nam;
     delete _lazyrenderingtimer;
     delete _wallpaperItem; 
     delete _image;
@@ -297,7 +331,9 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
 	}
 	// Debug end 
 //#endif
-        _timer->start(((until_valid_time - utc_time.toTime_t() + 60)*1000));
+
+        _next_time_for_check = until_valid_time;
+        updateIntervalChanged((until_valid_time - utc_time.toTime_t() + 60));
    }else{
 //#if 0
       // Debug begin
@@ -309,7 +345,8 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
 	}
 	// Debug end 
 //#endif
-        _timer->start(3600000);
+        _next_time_for_check = utc_time.toTime_t() + 3600 - 60;
+        updateIntervalChanged(3600);
    }
 
 }
@@ -343,7 +380,7 @@ void MyMWidget::update_data(){
         fprintf(stderr," Connection!!!!!!!!!!!!!!!\n");
         this->startpredeamon();
     }else{
-        _timer->start(3600000/4); /* Every 15 minutes */
+//        updateIntervalChanged(3600/4);/* Every 15 minutes */
     }
 }
 void MyMWidget::updateStandbyPath(){
@@ -491,6 +528,116 @@ MyMWidget::intervalupdate(){
 	// Debug end 
 //#endif
 }
+
+void 
+MyMWidget::checkActivity(){
+//#if 0
+	// Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "MyMWidget::checkActivity "<< "\n";
+	    file.close();
+	}
+	// Debug end 
+//#endif
+    update_data();
+    keepalive->wait();
+}
+void 
+MyMWidget::updateIntervalChanged(int interval){
+    keepalive->setWakeupRange(interval, interval);
+    if (keepalive->state() == BackgroundActivity::Stopped) {
+        keepalive->run();
+    }
+}
+
+
+
+void 
+MyMWidget::wakeupStopped(){
+//#if 0
+	// Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "MyMWidget::wakeupStopped() "<< "\n";
+	    file.close();
+	}
+	// Debug end 
+//#endif
+}
+void 
+MyMWidget::networkStatusChanged(bool isOnline) {
+    QString status = (isOnline) ? "Online" : "Offline";
+//#if 0
+	// Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "Network connection changed:" << status<< "\n";
+	    file.close();
+	}
+	// Debug end 
+//#endif
+
+    this->_isOnline = isOnline;
+//    Q_EMIT networkAvailable(isOnline);
+
+    if (!isOnline)
+    {
+        //Q_EMIT networkOffline();
+        //activeNetworkID.clear();
+        //activeNetworkType = QNetworkConfiguration::BearerUnknown;
+        //if (connectionStatus == Connected || connectionStatus == LoggedIn)
+        //    connectionClosed();
+    }
+    else
+    {
+       // Q_EMIT networkOnline();
+       // updateActiveNetworkID();
+       /* 
+        if ((connectionStatus == Disconnected || connectionStatus == WaitingForConnection)) {
+            if (retryLoginTimer->isActive()) {
+                retryLoginTimer->stop();
+            }
+            lastReconnect = 1;
+            reconnectInterval = 1;
+            retryLoginTimer->start(1000);
+        }
+        else if (connectionStatus == RegistrationFailed) {
+            getTokenScratch();
+            if (reg) {
+                if (waitingCodeConnection) {
+                    QTimer::singleShot(500, reg, SLOT(startRegRequest()));
+                    waitingCodeConnection = false;
+                }
+                else if (waitingRegConnection) {
+                    QTimer::singleShot(500, reg, SLOT(start()));
+                    waitingRegConnection = false;
+                }
+            }
+        }
+        */
+    }
+}
+
+void 
+MyMWidget::connectionActivated(){
+    networkStatusChanged(true);
+}
+
+void 
+MyMWidget::connectionDeactivated(){
+    networkStatusChanged(false);
+}
+
+bool 
+MyMWidget::isNetworkAvailable(){
+    return _isOnline;
+}
+
+
 
 
 void 

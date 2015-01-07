@@ -223,6 +223,12 @@ main (int argc, char *argv[])
         t.setTime_t(dp->LastUpdate());
         QString description ="";
 
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "Predeamon3 Send DBUS messages"<<"\n";
+	    file.close();
+	}
+
         std::cerr<<"Send DBUS message"<< std::endl;
         dbusclient->SetCurrentData(stationname.fromUtf8(config->stationname().c_str()),
                                    temp, temp_high, temp_low, 

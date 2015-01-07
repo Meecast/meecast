@@ -6,6 +6,7 @@ PKGCONFIG += mlite5
 PKGCONFIG += dconf
 CONFIG += link_pkgconfig
 PKGCONFIG += sailfishapp
+PKGCONFIG += keepalive 
 #
 
 #TEMPLATE = lib

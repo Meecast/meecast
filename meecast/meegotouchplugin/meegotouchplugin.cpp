@@ -244,7 +244,9 @@ MyMWidget::MyMWidget(){
     connect(keepalive, SIGNAL(running()), this, SLOT(checkActivity()));
     connect(keepalive, SIGNAL(stopped()), this, SLOT(wakeupStopped()));
     keepalive->setWakeupFrequency(BackgroundActivity::Range);
-
+    _watcher = new QFileSystemWatcher();
+    _watcher->addPath("/home/nemo/.cache/harbour-meecast/current.xml"); 
+    connect(_watcher,SIGNAL(fileChanged(QString)),this,SLOT(currentfileChanged(QString)));
     updateIntervalChanged(15*60);
 
 
@@ -259,6 +261,7 @@ MyMWidget::MyMWidget(){
 }
  
 MyMWidget::~MyMWidget(){
+    delete _watcher;
     delete manager;
     delete nam;
     delete _lazyrenderingtimer;
@@ -567,6 +570,80 @@ MyMWidget::wakeupStopped(){
 	// Debug end 
 //#endif
 }
+
+void 
+MyMWidget::currentfileChanged(QString path){
+
+    QString station;
+    QString temperature;
+    QString temperature_high; 
+    QString temperature_low; 
+    QString icon;
+    QString description;
+    uint until_valid_time; 
+    bool current;
+    QString last_update;
+    std::cerr<<"Watcher !!!!"<<std::endl;
+//#if 0
+	// Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << " MyMWidget::currentfileChanged(QString path) "<< "\n";
+	    file.close();
+	}
+	// Debug end 
+//#endif
+
+	QFile current_file("/home/nemo/.cache/harbour-meecast/current.xml");
+    if (current_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QXmlStreamReader xml(&current_file);
+        while(!xml.atEnd() && !xml.hasError()) {
+            QXmlStreamReader::TokenType token = xml.readNext();
+            /* If token is just StartDocument, we'll go to next.*/
+            if(token == QXmlStreamReader::StartDocument) {
+                continue;
+            }
+            if(token == QXmlStreamReader::StartElement) {
+                if(xml.name() == "station") {
+                    QXmlStreamAttributes attributes = xml.attributes();
+                    if(attributes.hasAttribute("name")){
+                        this->station(attributes.value("name").toString());
+                        std::cerr<<"Station name"<< std::endl;
+                    } 
+                    continue;
+                }
+                if(xml.name() == "period") {
+                    std::cerr<<"Period"<< std::endl;
+                }
+            }
+        }
+        xml.clear();
+        _lazyrenderingtimer->start(3000);
+    }else{
+        std::cerr<<"Problem with current.xml file"<< std::endl;
+    }
+}
+
+void
+MyMWidget::parsePeriod(QXmlStreamReader& xml){
+
+    if(xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == "period") {
+        return;
+    }
+    QXmlStreamAttributes attributes = xml.attributes();
+    if(attributes.hasAttribute("start")) {
+    }
+    if(attributes.hasAttribute("stop")) {
+    }
+    xml.readNext();
+    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "period")) {
+        if(xml.name() == "temperature") {
+            this->temperature(xml.text().toString());
+         }
+    }
+}
+
 void 
 MyMWidget::networkStatusChanged(bool isOnline) {
     QString status = (isOnline) ? "Online" : "Offline";

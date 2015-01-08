@@ -51,10 +51,11 @@
 #include <QNetworkReply>
 #include <QNetworkAccessManager>
 #include <QNetworkConfigurationManager>
-#include <QNetworkSession>
+//#include <QNetworkSession>
 
+#include <QFileSystemWatcher>
 
-
+#include <QXmlStreamReader>
 
 
 class MyMWidget : public QObject
@@ -83,6 +84,8 @@ private:
     bool _down;
     bool _isOnline;
     uint _next_time_for_check;
+    QFileSystemWatcher *_watcher;
+    void parsePeriod(QXmlStreamReader& xml);
 
 
     QNetworkAccessManager* nam;
@@ -194,6 +197,7 @@ public Q_SLOTS:
     void checkActivity();
     void wakeupStopped();
     bool isNetworkAvailable();
+    void currentfileChanged(QString path);
 signals:
     void iconChanged();
     void stationChanged();

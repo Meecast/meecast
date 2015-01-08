@@ -288,6 +288,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
                           const QString &icon, const QString &description, const uint until_valid_time, bool current, bool lockscreen_param, bool standbyscreen_param, const QString &last_update){
 
    std::cerr<<"MyMWidget::SetCurrentData"<<std::endl;
+   return;
    if (lockscreen() && !lockscreen_param){
         this->current(current);
 	    _wallpaperItem->set("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
@@ -583,6 +584,17 @@ MyMWidget::currentfileChanged(QString path){
     uint until_valid_time; 
     bool current;
     QString last_update;
+
+    temperature = this->temperature();
+    temperature_high = this->temperature_high();
+    temperature_low = this->temperature_low();
+    station = this->station();
+    icon = this->icon();
+    current = this->current();
+    last_update = this->lastupdate();
+    description = this->description();
+
+
     std::cerr<<"Watcher !!!!"<<std::endl;
 //#if 0
 	// Debug begin
@@ -596,6 +608,20 @@ MyMWidget::currentfileChanged(QString path){
 //#endif
 
 	QFile current_file("/home/nemo/.cache/harbour-meecast/current.xml");
+
+/////////////////////////////
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+        QTextStream in(&current_file);
+        while(!in.atEnd()) {
+                QString line = in.readLine();    
+                out <<  line << "\n";
+        }
+        file.close();
+        current_file.close();
+
+}
+//////////////////////
     if (current_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QXmlStreamReader xml(&current_file);
         while(!xml.atEnd() && !xml.hasError()) {
@@ -614,12 +640,70 @@ MyMWidget::currentfileChanged(QString path){
                     continue;
                 }
                 if(xml.name() == "period") {
+                    QXmlStreamAttributes attributes = xml.attributes();
+                    this->current(false);
+                    if(attributes.hasAttribute("current")){
+                        if (attributes.value("current").toString() == "true") 
+                            this->current(true);
+                    } 
+                    if(attributes.hasAttribute("end")){
+                        until_valid_time = attributes.value("end").toInt();  
+                    } 
+
+                    continue;
+
                     std::cerr<<"Period"<< std::endl;
                 }
             }
         }
         xml.clear();
+        /* Check similar data */
+        if ((this->temperature() == temperature) &&
+            (this->temperature_high() == temperature_high) &&
+            (this->temperature_low() == temperature_low) &&
+            (this->station() == station) && 
+            (this->icon() == icon) &&
+            (this->current() == current) &&
+            (this->lastupdate() == last_update) &&
+            (this->description() == description))
+            return;
+
+        QDateTime utc_time;
+        utc_time = QDateTime::currentDateTimeUtc();
+
+
+        if ((until_valid_time - utc_time.toTime_t()) > 0 && 
+           (until_valid_time - utc_time.toTime_t()) < 12* 3600){
+    //#if 0
+        // Debug begin
+        QFile file("/tmp/1.log");
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out << station << " "<<  QCoreApplication::organizationDomain() <<" "<<QCoreApplication::applicationName() <<" "<< QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "SetCurrentData next call "<< (until_valid_time - utc_time.toTime_t())<<"s "<<((until_valid_time - utc_time.toTime_t()+60)*1000)<<"ms\n";
+            file.close();
+        }
+        // Debug end 
+    //#endif
+
+            _next_time_for_check = until_valid_time;
+            updateIntervalChanged((until_valid_time - utc_time.toTime_t() + 60));
+       }else{
+    //#if 0
+          // Debug begin
+        QFile file("/tmp/1.log");
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "SetCurrentData 36000000 Value: "<<  (until_valid_time - utc_time.toTime_t())<<"\n";
+            file.close();
+        }
+        // Debug end 
+    //#endif
+            _next_time_for_check = utc_time.toTime_t() + 3600 - 60;
+            updateIntervalChanged(3600);
+        }
+
         _lazyrenderingtimer->start(3000);
+
     }else{
         std::cerr<<"Problem with current.xml file"<< std::endl;
     }
@@ -640,7 +724,22 @@ MyMWidget::parsePeriod(QXmlStreamReader& xml){
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "period")) {
         if(xml.name() == "temperature") {
             this->temperature(xml.text().toString());
-         }
+        }
+        if(xml.name() == "temperature_hi") {
+            this->temperature_high(xml.text().toString());
+        }
+        if(xml.name() == "temperature_low") {
+            this->temperature_low(xml.text().toString());
+        }
+        if(xml.name() == "icon") {
+            this->icon(xml.text().toString());
+        }
+        if(xml.name() == "description") {
+            this->description(xml.text().toString());
+        }
+        if(xml.name() == "last_update") {
+            this->lastupdate(xml.text().toString());
+        }
     }
 }
 

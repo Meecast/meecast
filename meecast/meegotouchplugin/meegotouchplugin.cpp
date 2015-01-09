@@ -609,12 +609,16 @@ MyMWidget::currentfileChanged(QString path){
 
 	QFile current_file("/home/nemo/.cache/harbour-meecast/current.xml");
 
-/////////////////////////////
+////////////////////////////
+
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+        current_file.open(QIODevice::ReadOnly);
 	    QTextStream out(&file);
         QTextStream in(&current_file);
         while(!in.atEnd()) {
                 QString line = in.readLine();    
+
+                std::cerr<<line.toStdString().c_str()<< std::endl;
                 out <<  line << "\n";
         }
         file.close();

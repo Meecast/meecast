@@ -230,7 +230,8 @@ main (int argc, char *argv[])
 	    file.close();
 	}
 
-        std::cerr<<"Send DBUS message"<< std::endl;
+        std::cerr<<"Create file with current weather or forecast information"<< std::endl;
+        /*
         dbusclient->SetCurrentData(stationname.fromUtf8(config->stationname().c_str()),
                                    temp, temp_high, temp_low, 
                                    icon_string, description.fromUtf8(temp_data->Text().c_str()),
@@ -238,34 +239,36 @@ main (int argc, char *argv[])
                                    config->Lockscreen(), 
                                    config->Standbyscreen(), 
                                    t.toString("dd MMM h:mm")); 
-	QFile current_file("/home/nemo/.cache/harbour-meecast/current.xml");
+        */
+        QFile current_file("/home/nemo/.cache/harbour-meecast/precurrent.xml");
 
-    if (current_file.open(QIODevice::WriteOnly)){
-        QXmlStreamWriter* xmlWriter = new QXmlStreamWriter();
-        xmlWriter->setAutoFormatting(true);
-        xmlWriter->setDevice(&current_file);
-        xmlWriter->writeStartDocument();
-        xmlWriter->writeStartElement("station");
-        xmlWriter->writeAttribute("name", stationname.fromUtf8(config->stationname().c_str()));
-        xmlWriter->writeStartElement("period");
-        xmlWriter->writeAttribute("start", QString::number(t.toTime_t()));
-        xmlWriter->writeAttribute("end", QString::number(result_time));
-        if (temp_data->Current())
-            xmlWriter->writeAttribute("current", "true");
-        xmlWriter->writeTextElement("temperature", temp);
-        xmlWriter->writeTextElement("temperature_hi", temp_high);
-        xmlWriter->writeTextElement("temperature_low", temp_low);
-        xmlWriter->writeTextElement("icon", icon_string);
-        xmlWriter->writeTextElement("description", description.fromUtf8(temp_data->Text().c_str()));
-        xmlWriter->writeTextElement("last_update", t.toString("dd MMM h:mm"));
-        xmlWriter->writeEndElement();
-        xmlWriter->writeEndElement();
-        xmlWriter->writeEndDocument();
-        current_file.close();
-
-    }else{
-        std::cerr<<"Problem with current.xml file"<< std::endl;
-    }
+        if (current_file.open(QIODevice::WriteOnly)){
+            QXmlStreamWriter* xmlWriter = new QXmlStreamWriter();
+            xmlWriter->setAutoFormatting(true);
+            xmlWriter->setDevice(&current_file);
+            xmlWriter->writeStartDocument();
+            xmlWriter->writeStartElement("station");
+            xmlWriter->writeAttribute("name", stationname.fromUtf8(config->stationname().c_str()));
+            xmlWriter->writeStartElement("period");
+            xmlWriter->writeAttribute("start", QString::number(t.toTime_t()));
+            xmlWriter->writeAttribute("end", QString::number(result_time));
+            if (temp_data->Current())
+                xmlWriter->writeAttribute("current", "true");
+            xmlWriter->writeTextElement("temperature", temp);
+            xmlWriter->writeTextElement("temperature_hi", temp_high);
+            xmlWriter->writeTextElement("temperature_low", temp_low);
+            xmlWriter->writeTextElement("icon", icon_string);
+            xmlWriter->writeTextElement("description", description.fromUtf8(temp_data->Text().c_str()));
+            xmlWriter->writeTextElement("last_update", t.toString("dd MMM h:mm"));
+            xmlWriter->writeEndElement();
+            xmlWriter->writeEndElement();
+            xmlWriter->writeEndDocument();
+            current_file.close();
+            QDir dir;
+            dir.rename("/home/nemo/.cache/harbour-meecast/precurrent.xml", "/home/nemo/.cache/harbour-meecast/current.xml");
+        }else{
+            std::cerr<<"Problem with current.xml file"<< std::endl;
+        }
 
         
   }

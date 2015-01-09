@@ -264,8 +264,9 @@ main (int argc, char *argv[])
             xmlWriter->writeEndElement();
             xmlWriter->writeEndDocument();
             current_file.close();
-            QDir dir;
-            dir.rename("/home/nemo/.cache/harbour-meecast/precurrent.xml", "/home/nemo/.cache/harbour-meecast/current.xml");
+//            QDir dir;
+//            dir.rename("/home/nemo/.cache/harbour-meecast/precurrent.xml", "/home/nemo/.cache/harbour-meecast/current.xml");
+            QFile::rename("/home/nemo/.cache/harbour-meecast/precurrent.xml", "/home/nemo/.cache/harbour-meecast/current.xml");
         }else{
             std::cerr<<"Problem with current.xml file"<< std::endl;
         }

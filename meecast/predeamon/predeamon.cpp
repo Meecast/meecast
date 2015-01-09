@@ -240,13 +240,18 @@ main (int argc, char *argv[])
                                    config->Standbyscreen(), 
                                    t.toString("dd MMM h:mm")); 
         */
-        QFile current_file("/home/nemo/.cache/harbour-meecast/precurrent.xml");
+        QFile current_file("/home/nemo/.cache/harbour-meecast/current.xml");
 
         if (current_file.open(QIODevice::WriteOnly)){
             QXmlStreamWriter* xmlWriter = new QXmlStreamWriter();
             xmlWriter->setAutoFormatting(true);
             xmlWriter->setDevice(&current_file);
             xmlWriter->writeStartDocument();
+            xmlWriter->writeStartElement("meecast");
+            if (config->Lockscreen())
+                xmlWriter->writeTextElement("lockscreen", "true");
+            else
+                xmlWriter->writeTextElement("lockscreen", "false");
             xmlWriter->writeStartElement("station");
             xmlWriter->writeAttribute("name", stationname.fromUtf8(config->stationname().c_str()));
             xmlWriter->writeStartElement("period");
@@ -262,11 +267,9 @@ main (int argc, char *argv[])
             xmlWriter->writeTextElement("last_update", t.toString("dd MMM h:mm"));
             xmlWriter->writeEndElement();
             xmlWriter->writeEndElement();
+            xmlWriter->writeEndElement();
             xmlWriter->writeEndDocument();
             current_file.close();
-//            QDir dir;
-//            dir.rename("/home/nemo/.cache/harbour-meecast/precurrent.xml", "/home/nemo/.cache/harbour-meecast/current.xml");
-            QFile::rename("/home/nemo/.cache/harbour-meecast/precurrent.xml", "/home/nemo/.cache/harbour-meecast/current.xml");
         }else{
             std::cerr<<"Problem with current.xml file"<< std::endl;
         }

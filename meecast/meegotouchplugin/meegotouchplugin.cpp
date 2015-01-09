@@ -58,7 +58,18 @@ MyMWidget *box;
 
 void 
 drawwallpaper(QImage image, QHash <QString, QString> hash){
-    /* std::cerr<<" drawwallpaper"<<std::endl; */
+    std::cerr<<" drawwallpaper"<<std::endl; 
+    
+
+//#if 0
+    QFile file("/tmp/1.log");
+    if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  "Begin drawwallpaper"<<".\n";
+	    file.close();
+	}
+//#endif
+
 
     QString temperature_hi = hash["temperature_hi"];
     QString temperature = hash["temperature"];
@@ -132,14 +143,14 @@ drawwallpaper(QImage image, QHash <QString, QString> hash){
     paint.drawText(x + 10, y + 138, 170, 35, Qt::AlignHCenter, lastupdate); 
 
     paint.end();
-#if 0
+//#if 0
     // Debug begin
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
         QTextStream out(&file);
         out <<  "Refreshwallpaper paint has been finished\n";
         file.close();
     }
-#endif
+//#endif
     if (tempfile)
         delete tempfile;
 //    QString path = "/home/nemo/.cache/harbour-meecast/meecast." + QDateTime::currentDateTime().
@@ -245,6 +256,14 @@ MyMWidget::MyMWidget(){
     connect(keepalive, SIGNAL(stopped()), this, SLOT(wakeupStopped()));
     keepalive->setWakeupFrequency(BackgroundActivity::Range);
     _watcher = new QFileSystemWatcher();
+
+    QFile watcher_file("/home/nemo/.cache/harbour-meecast/current.xml");
+    if(!watcher_file.exists()){
+        std::cerr<<"Create watcher file"<<std::endl;
+        if (watcher_file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            watcher_file.close();
+        }
+    }
     _watcher->addPath("/home/nemo/.cache/harbour-meecast/current.xml"); 
     connect(_watcher,SIGNAL(fileChanged(QString)),this,SLOT(currentfileChanged(QString)));
     updateIntervalChanged(15*60);
@@ -261,12 +280,15 @@ MyMWidget::MyMWidget(){
 }
  
 MyMWidget::~MyMWidget(){
+
+    std::cerr<<"MyMWidget::~MyMWidget() start"<<std::endl;
     delete _watcher;
     delete manager;
     delete nam;
     delete _lazyrenderingtimer;
     delete _wallpaperItem; 
     delete _image;
+    std::cerr<<"MyMWidget::~MyMWidget() end"<<std::endl;
 }
 
 QString 
@@ -288,7 +310,6 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
                           const QString &icon, const QString &description, const uint until_valid_time, bool current, bool lockscreen_param, bool standbyscreen_param, const QString &last_update){
 
    std::cerr<<"MyMWidget::SetCurrentData"<<std::endl;
-   return;
    if (lockscreen() && !lockscreen_param){
         this->current(current);
 	    _wallpaperItem->set("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
@@ -392,7 +413,7 @@ void MyMWidget::updateStandbyPath(){
 } 
 
 void MyMWidget::updateWallpaperPath(){ 
-#if 0
+//#if 0
     // Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -401,7 +422,7 @@ void MyMWidget::updateWallpaperPath(){
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
 
    if (_wallpaperItem && _wallpaperItem->value() != QVariant::Invalid){
          QString new_wallpaper_path = _wallpaperItem->value().toString();
@@ -411,41 +432,41 @@ void MyMWidget::updateWallpaperPath(){
             return;  
         if ( new_wallpaper_path.indexOf("meecast",0) == -1 && new_wallpaper_path.indexOf("MeeCast",0) == -1 && new_wallpaper_path != ""){
         
-#if 0
+//#if 0
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "New wallpaper path ."<<new_wallpaper_path<< ".\n";
 	    file.close();
 	    }
-#endif
+//#endif
             _wallpaper_path = new_wallpaper_path;
             this->refreshwallpaper(true);
         }
    }
 
-#if 0
+//#if 0
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "updateWallpaperPath stop"<< "\n";
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
 }
 
 void 
 MyMWidget::refreshwallpaper(bool new_wallpaper){
 
      std::cerr<<"refreshwallpaper"<<std::endl; 
-#if 0	    
+//#if 0	    
 	    // Debug begin
         QFile file("/tmp/1.log");
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
             QTextStream out(&file);
-            out <<  "Start refreshwallpaper"<< " \n";
+            out <<  "Start refreshwallpaper "<< " \n";
             file.close();
         }
-#endif
+//#endif
         QDir dir("/home/nemo/.cache/harbour-meecast");
         
         if (!dir.exists())
@@ -462,16 +483,19 @@ MyMWidget::refreshwallpaper(bool new_wallpaper){
             }
             _image->save("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
         }
+
+     std::cerr<<"refreshwallpaper before check"<<std::endl; 
         if (!lockscreen())
             return;
-#if 0
+     std::cerr<<"refreshwallpaper after check"<<std::endl; 
+//#if 0
         // Debug begin
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
             QTextStream out(&file);
             out <<  "Refreshwallpaper paint has been started\n";
             file.close();
         }
-#endif
+//#endif
         
         QHash <QString, QString> hash;
         hash["temperature"] = _temperature;
@@ -610,7 +634,7 @@ MyMWidget::currentfileChanged(QString path){
 	QFile current_file("/home/nemo/.cache/harbour-meecast/current.xml");
 
 ////////////////////////////
-
+/*
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
         current_file.open(QIODevice::ReadOnly);
 	    QTextStream out(&file);
@@ -625,6 +649,7 @@ MyMWidget::currentfileChanged(QString path){
         current_file.close();
 
 }
+*/
 //////////////////////
     if (current_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QXmlStreamReader xml(&current_file);
@@ -635,6 +660,20 @@ MyMWidget::currentfileChanged(QString path){
                 continue;
             }
             if(token == QXmlStreamReader::StartElement) {
+
+            std::cerr<<"real XML NAME "<< xml.name().toString().toStdString().c_str() <<std::endl;
+                if(xml.name() == "lockscreen") {
+                    std::cerr<<"LockScreen is"<< xml.text().toString().toStdString().c_str()<<std::endl;
+                    std::cerr<<"LockScreen is"<< xml.readElementText().toStdString().c_str()<<std::endl;
+                    /* !!!!!!!!!!!!!!!! */
+                    if (xml.readElementText() == "true"){
+                        std::cerr<<"LockScreen is TRUE"<< std::endl;
+                        this->lockscreen(true);
+                    }else
+                        this->lockscreen(false);
+                    continue;
+                }
+                    std::cerr<<"After LockScreen"<< std::endl;
                 if(xml.name() == "station") {
                     QXmlStreamAttributes attributes = xml.attributes();
                     if(attributes.hasAttribute("name")){
@@ -646,21 +685,28 @@ MyMWidget::currentfileChanged(QString path){
                 if(xml.name() == "period") {
                     QXmlStreamAttributes attributes = xml.attributes();
                     this->current(false);
+
+                    std::cerr<<"Period"<< std::endl;
                     if(attributes.hasAttribute("current")){
                         if (attributes.value("current").toString() == "true") 
                             this->current(true);
                     } 
                     if(attributes.hasAttribute("end")){
                         until_valid_time = attributes.value("end").toInt();  
+                        
+                        std::cerr<<"End "<< until_valid_time << std::endl;
                     } 
-
+                    parsePeriod(xml); 
                     continue;
-
-                    std::cerr<<"Period"<< std::endl;
                 }
             }
         }
+        if(xml.hasError()) {
+            std::cerr<<xml.errorString().toStdString().c_str()<<std::endl;
+        }
         xml.clear();
+
+        std::cerr<<"Xml ended"<< std::endl;
         /* Check similar data */
         if ((this->temperature() == temperature) &&
             (this->temperature_high() == temperature_high) &&
@@ -709,42 +755,66 @@ MyMWidget::currentfileChanged(QString path){
         _lazyrenderingtimer->start(3000);
 
     }else{
-        std::cerr<<"Problem with current.xml file"<< std::endl;
+        std::cerr<<"Problem with current.xml file\n"<< std::endl;
+    //#if 0
+        // Debug begin
+        QFile file("/tmp/1.log");
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out << "Problem with current file\n";
+            file.close();
+        }
+        // Debug end 
+    //#endif
     }
+
+    std::cerr<<"Watcher End!!!!"<<std::endl;
 }
 
 void
 MyMWidget::parsePeriod(QXmlStreamReader& xml){
 
+    std::cerr<<"ParsePeriod\n"<< std::endl;
     if(xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == "period") {
         return;
     }
+
+    std::cerr<<"ParsePeriod2a11 "<< xml.name().toString().toStdString().c_str() <<std::endl;
     QXmlStreamAttributes attributes = xml.attributes();
     if(attributes.hasAttribute("start")) {
     }
     if(attributes.hasAttribute("stop")) {
     }
     xml.readNext();
+    QString temporary = xml.name().toString();
+    std::cerr<<"ParsePeriod2a "<< temporary.toStdString().c_str() <<std::endl;
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "period")) {
-        if(xml.name() == "temperature") {
-            this->temperature(xml.text().toString());
+        if(xml.tokenType() == QXmlStreamReader::StartElement) {
+        std::cerr<<"ParsePeriod3\n"<< std::endl;
+            if(xml.name() == "temperature") {
+                this->temperature(xml.text().toString());
+            }
+            if(xml.name() == "temperature_hi") {
+                this->temperature_high(xml.text().toString());
+            }
+            if(xml.name() == "temperature_low") {
+                this->temperature_low(xml.text().toString());
+            }
+            if(xml.name() == "icon") {
+                std::cerr<<"Icon\n"<< std::endl;
+                this->icon(xml.text().toString());
+            }
+            if(xml.name() == "description") {
+                this->description(xml.text().toString());
+            }
+            if(xml.name() == "last_update") {
+                this->lastupdate(xml.text().toString());
+            }
         }
-        if(xml.name() == "temperature_hi") {
-            this->temperature_high(xml.text().toString());
-        }
-        if(xml.name() == "temperature_low") {
-            this->temperature_low(xml.text().toString());
-        }
-        if(xml.name() == "icon") {
-            this->icon(xml.text().toString());
-        }
-        if(xml.name() == "description") {
-            this->description(xml.text().toString());
-        }
-        if(xml.name() == "last_update") {
-            this->lastupdate(xml.text().toString());
-        }
+        xml.readNext();
     }
+
+    std::cerr<<"ParsePeriod end"<< std::endl;
 }
 
 void 

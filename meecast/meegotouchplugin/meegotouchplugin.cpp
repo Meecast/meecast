@@ -651,7 +651,8 @@ MyMWidget::currentfileChanged(QString path){
 }
 */
 //////////////////////
-    if (current_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+    
+    if (current_file.size()>0 && current_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QXmlStreamReader xml(&current_file);
         while(!xml.atEnd() && !xml.hasError()) {
             QXmlStreamReader::TokenType token = xml.readNext();
@@ -660,20 +661,16 @@ MyMWidget::currentfileChanged(QString path){
                 continue;
             }
             if(token == QXmlStreamReader::StartElement) {
-
-            std::cerr<<"real XML NAME "<< xml.name().toString().toStdString().c_str() <<std::endl;
                 if(xml.name() == "lockscreen") {
-                    std::cerr<<"LockScreen is"<< xml.text().toString().toStdString().c_str()<<std::endl;
-                    std::cerr<<"LockScreen is"<< xml.readElementText().toStdString().c_str()<<std::endl;
                     /* !!!!!!!!!!!!!!!! */
-                    if (xml.readElementText() == "true"){
+                    if (xml.readElementText().compare("true")<0){
                         std::cerr<<"LockScreen is TRUE"<< std::endl;
                         this->lockscreen(true);
                     }else
                         this->lockscreen(false);
                     continue;
                 }
-                    std::cerr<<"After LockScreen"<< std::endl;
+                
                 if(xml.name() == "station") {
                     QXmlStreamAttributes attributes = xml.attributes();
                     if(attributes.hasAttribute("name")){
@@ -682,19 +679,17 @@ MyMWidget::currentfileChanged(QString path){
                     } 
                     continue;
                 }
+
                 if(xml.name() == "period") {
                     QXmlStreamAttributes attributes = xml.attributes();
                     this->current(false);
-
-                    std::cerr<<"Period"<< std::endl;
                     if(attributes.hasAttribute("current")){
-                        if (attributes.value("current").toString() == "true") 
+                        if (attributes.value("current").toString() == "true") {
                             this->current(true);
+                        }
                     } 
                     if(attributes.hasAttribute("end")){
                         until_valid_time = attributes.value("end").toInt();  
-                        
-                        std::cerr<<"End "<< until_valid_time << std::endl;
                     } 
                     parsePeriod(xml); 
                     continue;
@@ -706,7 +701,7 @@ MyMWidget::currentfileChanged(QString path){
         }
         xml.clear();
 
-        std::cerr<<"Xml ended"<< std::endl;
+        /* std::cerr<<"Xml ended"<< std::endl; */
         /* Check similar data */
         if ((this->temperature() == temperature) &&
             (this->temperature_high() == temperature_high) &&
@@ -775,40 +770,33 @@ void
 MyMWidget::parsePeriod(QXmlStreamReader& xml){
 
     std::cerr<<"ParsePeriod\n"<< std::endl;
+
     if(xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == "period") {
         return;
     }
 
-    std::cerr<<"ParsePeriod2a11 "<< xml.name().toString().toStdString().c_str() <<std::endl;
     QXmlStreamAttributes attributes = xml.attributes();
-    if(attributes.hasAttribute("start")) {
-    }
-    if(attributes.hasAttribute("stop")) {
-    }
     xml.readNext();
     QString temporary = xml.name().toString();
-    std::cerr<<"ParsePeriod2a "<< temporary.toStdString().c_str() <<std::endl;
     while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "period")) {
         if(xml.tokenType() == QXmlStreamReader::StartElement) {
-        std::cerr<<"ParsePeriod3\n"<< std::endl;
             if(xml.name() == "temperature") {
-                this->temperature(xml.text().toString());
+                this->temperature(xml.readElementText());
             }
             if(xml.name() == "temperature_hi") {
-                this->temperature_high(xml.text().toString());
+                this->temperature_high(xml.readElementText());
             }
             if(xml.name() == "temperature_low") {
-                this->temperature_low(xml.text().toString());
+                this->temperature_low(xml.readElementText());
             }
             if(xml.name() == "icon") {
-                std::cerr<<"Icon\n"<< std::endl;
-                this->icon(xml.text().toString());
+                this->icon(xml.readElementText());
             }
             if(xml.name() == "description") {
-                this->description(xml.text().toString());
+                this->description(xml.readElementText());
             }
             if(xml.name() == "last_update") {
-                this->lastupdate(xml.text().toString());
+                this->lastupdate(xml.readElementText());
             }
         }
         xml.readNext();

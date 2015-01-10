@@ -120,7 +120,7 @@ main (int argc, char *argv[])
 
     QCoreApplication a(argc, argv);
     textdomain("omweather");
-    bindtextdomain("omweather", "/usr/share/harbour-meecast/share/locale");
+    bindtextdomain("omweather", "/usr/share/harbour-meecast/locale");
 
     config = create_and_fill_config();
     /* Check time for previous updating */
@@ -139,6 +139,7 @@ main (int argc, char *argv[])
             }
         }
     }
+
     dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
     /* set current day */ 
     current_day = time(NULL);

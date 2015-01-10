@@ -186,6 +186,7 @@ MyMWidget::MyMWidget(){
     _lazyrenderingtimer = new QTimer(this);
     _lazyrenderingtimer->setSingleShot(true);
     _down = false;
+    _force_draw = true;
             
     
     /* preparing for wallpaper widget */
@@ -439,6 +440,7 @@ void MyMWidget::updateWallpaperPath(){
 	    file.close();
 	    }
 //#endif
+            _force_draw = true;
             _wallpaper_path = new_wallpaper_path;
             this->refreshwallpaper(true);
         }
@@ -483,10 +485,19 @@ MyMWidget::refreshwallpaper(bool new_wallpaper){
             }
             _image->save("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
         }
+//#if 0	    
+	    // Debug begin
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out <<  "refreshwallpaper before check "<< " \n";
+            file.close();
+        }
+//#endif
 
      std::cerr<<"refreshwallpaper before check"<<std::endl; 
         if (!lockscreen())
             return;
+
      std::cerr<<"refreshwallpaper after check"<<std::endl; 
 //#if 0
         // Debug begin
@@ -574,6 +585,8 @@ MyMWidget::checkActivity(){
 }
 void 
 MyMWidget::updateIntervalChanged(int interval){
+
+    std::cerr<<"MyMWidget::updateIntervalChanged "<<interval<<std::endl;
     keepalive->setWakeupRange(interval, interval);
     if (keepalive->state() == BackgroundActivity::Stopped) {
         keepalive->run();
@@ -651,8 +664,9 @@ MyMWidget::currentfileChanged(QString path){
 }
 */
 //////////////////////
-    
-    if (current_file.size()>0 && current_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+    if (current_file.size()<=0)
+        return;
+    if (current_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QXmlStreamReader xml(&current_file);
         while(!xml.atEnd() && !xml.hasError()) {
             QXmlStreamReader::TokenType token = xml.readNext();
@@ -663,11 +677,26 @@ MyMWidget::currentfileChanged(QString path){
             if(token == QXmlStreamReader::StartElement) {
                 if(xml.name() == "lockscreen") {
                     /* !!!!!!!!!!!!!!!! */
-                    if (xml.readElementText().compare("true")<0){
+                    QString lockscreen_config = xml.readElementText();
+                    if (lockscreen_config.contains("true", Qt::CaseInsensitive)){
                         std::cerr<<"LockScreen is TRUE"<< std::endl;
                         this->lockscreen(true);
                     }else
                         this->lockscreen(false);
+
+    //#if 0
+        // Debug begin
+        QFile file("/tmp/1.log");
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out << this->lockscreen() << lockscreen_config.toStdString().c_str()<<"\n";
+            file.close();
+        }
+        // Debug end 
+    //#endif
+
+
+
                     continue;
                 }
                 
@@ -701,7 +730,7 @@ MyMWidget::currentfileChanged(QString path){
         }
         xml.clear();
 
-        /* std::cerr<<"Xml ended"<< std::endl; */
+        std::cerr<<"Xml ended"<< std::endl; 
         /* Check similar data */
         if ((this->temperature() == temperature) &&
             (this->temperature_high() == temperature_high) &&
@@ -710,9 +739,13 @@ MyMWidget::currentfileChanged(QString path){
             (this->icon() == icon) &&
             (this->current() == current) &&
             (this->lastupdate() == last_update) &&
-            (this->description() == description))
-            return;
-
+            (this->description() == description)&&
+            !_force_draw){
+                std::cerr<<"Simaliar data return!!!!!!"<< std::endl; 
+                return;
+            }
+        if (_force_draw)
+            _force_draw = false;
         QDateTime utc_time;
         utc_time = QDateTime::currentDateTimeUtc();
 

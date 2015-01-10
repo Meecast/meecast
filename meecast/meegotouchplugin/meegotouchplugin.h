@@ -86,6 +86,7 @@ private:
     uint _next_time_for_check;
     QFileSystemWatcher *_watcher;
     void parsePeriod(QXmlStreamReader& xml);
+    bool _force_draw;
 
 
     QNetworkAccessManager* nam;

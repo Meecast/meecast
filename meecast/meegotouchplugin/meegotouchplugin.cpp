@@ -311,6 +311,18 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
                           const QString &icon, const QString &description, const uint until_valid_time, bool current, bool lockscreen_param, bool standbyscreen_param, const QString &last_update){
 
    std::cerr<<"MyMWidget::SetCurrentData"<<std::endl;
+//#if 0
+	// Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out << "MyMWidget::SetCurrentData "<<  "until_valid_time "<< until_valid_time <<"\n";
+	    file.close();
+	}
+	// Debug end 
+//#endif
+
+
    if (lockscreen() && !lockscreen_param){
         this->current(current);
 	    _wallpaperItem->set("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
@@ -349,7 +361,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
        (until_valid_time - utc_time.toTime_t()) < 12* 3600){
 //#if 0
 	// Debug begin
-	QFile file("/tmp/1.log");
+//	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out << station << " "<<  QCoreApplication::organizationDomain() <<" "<<QCoreApplication::applicationName() <<" "<< QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "SetCurrentData next call "<< (until_valid_time - utc_time.toTime_t())<<"s "<<((until_valid_time - utc_time.toTime_t()+60)*1000)<<"ms\n";
@@ -587,6 +599,17 @@ void
 MyMWidget::updateIntervalChanged(int interval){
 
     std::cerr<<"MyMWidget::updateIntervalChanged "<<interval<<std::endl;
+//#if 0
+	// Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "MyMWidget::updateIntervalChanged "<<interval<< "\n";
+	    file.close();
+	}
+	// Debug end 
+//#endif
+
     keepalive->setWakeupRange(interval, interval);
     if (keepalive->state() == BackgroundActivity::Stopped) {
         keepalive->run();
@@ -730,6 +753,18 @@ MyMWidget::currentfileChanged(QString path){
         }
         xml.clear();
 
+    //#if 0
+        // Debug begin
+        QFile file("/tmp/1.log");
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out <<"Xml ended" <<"\n";
+            file.close();
+        }
+        // Debug end 
+    //#endif
+
+
         std::cerr<<"Xml ended"<< std::endl; 
         /* Check similar data */
         if ((this->temperature() == temperature) &&
@@ -741,6 +776,18 @@ MyMWidget::currentfileChanged(QString path){
             (this->lastupdate() == last_update) &&
             (this->description() == description)&&
             !_force_draw){
+    //#if 0
+        // Debug begin
+        QFile file("/tmp/1.log");
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out <<"Simaliar data return!!!!!!" <<"\n";
+            file.close();
+        }
+        // Debug end 
+    //#endif
+
+
                 std::cerr<<"Simaliar data return!!!!!!"<< std::endl; 
                 return;
             }

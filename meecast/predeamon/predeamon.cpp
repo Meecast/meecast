@@ -126,8 +126,8 @@ main (int argc, char *argv[])
     /* Check time for previous updating */
     dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
 
-    /* 25*60 = 25 minutes - minimal time between updates */ 
-    if ((!dp) || (dp && (abs(time(NULL) - dp->LastUpdate()) > 25*60))){
+    /* 10*60 = 10 minutes - minimal time between updates */ 
+    if ((!dp) || (dp && (abs(time(NULL) - dp->LastUpdate()) > 10*60))){
         /*update weather forecast*/
         if (config->UpdatePeriod() != INT_MAX || config->UpdatePeriod() != 0){
             if ((time(NULL) - dp->LastUpdate()) > config->UpdatePeriod()){

@@ -53,22 +53,22 @@
 #endif
 using namespace QtConcurrent;
 
-QTemporaryFile *tempfile;
+QTemporaryFile *tempfile; /* file for new Wallpaper */
 MyMWidget *box;
 
 void 
 drawwallpaper(QImage image, QHash <QString, QString> hash){
-    std::cerr<<" drawwallpaper"<<std::endl; 
-    
 
-//#if 0
+//    std::cerr<<" drawwallpaper"<<std::endl; 
+    
+#if 0
     QFile file("/tmp/1.log");
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "Begin drawwallpaper"<<".\n";
 	    file.close();
 	}
-//#endif
+#endif
 
 
     QString temperature_hi = hash["temperature_hi"];
@@ -143,22 +143,22 @@ drawwallpaper(QImage image, QHash <QString, QString> hash){
     paint.drawText(x + 10, y + 138, 170, 35, Qt::AlignHCenter, lastupdate); 
 
     paint.end();
-//#if 0
+#if 0
     // Debug begin
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
         QTextStream out(&file);
         out <<  "Refreshwallpaper paint has been finished\n";
         file.close();
     }
-//#endif
+#endif
     if (tempfile)
         delete tempfile;
-//    QString path = "/home/nemo/.cache/harbour-meecast/meecast." + QDateTime::currentDateTime().
+
     QString path = "/home/nemo/.cache/harbour-meecast/meecast." + QString::number(QDateTime::currentMSecsSinceEpoch()) + ".XXXXXXX.png";
     tempfile = new QTemporaryFile(path);
     if (tempfile->open()){ 
         image.save(tempfile->fileName());
-        std::cerr<<"Set new wallpaper "<<tempfile->fileName().toStdString().c_str()<<std::endl;
+//        std::cerr<<"Set new wallpaper "<<tempfile->fileName().toStdString().c_str()<<std::endl;
         MDConfItem  wallpaperItem("/desktop/jolla/background/portrait/home_picture_filename"); 
         wallpaperItem.set(tempfile->fileName());
     }
@@ -166,14 +166,14 @@ drawwallpaper(QImage image, QHash <QString, QString> hash){
 
 MyMWidget::MyMWidget(){
         
-//#if 0
+#if 0
     QFile file("/tmp/1.log");
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "Begin PreInit MyWidget ."<<".\n";
 	    file.close();
 	}
-//#endif
+#endif
 
     _stationname = "Unknown";
     _temperature = "";
@@ -203,10 +203,10 @@ MyMWidget::MyMWidget(){
     file.close();
     }
 #endif
-    _wallpaper_path = _wallpaperItem->value().toString();
-    if (_wallpaper_path.indexOf("MeeCast",0) != -1){
-        _wallpaper_path = "/home/nemo/.cache/harbour-meecastr/wallpaper_MeeCast_original.png";
-    }
+        _wallpaper_path = _wallpaperItem->value().toString();
+        if (_wallpaper_path.indexOf("MeeCast",0) != -1){
+            _wallpaper_path = "/home/nemo/.cache/harbour-meecastr/wallpaper_MeeCast_original.png";
+        }
     }
     _image = new QImage;
     _image->load(_wallpaper_path);
@@ -215,7 +215,7 @@ MyMWidget::MyMWidget(){
     _image->setDotsPerMeterY(3780);
     }
     if (_wallpaper_path.indexOf("MeeCast",0) == -1){
-    _image->save("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
+        _image->save("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
     }
 
     connect(_lazyrenderingtimer, SIGNAL(timeout()), this, SLOT(refreshview()));
@@ -281,20 +281,18 @@ MyMWidget::MyMWidget(){
 }
  
 MyMWidget::~MyMWidget(){
-
-    std::cerr<<"MyMWidget::~MyMWidget() start"<<std::endl;
+    //std::cerr<<"MyMWidget::~MyMWidget() start"<<std::endl;
     delete _watcher;
     delete manager;
     delete nam;
     delete _lazyrenderingtimer;
     delete _wallpaperItem; 
     delete _image;
-    std::cerr<<"MyMWidget::~MyMWidget() end"<<std::endl;
+    //std::cerr<<"MyMWidget::~MyMWidget() end"<<std::endl;
 }
 
 QString 
-MyMWidget::GetCurrentWeather(QString &temperature, QString &temperature_hi, QString &temperature_low, QString &icon, QString &description, bool &current, QString &last_update)
-{
+MyMWidget::GetCurrentWeather(QString &temperature, QString &temperature_hi, QString &temperature_low, QString &icon, QString &description, bool &current, QString &last_update){
     temperature = this->temperature();
     temperature_hi = this->temperature_high();
     temperature_low = this->temperature_low();
@@ -373,16 +371,16 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
         _next_time_for_check = until_valid_time;
         updateIntervalChanged((until_valid_time - utc_time.toTime_t() + 60));
    }else{
-//#if 0
+#if 0
       // Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
-	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "SetCurrentData 36000000 Value: "<<  (until_valid_time - utc_time.toTime_t())<<"\n";
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "SetCurrentData Until Value: "<<  (until_valid_time - utc_time.toTime_t())<<"\n";
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
         _next_time_for_check = utc_time.toTime_t() + 3600 - 60;
         updateIntervalChanged(3600);
    }
@@ -831,7 +829,7 @@ MyMWidget::currentfileChanged(QString path){
 
     }else{
         std::cerr<<"Problem with current.xml file\n"<< std::endl;
-    //#if 0
+    #if 0
         // Debug begin
         QFile file("/tmp/1.log");
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -840,7 +838,7 @@ MyMWidget::currentfileChanged(QString path){
             file.close();
         }
         // Debug end 
-    //#endif
+    #endif
     }
 
     std::cerr<<"Watcher End!!!!"<<std::endl;
@@ -849,7 +847,7 @@ MyMWidget::currentfileChanged(QString path){
 void
 MyMWidget::parsePeriod(QXmlStreamReader& xml){
 
-    std::cerr<<"ParsePeriod\n"<< std::endl;
+    //std::cerr<<"ParsePeriod\n"<< std::endl;
 
     if(xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == "period") {
         return;
@@ -882,7 +880,7 @@ MyMWidget::parsePeriod(QXmlStreamReader& xml){
         xml.readNext();
     }
 
-    std::cerr<<"ParsePeriod end"<< std::endl;
+    //std::cerr<<"ParsePeriod end"<< std::endl;
 }
 
 void 

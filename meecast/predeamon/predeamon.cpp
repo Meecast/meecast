@@ -105,7 +105,6 @@ main (int argc, char *argv[]){
   QString temp;
   QString temp_high;
   QString temp_low;
-  int need_update = 0;
 
 #if 0
       // Debug begin

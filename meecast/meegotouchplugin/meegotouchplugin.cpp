@@ -187,6 +187,7 @@ MyMWidget::MyMWidget(){
     _lazyrenderingtimer->setSingleShot(true);
     _down = false;
     _force_draw = true;
+    _need_update = true;
             
     
     /* preparing for wallpaper widget */
@@ -411,13 +412,7 @@ void MyMWidget::update_data(){
 	}
 	// Debug end 
 //#endif
-    QNetworkConfigurationManager m_network;
-    if  (m_network.isOnline()){
-        fprintf(stderr," Connection!!!!!!!!!!!!!!!\n");
-        this->startpredeamon();
-    }else{
-//        updateIntervalChanged(3600/4);/* Every 15 minutes */
-    }
+    this->startpredeamon();
 }
 void MyMWidget::updateStandbyPath(){
 /* To Do make changed to path for MeeCast */
@@ -590,6 +585,10 @@ MyMWidget::checkActivity(){
 	}
 	// Debug end 
 //#endif
+    if (!this->_isOnline) 
+        _need_update = true;
+    else
+        _need_update = false;
     update_data();
     keepalive->wait();
 }
@@ -704,20 +703,6 @@ MyMWidget::currentfileChanged(QString path){
                         this->lockscreen(true);
                     }else
                         this->lockscreen(false);
-
-    //#if 0
-        // Debug begin
-        QFile file("/tmp/1.log");
-        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-            QTextStream out(&file);
-            out << this->lockscreen() << lockscreen_config.toStdString().c_str()<<"\n";
-            file.close();
-        }
-        // Debug end 
-    //#endif
-
-
-
                     continue;
                 }
                 
@@ -900,41 +885,11 @@ MyMWidget::networkStatusChanged(bool isOnline) {
     this->_isOnline = isOnline;
 //    Q_EMIT networkAvailable(isOnline);
 
-    if (!isOnline)
-    {
-        //Q_EMIT networkOffline();
-        //activeNetworkID.clear();
-        //activeNetworkType = QNetworkConfiguration::BearerUnknown;
-        //if (connectionStatus == Connected || connectionStatus == LoggedIn)
-        //    connectionClosed();
-    }
-    else
-    {
-       // Q_EMIT networkOnline();
-       // updateActiveNetworkID();
-       /* 
-        if ((connectionStatus == Disconnected || connectionStatus == WaitingForConnection)) {
-            if (retryLoginTimer->isActive()) {
-                retryLoginTimer->stop();
-            }
-            lastReconnect = 1;
-            reconnectInterval = 1;
-            retryLoginTimer->start(1000);
+    if (isOnline){
+        if (_need_update){
+            update_data();
         }
-        else if (connectionStatus == RegistrationFailed) {
-            getTokenScratch();
-            if (reg) {
-                if (waitingCodeConnection) {
-                    QTimer::singleShot(500, reg, SLOT(startRegRequest()));
-                    waitingCodeConnection = false;
-                }
-                else if (waitingRegConnection) {
-                    QTimer::singleShot(500, reg, SLOT(start()));
-                    waitingRegConnection = false;
-                }
-            }
-        }
-        */
+    }else{
     }
 }
 

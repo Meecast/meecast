@@ -1,6 +1,7 @@
 meecast (0.9.15) unstable; urgency=low
 
   * Added string for translation from openweathermap.org source 
+  * Fixed small problem in predaemon
 
  -- Vlad Vasiliev <vlad@gas.by> Fri, 12 Dec 2014 17:31:23 +0200
 

@@ -106,7 +106,7 @@ main (int argc, char *argv[]){
   QString temp_high;
   QString temp_low;
 
-#if 0
+//#if 0
       // Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -115,7 +115,7 @@ main (int argc, char *argv[]){
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
 
     QCoreApplication a(argc, argv);
     textdomain("omweather");
@@ -155,7 +155,7 @@ main (int argc, char *argv[]){
 //        current_day = current_day + 3600*dp->timezone();
 
     current_day = mktime(tm);
-#if 0
+//#if 0
       // Debug begin
 	//QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -164,11 +164,11 @@ main (int argc, char *argv[]){
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
 
     /* fill current date */
     if (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL)))) {
-#if 0
+//#if 0
       // Debug begin
 //	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -177,7 +177,7 @@ main (int argc, char *argv[]){
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
 
         QString icon_string =  config->iconspath().c_str();
         QString icon_number;
@@ -223,13 +223,13 @@ main (int argc, char *argv[]){
         QDateTime t;
         t.setTime_t(dp->LastUpdate());
         QString description ="";
-/*
+
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "Predeamon3 Send DBUS messages"<<"\n";
 	    file.close();
 	}
-*/
+
         std::cerr<<"Create file with current weather or forecast information"<< std::endl;
         /*
         dbusclient->SetCurrentData(stationname.fromUtf8(config->stationname().c_str()),

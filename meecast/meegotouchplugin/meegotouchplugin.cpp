@@ -61,14 +61,14 @@ drawwallpaper(QImage image, QHash <QString, QString> hash){
 
 //    std::cerr<<" drawwallpaper"<<std::endl; 
     
-#if 0
+//#if 0
     QFile file("/tmp/1.log");
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "Begin drawwallpaper"<<".\n";
 	    file.close();
 	}
-#endif
+//#endif
 
 
     QString temperature_hi = hash["temperature_hi"];
@@ -143,14 +143,14 @@ drawwallpaper(QImage image, QHash <QString, QString> hash){
     paint.drawText(x + 10, y + 138, 170, 35, Qt::AlignHCenter, lastupdate); 
 
     paint.end();
-#if 0
+//#if 0
     // Debug begin
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
         QTextStream out(&file);
         out <<  "Refreshwallpaper paint has been finished\n";
         file.close();
     }
-#endif
+//#endif
     if (tempfile)
         delete tempfile;
 
@@ -166,14 +166,14 @@ drawwallpaper(QImage image, QHash <QString, QString> hash){
 
 MyMWidget::MyMWidget(){
         
-#if 0
+//#if 0
     QFile file("/tmp/1.log");
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "Begin PreInit MyWidget ."<<".\n";
 	    file.close();
 	}
-#endif
+//#endif
 
     _stationname = "Unknown";
     _temperature = "";
@@ -194,19 +194,28 @@ MyMWidget::MyMWidget(){
     _wallpaperItem = new MDConfItem ("/desktop/jolla/background/portrait/home_picture_filename"); 
     connect(_wallpaperItem, SIGNAL(valueChanged()), this, SLOT(updateWallpaperPath()));
     if (!_wallpaperItem || _wallpaperItem->value() == QVariant::Invalid)
-    _wallpaper_path = "/home/nemo/.wallpapers/wallpaper.png";
+        _wallpaper_path = "/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png";
     else{
-#if 0
+//#if 0
       // Debug begin
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
     QTextStream out(&file);
     out <<  "PreInit MyWidget ."<<_wallpaperItem->value().toString()<<".\n";
     file.close();
     }
-#endif
+//#endif
         _wallpaper_path = _wallpaperItem->value().toString();
-        if (_wallpaper_path.indexOf("MeeCast",0) != -1){
-            _wallpaper_path = "/home/nemo/.cache/harbour-meecastr/wallpaper_MeeCast_original.png";
+        if (_wallpaper_path.indexOf("meecast",0) != -1){
+//#if 0
+      // Debug begin
+    if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+    QTextStream out(&file);
+    out <<  "Set wallpaper path to /home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png ."<<".\n";
+    file.close();
+    }
+//#endif
+
+            _wallpaper_path = "/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png";
         }
     }
     _image = new QImage;
@@ -215,7 +224,16 @@ MyMWidget::MyMWidget(){
     _image->setDotsPerMeterX(3780);
     _image->setDotsPerMeterY(3780);
     }
-    if (_wallpaper_path.indexOf("MeeCast",0) == -1){
+    if (_wallpaper_path.indexOf("meecast",0) == -1){
+//#if 0
+      // Debug begin
+    if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+    QTextStream out(&file);
+    out <<  "Save Image."<<".\n";
+    file.close();
+    }
+//#endif
+
         _image->save("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
     }
 
@@ -530,7 +548,7 @@ MyMWidget::refreshwallpaper(bool new_wallpaper){
 void 
 MyMWidget::refreshview(){
     std::cerr<<"MyMWidget::refreshview()"<<std::endl;
-#if 0
+//#if 0
         // Debug begin
         QFile file("/tmp/1.log");
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -539,7 +557,7 @@ MyMWidget::refreshview(){
             file.close();
         }
         // Debug end 
-#endif
+//#endif
           refreshwallpaper();
 };
 
@@ -769,11 +787,9 @@ MyMWidget::currentfileChanged(QString path){
         }
         // Debug end 
     //#endif
-
-
-                std::cerr<<"Simaliar data return!!!!!!"<< std::endl; 
-                return;
-            }
+            std::cerr<<"Simaliar data return!!!!!!"<< std::endl; 
+            return;
+        }
         if (_force_draw)
             _force_draw = false;
         QDateTime utc_time;
@@ -814,7 +830,7 @@ MyMWidget::currentfileChanged(QString path){
 
     }else{
         std::cerr<<"Problem with current.xml file\n"<< std::endl;
-    #if 0
+//    #if 0
         // Debug begin
         QFile file("/tmp/1.log");
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -823,8 +839,18 @@ MyMWidget::currentfileChanged(QString path){
             file.close();
         }
         // Debug end 
-    #endif
+//    #endif
     }
+//    #if 0
+        // Debug begin
+        //QFile file("/tmp/1.log");
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out << "Watcher End!!!\n";
+            file.close();
+        }
+        // Debug end 
+//    #endif
 
     std::cerr<<"Watcher End!!!!"<<std::endl;
 }

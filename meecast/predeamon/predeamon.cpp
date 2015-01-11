@@ -129,7 +129,7 @@ main (int argc, char *argv[]){
     if ((!dp) || (dp && (abs(time(NULL) - dp->LastUpdate()) > 10*60))){
         /*update weather forecast*/
         if (config->UpdatePeriod() != INT_MAX || config->UpdatePeriod() != 0){
-            if ((time(NULL) - dp->LastUpdate()) > config->UpdatePeriod()){
+            if ((!dp) || (time(NULL) - dp->LastUpdate()) > config->UpdatePeriod()){
                 for (i=0; i < config->stationsList().size();i++){
                     if (config->stationsList().at(i)->updateData(true)){
                         success ++;

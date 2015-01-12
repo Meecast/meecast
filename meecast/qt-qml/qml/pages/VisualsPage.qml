@@ -108,7 +108,10 @@ Page {
                     checked: Config.lockscreen
                     onCheckedChanged: {
                         if (Config.lockscreen != checked)   
-                            Config.setlockscreen(lockscreen.checked);
+                            if (!Config.setlockscreen(lockscreen.checked)){
+                                var dialog = pageStack.push("NeedDaemonDialog.qml", {"name": "lalalala"})
+                                checked = false
+                            }    
                     }
                 }
             }

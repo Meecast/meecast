@@ -459,11 +459,27 @@ ConfigQml::lockscreen(){
     return ConfigQml::Config::Lockscreen();
 }
 
-void
+bool
 ConfigQml::setlockscreen(bool c){
-    ConfigQml::Config::Lockscreen(c);
-    saveConfig();
-    refreshconfig();
+    if (!c){
+        ConfigQml::Config::Lockscreen(c);
+        saveConfig();
+        if (QFile::exists("/usr/bin/meecastd")){
+            refreshconfig();
+        }
+        return true;
+    }else{
+        if (QFile::exists("/usr/bin/meecastd")){
+            ConfigQml::Config::Lockscreen(c);
+            saveConfig();
+            refreshconfig();
+            return true;
+        }else{
+            ConfigQml::Config::Lockscreen(false);
+            saveConfig();
+            return false;
+        }
+    }
 }
 
 bool
@@ -472,8 +488,8 @@ ConfigQml::standbyscreen(){
 }
 
 void
-#if 0
 ConfigQml::setstandbyscreen(bool c){
+#if 0
     ConfigQml::Config::Standbyscreen(c);
     if (!c && (QFile::exists("/home/user/.cache/com.meecast.omweather/logo.png")))
        QFile::remove("/home/user/.cache/com.meecast.omweather/logo.png"); 
@@ -542,11 +558,11 @@ ConfigQml::splash(){
     else
         return false;
 #endif
+    return false;
 }
 
 void
 ConfigQml::setsplash(bool c){
-{
 #if 0
     ConfigQml::Config::Splash(c);
     saveConfig();
@@ -567,16 +583,17 @@ ConfigQml::setsplash(bool c){
 }
 
 bool
-<<<<<<< HEAD
 ConfigQml::logocoverpage(){
     return ConfigQml::Config::LogoOnCover();
 }
+
 void
 ConfigQml::setlogocoverpage(bool c){
     ConfigQml::Config::LogoOnCover(c);
     saveConfig();
     refreshconfig();
 }
+
 void
 ConfigQml::settransparency(bool c){
     ConfigQml::Config::Transparency(c);

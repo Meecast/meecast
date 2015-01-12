@@ -84,6 +84,7 @@ OTHER_FILES += \
     qml/ColorCell.qml \
     qml/LanguagesPage.qml \
     qml/wrapper.qml \
+    qml/NeedDaemonDialog.qml \
     translations/omweather_ru_RU.qm
 
 

@@ -185,7 +185,7 @@ public:
     Q_INVOKABLE QStringList visible_list();
     Q_INVOKABLE void visible_unit(int index);
     Q_INVOKABLE void setfullscreen(bool c);
-    Q_INVOKABLE void setlockscreen(bool c);
+    Q_INVOKABLE bool setlockscreen(bool c);
     Q_INVOKABLE void setstandbyscreen(bool c);
     Q_INVOKABLE void seteventwidget(bool c);
     Q_INVOKABLE void setgps(bool c);

@@ -100,6 +100,18 @@ Page {
                     }
                 }
             }
+            Row {
+                width: parent.width
+                TextSwitch {
+                    id: lockscreen 
+                    text: Config.tr("Widget in LockScreen")
+                    checked: Config.lockscreen
+                    onCheckedChanged: {
+                        if (Config.lockscreen != checked)   
+                            Config.setlockscreen(lockscreen.checked);
+                    }
+                }
+            }
 
             SectionHeader {
                 text: "Cover Page"

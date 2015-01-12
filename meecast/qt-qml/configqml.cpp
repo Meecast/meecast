@@ -353,8 +353,7 @@ ConfigQml::windspeed_list(){
 }
 
 QStringList 
-ConfigQml::languages_list()
-{
+ConfigQml::languages_list(){
     QStringList l;
     for (unsigned int i=0; i<languagesList().size(); i++){
         l << QString::fromUtf8(languagesList().at(i).first.c_str());
@@ -363,8 +362,7 @@ ConfigQml::languages_list()
 }
 
 int 
-ConfigQml::index_of_current_language()
-{
+ConfigQml::index_of_current_language(){
     unsigned int i;
     unsigned result = 0;
     for (i=0; i<languagesList().size(); i++){
@@ -375,9 +373,9 @@ ConfigQml::index_of_current_language()
     }
     return result;
 }
+
 void 
-ConfigQml::windspeed_unit(int index)
-{
+ConfigQml::windspeed_unit(int index){
     ConfigQml::Config::WindSpeedUnit(wind_list.at(index).toStdString());
     saveConfig();
     refreshconfig();
@@ -400,8 +398,7 @@ ConfigQml::visibleunit(){
 }
 
 QStringList
-ConfigQml::pressure_list()
-{
+ConfigQml::pressure_list(){
     QStringList l;
     for (int i=0; i < press_list.size(); i++){
         l.append(QString(QString::fromUtf8(_(press_list.at(i).toStdString().c_str()))));
@@ -410,8 +407,7 @@ ConfigQml::pressure_list()
 }
 
 QStringList
-ConfigQml::visible_list()
-{
+ConfigQml::visible_list(){
     QStringList l;
     for (int i=0; i < vis_list.size(); i++){
         l.append(QString(QString::fromUtf8(_(vis_list.at(i).toStdString().c_str()))));
@@ -420,29 +416,26 @@ ConfigQml::visible_list()
 }
 
 void
-ConfigQml::pressure_unit(int index)
-{
+ConfigQml::pressure_unit(int index){
     ConfigQml::Config::PressureUnit(press_list.at(index).toStdString());
     saveConfig();
     refreshconfig();
 }
 
 void
-ConfigQml::visible_unit(int index)
-{
+ConfigQml::visible_unit(int index){
     ConfigQml::Config::VisibleUnit(vis_list.at(index).toStdString());
     saveConfig();
     refreshconfig();
 }
 
 bool
-ConfigQml::fullscreen()
-{
+ConfigQml::fullscreen(){
     return ConfigQml::Config::Fullscreen();
 }
+
 void
-ConfigQml::setfullscreen(bool c)
-{
+ConfigQml::setfullscreen(bool c){
     ConfigQml::Config::Fullscreen(c);
     saveConfig();
     refreshconfig();
@@ -452,6 +445,7 @@ bool
 ConfigQml::lockscreen(){
     return ConfigQml::Config::Lockscreen();
 }
+
 void
 ConfigQml::setlockscreen(bool c){
     ConfigQml::Config::Lockscreen(c);
@@ -478,8 +472,7 @@ ConfigQml::setstandbyscreen(bool c){
 }
 
 bool
-ConfigQml::eventwidget()
-{
+ConfigQml::eventwidget(){
     bool result = false;
     QFile file("/usr/share/meegotouch/applicationextensions/events-weather.desktop");
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -499,8 +492,7 @@ ConfigQml::eventwidget()
     return result;
 }
 void
-ConfigQml::seteventwidget(bool c)
-{    
+ConfigQml::seteventwidget(bool c){    
     if (!c){
     	QDesktopServices::openUrl(QUrl("file:///usr/bin/installui"));
         setlockscreen(false);
@@ -519,18 +511,18 @@ ConfigQml::seteventwidget(bool c)
     	QDesktopServices::openUrl(QUrl("file:///opt/com.meecast.omweather/share/packages/meecast-applet-enable_0.2_all.deb"));
     
 }
+
 bool
-ConfigQml::splash()
-{
+ConfigQml::splash(){
 
     if (QFile::exists("/home/user/.cache/com.meecast.omweather/splash.png"))
         return true;
     else
         return false;
 }
+
 void
-ConfigQml::setsplash(bool c)
-{
+ConfigQml::setsplash(bool c){
     ConfigQml::Config::Splash(c);
     saveConfig();
     refreshconfig();
@@ -549,13 +541,12 @@ ConfigQml::setsplash(bool c)
 }
 
 bool
-ConfigQml::gps()
-{
+ConfigQml::gps(){
     return ConfigQml::Config::Gps();
 }
+
 void
-ConfigQml::setgps(bool c)
-{
+ConfigQml::setgps(bool c){
     /* if gps option changed */
     if (c == ConfigQml::Config::Gps())
         return;
@@ -620,49 +611,46 @@ ConfigQml::standby_color_font_temperature(){
 }
 
 void
-ConfigQml::set_standby_color_font_temperature(QColor c)
-{   
+ConfigQml::set_standby_color_font_temperature(QColor c){   
     _standby_color_font_temperature = c;
     saveConfig();
 }
+
 QColor
 ConfigQml::standby_color_font_current_temperature(){
     return _standby_color_font_current_temperature;
 }
 
 void
-ConfigQml::set_standby_color_font_current_temperature(QColor c)
-{   
+ConfigQml::set_standby_color_font_current_temperature(QColor c){   
     _standby_color_font_current_temperature = c;
     saveConfig();
 }
 
 void
-ConfigQml::set_lock_screen_x_position(int x)
-{   
+ConfigQml::set_lock_screen_x_position(int x){   
     _lockscreen_x_position = x;
     saveConfig();
 }
+
 void
-ConfigQml::set_lock_screen_y_position(int y)
-{   
+ConfigQml::set_lock_screen_y_position(int y){   
     _lockscreen_y_position = y;
     saveConfig();
     refreshconfig();
 }
 
 QStringList
-ConfigQml::stations()
-{
+ConfigQml::stations(){
     QStringList l;
     for (unsigned int i=0; i<stationsList().size(); i++){
         l << QString::fromUtf8(stationsList().at(i)->name().c_str());
     }
     return l;
 }
+
 void
-ConfigQml::removeStation(int index)
-{
+ConfigQml::removeStation(int index){
     stationsList().erase(stationsList().begin() + index);
     //stationlist->erase(stationlist->begin()+index);
     //ConfigQml::Config::stationsList(*stationlist);
@@ -672,9 +660,9 @@ ConfigQml::removeStation(int index)
     saveConfig();
     refreshconfig();
 }
+
 QStringList
-ConfigQml::Sources()
-{
+ConfigQml::Sources(){
     std::string path(Core::AbstractConfig::prefix);
     path += Core::AbstractConfig::sourcesPath;
     Core::SourceList *sourcelist = new Core::SourceList(path);
@@ -685,9 +673,9 @@ ConfigQml::Sources()
     delete sourcelist;
     return l;
 }
+
 QStringList
-ConfigQml::Countries(QString source)
-{
+ConfigQml::Countries(QString source){
     QStringList l;
     std::string path(Core::AbstractConfig::prefix);
     path += Core::AbstractConfig::sharePath;
@@ -724,8 +712,7 @@ ConfigQml::Countries(QString source)
 }
 
 int
-ConfigQml::getCountryId(int index)
-{
+ConfigQml::getCountryId(int index){
     Core::listdata * list = db->create_countries_list();
 
     Core::listdata::iterator cur;
@@ -735,9 +722,9 @@ ConfigQml::getCountryId(int index)
     cur = list->begin()+index;
     return atoi((*cur).first.c_str());
 }
+
 int
-ConfigQml::getRegionId(int country, int index)
-{
+ConfigQml::getRegionId(int country, int index){
     Core::listdata * list = db->create_region_list(getCountryId(country));
 
     Core::listdata::iterator cur;
@@ -747,9 +734,9 @@ ConfigQml::getRegionId(int country, int index)
     cur = list->begin()+index;
     return atoi((*cur).first.c_str());
 }
+
 QString
-ConfigQml::getCityId(int region_id, int index)
-{
+ConfigQml::getCityId(int region_id, int index){
     Core::listdata * list = db->create_stations_list(region_id);
     Core::listdata::iterator cur;
 
@@ -758,9 +745,9 @@ ConfigQml::getCityId(int region_id, int index)
     cur = list->begin()+index;
     return QString::fromStdString((*cur).first);
 }
+
 QStringList
-ConfigQml::Regions(int index)
-{
+ConfigQml::Regions(int index){
     QStringList l;
     
     Core::listdata * list = db->create_region_list(getCountryId(index));
@@ -772,9 +759,9 @@ ConfigQml::Regions(int index)
 
     return l;
 }
+
 QStringList
-ConfigQml::Cities(int country_index, int index)
-{
+ConfigQml::Cities(int country_index, int index){
     QStringList l;
     Core::listdata * list = db->create_stations_list(getRegionId(country_index, index));
 
@@ -788,8 +775,7 @@ ConfigQml::Cities(int country_index, int index)
 void
 ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QString country,
                         QString source, int source_id, bool gps, 
-                        double latitude, double longitude)
-{
+                        double latitude, double longitude){
     Core::Station *station;
     
 
@@ -827,12 +813,12 @@ ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QStr
     saveConfig();
     refreshconfig();
 }
+
 void
 ConfigQml::saveStation(int city_id, QString city,
                        int region_id, QString region,
                        int country_id, QString country,
-                       int source_id, QString source)
-{
+                       int source_id, QString source){
     Core::Station *station;
     double latitude; 
     double longitude;
@@ -895,22 +881,19 @@ ConfigQml::prevstationname(){
 }
 
 int
-ConfigQml::updateinterval()
-{
+ConfigQml::updateinterval(){
     return ConfigQml::Config::UpdatePeriod(); 
 }
 
 void
-ConfigQml::update_interval(int interval)
-{
+ConfigQml::update_interval(int interval){
     ConfigQml::Config::UpdatePeriod(interval);
     saveConfig();
     refreshconfig();
 }
 
 QString
-ConfigQml::filename()
-{
+ConfigQml::filename(){
     if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
                                                 &&  this->stationsList().at(this->current_station_id()))
         return this->stationsList().at(this->current_station_id())->fileName().c_str();
@@ -931,9 +914,9 @@ QString
 ConfigQml::_source(){
     return source();
 }
+
 QString
-ConfigQml::viewURL()
-{
+ConfigQml::viewURL(){
     if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
                                                 &&  this->stationsList().at(this->current_station_id()))
         return this->stationsList().at(this->current_station_id())->viewURL().c_str();
@@ -975,8 +958,7 @@ ConfigQml::station_by_index(int i){
 }
 
 void
-ConfigQml::nextstation()
-{
+ConfigQml::nextstation(){
     if ((int)(this->current_station_id() + 1) < this->stationsList().size()){
        this->current_station_id(this->current_station_id() + 1);
 
@@ -987,8 +969,7 @@ ConfigQml::nextstation()
 }
 
 void
-ConfigQml::prevstation()
-{
+ConfigQml::prevstation(){
     if ((int)(this->current_station_id() - 1) >= 0){
        this->current_station_id(this->current_station_id() - 1);
    }else {
@@ -1013,15 +994,13 @@ ConfigQml::refreshconfig(){
 }
 
 void
-ConfigQml::updatestations()
-{
+ConfigQml::updatestations(){
     thread->start();
 
 }
 
 void
-ConfigQml::updategpsstation()
-{
+ConfigQml::updategpsstation(){
     qDebug() << "Update GPS ";
     if (ConfigQml::Config::Gps()){
         if (_gps){
@@ -1034,16 +1013,14 @@ ConfigQml::updategpsstation()
 
 
 void
-ConfigQml::showweb()
-{
+ConfigQml::showweb(){
     if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
                                                 &&  this->stationsList().at(this->current_station_id()))
         QDesktopServices::openUrl(QUrl(this->stationsList().at(this->current_station_id())->viewURL().c_str()));     
 }
 
 void
-ConfigQml::showwebdonation()
-{
+ConfigQml::showwebdonation(){
     QDesktopServices::openUrl(QUrl("file:///opt/com.meecast.omweather/share/html/donation.html"));     
 }
 
@@ -1053,8 +1030,7 @@ ConfigQml::showwebsupport(){
 }
 
 void
-ConfigQml::downloadFinishedSlot()
-{
+ConfigQml::downloadFinishedSlot(){
     std::cerr<<"ConfigQml::downloadFinishedSlot()"<<std::endl;
     if (!need_updating)
         emit configChanged();
@@ -1062,27 +1038,24 @@ ConfigQml::downloadFinishedSlot()
 
 
 void
-ConfigQml::closeapplication()
-{
+ConfigQml::closeapplication(){
    exit (0);
 }
 
 
 void
-ConfigQml::reload_config()
-{
+ConfigQml::reload_config(){
    this->ReLoadConfig();
    this->refreshconfig();
 }
 
 QString
-ConfigQml::tr(QString str)
-{
+ConfigQml::tr(QString str){
     return QString(QString::fromUtf8(_(str.toUtf8())));
 }
+
 void
-ConfigQml::enableGps()
-{
+ConfigQml::enableGps(){
     if (!_gps) {
         _gps = new GpsPosition();
         _gps->startGps();
@@ -1091,9 +1064,9 @@ ConfigQml::enableGps()
     }
     //addGpsStation(55.1882, 30.2177);
 }
+
 void
-ConfigQml::addGpsStation(double latitude, double longitude)
-{
+ConfigQml::addGpsStation(double latitude, double longitude){
     Core::DatabaseSqlite *db_w = new Core::DatabaseSqlite("");
     std::string country, region, code, name;
     int index;

@@ -245,8 +245,7 @@ ConfigQml::iconset(){
     return c;
 }
 QStringList
-ConfigQml::icon_list()
-{
+ConfigQml::icon_list(){
     QStringList icon_list;
     Dirent *dp = 0;
     DIR *dir_fd = opendir(iconspath().toStdString().c_str());
@@ -273,16 +272,15 @@ ConfigQml::icon_list()
     }
     return icon_list;
 }
+
 void
-ConfigQml::set_iconset(QString c)
-{
+ConfigQml::set_iconset(QString c){
     ConfigQml::Config::iconSet(c.toStdString());
     saveConfig();
     refreshconfig();
 }
 void
-ConfigQml::set_language(QString c)
-{
+ConfigQml::set_language(QString c){
     ConfigQml::Config::Language(c.toStdString());
     /* Set new locale for application */
     for (unsigned int i=1; i<languagesList().size(); i++){
@@ -325,18 +323,18 @@ ConfigQml::temperatureunit(){
     return c;
 }
 
-QStringList ConfigQml::temperature_list()
-{
+QStringList ConfigQml::temperature_list(){
     QStringList l;
     l << "C" << "F";
     return l;
 }
-void ConfigQml::temperature_unit(QString c)
-{
+
+void ConfigQml::temperature_unit(QString c){
     ConfigQml::Config::TemperatureUnit(c.toStdString());
     saveConfig();
     refreshconfig();
 }
+
 QString
 ConfigQml::windspeedunit(){
     QString c;
@@ -346,8 +344,7 @@ ConfigQml::windspeedunit(){
 }
 
 QStringList 
-ConfigQml::windspeed_list()
-{
+ConfigQml::windspeed_list(){
     QStringList l;
     for (int i=0; i < wind_list.size(); i++){
         l.append(QString(QString::fromUtf8(_(wind_list.at(i).toStdString().c_str()))));
@@ -452,26 +449,23 @@ ConfigQml::setfullscreen(bool c)
 }
 
 bool
-ConfigQml::lockscreen()
-{
+ConfigQml::lockscreen(){
     return ConfigQml::Config::Lockscreen();
 }
 void
-ConfigQml::setlockscreen(bool c)
-{
+ConfigQml::setlockscreen(bool c){
     ConfigQml::Config::Lockscreen(c);
     saveConfig();
     refreshconfig();
 }
 
 bool
-ConfigQml::standbyscreen()
-{
+ConfigQml::standbyscreen(){
     return ConfigQml::Config::Standbyscreen();
 }
+
 void
-ConfigQml::setstandbyscreen(bool c)
-{
+ConfigQml::setstandbyscreen(bool c){
     ConfigQml::Config::Standbyscreen(c);
     if (!c && (QFile::exists("/home/user/.cache/com.meecast.omweather/logo.png")))
        QFile::remove("/home/user/.cache/com.meecast.omweather/logo.png"); 

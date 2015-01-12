@@ -105,6 +105,7 @@ public:
    
     void refreshwallpaper(bool new_wallpaper = false);
     void updateIntervalChanged(int interval);
+    void setOriginalWallpaper();
 
     Q_INVOKABLE void startpredeamon(); 
 

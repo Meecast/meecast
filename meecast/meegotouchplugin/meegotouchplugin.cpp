@@ -341,8 +341,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
 
 
    if (lockscreen() && !lockscreen_param){
-        this->current(current);
-	    _wallpaperItem->set("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
+        setOriginalWallpaper();
    }
    /* Check similar data */
    if ((this->temperature() == temperature) &&
@@ -648,6 +647,22 @@ MyMWidget::wakeupStopped(){
 }
 
 void 
+MyMWidget::setOriginalWallpaper(){
+//#if 0
+	// Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << " setOriginalWallpaper()"<< "\n";
+	    file.close();
+	}
+	// Debug end 
+//#endif
+
+    _wallpaperItem->set("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
+}
+
+void 
 MyMWidget::currentfileChanged(QString path){
 
     QString station;
@@ -658,6 +673,7 @@ MyMWidget::currentfileChanged(QString path){
     QString description;
     uint until_valid_time; 
     bool current;
+    bool lockscreen;
     QString last_update;
 
     temperature = this->temperature();
@@ -668,6 +684,7 @@ MyMWidget::currentfileChanged(QString path){
     current = this->current();
     last_update = this->lastupdate();
     description = this->description();
+    lockscreen = this->lockscreen();
 
 
     std::cerr<<"Watcher !!!!"<<std::endl;
@@ -765,7 +782,11 @@ MyMWidget::currentfileChanged(QString path){
         // Debug end 
     //#endif
 
-
+        /* Check for disabling weather on lockscreen */
+        if (!this->lockscreen() && lockscreen){
+            setOriginalWallpaper();
+            return;
+        }
         std::cerr<<"Xml ended"<< std::endl; 
         /* Check similar data */
         if ((this->temperature() == temperature) &&

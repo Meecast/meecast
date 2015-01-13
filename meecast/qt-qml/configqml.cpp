@@ -461,6 +461,7 @@ ConfigQml::lockscreen(){
 
 bool
 ConfigQml::setlockscreen(bool c){
+
     if (!c){
         ConfigQml::Config::Lockscreen(c);
         saveConfig();

@@ -89,10 +89,18 @@ desktop-file-install --delete-original       \
    %{buildroot}%{_datadir}/applications/*.desktop
 
 %pre daemon
-killall meecastd
+if ps -A | grep "meecastd" ; then killall meecastd ; fi
+
 
 %postun daemon
-killall meecastd
+systemctl-user disable meecastd.service
+systemctl-user stop meecastd.service    
+if ps -A | grep "meecastd" ; then killall meecastd ; fi
+
+%post daemon
+if ps -A | grep "meecastd" ; then killall meecastd ; fi
+systemctl-user enable meecastd.service
+systemctl-user start meecastd.service    
 
 %files
 %defattr(-,root,root,-)

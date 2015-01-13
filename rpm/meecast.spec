@@ -88,6 +88,11 @@ desktop-file-install --delete-original       \
   --dir %{buildroot}%{_datadir}/applications             \
    %{buildroot}%{_datadir}/applications/*.desktop
 
+%pre daemon
+killall meecastd
+
+%postun daemon
+killall meecastd
 
 %files
 %defattr(-,root,root,-)

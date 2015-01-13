@@ -960,6 +960,7 @@ MyMWidget::isNetworkAvailable(){
 
 void 
 signalhandler(int sig) {
+    box->setOriginalWallpaper();
     delete box;
     std::cerr<<"signalhandler"<<std::endl;
     if (sig == SIGINT) {
@@ -974,15 +975,6 @@ int main (int argc, char *argv[]) {
     tempfile = NULL;
 
     QGuiApplication app(argc, argv);
-/*
-    MDConfItem dconf(QString("/desktop/jolla/background/portrait/home_picture_filename"));
-
-    std::cerr<<"22222 "<<std::endl;
-    QString Value = dconf.value().toString();;
-    std::cerr<<Value.toStdString().c_str()<<std::endl;
-
-    std::cerr<<"4444 "<<std::endl;
-*/
     box = new MyMWidget();
 
     /* D-BUS */

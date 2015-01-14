@@ -13,7 +13,7 @@ Dialog {
         anchors.top: mainLabel1.bottom
         anchors.horizontalCenter: parent.horizontalCenter
         text: "http://openrepos.net"
-        onClicked: Qt.openUrlExternally("http://openrepos.net") 
+        onClicked: Qt.openUrlExternally("https://openrepos.net/content/vasvlad/meecast-daemon") 
     }
 
     onDone: {

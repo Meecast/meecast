@@ -119,9 +119,10 @@ systemctl-user start meecastd.service
 
 
 %changelog
-* Mon Dec 22 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.15
+* Wed Jan 15 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.15
 
   * Added daemon for controlling updating weather forecast and displaying weather on wallpaper 
+  * Added option for controlling lockscreen widget
 
 * Mon Dec 22 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.14
 

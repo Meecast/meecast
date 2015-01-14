@@ -5,16 +5,13 @@ Dialog {
     Label {
         id: mainLabel1
         anchors.verticalCenter: parent.verticalCenter
-        text: "You should install the \nMeecast Daemon package \n first for this feature."
-    }
-    Label {
-        id: mainLabel2
-        anchors.verticalCenter: parent.verticalCenter
-        text: "You can find it here"
+        anchors.horizontalCenter: parent.horizontalCenter
+        text: "You should install the Meecast Daemon \npackage first for this feature.\nYou can find it here:"
     }
     Button {
         id: button
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.top: mainLabel1.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
         text: "http://openrepos.net"
         onClicked: Qt.openUrlExternally("http://openrepos.net") 
     }

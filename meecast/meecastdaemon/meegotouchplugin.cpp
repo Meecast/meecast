@@ -217,8 +217,8 @@ MyMWidget::MyMWidget(){
     _image = new QImage;
     _image->load(_wallpaper_path);
     if (_image->dotsPerMeterX() != 3780 || _image->dotsPerMeterY() != 3780 ){
-    _image->setDotsPerMeterX(3780);
-    _image->setDotsPerMeterY(3780);
+        _image->setDotsPerMeterX(3780);
+        _image->setDotsPerMeterY(3780);
     }
     if (_wallpaper_path.indexOf("meecast",0) == -1){
 #if 0

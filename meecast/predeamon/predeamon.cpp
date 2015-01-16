@@ -65,11 +65,13 @@ create_and_fill_config(){
     }
     catch(const std::string &str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
-        config =  Core::Config::Instance();
+        return NULL;
+//        config =  Core::Config::Instance();
     }
     catch(const char *str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
-        config =  Core::Config::Instance();
+//        config =  Core::Config::Instance();
+        return NULL;
     }
     std::cerr<<"End of creating Config class: " <<std::endl;
 
@@ -122,6 +124,10 @@ main (int argc, char *argv[]){
     bindtextdomain("omweather", "/usr/share/harbour-meecast/locale");
 
     config = create_and_fill_config();
+    if (!config){
+        std::cerr<<"Problem with config file"<<std::endl;
+        exit (-1);
+    }
     /* Check time for previous updating */
     dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
 

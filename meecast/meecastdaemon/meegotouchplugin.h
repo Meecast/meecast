@@ -90,7 +90,6 @@ private:
     bool _need_update;
 
 
-    QNetworkAccessManager* nam;
     QNetworkConfigurationManager *manager;
 
 

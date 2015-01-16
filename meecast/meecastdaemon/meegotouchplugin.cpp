@@ -51,6 +51,8 @@ using namespace QtConcurrent;
 
 QTemporaryFile *tempfile; /* file for new Wallpaper */
 MyMWidget *box;
+MeecastIf *meecastIf;
+WeatherDataIf *weatherDataIf;
 
 void 
 drawwallpaper(QImage image, QHash <QString, QString> hash){
@@ -184,6 +186,7 @@ MyMWidget::MyMWidget(){
     _down = false;
     _force_draw = true;
     _need_update = true;
+    _image = NULL;
             
     
     /* preparing for wallpaper widget */
@@ -234,15 +237,15 @@ MyMWidget::MyMWidget(){
 
     connect(_lazyrenderingtimer, SIGNAL(timeout()), this, SLOT(refreshview()));
 
+
+
     // Network Manager Configutarion
-
-    nam = new QNetworkAccessManager(this);
-
     manager = new QNetworkConfigurationManager(this);
     connect(manager,SIGNAL(onlineStateChanged(bool)),
             this,SLOT(networkStatusChanged(bool)));
 
     if (manager->isOnline()) {
+        this->_isOnline = true;
 #if 0
     QFile file("/tmp/1.log");
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -254,6 +257,7 @@ MyMWidget::MyMWidget(){
 
     }
     else {
+        this->_isOnline = false;
 #if 0
     QFile file("/tmp/1.log");
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -295,14 +299,15 @@ MyMWidget::MyMWidget(){
 }
  
 MyMWidget::~MyMWidget(){
-    //std::cerr<<"MyMWidget::~MyMWidget() start"<<std::endl;
+//    std::cerr<<"MyMWidget::~MyMWidget() stop"<<std::endl;
+    delete keepalive;
     delete _watcher;
     delete manager;
-    delete nam;
     delete _lazyrenderingtimer;
     delete _wallpaperItem; 
-    delete _image;
-    //std::cerr<<"MyMWidget::~MyMWidget() end"<<std::endl;
+    if (_image)
+        delete _image;
+//    std::cerr<<"MyMWidget::~MyMWidget() end"<<std::endl;
 }
 
 QString 
@@ -493,7 +498,8 @@ MyMWidget::refreshwallpaper(bool new_wallpaper){
 
         if (new_wallpaper){
             //std::cerr<<"Save original file"<<std::endl;
-            delete _image;
+            if (_image)
+                delete _image;
             _image = new QImage;
             _image->load(_wallpaper_path);
             if (_image->dotsPerMeterX() != 3780 || _image->dotsPerMeterY() != 3780 ){
@@ -933,8 +939,10 @@ MyMWidget::isNetworkAvailable(){
 void 
 signalhandler(int sig) {
     box->setOriginalWallpaper();
+    delete meecastIf; 
+    delete weatherDataIf; 
     delete box;
-//    std::cerr<<"signalhandler"<<std::endl;
+    //std::cerr<<"signalhandler"<<std::endl;
     if (sig == SIGINT) {
         qApp->quit();
     }
@@ -950,8 +958,8 @@ int main (int argc, char *argv[]) {
     box = new MyMWidget();
 
     /* D-BUS */
-    new MeecastIf(box);
-    new WeatherDataIf(box);
+    meecastIf = new MeecastIf(box);
+    weatherDataIf = new WeatherDataIf(box);
     QDBusConnection connection = QDBusConnection::sessionBus();
     bool ret = connection.registerService("com.meecast.applet");
     ret = connection.registerObject("/com/meecast/applet", box);

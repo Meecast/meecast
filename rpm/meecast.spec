@@ -122,6 +122,7 @@ systemctl-user start meecastd.service
 * Wed Jan 15 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.16
 
   * Moved a little bit down wallpaper widget 
+  * Fixed problem in daemon with incorrect weather forecast data
 
 * Wed Jan 14 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.15
 

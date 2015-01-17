@@ -18,13 +18,13 @@ CONFIG += dbus \
     link_pkgconfig 
 
 
-HEADERS = meegotouchplugin.h dbusadaptor.h weatherdataif.h \
+HEADERS = meecastdaemon.h dbusadaptor.h weatherdataif.h \
     ../dconf/dconfvalue.h \
     ../dconf/mdconf_p.h \
     ../dconf/mdconfitem.h \
     ../dconf/dconfmigration.h
 
-SOURCES = meegotouchplugin.cpp dbusadaptor.cpp weatherdataif.cpp \
+SOURCES = meecastdaemon.cpp dbusadaptor.cpp weatherdataif.cpp \
     ../dconf/dconfvalue.cpp \
     ../dconf/mdconf.cpp \
     ../dconf/mdconfitem.cpp

@@ -14,7 +14,7 @@
 
 #include <QtCore/QObject>
 #include <QtDBus/QtDBus>
-#include "meegotouchplugin.h"
+#include "meecastdaemon.h"
 class QByteArray;
 template<class T> class QList;
 template<class Key, class Value> class QMap;

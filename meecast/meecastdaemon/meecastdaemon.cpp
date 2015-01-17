@@ -25,7 +25,7 @@
  * 02110-1301 USA
 */
 /*******************************************************************************/
-#include "meegotouchplugin.h"
+#include "meecastdaemon.h"
 #include "dbusadaptor.h"
 #include "weatherdataif.h"
 #include <QThread>

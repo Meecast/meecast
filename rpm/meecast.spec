@@ -119,6 +119,10 @@ systemctl-user start meecastd.service
 
 
 %changelog
+* Wed Jan 15 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.3
+
+  * Moved a little bit up and right wallpaper widget 
+
 * Wed Jan 15 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.16
 
   * Moved a little bit down wallpaper widget 

@@ -77,14 +77,14 @@ drawwallpaper(QImage image, QHash <QString, QString> hash){
     QString iconpath = hash["iconpath"];
     
     /* Left corner */
-    int x = 300;
-    int y = 210;
+    int x = 335;
+    int y = 195;
 
     QSettings *lockscreen_settings;
     lockscreen_settings = new QSettings("/home/nemo/.config/harbour-meecast/lockscreen.conf",QSettings::NativeFormat); 
-    QVariant v = lockscreen_settings->value("x_position", int(300));
+    QVariant v = lockscreen_settings->value("x_position", int(x));
     x = v.value<int>();
-    v = lockscreen_settings->value("y_position", int(210));
+    v = lockscreen_settings->value("y_position", int(y));
     y = v.value<int>();
     delete lockscreen_settings;
 

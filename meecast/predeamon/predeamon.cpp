@@ -107,6 +107,10 @@ main (int argc, char *argv[]){
   QString temp;
   QString temp_high;
   QString temp_low;
+  int localtimezone = 0;
+  struct tm time_tm1;
+  struct tm time_tm2;
+
 
 #if 0
       // Debug begin
@@ -146,21 +150,35 @@ main (int argc, char *argv[]){
     }
 
     dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
+
+    /* Set localtimezone */
+
+    current_day = time(NULL);
+    gmtime_r(&current_day, &time_tm1);
+    localtime_r(&current_day, &time_tm2);
+    time_tm1.tm_isdst = 0;
+    time_tm2.tm_isdst = 0;
+
+    localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
+
     /* set current day */ 
     current_day = time(NULL);
+    fprintf(stderr,"Current time %i\n", current_day);
+
+    current_day = current_day + 3600*timezone;
+    fprintf(stderr,"Current time for time zone %i\n", current_day);
     //tm = localtime(&current_day);
     tm = gmtime(&current_day);
-    year = 1900 + tm->tm_year;
-    current_month = tm->tm_mon;
+    current_day = mktime(tm)  ; /* today 00:00:00 */
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
-    tm->tm_isdst = 1;
+    //  tm->tm_isdst = 1;
+    tm->tm_isdst = 0;
+    //  current_day = mktime(tm) - 3600*timezone ; /* today 00:00:00 */
+    current_day = mktime(tm) - 3600*timezone + 3600*localtimezone ; /* today 00:00:00 */
 
+  
     if (dp)
         temp_data = dp->data().GetDataForTime(time(NULL));
-//    if (temp_data)
-//        current_day = current_day + 3600*dp->timezone();
-
-    current_day = mktime(tm);
 #if 0
       // Debug begin
 	//QFile file("/tmp/1.log");
@@ -261,7 +279,10 @@ main (int argc, char *argv[]){
                 xmlWriter->writeTextElement("lockscreen", "false");
             xmlWriter->writeStartElement("station");
             xmlWriter->writeAttribute("name", stationname.fromUtf8(config->stationname().c_str()));
+            xmlWriter->writeTextElement("last_update", t.toString("dd MMM h:mm"));
+
             xmlWriter->writeStartElement("period");
+            xmlWriter->writeAttribute("itemnumber", "1");
             xmlWriter->writeAttribute("start", QString::number(t.toTime_t()));
             xmlWriter->writeAttribute("end", QString::number(result_time));
             if (temp_data->Current())
@@ -272,16 +293,21 @@ main (int argc, char *argv[]){
             xmlWriter->writeTextElement("icon", icon_string);
             xmlWriter->writeTextElement("description", description.fromUtf8(temp_data->Text().c_str()));
             xmlWriter->writeEndElement();
-            xmlWriter->writeTextElement("last_update", t.toString("dd MMM h:mm"));
+
             xmlWriter->writeEndElement();
             xmlWriter->writeEndElement();
             xmlWriter->writeEndDocument();
             current_file.close();
         }else{
             std::cerr<<"Problem with current.xml file"<< std::endl;
+            return -2;
         }
-
-        
+  }else{
+      if (dp){
+          dp->DeleteInstance();
+          dp = NULL;
+      }
+      return -1;
   }
 
   if (dp){

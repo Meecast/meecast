@@ -742,6 +742,9 @@ MyMWidget::currentfileChanged(QString path){
                     parsePeriod(xml); 
                     continue;
                 }
+                if(xml.name() == "last_update") {
+                    this->lastupdate(xml.readElementText());
+                }
             }
         }
         if(xml.hasError()) {
@@ -883,9 +886,6 @@ MyMWidget::parsePeriod(QXmlStreamReader& xml){
             }
             if(xml.name() == "description") {
                 this->description(xml.readElementText());
-            }
-            if(xml.name() == "last_update") {
-                this->lastupdate(xml.readElementText());
             }
         }
         xml.readNext();

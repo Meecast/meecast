@@ -271,8 +271,8 @@ main (int argc, char *argv[]){
             xmlWriter->writeTextElement("temperature_low", temp_low);
             xmlWriter->writeTextElement("icon", icon_string);
             xmlWriter->writeTextElement("description", description.fromUtf8(temp_data->Text().c_str()));
-            xmlWriter->writeTextElement("last_update", t.toString("dd MMM h:mm"));
             xmlWriter->writeEndElement();
+            xmlWriter->writeTextElement("last_update", t.toString("dd MMM h:mm"));
             xmlWriter->writeEndElement();
             xmlWriter->writeEndElement();
             xmlWriter->writeEndDocument();

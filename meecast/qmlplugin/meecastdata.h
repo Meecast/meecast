@@ -7,7 +7,11 @@
 #include <QDBusInterface>
 #include <QDBusReply>
 #include <QFile>
+#include <QTextStream>
+#include <QDate>
 #include <QXmlStreamReader>
+#include <QDir>
+#include <QFileSystemWatcher>
 #include <iostream>
 
 class Meecastdata : public QObject, public QQmlParserStatus{
@@ -34,6 +38,11 @@ public:
     Q_PROPERTY(QString nameString READ nameString NOTIFY nameStringChanged)
 
     QString nameString() const;
+
+    Q_INVOKABLE void activated();
+
+public Q_SLOTS:
+    void currentfileChanged(QString path);
 signals:
     void activeChanged();
 
@@ -59,6 +68,7 @@ private:
     bool m_active;
 
     QVariantMap _weatherdata;
+    QFileSystemWatcher *_watcher;
 
 private slots:
     void onPropertiesChanged(const QString &interface, const QVariantMap &propertiesChanged, const QStringList &propertiesInvalidated);

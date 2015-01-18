@@ -5,6 +5,28 @@
 Meecastdata::Meecastdata(QObject *parent):
     QObject(parent),
     m_active(false){
+
+    _watcher = new QFileSystemWatcher();
+
+    QFile watcher_file("/home/nemo/.cache/harbour-meecast/current.xml");
+    if(!watcher_file.exists()){
+        //std::cerr<<"Create watcher file"<<std::endl;
+        QDir dir("/home/nemo/.cache/harbour-meecast");
+        if (!dir.exists())
+            dir.mkpath("/home/nemo/.cache/harbour-meecast");
+        if (watcher_file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            watcher_file.close();
+        }
+    }
+    _watcher->addPath("/home/nemo/.cache/harbour-meecast/current.xml"); 
+    connect(_watcher,SIGNAL(fileChanged(QString)),this,SLOT(currentfileChanged(QString)));
+
+    getWeatherdata();
+}
+
+void 
+Meecastdata::currentfileChanged(QString path){
+    activated();
     getWeatherdata();
 }
 
@@ -40,6 +62,22 @@ void Meecastdata::setActive(bool newActive){
     }
 }
 
+void Meecastdata::activated(){
+
+//#if 0
+	// Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << " Meecastdata::activated() "<< "\n";
+	    file.close();
+	}
+	// Debug end 
+//#endif
+
+}
+
+
 
 void Meecastdata::emitProperties(){
 }
@@ -69,7 +107,7 @@ Meecastdata::getWeatherdata(){
     int itemnumber = 0;
 
 //    std::cerr<<"Watcher !!!!"<<std::endl;
-#if 0
+//#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -78,7 +116,7 @@ Meecastdata::getWeatherdata(){
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
 
 	QFile current_file("/home/nemo/.cache/harbour-meecast/current.xml");
 

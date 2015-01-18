@@ -156,12 +156,6 @@ MouseArea {
     Item{
         id: weatherData
         property QtObject meecastData 
-        property bool displayActive: true
-        onDisplayActiveChanged: {
-            if (meecastData) {
-                meecastData.active = enabled && displayActive
-            }
-        }
         visible: true
         Component.onCompleted: {
             meecastData = Qt.createQmlObject('import QtQuick 2.0; import org.meecast.data 1.0 as Meecast; Meecast.Data {}', weatherData)

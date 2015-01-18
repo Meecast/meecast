@@ -116,6 +116,7 @@ systemctl-user start meecastd.service
 /usr/bin/meecastd
 /usr/bin/meecast_predaemon
 /usr/lib/systemd/user/meecastd.service
+%{_libdir}/qt5/qml/org/meecast/data
 
 
 %changelog

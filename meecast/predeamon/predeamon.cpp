@@ -294,6 +294,54 @@ main (int argc, char *argv[]){
             xmlWriter->writeTextElement("description", description.fromUtf8(temp_data->Text().c_str()));
             xmlWriter->writeEndElement();
 
+            /* fill other days for 5 days */
+            i = 1; /* plus 1 second  */ 
+            int itemnumber = 2;
+            while  (dp != NULL && ((temp_data = dp->data().GetDataForTime(current_day + 15 * 3600  + i )) && (i < 6*3600*24))) {
+                if (temp_data){
+
+                    QString icon_string =  config->iconspath().c_str();
+                    QString icon_number;
+                    icon_string.append("/") ;
+                    icon_string.append(config->iconSet().c_str());
+                    icon_string.append("/") ;
+                    icon_number = icon_number.number((temp_data->Icon()), 'i', 0) + ".png";
+                    icon_string.append(icon_number) ;
+                    temp_data->temperature_low().units(config->TemperatureUnit());
+                    temp_data->temperature_hi().units(config->TemperatureUnit());
+                    temp_data->temperature().units(config->TemperatureUnit());
+         
+                    xmlWriter->writeStartElement("period");
+                    xmlWriter->writeAttribute("itemnumber", QString::number(itemnumber));
+                    xmlWriter->writeAttribute("start", QString::number(temp_data->StartTime()));
+                    xmlWriter->writeAttribute("end", QString::number(temp_data->EndTime()));
+
+                    if (temp_data->temperature().value(true) == INT_MAX){
+                        temp = "N/A";
+                    }else
+                        temp = temp.number((temp_data->temperature().value()),'f',0);
+                    if (temp_data->temperature_hi().value(true) == INT_MAX){
+                        temp_high = "N/A";
+                    }else
+                        temp_high = temp.number((temp_data->temperature_hi().value()),'f',0);
+
+                    if (temp_data->temperature_low().value(true) == INT_MAX){
+                        temp_low = "N/A";
+                    }else
+                        temp_low = temp.number((temp_data->temperature_low().value()),'f',0);
+
+                    xmlWriter->writeTextElement("temperature", temp);
+                    xmlWriter->writeTextElement("temperature_hi", temp_high);
+                    xmlWriter->writeTextElement("temperature_low", temp_low);
+                    xmlWriter->writeTextElement("icon", icon_string);
+                    xmlWriter->writeTextElement("description", description.fromUtf8(temp_data->Text().c_str()));
+
+                    xmlWriter->writeEndElement();
+                    itemnumber++;
+                }
+              i = i + 3600*24;
+            }
+
             xmlWriter->writeEndElement();
             xmlWriter->writeEndElement();
             xmlWriter->writeEndDocument();

@@ -674,6 +674,7 @@ MyMWidget::currentfileChanged(QString path){
     bool current;
     bool lockscreen;
     QString last_update;
+    int itemnumber = 0;
 
     temperature = this->temperature();
     temperature_high = this->temperature_high();
@@ -739,7 +740,11 @@ MyMWidget::currentfileChanged(QString path){
                     if(attributes.hasAttribute("end")){
                         until_valid_time = attributes.value("end").toInt();  
                     } 
-                    parsePeriod(xml); 
+                    if(attributes.hasAttribute("itemnumber")){
+                        itemnumber = attributes.value("itemnumber").toInt();  
+                    } 
+                    if (itemnumber == 1)
+                        parsePeriod(xml); 
                     continue;
                 }
                 if(xml.name() == "last_update") {

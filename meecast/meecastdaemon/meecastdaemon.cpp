@@ -737,14 +737,15 @@ MyMWidget::currentfileChanged(QString path){
                             this->current(true);
                         }
                     } 
-                    if(attributes.hasAttribute("end")){
+                    if(attributes.hasAttribute("end") && itemnumber == 1){
                         until_valid_time = attributes.value("end").toInt();  
                     } 
                     if(attributes.hasAttribute("itemnumber")){
                         itemnumber = attributes.value("itemnumber").toInt();  
                     } 
-                    if (itemnumber == 1)
-                        parsePeriod(xml); 
+                    if (itemnumber == 1){
+                        parsePeriod(xml, itemnumber); 
+                    }
                     continue;
                 }
                 if(xml.name() == "last_update") {
@@ -864,7 +865,7 @@ MyMWidget::currentfileChanged(QString path){
 }
 
 void
-MyMWidget::parsePeriod(QXmlStreamReader& xml){
+MyMWidget::parsePeriod(QXmlStreamReader& xml, int itemnumber){
 
     //std::cerr<<"ParsePeriod\n"<< std::endl;
 

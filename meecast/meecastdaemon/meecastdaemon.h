@@ -85,7 +85,7 @@ private:
     bool _isOnline;
     uint _next_time_for_check;
     QFileSystemWatcher *_watcher;
-    void parsePeriod(QXmlStreamReader& xml);
+    void parsePeriod(QXmlStreamReader& xml, int itemnumber);
     bool _force_draw;
     bool _need_update;
 

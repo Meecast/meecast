@@ -6,7 +6,9 @@
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusReply>
-
+#include <QFile>
+#include <QXmlStreamReader>
+#include <iostream>
 
 class Meecastdata : public QObject, public QQmlParserStatus{
     Q_OBJECT
@@ -15,7 +17,6 @@ class Meecastdata : public QObject, public QQmlParserStatus{
 public:
     Q_PROPERTY(bool active READ active WRITE setActive NOTIFY activeChanged)
 
-    Q_PROPERTY(QString service READ service WRITE setService NOTIFY serviceChanged)
 
     Meecastdata(QObject *parent = 0);
     ~Meecastdata();
@@ -28,7 +29,6 @@ public:
     bool active() const;
     void setActive(bool newActive);
 
-    QString service() const;
     void setService(const QString &newService);
 
     Q_PROPERTY(QString nameString READ nameString NOTIFY nameStringChanged)
@@ -37,7 +37,6 @@ public:
 signals:
     void activeChanged();
 
-    void serviceChanged();
 
     void nameStringChanged();
 
@@ -47,6 +46,7 @@ private:
     QVariantMap convertMetadata(const QVariant &dbusArgumentMetadata);
 
     void getAllProperties();
+    void getWeatherdata();
     void getAllPropertiesPlayer();
 
     void emitProperties();
@@ -58,10 +58,7 @@ private:
 
     bool m_active;
 
-    QString m_service;
-
-    QVariantMap m_properties;
-    QVariantMap m_properties_player;
+    QVariantMap _weatherdata;
 
 private slots:
     void onPropertiesChanged(const QString &interface, const QVariantMap &propertiesChanged, const QStringList &propertiesInvalidated);

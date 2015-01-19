@@ -10,7 +10,7 @@ Meecastdata::Meecastdata(QObject *parent):
 
     QFile watcher_file("/home/nemo/.cache/harbour-meecast/current.xml");
     if(!watcher_file.exists()){
-        //std::cerr<<"Create watcher file"<<std::endl;
+       std::cerr<<"Create watcher file"<<std::endl;
         QDir dir("/home/nemo/.cache/harbour-meecast");
         if (!dir.exists())
             dir.mkpath("/home/nemo/.cache/harbour-meecast");
@@ -22,12 +22,17 @@ Meecastdata::Meecastdata(QObject *parent):
     connect(_watcher,SIGNAL(fileChanged(QString)),this,SLOT(currentfileChanged(QString)));
 
     getWeatherdata();
+
+//    Q_EMIT activeChanged();
 }
 
 void 
 Meecastdata::currentfileChanged(QString path){
+
+    std::cerr<<"currentfileChanged"<<std::endl;
     activated();
     getWeatherdata();
+    Q_EMIT refreshWidget();
 }
 
 Meecastdata::~Meecastdata(){
@@ -106,7 +111,7 @@ Meecastdata::getWeatherdata(){
     QString last_update;
     int itemnumber = 0;
 
-//    std::cerr<<"Watcher !!!!"<<std::endl;
+    std::cerr<<"Watcher !!!!"<<std::endl;
 //#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
@@ -234,5 +239,7 @@ void Meecastdata::onPropertiesChanged(const QString &interface, const QVariantMa
 
 QString Meecastdata::nameString() const
 {
+
+    std::cerr<<"nameStrig() !!!!"<<std::endl;
     return _weatherdata["station_name"].toString();
 }

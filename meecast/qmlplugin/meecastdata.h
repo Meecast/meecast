@@ -45,6 +45,7 @@ public Q_SLOTS:
     void currentfileChanged(QString path);
 signals:
     void activeChanged();
+    void refreshWidget();
 
 
     void nameStringChanged();

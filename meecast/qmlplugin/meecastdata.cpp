@@ -111,7 +111,7 @@ Meecastdata::getWeatherdata(){
     int itemnumber = 0;
 
     std::cerr<<" getWeatherData"<<std::endl;
-//#if 0
+#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -120,13 +120,16 @@ Meecastdata::getWeatherdata(){
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
 
+    std::cerr<<" getWeatherData1"<<std::endl;
 	QFile current_file("/home/nemo/.cache/harbour-meecast/current.xml");
 
     if (current_file.size()<=0)
         return;
+    std::cerr<<" getWeatherData2"<<std::endl;
     if (current_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+    std::cerr<<" getWeatherData3"<<std::endl;
         _weatherdata.clear();
         QXmlStreamReader xml(&current_file);
         while(!xml.atEnd() && !xml.hasError()) {
@@ -139,6 +142,7 @@ Meecastdata::getWeatherdata(){
                 if(xml.name() == "station") {
                     QXmlStreamAttributes attributes = xml.attributes();
                     if(attributes.hasAttribute("name")){
+                        std::cerr<<" station_name "<<attributes.value("name").toString().toStdString().c_str()<<std::endl;
                         _weatherdata.insert("station_name", attributes.value("name").toString());
                     } 
                     continue;
@@ -239,6 +243,6 @@ void Meecastdata::onPropertiesChanged(const QString &interface, const QVariantMa
 QString Meecastdata::nameString() const
 {
 
-    std::cerr<<"nameStrig() !!!!"<<std::endl;
+    std::cerr<<"nameStrig() !!!!"<<_weatherdata["station_name"].toString().toStdString().c_str()<<" ."<<std::endl;
     return _weatherdata["station_name"].toString();
 }

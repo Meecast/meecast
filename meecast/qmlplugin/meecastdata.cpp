@@ -30,7 +30,6 @@ void
 Meecastdata::currentfileChanged(QString path){
 
     std::cerr<<"currentfileChanged"<<std::endl;
-    activated();
     getWeatherdata();
     Q_EMIT refreshWidget();
 }
@@ -111,7 +110,7 @@ Meecastdata::getWeatherdata(){
     QString last_update;
     int itemnumber = 0;
 
-    std::cerr<<"Watcher !!!!"<<std::endl;
+    std::cerr<<" getWeatherData"<<std::endl;
 //#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");

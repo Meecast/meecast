@@ -278,6 +278,9 @@ MyMWidget::MyMWidget(){
 
     QFile watcher_file("/home/nemo/.cache/harbour-meecast/current.xml");
     if(!watcher_file.exists()){
+        QDir dir("/home/nemo/.cache/harbour-meecast");
+        if (!dir.exists())
+            dir.mkpath("/home/nemo/.cache/harbour-meecast");
         //std::cerr<<"Create watcher file"<<std::endl;
         if (watcher_file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
             watcher_file.close();

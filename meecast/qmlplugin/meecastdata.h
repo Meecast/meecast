@@ -6,6 +6,7 @@
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusReply>
+#include <QTimer>
 #include <QFile>
 #include <QTextStream>
 #include <QDate>
@@ -68,11 +69,13 @@ private:
 
     bool m_active;
 
+    QTimer  *_filemonitoring; /* For check exsisting of file */
     QVariantMap _weatherdata;
     QFileSystemWatcher *_watcher;
 
 private slots:
     void onPropertiesChanged(const QString &interface, const QVariantMap &propertiesChanged, const QStringList &propertiesInvalidated);
+    void updatefilemonitoring();
 };
 
 #endif // MEECASTDATA_H

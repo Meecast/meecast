@@ -5,7 +5,7 @@
 Meecastdata::Meecastdata(QObject *parent):
     QObject(parent),
     m_active(false){
-
+    _filemonitoring = NULL;
     _watcher = new QFileSystemWatcher();
 
     QFile watcher_file("/home/nemo/.cache/harbour-meecast/current.xml");
@@ -25,18 +25,47 @@ Meecastdata::Meecastdata(QObject *parent):
 
 //    Q_EMIT activeChanged();
 }
+ 
+Meecastdata::~Meecastdata(){
+    if (_filemonitoring)
+        delete _filemonitoring;
+    if(_watcher)
+        delete _watcher;
+}
+
+void 
+Meecastdata::updatefilemonitoring(){
+
+    std::cerr<<"updatefilemonitoring()"<<std::endl;
+    QFile watcher_file("/home/nemo/.cache/harbour-meecast/current.xml");
+    if(watcher_file.exists()){
+        _watcher->addPath("/home/nemo/.cache/harbour-meecast/current.xml"); 
+        getWeatherdata();
+        Q_EMIT refreshWidget();
+    }else{
+        _filemonitoring->start(60*1000);
+    }
+}
 
 void 
 Meecastdata::currentfileChanged(QString path){
 
     std::cerr<<"currentfileChanged"<<std::endl;
+//#if 0
+	// Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "currentfileChanged "<< "\n";
+	    file.close();
+	}
+	// Debug end 
+//#endif
+
     getWeatherdata();
     Q_EMIT refreshWidget();
 }
 
-Meecastdata::~Meecastdata(){
-
-}
 
 void Meecastdata::classBegin(){
 
@@ -110,8 +139,8 @@ Meecastdata::getWeatherdata(){
     QString last_update;
     int itemnumber = 0;
 
-    std::cerr<<" getWeatherData"<<std::endl;
-#if 0
+  //  std::cerr<<" getWeatherData"<<std::endl;
+//#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -120,16 +149,27 @@ Meecastdata::getWeatherdata(){
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
 
-    std::cerr<<" getWeatherData1"<<std::endl;
+    //std::cerr<<" getWeatherData1"<<std::endl;
 	QFile current_file("/home/nemo/.cache/harbour-meecast/current.xml");
 
+    /* Check file */
+    if (current_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        current_file.close();
+    }else{
+        if (_filemonitoring)
+            delete _filemonitoring;
+        _filemonitoring = new QTimer(this);
+        _filemonitoring->setSingleShot(true);
+        connect(_filemonitoring, SIGNAL(timeout()), this, SLOT(updatefilemonitoring()));
+        _filemonitoring->start(1000);
+      //  std::cerr<<" Problem"<<std::endl;
+        return;
+    }
     if (current_file.size()<=0)
         return;
-    std::cerr<<" getWeatherData2"<<std::endl;
     if (current_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-    std::cerr<<" getWeatherData3"<<std::endl;
         _weatherdata.clear();
         QXmlStreamReader xml(&current_file);
         while(!xml.atEnd() && !xml.hasError()) {
@@ -243,6 +283,6 @@ void Meecastdata::onPropertiesChanged(const QString &interface, const QVariantMa
 QString Meecastdata::nameString() const
 {
 
-    std::cerr<<"nameStrig() !!!!"<<_weatherdata["station_name"].toString().toStdString().c_str()<<" ."<<std::endl;
+//    std::cerr<<"nameStrig() !!!!"<<_weatherdata["station_name"].toString().toStdString().c_str()<<" ."<<std::endl;
     return _weatherdata["station_name"].toString();
 }

@@ -171,11 +171,11 @@ MouseArea {
             id: station_name 
             text: weatherData.meecastData.nameString 
         }
-
         Connections {
             target: weatherData.meecastData 
-            onRefreshWidget: {
-               station_name.text = weatherData.meecastData.nameString 
+            onRefreshWidget: {            
+               console.log("sssssssssssssssssssssssssssss")
+               mylabel.text = weatherData.meecastData.nameString 
             }
         }
     }

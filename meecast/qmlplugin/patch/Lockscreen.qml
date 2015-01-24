@@ -171,11 +171,20 @@ MouseArea {
             id: station_name 
             text: weatherData.meecastData.nameString 
         }
+        Label {
+            id: last_update 
+            anchors {
+                left: station_name.right
+            }
+            text: weatherData.meecastData.forecastdata["last_update"]
+        }
+
         Connections {
             target: weatherData.meecastData 
             onRefreshWidget: {            
                console.log("Refresh widget !!!!!!!!!!!!!!")
                station_name.text = weatherData.meecastData.nameString 
+               last_update.text = weatherData.meecastData.forecastdata["last_update"]
             }
         }
     }

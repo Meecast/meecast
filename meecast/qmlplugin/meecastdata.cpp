@@ -51,7 +51,7 @@ void
 Meecastdata::currentfileChanged(QString path){
 
     std::cerr<<"currentfileChanged"<<std::endl;
-//#if 0
+#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -60,7 +60,7 @@ Meecastdata::currentfileChanged(QString path){
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
 
     getWeatherdata();
     Q_EMIT refreshWidget();
@@ -97,7 +97,7 @@ void Meecastdata::setActive(bool newActive){
 
 void Meecastdata::activated(){
 
-//#if 0
+#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -106,7 +106,7 @@ void Meecastdata::activated(){
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
 
 }
 
@@ -139,8 +139,8 @@ Meecastdata::getWeatherdata(){
     QString last_update;
     int itemnumber = 0;
 
-  //  std::cerr<<" getWeatherData"<<std::endl;
-//#if 0
+   std::cerr<<" getWeatherData"<<std::endl;
+#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -149,7 +149,7 @@ Meecastdata::getWeatherdata(){
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
 
     //std::cerr<<" getWeatherData1"<<std::endl;
 	QFile current_file("/home/nemo/.cache/harbour-meecast/current.xml");
@@ -280,9 +280,13 @@ QVariantMap Meecastdata::getAllDBusProperties(const QString &interface){
 void Meecastdata::onPropertiesChanged(const QString &interface, const QVariantMap &propertiesChanged, const QStringList &propertiesInvalidated) {
 }
 
-QString Meecastdata::nameString() const
-{
-
-//    std::cerr<<"nameStrig() !!!!"<<_weatherdata["station_name"].toString().toStdString().c_str()<<" ."<<std::endl;
+QString 
+Meecastdata::nameString() const{
     return _weatherdata["station_name"].toString();
 }
+
+QVariantMap 
+Meecastdata::forecastdata() const{
+    return _weatherdata;
+}
+

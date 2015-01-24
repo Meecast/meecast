@@ -37,10 +37,13 @@ public:
     void setService(const QString &newService);
 
     Q_PROPERTY(QString nameString READ nameString NOTIFY nameStringChanged)
+    Q_PROPERTY(QVariantMap forecastdata READ forecastdata NOTIFY forecastdataChanged)
 
     QString nameString() const;
 
     Q_INVOKABLE void activated();
+
+    QVariantMap forecastdata() const;
 
 public Q_SLOTS:
     void currentfileChanged(QString path);
@@ -50,6 +53,7 @@ signals:
 
 
     void nameStringChanged();
+    void forecastdataChanged();
 
 private:
     void setDBusProperty(const QString &interface, const QString &name, const QVariant &value);

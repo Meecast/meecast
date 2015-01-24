@@ -174,8 +174,8 @@ MouseArea {
         Connections {
             target: weatherData.meecastData 
             onRefreshWidget: {            
-               console.log("sssssssssssssssssssssssssssss")
-               mylabel.text = weatherData.meecastData.nameString 
+               console.log("Refresh widget !!!!!!!!!!!!!!")
+               station_name.text = weatherData.meecastData.nameString 
             }
         }
     }

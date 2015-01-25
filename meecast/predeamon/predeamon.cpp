@@ -292,6 +292,10 @@ main (int argc, char *argv[]){
             xmlWriter->writeTextElement("temperature_low", temp_low);
             xmlWriter->writeTextElement("icon", icon_string);
             xmlWriter->writeTextElement("description", description.fromUtf8(temp_data->Text().c_str()));
+            QDateTime t;
+            t.setTime_t(temp_data->StartTime());
+            xmlWriter->writeTextElement("short_day_name", QLocale().toString(t, "ddd"));
+
             xmlWriter->writeEndElement();
 
             /* fill other days for 5 days */
@@ -335,7 +339,9 @@ main (int argc, char *argv[]){
                     xmlWriter->writeTextElement("temperature_low", temp_low);
                     xmlWriter->writeTextElement("icon", icon_string);
                     xmlWriter->writeTextElement("description", description.fromUtf8(temp_data->Text().c_str()));
-
+                    QDateTime t;
+                    t.setTime_t(temp_data->StartTime());
+                    xmlWriter->writeTextElement("short_day_name", QLocale().toString(t, "ddd"));
                     xmlWriter->writeEndElement();
                     itemnumber++;
                 }

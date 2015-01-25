@@ -77,6 +77,8 @@ private:
     QVariantMap _weatherdata;
     QFileSystemWatcher *_watcher;
 
+    void parsePeriod(QXmlStreamReader& xml, int itemnumber);
+
 private slots:
     void onPropertiesChanged(const QString &interface, const QVariantMap &propertiesChanged, const QStringList &propertiesInvalidated);
     void updatefilemonitoring();

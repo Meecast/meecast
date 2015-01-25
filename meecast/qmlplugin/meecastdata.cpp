@@ -203,7 +203,7 @@ Meecastdata::getWeatherdata(){
                     if(attributes.hasAttribute("itemnumber")){
                         itemnumber = attributes.value("itemnumber").toInt();  
                     } 
-//                    parsePeriod(xml, itemnumber); 
+                    parsePeriod(xml, itemnumber); 
                     continue;
                 }
                 if(xml.name() == "last_update") {
@@ -255,6 +255,42 @@ Meecastdata::getWeatherdata(){
 //    std::cerr<<"Watcher End!!!!"<<std::endl;
 
 
+}
+
+void
+Meecastdata::parsePeriod(QXmlStreamReader& xml, int itemnumber){
+
+    //std::cerr<<"ParsePeriod\n"<< std::endl;
+
+    if(xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == "period") {
+        return;
+    }
+
+    QXmlStreamAttributes attributes = xml.attributes();
+    xml.readNext();
+    QString temporary = xml.name().toString();
+    while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "period")) {
+        if(xml.tokenType() == QXmlStreamReader::StartElement) {
+            if(xml.name() == "temperature") {
+                _weatherdata.insert("item" + QString::number(itemnumber) + "_temperature", xml.readElementText());
+            }
+            if(xml.name() == "temperature_hi") {
+                _weatherdata.insert("item" + QString::number(itemnumber) + "_temperature_high", xml.readElementText());
+            }
+            if(xml.name() == "temperature_low") {
+                _weatherdata.insert("item" + QString::number(itemnumber) + "_temperature_low", xml.readElementText());
+            }
+            if(xml.name() == "icon") {
+                _weatherdata.insert("item" + QString::number(itemnumber) + "_icon", xml.readElementText());
+            }
+            if(xml.name() == "description") {
+                _weatherdata.insert("item" + QString::number(itemnumber) + "_description", xml.readElementText());
+            }
+        }
+        xml.readNext();
+    }
+
+    //std::cerr<<"ParsePeriod end"<< std::endl;
 }
 
 void Meecastdata::setDBusProperty(const QString &interface, const QString &name, const QVariant &value) {

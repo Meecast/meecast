@@ -164,27 +164,193 @@ MouseArea {
         anchors {
             top: networkNameAndDateLabels.bottom
             topMargin: Theme.paddingMedium
-            horizontalCenter: parent.horizontalCenter
+            right: parent.right
+            rightMargin: Theme.paddingMedium
         }
-        width: parent.width  
-        Label {
-            id: station_name 
-            text: weatherData.meecastData.nameString 
-        }
-        Label {
-            id: last_update 
-            anchors {
-                left: station_name.right
-            }
-            text: weatherData.meecastData.forecastdata["last_update"]
+        width: 405
+        height: 140  
+
+        Rectangle {
+            id: background
+            anchors.fill: parent
+            color: "grey"
+            opacity: 0.3
+            radius: 1
         }
 
+        Rectangle {
+            id: background_border
+            anchors.left: parent.left
+            anchors.fill: parent
+            border.color: "silver"
+            border.width: 1
+            color: "transparent"
+            radius: 1
+        }
+
+        Rectangle {
+            id: first_item 
+            anchors.left: parent.left
+            color: "transparent"
+            width: parent.height 
+            height: parent.height 
+//          border.color: "red"
+//          border.width: 1
+
+            Image {
+                id: icon_1
+                source: weatherData.meecastData.forecastdata["item1_icon"]
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+                opacity: 0.4
+                height: parent.height - Theme.paddingSmall
+                width: parent.height - Theme.paddingSmall
+            }
+
+            Label {
+                id: temperature_1 
+                anchors.top: parent.top
+                anchors.topMargin: -Theme.paddingSmall
+                color: "white"
+                width: parent.width - Theme.paddingSmall
+                font.pixelSize: Theme.fontSizeExtraLarge
+                horizontalAlignment: Text.AlignHCenter
+                text: weatherData.meecastData.forecastdata["item1_temperature"]
+            }
+        }
+        Rectangle {
+            id: second_item 
+            anchors.left: first_item.right
+            anchors.bottom: background.bottom
+            color: "transparent"
+            width: parent.height*2/3
+            height: parent.height*2/3
+//          border.color: "red"
+//          border.width: 1
+
+            Image {
+                id: icon_2
+                source: weatherData.meecastData.forecastdata["item2_icon"]
+                anchors.top: parent.top
+                anchors.horizontalCenter: parent.horizontalCenter
+                opacity: 1.0 
+                height: weatherData.height/2 
+                width: weatherData.height/2 
+
+            }
+            Label {
+                id: temperature_2 
+                anchors.bottom: parent.bottom
+                color: "white"
+                font.pixelSize: Theme.fontSizeSmall
+                horizontalAlignment: Text.AlignHCenter
+                text: weatherData.meecastData.forecastdata["item2_temperature"]
+                width: parent.width
+            }
+        }
+        Rectangle {
+            id: thrid_item 
+            anchors.left: second_item.right
+            anchors.bottom: background.bottom
+            color: "transparent"
+            width: parent.height*2/3
+            height: parent.height*2/3
+//          border.color: "red"
+//          border.width: 1
+
+            Image {
+                id: icon_3
+                source: weatherData.meecastData.forecastdata["item3_icon"]
+                anchors.top: parent.top
+                anchors.horizontalCenter: parent.horizontalCenter
+                opacity: 1.0 
+                height: weatherData.height/2 
+                width: weatherData.height/2 
+            }
+            Label {
+                id: temperature_3
+                anchors.bottom: parent.bottom
+                color: "white"
+                font.pixelSize: Theme.fontSizeSmall
+                horizontalAlignment: Text.AlignHCenter
+                text: weatherData.meecastData.forecastdata["item3_temperature"]
+                width: parent.width
+            }
+        }
+        Rectangle {
+            id: forth_item 
+            anchors.left: thrid_item.right
+            anchors.bottom: background.bottom
+            color: "transparent"
+            width: parent.height*2/3
+            height: parent.height*2/3
+//          border.color: "red"
+//          border.width: 1
+
+            Image {
+                id: icon_4
+                source: weatherData.meecastData.forecastdata["item4_icon"]
+                anchors.top: parent.top
+                anchors.horizontalCenter: parent.horizontalCenter
+                opacity: 1.0 
+                height: weatherData.height/2 
+                width: weatherData.height/2 
+            }
+            Label {
+                id: temperature_4
+                anchors.bottom: parent.bottom
+                color: "white"
+                font.pixelSize: Theme.fontSizeSmall
+                horizontalAlignment: Text.AlignHCenter
+                text: weatherData.meecastData.forecastdata["item4_temperature"]
+                width: parent.width
+            }
+        }
+
+        Rectangle{
+            id: header_rect 
+            anchors.right: parent.right
+//            border.color: "green"
+//            border.width: 1
+            anchors.top: parent.top
+            height: parent.height*1/3
+            color: "transparent"
+            width: parent.width - first_item.width 
+            Label {
+                id: station_name 
+                height: parent.height
+                anchors.right: last_update.left
+                anchors.rightMargin: Theme.paddingSmall
+                anchors.left: parent.left
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                text: weatherData.meecastData.nameString 
+                font.pixelSize: Theme.fontSizeExtraSmall
+            }
+            Label {
+                id: last_update 
+                height: parent.height
+                anchors.right: parent.right
+                verticalAlignment: Text.AlignVCenter
+                anchors.rightMargin: Theme.paddingSmall
+                text: weatherData.meecastData.forecastdata["last_update"]
+                font.pixelSize: Theme.fontSizeExtraSmall - 5
+            }
+        }
         Connections {
             target: weatherData.meecastData 
             onRefreshWidget: {            
                console.log("Refresh widget !!!!!!!!!!!!!!")
                station_name.text = weatherData.meecastData.nameString 
                last_update.text = weatherData.meecastData.forecastdata["last_update"]
+               temperature_1.text = weatherData.meecastData.forecastdata["item1_temperature"]
+               temperature_2.text = weatherData.meecastData.forecastdata["item2_temperature"]
+               temperature_3.text = weatherData.meecastData.forecastdata["item3_temperature"]
+               temperature_4.text = weatherData.meecastData.forecastdata["item4_temperature"]
+               icon_1.source = weatherData.meecastData.forecastdata["item1_icon"]
+               icon_2.source = weatherData.meecastData.forecastdata["item2_icon"]
+               icon_3.source = weatherData.meecastData.forecastdata["item3_icon"]
+               icon_4.source = weatherData.meecastData.forecastdata["item4_icon"]
             }
         }
     }

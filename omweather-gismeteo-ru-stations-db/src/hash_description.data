@@ -61,6 +61,7 @@
     hash_insert(hash, "Пасмурно, снег", "Mostly Cloudy, Snow");
     hash_insert(hash, "Пасмурно, туман", "Mostly Cloudy, Fog");
     hash_insert(hash, "Пасмурно, туман, изморозь", "Mostly Cloudy, Fog, Drizzle");
+    hash_insert(hash, "Пасмурно, слабый ливень", "Mainly cloudy, Slight shower of rain");
     hash_insert(hash, "Пасмурно, сильный дождь", "Mostly Cloudy, Heavy Rain");
     hash_insert(hash, "Пасмурно, дождь", "Mostly Cloudy, Rain");
     hash_insert(hash, "Пасмурно, сильный дождь, гроза", "Mostly Cloudy, Heavy Rain, T-Storm");

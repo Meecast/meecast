@@ -384,6 +384,7 @@
     g_hash_table_insert(hash, (void*)"Sunny periods and a few showers.", _("Sunny periods and a few showers."));
     g_hash_table_insert(hash, (void*)"Sunny periods and a few showers.", _("Sunny periods and a few showers."));
     g_hash_table_insert(hash, (void*)"Mainly cloudy with occasional rain.", _("Mainly cloudy with occasional rain."));
+    g_hash_table_insert(hash, (void*)"Mainly cloudy, Slight shower of rain", _("Mainly cloudy, Slight shower of rain"));
     g_hash_table_insert(hash, (void*)"Cloudy with occasional rain.", _("Cloudy with occasional rain."));
     g_hash_table_insert(hash, (void*)"Heavy intensity rain", _("Heavy intensity rain"));
     g_hash_table_insert(hash, (void*)"Light intensity shower rain", _("Light intensity shower rain"));

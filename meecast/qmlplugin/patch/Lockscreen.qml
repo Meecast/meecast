@@ -215,7 +215,7 @@ MouseArea {
                 width: parent.width - Theme.paddingSmall
                 font.pixelSize: Theme.fontSizeExtraLarge
                 horizontalAlignment: Text.AlignHCenter
-                text: weatherData.meecastData.forecastdata["item1_temperature"]
+                text: weatherData.meecastData.forecastdata["item1_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
             }
         }
         Rectangle {
@@ -239,14 +239,25 @@ MouseArea {
 
             }
             Label {
+                id: day_name_2 
+                anchors.bottom: icon_2.top 
+                anchors.bottomMargin: -Theme.paddingSmall
+                color: "white"
+                font.pixelSize: Theme.fontSizeMedium/2 
+                horizontalAlignment: Text.AlignHCenter
+                text: weatherData.meecastData.forecastdata["item2_short_day_name"]
+                width: parent.width
+            }
+            Label {
                 id: temperature_2 
                 anchors.bottom: parent.bottom
                 color: "white"
                 font.pixelSize: Theme.fontSizeSmall
                 horizontalAlignment: Text.AlignHCenter
-                text: weatherData.meecastData.forecastdata["item2_temperature"]
+                text: weatherData.meecastData.forecastdata["item2_temperature"] + '°'+ weatherData.meecastData.forecastdata["temperatureunit"]
                 width: parent.width
             }
+
         }
         Rectangle {
             id: thrid_item 
@@ -268,12 +279,22 @@ MouseArea {
                 width: weatherData.height/2 
             }
             Label {
+                id: day_name_3 
+                anchors.bottom: icon_3.top 
+                anchors.bottomMargin: -Theme.paddingSmall
+                color: "white"
+                font.pixelSize: Theme.fontSizeMedium/2 
+                horizontalAlignment: Text.AlignHCenter
+                text: weatherData.meecastData.forecastdata["item3_short_day_name"]
+                width: parent.width
+            }
+            Label {
                 id: temperature_3
                 anchors.bottom: parent.bottom
                 color: "white"
                 font.pixelSize: Theme.fontSizeSmall
                 horizontalAlignment: Text.AlignHCenter
-                text: weatherData.meecastData.forecastdata["item3_temperature"]
+                text: weatherData.meecastData.forecastdata["item3_temperature"] + '°'+ weatherData.meecastData.forecastdata["temperatureunit"]
                 width: parent.width
             }
         }
@@ -297,12 +318,22 @@ MouseArea {
                 width: weatherData.height/2 
             }
             Label {
+                id: day_name_4
+                anchors.bottom: icon_4.top
+                anchors.bottomMargin: -Theme.paddingSmall
+                color: "white"
+                font.pixelSize: Theme.fontSizeMedium/2 
+                horizontalAlignment: Text.AlignHCenter
+                text: weatherData.meecastData.forecastdata["item4_short_day_name"]
+                width: parent.width
+            }
+            Label {
                 id: temperature_4
                 anchors.bottom: parent.bottom
                 color: "white"
                 font.pixelSize: Theme.fontSizeSmall
                 horizontalAlignment: Text.AlignHCenter
-                text: weatherData.meecastData.forecastdata["item4_temperature"]
+                text: weatherData.meecastData.forecastdata["item4_temperature"] + '°'+ weatherData.meecastData.forecastdata["temperatureunit"]
                 width: parent.width
             }
         }
@@ -313,7 +344,7 @@ MouseArea {
 //            border.color: "green"
 //            border.width: 1
             anchors.top: parent.top
-            height: parent.height*1/3
+            height: parent.height*1/4
             color: "transparent"
             width: parent.width - first_item.width 
             Label {
@@ -343,14 +374,15 @@ MouseArea {
                console.log("Refresh widget !!!!!!!!!!!!!!")
                station_name.text = weatherData.meecastData.nameString 
                last_update.text = weatherData.meecastData.forecastdata["last_update"]
-               temperature_1.text = weatherData.meecastData.forecastdata["item1_temperature"]
-               temperature_2.text = weatherData.meecastData.forecastdata["item2_temperature"]
-               temperature_3.text = weatherData.meecastData.forecastdata["item3_temperature"]
-               temperature_4.text = weatherData.meecastData.forecastdata["item4_temperature"]
+               temperature_1.text = weatherData.meecastData.forecastdata["item1_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+               temperature_2.text = weatherData.meecastData.forecastdata["item2_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+               temperature_3.text = weatherData.meecastData.forecastdata["item3_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+               temperature_4.text = weatherData.meecastData.forecastdata["item4_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
                icon_1.source = weatherData.meecastData.forecastdata["item1_icon"]
                icon_2.source = weatherData.meecastData.forecastdata["item2_icon"]
                icon_3.source = weatherData.meecastData.forecastdata["item3_icon"]
                icon_4.source = weatherData.meecastData.forecastdata["item4_icon"]
+               day_name_2.text = weatherData.meecastData.forecastdata["item2_short_day_name"]
             }
         }
     }

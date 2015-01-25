@@ -179,6 +179,11 @@ Meecastdata::getWeatherdata(){
                 continue;
             }
             if(token == QXmlStreamReader::StartElement) {
+                if(xml.name() == "temperatureunit") {
+                     std::cerr<<"temperatureunit "<<std::endl;
+                    _weatherdata.insert("temperatureunit", xml.readElementText());
+                    continue;
+                }
                 if(xml.name() == "station") {
                     QXmlStreamAttributes attributes = xml.attributes();
                     if(attributes.hasAttribute("name")){
@@ -187,7 +192,6 @@ Meecastdata::getWeatherdata(){
                     } 
                     continue;
                 }
-
                 if(xml.name() == "period") {
                     QXmlStreamAttributes attributes = xml.attributes();
 
@@ -285,6 +289,9 @@ Meecastdata::parsePeriod(QXmlStreamReader& xml, int itemnumber){
             }
             if(xml.name() == "description") {
                 _weatherdata.insert("item" + QString::number(itemnumber) + "_description", xml.readElementText());
+            }
+            if(xml.name() == "short_day_name") {
+                _weatherdata.insert("item" + QString::number(itemnumber) + "_short_day_name", xml.readElementText());
             }
         }
         xml.readNext();

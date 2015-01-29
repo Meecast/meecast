@@ -108,6 +108,7 @@ main (int argc, char *argv[]){
   QString temp_high;
   QString temp_low;
   int localtimezone = 0;
+  int timezone = 0;
   struct tm time_tm1;
   struct tm time_tm2;
 
@@ -150,6 +151,11 @@ main (int argc, char *argv[]){
     }
 
     dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
+
+    if (dp){
+        fprintf (stderr, "timezone!!!!! %i\n",dp->timezone());
+        timezone = dp->timezone();
+    }
 
     /* Set localtimezone */
 
@@ -303,7 +309,7 @@ main (int argc, char *argv[]){
             /* fill other days for 5 days */
             i = 1; /* plus 1 second  */ 
             int itemnumber = 2;
-            while  (dp != NULL && ((temp_data = dp->data().GetDataForTime(current_day + 15 * 3600  + i )) && (i < 6*3600*24))) {
+            while  (dp != NULL && ((temp_data = dp->data().GetDataForTime(current_day + 15 * 3600  + i )) && (i < 4*3600*24))) {
                 if (temp_data){
 
                     QString icon_string =  config->iconspath().c_str();

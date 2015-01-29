@@ -215,7 +215,13 @@ MouseArea {
                 width: parent.width - Theme.paddingSmall
                 font.pixelSize: Theme.fontSizeExtraLarge + 5
                 horizontalAlignment: Text.AlignHCenter
-                text: weatherData.meecastData.forecastdata["item1_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                text: {
+                    if (weatherData.meecastData.forecastdata["item1_temperature"] && weatherData.meecastData.forecastdata["item1_temperature"] != "N/A"){
+                        return weatherData.meecastData.forecastdata["item1_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                    }else{
+                        return temperature_1.text = weatherData.meecastData.forecastdata["item1_temperature_low"] + "/"+  weatherData.meecastData.forecastdata["item1_temperature_high"]  + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                    }
+                }
             }
         }
         Rectangle {
@@ -245,8 +251,8 @@ MouseArea {
                 color: "white"
                 font.pixelSize: Theme.fontSizeMedium/2 
                 horizontalAlignment: Text.AlignHCenter
-                text: weatherData.meecastData.forecastdata["item2_short_day_name"]
                 width: parent.width
+                text: weatherData.meecastData.forecastdata["item2_short_day_name"]
             }
             Label {
                 id: temperature_2 
@@ -254,8 +260,14 @@ MouseArea {
                 color: "white"
                 font.pixelSize: Theme.fontSizeExtraSmall - 3
                 horizontalAlignment: Text.AlignHCenter
-                text: weatherData.meecastData.forecastdata["item2_temperature"] + '°'+ weatherData.meecastData.forecastdata["temperatureunit"]
                 width: parent.width
+                text: {
+                    if ( weatherData.meecastData.forecastdata["item2_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item2_temperature_low"] == "N/A" ){   
+                        return temperature_2.text = weatherData.meecastData.forecastdata["item2_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                    }else{
+                        return weatherData.meecastData.forecastdata["item2_temperature_low"] + "/"+  weatherData.meecastData.forecastdata["item2_temperature_high"]  + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                    }
+                }
             }
 
         }
@@ -374,7 +386,11 @@ MouseArea {
                 console.log("Refresh widget !!!!!!!!!!!!!!")
                 station_name.text = weatherData.meecastData.nameString 
                 last_update.text = weatherData.meecastData.forecastdata["last_update"]
-                temperature_1.text = weatherData.meecastData.forecastdata["item1_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                if (weatherData.meecastData.forecastdata["item1_temperature"] && weatherData.meecastData.forecastdata["item1_temperature"] != "N/A"){
+                    temperature_1.text = weatherData.meecastData.forecastdata["item1_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                }else{
+                    temperature_1.text = weatherData.meecastData.forecastdata["item1_temperature_low"] + "/"+  weatherData.meecastData.forecastdata["item1_temperature_high"]  + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                }
 
                 if ( weatherData.meecastData.forecastdata["item2_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item2_temperature_low"] == "N/A" ){   
                     temperature_2.text = weatherData.meecastData.forecastdata["item2_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]

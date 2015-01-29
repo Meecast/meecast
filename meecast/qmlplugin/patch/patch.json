@@ -1,0 +1,8 @@
+{
+    "name": "MeeCast widget",
+    "description": "Weather forecast on SailfishOS Lockscreen",
+    "category": "homescreen",
+    "infos": {
+        "maintainer": "vasvlad"
+    }
+}

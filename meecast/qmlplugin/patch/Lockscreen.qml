@@ -194,8 +194,6 @@ MouseArea {
             color: "transparent"
             width: parent.height 
             height: parent.height 
-//          border.color: "red"
-//          border.width: 1
 
             Image {
                 id: icon_1
@@ -231,8 +229,6 @@ MouseArea {
             color: "transparent"
             width: parent.height*2/3
             height: parent.height*2/3
-//          border.color: "red"
-//          border.width: 1
 
             Image {
                 id: icon_2
@@ -278,8 +274,6 @@ MouseArea {
             color: "transparent"
             width: parent.height*2/3
             height: parent.height*2/3
-//          border.color: "red"
-//          border.width: 1
 
             Image {
                 id: icon_3
@@ -317,8 +311,6 @@ MouseArea {
             color: "transparent"
             width: parent.height*2/3
             height: parent.height*2/3
-//          border.color: "red"
-//          border.width: 1
 
             Image {
                 id: icon_4
@@ -353,8 +345,6 @@ MouseArea {
         Rectangle{
             id: header_rect 
             anchors.right: parent.right
-//            border.color: "green"
-//            border.width: 1
             anchors.top: parent.top
             height: parent.height*1/4
             color: "transparent"

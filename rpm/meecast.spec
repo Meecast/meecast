@@ -53,8 +53,18 @@ Version: 0.3
 Summary: Daemon for Weather forecast application MeeCast on SailfishOS
 Group:      Utility
 License:    GPLv2.1
+Requires:   harbour-meecast    
 %description daemon
 MeeCast daemon for multiplatform highly customizable open source weather forecast client based on OMWeather code
+
+%package lockscreen
+Version: 0.1
+Summary: Lockscreen Widget for Weather forecast application MeeCast on SailfishOS
+Group:      Utility
+License:    GPLv2.1
+Requires: harbour-meecast 
+%description  lockscreen
+MeeCast Lockscreen widget for multiplatform highly customizable open source weather forecast client based on OMWeather code
 
 
 %prep
@@ -88,6 +98,7 @@ desktop-file-install --delete-original       \
   --dir %{buildroot}%{_datadir}/applications             \
    %{buildroot}%{_datadir}/applications/*.desktop
 
+
 %pre daemon
 if ps -A | grep "meecastd" ; then killall meecastd ; fi
 
@@ -118,11 +129,16 @@ systemctl-user start meecastd.service
 /usr/lib/systemd/user/meecastd.service
 %{_libdir}/qt5/qml/org/meecast/data
 
+%files lockscreen 
+%defattr(-,root,root,-)
+%{_datadir}/patchmanager/patches/sailfishos-lockscreen-meecast-patch
+
 
 %changelog
 * Wed Jan 15 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.3
 
   * Moved a little bit up and right wallpaper widget 
+  * Added widget for Lockscreen
 
 * Wed Jan 15 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.16
 

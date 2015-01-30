@@ -33,7 +33,7 @@ Meecastdata::~Meecastdata(){
         delete _watcher;
 }
 
-o
+
 
 void 
 Meecastdata::classBegin(){

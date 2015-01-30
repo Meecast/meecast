@@ -25,24 +25,12 @@ public:
 
     Meecastdata(QObject *parent = 0);
     ~Meecastdata();
-
     void classBegin();
     void componentComplete();
 
-    Q_INVOKABLE void initialize();
-
-    bool active() const;
-    void setActive(bool newActive);
-
-    void setService(const QString &newService);
-
     Q_PROPERTY(QString nameString READ nameString NOTIFY nameStringChanged)
     Q_PROPERTY(QVariantMap forecastdata READ forecastdata NOTIFY forecastdataChanged)
-
     QString nameString() const;
-
-    Q_INVOKABLE void activated();
-
     QVariantMap forecastdata() const;
 
 public Q_SLOTS:
@@ -56,27 +44,11 @@ signals:
     void forecastdataChanged();
 
 private:
-    void setDBusProperty(const QString &interface, const QString &name, const QVariant &value);
-    QVariantMap getAllDBusProperties(const QString &interface);
-    QVariantMap convertMetadata(const QVariant &dbusArgumentMetadata);
 
-    void getAllProperties();
     void getWeatherdata();
-    void getAllPropertiesPlayer();
-
-    void emitProperties();
-    void emitPropertiesPlayer();
-
-    void connectSignals();
-    void disconnectSignals();
-
-
-    bool m_active;
-
     QTimer  *_filemonitoring; /* For check exsisting of file */
     QVariantMap _weatherdata;
     QFileSystemWatcher *_watcher;
-
     void parsePeriod(QXmlStreamReader& xml, int itemnumber);
 
 private slots:

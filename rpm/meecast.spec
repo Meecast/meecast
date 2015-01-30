@@ -99,9 +99,18 @@ desktop-file-install --delete-original       \
    %{buildroot}%{_datadir}/applications/*.desktop
 
 
+%pre lockscreen
+if [ -f /usr/sbin/patchmanager ]; then
+    /usr/sbin/patchmanager -u sailfishos-lockscreen-meecast-patch || true
+fi
+
 %pre daemon
 if ps -A | grep "meecastd" ; then killall meecastd ; fi
 
+%preun lockscreen
+if [ -f /usr/sbin/patchmanager ]; then
+    /usr/sbin/patchmanager -u sailfishos-lockscreen-meecast-patch || true
+fi
 
 %postun daemon
 systemctl-user disable meecastd.service

@@ -1,10 +1,10 @@
 #include "meecastdata.h"
+#include "dbusadaptor.h"
 
 #include <QTimer>
 
 Meecastdata::Meecastdata(QObject *parent):
-    QObject(parent),
-    m_active(false){
+    QObject(parent){
     _filemonitoring = NULL;
     _watcher = new QFileSystemWatcher();
 
@@ -31,6 +31,16 @@ Meecastdata::~Meecastdata(){
         delete _filemonitoring;
     if(_watcher)
         delete _watcher;
+}
+
+o
+
+void 
+Meecastdata::classBegin(){
+}
+
+void 
+Meecastdata::componentComplete(){
 }
 
 void 
@@ -64,64 +74,6 @@ Meecastdata::currentfileChanged(QString path){
 
     getWeatherdata();
     Q_EMIT refreshWidget();
-}
-
-
-void Meecastdata::classBegin(){
-
-}
-
-void Meecastdata::componentComplete(){
-    if (m_active) {
-        initialize();
-    }
-}
-
-void Meecastdata::initialize(){
-    getAllProperties();
-    emitProperties();
-    getAllPropertiesPlayer();
-    emitPropertiesPlayer();
-}
-
-void Meecastdata::setActive(bool newActive){
-    if (m_active != newActive) {
-        m_active = newActive;
-
-        if (!m_active) {
-            disconnectSignals();
-        }
-        Q_EMIT activeChanged();
-    }
-}
-
-void Meecastdata::activated(){
-
-#if 0
-	// Debug begin
-	QFile file("/tmp/1.log");
-	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-	    QTextStream out(&file);
-	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << " Meecastdata::activated() "<< "\n";
-	    file.close();
-	}
-	// Debug end 
-#endif
-
-}
-
-
-
-void Meecastdata::emitProperties(){
-}
-
-void Meecastdata::emitPropertiesPlayer() {
-}
-
-void Meecastdata::connectSignals() {
-}
-
-void Meecastdata::disconnectSignals() {
 }
 
 void 

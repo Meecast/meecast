@@ -252,29 +252,6 @@ Meecastdata::parsePeriod(QXmlStreamReader& xml, int itemnumber){
     //std::cerr<<"ParsePeriod end"<< std::endl;
 }
 
-void Meecastdata::setDBusProperty(const QString &interface, const QString &name, const QVariant &value) {
-    //if (propertiesIface)
-    //    propertiesIface->call("Set", interface, name, value);
-}
-
-QVariantMap Meecastdata::getAllDBusProperties(const QString &interface){
-    /*
-    if (propertiesIface) {
-        QDBusReply<QVariantMap> reply = propertiesIface->call("GetAll", interface);
-        if (reply.isValid()) {
-            return reply.value();
-        }
-        else {
-            return QVariantMap();
-        }
-    }
-    return QVariantMap();
-    */
-}
-
-void Meecastdata::onPropertiesChanged(const QString &interface, const QVariantMap &propertiesChanged, const QStringList &propertiesInvalidated) {
-}
-
 QString 
 Meecastdata::nameString() const{
     return _weatherdata["station_name"].toString();

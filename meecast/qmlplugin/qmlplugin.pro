@@ -1,7 +1,7 @@
 TEMPLATE = lib
 TARGET = meecastdata 
 QT += qml quick dbus
-CONFIG += qt plugin 
+CONFIG += qt plugin dbus
 
 TARGET = $$qtLibraryTarget($$TARGET)
 uri = org.meecast.data
@@ -9,10 +9,12 @@ uri = org.meecast.data
 # Input
 SOURCES += \
     meecastdata_plugin.cpp \
+    dbusadaptor.cpp \
     meecastdata.cpp
 
 HEADERS += \
     meecastdata_plugin.h \
+    dbusadaptor.h \
     meecastdata.h
 
 OTHER_FILES = qmldir

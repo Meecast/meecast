@@ -1,8 +1,8 @@
 #include "meecastdata.h"
 #include "dbusadaptor.h"
 
-#include <QTimer>
 
+MeecastIf *_meecastIf;
 Meecastdata::Meecastdata(QObject *parent):
     QObject(parent){
     _filemonitoring = NULL;
@@ -21,7 +21,15 @@ Meecastdata::Meecastdata(QObject *parent):
     _watcher->addPath("/home/nemo/.cache/harbour-meecast/current.xml"); 
     connect(_watcher,SIGNAL(fileChanged(QString)),this,SLOT(currentfileChanged(QString)));
 
+    _lazyrenderingtimer = new QTimer(this);
+    _lazyrenderingtimer->setSingleShot(true);
+    connect(_lazyrenderingtimer, SIGNAL(timeout()), this, SLOT(refreshview()));
+
     getWeatherdata();
+
+    /* D-BUS */
+    _meecastIf = new MeecastIf(this);
+    QDBusConnection connection = QDBusConnection::sessionBus();
 
 //    Q_EMIT activeChanged();
 }
@@ -31,9 +39,35 @@ Meecastdata::~Meecastdata(){
         delete _filemonitoring;
     if(_watcher)
         delete _watcher;
+    if(_lazyrenderingtimer)
+        delete _lazyrenderingtimer;
+    if(_meecastIf)
+        delete _meecastIf;
 }
 
 
+void 
+Meecastdata::SetCurrentData(const QString &station, const QString &temperature,
+                          const QString &temperature_high, const QString &temperature_low,  
+                          const QString &icon, const QString &description, const uint until_valid_time, bool current, bool lockscreen_param, bool standbyscreen_param, const QString &last_update){
+
+   std::cerr<<"MyMWidget::SetCurrentData"<<std::endl;
+#if 0
+	// Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out << "MyMWidget::SetCurrentData "<<  "until_valid_time "<< until_valid_time <<"\n";
+	    file.close();
+	}
+	// Debug end 
+#endif
+
+
+   //std::cerr<<"MyMWidget::SetCurrentData pre refreshview"<<std::endl; 
+   _lazyrenderingtimer->start(3000);
+  // this->refreshview();
+}
 
 void 
 Meecastdata::classBegin(){
@@ -50,11 +84,16 @@ Meecastdata::updatefilemonitoring(){
     QFile watcher_file("/home/nemo/.cache/harbour-meecast/current.xml");
     if(watcher_file.exists()){
         _watcher->addPath("/home/nemo/.cache/harbour-meecast/current.xml"); 
-        getWeatherdata();
-        Q_EMIT refreshWidget();
+        _lazyrenderingtimer->start(3000);
     }else{
         _filemonitoring->start(60*1000);
     }
+}
+
+void 
+Meecastdata::refreshview(){
+    getWeatherdata();
+    Q_EMIT refreshWidget();
 }
 
 void 
@@ -262,3 +301,6 @@ Meecastdata::forecastdata() const{
     return _weatherdata;
 }
 
+//void 
+//Meecastdata::setActive(bool newActive){
+//}

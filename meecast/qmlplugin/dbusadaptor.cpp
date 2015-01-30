@@ -21,7 +21,7 @@
  * Implementation of adaptor class MeecastIf
  */
 
-MeecastIf::MeecastIf(MyMWidget *parent)
+MeecastIf::MeecastIf(Meecastdata *parent)
     : QDBusAbstractAdaptor(parent)
 {
     // constructor
@@ -36,7 +36,7 @@ MeecastIf::~MeecastIf()
 void MeecastIf::SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, const QString &description, uint until_valid_time, bool current, bool lockscreen, bool standbyscreen, const QString &last_update)
 {
     // handle method call com.meecast.applet.SetCurrentData
-    static_cast<MyMWidget *>(parent())->SetCurrentData(station, temperature, temperature_hi, temperature_low, icon, description, until_valid_time, current, lockscreen, standbyscreen, last_update);
+    static_cast<Meecastdata *>(parent())->SetCurrentData(station, temperature, temperature_hi, temperature_low, icon, description, until_valid_time, current, lockscreen, standbyscreen, last_update);
 
 }
 

@@ -47,7 +47,7 @@ class MeecastIf: public QDBusAbstractAdaptor
 "  </interface>\n"
         "")
 public:
-    MeecastIf(MyMWidget *parent);
+    MeecastIf(Meecastdata *parent);
     virtual ~MeecastIf();
 
 public: // PROPERTIES

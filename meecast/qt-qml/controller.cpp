@@ -71,6 +71,7 @@ create_and_fill_config(){
 
 Controller::Controller() : QObject()
 {
+  std::cerr<<"Controller::Controller()"<<std::endl;
   _qview = SailfishApp::createView();
   _dp = NULL;
   this->load_config();
@@ -90,12 +91,13 @@ Controller::~Controller(){
       delete _current_night;
   if (_hours_model)
       delete _hours_model;
-  if (_config)
-      _config->DeleteInstance();
   if (_dp) 
       _dp->DeleteInstance();
   if (_qview)
       delete _qview;
+  std::cerr<<"Controller::~Controller() Before delete config"<<std::endl;
+  if (_config)
+      _config->DeleteInstance();
 }
 
 QQuickView* 

@@ -41,7 +41,7 @@ namespace Core {
     Parser::Parser(const std::string& filename, const std::string& schema_filename)
                         : AbstractConfig(){
         _filename = filename;
-        std::cerr<<"Parse file "<<filename<<std::endl; 
+    //   std::cerr<<"Parse file "<<filename<<std::endl; 
     #ifdef LIBXML
         if(filename.empty())
             throw("Invalid source file.");

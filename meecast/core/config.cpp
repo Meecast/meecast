@@ -432,6 +432,10 @@ void
 Config::ReLoadConfig(){
 
     std::cerr<<"ReLoadConfig"<<std::endl;
+    for(unsigned i = 0; i < _stations->size(); i++){
+        Core::Station *_station =_stations->at(i);
+        delete (_station);
+    }
     _stations->clear();
     this->Reloadfile();
     this->LoadConfig();
@@ -656,6 +660,7 @@ Config::languagesList(){
 
 ////////////////////////////////////////////////////////////////////////////////
 Config::~Config(){
+    std::cerr<<"Config::~Config()"<<std::endl;
     delete _pathPrefix;
     delete _iconset;
     delete _temperature_unit;

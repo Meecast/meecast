@@ -309,9 +309,10 @@ main (int argc, char *argv[]){
             /* fill other days for 5 days */
             i = 1; /* plus 1 second  */ 
             int itemnumber = 2;
-            while  (dp != NULL && ((temp_data = dp->data().GetDataForTime(current_day + 15 * 3600  + i )) && (i < 4*3600*24))) {
+            //std::cerr<<" Time for check "<< current_day + 15 * 3600  + i<<std::endl;
+            while  (dp != NULL && ((temp_data = dp->data().GetDataForTime(current_day + 15 * 3600  + i )) && (i < 4*3600*24)) || (i < 4*3600*24)) {
                 if (temp_data){
-
+                    //std::cerr << "Success " << current_day + 15 * 3600 + i << std::endl;
                     QString icon_string =  config->iconspath().c_str();
                     QString icon_number;
                     icon_string.append("/") ;
@@ -351,8 +352,8 @@ main (int argc, char *argv[]){
                     t.setTime_t(temp_data->StartTime());
                     xmlWriter->writeTextElement("short_day_name", QLocale().toString(t, "ddd"));
                     xmlWriter->writeEndElement();
-                    itemnumber++;
                 }
+              itemnumber++;
               i = i + 3600*24;
             }
 

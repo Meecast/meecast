@@ -333,7 +333,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
                           const QString &temperature_high, const QString &temperature_low,  
                           const QString &icon, const QString &description, const uint until_valid_time, bool current, bool lockscreen_param, bool standbyscreen_param, const QString &last_update){
 
-   //std::cerr<<"MyMWidget::SetCurrentData"<<std::endl;
+   std::cerr<<"MyMWidget::SetCurrentData"<<std::endl;
 #if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
@@ -350,15 +350,15 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
         setOriginalWallpaper();
    }
    /* Check similar data */
-   if ((this->temperature() == temperature) &&
-       (this->temperature_high() == temperature_high) &&
-       (this->temperature_low() == temperature_low) &&
-       (this->station() == station) && 
-       (this->icon() == icon) &&
+   if ((QString::compare(this->temperature(), temperature) == 0) &&
+       (QString::compare(this->temperature_high(), temperature_high) == 0) &&
+       (QString::compare(this->temperature_low(), temperature_low) == 0) &&
+       (QString::compare(this->station(), station) == 0) && 
+       (QString::compare(this->icon(), icon) == 0) &&
        (this->current() == current) &&
        (this->lockscreen() == lockscreen_param) &&
-       (this->lastupdate() == last_update) &&
-       (this->description() == description))
+       (QString::compare(this->lastupdate(), last_update) == 0) &&
+       (QString::compare(this->description(), description) == 0))
        return;
 
    QDateTime utc_time;
@@ -376,7 +376,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
    this->description(description);
 
    //std::cerr<<"MyMWidget::SetCurrentData pre refreshview"<<std::endl; 
-   _lazyrenderingtimer->start(3000);
+   //_lazyrenderingtimer->start(3000);
   // this->refreshview();
    _lazyupdatedatatimer->start(3000);
 
@@ -413,6 +413,8 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
 }
 void 
 MyMWidget::refreshRequested(){
+    
+   std::cerr<<"MyMWidget::refreshRequested"<<std::endl;
 #if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
@@ -426,6 +428,8 @@ MyMWidget::refreshRequested(){
     this->startpredeamon();
 }
 void MyMWidget::update_data(){
+    
+   std::cerr<<"MyMWidget::update_data"<<std::endl;
 #if 0
     // Debug begin
 	QFile file("/tmp/1.log");
@@ -488,7 +492,7 @@ void MyMWidget::updateWallpaperPath(){
 void 
 MyMWidget::refreshwallpaper(bool new_wallpaper){
 
-     //std::cerr<<"refreshwallpaper"<<std::endl; 
+     std::cerr<<"refreshwallpaper"<<std::endl; 
 #if 0	    
 	    // Debug begin
         QFile file("/tmp/1.log");
@@ -568,6 +572,8 @@ MyMWidget::refreshview(){
 
 void 
 MyMWidget::startpredeamon(){
+
+     std::cerr<<"startpredeamon()"<<std::endl; 
 #if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
@@ -712,6 +718,7 @@ MyMWidget::currentfileChanged(QString path){
         return;
     if (current_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QXmlStreamReader xml(&current_file);
+        this->current(false);
         while(!xml.atEnd() && !xml.hasError()) {
             QXmlStreamReader::TokenType token = xml.readNext();
             /* If token is just StartDocument, we'll go to next.*/
@@ -738,7 +745,6 @@ MyMWidget::currentfileChanged(QString path){
 
                 if(xml.name() == "period") {
                     QXmlStreamAttributes attributes = xml.attributes();
-                    this->current(false);
                     if(attributes.hasAttribute("current")){
                         if (attributes.value("current").toString() == "true") {
                             this->current(true);
@@ -874,7 +880,7 @@ MyMWidget::currentfileChanged(QString path){
 void
 MyMWidget::parsePeriod(QXmlStreamReader& xml, int itemnumber){
 
-    //std::cerr<<"ParsePeriod\n"<< std::endl;
+    std::cerr<<"ParsePeriod\n"<< std::endl;
 
     if(xml.tokenType() != QXmlStreamReader::StartElement && xml.name() == "period") {
         return;

@@ -24,9 +24,6 @@ Meecastdata::Meecastdata(QObject *parent):
     connect(_lazyrenderingtimer, SIGNAL(timeout()), this, SLOT(refreshview()));
 
     getWeatherdata();
-
-
-//    Q_EMIT activeChanged();
 }
  
 Meecastdata::~Meecastdata(){
@@ -44,7 +41,7 @@ Meecastdata::SetCurrentData(const QString &station, const QString &temperature,
                           const QString &temperature_high, const QString &temperature_low,  
                           const QString &icon, const QString &description, const uint until_valid_time, bool current, bool lockscreen_param, bool standbyscreen_param, const QString &last_update){
 
-   std::cerr<<"MyMWidget::SetCurrentData"<<std::endl;
+//   std::cerr<<"MyMWidget::SetCurrentData"<<std::endl;
 #if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
@@ -294,6 +291,4 @@ Meecastdata::forecastdata() const{
     return _weatherdata;
 }
 
-//void 
-//Meecastdata::setActive(bool newActive){
-//}
+

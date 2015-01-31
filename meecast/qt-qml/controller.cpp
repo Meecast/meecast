@@ -274,6 +274,8 @@ Controller::load_data(){
   //i = 3600*24;
   i = 1; /* plus 1 second  */ 
   /* fill other days */
+
+  std::cerr<<" Time for check "<< current_day + 15 * 3600  + i<<std::endl;
   while  (_dp != NULL && ((temp_data = _dp->data().GetDataForTime(current_day + 15 * 3600  + i )) || (i < 7*3600*24))) {
       if (temp_data){
           forecast_data = new DataItem(temp_data);

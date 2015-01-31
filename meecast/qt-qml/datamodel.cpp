@@ -306,10 +306,11 @@ DataModel::update_model(int period)
             break;
         case day_period:
           //  i = 3600*24;
-            fprintf(stderr,"First day in datamodel %i\n", current_day + 14 * 3600);
             i = 1;
+            fprintf(stderr,"First day in datamodel %i\n", current_day + 15 * 3600 + i);
             while  (dp != NULL && ((temp_data = dp->data().GetDataForTime(current_day + 15*3600 + i)) || (i < 7*3600*24))) {
                 if (temp_data){
+                    fprintf(stderr,"Success %i\n", current_day + 15 * 3600 + i);
                     forecast_data = new DataItem(temp_data);
                     if (forecast_data->Text() != "")
                         forecast_data->Text(forecast_data->Text().c_str());

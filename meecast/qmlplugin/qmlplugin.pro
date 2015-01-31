@@ -9,12 +9,10 @@ uri = org.meecast.data
 # Input
 SOURCES += \
     meecastdata_plugin.cpp \
-    dbusadaptor.cpp \
     meecastdata.cpp
 
 HEADERS += \
     meecastdata_plugin.h \
-    dbusadaptor.h \
     meecastdata.h
 
 OTHER_FILES = qmldir

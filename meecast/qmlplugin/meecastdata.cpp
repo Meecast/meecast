@@ -1,8 +1,6 @@
 #include "meecastdata.h"
-#include "dbusadaptor.h"
 
 
-MeecastIf *_meecastIf;
 Meecastdata::Meecastdata(QObject *parent):
     QObject(parent){
     _filemonitoring = NULL;
@@ -27,9 +25,6 @@ Meecastdata::Meecastdata(QObject *parent):
 
     getWeatherdata();
 
-    /* D-BUS */
-    _meecastIf = new MeecastIf(this);
-    QDBusConnection connection = QDBusConnection::sessionBus();
 
 //    Q_EMIT activeChanged();
 }
@@ -41,8 +36,6 @@ Meecastdata::~Meecastdata(){
         delete _watcher;
     if(_lazyrenderingtimer)
         delete _lazyrenderingtimer;
-    if(_meecastIf)
-        delete _meecastIf;
 }
 
 

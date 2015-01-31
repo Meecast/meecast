@@ -183,6 +183,8 @@ MyMWidget::MyMWidget(){
     _standbyscreen = false;
     _lazyrenderingtimer = new QTimer(this);
     _lazyrenderingtimer->setSingleShot(true);
+    _lazyupdatedatatimer = new QTimer(this);
+    _lazyupdatedatatimer->setSingleShot(true);
     _down = false;
     _force_draw = true;
     _need_update = true;
@@ -236,7 +238,7 @@ MyMWidget::MyMWidget(){
     }
 
     connect(_lazyrenderingtimer, SIGNAL(timeout()), this, SLOT(refreshview()));
-
+    connect(_lazyupdatedatatimer, SIGNAL(timeout()), this, SLOT(update_data()));
 
 
     // Network Manager Configutarion
@@ -307,6 +309,7 @@ MyMWidget::~MyMWidget(){
     delete _watcher;
     delete manager;
     delete _lazyrenderingtimer;
+    delete _lazyupdatedatatimer;
     delete _wallpaperItem; 
     if (_image)
         delete _image;
@@ -375,6 +378,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
    //std::cerr<<"MyMWidget::SetCurrentData pre refreshview"<<std::endl; 
    _lazyrenderingtimer->start(3000);
   // this->refreshview();
+   _lazyupdatedatatimer->start(3000);
 
    if ((until_valid_time - utc_time.toTime_t()) > 0 && 
        (until_valid_time - utc_time.toTime_t()) < 12* 3600){

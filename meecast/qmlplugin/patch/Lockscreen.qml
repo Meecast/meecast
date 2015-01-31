@@ -211,7 +211,7 @@ MouseArea {
                 anchors.topMargin: -Theme.paddingSmall
                 color: "white"
                 width: parent.width - Theme.paddingSmall
-                font.pixelSize: Theme.fontSizeExtraLarge + 5
+                font.pixelSize: Theme.fontSizeExtraLarge + 3
                 horizontalAlignment: Text.AlignHCenter
                 text: {
                     if (weatherData.meecastData.forecastdata["item1_temperature"] && weatherData.meecastData.forecastdata["item1_temperature"] != "N/A"){

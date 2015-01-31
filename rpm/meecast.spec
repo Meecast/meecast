@@ -63,6 +63,7 @@ Summary: Lockscreen Widget for Weather forecast application MeeCast on SailfishO
 Group:      Utility
 License:    GPLv2.1
 Requires: harbour-meecast 
+Requires: harbour-meecast-daemon 
 %description  lockscreen
 MeeCast Lockscreen widget for multiplatform highly customizable open source weather forecast client based on OMWeather code
 

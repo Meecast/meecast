@@ -74,6 +74,7 @@ private:
     bool    _lockscreen;
     bool    _standbyscreen;
     QTimer  *_lazyrenderingtimer; /* Timer lazy rendering */
+    QTimer  *_lazyupdatedatatimer; /* Timer lazy data updating */
     BackgroundActivity *keepalive;
     MDConfItem *_wallpaperItem;
     MDConfItem *_standbyItem;

@@ -211,13 +211,13 @@ MouseArea {
                 anchors.topMargin: -Theme.paddingSmall
                 color: "white"
                 width: parent.width - Theme.paddingSmall
-                font.pixelSize: Theme.fontSizeExtraLarge + 3
+                font.pixelSize: Theme.fontSizeExtraLarge + 5
                 horizontalAlignment: Text.AlignHCenter
                 text: {
                     if (weatherData.meecastData.forecastdata["item1_temperature"] && weatherData.meecastData.forecastdata["item1_temperature"] != "N/A"){
                         return weatherData.meecastData.forecastdata["item1_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
                     }else{
-                        return temperature_1.text = weatherData.meecastData.forecastdata["item1_temperature_low"] + "/"+  weatherData.meecastData.forecastdata["item1_temperature_high"]  + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                        return temperature_1.text = weatherData.meecastData.forecastdata["item1_temperature_low"] +  '°' + weatherData.meecastData.forecastdata["temperatureunit"] + "\n"+  weatherData.meecastData.forecastdata["item1_temperature_high"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
                     }
                 }
             }
@@ -379,7 +379,7 @@ MouseArea {
                 if (weatherData.meecastData.forecastdata["item1_temperature"] && weatherData.meecastData.forecastdata["item1_temperature"] != "N/A"){
                     temperature_1.text = weatherData.meecastData.forecastdata["item1_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
                 }else{
-                    temperature_1.text = weatherData.meecastData.forecastdata["item1_temperature_low"] + "/"+  weatherData.meecastData.forecastdata["item1_temperature_high"]  + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                     temperature_1.text = weatherData.meecastData.forecastdata["item1_temperature_low"] +  '°' + weatherData.meecastData.forecastdata["temperatureunit"] + "\n"+  weatherData.meecastData.forecastdata["item1_temperature_high"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
                 }
 
                 if ( weatherData.meecastData.forecastdata["item2_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item2_temperature_low"] == "N/A" ){   

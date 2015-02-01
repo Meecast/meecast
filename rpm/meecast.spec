@@ -64,6 +64,7 @@ Group:      Utility
 License:    GPLv2.1
 Requires: harbour-meecast 
 Requires: harbour-meecast-daemon => 0.3 
+Requires: patchmanager
 %description  lockscreen
 MeeCast Lockscreen widget for multiplatform highly customizable open source weather forecast client based on OMWeather code
 

@@ -109,11 +109,26 @@ Page {
                     onCheckedChanged: {
                         if (Config.lockscreen != checked)   
                             if (!Config.setlockscreen(lockscreen.checked)){
-                                pageStack.push("NeedDaemonDialog.qml", {"name": "lalalala"})
+                                pageStack.push("NeedDaemonDialog.qml", {})
                                 checked = false
                             }    
                     }
                 }
+            }
+            Row {
+                width: parent.width
+                Label {
+                    id: first_phrase 
+                    text: Config.tr("You can also install qml Lockscreen applet from")
+                }
+                Button {
+                    id: button
+                    anchors.top: mainLabel1.bottom
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: "http://openrepos.net"
+                    onClicked: Qt.openUrlExternally("https://openrepos.net/content/vasvlad/meecast-lockscreen") 
+                }
+
             }
 
             SectionHeader {

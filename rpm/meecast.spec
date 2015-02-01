@@ -63,7 +63,7 @@ Summary: Lockscreen Widget for Weather forecast application MeeCast on SailfishO
 Group:      Utility
 License:    GPLv2.1
 Requires: harbour-meecast 
-Requires: harbour-meecast-daemon 
+Requires: harbour-meecast-daemon => 0.3 
 %description  lockscreen
 MeeCast Lockscreen widget for multiplatform highly customizable open source weather forecast client based on OMWeather code
 
@@ -145,15 +145,14 @@ systemctl-user start meecastd.service
 
 
 %changelog
-* Wed Jan 15 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.3
-
-  * Moved a little bit up and right wallpaper widget 
-  * Added widget for Lockscreen
-
 * Wed Jan 15 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.16
 
   * Moved a little bit down wallpaper widget 
   * Fixed problem in daemon with incorrect weather forecast data
+  * Moved a little bit up and right wallpaper widget 
+  * Added widget for Lockscreen
+  * Added string for translation from gismeteo.ru source
+
 
 * Wed Jan 14 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.15
 

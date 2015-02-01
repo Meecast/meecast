@@ -117,18 +117,26 @@ Page {
             }
             Row {
                 width: parent.width
-                Label {
-                    id: first_phrase 
-                    text: Config.tr("You can also install qml Lockscreen applet from")
-                }
-                Button {
-                    id: button
-                    anchors.top: mainLabel1.bottom
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: "http://openrepos.net"
-                    onClicked: Qt.openUrlExternally("https://openrepos.net/content/vasvlad/meecast-lockscreen") 
-                }
-
+                anchors.leftMargin: Theme.paddingLarge 
+                anchors.left: parent.left
+                Rectangle {
+            	    width: parent.width
+            	    height: 130 
+                    color: "transparent"
+                    Label {
+                        id: first_phrase 
+                        width: parent.width - 50
+                        wrapMode:  TextEdit.WordWrap
+                        text: Config.tr("You can also install real QML Lockscreen applet from:")
+                    }
+                    Button {
+                        id: button_phrase
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.top: first_phrase.bottom
+                        text: "http://openrepos.net"
+                        onClicked: Qt.openUrlExternally("https://openrepos.net/content/vasvlad/meecast-lockscreen") 
+                    }
+        	    }
             }
 
             SectionHeader {

@@ -27,7 +27,6 @@
 /*******************************************************************************/
 #include "meecastdaemon.h"
 #include "dbusadaptor.h"
-#include "weatherdataif.h"
 #include <QThread>
 #include <QColor>
 #include <QImage>
@@ -52,7 +51,6 @@ using namespace QtConcurrent;
 QTemporaryFile *tempfile; /* file for new Wallpaper */
 MyMWidget *box;
 MeecastIf *meecastIf;
-WeatherDataIf *weatherDataIf;
 
 void 
 drawwallpaper(QImage image, QHash <QString, QString> hash){
@@ -271,7 +269,6 @@ MyMWidget::MyMWidget(){
     }
 
 
-
     keepalive = new BackgroundActivity(this);
     connect(keepalive, SIGNAL(running()), this, SLOT(checkActivity()));
     connect(keepalive, SIGNAL(stopped()), this, SLOT(wakeupStopped()));
@@ -314,18 +311,6 @@ MyMWidget::~MyMWidget(){
     if (_image)
         delete _image;
 //    std::cerr<<"MyMWidget::~MyMWidget() end"<<std::endl;
-}
-
-QString 
-MyMWidget::GetCurrentWeather(QString &temperature, QString &temperature_hi, QString &temperature_low, QString &icon, QString &description, bool &current, QString &last_update){
-    temperature = this->temperature();
-    temperature_hi = this->temperature_high();
-    temperature_low = this->temperature_low();
-    icon = this->icon();
-    description = this->description();
-    last_update = this->lastupdate();
-    current = this->current();
-    return  this->station();
 }
 
 void 
@@ -959,7 +944,6 @@ void
 signalhandler(int sig) {
     box->setOriginalWallpaper();
     delete meecastIf; 
-    delete weatherDataIf; 
     delete box;
     //std::cerr<<"signalhandler"<<std::endl;
     if (sig == SIGINT) {
@@ -978,7 +962,6 @@ int main (int argc, char *argv[]) {
 
     /* D-BUS */
     meecastIf = new MeecastIf(box);
-    weatherDataIf = new WeatherDataIf(box);
     QDBusConnection connection = QDBusConnection::sessionBus();
     bool ret = connection.registerService("com.meecast.applet");
     ret = connection.registerObject("/com/meecast/applet", box);
@@ -987,9 +970,6 @@ int main (int argc, char *argv[]) {
  
     ret = connection.registerService("com.meecast.data");
     ret = connection.registerObject("/com/meecast/data", box);
-    //WeatherDataIf* data_client =  new WeatherDataIf("com.meecast.data", "/",
-    //                                        QDBusConnection::sessionBus(), 0); 
-    //QObject::connect(data_client, SIGNAL(GetCurrentWeather()), box, SLOT(refreshRequested()));  
  
     /* Copy wallpaper */
     if (!(QFile::exists("/home/nemo/.cache/harbour-meecast/wallpaper_MeeCast_original.png"))){

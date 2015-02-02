@@ -190,7 +190,6 @@ public Q_SLOTS:
     void SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_high, const QString &temperature_low, const QString &icon, const QString &description, 
                         const uint until_valid_time, bool current, bool lockscreen_param, bool standbyscreen_param, const QString &last_update);
 
-    QString GetCurrentWeather(QString &temperature, QString &temperature_hi, QString &temperature_low, QString &icon, QString &description, bool &current, QString &last_update);
     void update_data();
     void intervalupdate();
     void refreshRequested();

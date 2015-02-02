@@ -14,7 +14,7 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    0.9.16
+Version:    0.9.17
 Release:    1
 Group:      Utility
 License:    GPLv2.1
@@ -49,7 +49,7 @@ BuildRequires: qt5-qtpositioning-devel
 MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code
 
 %package daemon
-Version: 0.3
+Version: 0.4
 Summary: Daemon for Weather forecast application MeeCast on SailfishOS
 Group:      Utility
 License:    GPLv2.1
@@ -107,7 +107,12 @@ if [ -f /usr/sbin/patchmanager ]; then
 fi
 
 %pre daemon
-if ps -A | grep "meecastd" ; then killall meecastd ; fi
+
+%preun daemon
+if [ "$1" = "0" ]; then
+    systemctl-user disable meecastd.service
+    systemctl-user stop meecastd.service    
+fi
 
 %preun lockscreen
 if [ -f /usr/sbin/patchmanager ]; then
@@ -115,9 +120,10 @@ if [ -f /usr/sbin/patchmanager ]; then
 fi
 
 %postun daemon
-systemctl-user disable meecastd.service
-systemctl-user stop meecastd.service    
-if ps -A | grep "meecastd" ; then killall meecastd ; fi
+#systemctl-user disable meecastd.service
+#systemctl-user stop meecastd.service    
+#if ps -A | grep "meecastd" ; then killall meecastd ; fi
+#systemctl-user daemon-reload
 
 %post daemon
 if ps -A | grep "meecastd" ; then killall meecastd ; fi
@@ -146,14 +152,17 @@ systemctl-user start meecastd.service
 
 
 %changelog
-* Wed Jan 15 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.16
+* Sun Feb 01 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.17
+
+  * Fixed problem with upgrading meecast daemon 
+
+* Sun Feb 01 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.16
 
   * Moved a little bit down wallpaper widget 
   * Fixed problem in daemon with incorrect weather forecast data
   * Moved a little bit up and right wallpaper widget 
   * Added widget for Lockscreen
   * Added string for translation from gismeteo.ru source
-
 
 * Wed Jan 14 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.15
 

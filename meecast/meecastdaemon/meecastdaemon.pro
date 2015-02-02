@@ -18,13 +18,13 @@ CONFIG += dbus \
     link_pkgconfig 
 
 
-HEADERS = meecastdaemon.h dbusadaptor.h weatherdataif.h \
+HEADERS = meecastdaemon.h dbusadaptor.h \
     ../dconf/dconfvalue.h \
     ../dconf/mdconf_p.h \
     ../dconf/mdconfitem.h \
     ../dconf/dconfmigration.h
 
-SOURCES = meecastdaemon.cpp dbusadaptor.cpp weatherdataif.cpp \
+SOURCES = meecastdaemon.cpp dbusadaptor.cpp \
     ../dconf/dconfvalue.cpp \
     ../dconf/mdconf.cpp \
     ../dconf/mdconfitem.cpp

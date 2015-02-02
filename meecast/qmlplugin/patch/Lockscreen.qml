@@ -174,7 +174,7 @@ MouseArea {
             id: background
             anchors.fill: parent
             color: "grey"
-            opacity: 0.3
+            opacity: lipstickSettings.lowPowerMode ? 0.0 : 0.3
             radius: 1
         }
 
@@ -359,6 +359,7 @@ MouseArea {
                 verticalAlignment: Text.AlignVCenter
                 text: weatherData.meecastData.nameString 
                 font.pixelSize: Theme.fontSizeExtraSmall
+                color: lipstickSettings.lowPowerMode ? Theme.highlightColor : Theme.secondaryColor
             }
             Label {
                 id: last_update 
@@ -368,6 +369,7 @@ MouseArea {
                 anchors.rightMargin: Theme.paddingSmall
                 text: weatherData.meecastData.forecastdata["last_update"]
                 font.pixelSize: Theme.fontSizeExtraSmall - 5
+                color: lipstickSettings.lowPowerMode ? Theme.highlightColor : Theme.secondaryColor
             }
         }
         Connections {

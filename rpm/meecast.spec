@@ -58,7 +58,7 @@ Requires:   harbour-meecast
 MeeCast daemon for multiplatform highly customizable open source weather forecast client based on OMWeather code
 
 %package lockscreen
-Version: 0.2
+Version: 0.3
 Summary: Lockscreen Widget for Weather forecast application MeeCast on SailfishOS
 Group:      Utility
 License:    GPLv2.1
@@ -160,6 +160,8 @@ systemctl-user start meecastd.service
 * Sun Feb 01 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.17
 
   * Fixed problem with upgrading meecast daemon 
+  * Fixed color of text for LPM mode
+  * Disable semitransparent background for LPM mode
 
 * Sun Feb 01 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.16
 

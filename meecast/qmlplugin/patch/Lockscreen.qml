@@ -182,7 +182,7 @@ MouseArea {
             id: background_border
             anchors.left: parent.left
             anchors.fill: parent
-            border.color: "silver"
+            border.color: lipstickSettings.lowPowerMode ? Theme.highlightColor : Theme.secondaryColor
             border.width: 1
             color: "transparent"
             radius: 1
@@ -209,7 +209,7 @@ MouseArea {
                 id: temperature_1 
                 anchors.top: parent.top
                 anchors.topMargin: -Theme.paddingSmall
-                color: "white"
+                color: lockScreen.textColor
                 width: parent.width - Theme.paddingSmall
                 font.pixelSize: Theme.fontSizeExtraLarge + 5
                 horizontalAlignment: Text.AlignHCenter
@@ -244,7 +244,7 @@ MouseArea {
                 id: day_name_2 
                 anchors.bottom: icon_2.top 
                 anchors.bottomMargin: -Theme.paddingSmall
-                color: "white"
+                color: lockScreen.textColor
                 font.pixelSize: Theme.fontSizeMedium/2 
                 horizontalAlignment: Text.AlignHCenter
                 width: parent.width
@@ -253,7 +253,7 @@ MouseArea {
             Label {
                 id: temperature_2 
                 anchors.bottom: parent.bottom
-                color: "white"
+                color: lockScreen.textColor
                 font.pixelSize: Theme.fontSizeExtraSmall - 3
                 horizontalAlignment: Text.AlignHCenter
                 width: parent.width
@@ -288,7 +288,7 @@ MouseArea {
                 id: day_name_3 
                 anchors.bottom: icon_3.top 
                 anchors.bottomMargin: -Theme.paddingSmall
-                color: "white"
+                color: lockScreen.textColor
                 font.pixelSize: Theme.fontSizeMedium/2 
                 horizontalAlignment: Text.AlignHCenter
                 text: weatherData.meecastData.forecastdata["item3_short_day_name"]
@@ -297,7 +297,7 @@ MouseArea {
             Label {
                 id: temperature_3
                 anchors.bottom: parent.bottom
-                color: "white"
+                color: lockScreen.textColor
                 font.pixelSize: Theme.fontSizeExtraSmall - 3 
                 horizontalAlignment: Text.AlignHCenter
                 text: weatherData.meecastData.forecastdata["item3_temperature"] + '°'+ weatherData.meecastData.forecastdata["temperatureunit"]
@@ -325,7 +325,7 @@ MouseArea {
                 id: day_name_4
                 anchors.bottom: icon_4.top
                 anchors.bottomMargin: -Theme.paddingSmall
-                color: "white"
+                color: lockScreen.textColor
                 font.pixelSize: Theme.fontSizeMedium/2 
                 horizontalAlignment: Text.AlignHCenter
                 text: weatherData.meecastData.forecastdata["item4_short_day_name"]
@@ -334,7 +334,7 @@ MouseArea {
             Label {
                 id: temperature_4
                 anchors.bottom: parent.bottom
-                color: "white"
+                color: lockScreen.textColor
                 font.pixelSize: Theme.fontSizeExtraSmall - 3
                 horizontalAlignment: Text.AlignHCenter
                 text: weatherData.meecastData.forecastdata["item4_temperature"] + '°'+ weatherData.meecastData.forecastdata["temperatureunit"]
@@ -373,7 +373,7 @@ MouseArea {
         Connections {
             target: weatherData.meecastData 
             onRefreshWidget: {            
-                console.log("Refresh widget !!!!!!!!!!!!!!")
+                console.log("Refresh MeeCast widget !!!!!!!!!!!!!!")
                 station_name.text = weatherData.meecastData.nameString 
                 last_update.text = weatherData.meecastData.forecastdata["last_update"]
                 if (weatherData.meecastData.forecastdata["item1_temperature"] && weatherData.meecastData.forecastdata["item1_temperature"] != "N/A"){
@@ -405,6 +405,8 @@ MouseArea {
                 icon_3.source = weatherData.meecastData.forecastdata["item3_icon"]
                 icon_4.source = weatherData.meecastData.forecastdata["item4_icon"]
                 day_name_2.text = weatherData.meecastData.forecastdata["item2_short_day_name"]
+                day_name_3.text = weatherData.meecastData.forecastdata["item3_short_day_name"]
+                day_name_4.text = weatherData.meecastData.forecastdata["item4_short_day_name"]
             }
         }
     }

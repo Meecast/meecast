@@ -352,8 +352,8 @@ main (int argc, char *argv[]){
                     t.setTime_t(temp_data->StartTime());
                     xmlWriter->writeTextElement("short_day_name", QLocale().toString(t, "ddd"));
                     xmlWriter->writeEndElement();
+                    itemnumber++;
                 }
-              itemnumber++;
               i = i + 3600*24;
             }
 

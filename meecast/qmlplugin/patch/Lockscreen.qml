@@ -217,7 +217,10 @@ MouseArea {
                     if (weatherData.meecastData.forecastdata["item1_temperature"] && weatherData.meecastData.forecastdata["item1_temperature"] != "N/A"){
                         return weatherData.meecastData.forecastdata["item1_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
                     }else{
-                        return temperature_1.text = weatherData.meecastData.forecastdata["item1_temperature_low"] +  '°' + weatherData.meecastData.forecastdata["temperatureunit"] + "\n"+  weatherData.meecastData.forecastdata["item1_temperature_high"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                        if (weatherData.meecastData.forecastdata["item1_temperature_low"] && weatherData.meecastData.forecastdata["item1_temperature_high"])
+                            return weatherData.meecastData.forecastdata["item1_temperature_low"] +  '°' + weatherData.meecastData.forecastdata["temperatureunit"] + "\n"+  weatherData.meecastData.forecastdata["item1_temperature_high"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                        else
+                            return ""
                     }
                 }
             }
@@ -259,9 +262,12 @@ MouseArea {
                 width: parent.width
                 text: {
                     if ( weatherData.meecastData.forecastdata["item2_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item2_temperature_low"] == "N/A" ){   
-                        return temperature_2.text = weatherData.meecastData.forecastdata["item2_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                        return weatherData.meecastData.forecastdata["item2_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
                     }else{
-                        return weatherData.meecastData.forecastdata["item2_temperature_low"] + "/"+  weatherData.meecastData.forecastdata["item2_temperature_high"]  + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                        if (weatherData.meecastData.forecastdata["item2_temperature_low"] && weatherData.meecastData.forecastdata["item2_temperature_high"])
+                            return weatherData.meecastData.forecastdata["item2_temperature_low"] + "/"+  weatherData.meecastData.forecastdata["item2_temperature_high"]  + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                        else
+                            return ""
                     }
                 }
             }
@@ -300,7 +306,16 @@ MouseArea {
                 color: lockScreen.textColor
                 font.pixelSize: Theme.fontSizeExtraSmall - 3 
                 horizontalAlignment: Text.AlignHCenter
-                text: weatherData.meecastData.forecastdata["item3_temperature"] + '°'+ weatherData.meecastData.forecastdata["temperatureunit"]
+                text: {
+                    if ( weatherData.meecastData.forecastdata["item3_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item3_temperature_low"] == "N/A" ){   
+                        return weatherData.meecastData.forecastdata["item3_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                    }else{
+                        if (weatherData.meecastData.forecastdata["item3_temperature_low"] && weatherData.meecastData.forecastdata["item3_temperature_high"])
+                            return weatherData.meecastData.forecastdata["item3_temperature_low"] + "/"+  weatherData.meecastData.forecastdata["item3_temperature_high"]  + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                        else
+                            return ""
+                    }
+                }
                 width: parent.width
             }
         }
@@ -337,7 +352,16 @@ MouseArea {
                 color: lockScreen.textColor
                 font.pixelSize: Theme.fontSizeExtraSmall - 3
                 horizontalAlignment: Text.AlignHCenter
-                text: weatherData.meecastData.forecastdata["item4_temperature"] + '°'+ weatherData.meecastData.forecastdata["temperatureunit"]
+                text: {
+                    if ( weatherData.meecastData.forecastdata["item4_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item4_temperature_low"] == "N/A" ){   
+                        return weatherData.meecastData.forecastdata["item4_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                    }else{
+                        if (weatherData.meecastData.forecastdata["item4_temperature_low"] && weatherData.meecastData.forecastdata["item4_temperature_high"])
+                            return weatherData.meecastData.forecastdata["item4_temperature_low"] + "/"+  weatherData.meecastData.forecastdata["item4_temperature_high"]  + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                        else
+                            return ""
+                    }
+                }
                 width: parent.width
             }
         }
@@ -357,7 +381,7 @@ MouseArea {
                 anchors.left: parent.left
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                text: weatherData.meecastData.nameString 
+                text: weatherData.meecastData.nameString ? weatherData.meecastData.nameString : "MeeCast"
                 font.pixelSize: Theme.fontSizeExtraSmall
                 color: lipstickSettings.lowPowerMode ? Theme.highlightColor : Theme.secondaryColor
             }

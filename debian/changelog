@@ -1,6 +1,6 @@
 meecast (0.9.17) unstable; urgency=low
 
-  * Nothing 
+  * Optimised png images by OptiPNG and advpng. Thanks Alexander Self-Perfection  
 
  -- Vlad Vasiliev <vlad@gas.by> Fri, 12 Dec 2014 17:31:23 +0200
 

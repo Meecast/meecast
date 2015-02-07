@@ -162,14 +162,14 @@ drawwallpaper(QImage image, QHash <QString, QString> hash){
 
 MyMWidget::MyMWidget(){
         
-//#if 0
+#if 0
     QFile file("/tmp/1.log");
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "Begin PreInit MyWidget ."<<".\n";
 	    file.close();
 	}
-//#endif
+#endif
 
     _stationname = "Unknown";
     _temperature = "";
@@ -319,7 +319,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
                           const QString &icon, const QString &description, const uint until_valid_time, bool current, bool lockscreen_param, bool standbyscreen_param, const QString &last_update){
 
    std::cerr<<"MyMWidget::SetCurrentData"<<std::endl;
-//#if 0
+#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -328,7 +328,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
 
 
    if (lockscreen() && !lockscreen_param){
@@ -367,7 +367,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
 
    if ((until_valid_time - utc_time.toTime_t()) > 0 && 
        (until_valid_time - utc_time.toTime_t()) < 12* 3600){
-//#if 0
+#if 0
 	// Debug begin
 //	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -376,12 +376,12 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
 
         _next_time_for_check = until_valid_time;
         updateIntervalChanged((until_valid_time - utc_time.toTime_t() + 60));
    }else{
-//#if 0
+#if 0
       // Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -390,7 +390,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
         _next_time_for_check = utc_time.toTime_t() + 3600 - 60;
         updateIntervalChanged(3600);
    }
@@ -400,7 +400,7 @@ void
 MyMWidget::refreshRequested(){
     
    std::cerr<<"MyMWidget::refreshRequested"<<std::endl;
-//#if 0
+#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -409,13 +409,13 @@ MyMWidget::refreshRequested(){
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
     this->startpredeamon();
 }
 void MyMWidget::update_data(){
     
    std::cerr<<"MyMWidget::update_data"<<std::endl;
-//#if 0
+#if 0
     // Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -424,7 +424,7 @@ void MyMWidget::update_data(){
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
     this->startpredeamon();
 }
 void MyMWidget::updateStandbyPath(){
@@ -589,7 +589,7 @@ MyMWidget::intervalupdate(){
 
 void 
 MyMWidget::checkActivity(){
-//#if 0
+#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -598,7 +598,7 @@ MyMWidget::checkActivity(){
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
     if (!this->_isOnline) 
         _need_update = true;
     else
@@ -610,7 +610,7 @@ void
 MyMWidget::updateIntervalChanged(int interval){
 
 //    std::cerr<<"MyMWidget::updateIntervalChanged "<<interval<<std::endl;
-//#if 0
+#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -619,7 +619,7 @@ MyMWidget::updateIntervalChanged(int interval){
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
 
     keepalive->setWakeupRange(interval, interval);
     if (keepalive->state() == BackgroundActivity::Stopped) {
@@ -686,7 +686,7 @@ MyMWidget::currentfileChanged(QString path){
 
 
 //    std::cerr<<"Watcher !!!!"<<std::endl;
-//#if 0
+#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -695,7 +695,7 @@ MyMWidget::currentfileChanged(QString path){
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
 
 	QFile current_file("/home/nemo/.cache/harbour-meecast/current.xml");
 
@@ -735,11 +735,12 @@ MyMWidget::currentfileChanged(QString path){
                             this->current(true);
                         }
                     } 
-                    if(attributes.hasAttribute("end") && itemnumber == 1){
-                        until_valid_time = attributes.value("end").toInt();  
-                    } 
                     if(attributes.hasAttribute("itemnumber")){
                         itemnumber = attributes.value("itemnumber").toInt();  
+                    } 
+
+                    if(attributes.hasAttribute("end") && itemnumber == 1){
+                        until_valid_time = attributes.value("end").toInt();  
                     } 
                     if (itemnumber == 1){
                         parsePeriod(xml, itemnumber); 
@@ -807,10 +808,11 @@ MyMWidget::currentfileChanged(QString path){
            (until_valid_time - utc_time.toTime_t()) < 12* 3600){
     #if 0
         // Debug begin
-        QFile file("/tmp/1.log");
+//        QFile file("/tmp/1.log");
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
             QTextStream out(&file);
             out << station << " "<<  QCoreApplication::organizationDomain() <<" "<<QCoreApplication::applicationName() <<" "<< QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "SetCurrentData next call "<< (until_valid_time - utc_time.toTime_t())<<"s "<<((until_valid_time - utc_time.toTime_t()+60)*1000)<<"ms\n";
+            out << station << " "<<  QCoreApplication::organizationDomain() <<" "<<QCoreApplication::applicationName() <<" "<< QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "utc_time "<<  utc_time.toTime_t()<<"s Until valid time "<<until_valid_time<<"\n";
             file.close();
         }
         // Debug end 

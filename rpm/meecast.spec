@@ -166,6 +166,7 @@ systemctl-user start meecastd.service
   * Fixed problem with hko source
   * Fixed color of text for LPM mode
   * Disable semitransparent background for LPM mode
+  * Fixed problem with updating
 
 * Sun Feb 01 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.16
 

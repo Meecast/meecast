@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-22 12:44+0300\n"
+"POT-Creation-Date: 2015-02-10 15:41+0300\n"
 "PO-Revision-Date: 2014-04-15 08:34+0000\n"
 "Last-Translator: Aleksandar Zarić <alexandarzaric@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/meecast/language/"
@@ -561,7 +561,7 @@ msgstr "Oblačno sa snežnim naletima"
 msgid "Cloudy and wet snow showers"
 msgstr "Oblačno i naleti vlažnog snega"
 
-#: omweather/src/hash.data:387
+#: omweather/src/hash.data:388
 msgid "Cloudy with occasional rain."
 msgstr "Oblačno sa povremenom kišom."
 
@@ -661,7 +661,7 @@ msgstr "Država"
 msgid "Country:"
 msgstr "Država"
 
-#: omweather/src/hash.data:399
+#: omweather/src/hash.data:400
 msgid "Cover Page"
 msgstr ""
 
@@ -1017,7 +1017,8 @@ msgid ""
 " \tEd Bartosh\n"
 " Finnish - Marko Vertainen\n"
 " German -  Claudius Henrichs,\n"
-" \tJens Klingen\n"
+" \tJens Klingen,\n"
+" \tDeadHorseRiding\n"
 " Italian - Lorenzo Facca,\n"
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
@@ -1222,7 +1223,7 @@ msgstr "Jak sneg"
 msgid "Heavy Thunder"
 msgstr "Grmljavina"
 
-#: omweather/src/hash.data:388
+#: omweather/src/hash.data:389
 msgid "Heavy intensity rain"
 msgstr "Kiša jakog intenziteta"
 
@@ -1270,7 +1271,7 @@ msgstr "Ikone"
 msgid "Iconset"
 msgstr "Set ikona"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:270
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:271
 msgid "Iconsets"
 msgstr "Setovi ikona"
 
@@ -1344,7 +1345,7 @@ msgstr "Prikaz:"
 msgid "Lead designers"
 msgstr "Glavni dizajneri"
 
-#: meecast/qt-qml/qml/AboutPage.qml:304
+#: meecast/qt-qml/qml/AboutPage.qml:305
 msgid "License"
 msgstr "Dozvola"
 
@@ -1457,7 +1458,7 @@ msgstr "Blagi sneg"
 msgid "Light intensity drizzle"
 msgstr "Rominjajuća kiša blagog intenziteta"
 
-#: omweather/src/hash.data:389
+#: omweather/src/hash.data:390
 msgid "Light intensity shower rain"
 msgstr "Pljusak blagog intenziteta"
 
@@ -1499,6 +1500,11 @@ msgstr "Nizak"
 
 #: omweather/src/hash.data:386
 msgid "Mainly cloudy with occasional rain."
+msgstr "Pretežno oblačno sa povremenom kišom."
+
+#: omweather/src/hash.data:387
+#, fuzzy
+msgid "Mainly cloudy, Slight shower of rain"
 msgstr "Pretežno oblačno sa povremenom kišom."
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
@@ -2272,7 +2278,7 @@ msgstr "Iz kiše u zimski miks / Vetar"
 msgid "Read sensor every:"
 msgstr "Očitavanje senzora svakih:"
 
-#: omweather/src/hash.data:397
+#: omweather/src/hash.data:398
 msgid "Refresh"
 msgstr "Osveži"
 
@@ -2494,7 +2500,7 @@ msgstr "Kratko"
 msgid "Show arrows"
 msgstr "Prikaži strelice"
 
-#: omweather/src/hash.data:396
+#: omweather/src/hash.data:397
 msgid "Show last update time"
 msgstr "Prikaži poslednje vreme ažuriranja"
 
@@ -2506,7 +2512,7 @@ msgstr "Prikaži na mapi"
 msgid "Show only current weather on first icon"
 msgstr "Prikaži samo trenutno vreme na prvoj ikoni"
 
-#: omweather/src/hash.data:395
+#: omweather/src/hash.data:396
 msgid "Show source logo"
 msgstr "Prikaži izvorni logo"
 
@@ -2629,7 +2635,7 @@ msgstr "Sneg"
 msgid "Source"
 msgstr "Izvor"
 
-#: meecast/qt-qml/qml/AboutPage.qml:326
+#: meecast/qt-qml/qml/AboutPage.qml:327
 msgid "Source code"
 msgstr "Izvorni kod"
 
@@ -2776,15 +2782,15 @@ msgstr "Hvala"
 msgid "The weather has been updated."
 msgstr "Vremenska prognoza je ažurirana."
 
-#: omweather/src/hash.data:390
+#: omweather/src/hash.data:391
 msgid "There are no stations to show in this view of the list"
 msgstr "Nema stanica za prikaz u ovom pregledu liste"
 
-#: omweather/src/hash.data:392
+#: omweather/src/hash.data:393
 msgid "This is experimental feature. Only English is supported."
 msgstr "Ovo je eksperimentalna opcija. Podržan je samo engleski jezik."
 
-#: meecast/qt-qml/qml/AboutPage.qml:313
+#: meecast/qt-qml/qml/AboutPage.qml:314
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2842,7 +2848,7 @@ msgstr ""
 "Prevodioci: Francuski - Nicolas Granziano, Philippe, Benot Knecht; Ruski - "
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 
-#: omweather/src/hash.data:398
+#: omweather/src/hash.data:399
 msgid "Transparency"
 msgstr "Providnost"
 
@@ -2946,7 +2952,7 @@ msgstr "Ispravno vreme za trenutne vremenske uslove"
 msgid "Very High"
 msgstr "Mnogo visok"
 
-#: omweather/src/hash.data:393
+#: omweather/src/hash.data:394
 #, fuzzy
 msgid "Violent Rain Showers"
 msgstr "Blagi kišni pljuskovi"
@@ -2969,11 +2975,11 @@ msgstr "Vidljivo:"
 msgid "Visuals"
 msgstr "Vizuelizacije"
 
-#: omweather/src/hash.data:391
+#: omweather/src/hash.data:392
 msgid "Voice forecast button on a widget"
 msgstr "Dugme za glasovnu prognozu na vidžetu"
 
-#: omweather/src/hash.data:394
+#: omweather/src/hash.data:395
 msgid "Voice weather forecast"
 msgstr "Glasovna vremenska prognoza"
 
@@ -3249,7 +3255,7 @@ msgstr "sat ranije"
 msgid "hours ago"
 msgstr "sati ranije"
 
-#: meecast/qt-qml/qml/AboutPage.qml:335
+#: meecast/qt-qml/qml/AboutPage.qml:336
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 
@@ -3419,34 +3425,34 @@ msgstr "ime stanice"
 msgid "steady"
 msgstr "mirno"
 
-#: omweather/src/hash.data:400
+#: omweather/src/hash.data:401
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:401
+#: omweather/src/hash.data:402
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:402
+#: omweather/src/hash.data:403
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:403
+#: omweather/src/hash.data:404
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:404
+#: omweather/src/hash.data:405
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:405
+#: omweather/src/hash.data:406
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:406
+#: omweather/src/hash.data:407
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:407
+#: omweather/src/hash.data:408
 msgid "Ю-З"
 msgstr "Ю-З"

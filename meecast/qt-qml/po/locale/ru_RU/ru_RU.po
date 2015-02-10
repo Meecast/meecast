@@ -4,13 +4,13 @@
 #
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012
-# Vlad Vas <vasvlad@gmail.com>, 2013-2014
+# Vlad Vas <vasvlad@gmail.com>, 2013-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-22 12:44+0300\n"
-"PO-Revision-Date: 2014-12-10 09:27+0000\n"
+"POT-Creation-Date: 2015-02-10 15:41+0300\n"
+"PO-Revision-Date: 2015-02-09 09:51+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/meecast/language/"
 "ru/)\n"
@@ -539,7 +539,7 @@ msgstr "Облачно и кратковременный снег"
 msgid "Cloudy and wet snow showers"
 msgstr "Облачно и кратковременный мокрый снег"
 
-#: omweather/src/hash.data:387
+#: omweather/src/hash.data:388
 msgid "Cloudy with occasional rain."
 msgstr "Облачно, временами дождь"
 
@@ -637,7 +637,7 @@ msgstr "Страна"
 msgid "Country:"
 msgstr "Страна:"
 
-#: omweather/src/hash.data:399
+#: omweather/src/hash.data:400
 msgid "Cover Page"
 msgstr ""
 
@@ -990,7 +990,8 @@ msgid ""
 " \tEd Bartosh\n"
 " Finnish - Marko Vertainen\n"
 " German -  Claudius Henrichs,\n"
-" \tJens Klingen\n"
+" \tJens Klingen,\n"
+" \tDeadHorseRiding\n"
 " Italian - Lorenzo Facca,\n"
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
@@ -1150,7 +1151,7 @@ msgstr ""
 msgid "Heavy Thunder"
 msgstr "Сильный Гром"
 
-#: omweather/src/hash.data:388
+#: omweather/src/hash.data:389
 msgid "Heavy intensity rain"
 msgstr "Сильный дождь"
 
@@ -1180,7 +1181,7 @@ msgstr "Влажность:"
 
 #: omweather/src/hash.data:107
 msgid "Ice Pellets"
-msgstr ""
+msgstr "Ледяные гранулы"
 
 #: omweather/src/weather-settings.c:3326
 msgid "Icon set:"
@@ -1198,7 +1199,7 @@ msgstr "Наборы иконок"
 msgid "Iconset"
 msgstr "Набор иконок"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:270
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:271
 msgid "Iconsets"
 msgstr "Наборы иконок:"
 
@@ -1270,7 +1271,7 @@ msgstr "Расположение:"
 msgid "Lead designers"
 msgstr "Ведущие дизайнеры"
 
-#: meecast/qt-qml/qml/AboutPage.qml:304
+#: meecast/qt-qml/qml/AboutPage.qml:305
 msgid "License"
 msgstr "Лицензия"
 
@@ -1336,7 +1337,7 @@ msgstr "Небольшой дождь с грозой"
 
 #: omweather/src/hash.data:129
 msgid "Light Sleet"
-msgstr ""
+msgstr "Легкий мокрый снег"
 
 #: omweather/src/hash.data:130
 msgid "Light Sleet Showers"
@@ -1378,7 +1379,7 @@ msgstr "Легкий снегопад"
 msgid "Light intensity drizzle"
 msgstr "Небольшой мелкий дождь"
 
-#: omweather/src/hash.data:389
+#: omweather/src/hash.data:390
 msgid "Light intensity shower rain"
 msgstr "Кратковременный легкий дождь"
 
@@ -1420,6 +1421,11 @@ msgstr "Низкий"
 
 #: omweather/src/hash.data:386
 msgid "Mainly cloudy with occasional rain."
+msgstr "Пасмурно, временами дождь"
+
+#: omweather/src/hash.data:387
+#, fuzzy
+msgid "Mainly cloudy, Slight shower of rain"
 msgstr "Пасмурно, временами дождь"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
@@ -2153,9 +2159,8 @@ msgid "Rain and Snow"
 msgstr "Дождь со снегом"
 
 #: omweather/src/hash.data:269
-#, fuzzy
 msgid "Rain and snow"
-msgstr "Дождь со снегом"
+msgstr ""
 
 #: omweather/src/hash.data:270
 msgid "Rain to Snow / Wind"
@@ -2173,7 +2178,7 @@ msgstr "Дождь переходящий в поземку / Ветер"
 msgid "Read sensor every:"
 msgstr "Опрашивать датчик каждые:"
 
-#: omweather/src/hash.data:397
+#: omweather/src/hash.data:398
 msgid "Refresh"
 msgstr "Обновить"
 
@@ -2395,7 +2400,7 @@ msgstr "Короткий"
 msgid "Show arrows"
 msgstr "Показать стрелки"
 
-#: omweather/src/hash.data:396
+#: omweather/src/hash.data:397
 msgid "Show last update time"
 msgstr "Показать время последнего обновления"
 
@@ -2407,7 +2412,7 @@ msgstr "Показать на карте"
 msgid "Show only current weather on first icon"
 msgstr "Только текущая погода в первой иконке"
 
-#: omweather/src/hash.data:395
+#: omweather/src/hash.data:396
 msgid "Show source logo"
 msgstr "Показать логотип источника"
 
@@ -2527,7 +2532,7 @@ msgstr "Снегопад"
 msgid "Source"
 msgstr "Источник"
 
-#: meecast/qt-qml/qml/AboutPage.qml:326
+#: meecast/qt-qml/qml/AboutPage.qml:327
 msgid "Source code"
 msgstr "Исходный код"
 
@@ -2674,16 +2679,16 @@ msgstr "Благодарности"
 msgid "The weather has been updated."
 msgstr "Данные о погоде обновлены."
 
-#: omweather/src/hash.data:390
+#: omweather/src/hash.data:391
 msgid "There are no stations to show in this view of the list"
 msgstr "Нет никаких станций, чтобы показать их в этом списке"
 
-#: omweather/src/hash.data:392
+#: omweather/src/hash.data:393
 msgid "This is experimental feature. Only English is supported."
 msgstr ""
 "Это экспериментальная возможность. Поддерживается только английский язык."
 
-#: meecast/qt-qml/qml/AboutPage.qml:313
+#: meecast/qt-qml/qml/AboutPage.qml:314
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2729,7 +2734,7 @@ msgid ""
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 msgstr ""
 
-#: omweather/src/hash.data:398
+#: omweather/src/hash.data:399
 msgid "Transparency"
 msgstr "Прозрачность"
 
@@ -2834,7 +2839,7 @@ msgstr "Актуальность текущей погоды:"
 msgid "Very High"
 msgstr "Очень высокое"
 
-#: omweather/src/hash.data:393
+#: omweather/src/hash.data:394
 msgid "Violent Rain Showers"
 msgstr ""
 
@@ -2856,11 +2861,11 @@ msgstr "Видимость:"
 msgid "Visuals"
 msgstr "Оформление"
 
-#: omweather/src/hash.data:391
+#: omweather/src/hash.data:392
 msgid "Voice forecast button on a widget"
 msgstr "Кнопка Прогноза голосом на виджете"
 
-#: omweather/src/hash.data:394
+#: omweather/src/hash.data:395
 msgid "Voice weather forecast"
 msgstr "Голосовой прогноз погоды"
 
@@ -3138,7 +3143,7 @@ msgstr "час назад"
 msgid "hours ago"
 msgstr "час. назад"
 
-#: meecast/qt-qml/qml/AboutPage.qml:335
+#: meecast/qt-qml/qml/AboutPage.qml:336
 msgid "http://github.com/Meecast/meecast"
 msgstr ""
 
@@ -3306,34 +3311,34 @@ msgstr "в названии станции"
 msgid "steady"
 msgstr "устойчивое"
 
-#: omweather/src/hash.data:400
+#: omweather/src/hash.data:401
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:401
+#: omweather/src/hash.data:402
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:402
+#: omweather/src/hash.data:403
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:403
+#: omweather/src/hash.data:404
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:404
+#: omweather/src/hash.data:405
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:405
+#: omweather/src/hash.data:406
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:406
+#: omweather/src/hash.data:407
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:407
+#: omweather/src/hash.data:408
 msgid "Ю-З"
 msgstr ""

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-22 12:44+0300\n"
-"PO-Revision-Date: 2014-12-12 13:33+0000\n"
-"Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
+"POT-Creation-Date: 2015-02-10 15:41+0300\n"
+"PO-Revision-Date: 2015-01-13 01:32+0000\n"
+"Last-Translator: Peter Jespersen <flywheeldk@gmail.com>\n"
 "Language-Team: Danish (Denmark) (http://www.transifex.com/projects/p/meecast/"
 "language/da_DK/)\n"
 "Language: da_DK\n"
@@ -372,7 +372,7 @@ msgstr "Baggrundsfarve:"
 
 #: omweather/src/weather-simple-settings.c:1426
 msgid "Beauf."
-msgstr ""
+msgstr "Beauf."
 
 #: omweather/src/weather-settings.c:4021
 #: omweather/src/weather-simple-settings.c:2707
@@ -524,7 +524,7 @@ msgstr "Overskyet og snebyger"
 msgid "Cloudy and wet snow showers"
 msgstr "Overskyet og våde snebyger"
 
-#: omweather/src/hash.data:387
+#: omweather/src/hash.data:388
 msgid "Cloudy with occasional rain."
 msgstr ""
 
@@ -622,7 +622,7 @@ msgstr "Land"
 msgid "Country:"
 msgstr "Land:"
 
-#: omweather/src/hash.data:399
+#: omweather/src/hash.data:400
 msgid "Cover Page"
 msgstr "Miniature"
 
@@ -963,6 +963,7 @@ msgid "Freezing Drizzle"
 msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
+#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht, \n"
@@ -971,7 +972,8 @@ msgid ""
 " \tEd Bartosh\n"
 " Finnish - Marko Vertainen\n"
 " German -  Claudius Henrichs,\n"
-" \tJens Klingen\n"
+" \tJens Klingen,\n"
+" \tDeadHorseRiding\n"
 " Italian - Lorenzo Facca,\n"
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
@@ -1167,7 +1169,7 @@ msgstr ""
 msgid "Heavy Thunder"
 msgstr ""
 
-#: omweather/src/hash.data:388
+#: omweather/src/hash.data:389
 msgid "Heavy intensity rain"
 msgstr ""
 
@@ -1215,7 +1217,7 @@ msgstr "Ikoner"
 msgid "Iconset"
 msgstr "Ikonsæt"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:270
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:271
 msgid "Iconsets"
 msgstr ""
 
@@ -1289,7 +1291,7 @@ msgstr "Layout:"
 msgid "Lead designers"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:304
+#: meecast/qt-qml/qml/AboutPage.qml:305
 msgid "License"
 msgstr "Licens"
 
@@ -1397,7 +1399,7 @@ msgstr "Let Snefald"
 msgid "Light intensity drizzle"
 msgstr ""
 
-#: omweather/src/hash.data:389
+#: omweather/src/hash.data:390
 msgid "Light intensity shower rain"
 msgstr ""
 
@@ -1439,6 +1441,11 @@ msgstr "Lav"
 
 #: omweather/src/hash.data:386
 msgid "Mainly cloudy with occasional rain."
+msgstr "Hovedsageligt overskyet med lejlighedsvis regn."
+
+#: omweather/src/hash.data:387
+#, fuzzy
+msgid "Mainly cloudy, Slight shower of rain"
 msgstr "Hovedsageligt overskyet med lejlighedsvis regn."
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
@@ -2026,7 +2033,7 @@ msgstr ""
 
 #: omweather/src/weather-simple-settings.c:1676
 msgid "Period"
-msgstr ""
+msgstr "Periode"
 
 #: omweather/src/weather-settings.c:3649
 msgid "Position:"
@@ -2176,9 +2183,8 @@ msgid "Rain and Snow"
 msgstr ""
 
 #: omweather/src/hash.data:269
-#, fuzzy
 msgid "Rain and snow"
-msgstr "Overskyet og sne"
+msgstr "Regn og sne"
 
 #: omweather/src/hash.data:270
 msgid "Rain to Snow / Wind"
@@ -2196,7 +2202,7 @@ msgstr ""
 msgid "Read sensor every:"
 msgstr "Aflæs sensor hver:"
 
-#: omweather/src/hash.data:397
+#: omweather/src/hash.data:398
 msgid "Refresh"
 msgstr "Genindlæs"
 
@@ -2418,7 +2424,7 @@ msgstr ""
 msgid "Show arrows"
 msgstr "Vis pile"
 
-#: omweather/src/hash.data:396
+#: omweather/src/hash.data:397
 msgid "Show last update time"
 msgstr "Vis sidste ajourføring"
 
@@ -2430,7 +2436,7 @@ msgstr "Vis på kort"
 msgid "Show only current weather on first icon"
 msgstr "Vis kun aktuelle vejr på første ikon"
 
-#: omweather/src/hash.data:395
+#: omweather/src/hash.data:396
 msgid "Show source logo"
 msgstr ""
 
@@ -2550,7 +2556,7 @@ msgstr "Snefald"
 msgid "Source"
 msgstr "Kilde"
 
-#: meecast/qt-qml/qml/AboutPage.qml:326
+#: meecast/qt-qml/qml/AboutPage.qml:327
 msgid "Source code"
 msgstr "Kildekode"
 
@@ -2577,7 +2583,7 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:522
 msgid "State:"
-msgstr ""
+msgstr "Tilstand:"
 
 #: omweather/src/weather-simple-settings.c:2512
 #, c-format
@@ -2697,15 +2703,15 @@ msgstr "Tak"
 msgid "The weather has been updated."
 msgstr ""
 
-#: omweather/src/hash.data:390
+#: omweather/src/hash.data:391
 msgid "There are no stations to show in this view of the list"
 msgstr ""
 
-#: omweather/src/hash.data:392
+#: omweather/src/hash.data:393
 msgid "This is experimental feature. Only English is supported."
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:313
+#: meecast/qt-qml/qml/AboutPage.qml:314
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2759,7 +2765,7 @@ msgstr ""
 "Oversættere: Fransk - Nicolas Granziano, Philippe, Benot Knecht; Russisk - "
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 
-#: omweather/src/hash.data:398
+#: omweather/src/hash.data:399
 msgid "Transparency"
 msgstr "Gennemsigtighed"
 
@@ -2859,7 +2865,7 @@ msgstr ""
 msgid "Very High"
 msgstr "Meget Høj"
 
-#: omweather/src/hash.data:393
+#: omweather/src/hash.data:394
 msgid "Violent Rain Showers"
 msgstr ""
 
@@ -2881,11 +2887,11 @@ msgstr "Synlig:"
 msgid "Visuals"
 msgstr ""
 
-#: omweather/src/hash.data:391
+#: omweather/src/hash.data:392
 msgid "Voice forecast button on a widget"
 msgstr ""
 
-#: omweather/src/hash.data:394
+#: omweather/src/hash.data:395
 msgid "Voice weather forecast"
 msgstr ""
 
@@ -3151,7 +3157,7 @@ msgstr "time siden"
 msgid "hours ago"
 msgstr "timer siden"
 
-#: meecast/qt-qml/qml/AboutPage.qml:335
+#: meecast/qt-qml/qml/AboutPage.qml:336
 msgid "http://github.com/Meecast/meecast"
 msgstr ""
 
@@ -3262,7 +3268,7 @@ msgstr "mm"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:234
 #: meecast/qt-qml/qml/FullWeatherPage.qml:297
 msgid "mm/h"
-msgstr ""
+msgstr "mm/t"
 
 #: omweather/src/weather-home.c:1403 omweather/src/weather-home.c:1458
 #: omweather/src/weather-home.c:1606 omweather/src/weather-settings.c:4078
@@ -3319,34 +3325,34 @@ msgstr "stationsnavn"
 msgid "steady"
 msgstr ""
 
-#: omweather/src/hash.data:400
+#: omweather/src/hash.data:401
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:401
+#: omweather/src/hash.data:402
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:402
+#: omweather/src/hash.data:403
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:403
+#: omweather/src/hash.data:404
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:404
+#: omweather/src/hash.data:405
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:405
+#: omweather/src/hash.data:406
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:406
+#: omweather/src/hash.data:407
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:407
+#: omweather/src/hash.data:408
 msgid "Ю-З"
 msgstr ""

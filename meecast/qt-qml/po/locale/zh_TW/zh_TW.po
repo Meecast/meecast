@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-22 12:44+0300\n"
+"POT-Creation-Date: 2015-02-10 15:41+0300\n"
 "PO-Revision-Date: 2014-05-15 13:55+0000\n"
 "Last-Translator: osk2 <sc60714@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/meecast/"
@@ -556,7 +556,7 @@ msgstr "多雲帶陣雪"
 msgid "Cloudy and wet snow showers"
 msgstr "陰帶濕陣雪"
 
-#: omweather/src/hash.data:387
+#: omweather/src/hash.data:388
 msgid "Cloudy with occasional rain."
 msgstr "陰天偶有雨"
 
@@ -656,7 +656,7 @@ msgstr "國家"
 msgid "Country:"
 msgstr "國家："
 
-#: omweather/src/hash.data:399
+#: omweather/src/hash.data:400
 msgid "Cover Page"
 msgstr ""
 
@@ -1011,7 +1011,8 @@ msgid ""
 " \tEd Bartosh\n"
 " Finnish - Marko Vertainen\n"
 " German -  Claudius Henrichs,\n"
-" \tJens Klingen\n"
+" \tJens Klingen,\n"
+" \tDeadHorseRiding\n"
 " Italian - Lorenzo Facca,\n"
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
@@ -1216,7 +1217,7 @@ msgstr "大雪"
 msgid "Heavy Thunder"
 msgstr "雷"
 
-#: omweather/src/hash.data:388
+#: omweather/src/hash.data:389
 msgid "Heavy intensity rain"
 msgstr "豪大雨"
 
@@ -1264,7 +1265,7 @@ msgstr "圖示"
 msgid "Iconset"
 msgstr "圖示集"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:270
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:271
 msgid "Iconsets"
 msgstr "圖示集"
 
@@ -1338,7 +1339,7 @@ msgstr "頁面樣式︰"
 msgid "Lead designers"
 msgstr "首席設計師"
 
-#: meecast/qt-qml/qml/AboutPage.qml:304
+#: meecast/qt-qml/qml/AboutPage.qml:305
 msgid "License"
 msgstr "版權"
 
@@ -1451,7 +1452,7 @@ msgstr "小雪"
 msgid "Light intensity drizzle"
 msgstr "奈米雨"
 
-#: omweather/src/hash.data:389
+#: omweather/src/hash.data:390
 msgid "Light intensity shower rain"
 msgstr "小陣雨"
 
@@ -1493,6 +1494,11 @@ msgstr "低"
 
 #: omweather/src/hash.data:386
 msgid "Mainly cloudy with occasional rain."
+msgstr "大致多雲偶有雨"
+
+#: omweather/src/hash.data:387
+#, fuzzy
+msgid "Mainly cloudy, Slight shower of rain"
 msgstr "大致多雲偶有雨"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
@@ -2265,7 +2271,7 @@ msgstr "雨轉雨雪混合及風"
 msgid "Read sensor every:"
 msgstr "感測器讀取間隔："
 
-#: omweather/src/hash.data:397
+#: omweather/src/hash.data:398
 msgid "Refresh"
 msgstr "重新整理"
 
@@ -2487,7 +2493,7 @@ msgstr "短"
 msgid "Show arrows"
 msgstr "顯示箭頭"
 
-#: omweather/src/hash.data:396
+#: omweather/src/hash.data:397
 msgid "Show last update time"
 msgstr "顯示最後更新時間"
 
@@ -2499,7 +2505,7 @@ msgstr "在地圖上顯示"
 msgid "Show only current weather on first icon"
 msgstr "第一個圖示僅顯示目前天氣"
 
-#: omweather/src/hash.data:395
+#: omweather/src/hash.data:396
 msgid "Show source logo"
 msgstr "顯示來源 logo"
 
@@ -2622,7 +2628,7 @@ msgstr "雪"
 msgid "Source"
 msgstr "來源"
 
-#: meecast/qt-qml/qml/AboutPage.qml:326
+#: meecast/qt-qml/qml/AboutPage.qml:327
 msgid "Source code"
 msgstr "程式原始碼"
 
@@ -2769,15 +2775,15 @@ msgstr "感謝"
 msgid "The weather has been updated."
 msgstr "氣象資訊已更新。"
 
-#: omweather/src/hash.data:390
+#: omweather/src/hash.data:391
 msgid "There are no stations to show in this view of the list"
 msgstr "此清單內沒有戰點可以顯示"
 
-#: omweather/src/hash.data:392
+#: omweather/src/hash.data:393
 msgid "This is experimental feature. Only English is supported."
 msgstr "此為實驗功能。僅提供英文版。"
 
-#: meecast/qt-qml/qml/AboutPage.qml:313
+#: meecast/qt-qml/qml/AboutPage.qml:314
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2835,7 +2841,7 @@ msgstr ""
 "翻譯者︰French - Nicolas Granziano、Philippe、Benot Knecht，Russian - Pavel "
 "Fialko、Vlad Vasiliev、Ed Bartosh\n"
 
-#: omweather/src/hash.data:398
+#: omweather/src/hash.data:399
 msgid "Transparency"
 msgstr "透明度"
 
@@ -2935,7 +2941,7 @@ msgstr "Valid time for current weather:"
 msgid "Very High"
 msgstr "非常高"
 
-#: omweather/src/hash.data:393
+#: omweather/src/hash.data:394
 #, fuzzy
 msgid "Violent Rain Showers"
 msgstr "小陣雨"
@@ -2958,11 +2964,11 @@ msgstr "能見度"
 msgid "Visuals"
 msgstr "視覺"
 
-#: omweather/src/hash.data:391
+#: omweather/src/hash.data:392
 msgid "Voice forecast button on a widget"
 msgstr "將語音播報按鈕置於小工具上"
 
-#: omweather/src/hash.data:394
+#: omweather/src/hash.data:395
 msgid "Voice weather forecast"
 msgstr "語音氣象播報"
 
@@ -3229,7 +3235,7 @@ msgstr "小時前"
 msgid "hours ago"
 msgstr "小時前"
 
-#: meecast/qt-qml/qml/AboutPage.qml:335
+#: meecast/qt-qml/qml/AboutPage.qml:336
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 
@@ -3399,34 +3405,34 @@ msgstr "站點名稱"
 msgid "steady"
 msgstr "steady"
 
-#: omweather/src/hash.data:400
+#: omweather/src/hash.data:401
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:401
+#: omweather/src/hash.data:402
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:402
+#: omweather/src/hash.data:403
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:403
+#: omweather/src/hash.data:404
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:404
+#: omweather/src/hash.data:405
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:405
+#: omweather/src/hash.data:406
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:406
+#: omweather/src/hash.data:407
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:407
+#: omweather/src/hash.data:408
 msgid "Ю-З"
 msgstr "Ю-З"

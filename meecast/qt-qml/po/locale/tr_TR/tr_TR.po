@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-22 12:44+0300\n"
+"POT-Creation-Date: 2015-02-10 15:41+0300\n"
 "PO-Revision-Date: 2014-07-22 20:20+0000\n"
 "Last-Translator: Mehmet Ç. <mehmetfnldstntn@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/meecast/language/"
@@ -555,7 +555,7 @@ msgstr "Bulutlu ve kar yagışlı"
 msgid "Cloudy and wet snow showers"
 msgstr "Bulutlu ve ıslak sağnak kar yağışı"
 
-#: omweather/src/hash.data:387
+#: omweather/src/hash.data:388
 msgid "Cloudy with occasional rain."
 msgstr "Zaman zaman yağmur ile bulutlu."
 
@@ -653,7 +653,7 @@ msgstr "Ülke"
 msgid "Country:"
 msgstr "Ülke:"
 
-#: omweather/src/hash.data:399
+#: omweather/src/hash.data:400
 msgid "Cover Page"
 msgstr ""
 
@@ -998,6 +998,7 @@ msgid "Freezing Drizzle"
 msgstr "Dondurucu Çiseleyen Yagmur"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
+#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht, \n"
@@ -1006,7 +1007,8 @@ msgid ""
 " \tEd Bartosh\n"
 " Finnish - Marko Vertainen\n"
 " German -  Claudius Henrichs,\n"
-" \tJens Klingen\n"
+" \tJens Klingen,\n"
+" \tDeadHorseRiding\n"
 " Italian - Lorenzo Facca,\n"
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
@@ -1203,7 +1205,7 @@ msgstr "Şiddetli Kar Yağışı"
 msgid "Heavy Thunder"
 msgstr "Şiddetli Gök Gürültüsü"
 
-#: omweather/src/hash.data:388
+#: omweather/src/hash.data:389
 msgid "Heavy intensity rain"
 msgstr "Ağır şiddetli yağmur"
 
@@ -1251,7 +1253,7 @@ msgstr "Ikonlar"
 msgid "Iconset"
 msgstr "Ikonseti"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:270
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:271
 msgid "Iconsets"
 msgstr "Ikonsetleri"
 
@@ -1326,7 +1328,7 @@ msgstr "Düzen"
 msgid "Lead designers"
 msgstr "Lead designers"
 
-#: meecast/qt-qml/qml/AboutPage.qml:304
+#: meecast/qt-qml/qml/AboutPage.qml:305
 msgid "License"
 msgstr "Lisans"
 
@@ -1434,7 +1436,7 @@ msgstr "Hafif Kar Yağışı"
 msgid "Light intensity drizzle"
 msgstr "Hafif aralıklı çiseleme"
 
-#: omweather/src/hash.data:389
+#: omweather/src/hash.data:390
 msgid "Light intensity shower rain"
 msgstr "Hafif aralıklı sağnak yağmur"
 
@@ -1476,6 +1478,11 @@ msgstr "Düşük"
 
 #: omweather/src/hash.data:386
 msgid "Mainly cloudy with occasional rain."
+msgstr "Zaman zaman yağmur ile bulutlu."
+
+#: omweather/src/hash.data:387
+#, fuzzy
+msgid "Mainly cloudy, Slight shower of rain"
 msgstr "Zaman zaman yağmur ile bulutlu."
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
@@ -2235,7 +2242,7 @@ msgstr "Yağmurdan Karışık Soğuğa / Rüzgarlı"
 msgid "Read sensor every:"
 msgstr "Sensörü oku her:"
 
-#: omweather/src/hash.data:397
+#: omweather/src/hash.data:398
 msgid "Refresh"
 msgstr "Yenile"
 
@@ -2457,7 +2464,7 @@ msgstr "Kısa"
 msgid "Show arrows"
 msgstr "Okları göster"
 
-#: omweather/src/hash.data:396
+#: omweather/src/hash.data:397
 msgid "Show last update time"
 msgstr "Son güncelleme zamanını göster"
 
@@ -2469,7 +2476,7 @@ msgstr "Haritada Göster"
 msgid "Show only current weather on first icon"
 msgstr "Ilk ikonda sadece şimdiki havadurumunu göster"
 
-#: omweather/src/hash.data:395
+#: omweather/src/hash.data:396
 msgid "Show source logo"
 msgstr "Kaynak logosunu göster"
 
@@ -2589,7 +2596,7 @@ msgstr "Kar Yağışı"
 msgid "Source"
 msgstr "Kaynak"
 
-#: meecast/qt-qml/qml/AboutPage.qml:326
+#: meecast/qt-qml/qml/AboutPage.qml:327
 msgid "Source code"
 msgstr "Kaynak kodu"
 
@@ -2736,15 +2743,15 @@ msgstr "Teşekkürler"
 msgid "The weather has been updated."
 msgstr "Havadurumu güncellendi."
 
-#: omweather/src/hash.data:390
+#: omweather/src/hash.data:391
 msgid "There are no stations to show in this view of the list"
 msgstr "Listenin bu görünümünde göstermek için hiçbir istasyonu bulunmaktadır"
 
-#: omweather/src/hash.data:392
+#: omweather/src/hash.data:393
 msgid "This is experimental feature. Only English is supported."
 msgstr "This is experimental feature. Only English is supported."
 
-#: meecast/qt-qml/qml/AboutPage.qml:313
+#: meecast/qt-qml/qml/AboutPage.qml:314
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2800,7 +2807,7 @@ msgstr ""
 "Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - "
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose\n"
 
-#: omweather/src/hash.data:398
+#: omweather/src/hash.data:399
 msgid "Transparency"
 msgstr "Şeffaflık"
 
@@ -2902,7 +2909,7 @@ msgstr "Şimdiki hava durumu için uygun zaman:"
 msgid "Very High"
 msgstr "Çok Yüksek"
 
-#: omweather/src/hash.data:393
+#: omweather/src/hash.data:394
 msgid "Violent Rain Showers"
 msgstr "Şiddetli Sağanak Yağmur"
 
@@ -2924,11 +2931,11 @@ msgstr "Gorünebilme:"
 msgid "Visuals"
 msgstr "Gorüntüler"
 
-#: omweather/src/hash.data:391
+#: omweather/src/hash.data:392
 msgid "Voice forecast button on a widget"
 msgstr "Widgat'a sesli tahmin butonu"
 
-#: omweather/src/hash.data:394
+#: omweather/src/hash.data:395
 msgid "Voice weather forecast"
 msgstr "Sesli hava tahmini"
 
@@ -3204,7 +3211,7 @@ msgstr "saat önce"
 msgid "hours ago"
 msgstr "saat önce"
 
-#: meecast/qt-qml/qml/AboutPage.qml:335
+#: meecast/qt-qml/qml/AboutPage.qml:336
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 
@@ -3374,34 +3381,34 @@ msgstr "istasyon adı"
 msgid "steady"
 msgstr "sağlam"
 
-#: omweather/src/hash.data:400
+#: omweather/src/hash.data:401
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:401
+#: omweather/src/hash.data:402
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:402
+#: omweather/src/hash.data:403
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:403
+#: omweather/src/hash.data:404
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:404
+#: omweather/src/hash.data:405
 msgid "С-З"
 msgstr "C-3"
 
-#: omweather/src/hash.data:405
+#: omweather/src/hash.data:406
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:406
+#: omweather/src/hash.data:407
 msgid "Ю-В"
 msgstr "Ю-B"
 
-#: omweather/src/hash.data:407
+#: omweather/src/hash.data:408
 msgid "Ю-З"
 msgstr "Ю-3"

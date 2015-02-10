@@ -2,7 +2,8 @@ meecast (0.9.17) unstable; urgency=low
 
   * Optimised png images by OptiPNG and advpng. Thanks Alexander Self-Perfection  
   * Updated Catalan, Chinese, Czech, Dutch, Finnish, French,
-    Germany, Norwegian, Slovenian, Spanish, Swedish translations
+    Germany, Norwegian, Slovenian, Spanish, Swedish,
+    Italian translations
 
  -- Vlad Vasiliev <vlad@gas.by> Fri, 12 Dec 2014 17:31:23 +0200
 

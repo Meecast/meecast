@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-10 15:41+0300\n"
+"POT-Creation-Date: 2015-02-18 16:42+0300\n"
 "PO-Revision-Date: 2011-03-29 13:10+0200\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -1015,7 +1015,8 @@ msgstr "Mrznúce mrholenie"
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht, \n"
-" \tQuentin Caillard \n"
+" \tQuentin Caillard, \n"
+" \tJordi\n"
 " Russian - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
 " Finnish - Marko Vertainen\n"
@@ -1267,7 +1268,7 @@ msgstr "Ikony"
 msgid "Iconset"
 msgstr "Téma ikon"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:271
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:272
 msgid "Iconsets"
 msgstr "Témy ikon"
 
@@ -1342,7 +1343,7 @@ msgstr "Rozloženie:"
 msgid "Lead designers"
 msgstr "Vedúci návrhár"
 
-#: meecast/qt-qml/qml/AboutPage.qml:305
+#: meecast/qt-qml/qml/AboutPage.qml:306
 msgid "License"
 msgstr "Licencia"
 
@@ -2654,7 +2655,7 @@ msgstr "Sneženie"
 msgid "Source"
 msgstr "Zdroj"
 
-#: meecast/qt-qml/qml/AboutPage.qml:327
+#: meecast/qt-qml/qml/AboutPage.qml:328
 #, fuzzy
 msgid "Source code"
 msgstr "Zdroj"
@@ -2810,7 +2811,7 @@ msgstr ""
 msgid "This is experimental feature. Only English is supported."
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:314
+#: meecast/qt-qml/qml/AboutPage.qml:315
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3276,7 +3277,7 @@ msgstr "hodinu dozadu"
 msgid "hours ago"
 msgstr "hodín dozadu"
 
-#: meecast/qt-qml/qml/AboutPage.qml:336
+#: meecast/qt-qml/qml/AboutPage.qml:337
 msgid "http://github.com/Meecast/meecast"
 msgstr ""
 

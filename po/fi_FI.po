@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-10 15:41+0300\n"
+"POT-Creation-Date: 2015-02-18 16:42+0300\n"
 "PO-Revision-Date: 2014-12-23 08:48+0000\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/"
@@ -1014,7 +1014,8 @@ msgstr "Jäätävää tihkusadetta"
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht, \n"
-" \tQuentin Caillard \n"
+" \tQuentin Caillard, \n"
+" \tJordi\n"
 " Russian - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
 " Finnish - Marko Vertainen\n"
@@ -1266,7 +1267,7 @@ msgstr "Sääsymbolit"
 msgid "Iconset"
 msgstr "Sääsymbolit"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:271
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:272
 msgid "Iconsets"
 msgstr "Sääsymbolit"
 
@@ -1340,7 +1341,7 @@ msgstr "Asettelu:"
 msgid "Lead designers"
 msgstr "Pääsuunnittelijat"
 
-#: meecast/qt-qml/qml/AboutPage.qml:305
+#: meecast/qt-qml/qml/AboutPage.qml:306
 msgid "License"
 msgstr "Lisenssi"
 
@@ -2605,7 +2606,7 @@ msgstr "Lumisadetta"
 msgid "Source"
 msgstr "Lähde"
 
-#: meecast/qt-qml/qml/AboutPage.qml:327
+#: meecast/qt-qml/qml/AboutPage.qml:328
 msgid "Source code"
 msgstr "Lähdekoodi"
 
@@ -2761,7 +2762,7 @@ msgid "This is experimental feature. Only English is supported."
 msgstr ""
 "Tämä on kokeellinen toiminto ja tukee toistaiseksi vain englannin kieltä."
 
-#: meecast/qt-qml/qml/AboutPage.qml:314
+#: meecast/qt-qml/qml/AboutPage.qml:315
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3228,7 +3229,7 @@ msgstr "tunti sitten"
 msgid "hours ago"
 msgstr "tuntia sitten"
 
-#: meecast/qt-qml/qml/AboutPage.qml:336
+#: meecast/qt-qml/qml/AboutPage.qml:337
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 

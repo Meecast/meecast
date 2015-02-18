@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-10 15:41+0300\n"
+"POT-Creation-Date: 2015-02-18 16:42+0300\n"
 "PO-Revision-Date: 2012-04-19 10:31+0000\n"
 "Last-Translator: ludmilalisovskaya <ludmila.lisovskaya@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1016,7 +1016,8 @@ msgstr "Llovisna helada"
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht, \n"
-" \tQuentin Caillard \n"
+" \tQuentin Caillard, \n"
+" \tJordi\n"
 " Russian - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
 " Finnish - Marko Vertainen\n"
@@ -1257,7 +1258,7 @@ msgstr "Íconos"
 msgid "Iconset"
 msgstr "Juego de íconos"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:271
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:272
 msgid "Iconsets"
 msgstr "Juegos de íconos:"
 
@@ -1333,7 +1334,7 @@ msgstr "Distribución: "
 msgid "Lead designers"
 msgstr "Diseñador líder"
 
-#: meecast/qt-qml/qml/AboutPage.qml:305
+#: meecast/qt-qml/qml/AboutPage.qml:306
 msgid "License"
 msgstr "Licencia"
 
@@ -2652,7 +2653,7 @@ msgstr "Nieve"
 msgid "Source"
 msgstr "Origen"
 
-#: meecast/qt-qml/qml/AboutPage.qml:327
+#: meecast/qt-qml/qml/AboutPage.qml:328
 #, fuzzy
 msgid "Source code"
 msgstr "Origen"
@@ -2808,7 +2809,7 @@ msgstr ""
 msgid "This is experimental feature. Only English is supported."
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:314
+#: meecast/qt-qml/qml/AboutPage.qml:315
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3279,7 +3280,7 @@ msgstr "hora atrás"
 msgid "hours ago"
 msgstr "horas atrás"
 
-#: meecast/qt-qml/qml/AboutPage.qml:336
+#: meecast/qt-qml/qml/AboutPage.qml:337
 msgid "http://github.com/Meecast/meecast"
 msgstr ""
 

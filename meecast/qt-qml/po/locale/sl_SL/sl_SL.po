@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-10 15:41+0300\n"
+"POT-Creation-Date: 2015-02-18 16:42+0300\n"
 "PO-Revision-Date: 2014-12-23 17:49+0000\n"
 "Last-Translator: Boštjan Štrumbelj <sponka@gmail.com>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/projects/p/"
@@ -1011,7 +1011,8 @@ msgstr "Pomrznjen pršec"
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht, \n"
-" \tQuentin Caillard \n"
+" \tQuentin Caillard, \n"
+" \tJordi\n"
 " Russian - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
 " Finnish - Marko Vertainen\n"
@@ -1262,7 +1263,7 @@ msgstr "Ikone"
 msgid "Iconset"
 msgstr "Nabor ikon"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:271
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:272
 msgid "Iconsets"
 msgstr "Nabori ikon"
 
@@ -1336,7 +1337,7 @@ msgstr "Videz:"
 msgid "Lead designers"
 msgstr "Vodilni oblikovalci"
 
-#: meecast/qt-qml/qml/AboutPage.qml:305
+#: meecast/qt-qml/qml/AboutPage.qml:306
 msgid "License"
 msgstr "Licenca"
 
@@ -2601,7 +2602,7 @@ msgstr "Sneženje"
 msgid "Source"
 msgstr "Vir"
 
-#: meecast/qt-qml/qml/AboutPage.qml:327
+#: meecast/qt-qml/qml/AboutPage.qml:328
 msgid "Source code"
 msgstr "Izvorna koda"
 
@@ -2756,7 +2757,7 @@ msgstr "Na spisku ni postaj za prikaz"
 msgid "This is experimental feature. Only English is supported."
 msgstr "Eksperimentalna možnost. Podprt je le angleški jezik."
 
-#: meecast/qt-qml/qml/AboutPage.qml:314
+#: meecast/qt-qml/qml/AboutPage.qml:315
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3219,7 +3220,7 @@ msgstr "uro predtem"
 msgid "hours ago"
 msgstr "ure predtem"
 
-#: meecast/qt-qml/qml/AboutPage.qml:336
+#: meecast/qt-qml/qml/AboutPage.qml:337
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 

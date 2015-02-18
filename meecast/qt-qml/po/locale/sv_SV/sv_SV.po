@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-10 15:41+0300\n"
+"POT-Creation-Date: 2015-02-18 16:42+0300\n"
 "PO-Revision-Date: 2015-01-01 14:59+0000\n"
 "Last-Translator: Nathan Follens\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/meecast/language/"
@@ -1011,7 +1011,8 @@ msgstr "Underkylt Duggregn"
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht, \n"
-" \tQuentin Caillard \n"
+" \tQuentin Caillard, \n"
+" \tJordi\n"
 " Russian - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
 " Finnish - Marko Vertainen\n"
@@ -1264,7 +1265,7 @@ msgstr "Ikoner"
 msgid "Iconset"
 msgstr "Ikonset"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:271
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:272
 msgid "Iconsets"
 msgstr "Ikonset"
 
@@ -1338,7 +1339,7 @@ msgstr "Utseende:"
 msgid "Lead designers"
 msgstr "Ledande designers"
 
-#: meecast/qt-qml/qml/AboutPage.qml:305
+#: meecast/qt-qml/qml/AboutPage.qml:306
 msgid "License"
 msgstr "Licens"
 
@@ -2603,7 +2604,7 @@ msgstr "Snöfall"
 msgid "Source"
 msgstr "Källa"
 
-#: meecast/qt-qml/qml/AboutPage.qml:327
+#: meecast/qt-qml/qml/AboutPage.qml:328
 msgid "Source code"
 msgstr "Källkod"
 
@@ -2758,7 +2759,7 @@ msgstr "Det finns inga stationer i denna listvyn"
 msgid "This is experimental feature. Only English is supported."
 msgstr "Experimentell funktion. Endast Engelskt språkstöd."
 
-#: meecast/qt-qml/qml/AboutPage.qml:314
+#: meecast/qt-qml/qml/AboutPage.qml:315
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3222,7 +3223,7 @@ msgstr "timme sedan"
 msgid "hours ago"
 msgstr "timmar sedan"
 
-#: meecast/qt-qml/qml/AboutPage.qml:336
+#: meecast/qt-qml/qml/AboutPage.qml:337
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 

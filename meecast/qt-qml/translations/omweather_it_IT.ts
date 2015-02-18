@@ -1227,12 +1227,14 @@ dal Gestore Applicazioni</translation>
         <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
- 	Quentin Caillard 
+ 	Quentin Caillard, 
+ 	Jordi
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
  German -  Claudius Henrichs,
- 	Jens Klingen
+ 	Jens Klingen,
+ 	DeadHorseRiding
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1736,6 +1738,10 @@ Slovacco - Roman Moravčík</translation>
         <message>
             <source>Mainly cloudy with occasional rain.</source>
             <translation>Nuvoloso e pioggia occasionale.</translation>
+        </message>
+        <message>
+            <source>Mainly cloudy, Slight shower of rain</source>
+            <translation type="unfinished">Nuvoloso e pioggia occasionale.</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -2661,7 +2667,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain and snow</source>
-            <translation type="unfinished">Pioggia e Neve</translation>
+            <translation>Pioggia e neve</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

@@ -432,8 +432,10 @@ Eric Link - pour les demandes et les dons
 for installing package 'MeeCast applet'.
 You should uninstall AccuWeather 
 before installing this package</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Le gestionnaire d'application va démarrer
+pour installer le package 'MeeCast applet'.
+Vous devez désinstaller AccuWeather
+avant d'installer ce package.</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -719,7 +721,7 @@ Design de l'interface pour Fremantle : Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Nuageux, grosse pluie</translation>
+            <translation>Nuageux pluie légère, courte pluie battante</translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
@@ -739,7 +741,7 @@ Design de l'interface pour Fremantle : Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Strong Rain, Heavy Rain</source>
-            <translation type="unfinished">Nuageux, grosse pluie</translation>
+            <translation>Nuageux, grosse pluie, pluie légère</translation>
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
@@ -789,8 +791,7 @@ Délai de connexion dépassé.</translation>
         </message>
         <message>
             <source>Cover Page</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Page de garde</translation>
         </message>
         <message>
             <source>Custom</source>
@@ -844,18 +845,15 @@ Délai de connexion dépassé.</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Point de rosée</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Point de rosée</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Point de rosée</translation>
         </message>
         <message>
             <source>Display</source>
@@ -917,8 +915,7 @@ des paquets 'omweather-*-station-db' n'a été installé.</translation>
         </message>
         <message>
             <source>Drizzle / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bruine / vent</translation>
         </message>
         <message>
             <source>Drizzle Early</source>
@@ -1141,8 +1138,8 @@ Brad Jones dit kazrak - pour les tests
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Finnois - Marko Vertainen; Allemand - Claudius Henrichs; Espagnol - Alejandro Lopez; Hollandais - Tom Leenders; Slovaque - Roman Moravčík
+</translation>
         </message>
         <message>
             <source>First Quarter</source>
@@ -1150,18 +1147,15 @@ Brad Jones dit kazrak - pour les tests
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Température ressentie</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Température ressentie</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Température ressentie</translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1230,12 +1224,14 @@ en utilisant le gestionnaire d'applications</translation>
         <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
- 	Quentin Caillard 
+ 	Quentin Caillard, 
+ 	Jordi
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
  German -  Claudius Henrichs,
- 	Jens Klingen
+ 	Jens Klingen,
+ 	DeadHorseRiding
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1264,8 +1260,42 @@ en utilisant le gestionnaire d'applications</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">
-            </translation>
+            <translation type="unfinished">Français - Nicolas Granziano,
+⇥Philippe, Benot Knecht,
+⇥Quentin Caillard
+Russe - Pavel Fialko, Vlad Vasiliev,
+⇥Ed Bartosh
+Finnois - Marko Vertainen
+Allemand - Claudius Henrichs,
+⇥Jens Klingen
+Italien - Lorenzo Facca,
+⇥Pavel Fialko, Alessandro Pasotti,
+⇥Salvatore Fiorenzo, Ilir Gjika,
+⇥Luca Onnis
+Espagnol - Alejandro Lopez, Agustí Clara
+Polonais - Tomasz Dominikowski
+Slovaque - Roman Moravčík
+Hollandais - Tom Leenders, Michiel Pater
+Bulgare - Zlatko Enikov
+Albanais - Ilir Gjika
+Chinois - Wong Man Kong, Michael
+Portuguais - Jose Narciso,
+Turque - Burak Kaan Kose,
+⇥Mehmet Çilingir,
+Catalan - Agustí Clara,
+Arabe - Tarad Alfandi,
+Danois - Peter Jespersen,
+Serbe - Aleksandar Zaric,
+Norvégien - Peer-Atle Motland,
+Hongrois - Salmi,
+Slovénien - Boštjan,
+Tchèque - Jakub Kožíšek, Pavel Šrubař,
+Chinois (Taiwan) - osk2, 
+Vietnamien - Hieu Nguyen
+⇥Anh Dương and truongnx, 
+Suédois - Angela Nennebrandt,
+⇥Niklas Åkerström, 
+⇥Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1349,17 +1379,15 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Haze, Smoke or Dust</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Brume, fumée ou poussière</translation>
         </message>
         <message>
             <source>Heavy Freezing Rain</source>
-            <translation type="unfinished">Pluie / pluie verglaçante</translation>
+            <translation>Grosse pluie verglassante</translation>
         </message>
         <message>
             <source>Heavy Precipitation</source>
-            <translation type="unfinished">
-Précipitations : </translation>
+            <translation>Précipitations importantes</translation>
         </message>
         <message>
             <source>Heavy Rain</source>
@@ -1375,15 +1403,15 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Heavy Rain Showers</source>
-            <translation type="unfinished">Fortes averses de pluie</translation>
+            <translation>Fortes averses de pluie</translation>
         </message>
         <message>
             <source>Heavy Sleet</source>
-            <translation type="unfinished">Fortes chutes de neige</translation>
+            <translation>Neige pluvieuse importante</translation>
         </message>
         <message>
             <source>Heavy Sleet Showers</source>
-            <translation type="unfinished">Fortes averses de pluie</translation>
+            <translation>Chutes importantes de neige pluvieuse</translation>
         </message>
         <message>
             <source>Heavy Snow</source>
@@ -1391,20 +1419,19 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Fortes chutes de neige / vent</translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
-            <translation type="unfinished">Quelques averses de neige</translation>
+            <translation>Chutes de neige importantes</translation>
         </message>
         <message>
             <source>Heavy Snowfall</source>
-            <translation type="unfinished">Fortes chutes de neige</translation>
+            <translation>Chutes de neige importantes</translation>
         </message>
         <message>
             <source>Heavy Thunder</source>
-            <translation type="unfinished">Orage</translation>
+            <translation>Orage</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1420,8 +1447,7 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Heures</translation>
         </message>
         <message>
             <source>Humidity</source>
@@ -1453,8 +1479,7 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Ice Pellets</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Granules de glace</translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1518,8 +1543,7 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Italien - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polonais - Tomasz Dominikowski; Bulgare - Zlatko Enikov</translation>
         </message>
         <message>
             <source>Kilometers</source>
@@ -1583,8 +1607,7 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Lead designers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Concepteurs principaux</translation>
         </message>
         <message>
             <source>License</source>
@@ -1596,8 +1619,7 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Light Freezing Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Légère bruine verglaçante</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -1633,11 +1655,11 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Light Rain Shower</source>
-            <translation>Averses de pluie légère</translation>
+            <translation>Averse de pluie légère</translation>
         </message>
         <message>
             <source>Light Rain Showers</source>
-            <translation type="unfinished">Averses de pluie légère</translation>
+            <translation>Averses de pluie légère</translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
@@ -1657,11 +1679,11 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Light Sleet</source>
-            <translation type="unfinished">Neige légère</translation>
+            <translation>Légère neige pluvieuse</translation>
         </message>
         <message>
             <source>Light Sleet Showers</source>
-            <translation type="unfinished">Légères averses de neige</translation>
+            <translation>Averses éparses de neige pluvieuse</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1685,20 +1707,19 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Light Snow Shower</source>
-            <translation>Légères averses de neige</translation>
+            <translation>Légère chute de neige</translation>
         </message>
         <message>
             <source>Light Snow Showers</source>
-            <translation type="unfinished">Légères averses de neige</translation>
+            <translation>Légères chutes de neige</translation>
         </message>
         <message>
             <source>Light Snowfall</source>
-            <translation type="unfinished">Neige légère</translation>
+            <translation>Faible chute de neige</translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bruine de  faible intensité</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
@@ -1706,8 +1727,7 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Light or Moderate Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Précipitation faible ou modérée</translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1750,6 +1770,10 @@ Précipitations : </translation>
             <translation>Très nuageux avec quelques précipitations</translation>
         </message>
         <message>
+            <source>Mainly cloudy, Slight shower of rain</source>
+            <translation type="unfinished">Très nuageux avec quelques précipitations</translation>
+        </message>
+        <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
 </source>
             <translation>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -1773,18 +1797,15 @@ Précipitations : </translation>
         </message>
         <message>
             <source>MeeCast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>MeeCast</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>MeeCast - client de prévisions météorologiques multiplateformes hautement personnalisable open source basé sur le code OMWeather. Copyright (C) 2006-2014</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>MeeCast pour Harmattan</translation>
         </message>
         <message>
             <source>Meters</source>
@@ -1800,23 +1821,23 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Moderate Freezing Rain</source>
-            <translation type="unfinished">Pluie modérée</translation>
+            <translation>Pluie verglaçante modérée</translation>
         </message>
         <message>
             <source>Moderate Rain</source>
-            <translation>Pluie modérée</translation>
+            <translation>Légère pluie</translation>
         </message>
         <message>
             <source>Moderate Rain Showers</source>
-            <translation type="unfinished">Pluie modérée</translation>
+            <translation>Averses de pluie légère</translation>
         </message>
         <message>
             <source>Moderate Sleet</source>
-            <translation type="unfinished">Pluie modérée</translation>
+            <translation>Neige pluvieuse modérée</translation>
         </message>
         <message>
             <source>Moderate Snow Showers</source>
-            <translation type="unfinished">Matin : averses de neige</translation>
+            <translation>Chutes de neiges modérées</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -1916,7 +1937,7 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Nuageux, grosse pluie</translation>
+            <translation>Plutôt nuageux, pluie légère,</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
@@ -1944,13 +1965,11 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Mostly clear</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ciel plutôt dégagé</translation>
         </message>
         <message>
             <source>Mostly sunny</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Plutôt ensoleillé</translation>
         </message>
         <message>
             <source>N</source>
@@ -2230,18 +2249,15 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Ok</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OK</translation>
         </message>
         <message>
             <source>Ok</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OK</translation>
         </message>
         <message>
             <source>Ok</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OK</translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
@@ -2373,8 +2389,7 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Partly Cloudy / Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Partiellement nuageux / venteux</translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
@@ -2494,53 +2509,43 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Ppcp:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ppcp :</translation>
         </message>
         <message>
             <source>Ppcp:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ppcp :</translation>
         </message>
         <message>
             <source>Ppcp:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ppcp :</translation>
         </message>
         <message>
             <source>Precipitation</source>
-            <translation type="unfinished">
-Précipitations : </translation>
+            <translation>Précipitations</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">
-Précipitations : </translation>
+            <translation>Taux de précipitations :</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">
-Précipitations : </translation>
+            <translation>Taux de précipitations :</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">
-Précipitations : </translation>
+            <translation>Taux de précipitations :</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Précipitations : </translation>
+            <translation>Précipitations : </translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Précipitations : </translation>
+            <translation>Précipitations : </translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Précipitations : </translation>
+            <translation>Précipitations : </translation>
         </message>
         <message>
             <source>Preference|Update</source>
@@ -2616,8 +2621,7 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Proximity shower rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Averses à proximité</translation>
         </message>
         <message>
             <source>Rain</source>
@@ -2693,7 +2697,7 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Rain and snow</source>
-            <translation type="unfinished">Pluie et vent</translation>
+            <translation>Pluie et neige</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>
@@ -2889,8 +2893,7 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Select the color of font for current temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Choix de la couleur de police pour la température</translation>
         </message>
         <message>
             <source>Select the color of font for station name</source>
@@ -3006,8 +3009,7 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Show last update time</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Afficher l'heure de dernière mise à jour</translation>
         </message>
         <message>
             <source>Show on Map</source>
@@ -3059,8 +3061,7 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Showers or Intermittent Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Averses ou précipitations intermittentes</translation>
         </message>
         <message>
             <source>Sky is Clear</source>
@@ -3072,11 +3073,11 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Sleet</source>
-            <translation>Neige fondue</translation>
+            <translation>Neige pluvieuse</translation>
         </message>
         <message>
             <source>Sleet Showers</source>
-            <translation type="unfinished">Quelques averses</translation>
+            <translation>Averses de neige pluvieuse</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3100,7 +3101,7 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Snow Showers</source>
-            <translation type="unfinished">Averse de neige</translation>
+            <translation>Averses de neige</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -3132,7 +3133,7 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Snowfall</source>
-            <translation type="unfinished">Neige</translation>
+            <translation>Chute de neige</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3224,8 +3225,7 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Strong Thundershowers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Violentes averses orageuses</translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3391,14 +3391,19 @@ Précipitations : </translation>
  Foundation; either version 2.1 of the 
  License, or (at your option) any 
  later version.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ce logiciel est un logiciel libre; vous pouvez
+le redistribuer et / ou le modifier selon 
+les termes de la GNU General Public
+Licence telle que publiée par la Free Software 
+Fondation; soit la version 2.1 de la 
+Licence, ou (à votre choix) toute 
+version ultérieure.</translation>
         </message>
         <message>
             <source>This software is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ce logiciel est un logiciel libre; vous pouvez le redistribuer et / ou le modifier selon les termes de la GNU General Public License
+</translation>
         </message>
         <message>
             <source>Thunder</source>
@@ -3410,7 +3415,7 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Thundershowers</source>
-            <translation type="unfinished">Orage</translation>
+            <translation>Averses orageuses</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3444,8 +3449,7 @@ Précipitations : </translation>
         </message>
         <message>
             <source>Transparency</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Transparence</translation>
         </message>
         <message>
             <source>Transparency:</source>
@@ -3624,7 +3628,7 @@ pour la météo actuelle :</translation>
         </message>
         <message>
             <source>Violent Rain Showers</source>
-            <translation type="unfinished">Averses de pluie légère</translation>
+            <translation>Violentes chutes de pluies</translation>
         </message>
         <message>
             <source>Visible items:</source>
@@ -3664,13 +3668,11 @@ pour la météo actuelle :</translation>
         </message>
         <message>
             <source>Voice forecast button on a widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bouton de prévision météo vocale sur un widget</translation>
         </message>
         <message>
             <source>Voice weather forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Prévision météo vocale</translation>
         </message>
         <message>
             <source>W</source>
@@ -3936,8 +3938,7 @@ ou code postal !!!</translation>
         </message>
         <message>
             <source>as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>tel que publié par la Free Software Foundation; soit la version 2.1 de la Licence, ou (à votre choix) toute version ultérieure.</translation>
         </message>
         <message>
             <source>current location local time</source>
@@ -4005,8 +4006,7 @@ ou code postal !!!</translation>
         </message>
         <message>
             <source>http://github.com/Meecast/meecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>http://github.com/Meecast/meecast</translation>
         </message>
         <message>
             <source>inHg</source>
@@ -4046,7 +4046,7 @@ ou code postal !!!</translation>
         </message>
         <message>
             <source>kPa</source>
-            <translation type="unfinished">Pa</translation>
+            <translation>kPa</translation>
         </message>
         <message>
             <source>km</source>
@@ -4262,18 +4262,15 @@ ou code postal !!!</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mmHg</source>
@@ -4313,7 +4310,7 @@ ou code postal !!!</translation>
         </message>
         <message>
             <source>mph</source>
-            <translation type="unfinished">m/h</translation>
+            <translation>mph</translation>
         </message>
         <message>
             <source>n:</source>

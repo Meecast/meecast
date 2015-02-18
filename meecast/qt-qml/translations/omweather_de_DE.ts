@@ -630,7 +630,7 @@ Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Clear, Smoke</source>
-            <translation>Klar, Rauch</translation>
+            <translation>Klar, Dunst </translation>
         </message>
         <message>
             <source>Close</source>
@@ -734,7 +734,7 @@ Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Smoke</source>
-            <translation>Bewölkt, Rauch</translation>
+            <translation>Bewölkt, Dunst </translation>
         </message>
         <message>
             <source>Cloudy, Snow</source>
@@ -1225,12 +1225,14 @@ Programm-Manager deinstallieren.</translation>
         <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
- 	Quentin Caillard 
+ 	Quentin Caillard, 
+ 	Jordi
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
  German -  Claudius Henrichs,
- 	Jens Klingen
+ 	Jens Klingen,
+ 	DeadHorseRiding
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1259,7 +1261,7 @@ Programm-Manager deinstallieren.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation>French -  Nicolas Granziano, 
+            <translation type="unfinished">French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard 
  Russian - Pavel Fialko, Vlad Vasiliev, 
@@ -1378,7 +1380,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Haze, Smoke or Dust</source>
-            <translation>Nebel, Rauch oder Staub</translation>
+            <translation>Nebel, Dunst  oder Staub</translation>
         </message>
         <message>
             <source>Heavy Freezing Rain</source>
@@ -1769,6 +1771,10 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Weitgehend bewölkt mit leichtem Regen</translation>
         </message>
         <message>
+            <source>Mainly cloudy, Slight shower of rain</source>
+            <translation type="unfinished">Weitgehend bewölkt mit leichtem Regen</translation>
+        </message>
+        <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
 </source>
             <translation>Produktpflege: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -1944,7 +1950,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Smoke</source>
-            <translation>Überwiegend bewölkt, Rauch</translation>
+            <translation>Überwiegend bewölkt, Dunst </translation>
         </message>
         <message>
             <source>Mostly Cloudy, Snow</source>
@@ -2448,7 +2454,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Partly Cloudy, Smoke</source>
-            <translation>Teilweise  bewölkt, Rauch</translation>
+            <translation>Teilweise  bewölkt, Dunst </translation>
         </message>
         <message>
             <source>Partly Cloudy, Snow</source>
@@ -2692,7 +2698,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Rain and snow</source>
-            <translation type="unfinished">Regen und Schnee</translation>
+            <translation>Regen und Schnee</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>
@@ -3076,7 +3082,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Smoke</source>
-            <translation>Rauch</translation>
+            <translation>Dunst </translation>
         </message>
         <message>
             <source>Snow</source>

@@ -1147,15 +1147,15 @@ Brad Jones aka kazrak - voor het testen
         </message>
         <message>
             <source>Flike</source>
-            <translation>Flike</translation>
+            <translation>Gevoel:</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation>Flike</translation>
+            <translation>Gevoel:</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation>Flike</translation>
+            <translation>Gevoel:</translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1224,12 +1224,14 @@ worden.</translation>
         <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
- 	Quentin Caillard 
+ 	Quentin Caillard, 
+ 	Jordi
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
  German -  Claudius Henrichs,
- 	Jens Klingen
+ 	Jens Klingen,
+ 	DeadHorseRiding
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1258,7 +1260,7 @@ worden.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation>Frans -  Nicolas Granziano, 
+            <translation type="unfinished">Frans -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard 
  Russisch - Pavel Fialko, Vlad Vasiliev, 
@@ -1766,6 +1768,10 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>Mainly cloudy with occasional rain.</source>
             <translation>Vooral bewolkt met af en toe een bui</translation>
+        </message>
+        <message>
+            <source>Mainly cloudy, Slight shower of rain</source>
+            <translation type="unfinished">Vooral bewolkt met af en toe een bui</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -2691,7 +2697,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain and snow</source>
-            <translation type="unfinished">Regen en Sneeuw</translation>
+            <translation>Regen en sneeuw</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

@@ -1199,12 +1199,14 @@ using Application manager</source>
         <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
- 	Quentin Caillard 
+ 	Quentin Caillard, 
+ 	Jordi
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
  German -  Claudius Henrichs,
- 	Jens Klingen
+ 	Jens Klingen,
+ 	DeadHorseRiding
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1233,7 +1235,7 @@ using Application manager</source>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation>Francia -  Nicolas Granziano, 
+            <translation type="unfinished">Francia -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard 
  Orosz - Pavel Fialko, Vlad Vasiliev, 
@@ -1750,6 +1752,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Mainly cloudy with occasional rain.</source>
             <translation>Túlnyomóan borult ég, elszórtan esőzés</translation>
+        </message>
+        <message>
+            <source>Mainly cloudy, Slight shower of rain</source>
+            <translation type="unfinished">Túlnyomóan borult ég, elszórtan esőzés</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;

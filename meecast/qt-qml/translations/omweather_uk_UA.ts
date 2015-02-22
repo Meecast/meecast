@@ -1211,12 +1211,14 @@ using Application manager</source>
         <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
- 	Quentin Caillard 
+ 	Quentin Caillard, 
+ 	Jordi
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
  German -  Claudius Henrichs,
- 	Jens Klingen
+ 	Jens Klingen,
+ 	DeadHorseRiding
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1730,6 +1732,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Mainly cloudy with occasional rain.</source>
             <translation>Пасмурно, часом дощ.</translation>
+        </message>
+        <message>
+            <source>Mainly cloudy, Slight shower of rain</source>
+            <translation type="unfinished">Пасмурно, часом дощ.</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;

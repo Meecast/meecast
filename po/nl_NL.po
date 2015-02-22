@@ -5,15 +5,16 @@
 # Translators:
 # Heimen Stoffels <motionshot@vivaldi.net>, 2014
 # Michiel Pater <michiel@wateennaam.nl>, 2012-2014
+# Nathan Follens, 2015
 # tomleenders <tjjleenders@gmail.com>, 2012
 # Vlad Vas <vasvlad@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-22 12:44+0300\n"
-"PO-Revision-Date: 2014-11-26 12:28+0000\n"
-"Last-Translator: Heimen Stoffels <motionshot@vivaldi.net>\n"
+"POT-Creation-Date: 2015-02-18 16:42+0300\n"
+"PO-Revision-Date: 2015-01-01 14:42+0000\n"
+"Last-Translator: Nathan Follens\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/meecast/language/"
 "nl/)\n"
 "Language: nl\n"
@@ -564,7 +565,7 @@ msgstr "Bewolkt en sneeuwbuien"
 msgid "Cloudy and wet snow showers"
 msgstr "Bewolkt en natte sneeuwbuien"
 
-#: omweather/src/hash.data:387
+#: omweather/src/hash.data:388
 msgid "Cloudy with occasional rain."
 msgstr "Bewolkt en af en toe een bui"
 
@@ -662,7 +663,7 @@ msgstr "Land"
 msgid "Country:"
 msgstr "Land:"
 
-#: omweather/src/hash.data:399
+#: omweather/src/hash.data:400
 msgid "Cover Page"
 msgstr "Hoespagina"
 
@@ -950,7 +951,7 @@ msgstr "Eerste Kwartier"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:239
 #: meecast/qt-qml/qml/FullWeatherPage.qml:302
 msgid "Flike"
-msgstr "Flike"
+msgstr "Gevoel:"
 
 #: omweather/src/hash.data:87
 msgid "Fog"
@@ -1010,15 +1011,18 @@ msgid "Freezing Drizzle"
 msgstr "Lichte IJzel"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
+#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht, \n"
-" \tQuentin Caillard \n"
+" \tQuentin Caillard, \n"
+" \tJordi\n"
 " Russian - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
 " Finnish - Marko Vertainen\n"
 " German -  Claudius Henrichs,\n"
-" \tJens Klingen\n"
+" \tJens Klingen,\n"
+" \tDeadHorseRiding\n"
 " Italian - Lorenzo Facca,\n"
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
@@ -1215,7 +1219,7 @@ msgstr "Hevige Sneeuwval"
 msgid "Heavy Thunder"
 msgstr "Hevig Onweer"
 
-#: omweather/src/hash.data:388
+#: omweather/src/hash.data:389
 msgid "Heavy intensity rain"
 msgstr "Zware regenval"
 
@@ -1263,7 +1267,7 @@ msgstr "Iconen"
 msgid "Iconset"
 msgstr "Icoonset"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:270
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:272
 msgid "Iconsets"
 msgstr "Icoonsets"
 
@@ -1337,7 +1341,7 @@ msgstr "Layout:"
 msgid "Lead designers"
 msgstr "Hoofdontwerpers"
 
-#: meecast/qt-qml/qml/AboutPage.qml:304
+#: meecast/qt-qml/qml/AboutPage.qml:306
 msgid "License"
 msgstr "Licentie"
 
@@ -1445,7 +1449,7 @@ msgstr "Lichte Sneeuwval"
 msgid "Light intensity drizzle"
 msgstr "Lichte motregen"
 
-#: omweather/src/hash.data:389
+#: omweather/src/hash.data:390
 msgid "Light intensity shower rain"
 msgstr "Korte hevige regenbui"
 
@@ -1487,6 +1491,11 @@ msgstr "Laag"
 
 #: omweather/src/hash.data:386
 msgid "Mainly cloudy with occasional rain."
+msgstr "Vooral bewolkt met af en toe een bui"
+
+#: omweather/src/hash.data:387
+#, fuzzy
+msgid "Mainly cloudy, Slight shower of rain"
 msgstr "Vooral bewolkt met af en toe een bui"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
@@ -2224,9 +2233,8 @@ msgid "Rain and Snow"
 msgstr "Regen en Sneeuw"
 
 #: omweather/src/hash.data:269
-#, fuzzy
 msgid "Rain and snow"
-msgstr "Regen en Sneeuw"
+msgstr "Regen en sneeuw"
 
 #: omweather/src/hash.data:270
 msgid "Rain to Snow / Wind"
@@ -2244,7 +2252,7 @@ msgstr "Regen en Winterse Bui / Wind"
 msgid "Read sensor every:"
 msgstr "Lees sensor elke:"
 
-#: omweather/src/hash.data:397
+#: omweather/src/hash.data:398
 msgid "Refresh"
 msgstr "Verversen"
 
@@ -2466,7 +2474,7 @@ msgstr "Kort"
 msgid "Show arrows"
 msgstr "Toon pijlen"
 
-#: omweather/src/hash.data:396
+#: omweather/src/hash.data:397
 msgid "Show last update time"
 msgstr "Toon laatste bijwerkingstijd"
 
@@ -2478,7 +2486,7 @@ msgstr "Weergeef op kaart"
 msgid "Show only current weather on first icon"
 msgstr "Alleen huidig weer op eerste icoon"
 
-#: omweather/src/hash.data:395
+#: omweather/src/hash.data:396
 msgid "Show source logo"
 msgstr "Toon logo van bron"
 
@@ -2598,7 +2606,7 @@ msgstr "Sneeuwval"
 msgid "Source"
 msgstr "Bron"
 
-#: meecast/qt-qml/qml/AboutPage.qml:326
+#: meecast/qt-qml/qml/AboutPage.qml:328
 msgid "Source code"
 msgstr "Bron code"
 
@@ -2745,15 +2753,15 @@ msgstr "Bedankt"
 msgid "The weather has been updated."
 msgstr "Het weerbericht is ge-update."
 
-#: omweather/src/hash.data:390
+#: omweather/src/hash.data:391
 msgid "There are no stations to show in this view of the list"
 msgstr "Er zijn geen stations in de lijst om weer te geven"
 
-#: omweather/src/hash.data:392
+#: omweather/src/hash.data:393
 msgid "This is experimental feature. Only English is supported."
 msgstr "Dit is experimentele functie. Alleen Engels wordt ondersteund."
 
-#: meecast/qt-qml/qml/AboutPage.qml:313
+#: meecast/qt-qml/qml/AboutPage.qml:315
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2809,7 +2817,7 @@ msgstr ""
 "Vertalers: Frans - Nicolas Granziano, Philippe, Benot Knecht; Russisch - "
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 
-#: omweather/src/hash.data:398
+#: omweather/src/hash.data:399
 msgid "Transparency"
 msgstr "Doorzichtigheid"
 
@@ -2913,7 +2921,7 @@ msgstr "Tijd geldig voor huidig weer:"
 msgid "Very High"
 msgstr "Erg Hoog"
 
-#: omweather/src/hash.data:393
+#: omweather/src/hash.data:394
 msgid "Violent Rain Showers"
 msgstr "Heftige Regenbuien"
 
@@ -2935,11 +2943,11 @@ msgstr "Zichtbaar:"
 msgid "Visuals"
 msgstr "Weergave"
 
-#: omweather/src/hash.data:391
+#: omweather/src/hash.data:392
 msgid "Voice forecast button on a widget"
 msgstr "Gesproken weersvoorspelling knop op een widget"
 
-#: omweather/src/hash.data:394
+#: omweather/src/hash.data:395
 msgid "Voice weather forecast"
 msgstr "Gesproken weersvoorspelling"
 
@@ -3215,7 +3223,7 @@ msgstr "uur geleden"
 msgid "hours ago"
 msgstr "uren geleden"
 
-#: meecast/qt-qml/qml/AboutPage.qml:335
+#: meecast/qt-qml/qml/AboutPage.qml:337
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 
@@ -3383,34 +3391,34 @@ msgstr "stationsnaam"
 msgid "steady"
 msgstr "bestendig"
 
-#: omweather/src/hash.data:400
+#: omweather/src/hash.data:401
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:401
+#: omweather/src/hash.data:402
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:402
+#: omweather/src/hash.data:403
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:403
+#: omweather/src/hash.data:404
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:404
+#: omweather/src/hash.data:405
 msgid "С-З"
 msgstr "C-3"
 
-#: omweather/src/hash.data:405
+#: omweather/src/hash.data:406
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:406
+#: omweather/src/hash.data:407
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:407
+#: omweather/src/hash.data:408
 msgid "Ю-З"
 msgstr "Ю-3"

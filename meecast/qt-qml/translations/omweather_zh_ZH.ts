@@ -7,7 +7,7 @@
             <source>
 H: </source>
             <translation>
-H: </translation>
+H: no</translation>
         </message>
         <message>
             <source>
@@ -251,8 +251,7 @@ W: </translation>
         </message>
         <message>
             <source>AM Clouds / PM Sun</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午有云/ 下午后晴</translation>
         </message>
         <message>
             <source>AM Drizzle</source>
@@ -260,18 +259,15 @@ W: </translation>
         </message>
         <message>
             <source>AM Drizzle / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午小雨/微风</translation>
         </message>
         <message>
             <source>AM Fog / PM Clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午有雾 /下午多云</translation>
         </message>
         <message>
             <source>AM Fog / PM Sun</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午有雾/下午后晴</translation>
         </message>
         <message>
             <source>AM Light Rain</source>
@@ -279,8 +275,7 @@ W: </translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午微风时有小雨</translation>
         </message>
         <message>
             <source>AM Light Snow</source>
@@ -288,8 +283,7 @@ W: </translation>
         </message>
         <message>
             <source>AM Light Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午微风时有小雪</translation>
         </message>
         <message>
             <source>AM Light Wintry Mix</source>
@@ -301,23 +295,19 @@ W: </translation>
         </message>
         <message>
             <source>AM Rain / Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午下雨时有下雪</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午下雨时有阵雪</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午下雨微风时有阵雪</translation>
         </message>
         <message>
             <source>AM Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午下雨时有微风</translation>
         </message>
         <message>
             <source>AM Showers</source>
@@ -325,8 +315,7 @@ W: </translation>
         </message>
         <message>
             <source>AM Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午微风时有阵雨</translation>
         </message>
         <message>
             <source>AM Snow</source>
@@ -338,13 +327,11 @@ W: </translation>
         </message>
         <message>
             <source>AM Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午阵雪时有微风</translation>
         </message>
         <message>
             <source>AM Snow Showers / Wind Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午阵雪转微风</translation>
         </message>
         <message>
             <source>About</source>
@@ -392,7 +379,7 @@ W: </translation>
         </message>
         <message>
             <source>Adjust GPS station</source>
-            <translation type="unfinished">增加地区</translation>
+            <translation>刷新位置(GPS定位)</translation>
         </message>
         <message>
             <source>Alerts</source>
@@ -417,20 +404,20 @@ Alexander Savchenko aka dizel - for testing
 Timeless - for patches 
 Eric Link - for feature request and donation
 </source>
-            <translation>Alexis Iglauer - for testing
-Eugene Roytenberg - for testing
-Jarek Szczepanski aka Imrahil - for testing
-Vladimir Shakhov aka Mendoza - for testing 
-Marc Dillon - for spell/stylecheck text of English
-Arkady Glazov aka Globster - for testing
-Alexander Savchenko aka dizel - for testing
-Timeless - for patches 
-Eric Link - for feature request and donation
+            <translation>Alexis Iglauer - 参与测试
+Eugene Roytenberg - 参与测试
+Jarek Szczepanski aka Imrahil - 参与测试
+Vladimir Shakhov aka Mendoza - 参与测试 
+Marc Dillon - 功能测试,限英文版本
+Arkady Glazov aka Globster - 参与测试
+Alexander Savchenko aka dizel - 参与测试
+Timeless - for patches
+Eric Link - 功能请求和捐赠
 </translation>
         </message>
         <message>
             <source>An unknown error has occurred.</source>
-            <translation>发生未知的错误.</translation>
+            <translation>发生未知错误.</translation>
         </message>
         <message>
             <source>Animation</source>
@@ -452,11 +439,11 @@ before installing this package</source>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
-            <translation>您确定要删除这个地区?</translation>
+            <translation>删除这个位置</translation>
         </message>
         <message>
             <source>Are you sure?</source>
-            <translation>您确定?</translation>
+            <translation>确定?</translation>
         </message>
         <message>
             <source>Author and maintenance: Vlad Vasiliev, &lt;vlad@gas.by&gt;
@@ -465,17 +452,17 @@ Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
 Design UI for Fremantle: Krebber Jan Niemelä Ulla
 </source>
-            <translation>Author and maintenance: Vlad Vasiliev, &lt;vlad@gas.by&gt;
-Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
-Documentation: Marko Vertainen
-Design UI and default iconset: Andrew Zhilin
-Design UI for Fremantle: Krebber Jan Niemelä Ulla
+            <translation>作者&amp;维护: Vlad Vasiliev, &lt;vlad@gas.by&gt;
+维护: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
+文件: Marko Vertainen
+UI设计和预设图标集: Andrew Zhilin
+Fremantle UI设计: Krebber Jan Niemelä Ulla
 </translation>
         </message>
         <message>
             <source>Author and maintenance: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
 </source>
-            <translation>作者/维护:Vlad Vasilyeu, &lt;vlad@gas.by&gt;
+            <translation>作者&amp;维护:Vlad Vasilyeu, &lt;vlad@gas.by&gt;
 </translation>
         </message>
         <message>
@@ -488,8 +475,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Back</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>返回</translation>
         </message>
         <message>
             <source>Background color:</source>
@@ -505,15 +491,15 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Beaufort scale</source>
-            <translation>蒲福风力等级</translation>
+            <translation>蒲福风力级别</translation>
         </message>
         <message>
             <source>Beaufort scale</source>
-            <translation>蒲福风力等级</translation>
+            <translation>蒲福风力级别</translation>
         </message>
         <message>
             <source>Beaufort scale</source>
-            <translation>蒲福风力等级</translation>
+            <translation>蒲福风力级别</translation>
         </message>
         <message>
             <source>Blowing Snow</source>
@@ -521,13 +507,11 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Broken Clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云</translation>
         </message>
         <message>
             <source>Broken clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云</translation>
         </message>
         <message>
             <source>C</source>
@@ -584,7 +568,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Cannot get path to the HOME directory. Quitting.
 </source>
-            <translation>无法获取主目录路径。退出。
+            <translation>无法获取主目录路径。正在退出。
 </translation>
         </message>
         <message>
@@ -621,8 +605,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Clear / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴朗微风</translation>
         </message>
         <message>
             <source>Clear Sky</source>
@@ -654,8 +637,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Clouds Early / Clearing Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>早多云转晴朗</translation>
         </message>
         <message>
             <source>Cloudy</source>
@@ -663,8 +645,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>微风多云</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -704,11 +685,11 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy and wet snow showers</source>
-            <translation type="unfinished">多云时阵雪</translation>
+            <translation>多云潮湿阵雪</translation>
         </message>
         <message>
             <source>Cloudy with occasional rain.</source>
-            <translation type="unfinished">多云时小雨</translation>
+            <translation>多云有雨</translation>
         </message>
         <message>
             <source>Cloudy, Drifting Snow</source>
@@ -740,7 +721,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">多云，大雨</translation>
+            <translation>多云,小雨,时有大雨</translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
@@ -760,7 +741,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Strong Rain, Heavy Rain</source>
-            <translation type="unfinished">多云，大雨</translation>
+            <translation>多云,大雨,暴雨</translation>
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
@@ -810,8 +791,7 @@ Connection timeout is expired.</source>
         </message>
         <message>
             <source>Cover Page</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>封面</translation>
         </message>
         <message>
             <source>Custom</source>
@@ -865,18 +845,15 @@ Connection timeout is expired.</source>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>露点</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>露点</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>露点</translation>
         </message>
         <message>
             <source>Display</source>
@@ -901,20 +878,20 @@ Connection timeout is expired.</source>
         <message>
             <source>Does not to add station, because no one
 of 'omweather-*-stations-db' packages was installed.</source>
-            <translation>无法添加地区,因为没有
-已安装的 'omweather-*-station-db' 包.</translation>
+            <translation>未安装'omweather-*-station-db'程序
+无法添加位置.</translation>
         </message>
         <message>
             <source>Donation</source>
-            <translation>捐款</translation>
+            <translation>捐赠</translation>
         </message>
         <message>
             <source>Donation</source>
-            <translation>捐款</translation>
+            <translation>捐赠</translation>
         </message>
         <message>
             <source>Donation</source>
-            <translation>捐款</translation>
+            <translation>捐赠</translation>
         </message>
         <message>
             <source>Download and show detailed weather</source>
@@ -934,13 +911,11 @@ of 'omweather-*-stations-db' packages was installed.</source>
         </message>
         <message>
             <source>Drizzle / Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>小雨/雾</translation>
         </message>
         <message>
             <source>Drizzle / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>小雨微风</translation>
         </message>
         <message>
             <source>Drizzle Early</source>
@@ -986,16 +961,16 @@ Brian Knight - for idea of iconset, criticism and donation ;-)
 Andrew aka Tabster - for testing and ideas
 Brad Jones aka kazrak - for testing
 </source>
-            <translation>Ed Bartosh - for more feature requests, support and criticism
-Daniel Wilms - for feature requests and testing
-Eugen Kaluta aka tren - for feature requests and support
-Maxim Kalinkevish aka spark for testing
-Yuri Komyakov - for Nokia 770 device 
-Greg Thompson for support stations.txt file
-Frank Persian - for idea of new layout
-Brian Knight - for idea of iconset, criticism and donation ;-)
-Andrew aka Tabster - for testing and ideas
-Brad Jones aka kazrak - for testing
+            <translation>Ed Bartosh - 功能建议,支持和指导
+Daniel Wilms - 功能建议和测试
+Eugen Kaluta aka tren - 功能建议和支持 for feature requests and support
+Maxim Kalinkevish aka spark 测试
+Yuri Komyakov - 提供 Nokia 770 设备测试机
+Greg Thompson 提供 stations.txt 文件
+Frank Persian - 新思路
+Brian Knight - 预设图标,指导和捐赠;-)
+Andrew aka Tabster - 测试和意见
+Brad Jones aka kazrak - 测试
 </translation>
         </message>
         <message>
@@ -1017,7 +992,7 @@ Brad Jones aka kazrak - for testing
         <message>
             <source>Error in xml file
 </source>
-            <translation>错误在XML文件
+            <translation>XML文件出现错误
 </translation>
         </message>
         <message>
@@ -1038,7 +1013,7 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Extreme</source>
-            <translation>究极</translation>
+            <translation>极端</translation>
         </message>
         <message>
             <source>F</source>
@@ -1103,13 +1078,13 @@ Brad Jones aka kazrak - for testing
         <message>
             <source>Failed to initialize GConf. Quitting.
 </source>
-            <translation>GConf的初始化失败. 退出.
+            <translation>初始化GConf失败.正在退出.
 </translation>
         </message>
         <message>
             <source>Failed to initialize GConf. Settings were not saved.
 </source>
-            <translation>GConf的初始化失败. 设置不保存.
+            <translation>初始化GConf失败. 设置不保存.
 </translation>
         </message>
         <message>
@@ -1130,7 +1105,7 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Few Clouds</source>
-            <translation type="unfinished">多云</translation>
+            <translation>少云</translation>
         </message>
         <message>
             <source>Few Showers</source>
@@ -1138,8 +1113,7 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Few Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>少雨/刮风</translation>
         </message>
         <message>
             <source>Few Snow</source>
@@ -1151,13 +1125,11 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Few Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阵雪/刮风</translation>
         </message>
         <message>
             <source>Few clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>少云</translation>
         </message>
         <message>
             <source>Find location via GPS</source>
@@ -1166,7 +1138,7 @@ Brad Jones aka kazrak - for testing
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
 </source>
-            <translation>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
+            <translation>法语 - Marko Vertainen; 德语 - Claudius Henrichs; 西班牙语 - Alejandro Lopez; 荷兰语 - Tom Leenders; 斯洛伐克语 - Roman Moravčík
 </translation>
         </message>
         <message>
@@ -1191,8 +1163,7 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Fog Early / Clouds Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>早有雾/晚转多云</translation>
         </message>
         <message>
             <source>Fog Late</source>
@@ -1200,8 +1171,7 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Fog early / Clearing late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>早有雾/晚转晴</translation>
         </message>
         <message>
             <source>Foggy</source>
@@ -1224,10 +1194,9 @@ Brad Jones aka kazrak - for testing
 you should uninstall package
 'Activating MeeCast Applet'
 using Application manager</source>
-            <translation>如果要禁用MeeCast widget,
-你可能得先卸载
-'Activating MeeCast Applet'
-在程序管理面</translation>
+            <translation>禁用MeeCast widget,
+请先到程序管理卸载
+'Activating MeeCast Applet'</translation>
         </message>
         <message>
             <source>Forecast</source>
@@ -1254,12 +1223,14 @@ using Application manager</source>
         <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
- 	Quentin Caillard 
+ 	Quentin Caillard, 
+ 	Jordi
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
  German -  Claudius Henrichs,
- 	Jens Klingen
+ 	Jens Klingen,
+ 	DeadHorseRiding
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1288,32 +1259,42 @@ using Application manager</source>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">中文 - mdbxh, Wong Man Kong, Michael
-French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
- Russian - Pavel Fialko, Vlad Vasiliev, 
- 	Ed Bartosh
- Finnish - Marko Vertainen
- German -  Claudius Henrichs
- Italian - Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
- Spanish - Alejandro Lopez
- Polish - Tomasz Dominikowski
- Slovak - Roman Moravčík
- Dutch - Tom Leenders, Michiel Pater
- Bulgarian - Zlatko Enikov
- Albanian - Ilir Gjika
- Portuguese - Jose Narciso,
- Turkish - Burak Kaan Kose,
- Catalan - Agustí Clara,
- Arabic - Tarad Alfandi,
- Norwegian - Peer-Atle Motland,
- Vietnamese - Hieu Nguyen
- 	Anh Dương and truongnx, 
- Swedish - Angela Nennebrandt,
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</translation>
+            <translation type="unfinished">法语 - Nicolas Granziano, 
+Philippe, Benot Knecht, 
+Quentin Caillard 
+俄语 - Pavel Fialko, Vlad Vasiliev, 
+Ed Bartosh
+芬兰语 - Marko Vertainen
+德语 - Claudius Henrichs,
+Jens Klingen
+印度语 - Lorenzo Facca,
+Pavel Fialko, Alessandro Pasotti,
+Salvatore Fiorenzo, Ilir Gjika,
+Luca Onnis
+西班牙语 - Alejandro Lopez, Agustí Clara
+波兰语 - Tomasz Dominikowski
+斯洛伐克语 - Roman Moravčík
+荷兰语 - Tom Leenders, Michiel Pater
+保加利亚语 - Zlatko Enikov
+阿尔巴尼亚语 - Ilir Gjika
+简体中文 - Wong Man Kong, Michael
+繁体中文(台湾) - osk2, 
+葡萄牙语 - Jose Narciso,
+土耳其语 - Burak Kaan Kose,
+Mehmet Çilingir,
+加泰罗尼亚语 - Agustí Clara,
+阿拉伯语 - Tarad Alfandi,
+丹麦语 - Peter Jespersen,
+塞尔维亚语 - Aleksandar Zaric,
+挪威语 - Peer-Atle Motland,
+匈牙利语 - Salmi,
+斯洛文尼亚语 - Boštjan,
+Czech - Jakub Kožíšek, Pavel Šrubař,
+越南语 - Hieu Nguyen
+Anh Dương and truongnx, 
+瑞典语- Angela Nennebrandt,
+Niklas Åkerström, 
+Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1397,17 +1378,15 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Haze, Smoke or Dust</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>薄雾,烟灰或尘土</translation>
         </message>
         <message>
             <source>Heavy Freezing Rain</source>
-            <translation type="unfinished">小冻雨</translation>
+            <translation>大冰雨</translation>
         </message>
         <message>
             <source>Heavy Precipitation</source>
-            <translation type="unfinished">
-降水: </translation>
+            <translation>大雨</translation>
         </message>
         <message>
             <source>Heavy Rain</source>
@@ -1415,8 +1394,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Heavy Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大雨/刮风</translation>
         </message>
         <message>
             <source>Heavy Rain Shower</source>
@@ -1424,15 +1402,15 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Heavy Rain Showers</source>
-            <translation type="unfinished">大阵雨</translation>
+            <translation>短时大雨</translation>
         </message>
         <message>
             <source>Heavy Sleet</source>
-            <translation type="unfinished">大雪</translation>
+            <translation>大冻雨</translation>
         </message>
         <message>
             <source>Heavy Sleet Showers</source>
-            <translation type="unfinished">大阵雨</translation>
+            <translation>短时大冻雨</translation>
         </message>
         <message>
             <source>Heavy Snow</source>
@@ -1440,23 +1418,23 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
-            <translation type="unfinished">大雪</translation>
+            <translation>大雪/刮风</translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
-            <translation type="unfinished">短暂阵雪</translation>
+            <translation>短时大雪</translation>
         </message>
         <message>
             <source>Heavy Snowfall</source>
-            <translation type="unfinished">大雪</translation>
+            <translation>强降雪</translation>
         </message>
         <message>
             <source>Heavy Thunder</source>
-            <translation type="unfinished">雷雨</translation>
+            <translation>雷暴</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
-            <translation type="unfinished">大雨</translation>
+            <translation>强降雨</translation>
         </message>
         <message>
             <source>High</source>
@@ -1464,7 +1442,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Hourly</source>
-            <translation type="unfinished">小时</translation>
+            <translation>每小时</translation>
         </message>
         <message>
             <source>Hours</source>
@@ -1500,8 +1478,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Ice Pellets</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>冰凌</translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1541,19 +1518,19 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation>信息</translation>
+            <translation>提示</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation>信息</translation>
+            <translation>提示</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation>信息</translation>
+            <translation>提示</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation>信息</translation>
+            <translation>提示</translation>
         </message>
         <message>
             <source>Isolated T-Storms</source>
@@ -1561,8 +1538,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Isolated T-Storms / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部雷雨/刮风</translation>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
@@ -1574,13 +1550,11 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Knots</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>海里</translation>
         </message>
         <message>
             <source>Language</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>语言</translation>
         </message>
         <message>
             <source>Last Quarter</source>
@@ -1632,11 +1606,11 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Lead designers</source>
-            <translation type="unfinished">首席设计师</translation>
+            <translation>主设计</translation>
         </message>
         <message>
             <source>License</source>
-            <translation>许可</translation>
+            <translation>许可协议</translation>
         </message>
         <message>
             <source>Light Drizzle</source>
@@ -1644,7 +1618,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light Freezing Drizzle</source>
-            <translation type="unfinished">冻毛毛雨</translation>
+            <translation>微冻雨</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -1660,18 +1634,15 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light Rain / Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>小雨/薄雾</translation>
         </message>
         <message>
             <source>Light Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>小雨/微风</translation>
         </message>
         <message>
             <source>Light Rain / Wind Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>小雨/晚转微风</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -1687,7 +1658,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light Rain Showers</source>
-            <translation type="unfinished">小阵雨</translation>
+            <translation>阵雨</translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
@@ -1707,11 +1678,11 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light Sleet</source>
-            <translation type="unfinished">小雪</translation>
+            <translation>小冻雨</translation>
         </message>
         <message>
             <source>Light Sleet Showers</source>
-            <translation type="unfinished">小阵雪</translation>
+            <translation>短时小冻雨</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1719,13 +1690,11 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light Snow / Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>小雪/雾</translation>
         </message>
         <message>
             <source>Light Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>小雪/刮风</translation>
         </message>
         <message>
             <source>Light Snow Early</source>
@@ -1741,32 +1710,31 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light Snow Showers</source>
-            <translation type="unfinished">小阵雪</translation>
+            <translation>阵雪</translation>
         </message>
         <message>
             <source>Light Snowfall</source>
-            <translation type="unfinished">小雪</translation>
+            <translation>小雪</translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
-            <translation type="unfinished">大雨</translation>
+            <translation>小幅降雨</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
-            <translation type="unfinished">大雨</translation>
+            <translation>小幅度阵雨</translation>
         </message>
         <message>
             <source>Light or Moderate Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>轻度或中度降雨</translation>
         </message>
         <message>
             <source>Light rain</source>
-            <translation type="unfinished">小雨</translation>
+            <translation>小雨</translation>
         </message>
         <message>
             <source>Light snow</source>
-            <translation type="unfinished">小雪</translation>
+            <translation>小雪</translation>
         </message>
         <message>
             <source>Loading station list</source>
@@ -1778,8 +1746,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Localization platform</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>程序本地化链接</translation>
         </message>
         <message>
             <source>Long</source>
@@ -1787,11 +1754,11 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Looks like there's no info for this location.</source>
-            <translation>看起来好像还没有这个地区的天气信息啊</translation>
+            <translation>无当地天气预报信息.</translation>
         </message>
         <message>
             <source>Looks like there's no info for this location.</source>
-            <translation>看起来好像还没有这个地区的天气信息啊</translation>
+            <translation>无当地天气预报信息.</translation>
         </message>
         <message>
             <source>Low</source>
@@ -1799,12 +1766,16 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Mainly cloudy with occasional rain.</source>
-            <translation type="unfinished">局部多云有小雨</translation>
+            <translation>大部分多云有雨</translation>
+        </message>
+        <message>
+            <source>Mainly cloudy, Slight shower of rain</source>
+            <translation type="unfinished">大部分多云有雨</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
 </source>
-            <translation>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
+            <translation>维护: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
 </translation>
         </message>
         <message>
@@ -1817,7 +1788,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Manual</source>
-            <translation>手选</translation>
+            <translation>手动</translation>
         </message>
         <message>
             <source>Measurement units</source>
@@ -1829,11 +1800,11 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
-            <translation type="unfinished">MeeCast - 一个多平台高定制性的开源天气预报软件。基于OMWeather的源码. Copyright (C) 2006-2011</translation>
+            <translation>MeeCast - 一个多平台高定制性的开源天气预报软件。基于OMWeather的源码. Copyright (C) 2006-2014</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
-            <translation>MeeCast  Harmattan版</translation>
+            <translation>MeeCast  For Harmattan</translation>
         </message>
         <message>
             <source>Meters</source>
@@ -1849,27 +1820,27 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Moderate Freezing Rain</source>
-            <translation type="unfinished">(中度)</translation>
+            <translation>中幅冻雨</translation>
         </message>
         <message>
             <source>Moderate Rain</source>
-            <translation type="unfinished">(中度)</translation>
+            <translation>中雨</translation>
         </message>
         <message>
             <source>Moderate Rain Showers</source>
-            <translation type="unfinished">(中度)</translation>
+            <translation>短时中雨</translation>
         </message>
         <message>
             <source>Moderate Sleet</source>
-            <translation type="unfinished">(中度)</translation>
+            <translation>中幅雨雪</translation>
         </message>
         <message>
             <source>Moderate Snow Showers</source>
-            <translation type="unfinished">上午 阵雪</translation>
+            <translation>短时中幅降雪</translation>
         </message>
         <message>
             <source>Moderate rain</source>
-            <translation type="unfinished">(中度)</translation>
+            <translation>中雨</translation>
         </message>
         <message>
             <source>Modification</source>
@@ -1885,12 +1856,11 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Mostly Cloudy / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大部分多云夹风</translation>
         </message>
         <message>
             <source>Mostly Cloudy Few Snow</source>
-            <translation>大部多云短暂有雪</translation>
+            <translation>大部多云短时有雪</translation>
         </message>
         <message>
             <source>Mostly Cloudy Light Rain</source>
@@ -1966,7 +1936,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">多云，大雨</translation>
+            <translation>大部分多云,小雨,小幅度大雨</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
@@ -1998,7 +1968,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Mostly sunny</source>
-            <translation type="unfinished">晴时多云</translation>
+            <translation>阵雨</translation>
         </message>
         <message>
             <source>N</source>
@@ -2006,55 +1976,55 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>无</translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>无</translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>无</translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>无</translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>无</translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>无</translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>无</translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>无</translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>无</translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>无</translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>无</translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>无</translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>无</translation>
+            <translation>N/A</translation>
         </message>
         <message>
             <source>NE</source>
@@ -2102,27 +2072,27 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation>从不</translation>
+            <translation>永不</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation>从不</translation>
+            <translation>永不</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation>从不</translation>
+            <translation>永不</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation>从不</translation>
+            <translation>永不</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation>从不</translation>
+            <translation>永不</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation>从不</translation>
+            <translation>永不</translation>
         </message>
         <message>
             <source>New</source>
@@ -2130,7 +2100,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>New location</source>
-            <translation>新地区</translation>
+            <translation>新位置</translation>
         </message>
         <message>
             <source>Next update:</source>
@@ -2150,27 +2120,27 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>No</source>
-            <translation>没有</translation>
+            <translation>取消</translation>
         </message>
         <message>
             <source>No</source>
-            <translation>没有</translation>
+            <translation>取消</translation>
         </message>
         <message>
             <source>No current weather data.</source>
-            <translation>没有当前天气数据.</translation>
+            <translation>当前没有气象信息.</translation>
         </message>
         <message>
             <source>No locations are set up yet.</source>
-            <translation>还没设置一个地点啊。</translation>
+            <translation>未设置位置.</translation>
         </message>
         <message>
             <source>No locations are set up yet.</source>
-            <translation>还没设置一个地点啊。</translation>
+            <translation>未设置位置.</translation>
         </message>
         <message>
             <source>No weather data for this day.</source>
-            <translation>没有这天的天气数据.</translation>
+            <translation>无今日气象信息.</translation>
         </message>
         <message>
             <source>No weather data for this station.</source>
@@ -2182,47 +2152,47 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>现在</translation>
+            <translation>当前</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>现在</translation>
+            <translation>当前</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>现在</translation>
+            <translation>当前</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>现在</translation>
+            <translation>当前</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>现在</translation>
+            <translation>当前</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>现在</translation>
+            <translation>当前</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>现在</translation>
+            <translation>当前</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>现在</translation>
+            <translation>当前</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>现在</translation>
+            <translation>当前</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>现在</translation>
+            <translation>当前</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>现在</translation>
+            <translation>当前</translation>
         </message>
         <message>
             <source>Now + 2 days vert.</source>
@@ -2242,7 +2212,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Now: </source>
-            <translation>现在: </translation>
+            <translation>当前:</translation>
         </message>
         <message>
             <source>OK</source>
@@ -2302,7 +2272,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Overcast Clouds</source>
-            <translation type="unfinished">密云</translation>
+            <translation>阴云</translation>
         </message>
         <message>
             <source>Overcast and light rain</source>
@@ -2342,7 +2312,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Overcast clouds</source>
-            <translation type="unfinished">密云</translation>
+            <translation>阴云</translation>
         </message>
         <message>
             <source>Overcast, thunderstorms with rain</source>
@@ -2358,8 +2328,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>PM Light Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下午小雨/刮风</translation>
         </message>
         <message>
             <source>PM Light Snow</source>
@@ -2367,8 +2336,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>PM Light Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下午小雪/刮风</translation>
         </message>
         <message>
             <source>PM Rain</source>
@@ -2376,13 +2344,11 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>PM Rain / Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下午下雨/下雪</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下午下雨/刮风</translation>
         </message>
         <message>
             <source>PM Showers</source>
@@ -2390,12 +2356,11 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>PM Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下午阵雨/刮风</translation>
         </message>
         <message>
             <source>PM Snow</source>
-            <translation>下午 有雪</translation>
+            <translation>下午 下雪</translation>
         </message>
         <message>
             <source>PM Snow Showers</source>
@@ -2403,8 +2368,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>PM Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下午阵雪/刮风</translation>
         </message>
         <message>
             <source>PM T-Showers</source>
@@ -2420,12 +2384,11 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Partly Cloudy / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云有风</translation>
         </message>
         <message>
             <source>Partly Cloudy / Windy</source>
-            <translation type="unfinished">局部多云有风</translation>
+            <translation>局部多云有风</translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
@@ -2545,50 +2508,43 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Ppcp:</source>
-            <translation>Ppcp:</translation>
+            <translation>降雨几率:</translation>
         </message>
         <message>
             <source>Ppcp:</source>
-            <translation>Ppcp:</translation>
+            <translation>降雨几率:</translation>
         </message>
         <message>
             <source>Ppcp:</source>
-            <translation>Ppcp:</translation>
+            <translation>降雨几率:</translation>
         </message>
         <message>
             <source>Precipitation</source>
-            <translation type="unfinished">
-降水: </translation>
+            <translation>降水</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">
-降水: </translation>
+            <translation>降水量:</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">
-降水: </translation>
+            <translation>降水量:</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">
-降水: </translation>
+            <translation>降水量:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-降水: </translation>
+            <translation>降水:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-降水: </translation>
+            <translation>降水:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-降水: </translation>
+            <translation>降水:</translation>
         </message>
         <message>
             <source>Preference|Update</source>
@@ -2648,11 +2604,11 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Programmer</source>
-            <translation type="unfinished">程序员</translation>
+            <translation>设计人员</translation>
         </message>
         <message>
             <source>Project administrators</source>
-            <translation type="unfinished">项目负责人</translation>
+            <translation>项目主管</translation>
         </message>
         <message>
             <source>Project manager</source>
@@ -2664,7 +2620,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Proximity shower rain</source>
-            <translation type="unfinished">大雨</translation>
+            <translation>临近阵雨</translation>
         </message>
         <message>
             <source>Rain</source>
@@ -2672,8 +2628,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain / Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下雨或冻雨</translation>
         </message>
         <message>
             <source>Rain / Snow</source>
@@ -2681,48 +2636,39 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain / Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下雨/雪夹/刮风</translation>
         </message>
         <message>
             <source>Rain / Snow Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>早有雨/雪</translation>
         </message>
         <message>
             <source>Rain / Snow Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晚有雨/雪</translation>
         </message>
         <message>
             <source>Rain / Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下阵雨/雪</translation>
         </message>
         <message>
             <source>Rain / Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下雨/阵雪夹/刮风</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下雨/晚间阵雪</translation>
         </message>
         <message>
             <source>Rain / Thunder</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>雷雨</translation>
         </message>
         <message>
             <source>Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下雨刮风</translation>
         </message>
         <message>
             <source>Rain / Wind Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下雨/早间刮风</translation>
         </message>
         <message>
             <source>Rain Early</source>
@@ -2750,12 +2696,11 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain and snow</source>
-            <translation type="unfinished">雨夹雪</translation>
+            <translation>下雨下雪</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下雨转雪夹风</translation>
         </message>
         <message>
             <source>Rain to Wintry Mix</source>
@@ -2763,8 +2708,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain to Wintry Mix / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>雨雪混合/刮风</translation>
         </message>
         <message>
             <source>Read sensor every:</source>
@@ -2772,8 +2716,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Refresh</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>刷新</translation>
         </message>
         <message>
             <source>Region</source>
@@ -2861,7 +2804,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Scattered Clouds</source>
-            <translation type="unfinished">零星雪</translation>
+            <translation>少云</translation>
         </message>
         <message>
             <source>Scattered Showers</source>
@@ -2881,7 +2824,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Scattered clouds</source>
-            <translation type="unfinished">零星雪</translation>
+            <translation>少云</translation>
         </message>
         <message>
             <source>Sea miles</source>
@@ -2933,43 +2876,43 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Select source</source>
-            <translation>设置源</translation>
+            <translation>选择天气预报源</translation>
         </message>
         <message>
             <source>Select source</source>
-            <translation>设置源</translation>
+            <translation>选择天气预报源</translation>
         </message>
         <message>
             <source>Select the X-position for left corner of widget</source>
-            <translation>设置锁屏插件的左上角的屏幕内的X坐标</translation>
+            <translation>修改插件左上角X坐标</translation>
         </message>
         <message>
             <source>Select the Y-position for left corner of widget</source>
-            <translation>设置锁屏插件的左上角的屏幕内的Y坐标</translation>
+            <translation>修改插件左上角Y坐标</translation>
         </message>
         <message>
             <source>Select the color of font for current temperature</source>
-            <translation>设置实时温度的字体颜色</translation>
+            <translation>选择实时温度的字体颜色</translation>
         </message>
         <message>
             <source>Select the color of font for station name</source>
-            <translation>设置地区的字体颜色</translation>
+            <translation>选择地区的字体颜色</translation>
         </message>
         <message>
             <source>Select the color of font for temperature</source>
-            <translation>设置温度的字体颜色</translation>
+            <translation>选择温度的字体颜色</translation>
         </message>
         <message>
             <source>Select the iconset</source>
-            <translation>设置图标集</translation>
+            <translation>选择图标集</translation>
         </message>
         <message>
             <source>Select the language</source>
-            <translation type="unfinished">设置图标集</translation>
+            <translation>选择语言</translation>
         </message>
         <message>
             <source>Select the weather source</source>
-            <translation>设置天气源</translation>
+            <translation>选择天气预报源</translation>
         </message>
         <message>
             <source>Selecting country</source>
@@ -3037,11 +2980,11 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Settings for Lockscreen widget</source>
-            <translation>锁屏插件的设置</translation>
+            <translation>锁屏插件设置</translation>
         </message>
         <message>
             <source>Settings for standby widget</source>
-            <translation>待机屏幕的设置</translation>
+            <translation>待机屏幕插件设置</translation>
         </message>
         <message>
             <source>Settings of LockScreen</source>
@@ -3049,7 +2992,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Settings of StandbyScreen</source>
-            <translation>待机插件设置</translation>
+            <translation>待机屏幕插件设置</translation>
         </message>
         <message>
             <source>Shallow Fog</source>
@@ -3065,7 +3008,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Show last update time</source>
-            <translation type="unfinished">最后更新: </translation>
+            <translation>显示最后更新时间</translation>
         </message>
         <message>
             <source>Show on Map</source>
@@ -3073,12 +3016,11 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
-            <translation>目前的天气状况的第一个图标</translation>
+            <translation>第一个图标显示当前天气情况</translation>
         </message>
         <message>
             <source>Show source logo</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>显示天气来源logo</translation>
         </message>
         <message>
             <source>Show station name</source>
@@ -3098,13 +3040,11 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阵雨刮风</translation>
         </message>
         <message>
             <source>Showers / Wind Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阵雨/早间刮风</translation>
         </message>
         <message>
             <source>Showers Early</source>
@@ -3120,16 +3060,15 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Showers or Intermittent Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阵雨或间歇性降雨</translation>
         </message>
         <message>
             <source>Sky is Clear</source>
-            <translation type="unfinished">大部晴朗</translation>
+            <translation>天空晴朗</translation>
         </message>
         <message>
             <source>Sky is clear</source>
-            <translation type="unfinished">大部晴朗</translation>
+            <translation>天空晴朗</translation>
         </message>
         <message>
             <source>Sleet</source>
@@ -3137,7 +3076,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Sleet Showers</source>
-            <translation type="unfinished">短暂阵雨</translation>
+            <translation>短时冻雨</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3149,8 +3088,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下雪夹风</translation>
         </message>
         <message>
             <source>Snow Shower</source>
@@ -3158,17 +3096,15 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Snow Shower / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阵雪/刮风</translation>
         </message>
         <message>
             <source>Snow Showers</source>
-            <translation type="unfinished">阵雪</translation>
+            <translation>阵雪</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阵雪/早间刮风</translation>
         </message>
         <message>
             <source>Snow Showers Early</source>
@@ -3192,12 +3128,11 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>雨雪混合/刮风</translation>
         </message>
         <message>
             <source>Snowfall</source>
-            <translation type="unfinished">雪</translation>
+            <translation>降雪</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3205,7 +3140,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Source code</source>
-            <translation type="unfinished">服务器</translation>
+            <translation>源码</translation>
         </message>
         <message>
             <source>Source:</source>
@@ -3289,8 +3224,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Strong Thundershowers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>短时雷暴</translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3302,18 +3236,15 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Sunny / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴时/刮风</translation>
         </message>
         <message>
             <source>Sunny periods and a few showers.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>短时晴朗有阵雨</translation>
         </message>
         <message>
             <source>Sunny periods and a few showers.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>短时晴朗有阵雨</translation>
         </message>
         <message>
             <source>Sunrise:</source>
@@ -3349,8 +3280,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Support</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>支持</translation>
         </message>
         <message>
             <source>Swap hi/low temperature</source>
@@ -3438,21 +3368,19 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Thanks</source>
-            <translation>致谢</translation>
+            <translation>鸣谢</translation>
         </message>
         <message>
             <source>The weather has been updated.</source>
-            <translation>天气已经更新了.</translation>
+            <translation>已更新天气信息</translation>
         </message>
         <message>
             <source>There are no stations to show in this view of the list</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>列表中没有位置可以显示</translation>
         </message>
         <message>
             <source>This is experimental feature. Only English is supported.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>仅作为测试功能,只支持英文版.</translation>
         </message>
         <message>
             <source>This software is free software; you can
@@ -3486,7 +3414,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Thundershowers</source>
-            <translation type="unfinished">雷雨</translation>
+            <translation>阵雷</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3515,12 +3443,12 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
 </source>
-            <translation>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
+            <translation>翻译人员: 法语 - Nicolas Granziano, Philippe, Benot Knecht; 俄语 - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
 </translation>
         </message>
         <message>
             <source>Transparency</source>
-            <translation type="unfinished">透明度:</translation>
+            <translation>透明度</translation>
         </message>
         <message>
             <source>Transparency:</source>
@@ -3664,7 +3592,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Updating weather</source>
-            <translation>天气预报信息正在更新</translation>
+            <translation>正在更新天气预报信息</translation>
         </message>
         <message>
             <source>Use Edit layout 
@@ -3698,7 +3626,7 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Violent Rain Showers</source>
-            <translation type="unfinished">小阵雨</translation>
+            <translation>短时暴雨</translation>
         </message>
         <message>
             <source>Visible items:</source>
@@ -3738,12 +3666,11 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Voice forecast button on a widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>插件上的语音播放按钮</translation>
         </message>
         <message>
             <source>Voice weather forecast</source>
-            <translation type="unfinished">OMWeather预报</translation>
+            <translation>语音播放天气预报</translation>
         </message>
         <message>
             <source>W</source>
@@ -3827,15 +3754,15 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Widget style</source>
-            <translation>界面风格</translation>
+            <translation>插件风格</translation>
         </message>
         <message>
             <source>Widget style</source>
-            <translation>界面风格</translation>
+            <translation>插件风格</translation>
         </message>
         <message>
             <source>Widget style and Iconset</source>
-            <translation>界面风格和图标</translation>
+            <translation>插件界面风格和图标</translation>
         </message>
         <message>
             <source>Wind</source>
@@ -3951,13 +3878,11 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Wintry Mix / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>雨雪混合/刮风</translation>
         </message>
         <message>
             <source>Wintry Mix / Wind Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>雨雪混合/早间刮风</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>
@@ -3985,16 +3910,14 @@ or ZIP code!!!</source>
             <source>You should activate 
 'Widget in events view'
  for using LockScreen widget</source>
-            <translation>你得激活
-“事件主屏插件”后
+            <translation>激活“事件主屏插件”后
 才能使用锁屏插件</translation>
         </message>
         <message>
             <source>You should activate 
 'Widget in events view'
  for using StandbyScreen widget</source>
-            <translation>你得激活
-“事件主屏插件”后
+            <translation>激活“事件主屏插件”后
 才能使用待机屏幕插件</translation>
         </message>
         <message>
@@ -4079,8 +4002,7 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>http://github.com/Meecast/meecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>http://github.com/Meecast/meecast</translation>
         </message>
         <message>
             <source>inHg</source>
@@ -4120,7 +4042,7 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>kPa</source>
-            <translation type="unfinished">Pa</translation>
+            <translation>kPa</translation>
         </message>
         <message>
             <source>km</source>
@@ -4168,8 +4090,7 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>kn</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>kn</translation>
         </message>
         <message>
             <source>m</source>
@@ -4337,18 +4258,15 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mmHg</source>
@@ -4388,7 +4306,7 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>mph</source>
-            <translation type="unfinished">m/h</translation>
+            <translation>mph</translation>
         </message>
         <message>
             <source>n:</source>

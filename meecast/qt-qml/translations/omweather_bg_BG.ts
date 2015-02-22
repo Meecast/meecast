@@ -1232,12 +1232,14 @@ using Application manager</source>
         <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
- 	Quentin Caillard 
+ 	Quentin Caillard, 
+ 	Jordi
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
  German -  Claudius Henrichs,
- 	Jens Klingen
+ 	Jens Klingen,
+ 	DeadHorseRiding
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1744,6 +1746,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Mainly cloudy with occasional rain.</source>
+            <translation type="unfinished">Разкъсана облачност и слаб дъжд</translation>
+        </message>
+        <message>
+            <source>Mainly cloudy, Slight shower of rain</source>
             <translation type="unfinished">Разкъсана облачност и слаб дъжд</translation>
         </message>
         <message>

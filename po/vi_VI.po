@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-22 12:44+0300\n"
+"POT-Creation-Date: 2015-02-18 16:42+0300\n"
 "PO-Revision-Date: 2012-10-05 08:15+0000\n"
 "Last-Translator: quytrong287 <quytrong287@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/meecast/"
@@ -560,7 +560,7 @@ msgstr "Có mây, tuyết rơi, mưa rào rải rác"
 msgid "Cloudy and wet snow showers"
 msgstr "Có mây, tuyết rơi, mưa rào rải rác"
 
-#: omweather/src/hash.data:387
+#: omweather/src/hash.data:388
 #, fuzzy
 msgid "Cloudy with occasional rain."
 msgstr "Có mây, mưa nhẹ"
@@ -662,7 +662,7 @@ msgstr "Nước:"
 msgid "Country:"
 msgstr "Nước:"
 
-#: omweather/src/hash.data:399
+#: omweather/src/hash.data:400
 msgid "Cover Page"
 msgstr ""
 
@@ -1015,12 +1015,14 @@ msgstr "Trời băng giá, có mưa phùn"
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht, \n"
-" \tQuentin Caillard \n"
+" \tQuentin Caillard, \n"
+" \tJordi\n"
 " Russian - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
 " Finnish - Marko Vertainen\n"
 " German -  Claudius Henrichs,\n"
-" \tJens Klingen\n"
+" \tJens Klingen,\n"
+" \tDeadHorseRiding\n"
 " Italian - Lorenzo Facca,\n"
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
@@ -1194,7 +1196,7 @@ msgstr "Tuyết dày"
 msgid "Heavy Thunder"
 msgstr "Sấm"
 
-#: omweather/src/hash.data:388
+#: omweather/src/hash.data:389
 #, fuzzy
 msgid "Heavy intensity rain"
 msgstr "Mưa to"
@@ -1245,7 +1247,7 @@ msgstr "Biểu tượng"
 msgid "Iconset"
 msgstr "Bộ biểu tượng"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:270
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:272
 msgid "Iconsets"
 msgstr "Các bộ biểu tượng"
 
@@ -1320,7 +1322,7 @@ msgstr "Bố trí:"
 msgid "Lead designers"
 msgstr "Chỉ đạo thiết kế"
 
-#: meecast/qt-qml/qml/AboutPage.qml:304
+#: meecast/qt-qml/qml/AboutPage.qml:306
 msgid "License"
 msgstr "Giấy phép"
 
@@ -1435,7 +1437,7 @@ msgstr "Tuyết nhẹ"
 msgid "Light intensity drizzle"
 msgstr "Mưa to"
 
-#: omweather/src/hash.data:389
+#: omweather/src/hash.data:390
 #, fuzzy
 msgid "Light intensity shower rain"
 msgstr "Mưa to"
@@ -1481,6 +1483,11 @@ msgstr "Thấp"
 #: omweather/src/hash.data:386
 #, fuzzy
 msgid "Mainly cloudy with occasional rain."
+msgstr "Ít mây, mưa vừa"
+
+#: omweather/src/hash.data:387
+#, fuzzy
+msgid "Mainly cloudy, Slight shower of rain"
 msgstr "Ít mây, mưa vừa"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
@@ -2262,7 +2269,7 @@ msgstr "Mưa tới đóng băng / Gió"
 msgid "Read sensor every:"
 msgstr "Đọc cảm biến mỗi:"
 
-#: omweather/src/hash.data:397
+#: omweather/src/hash.data:398
 msgid "Refresh"
 msgstr ""
 
@@ -2489,7 +2496,7 @@ msgstr "Ngắn"
 msgid "Show arrows"
 msgstr "Xem kiểu mũi tên"
 
-#: omweather/src/hash.data:396
+#: omweather/src/hash.data:397
 #, fuzzy
 msgid "Show last update time"
 msgstr "Cập nhật cuối:"
@@ -2503,7 +2510,7 @@ msgstr "Hiển thị tên trạm"
 msgid "Show only current weather on first icon"
 msgstr "Chỉ hiện thời tiết hiện tại trên icon ban đầu"
 
-#: omweather/src/hash.data:395
+#: omweather/src/hash.data:396
 msgid "Show source logo"
 msgstr ""
 
@@ -2628,7 +2635,7 @@ msgstr "Có tuyết rơi"
 msgid "Source"
 msgstr "Nguồn"
 
-#: meecast/qt-qml/qml/AboutPage.qml:326
+#: meecast/qt-qml/qml/AboutPage.qml:328
 #, fuzzy
 msgid "Source code"
 msgstr "Nguồn"
@@ -2776,15 +2783,15 @@ msgstr "Cám ơn"
 msgid "The weather has been updated."
 msgstr "Thời tiết đã được cập nhật"
 
-#: omweather/src/hash.data:390
+#: omweather/src/hash.data:391
 msgid "There are no stations to show in this view of the list"
 msgstr ""
 
-#: omweather/src/hash.data:392
+#: omweather/src/hash.data:393
 msgid "This is experimental feature. Only English is supported."
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:313
+#: meecast/qt-qml/qml/AboutPage.qml:315
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2839,7 +2846,7 @@ msgstr ""
 "Dịch: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel "
 "Fialko, Vlad Vasiliev, Ed Bartosh \n"
 
-#: omweather/src/hash.data:398
+#: omweather/src/hash.data:399
 #, fuzzy
 msgid "Transparency"
 msgstr "Độ trong suốt:"
@@ -2942,7 +2949,7 @@ msgstr "Thời gian hợp lệ cho thời tiết hiện tại:"
 msgid "Very High"
 msgstr "Rất cao"
 
-#: omweather/src/hash.data:393
+#: omweather/src/hash.data:394
 #, fuzzy
 msgid "Violent Rain Showers"
 msgstr "Mưa rào nhẹ"
@@ -2966,11 +2973,11 @@ msgstr "Hiện"
 msgid "Visuals"
 msgstr "Nhìn"
 
-#: omweather/src/hash.data:391
+#: omweather/src/hash.data:392
 msgid "Voice forecast button on a widget"
 msgstr ""
 
-#: omweather/src/hash.data:394
+#: omweather/src/hash.data:395
 #, fuzzy
 msgid "Voice weather forecast"
 msgstr "Dự báo OMWeather"
@@ -3243,7 +3250,7 @@ msgstr "Giờ trước"
 msgid "hours ago"
 msgstr "Giờ trước"
 
-#: meecast/qt-qml/qml/AboutPage.qml:335
+#: meecast/qt-qml/qml/AboutPage.qml:337
 msgid "http://github.com/Meecast/meecast"
 msgstr ""
 
@@ -3413,35 +3420,35 @@ msgstr "Tên quốc gia"
 msgid "steady"
 msgstr "Ổn định"
 
-#: omweather/src/hash.data:400
+#: omweather/src/hash.data:401
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:401
+#: omweather/src/hash.data:402
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:402
+#: omweather/src/hash.data:403
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:403
+#: omweather/src/hash.data:404
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:404
+#: omweather/src/hash.data:405
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:405
+#: omweather/src/hash.data:406
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:406
+#: omweather/src/hash.data:407
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:407
+#: omweather/src/hash.data:408
 msgid "Ю-З"
 msgstr "Ю-З"
 

@@ -6,8 +6,8 @@
         <message>
             <source>
 H: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+H:</translation>
         </message>
         <message>
             <source>
@@ -70,8 +70,8 @@ Luftfuktighet:</translation>
         <message>
             <source>
 P: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+P:</translation>
         </message>
         <message>
             <source>
@@ -112,14 +112,14 @@ Lufttryck:</translation>
         <message>
             <source>
 V: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+V:</translation>
         </message>
         <message>
             <source>
 W: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+W:</translation>
         </message>
         <message>
             <source>(Low)</source>
@@ -559,8 +559,7 @@ Design UI för Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>CALM</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>LUGNT</translation>
         </message>
         <message>
             <source>Cancel</source>
@@ -858,18 +857,15 @@ Anslutnings-timeout har överskridits.</translation>
         </message>
         <message>
             <source>Display</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Visa</translation>
         </message>
         <message>
             <source>Display</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Visa</translation>
         </message>
         <message>
             <source>Display</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Visa</translation>
         </message>
         <message>
             <source>Distance</source>
@@ -1021,57 +1017,51 @@ Brad Jones aka kazrak - för testning
         </message>
         <message>
             <source>F</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F</translation>
         </message>
         <message>
             <source>F</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F</translation>
         </message>
         <message>
             <source>F</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F</translation>
         </message>
         <message>
             <source>F</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F</translation>
         </message>
         <message>
             <source>F</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F</translation>
         </message>
         <message>
             <source>F
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F
+</translation>
         </message>
         <message>
             <source>F
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F
+</translation>
         </message>
         <message>
             <source>F
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F
+</translation>
         </message>
         <message>
             <source>F
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F
+</translation>
         </message>
         <message>
             <source>FL: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FL:</translation>
         </message>
         <message>
             <source>Fahrenheit</source>
@@ -1157,18 +1147,15 @@ Brad Jones aka kazrak - för testning
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ksom</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ksom</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ksom</translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1237,12 +1224,14 @@ Hantera program.</translation>
         <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
- 	Quentin Caillard 
+ 	Quentin Caillard, 
+ 	Jordi
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
  German -  Claudius Henrichs,
- 	Jens Klingen
+ 	Jens Klingen,
+ 	DeadHorseRiding
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1271,7 +1260,7 @@ Hantera program.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation>Franska -  Nicolas Granziano, 
+            <translation type="unfinished">Franska -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard 
  Ryska - Pavel Fialko, Vlad Vasiliev, 
@@ -1343,8 +1332,7 @@ Slovakiska - Roman Moravčík</translation>
         </message>
         <message>
             <source>G: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>G:</translation>
         </message>
         <message>
             <source>GPS</source>
@@ -1768,11 +1756,11 @@ Slovakiska - Roman Moravčík</translation>
         </message>
         <message>
             <source>Looks like there's no info for this location.</source>
-            <translation>Ingen info finns för området</translation>
+            <translation>Ingen info finns för området.</translation>
         </message>
         <message>
             <source>Looks like there's no info for this location.</source>
-            <translation>Ingen info finns för området</translation>
+            <translation>Ingen info finns för området.</translation>
         </message>
         <message>
             <source>Low</source>
@@ -1781,6 +1769,10 @@ Slovakiska - Roman Moravčík</translation>
         <message>
             <source>Mainly cloudy with occasional rain.</source>
             <translation>Huvudsakligen molningt med sporadiskt regn</translation>
+        </message>
+        <message>
+            <source>Mainly cloudy, Slight shower of rain</source>
+            <translation type="unfinished">Huvudsakligen molningt med sporadiskt regn</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -2518,18 +2510,15 @@ Slovakiska - Roman Moravčík</translation>
         </message>
         <message>
             <source>Ppcp:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ppcp:</translation>
         </message>
         <message>
             <source>Ppcp:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ppcp:</translation>
         </message>
         <message>
             <source>Ppcp:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ppcp:</translation>
         </message>
         <message>
             <source>Precipitation</source>
@@ -2709,7 +2698,7 @@ Slovakiska - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain and snow</source>
-            <translation type="unfinished">Regn och snö</translation>
+            <translation>Regn och snö</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>
@@ -3627,8 +3616,7 @@ uppdaterng av väderinformation.
         </message>
         <message>
             <source>VAR</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>VAR</translation>
         </message>
         <message>
             <source>Valid time for current weather:</source>
@@ -3960,8 +3948,7 @@ väntelägeskärm.</translation>
         </message>
         <message>
             <source>d:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>d:</translation>
         </message>
         <message>
             <source>day ago</source>
@@ -4289,58 +4276,47 @@ väntelägeskärm.</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mmHg</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mmHg</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mmHg</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mmHg</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mmHg</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mmHg</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mmHg</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mmHg</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mmHg</translation>
         </message>
         <message>
             <source>mph</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mph</translation>
         </message>
         <message>
             <source>n:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>n:</translation>
         </message>
         <message>
             <source>never</source>
@@ -4360,13 +4336,11 @@ väntelägeskärm.</translation>
         </message>
         <message>
             <source>nmi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>nmi</translation>
         </message>
         <message>
             <source>nmi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>nmi</translation>
         </message>
         <message>
             <source>rising</source>
@@ -4390,43 +4364,35 @@ väntelägeskärm.</translation>
         </message>
         <message>
             <source>В</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>B</translation>
         </message>
         <message>
             <source>З</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>3</translation>
         </message>
         <message>
             <source>С</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C</translation>
         </message>
         <message>
             <source>С-В</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C-B</translation>
         </message>
         <message>
             <source>С-З</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C-3</translation>
         </message>
         <message>
             <source>Ю</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ю</translation>
         </message>
         <message>
             <source>Ю-В</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ю-B</translation>
         </message>
         <message>
             <source>Ю-З</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ю-3</translation>
         </message>
     </context>
 </TS>

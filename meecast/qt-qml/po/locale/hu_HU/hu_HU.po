@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-22 12:44+0300\n"
+"POT-Creation-Date: 2015-02-18 16:42+0300\n"
 "PO-Revision-Date: 2014-07-28 05:20+0000\n"
 "Last-Translator: Macilaci457 <laci.kara@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/meecast/"
@@ -518,7 +518,7 @@ msgstr "Felhős és havas esők"
 msgid "Cloudy and wet snow showers"
 msgstr "Felhős, havas eső záporok"
 
-#: omweather/src/hash.data:387
+#: omweather/src/hash.data:388
 msgid "Cloudy with occasional rain."
 msgstr "Felhős, néhol esővel"
 
@@ -616,7 +616,7 @@ msgstr "Ország"
 msgid "Country:"
 msgstr "Ország:"
 
-#: omweather/src/hash.data:399
+#: omweather/src/hash.data:400
 msgid "Cover Page"
 msgstr ""
 
@@ -947,15 +947,18 @@ msgid "Freezing Drizzle"
 msgstr "Szitáló jégeső"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
+#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht, \n"
-" \tQuentin Caillard \n"
+" \tQuentin Caillard, \n"
+" \tJordi\n"
 " Russian - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
 " Finnish - Marko Vertainen\n"
 " German -  Claudius Henrichs,\n"
-" \tJens Klingen\n"
+" \tJens Klingen,\n"
+" \tDeadHorseRiding\n"
 " Italian - Lorenzo Facca,\n"
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
@@ -1144,7 +1147,7 @@ msgstr ""
 msgid "Heavy Thunder"
 msgstr ""
 
-#: omweather/src/hash.data:388
+#: omweather/src/hash.data:389
 msgid "Heavy intensity rain"
 msgstr "Felhőszakadás"
 
@@ -1192,7 +1195,7 @@ msgstr "Ikonok"
 msgid "Iconset"
 msgstr "Ikoncsomag"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:270
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:272
 msgid "Iconsets"
 msgstr "Ikoncsomagok"
 
@@ -1266,7 +1269,7 @@ msgstr "Megjelenés:"
 msgid "Lead designers"
 msgstr "Vezető tervezők"
 
-#: meecast/qt-qml/qml/AboutPage.qml:304
+#: meecast/qt-qml/qml/AboutPage.qml:306
 msgid "License"
 msgstr "Licensz"
 
@@ -1374,7 +1377,7 @@ msgstr ""
 msgid "Light intensity drizzle"
 msgstr "Enyhe szitálás"
 
-#: omweather/src/hash.data:389
+#: omweather/src/hash.data:390
 msgid "Light intensity shower rain"
 msgstr "Enyhe zápor"
 
@@ -1416,6 +1419,11 @@ msgstr "Alacsony"
 
 #: omweather/src/hash.data:386
 msgid "Mainly cloudy with occasional rain."
+msgstr "Túlnyomóan borult ég, elszórtan esőzés"
+
+#: omweather/src/hash.data:387
+#, fuzzy
+msgid "Mainly cloudy, Slight shower of rain"
 msgstr "Túlnyomóan borult ég, elszórtan esőzés"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
@@ -2179,7 +2187,7 @@ msgstr "Eső, havas eső / szél"
 msgid "Read sensor every:"
 msgstr "Érzékelő olvasása minden:"
 
-#: omweather/src/hash.data:397
+#: omweather/src/hash.data:398
 msgid "Refresh"
 msgstr "Frissít"
 
@@ -2401,7 +2409,7 @@ msgstr "Rövid"
 msgid "Show arrows"
 msgstr "Nyilak mutatása"
 
-#: omweather/src/hash.data:396
+#: omweather/src/hash.data:397
 msgid "Show last update time"
 msgstr "Mutasd az utolsó frissítés idejét."
 
@@ -2413,7 +2421,7 @@ msgstr "Mutasd a térképen"
 msgid "Show only current weather on first icon"
 msgstr "Csak jelenlegi időjárás az első ikonon"
 
-#: omweather/src/hash.data:395
+#: omweather/src/hash.data:396
 msgid "Show source logo"
 msgstr "Mutasd a forrás logóját"
 
@@ -2533,7 +2541,7 @@ msgstr ""
 msgid "Source"
 msgstr "Forrás"
 
-#: meecast/qt-qml/qml/AboutPage.qml:326
+#: meecast/qt-qml/qml/AboutPage.qml:328
 msgid "Source code"
 msgstr "Forráskód"
 
@@ -2680,15 +2688,15 @@ msgstr "Köszönjük"
 msgid "The weather has been updated."
 msgstr "Az előrejelzés sikeresen frissítve."
 
-#: omweather/src/hash.data:390
+#: omweather/src/hash.data:391
 msgid "There are no stations to show in this view of the list"
 msgstr "Ebben a nézetben nem láthatók állomások"
 
-#: omweather/src/hash.data:392
+#: omweather/src/hash.data:393
 msgid "This is experimental feature. Only English is supported."
 msgstr "Ez egy kísérleti funkció. Csak az angol nyelv támogatott."
 
-#: meecast/qt-qml/qml/AboutPage.qml:313
+#: meecast/qt-qml/qml/AboutPage.qml:315
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2734,7 +2742,7 @@ msgid ""
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 msgstr ""
 
-#: omweather/src/hash.data:398
+#: omweather/src/hash.data:399
 msgid "Transparency"
 msgstr "Átlátszóság"
 
@@ -2838,7 +2846,7 @@ msgstr "Pontos idő a jelenlegi időjáráshoz:"
 msgid "Very High"
 msgstr "Nagyon magas"
 
-#: omweather/src/hash.data:393
+#: omweather/src/hash.data:394
 msgid "Violent Rain Showers"
 msgstr ""
 
@@ -2860,11 +2868,11 @@ msgstr "Látható:"
 msgid "Visuals"
 msgstr "Megjelenés"
 
-#: omweather/src/hash.data:391
+#: omweather/src/hash.data:392
 msgid "Voice forecast button on a widget"
 msgstr "Hangos előrejelzés gomb a widgeten"
 
-#: omweather/src/hash.data:394
+#: omweather/src/hash.data:395
 msgid "Voice weather forecast"
 msgstr "Hangos időjárás-előrejelzés"
 
@@ -3132,7 +3140,7 @@ msgstr "órája"
 msgid "hours ago"
 msgstr "órája"
 
-#: meecast/qt-qml/qml/AboutPage.qml:335
+#: meecast/qt-qml/qml/AboutPage.qml:337
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 
@@ -3302,34 +3310,34 @@ msgstr "állomás neve"
 msgid "steady"
 msgstr "állandó"
 
-#: omweather/src/hash.data:400
+#: omweather/src/hash.data:401
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:401
+#: omweather/src/hash.data:402
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:402
+#: omweather/src/hash.data:403
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:403
+#: omweather/src/hash.data:404
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:404
+#: omweather/src/hash.data:405
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:405
+#: omweather/src/hash.data:406
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:406
+#: omweather/src/hash.data:407
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:407
+#: omweather/src/hash.data:408
 msgid "Ю-З"
 msgstr ""

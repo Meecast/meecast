@@ -1226,12 +1226,14 @@ bør du avinstallere pakken
         <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
- 	Quentin Caillard 
+ 	Quentin Caillard, 
+ 	Jordi
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
  German -  Claudius Henrichs,
- 	Jens Klingen
+ 	Jens Klingen,
+ 	DeadHorseRiding
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1260,7 +1262,7 @@ bør du avinstallere pakken
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation>Fransk -  Nicolas Granziano, 
+            <translation type="unfinished">Fransk -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard 
  Russisk - Pavel Fialko, Vlad Vasiliev, 
@@ -1768,6 +1770,10 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Mainly cloudy with occasional rain.</source>
             <translation>Hovedsaklig skyet med sporadisk regn.</translation>
+        </message>
+        <message>
+            <source>Mainly cloudy, Slight shower of rain</source>
+            <translation type="unfinished">Hovedsaklig skyet med sporadisk regn.</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -2693,7 +2699,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain and snow</source>
-            <translation type="unfinished">Regn og Snø</translation>
+            <translation>Regn og snø</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>
@@ -4041,7 +4047,7 @@ eller postkode!!!</translation>
         </message>
         <message>
             <source>kPa</source>
-            <translation type="unfinished">Pa</translation>
+            <translation>kPa</translation>
         </message>
         <message>
             <source>km</source>

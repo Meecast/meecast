@@ -1208,12 +1208,14 @@ using Application manager</source>
         <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
- 	Quentin Caillard 
+ 	Quentin Caillard, 
+ 	Jordi
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
  German -  Claudius Henrichs,
- 	Jens Klingen
+ 	Jens Klingen,
+ 	DeadHorseRiding
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1435,8 +1437,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Ice Pellets</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ледяные гранулы</translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1639,8 +1640,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Light Sleet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Легкий мокрый снег</translation>
         </message>
         <message>
             <source>Light Sleet Showers</source>
@@ -1733,6 +1733,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Mainly cloudy with occasional rain.</source>
             <translation>Пасмурно, временами дождь</translation>
+        </message>
+        <message>
+            <source>Mainly cloudy, Slight shower of rain</source>
+            <translation type="unfinished">Пасмурно, временами дождь</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -2672,7 +2676,8 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rain and snow</source>
-            <translation type="unfinished">Дождь со снегом</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

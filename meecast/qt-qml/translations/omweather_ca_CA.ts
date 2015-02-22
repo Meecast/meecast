@@ -1224,12 +1224,14 @@ utilitzant el Gestor d'aplicacions</translation>
         <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
- 	Quentin Caillard 
+ 	Quentin Caillard, 
+ 	Jordi
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
  German -  Claudius Henrichs,
- 	Jens Klingen
+ 	Jens Klingen,
+ 	DeadHorseRiding
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1258,7 +1260,7 @@ utilitzant el Gestor d'aplicacions</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation> Francès -  Nicolas Granziano, 
+            <translation type="unfinished"> Francès -  Nicolas Granziano, 
  	Philippe, Benot Knecht,
         Quentin Caillard
  Rus - Pavel Fialko, Vlad Vasiliev, 
@@ -1767,6 +1769,10 @@ Català - Agustí Clara</translation>
         <message>
             <source>Mainly cloudy with occasional rain.</source>
             <translation>Núvol, en general, amb pluja ocasional.</translation>
+        </message>
+        <message>
+            <source>Mainly cloudy, Slight shower of rain</source>
+            <translation type="unfinished">Núvol, en general, amb pluja ocasional.</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -2692,7 +2698,7 @@ Català - Agustí Clara</translation>
         </message>
         <message>
             <source>Rain and snow</source>
-            <translation type="unfinished">Pluja i Neu</translation>
+            <translation>Pluja i neu</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

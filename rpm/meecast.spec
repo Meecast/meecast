@@ -157,10 +157,12 @@ systemctl-user start meecastd.service
 
 
 %changelog
-* Sun Feb 01 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.17
+* Thu Feb 19 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.17
 
-  
   * Optimised png images by OptiPNG and advpng. Thanks Alexander Self-Perfection  
+  * Updated Catalan, Chinese, Czech, Dutch, Finnish, French,
+    Germany, Norwegian, Slovenian, Spanish, Swedish,
+    Italian, Danish translations
   * Fixed problem with upgrading meecast daemon 
   * Fixed problem with 'Undefined' text after first widget start
   * Fixed problem with hko source

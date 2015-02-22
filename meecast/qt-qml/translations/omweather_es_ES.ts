@@ -1223,12 +1223,14 @@ el Administrador de Aplicaciones.</translation>
         <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
- 	Quentin Caillard 
+ 	Quentin Caillard, 
+ 	Jordi
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
  German -  Claudius Henrichs,
- 	Jens Klingen
+ 	Jens Klingen,
+ 	DeadHorseRiding
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1257,7 +1259,7 @@ el Administrador de Aplicaciones.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation> Francés -  Nicolas Granziano, 
+            <translation type="unfinished"> Francés -  Nicolas Granziano, 
  	Philippe, Benot Knecht,
         Quentin Caillard 
  Ruso - Pavel Fialko, Vlad Vasiliev, 
@@ -1765,6 +1767,10 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Mainly cloudy with occasional rain.</source>
             <translation>Principalmente nublado con lluvias ocasionales.</translation>
+        </message>
+        <message>
+            <source>Mainly cloudy, Slight shower of rain</source>
+            <translation type="unfinished">Principalmente nublado con lluvias ocasionales.</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -2690,7 +2696,7 @@ Eslovaco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain and snow</source>
-            <translation type="unfinished">Lluvia / Nieve</translation>
+            <translation>Lluvia y nieve</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

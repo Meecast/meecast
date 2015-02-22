@@ -49,7 +49,7 @@ BuildRequires: qt5-qtpositioning-devel
 MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code
 
 %package daemon
-Version: 0.5.2
+Version: 0.6
 Summary: Daemon for Weather forecast application MeeCast on SailfishOS
 Group:      Utility
 License:    GPLv2.1
@@ -168,6 +168,7 @@ systemctl-user start meecastd.service
   * Fixed problem with hko source
   * Fixed color of text for LPM mode
   * Disable semitransparent background for LPM mode
+  * Fixed problem with updating
 
 * Sun Feb 01 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.16
 

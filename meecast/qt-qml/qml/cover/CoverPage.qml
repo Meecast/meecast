@@ -242,9 +242,22 @@ CoverBackground {
         onStatusChanged: { 
             console.log(" Change status ", coverPage.activating);		
             if (status){
-                Config.refreshconfig3()
-                Config.check_and_update_station();
-                update_data_on_page();
+                if (!Config.updating){
+                    Config.refreshconfig3()
+                    Config.check_and_update_station();
+                    update_data_on_page();
+                }else{
+                    update_cover.enabled = false
+                    update_next_cover.enabled = false
+                    add_cover.enabled = false 
+                    wind_speed_text.visible = false
+                    wind_direction_background.visible = false
+                    wind_direction.visible = false
+                    source_image.visible = false
+                    now.visible = false
+                    lastupdate.visible = false
+                    isUpdate = true;
+                }
                 if (!isUpdate && Config.stationname != "Unknown"){
                     add_cover.enabled = false;
                     update_cover.enabled = false;

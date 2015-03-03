@@ -66,6 +66,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(QString pressureunit READ pressureunit NOTIFY pressureunitChanged)
     Q_PROPERTY(QString visibleunit READ visibleunit NOTIFY visibleunitChanged)
     Q_PROPERTY(bool fullscreen READ fullscreen NOTIFY fullscreenChanged)
+    Q_PROPERTY(bool updating READ updating NOTIFY updatingChanged)
     Q_PROPERTY(bool lockscreen READ lockscreen NOTIFY lockscreenChanged)
     Q_PROPERTY(bool standbyscreen READ standbyscreen NOTIFY standbyscreenChanged)
     Q_PROPERTY(bool eventwidget READ eventwidget NOTIFY eventwidgetChanged)
@@ -108,6 +109,7 @@ private:
     int _lockscreen_x_position;
     int _lockscreen_y_position;
     uint _time_for_updating;
+    bool _updating;
 protected:
     static ConfigQml* _self;
     static int _refcount_;
@@ -137,6 +139,8 @@ public:
     bool windcoverpage();
     bool transparency();
     bool lastupdatecoverpage();
+    bool updating();
+    void updating(bool c);
     QColor fontcolor();
     QColor standby_color_font_stationname();
     QColor standby_color_font_temperature();
@@ -236,6 +240,7 @@ signals:
     void pressureunitChanged();
     void visibleunitChanged();
     void fullscreenChanged();
+    void updatingChanged();
     void lockscreenChanged();
     void standbyscreenChanged();
     void eventwidgetChanged();

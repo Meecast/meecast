@@ -67,4 +67,5 @@ UpdateThread::run(){
         config->stationsList().at(i)->updateData(true);
     }
     config->need_updating = false;
+    config->updating(false);
 }

@@ -102,6 +102,7 @@ void
 ConfigQml::init(){
     int index;
     _time_for_updating = 0;
+    _updating = false;
     need_updating = false;
     db = new Core::DatabaseSqlite("");
 
@@ -193,6 +194,7 @@ ConfigQml::onNetworkSessionError(){
 void 
 ConfigQml::onNetworkSessionOpened(){
     std::cerr<<"ConfigQml::onNetworkSessionOpened()"<<std::endl;
+    this->_updating = true;
     thread->start();
     /*
     if(networkingcontrol){
@@ -619,11 +621,21 @@ ConfigQml::setwindcoverpage(bool c){
     refreshconfig();
 }
 
+bool
+ConfigQml::updating(){
+    return _updating;
+}
+
+void
+ConfigQml::updating(bool c){
+     _updating = c;
+}
 
 bool
 ConfigQml::lastupdatecoverpage(){
     return ConfigQml::Config::LastUpdateOnCover();
 }
+
 void
 ConfigQml::setlastupdatecoverpage(bool c){
     ConfigQml::Config::LastUpdateOnCover(c);
@@ -1114,8 +1126,8 @@ ConfigQml::refreshconfig(){
 
 void
 ConfigQml::updatestations(){
+    this->_updating = true;
     thread->start();
-
 }
 
 void

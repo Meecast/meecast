@@ -60,6 +60,7 @@ UpdateThread::run(){
         //config->connectSession(false);
         config->connectSession(true);
         config->need_updating = true;
+        config->updating(false);
         return;
     }
     /* std::cerr<<"Size of StationList "<< config->stationsList().size()<<std::endl; */

@@ -160,7 +160,7 @@ systemctl-user start meecastd.service
 * Thu Mar 5 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.18
 
   * Fixed problem with crash of the MeeCast while updating of weather forecast on cover mode
-  * Restored Slovenian tranlstion
+  * Restored Slovenian translation
 
 * Thu Feb 19 2015 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.17
 

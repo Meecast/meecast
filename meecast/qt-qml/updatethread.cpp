@@ -59,7 +59,8 @@ UpdateThread::run(){
         std::cerr<<"Not connect to Internet"<<std::endl;
         //config->connectSession(false);
         config->connectSession(true);
-        config->need_updating = true;
+    //    config->need_updating = true;
+        config->need_updating = false;
         config->updating(false);
         return;
     }

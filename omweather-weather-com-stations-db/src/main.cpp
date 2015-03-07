@@ -1126,7 +1126,6 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                 fprintf(file_out,"     <dewpoint>%s</dewpoint>\n", dewpoint);
             if (uv_index[0] != 0)
 			    fprintf(file_out,"     <uv_index>%s</uv_index>\n", uv_index);
-
 			fprintf(file_out,"    </period>\n");
 		}
 
@@ -1197,8 +1196,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     tmp_tm2.tm_year = tm->tm_year;
                                     tmp_tm2.tm_mday = tm->tm_mday; tmp_tm2.tm_mon = tm->tm_mon;  
                                     tmp_tm2.tm_isdst = 0;
-                                    time_t result_time = timegm(&tmp_tm2); 
                                     /* set begin of day in localtime */
+                                    time_t result_time = timegm(&tmp_tm2);
                                     /* fprintf(stderr, "sunrise %li %li %s\n", result_time, timegm(&tmp_tm2), (const char*)temp_xml_string); */
                                     /* fprintf(stderr, "LocaltimeZone %i MyTimeZone %i\n", localtimezone, timezone_my); */
                                     t_sunrise = result_time - timezone_my*3600;
@@ -1356,7 +1355,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                         /* Period after sunrise and before sunset */  
                         /* set sunrise  in localtime */
 
-                        if ((temp_hi[0] != 0 || temp_low[0] !=0) && (strlen(icon_day) > 0 && humidity_day != 0 && strlen(description_day)>0)){
+                        if ((temp_hi[0] != 0 || temp_low[0] !=0) && ((strlen(icon_day) > 0 || strlen(description_day)>0)) && humidity_day != 0 ){
                             fprintf(file_out,"    <period start=\"%li\"", (t_sunrise + 1));
                             fprintf(file_out," end=\"%li\">\n", t_sunset);
                             if (temp_hi[0] != 0 && temp_low[0] != 0){ 
@@ -1368,16 +1367,19 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                 else
                                     fprintf(file_out,"     <temperature>%s</temperature>\n", temp_low); 
                             }
-                            if (strlen(icon_day) > 0 && humidity_day != 0 && strlen(description_day)>0){
-                                if (wind_speed_day[0] != 0)
-                                    fprintf(file_out,"     <wind_speed>%1.f</wind_speed>\n", (double)(atoi(wind_speed_day)) * 1000/3600);
-                                if (wind_direction_day[0] != 0)
-                                    fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_day);
 
-                                if (humidity_day[0] != 0)
-                                    fprintf(file_out,"     <humidity>%s</humidity>\n", humidity_day);
-                                fprintf(file_out,"     <ppcp>%s</ppcp>\n", ppcp_day);
+                            if (wind_speed_day[0] != 0)
+                                fprintf(file_out,"     <wind_speed>%1.f</wind_speed>\n", (double)(atoi(wind_speed_day)) * 1000/3600);
+                            if (wind_direction_day[0] != 0)
+                                fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_day);
+
+                            if (humidity_day[0] != 0)
+                                fprintf(file_out,"     <humidity>%s</humidity>\n", humidity_day);
+                            fprintf(file_out,"     <ppcp>%s</ppcp>\n", ppcp_day);
+                            if (strlen(description_day)>0)
                                 fprintf(file_out,"     <description>%s</description>\n", description_day);
+
+                            if (strlen(icon_day) > 0){
                                 fprintf(file_out,"     <icon>%s</icon>\n", icon_day);
                             }else{
                                 fprintf(file_out,"     <icon>48</icon>\n");

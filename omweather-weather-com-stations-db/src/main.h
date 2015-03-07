@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-weather-com-source
  *
- * Copyright (C) 2006-2009 Vlad Vasiliev
+ * Copyright (C) 2006-2015 Vlad Vasilyeu
  * Copyright (C) 2006-2009 Pavel Fialko
  * 	for the code
  *

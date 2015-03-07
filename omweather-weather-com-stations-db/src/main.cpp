@@ -1128,6 +1128,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
 			    fprintf(file_out,"     <uv_index>%s</uv_index>\n", uv_index);
             fprintf(file_out,"    </period>\n");
                 }
+		}
 
             }
             /* Fill other days */
@@ -1198,8 +1199,14 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     tmp_tm2.tm_isdst = 0;
                                     /* set begin of day in localtime */
                                     time_t result_time = timegm(&tmp_tm2);
+<<<<<<< HEAD
                                     fprintf(stderr, "sunrise %li %li %s\n", mktime(&tmp_tm2), result_time, (const char*)temp_xml_string);
                                     fprintf(stderr, "LocaltimeZone %i MyTimeZone %i\n", localtimezone, timezone_my);
+=======
+                                    /* fprintf(stderr, "sunrise %li %li %s\n", result_time, timegm(&tmp_tm2), (const char*)temp_xml_string); */
+                                    /* fprintf(stderr, "LocaltimeZone %i MyTimeZone %i\n", localtimezone, timezone_my); */
+                                    t_sunrise = result_time - timezone_my*3600;
+>>>>>>> master
                                     //t_sunrise = mktime(&tmp_tm2) + localtimezone*3600 -  timezone_my*3600 ;
                                     t_sunrise = result_time - timezone_my*3600;
                                     fprintf(stderr, "result sunrise %li \n", t_sunrise);

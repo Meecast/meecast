@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-18 16:42+0300\n"
+"POT-Creation-Date: 2015-03-07 14:49+0300\n"
 "PO-Revision-Date: 2014-05-15 13:55+0000\n"
 "Last-Translator: osk2 <sc60714@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/meecast/"
@@ -311,6 +311,10 @@ msgstr "新增站點"
 msgid "Adjust GPS station"
 msgstr "調整 GPS 站點"
 
+#: meecast/qt-qml/qml/AboutPage.qml:249
+msgid "Albanian - Ilir Gjika\n"
+msgstr ""
+
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
 #: omweather/src/weather-settings.c:1381
 msgid "Alerts"
@@ -359,6 +363,10 @@ msgid ""
 msgstr ""
 "程式管理員將會開始安裝 MeeCast applet。\n"
 "安裝之前請先將 AccuWeather 移除。"
+
+#: meecast/qt-qml/qml/AboutPage.qml:256
+msgid "Arabic - Tarad Alfandi\n"
+msgstr ""
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -424,6 +432,10 @@ msgstr "浮雲蔽日"
 msgid "Broken clouds"
 msgstr "浮雲蔽日"
 
+#: meecast/qt-qml/qml/AboutPage.qml:248
+msgid "Bulgarian - Zlatko Enikov\n"
+msgstr ""
+
 #: omweather/src/weather-home.c:1536 omweather/src/weather-home.c:1562
 #: omweather/src/weather-simple-popup.c:1042
 #: omweather/src/weather-simple-popup.c:1052
@@ -449,6 +461,10 @@ msgstr "取消"
 msgid "Cannot get path to the HOME directory. Quitting.\n"
 msgstr "無法取得家目錄路徑。退出中。\n"
 
+#: meecast/qt-qml/qml/AboutPage.qml:255
+msgid "Catalan - Agustí Clara\n"
+msgstr ""
+
 #: omweather/src/weather-settings.c:3864
 msgid "Celcius"
 msgstr "攝氏"
@@ -456,6 +472,16 @@ msgstr "攝氏"
 #: meecast/qt-qml/qml/UnitsPage.qml:113
 msgid "Celsius"
 msgstr "攝氏"
+
+#: meecast/qt-qml/qml/AboutPage.qml:250
+msgid ""
+"Chinese - Wong Man Kong, Michael,\n"
+" \tgwmgdemj\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/AboutPage.qml:263
+msgid "Chinese(Taiwan) - osk2, \n"
+msgstr ""
 
 #: omweather/src/weather-simple-settings.c:677
 #: omweather/src/weather-simple-settings.c:710
@@ -664,9 +690,17 @@ msgstr ""
 msgid "Custom"
 msgstr "自訂"
 
+#: meecast/qt-qml/qml/AboutPage.qml:262
+msgid "Czech - Jakub Kožíšek, Pavel Šrubař\n"
+msgstr ""
+
 #: meecast/qt-qml/qml/UpdatePage.qml:183
 msgid "Daily"
 msgstr "每天"
+
+#: meecast/qt-qml/qml/AboutPage.qml:257
+msgid "Danish - Peter Jespersen\n"
+msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
 #: meecast/qt-qml/qml/FullWeatherPage.qml:204
@@ -763,6 +797,12 @@ msgstr "早有毛毛雨"
 #: omweather/src/hash.data:68
 msgid "Drizzle Late"
 msgstr "晚有毛毛雨"
+
+#: meecast/qt-qml/qml/AboutPage.qml:246
+msgid ""
+"Dutch - Tom Leenders, Michiel Pater\n"
+" \tHeimen Stoffels, Nathan Follens\n"
+msgstr ""
 
 #: omweather/src/hash.data:69
 msgid "E"
@@ -925,6 +965,13 @@ msgstr "少雲"
 msgid "Find location via GPS"
 msgstr "由 GPS 取得位置"
 
+#: meecast/qt-qml/qml/AboutPage.qml:233
+msgid ""
+"Finnish - Marko Vertainen,\n"
+"\tdeadhead (A-P Partonen),\n"
+" \tjarliim\n"
+msgstr ""
+
 #: meecast/netbook-UX/meego-panel-omweather.cpp:428
 msgid ""
 "Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro "
@@ -1008,75 +1055,9 @@ msgid ""
 " \tPhilippe, Benot Knecht, \n"
 " \tQuentin Caillard, \n"
 " \tJordi\n"
-" Russian - Pavel Fialko, Vlad Vasiliev, \n"
-" \tEd Bartosh\n"
-" Finnish - Marko Vertainen\n"
-" German -  Claudius Henrichs,\n"
-" \tJens Klingen,\n"
-" \tDeadHorseRiding\n"
-" Italian - Lorenzo Facca,\n"
-" \tPavel Fialko, Alessandro Pasotti,\n"
-" \tSalvatore Fiorenzo, Ilir Gjika,\n"
-" \tLuca Onnis\n"
-" Spanish - Alejandro Lopez, Agustí Clara\n"
-" Polish - Tomasz Dominikowski\n"
-" Slovak - Roman Moravčík\n"
-" Dutch - Tom Leenders, Michiel Pater\n"
-" Bulgarian - Zlatko Enikov\n"
-" Albanian - Ilir Gjika\n"
-" Chinese - Wong Man Kong, Michael\n"
-" Portuguese - Jose Narciso,\n"
-" Turkish - Burak Kaan Kose,\n"
-" \tMehmet Çilingir,\n"
-" Catalan - Agustí Clara,\n"
-" Arabic - Tarad Alfandi,\n"
-" Danish - Peter Jespersen,\n"
-" Serbian - Aleksandar Zaric,\n"
-" Norwegian - Peer-Atle Motland,\n"
-" Hungarian - Salmi,\n"
-" Slovenian -  Boštjan,\n"
-" Czech - Jakub Kožíšek, Pavel Šrubař,\n"
-" Chinese(Taiwan) - osk2, \n"
-" Vietnamese - Hieu Nguyen\n"
-" \tAnh Dương and truongnx, \n"
-" Swedish - Angela Nennebrandt,\n"
-" \tNiklas Åkerström, \n"
-" \tTomislav Veleckovik"
 msgstr ""
-"French -  Nicolas Granziano, \n"
-" \tPhilippe, Benot Knecht \n"
-" Russian - Pavel Fialko, Vlad Vasiliev, \n"
-" \tEd Bartosh\n"
-" Finnish - Marko Vertainen\n"
-" German -  Claudius Henrichs,\n"
-" \tJens Klingen\n"
-" Italian - Lorenzo Facca,\n"
-" \tPavel Fialko, Alessandro Pasotti,\n"
-" \tSalvatore Fiorenzo, Ilir Gjika,\n"
-" \tLuca Onnis\n"
-" Spanish - Alejandro Lopez, Agustí Clara\n"
-" Polish - Tomasz Dominikowski\n"
-" Slovak - Roman Moravčík\n"
-" Dutch - Tom Leenders, Michiel Pater\n"
-" Bulgarian - Zlatko Enikov\n"
-" Albanian - Ilir Gjika\n"
-" Chinese - Wong Man Kong, Michael\n"
-" Portuguese - Jose Narciso,\n"
-" Turkish - Burak Kaan Kose,\n"
-" \tMehmet Çilingir,\n"
-" Catalan - Agustí Clara,\n"
-" Arabic - Tarad Alfandi,\n"
-" Serbian - Aleksandar Zaric,\n"
-" Norwegian - Peer-Atle Motland,\n"
-" Hungarian - Salmi,\n"
-" Slovenian -  Boštjan,\n"
-" Czech - Jakub Kožíšek, Pavel Šrubař,\n"
-" Chinese(Taiwan) - osk2, \n"
-" Vietnamese - Hieu Nguyen\n"
-" \tAnh Dương and truongnx, \n"
-" Swedish - Angela Nennebrandt,\n"
-" \tNiklas Åkerström, \n"
-" \tTomislav Veleckovik"
+"翻譯者︰French - Nicolas Granziano、Philippe、Benot Knecht，Russian - Pavel "
+"Fialko、Vlad Vasiliev、Ed Bartosh\n"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1133,6 +1114,14 @@ msgstr "GSM+WLAN"
 #: omweather/src/weather-simple-settings.c:2395
 msgid "GUI|Clear"
 msgstr "使用者介面 | 清除"
+
+#: meecast/qt-qml/qml/AboutPage.qml:236
+msgid ""
+"German -  Claudius Henrichs,\n"
+" \tJens Klingen,\n"
+" \tDeadHorseRiding\n"
+" "
+msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:418
 msgid ""
@@ -1246,6 +1235,10 @@ msgstr "濕度"
 msgid "Humidity:"
 msgstr "濕度"
 
+#: meecast/qt-qml/qml/AboutPage.qml:260
+msgid "Hungarian - Salmi, László Kara\n"
+msgstr ""
+
 #: omweather/src/hash.data:107
 msgid "Ice Pellets"
 msgstr ""
@@ -1266,7 +1259,7 @@ msgstr "圖示"
 msgid "Iconset"
 msgstr "圖示集"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:272
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:276
 msgid "Iconsets"
 msgstr "圖示集"
 
@@ -1284,6 +1277,17 @@ msgstr "短暫雷雨"
 #: omweather/src/hash.data:110
 msgid "Isolated T-Storms / Wind"
 msgstr "短暫雷雨／風"
+
+#: meecast/qt-qml/qml/AboutPage.qml:239
+#, fuzzy
+msgid ""
+"Italian - Lorenzo Facca,\n"
+" \tPavel Fialko, Alessandro Pasotti,\n"
+" \tSalvatore Fiorenzo, Ilir Gjika,\n"
+" \tLuca Onnis\n"
+msgstr ""
+"Italian - Pavel Fialko、Alessandro Pasotti、Salvatore Fiorenzo、Luca Onnis，"
+"Polish - Tomasz Dominikowski，Bulgarian - Zlatko Enikov"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:429
 msgid ""
@@ -1340,7 +1344,7 @@ msgstr "頁面樣式︰"
 msgid "Lead designers"
 msgstr "首席設計師"
 
-#: meecast/qt-qml/qml/AboutPage.qml:306
+#: meecast/qt-qml/qml/AboutPage.qml:310
 msgid "License"
 msgstr "版權"
 
@@ -1526,9 +1530,10 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
+#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2014"
+"client based on OMWeather code. Copyright (C) 2006-2015"
 msgstr ""
 "MeeCast - 以 OMWeather 為基底的多平台高度自訂化開源氣象客戶端程式。 "
 "Copyright (C) 2006-2014"
@@ -1805,6 +1810,10 @@ msgstr "無今日氣象資料。"
 #: omweather/src/weather-popup.c:681 omweather/src/weather-simple-popup.c:608
 msgid "No weather data for this station."
 msgstr "此站點無氣象資料。"
+
+#: meecast/qt-qml/qml/AboutPage.qml:259
+msgid "Norwegian - Peer-Atle Motland\n"
+msgstr ""
 
 #: omweather/src/weather-home.c:2734 omweather/src/weather-home.c:2746
 #: omweather/src/weather-popup.c:459 omweather/src/weather-popup.c:570
@@ -2094,6 +2103,14 @@ msgstr "多雲恐有雷雨"
 msgid "Period"
 msgstr "期間"
 
+#: meecast/qt-qml/qml/AboutPage.qml:244
+msgid "Polish - Tomasz Dominikowski\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/AboutPage.qml:252
+msgid "Portuguese - Jose Narciso,\n"
+msgstr ""
+
 #: omweather/src/weather-settings.c:3649
 msgid "Position:"
 msgstr "位置"
@@ -2286,6 +2303,12 @@ msgstr "地區"
 msgid "Rush Hour Traffic"
 msgstr "交通尖峰時段"
 
+#: meecast/qt-qml/qml/AboutPage.qml:231
+msgid ""
+"Russian - Pavel Fialko, Vlad Vasilyeu, \n"
+" \tEd Bartosh\n"
+msgstr ""
+
 #: omweather/src/hash.data:274
 msgid "S"
 msgstr "南"
@@ -2452,6 +2475,10 @@ msgstr "選擇站點"
 msgid "Sensor"
 msgstr "感測器"
 
+#: meecast/qt-qml/qml/AboutPage.qml:258
+msgid "Serbian - Aleksandar Zaric\n"
+msgstr ""
+
 #: omweather/src/weather-simple-settings.c:2228
 msgid "Set"
 msgstr "Set"
@@ -2567,6 +2594,14 @@ msgstr "霰"
 msgid "Sleet Showers"
 msgstr "短暫陣雨"
 
+#: meecast/qt-qml/qml/AboutPage.qml:245
+msgid "Slovak - Roman Moravčík\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/AboutPage.qml:261
+msgid "Slovenian -  Boštjan\n"
+msgstr ""
+
 #: omweather/src/hash.data:299
 msgid "Smoke"
 msgstr "煙"
@@ -2629,13 +2664,17 @@ msgstr "雪"
 msgid "Source"
 msgstr "來源"
 
-#: meecast/qt-qml/qml/AboutPage.qml:328
+#: meecast/qt-qml/qml/AboutPage.qml:332
 msgid "Source code"
 msgstr "程式原始碼"
 
 #: omweather/src/weather-settings.c:498
 msgid "Source:"
 msgstr "來源︰"
+
+#: meecast/qt-qml/qml/AboutPage.qml:243
+msgid "Spanish - Alejandro Lopez, Agustí Clara\n"
+msgstr ""
 
 #: omweather/src/weather-popup.c:998 omweather/src/weather-popup.c:1004
 #: omweather/src/weather-popup.c:1011 omweather/src/weather-popup.c:1129
@@ -2716,6 +2755,13 @@ msgstr "支援"
 msgid "Swap hi/low temperature"
 msgstr "調換高低氣溫"
 
+#: meecast/qt-qml/qml/AboutPage.qml:266
+msgid ""
+"Swedish - Angela Nennebrandt,\n"
+" \tNiklas Åkerström, \n"
+" \tTomislav Veleckovik"
+msgstr ""
+
 #: omweather/src/weather-settings.c:4180
 msgid "Switch to the next station after:"
 msgstr "多久後轉換至下個站點︰"
@@ -2784,7 +2830,7 @@ msgstr "此清單內沒有戰點可以顯示"
 msgid "This is experimental feature. Only English is supported."
 msgstr "此為實驗功能。僅提供英文版。"
 
-#: meecast/qt-qml/qml/AboutPage.qml:315
+#: meecast/qt-qml/qml/AboutPage.qml:319
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2854,6 +2900,12 @@ msgstr "透明度："
 #: omweather/src/hash.data:329 meecast/qt-qml/qml/WeatherPage.qml:501
 msgid "Try to update"
 msgstr "嘗試更新"
+
+#: meecast/qt-qml/qml/AboutPage.qml:253
+msgid ""
+"Turkish - Burak Kaan Kose,\n"
+" \tMehmet Çilingir\n"
+msgstr ""
 
 #: omweather/src/weather-settings.c:3452
 msgid "Type of click:"
@@ -2941,6 +2993,12 @@ msgstr "Valid time for current weather:"
 #: omweather/src/hash.data:333
 msgid "Very High"
 msgstr "非常高"
+
+#: meecast/qt-qml/qml/AboutPage.qml:264
+msgid ""
+"Vietnamese - Hieu Nguyen\n"
+" \tAnh Dương and truongnx, \n"
+msgstr ""
 
 #: omweather/src/hash.data:394
 #, fuzzy
@@ -3236,7 +3294,7 @@ msgstr "小時前"
 msgid "hours ago"
 msgstr "小時前"
 
-#: meecast/qt-qml/qml/AboutPage.qml:337
+#: meecast/qt-qml/qml/AboutPage.qml:341
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 
@@ -3437,3 +3495,79 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:408
 msgid "Ю-З"
 msgstr "Ю-З"
+
+#, fuzzy
+#~ msgid ""
+#~ "French -  Nicolas Granziano, \n"
+#~ " \tPhilippe, Benot Knecht, \n"
+#~ " \tQuentin Caillard, \n"
+#~ " \tJordi\n"
+#~ " Russian - Pavel Fialko, Vlad Vasiliev, \n"
+#~ " \tEd Bartosh\n"
+#~ " Finnish - Marko Vertainen\n"
+#~ " German -  Claudius Henrichs,\n"
+#~ " \tJens Klingen,\n"
+#~ " \tDeadHorseRiding\n"
+#~ " Italian - Lorenzo Facca,\n"
+#~ " \tPavel Fialko, Alessandro Pasotti,\n"
+#~ " \tSalvatore Fiorenzo, Ilir Gjika,\n"
+#~ " \tLuca Onnis\n"
+#~ " Spanish - Alejandro Lopez, Agustí Clara\n"
+#~ " Polish - Tomasz Dominikowski\n"
+#~ " Slovak - Roman Moravčík\n"
+#~ " Dutch - Tom Leenders, Michiel Pater\n"
+#~ " Bulgarian - Zlatko Enikov\n"
+#~ " Albanian - Ilir Gjika\n"
+#~ " Chinese - Wong Man Kong, Michael\n"
+#~ " Portuguese - Jose Narciso,\n"
+#~ " Turkish - Burak Kaan Kose,\n"
+#~ " \tMehmet Çilingir,\n"
+#~ " Catalan - Agustí Clara,\n"
+#~ " Arabic - Tarad Alfandi,\n"
+#~ " Danish - Peter Jespersen,\n"
+#~ " Serbian - Aleksandar Zaric,\n"
+#~ " Norwegian - Peer-Atle Motland,\n"
+#~ " Hungarian - Salmi,\n"
+#~ " Slovenian -  Boštjan,\n"
+#~ " Czech - Jakub Kožíšek, Pavel Šrubař,\n"
+#~ " Chinese(Taiwan) - osk2, \n"
+#~ " Vietnamese - Hieu Nguyen\n"
+#~ " \tAnh Dương and truongnx, \n"
+#~ " Swedish - Angela Nennebrandt,\n"
+#~ " \tNiklas Åkerström, \n"
+#~ " \tTomislav Veleckovik"
+#~ msgstr ""
+#~ "French -  Nicolas Granziano, \n"
+#~ " \tPhilippe, Benot Knecht \n"
+#~ " Russian - Pavel Fialko, Vlad Vasiliev, \n"
+#~ " \tEd Bartosh\n"
+#~ " Finnish - Marko Vertainen\n"
+#~ " German -  Claudius Henrichs,\n"
+#~ " \tJens Klingen\n"
+#~ " Italian - Lorenzo Facca,\n"
+#~ " \tPavel Fialko, Alessandro Pasotti,\n"
+#~ " \tSalvatore Fiorenzo, Ilir Gjika,\n"
+#~ " \tLuca Onnis\n"
+#~ " Spanish - Alejandro Lopez, Agustí Clara\n"
+#~ " Polish - Tomasz Dominikowski\n"
+#~ " Slovak - Roman Moravčík\n"
+#~ " Dutch - Tom Leenders, Michiel Pater\n"
+#~ " Bulgarian - Zlatko Enikov\n"
+#~ " Albanian - Ilir Gjika\n"
+#~ " Chinese - Wong Man Kong, Michael\n"
+#~ " Portuguese - Jose Narciso,\n"
+#~ " Turkish - Burak Kaan Kose,\n"
+#~ " \tMehmet Çilingir,\n"
+#~ " Catalan - Agustí Clara,\n"
+#~ " Arabic - Tarad Alfandi,\n"
+#~ " Serbian - Aleksandar Zaric,\n"
+#~ " Norwegian - Peer-Atle Motland,\n"
+#~ " Hungarian - Salmi,\n"
+#~ " Slovenian -  Boštjan,\n"
+#~ " Czech - Jakub Kožíšek, Pavel Šrubař,\n"
+#~ " Chinese(Taiwan) - osk2, \n"
+#~ " Vietnamese - Hieu Nguyen\n"
+#~ " \tAnh Dương and truongnx, \n"
+#~ " Swedish - Angela Nennebrandt,\n"
+#~ " \tNiklas Åkerström, \n"
+#~ " \tTomislav Veleckovik"

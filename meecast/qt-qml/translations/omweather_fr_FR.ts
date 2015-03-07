@@ -382,6 +382,12 @@ W : </translation>
             <translation>Ajuster la station GPS</translation>
         </message>
         <message>
+            <source>Albanian - Ilir Gjika
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Alerts</source>
             <translation>Alertes</translation>
         </message>
@@ -436,6 +442,12 @@ before installing this package</source>
 pour installer le package 'MeeCast applet'.
 Vous devez désinstaller AccuWeather
 avant d'installer ce package.</translation>
+        </message>
+        <message>
+            <source>Arabic - Tarad Alfandi
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -514,6 +526,12 @@ Design de l'interface pour Fremantle : Krebber Jan Niemelä Ulla
             <translation>Nuageux</translation>
         </message>
         <message>
+            <source>Bulgarian - Zlatko Enikov
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>C</source>
             <translation>C</translation>
         </message>
@@ -572,12 +590,31 @@ Design de l'interface pour Fremantle : Krebber Jan Niemelä Ulla
 </translation>
         </message>
         <message>
+            <source>Catalan - Agustí Clara
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Celcius</source>
             <translation>Celsius</translation>
         </message>
         <message>
             <source>Celsius</source>
             <translation>Celsius</translation>
+        </message>
+        <message>
+            <source>Chinese - Wong Man Kong, Michael,
+ 	gwmgdemj
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Chinese(Taiwan) - osk2, 
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>City</source>
@@ -798,8 +835,20 @@ Délai de connexion dépassé.</translation>
             <translation>Personnalisé</translation>
         </message>
         <message>
+            <source>Czech - Jakub Kožíšek, Pavel Šrubař
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Daily</source>
             <translation>Quotidien</translation>
+        </message>
+        <message>
+            <source>Danish - Peter Jespersen
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Day</source>
@@ -924,6 +973,13 @@ des paquets 'omweather-*-station-db' n'a été installé.</translation>
         <message>
             <source>Drizzle Late</source>
             <translation>Bruine en soirée</translation>
+        </message>
+        <message>
+            <source>Dutch - Tom Leenders, Michiel Pater
+ 	Heimen Stoffels, Nathan Follens
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>E</source>
@@ -1136,6 +1192,14 @@ Brad Jones dit kazrak - pour les tests
             <translation>Trouver la position par GPS</translation>
         </message>
         <message>
+            <source>Finnish - Marko Vertainen,
+	deadhead (A-P Partonen),
+ 	jarliim
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
 </source>
             <translation>Finnois - Marko Vertainen; Allemand - Claudius Henrichs; Espagnol - Alejandro Lopez; Hollandais - Tom Leenders; Slovaque - Roman Moravčík
@@ -1226,76 +1290,9 @@ en utilisant le gestionnaire d'applications</translation>
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
  	Jordi
- Russian - Pavel Fialko, Vlad Vasiliev, 
- 	Ed Bartosh
- Finnish - Marko Vertainen
- German -  Claudius Henrichs,
- 	Jens Klingen,
- 	DeadHorseRiding
- Italian - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
- Spanish - Alejandro Lopez, Agustí Clara
- Polish - Tomasz Dominikowski
- Slovak - Roman Moravčík
- Dutch - Tom Leenders, Michiel Pater
- Bulgarian - Zlatko Enikov
- Albanian - Ilir Gjika
- Chinese - Wong Man Kong, Michael
- Portuguese - Jose Narciso,
- Turkish - Burak Kaan Kose,
- 	Mehmet Çilingir,
- Catalan - Agustí Clara,
- Arabic - Tarad Alfandi,
- Danish - Peter Jespersen,
- Serbian - Aleksandar Zaric,
- Norwegian - Peer-Atle Motland,
- Hungarian - Salmi,
- Slovenian -  Boštjan,
- Czech - Jakub Kožíšek, Pavel Šrubař,
- Chinese(Taiwan) - osk2, 
- Vietnamese - Hieu Nguyen
- 	Anh Dương and truongnx, 
- Swedish - Angela Nennebrandt,
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</source>
-            <translation type="unfinished">Français - Nicolas Granziano,
-⇥Philippe, Benot Knecht,
-⇥Quentin Caillard
-Russe - Pavel Fialko, Vlad Vasiliev,
-⇥Ed Bartosh
-Finnois - Marko Vertainen
-Allemand - Claudius Henrichs,
-⇥Jens Klingen
-Italien - Lorenzo Facca,
-⇥Pavel Fialko, Alessandro Pasotti,
-⇥Salvatore Fiorenzo, Ilir Gjika,
-⇥Luca Onnis
-Espagnol - Alejandro Lopez, Agustí Clara
-Polonais - Tomasz Dominikowski
-Slovaque - Roman Moravčík
-Hollandais - Tom Leenders, Michiel Pater
-Bulgare - Zlatko Enikov
-Albanais - Ilir Gjika
-Chinois - Wong Man Kong, Michael
-Portuguais - Jose Narciso,
-Turque - Burak Kaan Kose,
-⇥Mehmet Çilingir,
-Catalan - Agustí Clara,
-Arabe - Tarad Alfandi,
-Danois - Peter Jespersen,
-Serbe - Aleksandar Zaric,
-Norvégien - Peer-Atle Motland,
-Hongrois - Salmi,
-Slovénien - Boštjan,
-Tchèque - Jakub Kožíšek, Pavel Šrubař,
-Chinois (Taiwan) - osk2, 
-Vietnamien - Hieu Nguyen
-⇥Anh Dương and truongnx, 
-Suédois - Angela Nennebrandt,
-⇥Niklas Åkerström, 
-⇥Tomislav Veleckovik</translation>
+</source>
+            <translation type="unfinished">Translators: Francais - Nicolas Graziano, Philippe, Benot Knecht; Russe - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
+</translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1356,6 +1353,14 @@ Slovaque - Roman Moravčík</translation>
         <message>
             <source>GUI|Clear</source>
             <translation>GUI|Effacer</translation>
+        </message>
+        <message>
+            <source>German -  Claudius Henrichs,
+ 	Jens Klingen,
+ 	DeadHorseRiding
+ </source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
@@ -1478,6 +1483,12 @@ Slovaque - Roman Moravčík</translation>
             <translation>Humidité :</translation>
         </message>
         <message>
+            <source>Hungarian - Salmi, László Kara
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation>Granules de glace</translation>
         </message>
@@ -1540,6 +1551,14 @@ Slovaque - Roman Moravčík</translation>
         <message>
             <source>Isolated T-Storms / Wind</source>
             <translation>Orages localisés / vent</translation>
+        </message>
+        <message>
+            <source>Italian - Lorenzo Facca,
+ 	Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+</source>
+            <translation type="unfinished">Italien - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polonais - Tomasz Dominikowski; Bulgare - Zlatko Enikov</translation>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
@@ -1800,8 +1819,8 @@ Slovaque - Roman Moravčík</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
-            <translation>MeeCast - client de prévisions météorologiques multiplateformes hautement personnalisable open source basé sur le code OMWeather. Copyright (C) 2006-2014</translation>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
+            <translation type="unfinished">MeeCast - client de prévisions météorologiques multiplateformes hautement personnalisable open source basé sur le code OMWeather. Copyright (C) 2006-2014</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2150,6 +2169,12 @@ Slovaque - Roman Moravčík</translation>
         <message>
             <source>No weather data for this station.</source>
             <translation>Pas de données météo pour cette station.</translation>
+        </message>
+        <message>
+            <source>Norwegian - Peer-Atle Motland
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Now</source>
@@ -2504,6 +2529,18 @@ Slovaque - Roman Moravčík</translation>
             <translation>Période</translation>
         </message>
         <message>
+            <source>Polish - Tomasz Dominikowski
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Portuguese - Jose Narciso,
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Position:</source>
             <translation>Position :</translation>
         </message>
@@ -2736,6 +2773,13 @@ Slovaque - Roman Moravčík</translation>
             <translation>Trafic d'heures de pointe</translation>
         </message>
         <message>
+            <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
+ 	Ed Bartosh
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>S</source>
             <translation>S</translation>
         </message>
@@ -2948,6 +2992,12 @@ Slovaque - Roman Moravčík</translation>
             <translation>Capteur</translation>
         </message>
         <message>
+            <source>Serbian - Aleksandar Zaric
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Set</source>
             <translation>Définir</translation>
         </message>
@@ -3080,6 +3130,18 @@ Slovaque - Roman Moravčík</translation>
             <translation>Averses de neige pluvieuse</translation>
         </message>
         <message>
+            <source>Slovak - Roman Moravčík
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Slovenian -  Boštjan
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Smoke</source>
             <translation>Fumée</translation>
         </message>
@@ -3146,6 +3208,12 @@ Slovaque - Roman Moravčík</translation>
         <message>
             <source>Source:</source>
             <translation>Source :</translation>
+        </message>
+        <message>
+            <source>Spanish - Alejandro Lopez, Agustí Clara
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Speed</source>
@@ -3286,6 +3354,13 @@ Slovaque - Roman Moravčík</translation>
         <message>
             <source>Swap hi/low temperature</source>
             <translation>Inverser température maximale/minimale</translation>
+        </message>
+        <message>
+            <source>Swedish - Angela Nennebrandt,
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Switch to the next station after:</source>
@@ -3472,6 +3547,13 @@ version ultérieure.</translation>
             <translation>Mettre à jour</translation>
         </message>
         <message>
+            <source>Turkish - Burak Kaan Kose,
+ 	Mehmet Çilingir
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Type of click:</source>
             <translation>Type de clic :</translation>
         </message>
@@ -3625,6 +3707,13 @@ pour la météo actuelle :</translation>
         <message>
             <source>Very High</source>
             <translation>Très haut</translation>
+        </message>
+        <message>
+            <source>Vietnamese - Hieu Nguyen
+ 	Anh Dương and truongnx, 
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Violent Rain Showers</source>

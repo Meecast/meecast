@@ -382,6 +382,12 @@ W: </translation>
             <translation>Podesi GPS stanicu</translation>
         </message>
         <message>
+            <source>Albanian - Ilir Gjika
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Alerts</source>
             <translation>Upozorenja</translation>
         </message>
@@ -436,6 +442,12 @@ before installing this package</source>
 zbog instalacije paketa 'MeeCast applet'.
 Trebalo bi da deinstalirate AccuWeather 
 pre instalacije ovog paketa</translation>
+        </message>
+        <message>
+            <source>Arabic - Tarad Alfandi
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -514,6 +526,12 @@ Dizajn za Fremantle: Krebber Jan Niemelä Ulla
             <translation>Razbijeni oblaci</translation>
         </message>
         <message>
+            <source>Bulgarian - Zlatko Enikov
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>C</source>
             <translation>C</translation>
         </message>
@@ -572,12 +590,31 @@ Dizajn za Fremantle: Krebber Jan Niemelä Ulla
 </translation>
         </message>
         <message>
+            <source>Catalan - Agustí Clara
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Celcius</source>
             <translation>Celzius</translation>
         </message>
         <message>
             <source>Celsius</source>
             <translation>Celzius</translation>
+        </message>
+        <message>
+            <source>Chinese - Wong Man Kong, Michael,
+ 	gwmgdemj
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Chinese(Taiwan) - osk2, 
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>City</source>
@@ -799,8 +836,20 @@ Predodređeno vreme za povezivanje je isteklo.</translation>
             <translation>Po želji</translation>
         </message>
         <message>
+            <source>Czech - Jakub Kožíšek, Pavel Šrubař
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Daily</source>
             <translation>Dnevno</translation>
+        </message>
+        <message>
+            <source>Danish - Peter Jespersen
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Day</source>
@@ -928,6 +977,13 @@ od 'omweather-*-stations-db' paketa nije instaliran.</translation>
         <message>
             <source>Drizzle Late</source>
             <translation>U kasnim satima rominjanje kiše</translation>
+        </message>
+        <message>
+            <source>Dutch - Tom Leenders, Michiel Pater
+ 	Heimen Stoffels, Nathan Follens
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>E</source>
@@ -1140,6 +1196,14 @@ Brad Jones aka kazrak - za testiranje
             <translation>Pronađi lokaciju preko GPS-a</translation>
         </message>
         <message>
+            <source>Finnish - Marko Vertainen,
+	deadhead (A-P Partonen),
+ 	jarliim
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
 </source>
             <translation>Finski - Marko Vertainen; Nemački - Claudius Henrichs; Španski - Alejandro Lopez; Holandski - Tom Leenders; Slovački - Roman Moravčík
@@ -1230,74 +1294,9 @@ koristeći Menadžer aplikacija</translation>
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
  	Jordi
- Russian - Pavel Fialko, Vlad Vasiliev, 
- 	Ed Bartosh
- Finnish - Marko Vertainen
- German -  Claudius Henrichs,
- 	Jens Klingen,
- 	DeadHorseRiding
- Italian - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
- Spanish - Alejandro Lopez, Agustí Clara
- Polish - Tomasz Dominikowski
- Slovak - Roman Moravčík
- Dutch - Tom Leenders, Michiel Pater
- Bulgarian - Zlatko Enikov
- Albanian - Ilir Gjika
- Chinese - Wong Man Kong, Michael
- Portuguese - Jose Narciso,
- Turkish - Burak Kaan Kose,
- 	Mehmet Çilingir,
- Catalan - Agustí Clara,
- Arabic - Tarad Alfandi,
- Danish - Peter Jespersen,
- Serbian - Aleksandar Zaric,
- Norwegian - Peer-Atle Motland,
- Hungarian - Salmi,
- Slovenian -  Boštjan,
- Czech - Jakub Kožíšek, Pavel Šrubař,
- Chinese(Taiwan) - osk2, 
- Vietnamese - Hieu Nguyen
- 	Anh Dương and truongnx, 
- Swedish - Angela Nennebrandt,
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</source>
-            <translation type="unfinished">Francuski -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
- Ruski - Pavel Fialko, Vlad Vasiliev, 
- 	Ed Bartosh
- Finski - Marko Vertainen
- Nemački -  Claudius Henrichs,
- 	Jens Klingen
- Italijanski - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
- Španski - Alejandro Lopez, Agustí Clara
- Poljski - Tomasz Dominikowski
- Slovački - Roman Moravčík
- Holandski - Tom Leenders, Michiel Pater
- Bugarski - Zlatko Enikov
- Albanski - Ilir Gjika
- Kineski - Wong Man Kong, Michael
- Portugalski - Jose Narciso,
- Turski - Burak Kaan Kose,
- 	Mehmet Çilingir,
- Katalonski - Agustí Clara,
- Arapski - Tarad Alfandi,
- Srpski - Aleksandar Zaric,
- Norveški - Peer-Atle Motland,
- Mađarski - Salmi,
- Slovenački -  Boštjan,
- Češki - Jakub Kožíšek, Pavel Šrubař,
- Kineski(Tajvanski) - osk2, 
- Vijetnamski - Hieu Nguyen
- 	Anh Dương and truongnx, 
- Švedski - Angela Nennebrandt,
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</translation>
+</source>
+            <translation type="unfinished">Prevodioci: Francuski - Nicolas Granziano, Philippe, Benot Knecht; Ruski - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
+</translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1358,6 +1357,14 @@ Slovački - Roman Moravčík</translation>
         <message>
             <source>GUI|Clear</source>
             <translation>GUI|Očisti</translation>
+        </message>
+        <message>
+            <source>German -  Claudius Henrichs,
+ 	Jens Klingen,
+ 	DeadHorseRiding
+ </source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
@@ -1482,6 +1489,12 @@ Padavine: </translation>
             <translation>Vlažnost:</translation>
         </message>
         <message>
+            <source>Hungarian - Salmi, László Kara
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation type="unfinished">
             </translation>
@@ -1545,6 +1558,14 @@ Padavine: </translation>
         <message>
             <source>Isolated T-Storms / Wind</source>
             <translation>Po negde oluje sa grmljavinom / Vetar</translation>
+        </message>
+        <message>
+            <source>Italian - Lorenzo Facca,
+ 	Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+</source>
+            <translation type="unfinished">Italijanski - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Poljski - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</translation>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
@@ -1806,8 +1827,8 @@ Padavine: </translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
-            <translation>MeeCast - višeplatformni visoko podešavajući klijent vremenske prognoze otvorenog koda baziran na OMWeather kodu. Copyright (C) 2006-2014</translation>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
+            <translation type="unfinished">MeeCast - višeplatformni visoko podešavajući klijent vremenske prognoze otvorenog koda baziran na OMWeather kodu. Copyright (C) 2006-2014</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2156,6 +2177,12 @@ Padavine: </translation>
         <message>
             <source>No weather data for this station.</source>
             <translation>Nema vremenskih podataka za ovu stanicu.</translation>
+        </message>
+        <message>
+            <source>Norwegian - Peer-Atle Motland
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Now</source>
@@ -2510,6 +2537,18 @@ Padavine: </translation>
             <translation>Period</translation>
         </message>
         <message>
+            <source>Polish - Tomasz Dominikowski
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Portuguese - Jose Narciso,
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Position:</source>
             <translation>Pozicija:</translation>
         </message>
@@ -2749,6 +2788,13 @@ Padavine: </translation>
             <translation>Saobraćajni špic</translation>
         </message>
         <message>
+            <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
+ 	Ed Bartosh
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>S</source>
             <translation>S</translation>
         </message>
@@ -2961,6 +3007,12 @@ Padavine: </translation>
             <translation>Senzor</translation>
         </message>
         <message>
+            <source>Serbian - Aleksandar Zaric
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Set</source>
             <translation>Postavi</translation>
         </message>
@@ -3094,6 +3146,18 @@ Padavine: </translation>
             <translation type="unfinished">Po koji pljusak</translation>
         </message>
         <message>
+            <source>Slovak - Roman Moravčík
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Slovenian -  Boštjan
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Smoke</source>
             <translation>Dim</translation>
         </message>
@@ -3160,6 +3224,12 @@ Padavine: </translation>
         <message>
             <source>Source:</source>
             <translation>Izvor:</translation>
+        </message>
+        <message>
+            <source>Spanish - Alejandro Lopez, Agustí Clara
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Speed</source>
@@ -3301,6 +3371,13 @@ Padavine: </translation>
         <message>
             <source>Swap hi/low temperature</source>
             <translation>Zameni mesta najviša/najniža temperatura</translation>
+        </message>
+        <message>
+            <source>Swedish - Angela Nennebrandt,
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Switch to the next station after:</source>
@@ -3487,6 +3564,13 @@ kasnija verzija.</translation>
             <translation>Pokušaj da ažuriraš</translation>
         </message>
         <message>
+            <source>Turkish - Burak Kaan Kose,
+ 	Mehmet Çilingir
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Type of click:</source>
             <translation>Vrsta klika:</translation>
         </message>
@@ -3639,6 +3723,13 @@ za korigovanje slika applet-a</translation>
         <message>
             <source>Very High</source>
             <translation>Mnogo visok</translation>
+        </message>
+        <message>
+            <source>Vietnamese - Hieu Nguyen
+ 	Anh Dương and truongnx, 
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Violent Rain Showers</source>

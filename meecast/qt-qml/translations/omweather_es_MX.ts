@@ -386,6 +386,12 @@ Vie: </translation>
             <translation type="unfinished">Agregar estación</translation>
         </message>
         <message>
+            <source>Albanian - Ilir Gjika
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Alerts</source>
             <translation>Alertas</translation>
         </message>
@@ -439,6 +445,12 @@ before installing this package</source>
 para instalar el paquete 'MeeCast applet'.
 Debería desinstalar AccuWeather antes
 de instalar dicho paquete.</translation>
+        </message>
+        <message>
+            <source>Arabic - Tarad Alfandi
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -520,6 +532,12 @@ Diseño de la IU para Fremantle: Krebber Jan Niemelä Ulla
             </translation>
         </message>
         <message>
+            <source>Bulgarian - Zlatko Enikov
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>C</source>
             <translation>C</translation>
         </message>
@@ -578,11 +596,30 @@ Diseño de la IU para Fremantle: Krebber Jan Niemelä Ulla
 </translation>
         </message>
         <message>
+            <source>Catalan - Agustí Clara
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Celcius</source>
             <translation>Celcius</translation>
         </message>
         <message>
             <source>Celsius</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Chinese - Wong Man Kong, Michael,
+ 	gwmgdemj
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Chinese(Taiwan) - osk2, 
+</source>
             <translation type="unfinished">
             </translation>
         </message>
@@ -808,7 +845,19 @@ El tiempo de conexión expiró.</translation>
             <translation>Personal</translation>
         </message>
         <message>
+            <source>Czech - Jakub Kožíšek, Pavel Šrubař
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Daily</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Danish - Peter Jespersen
+</source>
             <translation type="unfinished">
             </translation>
         </message>
@@ -938,6 +987,13 @@ paquete 'omweather-*-station-db' fue instalado.</translation>
         <message>
             <source>Drizzle Late</source>
             <translation>Llovizna tarde</translation>
+        </message>
+        <message>
+            <source>Dutch - Tom Leenders, Michiel Pater
+ 	Heimen Stoffels, Nathan Follens
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>E</source>
@@ -1151,6 +1207,14 @@ Brad &quot;kazrak&quot; Jones - por testear
             <translation>Tomar ubicación del GPS</translation>
         </message>
         <message>
+            <source>Finnish - Marko Vertainen,
+	deadhead (A-P Partonen),
+ 	jarliim
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
 </source>
             <translation type="unfinished">Finlandés - Marko Vertainen; Alemán - Claudius Henrichs;  Castellano - Alejandro López; Eslovaco - Roman Moravčík
@@ -1241,52 +1305,9 @@ el Administrador de Aplicaciones.</translation>
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
  	Jordi
- Russian - Pavel Fialko, Vlad Vasiliev, 
- 	Ed Bartosh
- Finnish - Marko Vertainen
- German -  Claudius Henrichs,
- 	Jens Klingen,
- 	DeadHorseRiding
- Italian - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
- Spanish - Alejandro Lopez, Agustí Clara
- Polish - Tomasz Dominikowski
- Slovak - Roman Moravčík
- Dutch - Tom Leenders, Michiel Pater
- Bulgarian - Zlatko Enikov
- Albanian - Ilir Gjika
- Chinese - Wong Man Kong, Michael
- Portuguese - Jose Narciso,
- Turkish - Burak Kaan Kose,
- 	Mehmet Çilingir,
- Catalan - Agustí Clara,
- Arabic - Tarad Alfandi,
- Danish - Peter Jespersen,
- Serbian - Aleksandar Zaric,
- Norwegian - Peer-Atle Motland,
- Hungarian - Salmi,
- Slovenian -  Boštjan,
- Czech - Jakub Kožíšek, Pavel Šrubař,
- Chinese(Taiwan) - osk2, 
- Vietnamese - Hieu Nguyen
- 	Anh Dương and truongnx, 
- Swedish - Angela Nennebrandt,
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</source>
-            <translation type="unfinished">Francés - Nicolas Granziano, 
-	Philippe, Benot Knetch 
-Ruso - Pavel Fialko, Vlad Vasiliev, 
-	Ed Bartosh
-Finlandés - Marko Vertainen
-Alemán - Claudius Henrichs
-Italiano - Pavel Fialko, Alessandro Pasotti,
-	Salvatore Fiorenzo, Luca Onnis
-Castellano - Alejandro López
-Polaco - Tomasz Dominikowski
-Eslovaco - Roman Moravčík 
-Sueco - Angela Nennebrandt, Tomislav Veleckovik</translation>
+</source>
+            <translation type="unfinished">Traductores: Francés - Nicolas Granziano, Philippe, Benoit Knecht; Ruso - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
+</translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1347,6 +1368,14 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>GUI|Clear</source>
             <translation>Borrar</translation>
+        </message>
+        <message>
+            <source>German -  Claudius Henrichs,
+ 	Jens Klingen,
+ 	DeadHorseRiding
+ </source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
@@ -1471,6 +1500,12 @@ Precipitación: </translation>
             <translation>Humedad: </translation>
         </message>
         <message>
+            <source>Hungarian - Salmi, László Kara
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation type="unfinished">
             </translation>
@@ -1534,6 +1569,14 @@ Precipitación: </translation>
         <message>
             <source>Isolated T-Storms / Wind</source>
             <translation>Tormentas eléctricas aisladas / Viento</translation>
+        </message>
+        <message>
+            <source>Italian - Lorenzo Facca,
+ 	Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+</source>
+            <translation type="unfinished">Italiano - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polaco - Tomasz Dominikowski;</translation>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
@@ -1798,7 +1841,7 @@ Precipitación: </translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
             <translation type="unfinished">MeeCast - cliente de pronósticos del tiempo de código abierto, altamente personalizable y multiplataforma, basado en el código de OMWeather. Copyright (C) 2006, 2011</translation>
         </message>
         <message>
@@ -2148,6 +2191,12 @@ Precipitación: </translation>
         <message>
             <source>No weather data for this station.</source>
             <translation>No hay datos del clima para esta estación.</translation>
+        </message>
+        <message>
+            <source>Norwegian - Peer-Atle Motland
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Now</source>
@@ -2504,6 +2553,18 @@ Precipitación: </translation>
             <translation>Período</translation>
         </message>
         <message>
+            <source>Polish - Tomasz Dominikowski
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Portuguese - Jose Narciso,
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Position:</source>
             <translation>Posición:</translation>
         </message>
@@ -2744,6 +2805,13 @@ Precipitación: </translation>
             <translation>Tráfico de hora pico</translation>
         </message>
         <message>
+            <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
+ 	Ed Bartosh
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>S</source>
             <translation>S</translation>
         </message>
@@ -2961,6 +3029,12 @@ Precipitación: </translation>
             <translation>Sensor</translation>
         </message>
         <message>
+            <source>Serbian - Aleksandar Zaric
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Set</source>
             <translation>Íconos</translation>
         </message>
@@ -3097,6 +3171,18 @@ Precipitación: </translation>
             <translation type="unfinished">Algunos chaparrones</translation>
         </message>
         <message>
+            <source>Slovak - Roman Moravčík
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Slovenian -  Boštjan
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Smoke</source>
             <translation>Humo</translation>
         </message>
@@ -3163,6 +3249,12 @@ Precipitación: </translation>
         <message>
             <source>Source:</source>
             <translation>Origen:</translation>
+        </message>
+        <message>
+            <source>Spanish - Alejandro Lopez, Agustí Clara
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Speed</source>
@@ -3308,6 +3400,13 @@ Precipitación: </translation>
         <message>
             <source>Swap hi/low temperature</source>
             <translation>Invertir temperaturas máx./min.</translation>
+        </message>
+        <message>
+            <source>Swedish - Angela Nennebrandt,
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Switch to the next station after:</source>
@@ -3495,6 +3594,13 @@ ya sea la versión 2.1 de la licencia, o (a sudiscreción) cualquier versión po
             <translation>Intentar actualizar</translation>
         </message>
         <message>
+            <source>Turkish - Burak Kaan Kose,
+ 	Mehmet Çilingir
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Type of click:</source>
             <translation>Tipo de click:</translation>
         </message>
@@ -3648,6 +3754,13 @@ la información del clima.
         <message>
             <source>Very High</source>
             <translation>Muy alta</translation>
+        </message>
+        <message>
+            <source>Vietnamese - Hieu Nguyen
+ 	Anh Dương and truongnx, 
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Violent Rain Showers</source>

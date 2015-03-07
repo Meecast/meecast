@@ -372,6 +372,12 @@ W: </translation>
             <translation type="unfinished">Dodaj stację</translation>
         </message>
         <message>
+            <source>Albanian - Ilir Gjika
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Alerts</source>
             <translation>Ostrzeżenia</translation>
         </message>
@@ -426,6 +432,12 @@ Menedżer Aplikacji, w którym trzeba
 zainstalować pakiet &quot;MeeCast Applet&quot;.
 Powinieneś odinstalować AccuWeather
 przed instalowaniem tego pakietu.</translation>
+        </message>
+        <message>
+            <source>Arabic - Tarad Alfandi
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -507,6 +519,12 @@ Interfejs dla Fremantle: Krebber Jan Niemelä Ulla
             </translation>
         </message>
         <message>
+            <source>Bulgarian - Zlatko Enikov
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>C</source>
             <translation>C</translation>
         </message>
@@ -565,11 +583,30 @@ Interfejs dla Fremantle: Krebber Jan Niemelä Ulla
 </translation>
         </message>
         <message>
+            <source>Catalan - Agustí Clara
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Celcius</source>
             <translation>Celsjusz</translation>
         </message>
         <message>
             <source>Celsius</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Chinese - Wong Man Kong, Michael,
+ 	gwmgdemj
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Chinese(Taiwan) - osk2, 
+</source>
             <translation type="unfinished">
             </translation>
         </message>
@@ -793,8 +830,20 @@ Czas połączenia wygasł.</translation>
             <translation>Własny</translation>
         </message>
         <message>
+            <source>Czech - Jakub Kožíšek, Pavel Šrubař
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Daily</source>
             <translation>Dziennie</translation>
+        </message>
+        <message>
+            <source>Danish - Peter Jespersen
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Day</source>
@@ -922,6 +971,13 @@ pakietów &quot;omweather-*-stations-db&quot;.</translation>
         <message>
             <source>Drizzle Late</source>
             <translation>Później mżawka</translation>
+        </message>
+        <message>
+            <source>Dutch - Tom Leenders, Michiel Pater
+ 	Heimen Stoffels, Nathan Follens
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>E</source>
@@ -1140,6 +1196,14 @@ Brad Jones aka kazrak - za testowanie
             <translation>Używaj GPS do znalezienia lokalizacji</translation>
         </message>
         <message>
+            <source>Finnish - Marko Vertainen,
+	deadhead (A-P Partonen),
+ 	jarliim
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
 </source>
             <translation>Fiński - Marko Vertainen; Niemiecki - Claudius Henrichs; Hiszpański - Alejandro Lopez; Slovak - Roman Moravčík
@@ -1230,59 +1294,9 @@ używając Menedżera aplikacji</translation>
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
  	Jordi
- Russian - Pavel Fialko, Vlad Vasiliev, 
- 	Ed Bartosh
- Finnish - Marko Vertainen
- German -  Claudius Henrichs,
- 	Jens Klingen,
- 	DeadHorseRiding
- Italian - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
- Spanish - Alejandro Lopez, Agustí Clara
- Polish - Tomasz Dominikowski
- Slovak - Roman Moravčík
- Dutch - Tom Leenders, Michiel Pater
- Bulgarian - Zlatko Enikov
- Albanian - Ilir Gjika
- Chinese - Wong Man Kong, Michael
- Portuguese - Jose Narciso,
- Turkish - Burak Kaan Kose,
- 	Mehmet Çilingir,
- Catalan - Agustí Clara,
- Arabic - Tarad Alfandi,
- Danish - Peter Jespersen,
- Serbian - Aleksandar Zaric,
- Norwegian - Peer-Atle Motland,
- Hungarian - Salmi,
- Slovenian -  Boštjan,
- Czech - Jakub Kožíšek, Pavel Šrubař,
- Chinese(Taiwan) - osk2, 
- Vietnamese - Hieu Nguyen
- 	Anh Dương and truongnx, 
- Swedish - Angela Nennebrandt,
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</source>
-            <translation type="unfinished">francuski - Nicolas Granziano,
-Philippe, Benot Knecht
-rosyjski - Pavel Fialko, Vlad Vasiliev,
-Ed Bartosh
-fiński - Marko Vertainen
-niemiecki - Claudius Henrichs
-włoski - Pavel Fialko, Alessandro Pasotti,
-Salvatore Fiorenzo, Ilir Gjika,
-Luca Onnis
-hiszpański - Alejandro Lopez
-polski - Kuba Mędrek, Tomasz Dominikowski
-słowacki - Roman Moravčík
-niemiecki - Tom Leenders, Michiel Pater
-bułgarski - Zlatko Enikov
-albański - Ilir Gjika
-chiński - Wong Man Kong, Michael
-szwedzki - Angela Nennebrandt,
-Niklas Åkerström,
-Tomislav Veleckovik</translation>
+</source>
+            <translation type="unfinished">Tłumaczenia: Francuski - Nicolas Granziano, Philippe, Benot Knecht; Rosyjski - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
+</translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1343,6 +1357,14 @@ słowacki - Roman Moravčík</translation>
         <message>
             <source>GUI|Clear</source>
             <translation>Wyczyść</translation>
+        </message>
+        <message>
+            <source>German -  Claudius Henrichs,
+ 	Jens Klingen,
+ 	DeadHorseRiding
+ </source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
@@ -1467,6 +1489,12 @@ Opady: </translation>
             <translation>Wilgotność:</translation>
         </message>
         <message>
+            <source>Hungarian - Salmi, László Kara
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation type="unfinished">
             </translation>
@@ -1530,6 +1558,14 @@ Opady: </translation>
         <message>
             <source>Isolated T-Storms / Wind</source>
             <translation>Miejscowe burze / wiatr</translation>
+        </message>
+        <message>
+            <source>Italian - Lorenzo Facca,
+ 	Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+</source>
+            <translation type="unfinished">włoski - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; polski - Kuba Mędrek, Tomasz Dominikowski; Bułgarski - Zlatko Enikov</translation>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
@@ -1794,7 +1830,7 @@ Opady: </translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
             <translation type="unfinished">MeeCast - multiplatformowy, możliwy do dostosowania otwartoźródłowy program wyświetlający prognozy pogody, bazujący na kodzie OMWeather. Copyright (C) 2006-2011</translation>
         </message>
         <message>
@@ -2153,6 +2189,12 @@ Opady: </translation>
             <translation>Brak danych pogodowych dla tej stacji.</translation>
         </message>
         <message>
+            <source>Norwegian - Peer-Atle Motland
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Now</source>
             <translation>Teraz</translation>
         </message>
@@ -2506,6 +2548,18 @@ Opady: </translation>
             <translation>Okres</translation>
         </message>
         <message>
+            <source>Polish - Tomasz Dominikowski
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Portuguese - Jose Narciso,
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Position:</source>
             <translation>Położenie:</translation>
         </message>
@@ -2749,6 +2803,13 @@ Opady: </translation>
             <translation>Ruch w godzinach szczytu</translation>
         </message>
         <message>
+            <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
+ 	Ed Bartosh
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>S</source>
             <translation>Pd</translation>
         </message>
@@ -2973,6 +3034,12 @@ Opady: </translation>
             <translation>Czujnik</translation>
         </message>
         <message>
+            <source>Serbian - Aleksandar Zaric
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Set</source>
             <translation>Ustaw</translation>
         </message>
@@ -3108,6 +3175,18 @@ Opady: </translation>
             <translation type="unfinished">Lekki przelotny deszcz</translation>
         </message>
         <message>
+            <source>Slovak - Roman Moravčík
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Slovenian -  Boštjan
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Smoke</source>
             <translation>Dym</translation>
         </message>
@@ -3174,6 +3253,12 @@ Opady: </translation>
         <message>
             <source>Source:</source>
             <translation>Źródło</translation>
+        </message>
+        <message>
+            <source>Spanish - Alejandro Lopez, Agustí Clara
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Speed</source>
@@ -3319,6 +3404,13 @@ Opady: </translation>
         <message>
             <source>Swap hi/low temperature</source>
             <translation>Zamiana wysokiej/niskiej temperatury</translation>
+        </message>
+        <message>
+            <source>Swedish - Angela Nennebrandt,
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Switch to the next station after:</source>
@@ -3508,6 +3600,13 @@ Fundację wolnego oprogramowania.</translation>
             <translation>Spróbuj zaktualizować</translation>
         </message>
         <message>
+            <source>Turkish - Burak Kaan Kose,
+ 	Mehmet Çilingir
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Type of click:</source>
             <translation>Rodzaj kliknięcia:</translation>
         </message>
@@ -3662,6 +3761,13 @@ aktualizowania prognoz.
         <message>
             <source>Very High</source>
             <translation>Bardzo wysokie</translation>
+        </message>
+        <message>
+            <source>Vietnamese - Hieu Nguyen
+ 	Anh Dương and truongnx, 
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Violent Rain Showers</source>

@@ -381,6 +381,12 @@ P: </translation>
             <translation type="unfinished">Shto Stacion</translation>
         </message>
         <message>
+            <source>Albanian - Ilir Gjika
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Alerts</source>
             <translation>Lajmërime</translation>
         </message>
@@ -435,6 +441,12 @@ before installing this package</source>
 'MeeCast applet' do të fillojë tani.
 Ju duhet të fshini AccuWeather 
 përpara se të vazhdoni</translation>
+        </message>
+        <message>
+            <source>Arabic - Tarad Alfandi
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -515,6 +527,12 @@ Krijimi i ndërfaqes për Fremantle-in: Krebber Jan Niemelä Ulla
             </translation>
         </message>
         <message>
+            <source>Bulgarian - Zlatko Enikov
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>C</source>
             <translation>C</translation>
         </message>
@@ -573,12 +591,31 @@ Krijimi i ndërfaqes për Fremantle-in: Krebber Jan Niemelä Ulla
 </translation>
         </message>
         <message>
+            <source>Catalan - Agustí Clara
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Celcius</source>
             <translation>Celcius</translation>
         </message>
         <message>
             <source>Celsius</source>
             <translation>Celcius</translation>
+        </message>
+        <message>
+            <source>Chinese - Wong Man Kong, Michael,
+ 	gwmgdemj
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Chinese(Taiwan) - osk2, 
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>City</source>
@@ -800,8 +837,20 @@ Koha për lidhjen mbaroi.</translation>
             <translation>Përvetësuar</translation>
         </message>
         <message>
+            <source>Czech - Jakub Kožíšek, Pavel Šrubař
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Daily</source>
             <translation>Ditore</translation>
+        </message>
+        <message>
+            <source>Danish - Peter Jespersen
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Day</source>
@@ -929,6 +978,13 @@ paketat 'omweather-*-stations-db' është e instaluar .</translation>
         <message>
             <source>Drizzle Late</source>
             <translation>Shi i imët vonë</translation>
+        </message>
+        <message>
+            <source>Dutch - Tom Leenders, Michiel Pater
+ 	Heimen Stoffels, Nathan Follens
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>E</source>
@@ -1142,6 +1198,14 @@ Brad Jones aka kazrak - for testing
             <translation>Gjej vëndin me GPS-në</translation>
         </message>
         <message>
+            <source>Finnish - Marko Vertainen,
+	deadhead (A-P Partonen),
+ 	jarliim
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
 </source>
             <translation>Finlandisht - Marko Vertainen; Gjermanisht - Claudius Henrichs; Spanjisht - Alejandro Lopez; Sllovakisht - Roman Moravčík
@@ -1232,69 +1296,9 @@ duke përdorur Application manager</translation>
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
  	Jordi
- Russian - Pavel Fialko, Vlad Vasiliev, 
- 	Ed Bartosh
- Finnish - Marko Vertainen
- German -  Claudius Henrichs,
- 	Jens Klingen,
- 	DeadHorseRiding
- Italian - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
- Spanish - Alejandro Lopez, Agustí Clara
- Polish - Tomasz Dominikowski
- Slovak - Roman Moravčík
- Dutch - Tom Leenders, Michiel Pater
- Bulgarian - Zlatko Enikov
- Albanian - Ilir Gjika
- Chinese - Wong Man Kong, Michael
- Portuguese - Jose Narciso,
- Turkish - Burak Kaan Kose,
- 	Mehmet Çilingir,
- Catalan - Agustí Clara,
- Arabic - Tarad Alfandi,
- Danish - Peter Jespersen,
- Serbian - Aleksandar Zaric,
- Norwegian - Peer-Atle Motland,
- Hungarian - Salmi,
- Slovenian -  Boštjan,
- Czech - Jakub Kožíšek, Pavel Šrubař,
- Chinese(Taiwan) - osk2, 
- Vietnamese - Hieu Nguyen
- 	Anh Dương and truongnx, 
- Swedish - Angela Nennebrandt,
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</source>
-            <translation type="unfinished">Frëngjisht -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
- Rusisht - Pavel Fialko, Vlad Vasiliev, 
- 	Ed Bartosh
- Finlandisht - Marko Vertainen
- Gjermanisht -  Claudius Henrichs
- Italisht - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
- Spanjisht - Alejandro Lopez
- Polonisht - Tomasz Dominikowski
- Sllovakisht - Roman Moravčík
- Hollandisht - Tom Leenders, Michiel Pater
- Bullgarisht - Zlatko Enikov
- Shqip - Ilir Gjika
- Kinezçe - Wong Man Kong, Michael
- Portugalisht - Jose Narciso,
- Turqisht - Burak Kaan Kose,
- Catalanisht - Agustí Clara,
- Arabisht - Tarad Alfandi,
- Sërbisht - Saleki,
- Norvegjisht - Peer-Atle Motland,
- Hungarisht - Salmi,
- Vietnamisht - Hieu Nguyen
- 	Anh Dương and truongnx, 
- Suedisht - Angela Nennebrandt,
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</translation>
+</source>
+            <translation type="unfinished">Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
+</translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1355,6 +1359,14 @@ Sllovakisht - Roman Moravčík</translation>
         <message>
             <source>GUI|Clear</source>
             <translation>GUI|Fshije</translation>
+        </message>
+        <message>
+            <source>German -  Claudius Henrichs,
+ 	Jens Klingen,
+ 	DeadHorseRiding
+ </source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
@@ -1479,6 +1491,12 @@ Rreshjet: </translation>
             <translation>Lagështira:</translation>
         </message>
         <message>
+            <source>Hungarian - Salmi, László Kara
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation type="unfinished">
             </translation>
@@ -1542,6 +1560,14 @@ Rreshjet: </translation>
         <message>
             <source>Isolated T-Storms / Wind</source>
             <translation>Rrebeshe të izoluara / Erë</translation>
+        </message>
+        <message>
+            <source>Italian - Lorenzo Facca,
+ 	Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+</source>
+            <translation type="unfinished">Italisht - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polonisht - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</translation>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
@@ -1806,7 +1832,7 @@ Rreshjet: </translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
             <translation type="unfinished">MeeCast është një program multiplataformë dhe i personalizueshëm, me kod të hapur, për paraqitjen e parashikimeve te motit i bazuar në kodin e OMWeather. Të gjitha të drejtat janë të rezervuara 2006-2012</translation>
         </message>
         <message>
@@ -2156,6 +2182,12 @@ Rreshjet: </translation>
         <message>
             <source>No weather data for this station.</source>
             <translation>S'ka të dhëna nga ky stacion</translation>
+        </message>
+        <message>
+            <source>Norwegian - Peer-Atle Motland
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Now</source>
@@ -2510,6 +2542,18 @@ Rreshjet: </translation>
             <translation>Periudha</translation>
         </message>
         <message>
+            <source>Polish - Tomasz Dominikowski
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Portuguese - Jose Narciso,
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Position:</source>
             <translation>Posicioni:</translation>
         </message>
@@ -2750,6 +2794,13 @@ Rreshjet: </translation>
             <translation>Ora e pikut</translation>
         </message>
         <message>
+            <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
+ 	Ed Bartosh
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>S</source>
             <translation>J</translation>
         </message>
@@ -2962,6 +3013,12 @@ Rreshjet: </translation>
             <translation>Sensori</translation>
         </message>
         <message>
+            <source>Serbian - Aleksandar Zaric
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Set</source>
             <translation>Vendos</translation>
         </message>
@@ -3096,6 +3153,18 @@ Rreshjet: </translation>
             <translation type="unfinished">Disa stuhira shiu</translation>
         </message>
         <message>
+            <source>Slovak - Roman Moravčík
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Slovenian -  Boštjan
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Smoke</source>
             <translation>Tym</translation>
         </message>
@@ -3162,6 +3231,12 @@ Rreshjet: </translation>
         <message>
             <source>Source:</source>
             <translation>Burimi:</translation>
+        </message>
+        <message>
+            <source>Spanish - Alejandro Lopez, Agustí Clara
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Speed</source>
@@ -3306,6 +3381,13 @@ Rreshjet: </translation>
         <message>
             <source>Swap hi/low temperature</source>
             <translation>Ndërro temperaturën e lartë/ e ulët</translation>
+        </message>
+        <message>
+            <source>Swedish - Angela Nennebrandt,
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Switch to the next station after:</source>
@@ -3494,6 +3576,13 @@ të GNU General Public License
             <translation>Provo të përditësosh</translation>
         </message>
         <message>
+            <source>Turkish - Burak Kaan Kose,
+ 	Mehmet Çilingir
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Type of click:</source>
             <translation>Lloji i click-ut:</translation>
         </message>
@@ -3645,6 +3734,13 @@ për të ndryshuar fotografinë applet</translation>
         <message>
             <source>Very High</source>
             <translation>Shumë e lartë</translation>
+        </message>
+        <message>
+            <source>Vietnamese - Hieu Nguyen
+ 	Anh Dương and truongnx, 
+</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Violent Rain Showers</source>

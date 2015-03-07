@@ -142,77 +142,77 @@ Page {
 	    anchors.left: parent.left
 	    color: "#999999"
         }
-	Label {
-            id: prohectadministatorfulltext 
-	    text: "Vlad Vasilyeu, Oksana Kalinkevich"
-	    anchors.leftMargin: 20
-	    anchors.left: parent.left
-	    anchors.top: projectadministratortext.bottom
-	}
-    Label {
-        id: leadprogrammertext 
-        text: Config.tr ("Programmer") + ":"
-	    anchors.top: prohectadministatorfulltext.bottom 
-	    anchors.topMargin: 30 
-	    anchors.leftMargin: 20
-	    anchors.left: parent.left
-	    color: "#999999"
-    }
-	Label {
-        id: leadprogrammerfulltext 
-	    text: "Vlad Vasilyeu, Tanya Makava"
-	    anchors.leftMargin: 20
-	    anchors.left: parent.left
-	    anchors.top: leadprogrammertext.bottom
-	}
-    Label {
-        id: localizationtext
-        text: Config.tr ("Localization platform") + ":"
-	    anchors.top: leadprogrammerfulltext.bottom 
-	    anchors.topMargin: 30 
-	    anchors.leftMargin: 20
-	    anchors.left: parent.left
-	    color: "#999999"
-    }
-	Label {
-        id: localizationfulltext 
-	    text: "http://transifex.net"
-	    anchors.leftMargin: 20
-	    anchors.left: parent.left
-	    anchors.top: localizationtext.bottom
-	}
-	Label {
-        id: leaddesignertext 
-        text: Config.tr("Lead designers") + ":"
-	    anchors.top: localizationfulltext.bottom 
-	    anchors.topMargin: 30 
-	    anchors.leftMargin: 20
-	    anchors.left: parent.left
-	    color: "#999999"
+        Label {
+                id: prohectadministatorfulltext 
+            text: "Vlad Vasilyeu, Oksana Kalinkevich"
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            anchors.top: projectadministratortext.bottom
         }
-	Label {
-        id: leaddesignerfulltext 
-	    text: "Andrew Zhilin, Stephan Beyerle"
-	    anchors.leftMargin: 20
-	    anchors.left: parent.left
-	    anchors.top: leaddesignertext.bottom
-	}
-	Label {
-            id: projectmanagertext 
-            text: Config.tr("Project manager") + ":"
-	    anchors.top: leaddesignerfulltext.bottom
-	    anchors.topMargin: 30 
-	    anchors.leftMargin: 20
-	    anchors.left: parent.left
-	    color: "#999999"
+        Label {
+            id: leadprogrammertext 
+            text: Config.tr ("Programmer") + ":"
+            anchors.top: prohectadministatorfulltext.bottom 
+            anchors.topMargin: 30 
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            color: "#999999"
         }
-	Label {
-            id: projectmanagerfulltext 
-	    text: "Ludmila Lisovskaya"
-	    anchors.leftMargin: 20
-	    anchors.left: parent.left
-	    anchors.top: projectmanagertext.bottom
-	}
+        Label {
+            id: leadprogrammerfulltext 
+            text: "Vlad Vasilyeu, Tanya Makava"
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            anchors.top: leadprogrammertext.bottom
+        }
+        Label {
+            id: localizationtext
+            text: Config.tr ("Localization platform") + ":"
+            anchors.top: leadprogrammerfulltext.bottom 
+            anchors.topMargin: 30 
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            color: "#999999"
+        }
+        Label {
+            id: localizationfulltext 
+            text: "http://transifex.net"
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            anchors.top: localizationtext.bottom
+        }
+        Label {
+            id: leaddesignertext 
+            text: Config.tr("Lead designers") + ":"
+            anchors.top: localizationfulltext.bottom 
+            anchors.topMargin: 30 
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            color: "#999999"
+            }
+        Label {
+            id: leaddesignerfulltext 
+            text: "Andrew Zhilin, Stephan Beyerle"
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            anchors.top: leaddesignertext.bottom
+        }
+        Label {
+                id: projectmanagertext 
+                text: Config.tr("Project manager") + ":"
+            anchors.top: leaddesignerfulltext.bottom
+            anchors.topMargin: 30 
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            color: "#999999"
+            }
+        Label {
+                id: projectmanagerfulltext 
+            text: "Ludmila Lisovskaya"
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            anchors.top: projectmanagertext.bottom
+        }
         Label {
             id: translatorstext
             text: Config.tr("Translators") + ":"

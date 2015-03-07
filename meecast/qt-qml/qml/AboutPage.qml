@@ -228,39 +228,42 @@ Page {
 French -  Nicolas Granziano, \n \
 \tPhilippe, Benot Knecht, \n \
 \tQuentin Caillard, \n \
-\tJordi\n \
-Russian - Pavel Fialko, Vlad Vasiliev, \n \
-\tEd Bartosh\n \
-Finnish - Marko Vertainen\n \
+\tJordi\n") + Config.tr("\
+Russian - Pavel Fialko, Vlad Vasilyeu, \n \
+\tEd Bartosh\n") + Config.tr("\
+Finnish - Marko Vertainen,\n\
+\tdeadhead (A-P Partonen),\n \
+\tjarliim,\n") + Config.tr("\
 German -  Claudius Henrichs,\n \
 \tJens Klingen,\n \
-\tDeadHorseRiding\n \
+\tDeadHorseRiding\n ") + Config.tr("\
 Italian - Lorenzo Facca,\n \
 \tPavel Fialko, Alessandro Pasotti,\n \
 \tSalvatore Fiorenzo, Ilir Gjika,\n \
-\tLuca Onnis\n \
-Spanish - Alejandro Lopez, Agustí Clara\n \
-Polish - Tomasz Dominikowski\n \
-Slovak - Roman Moravčík\n \
+\tLuca Onnis\n") + Config.tr("\
+Spanish - Alejandro Lopez, Agustí Clara\n ") + Config.tr("\
+Polish - Tomasz Dominikowski\n") + Config.tr("\
+Slovak - Roman Moravčík\n") + Config.tr("\
 Dutch - Tom Leenders, Michiel Pater\n \
-Bulgarian - Zlatko Enikov\n \
-Albanian - Ilir Gjika\n \
-Chinese - Wong Man Kong, Michael\n \
-Portuguese - Jose Narciso,\n \
+\tHeimen Stoffels, Nathan Follens\n") + Config.tr("\
+Bulgarian - Zlatko Enikov\n") + Config.tr("\
+Albanian - Ilir Gjika\n") + Config.tr("\
+Chinese - Wong Man Kong, Michael,n\ \
+\tgwmgdemj\n") + Config.tr("\
+Portuguese - Jose Narciso,\n") + Config.tr("\
 Turkish - Burak Kaan Kose,\n \
-\tMehmet Çilingir,\n \
-Catalan - Agustí Clara,\n \
-Arabic - Tarad Alfandi,\n \
-Danish - Peter Jespersen,\n \
-Serbian - Aleksandar Zaric,\n \
-Norwegian - Peer-Atle Motland,\n \
-Hungarian - Salmi,\n \
-\tLászló Kara,\n \
-Slovenian -  Boštjan,\n \
-Czech - Jakub Kožíšek, Pavel Šrubař,\n \
-Chinese(Taiwan) - osk2, \n \
+\tMehmet Çilingir,\n") + Config.tr("\
+Catalan - Agustí Clara,\n") + Config.tr("\
+Arabic - Tarad Alfandi,\n") + Config.tr("\
+Danish - Peter Jespersen,\n") + Config.tr("\
+Serbian - Aleksandar Zaric,\n") + Config.tr("\
+Norwegian - Peer-Atle Motland,\n") + Config.tr("\
+Hungarian - Salmi, László Kara,\n") + Config.tr("\
+Slovenian -  Boštjan,\n") + Config.tr("\
+Czech - Jakub Kožíšek, Pavel Šrubař,\n") + Config.tr("\
+Chinese(Taiwan) - osk2, \n") + Config.tr("\
 Vietnamese - Hieu Nguyen\n \
-\tAnh Dương and truongnx, \n \
+\tAnh Dương and truongnx, \n") + Config.tr("\
 Swedish - Angela Nennebrandt,\n \
 \tNiklas Åkerström, \n \
 \tTomislav Veleckovik")

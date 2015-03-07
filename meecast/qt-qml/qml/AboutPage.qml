@@ -1,148 +1,166 @@
-import QtQuick 2.0
-import Sailfish.Silica 1.0
+//import QtQuick 1.1
+import Qt 4.7
+import com.nokia.meego 1.0
 
 Page {
     id: about
-    property int screen_height : about.height
-    property int screen_width : about.width 
-
-    Rectangle {
-        anchors.fill: parent
-        color: Config.transparency ? "transparent" : "black"
+    property int margin: 16
+    tools: ToolBarLayout {
+        ToolIcon {
+            iconId: "toolbar-back"
+            onClicked: {
+                pageStack.pop();
+            }
+        }
     }
-    SilicaFlickable {
+    orientationLock: PageOrientation.LockPortrait
+    Flickable {
         anchors.fill: parent
         flickableDirection: Flickable.VerticalFlick
-        contentHeight: 4700
-        PageHeader {
-            title: Config.tr("MeeCast for SailfishOS")
+        contentHeight: 3300 
+        Label {
+            id: titletext
+            text: Config.tr("MeeCast for Harmattan")
+            anchors.horizontalCenter: parent.horizontalCenter
+	    font.pixelSize: 32
         }
+
         Rectangle {
-            color: "transparent"
-            x: 0; y: 0.0805*screen_height; width: parent.width; height: 274
+            color: "purple"
+            x: 0; y: 80; width: parent.width; height: 274
         }
-        Image {
-            id: backgroundmask
-            source: Config.imagespath + "/mask_background.png"
-            x: 0; y: 0.0805*screen_height; width: parent.width;
-            smooth: true
+
+	Image {
+            id: backgroundmask 
+	        source: Config.imagespath + "/mask_background.png"
+            x: 0; y: 80; width: parent.width; 
+	        smooth: true
         }
-        Image {
+	Image {
+            id: titlemask 
+	    source: Config.imagespath + "/mask_title.png"
+//            x: 0; y: 80; width: parent.width; 	
+//	    anchors.bottom: versiontext.bottom
+	    anchors.verticalCenter: versiontext.verticalCenter
+            smooth: true	
+        }
+
+
+	Image {
             id: icon
-            source: Config.iconspath + "/" + Config.iconset + "/28.png"
+	    source: Config.iconspath + "/" + Config.iconset + "/28.png" 
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.top
-            anchors.topMargin: 100
-            height: 128
-            width: 128
-            smooth: true
+	    anchors.top: titletext.bottom
+	    anchors.topMargin: 25
+            smooth: true	
         }
-        Label {
+
+     	Label {
             id: versiontext
-            text: "Version" + " " + Config.version
+            text: "Version" + " " + Config.version 
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: icon.bottom
-            anchors.topMargin: 5
-            font.pixelSize: 24
+	    anchors.top: icon.bottom
+	    anchors.topMargin: 5
+	    font.pixelSize: 24
         }
         Label {
-            id: abouttext
+            id: abouttext 
             text: Config.tr("About") + ":"
-            anchors.top: versiontext.bottom
-            anchors.topMargin: 30
-            anchors.leftMargin: 20
-            anchors.left: parent.left
-            color: "#999999"
+	    anchors.top: versiontext.bottom 
+	    anchors.topMargin: 30 
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    color: "#999999"
         }
-        Label {
-            id: aboutfulltext
+	Label {
+            id: aboutfulltext 
             text: Config.tr("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014")
-            anchors.leftMargin: 20
-            anchors.left: parent.left
-            anchors.top: abouttext.bottom
-            wrapMode: Text.Wrap
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    anchors.top: abouttext.bottom
+	    wrapMode: Text.Wrap                                                                                                                                            
             width: parent.width - 20
-}
-        Label {
-            id: projectsitetext
+	}
+    Label {
+            id: projectsitetext 
             text: Config.tr("Support") + ":"
-            anchors.top: aboutfulltext.bottom
-            anchors.topMargin: 30
-            anchors.leftMargin: 20
-            anchors.left: parent.left
-            color: "#999999"
+	    anchors.top: aboutfulltext.bottom 
+	    anchors.topMargin: 30 
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    color: "#999999"
         }
-        Label {
-            signal clicked
-            id: projectfulltext
-            text: "support@meecast.org"
-            anchors.leftMargin: 20
-            anchors.left: parent.left
-            anchors.top: projectsitetext.bottom
-            MouseArea {
-                id: mouseArea_web_support
-                anchors.fill: parent
-                onReleased: {
-                    Config.showwebsupport();
-                }
-            }
-        }
-/*
-Image {
+	Label {
         signal clicked
-        id: donate_button
-source: Config.imagespath + "/btn_donate_LG.png"
-anchors.top: projectsitetext.bottom
-anchors.rightMargin: 20
-anchors.right: parent.right
-        smooth: true	
+        id: projectfulltext 
+	    text: "support@meecast.org"
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    anchors.top: projectsitetext.bottom
         MouseArea {
-            id: mouseArea
+            id: mouseArea_web_support
             anchors.fill: parent
             onReleased: {
-                Config.showwebdonation();
+                Config.showwebsupport();
             }
         }
-    }
 
-    */
-        Rectangle {
-            id: splitter
-            color: "#999999"
-            x: 20; width: parent.width - 40; height: 2
-    //        anchors.top: projectfulltext.bottom
-            anchors.top: projectsitetext.bottom
-            anchors.leftMargin: 20
-            anchors.topMargin: 50
+	}
+//	Image {
+//        signal clicked
+//        id: donate_button
+//	    source: Config.imagespath + "/btn_donate_LG.png" 
+//	    anchors.top: projectsitetext.bottom
+//	    anchors.rightMargin: 20
+//	    anchors.right: parent.right
+//        smooth: true	
+//        MouseArea {
+//            id: mouseArea
+//            anchors.fill: parent
+//            onReleased: {
+//                Config.showwebdonation();
+//            }
+//        }
+//
+//    }
+
+	Rectangle {
+	    id: splitter
+        color: "#999999"
+        x: 20; width: parent.width - 40; height: 2
+	    anchors.top: projectfulltext.bottom 
+	    anchors.leftMargin: 20
+	    anchors.topMargin: 30 
+        }
+
+        Label {
+            id: projectadministratortext 
+            text: Config.tr("Project administrators") + ":"
+	    anchors.top: splitter.bottom 
+	    anchors.topMargin: 30 
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    color: "#999999"
         }
         Label {
-            id: projectadministratortext
-            text: Config.tr("Project administrator") + ":"
-            anchors.top: splitter.bottom
-            anchors.topMargin: 30
-            anchors.leftMargin: 20
-            anchors.left: parent.left
-            color: "#999999"
-        }
-        Label {
-            id: prohectadministatorfulltext
-            text: "Vlad Vasilyeu"
+                id: prohectadministatorfulltext 
+            text: "Vlad Vasilyeu, Oksana Kalinkevich"
             anchors.leftMargin: 20
             anchors.left: parent.left
             anchors.top: projectadministratortext.bottom
         }
         Label {
-            id: leadprogrammertext
+            id: leadprogrammertext 
             text: Config.tr ("Programmer") + ":"
-            anchors.top: prohectadministatorfulltext.bottom
-            anchors.topMargin: 30
+            anchors.top: prohectadministatorfulltext.bottom 
+            anchors.topMargin: 30 
             anchors.leftMargin: 20
             anchors.left: parent.left
             color: "#999999"
         }
         Label {
-            id: leadprogrammerfulltext
-            text: "Vlad Vasilyeu"
+            id: leadprogrammerfulltext 
+            text: "Vlad Vasilyeu, Tanya Makava"
             anchors.leftMargin: 20
             anchors.left: parent.left
             anchors.top: leadprogrammertext.bottom
@@ -150,46 +168,46 @@ anchors.right: parent.right
         Label {
             id: localizationtext
             text: Config.tr ("Localization platform") + ":"
-            anchors.top: leadprogrammerfulltext.bottom
-            anchors.topMargin: 30
+            anchors.top: leadprogrammerfulltext.bottom 
+            anchors.topMargin: 30 
             anchors.leftMargin: 20
             anchors.left: parent.left
             color: "#999999"
         }
         Label {
-            id: localizationfulltext
+            id: localizationfulltext 
             text: "http://transifex.net"
             anchors.leftMargin: 20
             anchors.left: parent.left
             anchors.top: localizationtext.bottom
         }
         Label {
-            id: leaddesignertext
+            id: leaddesignertext 
             text: Config.tr("Lead designers") + ":"
-            anchors.top: localizationfulltext.bottom
-            anchors.topMargin: 30
+            anchors.top: localizationfulltext.bottom 
+            anchors.topMargin: 30 
             anchors.leftMargin: 20
             anchors.left: parent.left
             color: "#999999"
-        }
+            }
         Label {
-            id: leaddesignerfulltext
+            id: leaddesignerfulltext 
             text: "Andrew Zhilin, Stephan Beyerle"
             anchors.leftMargin: 20
             anchors.left: parent.left
             anchors.top: leaddesignertext.bottom
         }
         Label {
-            id: projectmanagertext
-            text: Config.tr("Project manager") + ":"
+                id: projectmanagertext 
+                text: Config.tr("Project manager") + ":"
             anchors.top: leaddesignerfulltext.bottom
-            anchors.topMargin: 30
+            anchors.topMargin: 30 
             anchors.leftMargin: 20
             anchors.left: parent.left
             color: "#999999"
-        }
+            }
         Label {
-            id: projectmanagerfulltext
+                id: projectmanagerfulltext 
             text: "Ludmila Lisovskaya"
             anchors.leftMargin: 20
             anchors.left: parent.left
@@ -204,8 +222,8 @@ anchors.right: parent.right
             anchors.left: parent.left
             color: "#999999"
         }
-Label {
-            id: translatorsfulltext
+	Label {
+            id: translatorsfulltext 
             text: Config.tr("\
 French -  Nicolas Granziano, \n \
 \tPhilippe, Benot Knecht, \n \
@@ -249,83 +267,82 @@ Vietnamese - Hieu Nguyen\n \
 Swedish - Angela Nennebrandt,\n \
 \tNiklas Åkerström, \n \
 \tTomislav Veleckovik")
-            anchors.leftMargin: 20
-            anchors.left: parent.left
-            anchors.top: translatorstext.bottom
-        }
-        Label {
-            id: iconsetext
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    anchors.top: translatorstext.bottom
+	}
+    Label {
+            id: iconsetext  
             text: Config.tr("Iconsets") + ":"
             anchors.top: translatorsfulltext.bottom
             anchors.topMargin: 30
             anchors.leftMargin: 20
             anchors.left: parent.left
             color: "#999999"
-       }
-Label {
-            id: iconsetfulltext
-text: "Beginning - \n \
+        }
+	Label {
+            id: iconsetfulltext 
+	        text: "Beginning - \n \
 Beginning beginning_somehow(at)yahoo.com \n\n\
 Contour - \n\
-Glance - \n\
+Glance  - \n\
 MeeCast - \n\
-Andrew Zhilin http://tabletui.wordpress.com \n\n\
-Epona - \n\
+Andrew Zhilin  http://tabletui.wordpress.com \n\n\
+Epona   - \n\
 Gianni Polito aka Epona http://crystalxp.net \n\n\
-Grzankas -\n\
+Grzankas  -\n\
 Wojciech Grzanka http://http://grzanka.pl/ \n\n\
 SimpelMee - \n\
-Kim Venetvirta tardolus(at)ovi.com \n\n\
-Noun - \n\
+Kim Venetvirta  tardolus(at)ovi.com \n\n\
+Noun   - \n\
 designed by Adam Whitcroft \n\
 from The Noun Project. http://thenounproject.com\n\n\
 Shiny - \n\
 JyriK http://jyrik.deviantart.com \n\
 jyrik(at)koti.luukku.com";
-anchors.leftMargin: 20
-anchors.left: parent.left
-anchors.top: iconsetext.bottom
-font.pixelSize: 26
-}
-        Label {
-            id: licensetext
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    anchors.top: iconsetext.bottom
+	    font.pixelSize: 20 
+	}
+    Label {
+            id: licensetext  
             text: Config.tr("License") + ":"
             anchors.top: iconsetfulltext.bottom
             anchors.topMargin: 30
             anchors.leftMargin: 20
             anchors.left: parent.left
             color: "#999999"
-        }
-Label {
-        id: licensefulltext
-text: Config.tr ("This software is free software; you can\n \
+    }
+	Label {
+        id: licensefulltext 
+	    text: Config.tr ("This software is free software; you can\n \
 redistribute it and/or modify it under \n \
 the terms of the GNU General Public\n \
 License as published by the Free Software \n \
 Foundation; either version 2.1 of the \n \
 License, or (at your option) any \n \
 later version.");
-anchors.leftMargin: 20
-anchors.left: parent.left
-anchors.top: licensetext.bottom
-font.pixelSize: 30
-}
-        Label {
-            id: sourcetext
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    anchors.top: licensetext.bottom
+	}
+	Label {
+            id: sourcetext  
             text: Config.tr("Source code") + ":"
             anchors.top: licensefulltext.bottom
             anchors.topMargin: 30
             anchors.leftMargin: 20
             anchors.left: parent.left
             color: "#999999"
-            }
-        Label {
-            id: sourcefulltext
-            text: Config.tr ("http://github.com/Meecast/meecast");
-            anchors.leftMargin: 20
-            anchors.left: parent.left
-            anchors.top: sourcetext.bottom
-            font.pixelSize: 30
-        }
+    }
+	Label {
+        id: sourcefulltext 
+	    text: Config.tr ("http://github.com/Meecast/meecast");
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    anchors.top: sourcetext.bottom
+	}
+                                                                                                    
     }
 }

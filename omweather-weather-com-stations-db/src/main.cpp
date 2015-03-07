@@ -1096,38 +1096,38 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
 
                // g_hash_table_insert(data, "current", (gpointer)current);
                 
-		if (temp_hi[0] != 0){
-			fprintf(file_out,"    <period start=\"%li\"", t_start - timezone_my*3600);
-                        /* 3 hours It must be parameter of start (may be) */
-			fprintf(file_out," end=\"%li\" current=\"true\">\n", t_start + 5*3600 - timezone_my*3600); 
-			if (temp_hi[0] != 0 ) 
-			    fprintf(file_out,"     <temperature>%s</temperature>\n", temp_hi); 
-			if (wind_speed_day[0] != 0)
-			    fprintf(file_out,"     <wind_speed>%1.f</wind_speed>\n",  (double)(atoi(wind_speed_day)) * 1000/3600);
-			if (wind_direction_day[0] != 0)
-			    fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_day);
-                        if (wind_gust[0] != 0)
-			    fprintf(file_out,"     <wind_gust>%s</wind_gust>\n", wind_gust);
-			if (humidity_day[0] != 0)
-			    fprintf(file_out,"     <humidity>%s</humidity>\n", humidity_day);
-			if (pressure[0] != 0)
-			    fprintf(file_out,"     <pressure>%s</pressure>\n", pressure);
-			if (pressure_direction[0] != 0)
-			    fprintf(file_out,"     <pressure_direction>%s</pressure_direction>\n", pressure_direction);
-            if (description_day[0] != 0)
-			    fprintf(file_out,"     <description>%s</description>\n", description_day);
-            if (temp_flike[0] != 0) 
-			    fprintf(file_out,"     <flike>%s</flike>\n", temp_hi); 
-            if (icon_day[0] != 0)
-			    fprintf(file_out,"     <icon>%s</icon>\n", icon_day);
-            if (visible[0] != 0)
-			    fprintf(file_out,"     <visible>%s</visible>\n", visible);
-            if (dewpoint[0] != 0)
-                fprintf(file_out,"     <dewpoint>%s</dewpoint>\n", dewpoint);
-            if (uv_index[0] != 0)
-			    fprintf(file_out,"     <uv_index>%s</uv_index>\n", uv_index);
-			fprintf(file_out,"    </period>\n");
-		}
+                if (temp_hi[0] != 0){
+                    fprintf(file_out,"    <period start=\"%li\"", t_start - timezone_my*3600);
+                                /* 3 hours It must be parameter of start (may be) */
+                    fprintf(file_out," end=\"%li\" current=\"true\">\n", t_start + 5*3600 - timezone_my*3600); 
+                    if (temp_hi[0] != 0 ) 
+                        fprintf(file_out,"     <temperature>%s</temperature>\n", temp_hi); 
+                    if (wind_speed_day[0] != 0)
+                        fprintf(file_out,"     <wind_speed>%1.f</wind_speed>\n",  (double)(atoi(wind_speed_day)) * 1000/3600);
+                    if (wind_direction_day[0] != 0)
+                        fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_day);
+                                if (wind_gust[0] != 0)
+                        fprintf(file_out,"     <wind_gust>%s</wind_gust>\n", wind_gust);
+                    if (humidity_day[0] != 0)
+                        fprintf(file_out,"     <humidity>%s</humidity>\n", humidity_day);
+                    if (pressure[0] != 0)
+                        fprintf(file_out,"     <pressure>%s</pressure>\n", pressure);
+                    if (pressure_direction[0] != 0)
+                        fprintf(file_out,"     <pressure_direction>%s</pressure_direction>\n", pressure_direction);
+                    if (description_day[0] != 0)
+                        fprintf(file_out,"     <description>%s</description>\n", description_day);
+                    if (temp_flike[0] != 0) 
+                        fprintf(file_out,"     <flike>%s</flike>\n", temp_hi); 
+                    if (icon_day[0] != 0)
+                        fprintf(file_out,"     <icon>%s</icon>\n", icon_day);
+                    if (visible[0] != 0)
+                        fprintf(file_out,"     <visible>%s</visible>\n", visible);
+                    if (dewpoint[0] != 0)
+                        fprintf(file_out,"     <dewpoint>%s</dewpoint>\n", dewpoint);
+                    if (uv_index[0] != 0)
+                        fprintf(file_out,"     <uv_index>%s</uv_index>\n", uv_index);
+                    fprintf(file_out,"    </period>\n");
+                }
 
             }
             /* Fill other days */

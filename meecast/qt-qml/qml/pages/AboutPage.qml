@@ -56,7 +56,7 @@ Page {
         }
         Label {
             id: aboutfulltext
-            text: Config.tr("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014")
+            text: Config.tr("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015")
             anchors.leftMargin: 20
             anchors.left: parent.left
             anchors.top: abouttext.bottom
@@ -215,7 +215,7 @@ Russian - Pavel Fialko, Vlad Vasilyeu, \n \
 \tEd Bartosh\n") + Config.tr("\
 Finnish - Marko Vertainen,\n\
 \tdeadhead (A-P Partonen),\n \
-\tjarliim,\n") + Config.tr("\
+\tjarliim\n") + Config.tr("\
 German -  Claudius Henrichs,\n \
 \tJens Klingen,\n \
 \tDeadHorseRiding\n ") + Config.tr("\
@@ -230,19 +230,19 @@ Dutch - Tom Leenders, Michiel Pater\n \
 \tHeimen Stoffels, Nathan Follens\n") + Config.tr("\
 Bulgarian - Zlatko Enikov\n") + Config.tr("\
 Albanian - Ilir Gjika\n") + Config.tr("\
-Chinese - Wong Man Kong, Michael,n\ \
+Chinese - Wong Man Kong, Michael,\n \
 \tgwmgdemj\n") + Config.tr("\
 Portuguese - Jose Narciso,\n") + Config.tr("\
 Turkish - Burak Kaan Kose,\n \
-\tMehmet Çilingir,\n") + Config.tr("\
-Catalan - Agustí Clara,\n") + Config.tr("\
-Arabic - Tarad Alfandi,\n") + Config.tr("\
-Danish - Peter Jespersen,\n") + Config.tr("\
-Serbian - Aleksandar Zaric,\n") + Config.tr("\
-Norwegian - Peer-Atle Motland,\n") + Config.tr("\
-Hungarian - Salmi, László Kara,\n") + Config.tr("\
-Slovenian -  Boštjan,\n") + Config.tr("\
-Czech - Jakub Kožíšek, Pavel Šrubař,\n") + Config.tr("\
+\tMehmet Çilingir\n") + Config.tr("\
+Catalan - Agustí Clara\n") + Config.tr("\
+Arabic - Tarad Alfandi\n") + Config.tr("\
+Danish - Peter Jespersen\n") + Config.tr("\
+Serbian - Aleksandar Zaric\n") + Config.tr("\
+Norwegian - Peer-Atle Motland\n") + Config.tr("\
+Hungarian - Salmi, László Kara\n") + Config.tr("\
+Slovenian -  Boštjan\n") + Config.tr("\
+Czech - Jakub Kožíšek, Pavel Šrubař\n") + Config.tr("\
 Chinese(Taiwan) - osk2, \n") + Config.tr("\
 Vietnamese - Hieu Nguyen\n \
 \tAnh Dương and truongnx, \n") + Config.tr("\

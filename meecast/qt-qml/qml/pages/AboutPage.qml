@@ -210,7 +210,7 @@ Label {
 French - Nicolas Granziano, \n \
 \tPhilippe, Benot Knecht \n \
 \tQuentin Caillard, \n \
-\tJordi\n \
+\tJordi\n") + Config.tr("\
 Russian - Pavel Fialko, Vlad Vasiliev, \n \
 \tEd Bartosh\n \
 Finnish - Marko Vertainen\n \

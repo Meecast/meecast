@@ -255,6 +255,7 @@ Danish - Peter Jespersen,\n \
 Serbian - Aleksandar Zaric,\n \
 Norwegian - Peer-Atle Motland,\n \
 Hungarian - Salmi,\n \
+\tLászló Kara,\n \
 Slovenian -  Boštjan,\n \
 Czech - Jakub Kožíšek, Pavel Šrubař,\n \
 Chinese(Taiwan) - osk2, \n \

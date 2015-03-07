@@ -241,7 +241,7 @@ Italian - Lorenzo Facca,\n \
 \tPavel Fialko, Alessandro Pasotti,\n \
 \tSalvatore Fiorenzo, Ilir Gjika,\n \
 \tLuca Onnis\n") + Config.tr("\
-Spanish - Alejandro Lopez, Agustí Clara\n ") + Config.tr("\
+Spanish - Alejandro Lopez, Agustí Clara\n") + Config.tr("\
 Polish - Tomasz Dominikowski\n") + Config.tr("\
 Slovak - Roman Moravčík\n") + Config.tr("\
 Dutch - Tom Leenders, Michiel Pater\n \

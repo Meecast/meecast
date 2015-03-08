@@ -265,6 +265,7 @@ Chinese(Taiwan) - osk2, \n") + Config.tr("\
 Vietnamese - Hieu Nguyen\n \
 \tAnh Dương and truongnx, \n") + Config.tr("\
 Swedish - Angela Nennebrandt,\n \
+\tÅke Engelbrektson, \n \
 \tNiklas Åkerström, \n \
 \tTomislav Veleckovik")
 	    anchors.leftMargin: 20

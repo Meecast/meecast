@@ -510,7 +510,9 @@ CoverBackground {
         CoverAction {
             iconSource: "image://theme/icon-cover-refresh"
             onTriggered: {
-                Config.updatestations(); 
+                update_cover.enabled = false
+                update_next_cover.enabled = false
+                add_cover.enabled = false 
                 isUpdate = true;  
                 wind_speed_text.visible = false
                 wind_direction_background.visible = false
@@ -518,6 +520,7 @@ CoverBackground {
                 source_image.visible = false
                 now.visible = false
                 lastupdate.visible = false
+                Config.updatestations(); 
             }
         }
     }

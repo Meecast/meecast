@@ -1,6 +1,7 @@
 meecast (1.0) unstable; urgency=low
 
   * Added Hungarian trnslator László Kara to About page
+  * Added Åke Engelbrektson as Swedish translator
   * Fixed problem with weather.com source (all days show night weather forecast)
   * Rewrote About page
 

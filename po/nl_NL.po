@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-07 14:49+0300\n"
+"POT-Creation-Date: 2015-03-08 21:16+0300\n"
 "PO-Revision-Date: 2015-01-01 14:42+0000\n"
 "Last-Translator: Nathan Follens\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/meecast/language/"
@@ -1258,7 +1258,7 @@ msgstr "Iconen"
 msgid "Iconset"
 msgstr "Icoonset"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:276
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:277
 msgid "Iconsets"
 msgstr "Icoonsets"
 
@@ -1343,7 +1343,7 @@ msgstr "Layout:"
 msgid "Lead designers"
 msgstr "Hoofdontwerpers"
 
-#: meecast/qt-qml/qml/AboutPage.qml:310
+#: meecast/qt-qml/qml/AboutPage.qml:311
 msgid "License"
 msgstr "Licentie"
 
@@ -2639,7 +2639,7 @@ msgstr "Sneeuwval"
 msgid "Source"
 msgstr "Bron"
 
-#: meecast/qt-qml/qml/AboutPage.qml:332
+#: meecast/qt-qml/qml/AboutPage.qml:333
 msgid "Source code"
 msgstr "Bron code"
 
@@ -2733,6 +2733,7 @@ msgstr "Wissel hoog/laag temp."
 #: meecast/qt-qml/qml/AboutPage.qml:266
 msgid ""
 "Swedish - Angela Nennebrandt,\n"
+" \tÅke Engelbrektson, \n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
@@ -2805,7 +2806,7 @@ msgstr "Er zijn geen stations in de lijst om weer te geven"
 msgid "This is experimental feature. Only English is supported."
 msgstr "Dit is experimentele functie. Alleen Engels wordt ondersteund."
 
-#: meecast/qt-qml/qml/AboutPage.qml:319
+#: meecast/qt-qml/qml/AboutPage.qml:320
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3279,7 +3280,7 @@ msgstr "uur geleden"
 msgid "hours ago"
 msgstr "uren geleden"
 
-#: meecast/qt-qml/qml/AboutPage.qml:341
+#: meecast/qt-qml/qml/AboutPage.qml:342
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 

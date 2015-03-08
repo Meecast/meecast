@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-07 14:49+0300\n"
+"POT-Creation-Date: 2015-03-08 21:16+0300\n"
 "PO-Revision-Date: 2014-12-31 04:12+0000\n"
 "Last-Translator: gwmgdemj <gwmgdemj@163.com>\n"
 "Language-Team: Chinese (http://www.transifex.com/projects/p/meecast/language/"
@@ -1250,7 +1250,7 @@ msgstr "图标"
 msgid "Iconset"
 msgstr "图标设置"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:276
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:277
 msgid "Iconsets"
 msgstr "图标集"
 
@@ -1335,7 +1335,7 @@ msgstr "设计: "
 msgid "Lead designers"
 msgstr "主设计"
 
-#: meecast/qt-qml/qml/AboutPage.qml:310
+#: meecast/qt-qml/qml/AboutPage.qml:311
 msgid "License"
 msgstr "许可协议"
 
@@ -2630,7 +2630,7 @@ msgstr "降雪"
 msgid "Source"
 msgstr "服务器"
 
-#: meecast/qt-qml/qml/AboutPage.qml:332
+#: meecast/qt-qml/qml/AboutPage.qml:333
 msgid "Source code"
 msgstr "源码"
 
@@ -2724,6 +2724,7 @@ msgstr "互换高/低温."
 #: meecast/qt-qml/qml/AboutPage.qml:266
 msgid ""
 "Swedish - Angela Nennebrandt,\n"
+" \tÅke Engelbrektson, \n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
@@ -2796,7 +2797,7 @@ msgstr "列表中没有位置可以显示"
 msgid "This is experimental feature. Only English is supported."
 msgstr "仅作为测试功能,只支持英文版."
 
-#: meecast/qt-qml/qml/AboutPage.qml:319
+#: meecast/qt-qml/qml/AboutPage.qml:320
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3265,7 +3266,7 @@ msgstr "小时前"
 msgid "hours ago"
 msgstr "小时前"
 
-#: meecast/qt-qml/qml/AboutPage.qml:341
+#: meecast/qt-qml/qml/AboutPage.qml:342
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 

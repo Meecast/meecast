@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-07 14:49+0300\n"
+"POT-Creation-Date: 2015-03-08 21:16+0300\n"
 "PO-Revision-Date: 2014-12-23 08:59+0000\n"
 "Last-Translator: Agustí Clara <agusti.clara@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/meecast/language/"
@@ -1255,7 +1255,7 @@ msgstr "Icones"
 msgid "Iconset"
 msgstr "Joc d'icones"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:276
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:277
 msgid "Iconsets"
 msgstr "Jocs d'icones"
 
@@ -1340,7 +1340,7 @@ msgstr "Format:"
 msgid "Lead designers"
 msgstr "Dissenyadors principals"
 
-#: meecast/qt-qml/qml/AboutPage.qml:310
+#: meecast/qt-qml/qml/AboutPage.qml:311
 msgid "License"
 msgstr "Llicència"
 
@@ -2637,7 +2637,7 @@ msgstr "Neu"
 msgid "Source"
 msgstr "Origen"
 
-#: meecast/qt-qml/qml/AboutPage.qml:332
+#: meecast/qt-qml/qml/AboutPage.qml:333
 msgid "Source code"
 msgstr "Codi font"
 
@@ -2731,6 +2731,7 @@ msgstr "Inverteix temp. màx./mín."
 #: meecast/qt-qml/qml/AboutPage.qml:266
 msgid ""
 "Swedish - Angela Nennebrandt,\n"
+" \tÅke Engelbrektson, \n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
@@ -2803,7 +2804,7 @@ msgstr "No hi ha cap estació en aquesta visualització de la llista"
 msgid "This is experimental feature. Only English is supported."
 msgstr "Aquesta funció és experimental. Només està disponible en anglès."
 
-#: meecast/qt-qml/qml/AboutPage.qml:319
+#: meecast/qt-qml/qml/AboutPage.qml:320
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3278,7 +3279,7 @@ msgstr "hora enrere"
 msgid "hours ago"
 msgstr "hores enrere"
 
-#: meecast/qt-qml/qml/AboutPage.qml:341
+#: meecast/qt-qml/qml/AboutPage.qml:342
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 

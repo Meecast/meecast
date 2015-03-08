@@ -3358,6 +3358,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Swedish - Angela Nennebrandt,
+ 	Åke Engelbrektson, 
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
             <translation type="unfinished">

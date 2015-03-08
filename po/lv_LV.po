@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-07 14:49+0300\n"
+"POT-Creation-Date: 2015-03-08 21:16+0300\n"
 "PO-Revision-Date: 2012-04-19 10:38+0000\n"
 "Last-Translator: ludmilalisovskaya <ludmila.lisovskaya@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1167,7 +1167,7 @@ msgstr ""
 msgid "Iconset"
 msgstr ""
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:276
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:277
 msgid "Iconsets"
 msgstr ""
 
@@ -1247,7 +1247,7 @@ msgstr ""
 msgid "Lead designers"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:310
+#: meecast/qt-qml/qml/AboutPage.qml:311
 msgid "License"
 msgstr ""
 
@@ -2537,7 +2537,7 @@ msgstr ""
 msgid "Source"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:332
+#: meecast/qt-qml/qml/AboutPage.qml:333
 msgid "Source code"
 msgstr ""
 
@@ -2631,6 +2631,7 @@ msgstr ""
 #: meecast/qt-qml/qml/AboutPage.qml:266
 msgid ""
 "Swedish - Angela Nennebrandt,\n"
+" \tÅke Engelbrektson, \n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
@@ -2703,7 +2704,7 @@ msgstr ""
 msgid "This is experimental feature. Only English is supported."
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:319
+#: meecast/qt-qml/qml/AboutPage.qml:320
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3151,7 +3152,7 @@ msgstr ""
 msgid "hours ago"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:341
+#: meecast/qt-qml/qml/AboutPage.qml:342
 msgid "http://github.com/Meecast/meecast"
 msgstr ""
 

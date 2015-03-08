@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-07 14:49+0300\n"
+"POT-Creation-Date: 2015-03-08 21:16+0300\n"
 "PO-Revision-Date: 2011-03-29 13:10+0200\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -1272,7 +1272,7 @@ msgstr "Ikony"
 msgid "Iconset"
 msgstr "Téma ikon"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:276
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:277
 msgid "Iconsets"
 msgstr "Témy ikon"
 
@@ -1358,7 +1358,7 @@ msgstr "Rozloženie:"
 msgid "Lead designers"
 msgstr "Vedúci návrhár"
 
-#: meecast/qt-qml/qml/AboutPage.qml:310
+#: meecast/qt-qml/qml/AboutPage.qml:311
 msgid "License"
 msgstr "Licencia"
 
@@ -2700,7 +2700,7 @@ msgstr "Sneženie"
 msgid "Source"
 msgstr "Zdroj"
 
-#: meecast/qt-qml/qml/AboutPage.qml:332
+#: meecast/qt-qml/qml/AboutPage.qml:333
 #, fuzzy
 msgid "Source code"
 msgstr "Zdroj"
@@ -2795,6 +2795,7 @@ msgstr "Zameniť vysokú/nízku teplotu"
 #: meecast/qt-qml/qml/AboutPage.qml:266
 msgid ""
 "Swedish - Angela Nennebrandt,\n"
+" \tÅke Engelbrektson, \n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
@@ -2867,7 +2868,7 @@ msgstr ""
 msgid "This is experimental feature. Only English is supported."
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:319
+#: meecast/qt-qml/qml/AboutPage.qml:320
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3345,7 +3346,7 @@ msgstr "hodinu dozadu"
 msgid "hours ago"
 msgstr "hodín dozadu"
 
-#: meecast/qt-qml/qml/AboutPage.qml:341
+#: meecast/qt-qml/qml/AboutPage.qml:342
 msgid "http://github.com/Meecast/meecast"
 msgstr ""
 

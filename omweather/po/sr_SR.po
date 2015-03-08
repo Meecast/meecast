@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-07 14:49+0300\n"
+"POT-Creation-Date: 2015-03-08 21:16+0300\n"
 "PO-Revision-Date: 2014-04-15 08:34+0000\n"
 "Last-Translator: Aleksandar Zarić <alexandarzaric@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/meecast/language/"
@@ -1265,7 +1265,7 @@ msgstr "Ikone"
 msgid "Iconset"
 msgstr "Set ikona"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:276
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:277
 msgid "Iconsets"
 msgstr "Setovi ikona"
 
@@ -1350,7 +1350,7 @@ msgstr "Prikaz:"
 msgid "Lead designers"
 msgstr "Glavni dizajneri"
 
-#: meecast/qt-qml/qml/AboutPage.qml:310
+#: meecast/qt-qml/qml/AboutPage.qml:311
 msgid "License"
 msgstr "Dozvola"
 
@@ -2671,7 +2671,7 @@ msgstr "Sneg"
 msgid "Source"
 msgstr "Izvor"
 
-#: meecast/qt-qml/qml/AboutPage.qml:332
+#: meecast/qt-qml/qml/AboutPage.qml:333
 msgid "Source code"
 msgstr "Izvorni kod"
 
@@ -2765,6 +2765,7 @@ msgstr "Zameni mesta najviša/najniža temperatura"
 #: meecast/qt-qml/qml/AboutPage.qml:266
 msgid ""
 "Swedish - Angela Nennebrandt,\n"
+" \tÅke Engelbrektson, \n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
@@ -2837,7 +2838,7 @@ msgstr "Nema stanica za prikaz u ovom pregledu liste"
 msgid "This is experimental feature. Only English is supported."
 msgstr "Ovo je eksperimentalna opcija. Podržan je samo engleski jezik."
 
-#: meecast/qt-qml/qml/AboutPage.qml:319
+#: meecast/qt-qml/qml/AboutPage.qml:320
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3314,7 +3315,7 @@ msgstr "sat ranije"
 msgid "hours ago"
 msgstr "sati ranije"
 
-#: meecast/qt-qml/qml/AboutPage.qml:341
+#: meecast/qt-qml/qml/AboutPage.qml:342
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 

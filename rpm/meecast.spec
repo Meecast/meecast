@@ -157,12 +157,13 @@ systemctl-user start meecastd.service
 
 
 %changelog
-* Sat Mar 6 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.0 
+* Mon Mar 9 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.0 
 
   * Added Hungarian trnslator László Kara to About page
   * Added Åke Engelbrektson as Swedish translator
   * Fixed problem with weather.com source (all days show night weather forecast)
   * Fixed problem with CoverActions on Cover page after manual start updating of  weather forecast 
+  * Fixed Slovenian translator name to Boštjan Štrumbelj
   * Rewrote About page
   * Fixed problem with incorrect view on the main page(with nil data) when weather forecast is updated 
 

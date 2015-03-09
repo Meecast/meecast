@@ -259,7 +259,7 @@ Danish - Peter Jespersen\n") + Config.tr("\
 Serbian - Aleksandar Zaric\n") + Config.tr("\
 Norwegian - Peer-Atle Motland\n") + Config.tr("\
 Hungarian - Salmi, László Kara\n") + Config.tr("\
-Slovenian -  Boštjan\n") + Config.tr("\
+Slovenian - Boštjan Štrumbelj\n") + Config.tr("\
 Czech - Jakub Kožíšek, Pavel Šrubař\n") + Config.tr("\
 Chinese(Taiwan) - osk2, \n") + Config.tr("\
 Vietnamese - Hieu Nguyen\n \

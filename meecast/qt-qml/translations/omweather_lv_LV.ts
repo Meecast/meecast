@@ -3742,7 +3742,7 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
-            <source>Slovenian -  Boštjan
+            <source>Slovenian - Boštjan Štrumbelj
 </source>
             <translation type="unfinished">
             </translation>

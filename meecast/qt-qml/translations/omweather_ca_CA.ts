@@ -3137,7 +3137,7 @@ Català - Agustí Clara</translation>
             </translation>
         </message>
         <message>
-            <source>Slovenian -  Boštjan
+            <source>Slovenian - Boštjan Štrumbelj
 </source>
             <translation type="unfinished">
             </translation>

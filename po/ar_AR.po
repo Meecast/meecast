@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-08 21:16+0300\n"
+"POT-Creation-Date: 2015-03-09 21:40+0300\n"
 "PO-Revision-Date: 2014-03-31 08:24+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/meecast/language/"
@@ -2605,7 +2605,7 @@ msgid "Slovak - Roman Moravčík\n"
 msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:261
-msgid "Slovenian -  Boštjan\n"
+msgid "Slovenian - Boštjan Štrumbelj\n"
 msgstr ""
 
 #: omweather/src/hash.data:299

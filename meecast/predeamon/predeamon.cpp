@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2013 Vlad Vasilyeu
+ * Copyright (C) 2006-2015 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -150,7 +150,10 @@ main (int argc, char *argv[])
         temp_data->temperature_low().units(config->TemperatureUnit());
         temp_data->temperature_hi().units(config->TemperatureUnit());
         temp_data->temperature().units(config->TemperatureUnit());
-        temp_data->Text(_(temp_data->Text().c_str()));
+        if (temp_data->Text().c_str() != "")
+            temp_data->Text(_(temp_data->Text().c_str()));
+        else
+            temp_data->Text("");
         if (temp_data->temperature().value(true) == INT_MAX){
             temp = "N/A";
         }else

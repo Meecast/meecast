@@ -1,12 +1,15 @@
 meecast (1.0.3) unstable; urgency=low
 
   * Fixed problem with sunrise in fmi source 
+  * Fixed problem with incorrect text on standby widget
+  * Updated Catalan, Chinese, Czech, Dutch, Finnish, Germany,
+    Slovenian, Spanish, Swedish, Turkish, Italian
 
- -- Vlad Vasiliev <vlad@gas.by> Tue, 17 Feb 2015 17:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by> Sun, 05 Mar 2015 11:31:23 +0200
 
 meecast (1.0) unstable; urgency=low
 
-  * Added Hungarian trnslator László Kara to About page
+  * Added Hungarian translator László Kara to About page
   * Added Åke Engelbrektson as Swedish translator
   * Fixed problem with weather.com source (all days show night weather forecast)
   * Rewrote About page

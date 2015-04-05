@@ -219,7 +219,10 @@ main (int argc, char *argv[]){
         temp_data->temperature_low().units(config->TemperatureUnit());
         temp_data->temperature_hi().units(config->TemperatureUnit());
         temp_data->temperature().units(config->TemperatureUnit());
-        temp_data->Text(_(temp_data->Text().c_str()));
+        if (temp_data->Text() != "")
+            temp_data->Text(_(temp_data->Text().c_str()));
+        else
+            temp_data->Text("");
         if (temp_data->temperature().value(true) == INT_MAX){
             temp = "N/A";
         }else

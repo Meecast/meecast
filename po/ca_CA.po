@@ -810,7 +810,8 @@ msgid ""
 "Dutch - Tom Leenders, Michiel Pater\n"
 " \tHeimen Stoffels, Nathan Follens\n"
 msgstr ""
-"Neerlandès - Tom Leenders, Michiel Pater, Heimen Stoffels, Nathan Follens"
+"Neerlandès - Tom Leenders, Michiel Pater\n"
+" \tHeimen Stoffels, Nathan Follens\n"
 
 #: omweather/src/hash.data:69
 msgid "E"

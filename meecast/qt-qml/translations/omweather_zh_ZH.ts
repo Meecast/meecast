@@ -384,8 +384,8 @@ W: </translation>
         <message>
             <source>Albanian - Ilir Gjika
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阿尔巴尼亚语 - Ilir Gjika
+</translation>
         </message>
         <message>
             <source>Alerts</source>
@@ -446,8 +446,8 @@ before installing this package</source>
         <message>
             <source>Arabic - Tarad Alfandi
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阿拉伯语 - Tarad Alfandi
+</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -528,8 +528,8 @@ Fremantle UI设计: Krebber Jan Niemelä Ulla
         <message>
             <source>Bulgarian - Zlatko Enikov
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>保加利亚语 - Zlatko Enikov
+</translation>
         </message>
         <message>
             <source>C</source>
@@ -592,8 +592,8 @@ Fremantle UI设计: Krebber Jan Niemelä Ulla
         <message>
             <source>Catalan - Agustí Clara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>加泰罗尼亚语 - Ausetí Clara
+</translation>
         </message>
         <message>
             <source>Celcius</source>
@@ -607,14 +607,15 @@ Fremantle UI设计: Krebber Jan Niemelä Ulla
             <source>Chinese - Wong Man Kong, Michael,
  	gwmgdemj
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>简体中文 - Wong Man Kong,Michael,
+gwmgdemj
+</translation>
         </message>
         <message>
             <source>Chinese(Taiwan) - osk2, 
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>繁体中文(Taiwan) - osk2,
+</translation>
         </message>
         <message>
             <source>City</source>
@@ -837,8 +838,8 @@ Connection timeout is expired.</source>
         <message>
             <source>Czech - Jakub Kožíšek, Pavel Šrubař
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>捷克 - jakub Kožíšek, Pavel Šrubař
+</translation>
         </message>
         <message>
             <source>Daily</source>
@@ -847,8 +848,8 @@ Connection timeout is expired.</source>
         <message>
             <source>Danish - Peter Jespersen
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>丹麦语 - Peter Jespersen
+</translation>
         </message>
         <message>
             <source>Day</source>
@@ -978,8 +979,9 @@ of 'omweather-*-stations-db' packages was installed.</source>
             <source>Dutch - Tom Leenders, Michiel Pater
  	Heimen Stoffels, Nathan Follens
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>荷兰语 - Tom Leenders, Michiel Pater
+Heimen Stoffels, Nathan Follens
+</translation>
         </message>
         <message>
             <source>E</source>
@@ -1196,8 +1198,10 @@ Brad Jones aka kazrak - 测试
 	deadhead (A-P Partonen),
  	jarliim
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>芬兰语 - Marko Vertainen,
+deadhead (A-P Partonen),
+jarliim
+</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
@@ -1290,7 +1294,10 @@ using Application manager</source>
  	Quentin Caillard, 
  	Jordi
 </source>
-            <translation type="unfinished">翻译人员: 法语 - Nicolas Granziano, Philippe, Benot Knecht; 俄语 - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
+            <translation>法语 - Nicolas Granziano, 
+Philippe, Benot Knecht, 
+Quentin Caillard, 
+Jordi
 </translation>
         </message>
         <message>
@@ -1358,8 +1365,9 @@ Slovak - Roman Moravčík</translation>
  	Jens Klingen,
  	DeadHorseRiding
  </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>德语 - Claudius Henrichs,
+Jens Klingen,
+DeadHorseRiding</translation>
         </message>
         <message>
             <source>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
@@ -1484,8 +1492,8 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Hungarian - Salmi, László Kara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>匈牙利语 - Salmi, László Kara
+</translation>
         </message>
         <message>
             <source>Ice Pellets</source>
@@ -1557,7 +1565,11 @@ Slovak - Roman Moravčík</translation>
  	Salvatore Fiorenzo, Ilir Gjika,
  	Luca Onnis
 </source>
-            <translation type="unfinished">Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</translation>
+            <translation>意大利语 - Lorenzo Facca,
+Pavel Fialko, Alessandro Pasotti,
+Salvatore Fiorenzo, Ilir Gjika,
+Luca Onnis
+</translation>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
@@ -1789,7 +1801,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Mainly cloudy, Slight shower of rain</source>
-            <translation type="unfinished">大部分多云有雨</translation>
+            <translation>多云,小雨</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -1819,7 +1831,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
-            <translation type="unfinished">MeeCast - 一个多平台高定制性的开源天气预报软件。基于OMWeather的源码. Copyright (C) 2006-2014</translation>
+            <translation>MeeCast - 基于开源的OMWeather源码开发的一款跨平台，高定制性天气预报软件。Copyright (C) 2006-2015</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2172,8 +2184,8 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Norwegian - Peer-Atle Motland
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>挪威语 - Peer-Atle Motland
+</translation>
         </message>
         <message>
             <source>Now</source>
@@ -2530,14 +2542,14 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Polish - Tomasz Dominikowski
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>波兰语 - Tomasz Dominikowski
+</translation>
         </message>
         <message>
             <source>Portuguese - Jose Narciso,
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>葡萄牙语 - Jose Narciso,
+</translation>
         </message>
         <message>
             <source>Position:</source>
@@ -2775,8 +2787,9 @@ Slovak - Roman Moravčík</translation>
             <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
  	Ed Bartosh
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>俄语 - Pavel Fialko, Vlad Vasilyeu,
+Ed Bartosh
+</translation>
         </message>
         <message>
             <source>S</source>
@@ -2993,8 +3006,8 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Serbian - Aleksandar Zaric
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>塞尔维亚语 - Aleksandar Zaric
+</translation>
         </message>
         <message>
             <source>Set</source>
@@ -3131,14 +3144,14 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Slovak - Roman Moravčík
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>斯洛伐克语 - Roman Moravčík
+</translation>
         </message>
         <message>
             <source>Slovenian - Boštjan Štrumbelj
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>斯洛文尼亚语 - Boštjan Štrumbelj
+</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3211,8 +3224,8 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Spanish - Alejandro Lopez, Agustí Clara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>西班牙语 - Alejandro Lopez, Agustí Clara
+</translation>
         </message>
         <message>
             <source>Speed</source>
@@ -3359,8 +3372,10 @@ Slovak - Roman Moravčík</translation>
  	Åke Engelbrektson, 
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>瑞典语 - Angela Nennebrandt,
+Åke Engelbrektson,
+Niklas Åkerström,
+Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>Switch to the next station after:</source>
@@ -3550,8 +3565,9 @@ Slovak - Roman Moravčík</translation>
             <source>Turkish - Burak Kaan Kose,
  	Mehmet Çilingir
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>土耳其语 - Burak Kaan Kose,
+Mehmet Çilingir
+</translation>
         </message>
         <message>
             <source>Type of click:</source>
@@ -3711,8 +3727,9 @@ for tuning images of applet</source>
             <source>Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>越南语 - Hieu Nguyen
+Anh Dương and truongnx
+</translation>
         </message>
         <message>
             <source>Violent Rain Showers</source>

@@ -384,8 +384,8 @@ W: </translation>
         <message>
             <source>Albanian - Ilir Gjika
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Albanès - Ilir Gjika
+</translation>
         </message>
         <message>
             <source>Alerts</source>
@@ -446,8 +446,8 @@ abans d'instal·lar aquest paquet</translation>
         <message>
             <source>Arabic - Tarad Alfandi
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Àrab - Tarad Alfandi
+</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -528,8 +528,8 @@ Disseny IU per a Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Bulgarian - Zlatko Enikov
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Búlgar - Zlatko Enikov
+</translation>
         </message>
         <message>
             <source>C</source>
@@ -592,8 +592,8 @@ Disseny IU per a Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Catalan - Agustí Clara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Català - Agustí Clara
+</translation>
         </message>
         <message>
             <source>Celcius</source>
@@ -607,14 +607,15 @@ Disseny IU per a Fremantle: Krebber Jan Niemelä Ulla
             <source>Chinese - Wong Man Kong, Michael,
  	gwmgdemj
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Xinès - Wong Man Kong, Michael,
+ 	gwmgdemj
+</translation>
         </message>
         <message>
             <source>Chinese(Taiwan) - osk2, 
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Xinès (Taiwan) - osk2,
+</translation>
         </message>
         <message>
             <source>City</source>
@@ -837,8 +838,8 @@ El temps d'espera de la connexió s'ha esgotat.</translation>
         <message>
             <source>Czech - Jakub Kožíšek, Pavel Šrubař
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Txec - Jakub Kožíšek, Pavel Šrubař
+</translation>
         </message>
         <message>
             <source>Daily</source>
@@ -847,8 +848,8 @@ El temps d'espera de la connexió s'ha esgotat.</translation>
         <message>
             <source>Danish - Peter Jespersen
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Danès - Peter Jespersen
+</translation>
         </message>
         <message>
             <source>Day</source>
@@ -978,8 +979,9 @@ dels paquets 'omweather-*-stations-db' està instal·lat.</translation>
             <source>Dutch - Tom Leenders, Michiel Pater
  	Heimen Stoffels, Nathan Follens
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neerlandès - Tom Leenders, Michiel Pater
+ 	Heimen Stoffels, Nathan Follens
+</translation>
         </message>
         <message>
             <source>E</source>
@@ -1196,8 +1198,10 @@ Brad Jones aka kazrak - per les proves
 	deadhead (A-P Partonen),
  	jarliim
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Finlandès - Marko Vertainen,
+	deadhead (A-P Partonen),
+ 	jarliim
+</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
@@ -1291,7 +1295,10 @@ utilitzant el Gestor d'aplicacions</translation>
  	Quentin Caillard, 
  	Jordi
 </source>
-            <translation type="unfinished">Traductors: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
+            <translation>Francès -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard, 
+ 	Jordi
 </translation>
         </message>
         <message>
@@ -1360,8 +1367,10 @@ Català - Agustí Clara</translation>
  	Jens Klingen,
  	DeadHorseRiding
  </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alemany -  Claudius Henrichs,
+ 	Jens Klingen,
+ 	DeadHorseRiding
+ </translation>
         </message>
         <message>
             <source>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
@@ -1486,8 +1495,8 @@ Català - Agustí Clara</translation>
         <message>
             <source>Hungarian - Salmi, László Kara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hongarès - Salmi, László Kara
+</translation>
         </message>
         <message>
             <source>Ice Pellets</source>
@@ -1559,7 +1568,11 @@ Català - Agustí Clara</translation>
  	Salvatore Fiorenzo, Ilir Gjika,
  	Luca Onnis
 </source>
-            <translation type="unfinished">Italià - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polonès - Tomasz Dominikowski; Búlgar - Zlatko Enikov</translation>
+            <translation>Italià - Lorenzo Facca,
+ 	Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+</translation>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
@@ -1791,7 +1804,7 @@ Català - Agustí Clara</translation>
         </message>
         <message>
             <source>Mainly cloudy, Slight shower of rain</source>
-            <translation type="unfinished">Núvol, en general, amb pluja ocasional.</translation>
+            <translation>Núvol, en general; ruixats suaus</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -1821,7 +1834,7 @@ Català - Agustí Clara</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
-            <translation type="unfinished">MeeCast - client de pronòstics del temps de codi obert, de fàcil personalització i multiplataforma, basat en el codi d'OMWeather. Copyright (C) 2006-2014</translation>
+            <translation>MeeCast - client multiplataforma, personalitzable i de codi obert basat en el codi de OMWeather. Copyright (C) 2006-2015</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2174,8 +2187,8 @@ Català - Agustí Clara</translation>
         <message>
             <source>Norwegian - Peer-Atle Motland
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Noruec - Peer-Atle Motland
+</translation>
         </message>
         <message>
             <source>Now</source>
@@ -2532,14 +2545,14 @@ Català - Agustí Clara</translation>
         <message>
             <source>Polish - Tomasz Dominikowski
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Polonès - Tomasz Dominikowski
+</translation>
         </message>
         <message>
             <source>Portuguese - Jose Narciso,
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Portuguès - Jose Narciso
+</translation>
         </message>
         <message>
             <source>Position:</source>
@@ -2777,8 +2790,9 @@ Català - Agustí Clara</translation>
             <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
  	Ed Bartosh
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Rus - Pavel Fialko, Vlad Vasilyeu, 
+ 	Ed Bartosh
+</translation>
         </message>
         <message>
             <source>S</source>
@@ -2995,8 +3009,8 @@ Català - Agustí Clara</translation>
         <message>
             <source>Serbian - Aleksandar Zaric
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Serbi - Aleksandar Zaric
+</translation>
         </message>
         <message>
             <source>Set</source>
@@ -3133,14 +3147,14 @@ Català - Agustí Clara</translation>
         <message>
             <source>Slovak - Roman Moravčík
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Eslovac - Roman Moravčík
+</translation>
         </message>
         <message>
             <source>Slovenian - Boštjan Štrumbelj
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Eslovè - Boštjan Štrumbelj
+</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3213,8 +3227,8 @@ Català - Agustí Clara</translation>
         <message>
             <source>Spanish - Alejandro Lopez, Agustí Clara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Castellà - Alejandro López, Agustí Clara
+</translation>
         </message>
         <message>
             <source>Speed</source>
@@ -3361,8 +3375,10 @@ Català - Agustí Clara</translation>
  	Åke Engelbrektson, 
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Suec - Angela Nennebrandt,
+ 	Åke Engelbrektson, 
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>Switch to the next station after:</source>
@@ -3551,8 +3567,9 @@ qualsevol versió posterior.</translation>
             <source>Turkish - Burak Kaan Kose,
  	Mehmet Çilingir
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Turc - Burak Kaan Kose,
+ 	Mehmet Çilingir
+</translation>
         </message>
         <message>
             <source>Type of click:</source>
@@ -3712,8 +3729,9 @@ de la informació del temps.
             <source>Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vietnamita - Hieu Nguyen
+ 	Anh Dương and truongnx, 
+</translation>
         </message>
         <message>
             <source>Violent Rain Showers</source>

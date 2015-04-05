@@ -382,8 +382,8 @@ W:</translation>
         <message>
             <source>Albanian - Ilir Gjika
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Arnavutça - Ilir Gjika
+</translation>
         </message>
         <message>
             <source>Alerts</source>
@@ -436,8 +436,8 @@ before installing this package</source>
         <message>
             <source>Arabic - Tarad Alfandi
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Arapça - Tarad Alfandi
+</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -518,8 +518,8 @@ Frementle için Dizayn : Krebber Jan Niemelä Ulla
         <message>
             <source>Bulgarian - Zlatko Enikov
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bulgarca - Zlatko Enikov
+</translation>
         </message>
         <message>
             <source>C</source>
@@ -582,8 +582,8 @@ Frementle için Dizayn : Krebber Jan Niemelä Ulla
         <message>
             <source>Catalan - Agustí Clara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Katalanca - Agustí Clara
+</translation>
         </message>
         <message>
             <source>Celcius</source>
@@ -597,14 +597,15 @@ Frementle için Dizayn : Krebber Jan Niemelä Ulla
             <source>Chinese - Wong Man Kong, Michael,
  	gwmgdemj
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Çince - Wong Man Kong, Michael,
+ 	gwmgdemj
+</translation>
         </message>
         <message>
             <source>Chinese(Taiwan) - osk2, 
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Çince(Taiwan) - osk2, 
+</translation>
         </message>
         <message>
             <source>City</source>
@@ -818,8 +819,7 @@ Bağlantı süresi doldu.</translation>
         </message>
         <message>
             <source>Cover Page</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kapak Sayfası</translation>
         </message>
         <message>
             <source>Custom</source>
@@ -828,8 +828,8 @@ Bağlantı süresi doldu.</translation>
         <message>
             <source>Czech - Jakub Kožíšek, Pavel Šrubař
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Çekçe - Jakub Kožíšek, Pavel Šrubař
+</translation>
         </message>
         <message>
             <source>Daily</source>
@@ -838,8 +838,8 @@ Bağlantı süresi doldu.</translation>
         <message>
             <source>Danish - Peter Jespersen
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Danimarkaca - Peter Jespersen
+</translation>
         </message>
         <message>
             <source>Day</source>
@@ -885,18 +885,15 @@ Bağlantı süresi doldu.</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Çiy oluşma derecesi</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Çiy oluşma derecesi</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Çiy oluşma derecesi</translation>
         </message>
         <message>
             <source>Display</source>
@@ -972,8 +969,9 @@ of 'omweather-*-stations-db' packages was installed.</source>
             <source>Dutch - Tom Leenders, Michiel Pater
  	Heimen Stoffels, Nathan Follens
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hollandaca- Tom Leenders, Michiel Pater
+ 	Heimen Stoffels, Nathan Follens
+</translation>
         </message>
         <message>
             <source>E</source>
@@ -1187,8 +1185,10 @@ fikir ve testleri için Andrew aka Tabster'a ve testleri için Brad Jones'a
 	deadhead (A-P Partonen),
  	jarliim
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Fince - Marko Vertainen,
+	deadhead (A-P Partonen),
+ 	jarliim
+</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
@@ -1281,7 +1281,10 @@ paketini kaldırın.</translation>
  	Quentin Caillard, 
  	Jordi
 </source>
-            <translation type="unfinished">Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose
+            <translation>Fransızca -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard, 
+ 	Jordi
 </translation>
         </message>
         <message>
@@ -1349,8 +1352,10 @@ Turkish - Burak Kaan Kose</translation>
  	Jens Klingen,
  	DeadHorseRiding
  </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Almanca -  Claudius Henrichs,
+ 	Jens Klingen,
+ 	DeadHorseRiding
+ </translation>
         </message>
         <message>
             <source>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
@@ -1475,8 +1480,8 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Hungarian - Salmi, László Kara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hungarian - Salmi, László Kara
+</translation>
         </message>
         <message>
             <source>Ice Pellets</source>
@@ -1548,7 +1553,11 @@ Turkish - Burak Kaan Kose</translation>
  	Salvatore Fiorenzo, Ilir Gjika,
  	Luca Onnis
 </source>
-            <translation type="unfinished">Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov;Turkish - Burak Kaan Kose</translation>
+            <translation>Italyanca - Lorenzo Facca,
+ 	Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+</translation>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
@@ -1616,7 +1625,7 @@ Turkish - Burak Kaan Kose</translation>
         </message>
         <message>
             <source>Lead designers</source>
-            <translation>Lead designers</translation>
+            <translation>Baş tasarımcı</translation>
         </message>
         <message>
             <source>License</source>
@@ -1780,7 +1789,7 @@ Turkish - Burak Kaan Kose</translation>
         </message>
         <message>
             <source>Mainly cloudy, Slight shower of rain</source>
-            <translation type="unfinished">Zaman zaman yağmur ile bulutlu.</translation>
+            <translation>Genelde bulutlu, ara ara yağmurlu</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -1810,7 +1819,7 @@ Turkish - Burak Kaan Kose</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
-            <translation type="unfinished">MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</translation>
+            <translation>MeeCast - multiplatform son derece özelleştirilebilir açık kaynaklı hava durumu uygulaması, OMWeather kodunu baz alarak geliştirilmiştir. Copyright (C) 2006-2015</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2163,8 +2172,8 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Norwegian - Peer-Atle Motland
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Norwegian - Peer-Atle Motland
+</translation>
         </message>
         <message>
             <source>Now</source>
@@ -2521,14 +2530,14 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Polish - Tomasz Dominikowski
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lehçe - Tomasz Dominikowski
+</translation>
         </message>
         <message>
             <source>Portuguese - Jose Narciso,
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Portekizce - Jose Narciso,
+</translation>
         </message>
         <message>
             <source>Position:</source>
@@ -2552,27 +2561,27 @@ Turkish - Burak Kaan Kose</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Yağış</translation>
+            <translation>Yağış oranı:</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Yağış</translation>
+            <translation>Yağış oranı:</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">Yağış</translation>
+            <translation>Yağış oranı:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">Yağış</translation>
+            <translation>Yağış:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">Yağış</translation>
+            <translation>Yağış:</translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">Yağış</translation>
+            <translation>Yağış:</translation>
         </message>
         <message>
             <source>Preference|Update</source>
@@ -2724,7 +2733,7 @@ Turkish - Burak Kaan Kose</translation>
         </message>
         <message>
             <source>Rain and snow</source>
-            <translation type="unfinished">Yağmur ve Kar</translation>
+            <translation>Yağmur ve kar</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>
@@ -2766,8 +2775,9 @@ Turkish - Burak Kaan Kose</translation>
             <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
  	Ed Bartosh
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Rusça - Pavel Fialko, Vlad Vasilyeu, 
+ 	Ed Bartosh
+</translation>
         </message>
         <message>
             <source>S</source>
@@ -2984,8 +2994,8 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Serbian - Aleksandar Zaric
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sırbça - Aleksandar Zaric
+</translation>
         </message>
         <message>
             <source>Set</source>
@@ -3122,14 +3132,14 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Slovak - Roman Moravčík
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Slovakça - Roman Moravčík
+</translation>
         </message>
         <message>
             <source>Slovenian - Boštjan Štrumbelj
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Slovence - Boštjan Štrumbelj
+</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3202,8 +3212,8 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Spanish - Alejandro Lopez, Agustí Clara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ispanyolca - Alejandro Lopez, Agustí Clara
+</translation>
         </message>
         <message>
             <source>Speed</source>
@@ -3350,8 +3360,10 @@ Turkish - Burak Kaan Kose</translation>
  	Åke Engelbrektson, 
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Swedish - Angela Nennebrandt,
+ 	Åke Engelbrektson, 
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>Switch to the next station after:</source>
@@ -3538,8 +3550,9 @@ hem 2.1 versiyonu ve hem de (isteginize göre) farklı bir ileriki version olabi
             <source>Turkish - Burak Kaan Kose,
  	Mehmet Çilingir
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Türkçe - Burak Kaan Kose,
+ 	Mehmet Çilingir
+</translation>
         </message>
         <message>
             <source>Type of click:</source>
@@ -3698,8 +3711,9 @@ GSM ve/veya WLAN kullan.
             <source>Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vietnamca - Hieu Nguyen
+ 	Anh Dương and truongnx, 
+</translation>
         </message>
         <message>
             <source>Violent Rain Showers</source>
@@ -4121,7 +4135,7 @@ aktiflestirmeniz gerekir.</translation>
         </message>
         <message>
             <source>kPa</source>
-            <translation type="unfinished">Pa</translation>
+            <translation>kPa</translation>
         </message>
         <message>
             <source>km</source>
@@ -4337,18 +4351,15 @@ aktiflestirmeniz gerekir.</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mmHg</source>
@@ -4388,7 +4399,7 @@ aktiflestirmeniz gerekir.</translation>
         </message>
         <message>
             <source>mph</source>
-            <translation type="unfinished">m/saat</translation>
+            <translation>mph</translation>
         </message>
         <message>
             <source>n:</source>

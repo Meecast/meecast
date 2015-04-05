@@ -384,8 +384,8 @@ W:</translation>
         <message>
             <source>Albanian - Ilir Gjika
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Albanska - Ilir Gjika
+</translation>
         </message>
         <message>
             <source>Alerts</source>
@@ -446,8 +446,8 @@ innan installation av detta paket</translation>
         <message>
             <source>Arabic - Tarad Alfandi
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Arabiska - Tarad Alfandi
+</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -528,8 +528,8 @@ Design UI för Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Bulgarian - Zlatko Enikov
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bulgariska - Zlatko Enikov
+</translation>
         </message>
         <message>
             <source>C</source>
@@ -592,8 +592,8 @@ Design UI för Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Catalan - Agustí Clara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Katalanska - Agustí Clara
+</translation>
         </message>
         <message>
             <source>Celcius</source>
@@ -607,14 +607,15 @@ Design UI för Fremantle: Krebber Jan Niemelä Ulla
             <source>Chinese - Wong Man Kong, Michael,
  	gwmgdemj
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kinesiska - Wong Man Kong, Michael,
+ 	gwmgdemj
+</translation>
         </message>
         <message>
             <source>Chinese(Taiwan) - osk2, 
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kinesiska (Taiwan) - osk2, 
+</translation>
         </message>
         <message>
             <source>City</source>
@@ -837,8 +838,8 @@ Anslutnings-timeout har överskridits.</translation>
         <message>
             <source>Czech - Jakub Kožíšek, Pavel Šrubař
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tjeckiska - Jakub Kožíšek, Pavel Šrubař
+</translation>
         </message>
         <message>
             <source>Daily</source>
@@ -847,8 +848,8 @@ Anslutnings-timeout har överskridits.</translation>
         <message>
             <source>Danish - Peter Jespersen
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Danska - Peter Jespersen
+</translation>
         </message>
         <message>
             <source>Day</source>
@@ -978,8 +979,9 @@ of 'omweather-*-stations-db' packages was installed.</source>
             <source>Dutch - Tom Leenders, Michiel Pater
  	Heimen Stoffels, Nathan Follens
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nederländska - Tom Leenders, Michiel Pater
+ 	Heimen Stoffels, Nathan Follens
+</translation>
         </message>
         <message>
             <source>E</source>
@@ -1196,8 +1198,10 @@ Brad Jones aka kazrak - för testning
 	deadhead (A-P Partonen),
  	jarliim
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Finska - Marko Vertainen,
+	deadhead (A-P Partonen),
+ 	jarliim
+</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
@@ -1291,7 +1295,10 @@ Hantera program.</translation>
  	Quentin Caillard, 
  	Jordi
 </source>
-            <translation type="unfinished">Översättare: Franska - Nicolas Granziano, Philippe, Benot Knecht; Ryska - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
+            <translation>Franska -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard, 
+ 	Jordi
 </translation>
         </message>
         <message>
@@ -1359,8 +1366,10 @@ Slovakiska - Roman Moravčík</translation>
  	Jens Klingen,
  	DeadHorseRiding
  </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tyska -  Claudius Henrichs,
+ 	Jens Klingen,
+ 	DeadHorseRiding
+ </translation>
         </message>
         <message>
             <source>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
@@ -1485,8 +1494,8 @@ Slovakiska - Roman Moravčík</translation>
         <message>
             <source>Hungarian - Salmi, László Kara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ungerska - Salmi, László Kara
+</translation>
         </message>
         <message>
             <source>Ice Pellets</source>
@@ -1558,7 +1567,11 @@ Slovakiska - Roman Moravčík</translation>
  	Salvatore Fiorenzo, Ilir Gjika,
  	Luca Onnis
 </source>
-            <translation type="unfinished">Italienska - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polska - Tomasz Dominikowski; Bulgariska - Zlatko Enikov</translation>
+            <translation>Italienska - Lorenzo Facca,
+ 	Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+</translation>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
@@ -1790,7 +1803,7 @@ Slovakiska - Roman Moravčík</translation>
         </message>
         <message>
             <source>Mainly cloudy, Slight shower of rain</source>
-            <translation type="unfinished">Huvudsakligen molningt med sporadiskt regn</translation>
+            <translation>Huvudsakligen molnigt med sporadiska regnskurar</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -1820,7 +1833,7 @@ Slovakiska - Roman Moravčík</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
-            <translation type="unfinished">MeeCast - Anpassningsbar väderprognosklient. Plattformsoberoende och öppen källkod. Baserad på OMWeather-kod. Copyright (C) 2006-2014</translation>
+            <translation>MeeCast - Anpassningsbar väderprognosklient. Multiplattform och öppen källkod. Baserad på OMWeather-kod. Copyright (C) 2006-2015</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2173,8 +2186,8 @@ Slovakiska - Roman Moravčík</translation>
         <message>
             <source>Norwegian - Peer-Atle Motland
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Norska - Peer-Atle Motland
+</translation>
         </message>
         <message>
             <source>Now</source>
@@ -2531,14 +2544,14 @@ Slovakiska - Roman Moravčík</translation>
         <message>
             <source>Polish - Tomasz Dominikowski
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Polska - Tomasz Dominikowski
+</translation>
         </message>
         <message>
             <source>Portuguese - Jose Narciso,
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Portugisiska - Jose Narciso,
+</translation>
         </message>
         <message>
             <source>Position:</source>
@@ -2776,8 +2789,9 @@ Slovakiska - Roman Moravčík</translation>
             <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
  	Ed Bartosh
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ryska - Pavel Fialko, Vlad Vasilyeu, 
+ 	Ed Bartosh
+</translation>
         </message>
         <message>
             <source>S</source>
@@ -2994,8 +3008,8 @@ Slovakiska - Roman Moravčík</translation>
         <message>
             <source>Serbian - Aleksandar Zaric
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Serbiska - Aleksandar Zaric
+</translation>
         </message>
         <message>
             <source>Set</source>
@@ -3132,14 +3146,14 @@ Slovakiska - Roman Moravčík</translation>
         <message>
             <source>Slovak - Roman Moravčík
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Slovakiska - Roman Moravčík
+</translation>
         </message>
         <message>
             <source>Slovenian - Boštjan Štrumbelj
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Slovenska - Boštjan Štrumbelj
+</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3212,8 +3226,8 @@ Slovakiska - Roman Moravčík</translation>
         <message>
             <source>Spanish - Alejandro Lopez, Agustí Clara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spanska - Alejandro Lopez, Agustí Clara
+</translation>
         </message>
         <message>
             <source>Speed</source>
@@ -3360,8 +3374,10 @@ Slovakiska - Roman Moravčík</translation>
  	Åke Engelbrektson, 
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Svenska - Angela Nennebrandt,
+ 	Åke Engelbrektson, 
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>Switch to the next station after:</source>
@@ -3551,8 +3567,9 @@ modifiera den under GNU General Public License.
             <source>Turkish - Burak Kaan Kose,
  	Mehmet Çilingir
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Turkiska - Burak Kaan Kose,
+ 	Mehmet Çilingir
+</translation>
         </message>
         <message>
             <source>Type of click:</source>
@@ -3712,8 +3729,9 @@ uppdaterng av väderinformation.
             <source>Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vietnamesiska - Hieu Nguyen
+ 	Anh Dương and truongnx, 
+</translation>
         </message>
         <message>
             <source>Violent Rain Showers</source>

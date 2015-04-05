@@ -379,13 +379,13 @@ W: </translation>
         </message>
         <message>
             <source>Adjust GPS station</source>
-            <translation>Passen Sie GPS-Station</translation>
+            <translation>GPS-Station update</translation>
         </message>
         <message>
             <source>Albanian - Ilir Gjika
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Albanisch- Ilir Gjika
+</translation>
         </message>
         <message>
             <source>Alerts</source>
@@ -447,8 +447,8 @@ deinstallieren.</translation>
         <message>
             <source>Arabic - Tarad Alfandi
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Arabisch - Tarad Alfandi
+</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -529,8 +529,8 @@ Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
         <message>
             <source>Bulgarian - Zlatko Enikov
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bulgarisch - Zlatko Enikov
+</translation>
         </message>
         <message>
             <source>C</source>
@@ -593,8 +593,8 @@ Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
         <message>
             <source>Catalan - Agustí Clara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Katalanisch - Agustí Clara
+</translation>
         </message>
         <message>
             <source>Celcius</source>
@@ -608,14 +608,15 @@ Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
             <source>Chinese - Wong Man Kong, Michael,
  	gwmgdemj
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chinesisch- Wong Man Kong, Michael,
+ 	gwmgdemj
+</translation>
         </message>
         <message>
             <source>Chinese(Taiwan) - osk2, 
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chinesisch(Taiwan) - osk2, 
+</translation>
         </message>
         <message>
             <source>City</source>
@@ -838,8 +839,8 @@ Max. Verbindungszeit überschritten.</translation>
         <message>
             <source>Czech - Jakub Kožíšek, Pavel Šrubař
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tschechisch  - Jakub Kožíšek, Pavel Šrubař
+</translation>
         </message>
         <message>
             <source>Daily</source>
@@ -848,8 +849,8 @@ Max. Verbindungszeit überschritten.</translation>
         <message>
             <source>Danish - Peter Jespersen
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dänisch - Peter Jespersen
+</translation>
         </message>
         <message>
             <source>Day</source>
@@ -979,8 +980,9 @@ of 'omweather-*-stations-db' packages was installed.</source>
             <source>Dutch - Tom Leenders, Michiel Pater
  	Heimen Stoffels, Nathan Follens
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Niederländisch - Tom Leenders, Michiel Pater
+ 	Heimen Stoffels, Nathan Follens
+</translation>
         </message>
         <message>
             <source>E</source>
@@ -1197,8 +1199,10 @@ Brad Jones aka kazrak - fürs Testen
 	deadhead (A-P Partonen),
  	jarliim
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Finnisch - Marko Vertainen,
+	deadhead (A-P Partonen),
+ 	jarliim
+</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
@@ -1292,7 +1296,10 @@ Programm-Manager deinstallieren.</translation>
  	Quentin Caillard, 
  	Jordi
 </source>
-            <translation type="unfinished">Übersetzer: Französisch - Nicolas Granziano, Philippe, Benot Knecht; Russisch - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
+            <translation>Französisch -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard, 
+ 	Jordi
 </translation>
         </message>
         <message>
@@ -1360,8 +1367,10 @@ Spanisch - Alejandro Lopez</translation>
  	Jens Klingen,
  	DeadHorseRiding
  </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Deutsch -  Claudius Henrichs,
+ 	Jens Klingen,
+ 	DeadHorseRiding
+ </translation>
         </message>
         <message>
             <source>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
@@ -1486,8 +1495,8 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Hungarian - Salmi, László Kara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ungarisch  - Salmi, László Kara
+</translation>
         </message>
         <message>
             <source>Ice Pellets</source>
@@ -1559,7 +1568,11 @@ Spanisch - Alejandro Lopez</translation>
  	Salvatore Fiorenzo, Ilir Gjika,
  	Luca Onnis
 </source>
-            <translation type="unfinished">Italienisch - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polnisch - Tomasz Dominikowski; Bulgarisch - Zlatko Enikov</translation>
+            <translation>Italienisch Lorenzo Facca,
+ 	Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+</translation>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
@@ -1595,23 +1608,23 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Last update:</source>
-            <translation>Letzte Aktualisierung:</translation>
+            <translation>Letzte Änderung:</translation>
         </message>
         <message>
             <source>Last update:</source>
-            <translation>Letzte Aktualisierung:</translation>
+            <translation>Letzte Änderung:</translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation>Letzte Aktualisierung: </translation>
+            <translation>Letzte Änderung:</translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation>Letzte Aktualisierung: </translation>
+            <translation>Letzte Änderung:</translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation>Letzte Aktualisierung: </translation>
+            <translation>Letzte Änderung:</translation>
         </message>
         <message>
             <source>Lawn and Garden Weather</source>
@@ -1787,11 +1800,11 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Mainly cloudy with occasional rain.</source>
-            <translation>Weitgehend bewölkt mit leichtem Regen</translation>
+            <translation>Überwiegend bewölkt mit gelegentlichem Regen</translation>
         </message>
         <message>
             <source>Mainly cloudy, Slight shower of rain</source>
-            <translation type="unfinished">Weitgehend bewölkt mit leichtem Regen</translation>
+            <translation>Überwiegend bewölkt mit einzelnen Regenschauern</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -1821,7 +1834,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
-            <translation type="unfinished">MeeCast - plattformübergreifende und anpassbare Open-Source-Anwendung zur Wettervorhersage, basierend auf dem Code von OMWeather. Copyright (C) 2006-2014</translation>
+            <translation>MeeCast - plattformübergreifende und anpassbare Open-Source-Anwendung zur Wettervorhersage, basierend auf dem Code von OMWeather. Copyright (C) 2006-2015</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2174,8 +2187,8 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Norwegian - Peer-Atle Motland
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Norwegisch- Peer-Atle Motland
+</translation>
         </message>
         <message>
             <source>Now</source>
@@ -2532,14 +2545,14 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Polish - Tomasz Dominikowski
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Polnisch - Tomasz Dominikowski
+</translation>
         </message>
         <message>
             <source>Portuguese - Jose Narciso,
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Portugiesisch - Jose Narciso,
+</translation>
         </message>
         <message>
             <source>Position:</source>
@@ -2777,8 +2790,9 @@ Spanisch - Alejandro Lopez</translation>
             <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
  	Ed Bartosh
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Russisch - Pavel Fialko, Vlad Vasilyeu, 
+ 	Ed Bartosh
+</translation>
         </message>
         <message>
             <source>S</source>
@@ -2995,8 +3009,8 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Serbian - Aleksandar Zaric
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Serbisch - Aleksandar Zaric
+</translation>
         </message>
         <message>
             <source>Set</source>
@@ -3133,14 +3147,14 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Slovak - Roman Moravčík
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Slowakisch - Roman Moravčík
+</translation>
         </message>
         <message>
             <source>Slovenian - Boštjan Štrumbelj
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Slowenisch - Boštjan Štrumbelj
+</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3213,8 +3227,8 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Spanish - Alejandro Lopez, Agustí Clara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spanisch - Alejandro Lopez, Agustí Clara
+</translation>
         </message>
         <message>
             <source>Speed</source>
@@ -3361,8 +3375,10 @@ Spanisch - Alejandro Lopez</translation>
  	Åke Engelbrektson, 
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Schwedisch - Angela Nennebrandt,
+ 	Åke Engelbrektson, 
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>Switch to the next station after:</source>
@@ -3553,8 +3569,9 @@ Spanisch - Alejandro Lopez</translation>
             <source>Turkish - Burak Kaan Kose,
  	Mehmet Çilingir
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Türkisch - Burak Kaan Kose,
+ 	Mehmet Çilingir
+</translation>
         </message>
         <message>
             <source>Type of click:</source>
@@ -3714,8 +3731,9 @@ um die Darstellung des Applets anzupassen</translation>
             <source>Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vietnamesisch - Hieu Nguyen
+ 	Anh Dương and truongnx, 
+</translation>
         </message>
         <message>
             <source>Violent Rain Showers</source>
@@ -3891,31 +3909,31 @@ um die Darstellung des Applets anzupassen</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation>Windgeschwindigkeit</translation>
+            <translation>Windstärke</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation>Windgeschwindigkeit</translation>
+            <translation>Windstärke</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation>Windgeschwindigkeit</translation>
+            <translation>Windstärke</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation>Windgeschwindigkeit</translation>
+            <translation>Windstärke</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation>Windgeschwindigkeit</translation>
+            <translation>Windstärke</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation>Windgeschwindigkeit</translation>
+            <translation>Windstärke</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation>Windgeschwindigkeit</translation>
+            <translation>Windstärke</translation>
         </message>
         <message>
             <source>Wind speed units</source>

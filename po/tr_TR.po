@@ -2866,7 +2866,7 @@ msgid ""
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 msgstr ""
 "Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - "
-"Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose\\n"
+"Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose\n"
 
 #: omweather/src/hash.data:399
 msgid "Transparency"

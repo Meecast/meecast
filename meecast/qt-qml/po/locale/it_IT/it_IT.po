@@ -4,15 +4,15 @@
 #
 # Translators:
 # Ilir Gjika <ilir.gjika@gmail.com>, 2012
-# lorenzo facca <lorenzo.facca@gmail.com>, 2014
+# lorenzo facca <lorenzo.facca@gmail.com>, 2014-2015
 # lorenzo facca <lorenzo.facca@gmail.com>, 2013
 # Pavel Fialko <pavelnf@gmail.com>, 2007
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-09 21:40+0300\n"
-"PO-Revision-Date: 2014-12-25 18:40+0000\n"
+"POT-Creation-Date: 2015-04-05 08:09+0300\n"
+"PO-Revision-Date: 2015-03-21 17:02+0000\n"
 "Last-Translator: lorenzo facca <lorenzo.facca@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/meecast/language/"
 "it/)\n"
@@ -316,7 +316,7 @@ msgstr "Regola stazione GPS"
 
 #: meecast/qt-qml/qml/AboutPage.qml:249
 msgid "Albanian - Ilir Gjika\n"
-msgstr ""
+msgstr "Albanian - Ilir Gjika\n"
 
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
 #: omweather/src/weather-settings.c:1381
@@ -371,7 +371,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:256
 msgid "Arabic - Tarad Alfandi\n"
-msgstr ""
+msgstr "Arabic - Tarad Alfandi\n"
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -439,7 +439,7 @@ msgstr "Nubi sparse"
 
 #: meecast/qt-qml/qml/AboutPage.qml:248
 msgid "Bulgarian - Zlatko Enikov\n"
-msgstr ""
+msgstr "Bulgarian - Zlatko Enikov\n"
 
 #: omweather/src/weather-home.c:1536 omweather/src/weather-home.c:1562
 #: omweather/src/weather-simple-popup.c:1042
@@ -468,7 +468,7 @@ msgstr "Impossibile accedere alla directoy HOME. Uscita in corso.\n"
 
 #: meecast/qt-qml/qml/AboutPage.qml:255
 msgid "Catalan - Agustí Clara\n"
-msgstr ""
+msgstr "Catalan - Agustí Clara\n"
 
 #: omweather/src/weather-settings.c:3864
 msgid "Celcius"
@@ -483,10 +483,12 @@ msgid ""
 "Chinese - Wong Man Kong, Michael,\n"
 " \tgwmgdemj\n"
 msgstr ""
+"Chinese - Wong Man Kong, Michael,\n"
+"gwmgdemj\n"
 
 #: meecast/qt-qml/qml/AboutPage.qml:263
 msgid "Chinese(Taiwan) - osk2, \n"
-msgstr ""
+msgstr "Chinese(Taiwan) - osk2,\n"
 
 #: omweather/src/weather-simple-settings.c:677
 #: omweather/src/weather-simple-settings.c:710
@@ -695,7 +697,7 @@ msgstr "Personalizzato"
 
 #: meecast/qt-qml/qml/AboutPage.qml:262
 msgid "Czech - Jakub Kožíšek, Pavel Šrubař\n"
-msgstr ""
+msgstr "Czech - Jakub Kožíšek, Pavel Šrubař\n"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:183
 msgid "Daily"
@@ -703,7 +705,7 @@ msgstr "Giornaliero"
 
 #: meecast/qt-qml/qml/AboutPage.qml:257
 msgid "Danish - Peter Jespersen\n"
-msgstr ""
+msgstr "Danish - Peter Jespersen\n"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
 #: meecast/qt-qml/qml/FullWeatherPage.qml:204
@@ -808,6 +810,8 @@ msgid ""
 "Dutch - Tom Leenders, Michiel Pater\n"
 " \tHeimen Stoffels, Nathan Follens\n"
 msgstr ""
+"Dutch - Tom Leenders, Michiel Pater\n"
+"Heimen Stoffels, Nathan Follens\n"
 
 #: omweather/src/hash.data:69
 msgid "E"
@@ -1057,15 +1061,12 @@ msgid "Freezing Drizzle"
 msgstr "Pioggerella gelata"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht, \n"
 " \tQuentin Caillard, \n"
 " \tJordi\n"
 msgstr ""
-"Traduttori: Francese - Nicolas Granziano, Philippe, Benot Knecht; Russo - "
-"Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1278,16 +1279,14 @@ msgid "Isolated T-Storms / Wind"
 msgstr "Temporali isolati / Vento"
 
 #: meecast/qt-qml/qml/AboutPage.qml:239
-#, fuzzy
 msgid ""
 "Italian - Lorenzo Facca,\n"
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
 " \tLuca Onnis\n"
 msgstr ""
-"Italiano - Lorenzo Facca, Pavel Fialko, Alessandro Pasotti, Salvatore "
-"Fiorenzo, Luca Onnis; Polacco - Tomasz Dominikowski; Bulgarian - Zlatko "
-"Enikov"
+"Italian - Lorenzo Facca,\n"
+"Ilir Gjika\n"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:429
 msgid ""
@@ -1498,9 +1497,8 @@ msgid "Mainly cloudy with occasional rain."
 msgstr "Nuvoloso e pioggia occasionale."
 
 #: omweather/src/hash.data:387
-#, fuzzy
 msgid "Mainly cloudy, Slight shower of rain"
-msgstr "Nuvoloso e pioggia occasionale."
+msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
@@ -1527,13 +1525,13 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
-#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2015"
 msgstr ""
-"Meecast - app di previsioni meteo open source, multipiattaforma e altamente "
-"personalizzabile, basato sul codice di OMWeather. Copyright (C) 2006-2014"
+"Meecast - sistema di previsioni meteo open source, multipiattaforma e "
+"altamente personalizzabile, basato sul codice di OMWeather. Copyright © "
+"2006-2015"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -2739,6 +2737,10 @@ msgid ""
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
+"Swedish - Angela Nennebrandt,\n"
+"Åke Engelbrektson, \n"
+"Niklas Åkerström, \n"
+"Tomislav Veleckovik"
 
 #: omweather/src/weather-settings.c:4180
 msgid "Switch to the next station after:"
@@ -2885,6 +2887,8 @@ msgid ""
 "Turkish - Burak Kaan Kose,\n"
 " \tMehmet Çilingir\n"
 msgstr ""
+"Turkish - Burak Kaan Kose,\n"
+"Mehmet Çilingir\n"
 
 #: omweather/src/weather-settings.c:3452
 msgid "Type of click:"
@@ -2984,6 +2988,8 @@ msgid ""
 "Vietnamese - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
 msgstr ""
+"Vietnamese - Hieu Nguyen\n"
+"Anh Dương and truongnx\n"
 
 #: omweather/src/hash.data:394
 msgid "Violent Rain Showers"

@@ -4,14 +4,14 @@
 #
 # Translators:
 # Burak Kaan Kose <bkaankose@gmail.com>, 2012
-# Mehmet Ç. <mehmetfnldstntn@gmail.com>, 2013-2014
+# Mehmet Ç. <mehmetfnldstntn@gmail.com>, 2013-2015
 # Vlad Vas <vasvlad@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-09 21:40+0300\n"
-"PO-Revision-Date: 2014-07-22 20:20+0000\n"
+"POT-Creation-Date: 2015-04-05 08:09+0300\n"
+"PO-Revision-Date: 2015-03-10 14:46+0000\n"
 "Last-Translator: Mehmet Ç. <mehmetfnldstntn@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/meecast/language/"
 "tr/)\n"
@@ -313,7 +313,7 @@ msgstr "GPS istasyonu ayarlayın"
 
 #: meecast/qt-qml/qml/AboutPage.qml:249
 msgid "Albanian - Ilir Gjika\n"
-msgstr ""
+msgstr "Arnavutça - Ilir Gjika\n"
 
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
 #: omweather/src/weather-settings.c:1381
@@ -363,7 +363,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:256
 msgid "Arabic - Tarad Alfandi\n"
-msgstr ""
+msgstr "Arapça - Tarad Alfandi\n"
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -431,7 +431,7 @@ msgstr "Parçalı bulutlu"
 
 #: meecast/qt-qml/qml/AboutPage.qml:248
 msgid "Bulgarian - Zlatko Enikov\n"
-msgstr ""
+msgstr "Bulgarca - Zlatko Enikov\n"
 
 #: omweather/src/weather-home.c:1536 omweather/src/weather-home.c:1562
 #: omweather/src/weather-simple-popup.c:1042
@@ -462,7 +462,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:255
 msgid "Catalan - Agustí Clara\n"
-msgstr ""
+msgstr "Katalanca - Agustí Clara\n"
 
 #: omweather/src/weather-settings.c:3864
 msgid "Celcius"
@@ -477,10 +477,12 @@ msgid ""
 "Chinese - Wong Man Kong, Michael,\n"
 " \tgwmgdemj\n"
 msgstr ""
+"Çince - Wong Man Kong, Michael,\n"
+" \tgwmgdemj\n"
 
 #: meecast/qt-qml/qml/AboutPage.qml:263
 msgid "Chinese(Taiwan) - osk2, \n"
-msgstr ""
+msgstr "Çince(Taiwan) - osk2, \n"
 
 #: omweather/src/weather-simple-settings.c:677
 #: omweather/src/weather-simple-settings.c:710
@@ -681,7 +683,7 @@ msgstr "Ülke:"
 
 #: omweather/src/hash.data:400
 msgid "Cover Page"
-msgstr ""
+msgstr "Kapak Sayfası"
 
 #: omweather/src/weather-simple-settings.c:2896
 msgid "Custom"
@@ -689,7 +691,7 @@ msgstr "Özel"
 
 #: meecast/qt-qml/qml/AboutPage.qml:262
 msgid "Czech - Jakub Kožíšek, Pavel Šrubař\n"
-msgstr ""
+msgstr "Çekçe - Jakub Kožíšek, Pavel Šrubař\n"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:183
 msgid "Daily"
@@ -697,7 +699,7 @@ msgstr "Günlük"
 
 #: meecast/qt-qml/qml/AboutPage.qml:257
 msgid "Danish - Peter Jespersen\n"
-msgstr ""
+msgstr "Danimarkaca - Peter Jespersen\n"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
 #: meecast/qt-qml/qml/FullWeatherPage.qml:204
@@ -736,7 +738,7 @@ msgstr "Detaylı"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:242
 #: meecast/qt-qml/qml/FullWeatherPage.qml:305
 msgid "Dew point"
-msgstr ""
+msgstr "Çiy oluşma derecesi"
 
 #: omweather/src/weather-settings.c:1128 omweather/src/weather-settings.c:1321
 #: omweather/src/weather-settings.c:1325
@@ -802,6 +804,8 @@ msgid ""
 "Dutch - Tom Leenders, Michiel Pater\n"
 " \tHeimen Stoffels, Nathan Follens\n"
 msgstr ""
+"Hollandaca- Tom Leenders, Michiel Pater\n"
+" \tHeimen Stoffels, Nathan Follens\n"
 
 #: omweather/src/hash.data:69
 msgid "E"
@@ -968,6 +972,9 @@ msgid ""
 "\tdeadhead (A-P Partonen),\n"
 " \tjarliim\n"
 msgstr ""
+"Fince - Marko Vertainen,\n"
+"\tdeadhead (A-P Partonen),\n"
+" \tjarliim\n"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:428
 msgid ""
@@ -1045,15 +1052,16 @@ msgid "Freezing Drizzle"
 msgstr "Dondurucu Çiseleyen Yagmur"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht, \n"
 " \tQuentin Caillard, \n"
 " \tJordi\n"
 msgstr ""
-"Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - "
-"Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose\n"
+"Fransızca -  Nicolas Granziano, \n"
+" \tPhilippe, Benot Knecht, \n"
+" \tQuentin Caillard, \n"
+" \tJordi\n"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1118,6 +1126,10 @@ msgid ""
 " \tDeadHorseRiding\n"
 " "
 msgstr ""
+"Almanca -  Claudius Henrichs,\n"
+" \tJens Klingen,\n"
+" \tDeadHorseRiding\n"
+" "
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:418
 msgid ""
@@ -1223,7 +1235,7 @@ msgstr "Nem:"
 
 #: meecast/qt-qml/qml/AboutPage.qml:260
 msgid "Hungarian - Salmi, László Kara\n"
-msgstr ""
+msgstr "Hungarian - Salmi, László Kara\n"
 
 #: omweather/src/hash.data:107
 msgid "Ice Pellets"
@@ -1265,16 +1277,16 @@ msgid "Isolated T-Storms / Wind"
 msgstr "Yalıtılmıs Fırtınalar / Rüzgar"
 
 #: meecast/qt-qml/qml/AboutPage.qml:239
-#, fuzzy
 msgid ""
 "Italian - Lorenzo Facca,\n"
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
 " \tLuca Onnis\n"
 msgstr ""
-"Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
-"Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov;Turkish - Burak Kaan "
-"Kose"
+"Italyanca - Lorenzo Facca,\n"
+" \tPavel Fialko, Alessandro Pasotti,\n"
+" \tSalvatore Fiorenzo, Ilir Gjika,\n"
+" \tLuca Onnis\n"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:429
 msgid ""
@@ -1330,7 +1342,7 @@ msgstr "Düzen"
 
 #: meecast/qt-qml/qml/AboutPage.qml:186
 msgid "Lead designers"
-msgstr "Lead designers"
+msgstr "Baş tasarımcı"
 
 #: meecast/qt-qml/qml/AboutPage.qml:311
 msgid "License"
@@ -1485,9 +1497,8 @@ msgid "Mainly cloudy with occasional rain."
 msgstr "Zaman zaman yağmur ile bulutlu."
 
 #: omweather/src/hash.data:387
-#, fuzzy
 msgid "Mainly cloudy, Slight shower of rain"
-msgstr "Zaman zaman yağmur ile bulutlu."
+msgstr "Genelde bulutlu, ara ara yağmurlu"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
@@ -1514,13 +1525,13 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
-#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2015"
 msgstr ""
-"MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2014"
+"MeeCast - multiplatform son derece özelleştirilebilir açık kaynaklı hava "
+"durumu uygulaması, OMWeather kodunu baz alarak geliştirilmiştir. Copyright "
+"(C) 2006-2015"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -1791,7 +1802,7 @@ msgstr "Bu istasyon için hava durumu bilgisi yok."
 
 #: meecast/qt-qml/qml/AboutPage.qml:259
 msgid "Norwegian - Peer-Atle Motland\n"
-msgstr ""
+msgstr "Norwegian - Peer-Atle Motland\n"
 
 #: omweather/src/weather-home.c:2734 omweather/src/weather-home.c:2746
 #: omweather/src/weather-popup.c:459 omweather/src/weather-popup.c:570
@@ -2083,11 +2094,11 @@ msgstr "Periyot"
 
 #: meecast/qt-qml/qml/AboutPage.qml:244
 msgid "Polish - Tomasz Dominikowski\n"
-msgstr ""
+msgstr "Lehçe - Tomasz Dominikowski\n"
 
 #: meecast/qt-qml/qml/AboutPage.qml:252
 msgid "Portuguese - Jose Narciso,\n"
-msgstr ""
+msgstr "Portekizce - Jose Narciso,\n"
 
 #: omweather/src/weather-settings.c:3649
 msgid "Position:"
@@ -2106,16 +2117,14 @@ msgstr "Yağış"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:161
 #: meecast/qt-qml/qml/FullWeatherPage.qml:233
 #: meecast/qt-qml/qml/FullWeatherPage.qml:296
-#, fuzzy
 msgid "Precipitation rate:"
-msgstr "Yağış"
+msgstr "Yağış oranı:"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:158
 #: meecast/qt-qml/qml/FullWeatherPage.qml:230
 #: meecast/qt-qml/qml/FullWeatherPage.qml:293
-#, fuzzy
 msgid "Precipitation:"
-msgstr "Yağış"
+msgstr "Yağış:"
 
 #: omweather/src/weather-simple-settings.c:1653
 #: omweather/src/weather-simple-settings.c:2836
@@ -2239,9 +2248,8 @@ msgid "Rain and Snow"
 msgstr "Yağmur ve Kar"
 
 #: omweather/src/hash.data:269
-#, fuzzy
 msgid "Rain and snow"
-msgstr "Yağmur ve Kar"
+msgstr "Yağmur ve kar"
 
 #: omweather/src/hash.data:270
 msgid "Rain to Snow / Wind"
@@ -2278,6 +2286,8 @@ msgid ""
 "Russian - Pavel Fialko, Vlad Vasilyeu, \n"
 " \tEd Bartosh\n"
 msgstr ""
+"Rusça - Pavel Fialko, Vlad Vasilyeu, \n"
+" \tEd Bartosh\n"
 
 #: omweather/src/hash.data:274
 msgid "S"
@@ -2447,7 +2457,7 @@ msgstr "Sensör"
 
 #: meecast/qt-qml/qml/AboutPage.qml:258
 msgid "Serbian - Aleksandar Zaric\n"
-msgstr ""
+msgstr "Sırbça - Aleksandar Zaric\n"
 
 #: omweather/src/weather-simple-settings.c:2228
 msgid "Set"
@@ -2565,11 +2575,11 @@ msgstr "Sağanak Karla Karığık Yağmur"
 
 #: meecast/qt-qml/qml/AboutPage.qml:245
 msgid "Slovak - Roman Moravčík\n"
-msgstr ""
+msgstr "Slovakça - Roman Moravčík\n"
 
 #: meecast/qt-qml/qml/AboutPage.qml:261
 msgid "Slovenian - Boštjan Štrumbelj\n"
-msgstr ""
+msgstr "Slovence - Boštjan Štrumbelj\n"
 
 #: omweather/src/hash.data:299
 msgid "Smoke"
@@ -2641,7 +2651,7 @@ msgstr "Kaynak:"
 
 #: meecast/qt-qml/qml/AboutPage.qml:243
 msgid "Spanish - Alejandro Lopez, Agustí Clara\n"
-msgstr ""
+msgstr "Ispanyolca - Alejandro Lopez, Agustí Clara\n"
 
 #: omweather/src/weather-popup.c:998 omweather/src/weather-popup.c:1004
 #: omweather/src/weather-popup.c:1011 omweather/src/weather-popup.c:1129
@@ -2729,6 +2739,10 @@ msgid ""
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
+"Swedish - Angela Nennebrandt,\n"
+" \tÅke Engelbrektson, \n"
+" \tNiklas Åkerström, \n"
+" \tTomislav Veleckovik"
 
 #: omweather/src/weather-settings.c:4180
 msgid "Switch to the next station after:"
@@ -2852,7 +2866,7 @@ msgid ""
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 msgstr ""
 "Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - "
-"Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose\n"
+"Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose\\n"
 
 #: omweather/src/hash.data:399
 msgid "Transparency"
@@ -2872,6 +2886,8 @@ msgid ""
 "Turkish - Burak Kaan Kose,\n"
 " \tMehmet Çilingir\n"
 msgstr ""
+"Türkçe - Burak Kaan Kose,\n"
+" \tMehmet Çilingir\n"
 
 #: omweather/src/weather-settings.c:3452
 msgid "Type of click:"
@@ -2967,6 +2983,8 @@ msgid ""
 "Vietnamese - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
 msgstr ""
+"Vietnamca - Hieu Nguyen\n"
+" \tAnh Dương and truongnx, \n"
 
 #: omweather/src/hash.data:394
 msgid "Violent Rain Showers"
@@ -3287,9 +3305,8 @@ msgid "inch"
 msgstr "inç"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:206
-#, fuzzy
 msgid "kPa"
-msgstr "Pa"
+msgstr "kPa"
 
 #: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1297
 #: omweather/src/weather-simple-settings.c:1336
@@ -3382,7 +3399,7 @@ msgstr "mm"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:234
 #: meecast/qt-qml/qml/FullWeatherPage.qml:297
 msgid "mm/h"
-msgstr ""
+msgstr "mm/h"
 
 #: omweather/src/weather-home.c:1403 omweather/src/weather-home.c:1458
 #: omweather/src/weather-home.c:1606 omweather/src/weather-settings.c:4078
@@ -3394,9 +3411,8 @@ msgid "mmHg"
 msgstr "mmHg"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:166
-#, fuzzy
 msgid "mph"
-msgstr "m/saat"
+msgstr "mph"
 
 #: omweather/src/weather-simple-popup.c:489
 msgid "n:"
@@ -3471,81 +3487,3 @@ msgstr "Ю-B"
 #: omweather/src/hash.data:408
 msgid "Ю-З"
 msgstr "Ю-3"
-
-#, fuzzy
-#~ msgid ""
-#~ "French -  Nicolas Granziano, \n"
-#~ " \tPhilippe, Benot Knecht, \n"
-#~ " \tQuentin Caillard, \n"
-#~ " \tJordi\n"
-#~ " Russian - Pavel Fialko, Vlad Vasiliev, \n"
-#~ " \tEd Bartosh\n"
-#~ " Finnish - Marko Vertainen\n"
-#~ " German -  Claudius Henrichs,\n"
-#~ " \tJens Klingen,\n"
-#~ " \tDeadHorseRiding\n"
-#~ " Italian - Lorenzo Facca,\n"
-#~ " \tPavel Fialko, Alessandro Pasotti,\n"
-#~ " \tSalvatore Fiorenzo, Ilir Gjika,\n"
-#~ " \tLuca Onnis\n"
-#~ " Spanish - Alejandro Lopez, Agustí Clara\n"
-#~ " Polish - Tomasz Dominikowski\n"
-#~ " Slovak - Roman Moravčík\n"
-#~ " Dutch - Tom Leenders, Michiel Pater\n"
-#~ " Bulgarian - Zlatko Enikov\n"
-#~ " Albanian - Ilir Gjika\n"
-#~ " Chinese - Wong Man Kong, Michael\n"
-#~ " Portuguese - Jose Narciso,\n"
-#~ " Turkish - Burak Kaan Kose,\n"
-#~ " \tMehmet Çilingir,\n"
-#~ " Catalan - Agustí Clara,\n"
-#~ " Arabic - Tarad Alfandi,\n"
-#~ " Danish - Peter Jespersen,\n"
-#~ " Serbian - Aleksandar Zaric,\n"
-#~ " Norwegian - Peer-Atle Motland,\n"
-#~ " Hungarian - Salmi,\n"
-#~ " Slovenian -  Boštjan,\n"
-#~ " Czech - Jakub Kožíšek, Pavel Šrubař,\n"
-#~ " Chinese(Taiwan) - osk2, \n"
-#~ " Vietnamese - Hieu Nguyen\n"
-#~ " \tAnh Dương and truongnx, \n"
-#~ " Swedish - Angela Nennebrandt,\n"
-#~ " \tNiklas Åkerström, \n"
-#~ " \tTomislav Veleckovik"
-#~ msgstr ""
-#~ "French -  Nicolas Granziano, \n"
-#~ " \tPhilippe, Benot Knecht, \n"
-#~ " \tQuentin Caillard \n"
-#~ " Russian - Pavel Fialko, Vlad Vasiliev, \n"
-#~ " \tEd Bartosh\n"
-#~ " Finnish - Marko Vertainen\n"
-#~ " German -  Claudius Henrichs,\n"
-#~ " \tJens Klingen\n"
-#~ " Italian - Lorenzo Facca,\n"
-#~ " \tPavel Fialko, Alessandro Pasotti,\n"
-#~ " \tSalvatore Fiorenzo, Ilir Gjika,\n"
-#~ " \tLuca Onnis\n"
-#~ " Spanish - Alejandro Lopez, Agustí Clara\n"
-#~ " Polish - Tomasz Dominikowski\n"
-#~ " Slovak - Roman Moravčík\n"
-#~ " Dutch - Tom Leenders, Michiel Pater\n"
-#~ " Bulgarian - Zlatko Enikov\n"
-#~ " Albanian - Ilir Gjika\n"
-#~ " Chinese - Wong Man Kong, Michael\n"
-#~ " Portuguese - Jose Narciso,\n"
-#~ " Turkish - Burak Kaan Kose,\n"
-#~ " \tMehmet Çilingir,\n"
-#~ " Catalan - Agustí Clara,\n"
-#~ " Arabic - Tarad Alfandi,\n"
-#~ " Danish - Peter Jespersen,\n"
-#~ " Serbian - Aleksandar Zaric,\n"
-#~ " Norwegian - Peer-Atle Motland,\n"
-#~ " Hungarian - Salmi,\n"
-#~ " Slovenian -  Boštjan,\n"
-#~ " Czech - Jakub Kožíšek, Pavel Šrubař,\n"
-#~ " Chinese(Taiwan) - osk2, \n"
-#~ " Vietnamese - Hieu Nguyen\n"
-#~ " \tAnh Dương and truongnx, \n"
-#~ " Swedish - Angela Nennebrandt,\n"
-#~ " \tNiklas Åkerström, \n"
-#~ " \tTomislav Veleckovik"

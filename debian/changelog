@@ -1,6 +1,6 @@
 meecast (1.0.4) unstable; urgency=low
 
-  * Nothing 
+  * Fixed problem with wind speed in gismeteo.ru  source
 
  -- Vlad Vasiliev <vlad@gas.by> Sun, 05 Mar 2015 11:31:23 +0200
 

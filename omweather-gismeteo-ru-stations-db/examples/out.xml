@@ -8,7 +8,7 @@
   <h>%</h>  
   <p>mmHg</p>
  </units>
-  <timezone>0</timezone>
+  <timezone>3</timezone>
     <period start="1372118400" end="1372140000">
      <temperature>16</temperature>
      <icon>31</icon>
@@ -524,7 +524,7 @@
      <humidity>69</humidity>
      <flike>18</flike>
     </period>
-    <period start="1372118400" end="1372132800" current="true">
+    <period start="1372107600" end="1372122000" current="true">
      <temperature>16</temperature>
      <icon>31</icon>
      <description>Clear</description>
@@ -534,8 +534,8 @@
      <wind_speed>0</wind_speed>
     </period>
     <period start="1372118400" end="1372204800">
-    <sunrise>1372133820</sunrise>
-    <sunset>1372196760</sunset>
+    <sunrise>1372123020</sunrise>
+    <sunset>1372185960</sunset>
     </period>
     <period start="1372107600" end="1372122000" hour="true">
      <icon>31</icon>

@@ -158,11 +158,12 @@ systemctl-user start meecastd.service
 
 %changelog
 
-* Tue Apr 9 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.0.3 
+* Sun Apr 12 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.0.4 
 
   * Fixed problem with sunrise in fmi source 
   * Updated Catalan, Chinese, Czech, Dutch, Finnish, Germany,
     Slovenian, Spanish, Swedish, Turkish, Italian
+  * Fixed problem with wind speed in gismeteo.ru  source
 
 * Mon Mar 9 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.0 
 

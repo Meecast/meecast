@@ -158,14 +158,11 @@ systemctl-user start meecastd.service
 
 %changelog
 
-* Mon Apr 5 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.0.3 
+* Tue Apr 9 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.0.3 
 
   * Fixed problem with sunrise in fmi source 
-  * Fixed problem with incorrect text on standby widget
   * Updated Catalan, Chinese, Czech, Dutch, Finnish, Germany,
     Slovenian, Spanish, Swedish, Turkish, Italian
-
-
 
 * Mon Mar 9 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.0 
 

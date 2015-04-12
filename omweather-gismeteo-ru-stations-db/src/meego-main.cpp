@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-gismeteo-ru-stations-db MeeCast
  *
- * Copyright (C) 2009-2013 Vlad Vasilyeu
+ * Copyright (C) 2009-2015 Vlad Vasilyeu
  * 	for the code
  *
  * This software is free software; you can redistribute it and/or
@@ -937,7 +937,7 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
   xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div[@class='wicon wind']/dl/dd/text()", xpathCtx);
   if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
       /* Normalize speed to km/h from m/s */
-      /* fprintf(stderr, "Wind  speed    %s\n", temp_buffer); */
+     /* fprintf(stderr, "Wind  speed    %s\n", temp_buffer); */
       speed = atoi ((char *)xpathObj->nodesetval->nodeTab[0]->content);
       speed = speed * 3600/1000;
       sprintf(buffer, "%i", speed);
@@ -951,7 +951,9 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
   xpathObj3 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//div/table/tbody/tr/th/following-sibling::*[@class='cltext']/text()", xpathCtx);
   xpathObj4 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div/table/tbody/tr/td[@class='temp']/span[@class='value m_temp c']/text()", xpathCtx);
   xpathObj5 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div/table/tbody/tr/td/span[@class='value m_press torr']/text()", xpathCtx);
-  xpathObj6 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//table/tbody/tr/td/dl[@class='wind']/dt/text()", xpathCtx);
+  //xpathObj6 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//table/tbody/tr/td/dl[@class='wind']/dt/text()", xpathCtx);
+  xpathObj6 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//table/tbody/tr/td/dl[@class='wind']/dd/span[@class='value m_wind ms']/text()", xpathCtx);
+//  /html/body/div/div/div//table/tbody/tr/td/dl[@class='wind']/dd/span[@class='value m_wind ms']/text()
   xpathObj7 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//div/table/tbody/tr/th/following-sibling::*/dl/dt/text()", xpathCtx);
   xpathObj8 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div/table/tbody/tr/td[6]/text()", xpathCtx);
   xpathObj9 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div/table/tbody/tr/td[7]/span[@class='value m_temp c']/text()", xpathCtx);
@@ -1050,7 +1052,7 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
       /* Normalize speed to km/h from m/s */
       /* fprintf(stderr, "Wind  speed    %s\n", temp_buffer); */
       speed = atoi ((char *)xpathObj6->nodesetval->nodeTab[i]->content);
-      speed = speed * 3600/1000;
+      /* speed = speed * 3600/1000; */
       sprintf(buffer, "%i", speed);
       fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", buffer);
    }

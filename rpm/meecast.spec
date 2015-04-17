@@ -64,9 +64,19 @@ Group:      Utility
 License:    GPLv2.1
 Requires: harbour-meecast 
 Requires: harbour-meecast-daemon => 0.3 
-Requires: patchmanager
-%description  lockscreen
+#Requires: patchmanager
+%description lockscreen
 MeeCast Lockscreen widget for multiplatform highly customizable open source weather forecast client based on OMWeather code
+
+%package event
+Version: 0.1
+Summary: Event Widget for Weather forecast application MeeCast on SailfishOS
+Group:      Utility
+License:    GPLv2.1
+Requires: harbour-meecast 
+Requires: harbour-meecast-daemon => 0.3 
+%description event
+MeeCast event widget for multiplatform highly customizable open source weather forecast client based on OMWeather code
 
 
 %prep
@@ -155,12 +165,16 @@ systemctl-user start meecastd.service
 %defattr(-,root,root,-)
 %{_datadir}/patchmanager/patches/sailfishos-lockscreen-meecast-patch
 
+%files event 
+%defattr(-,root,root,-)
+/usr/lib/qt5/qml/Sailfish/Weather
+
 
 %changelog
 
 * Sun Apr 12 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.0 
 
-  * Nothing 
+  * Added event widget 
 
 * Sun Apr 12 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.0.4 
 

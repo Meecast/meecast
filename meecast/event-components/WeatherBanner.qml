@@ -21,9 +21,53 @@ BackgroundItem {
 
     visible: enabled
     enabled: enabled 
+    height: enabled ? temperatureLabel.height + 2*(isPortrait ? Theme.paddingLarge : Theme.paddingMedium) : 0
 
+    Image {
+        id: icon
+        anchors {
+            top: parent.top
+            bottom: parent.bottom
+            topMargin: Theme.paddingMedium
+            bottomMargin: Theme.paddingMedium
+            left: parent.left
+            leftMargin: isPortrait ? 0 : Theme.paddingMedium + Theme.paddingSmall
+        }
+        width: height
+        source: weatherData.meecastData.forecastdata["item1_icon"]
+    }
     Label {
-        id: temperatureLabel
+        id: stationname
+        text: weatherData.meecastData.nameString ? weatherData.meecastData.nameString : "MeeCast"
+        font {
+            pixelSize: isPortrait ? Theme.fontSizeHuge : Theme.fontSizeExtraLarge
+            family: Theme.fontFamilyHeading
+        }
+        truncationMode: TruncationMode.Fade
+        anchors {
+            left: icon.right
+            leftMargin: isPortrait ? Theme.paddingSmall : Theme.paddingLarge
+            top: parent.top
+            right: temperature.left
+        }
+    }
+    Label {
+        id: description 
+        text: weatherData.meecastData.forecastdata["item1_description"] ? weatherData.meecastData.forecastdata["item1_description"] : "MeeCast"
+        font {
+            pixelSize: isPortrait ? Theme.fontSizeSmall : Theme.fontSizeHuge
+            family: Theme.fontFamilyHeading
+        }
+        truncationMode: TruncationMode.Fade
+        anchors {
+            left: icon.right
+            leftMargin: isPortrait ? Theme.paddingSmall : Theme.paddingLarge
+            bottom: parent.bottom
+            right: temperature.left
+        }
+    }
+    Label {
+        id: temperature
         text: {
             if (weatherData.meecastData.forecastdata["item1_temperature"] && weatherData.meecastData.forecastdata["item1_temperature"] != "N/A"){
                 return weatherData.meecastData.forecastdata["item1_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
@@ -34,6 +78,16 @@ BackgroundItem {
                     return ""
             }
         }
+        y: isPortrait ? Theme.paddingLarge : Theme.paddingMedium
+        anchors {
+            right: parent.right
+            rightMargin: Theme.paddingMedium
+        }
+        font {
+            pixelSize: isPortrait ? Theme.fontSizeHuge : Theme.fontSizeExtraLarge
+            family: Theme.fontFamilyHeading
+        }
+
 
 }
 

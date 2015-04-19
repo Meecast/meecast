@@ -21,7 +21,7 @@ BackgroundItem {
 
     visible: enabled
     enabled: enabled 
-    height: enabled ? temperatureLabel.height + 2*(isPortrait ? Theme.paddingLarge : Theme.paddingMedium) : 0
+    height: enabled ? temperature.height + 2*(isPortrait ? Theme.paddingLarge : Theme.paddingMedium) : 0
 
     Image {
         id: icon
@@ -51,29 +51,32 @@ BackgroundItem {
             right: temperature.left
         }
     }
+
     Label {
-        id: description 
-        text: weatherData.meecastData.forecastdata["item1_description"] ? weatherData.meecastData.forecastdata["item1_description"] : "MeeCast"
-        font {
-            pixelSize: isPortrait ? Theme.fontSizeSmall : Theme.fontSizeHuge
+         id: description 
+         text: weatherData.meecastData.forecastdata["item1_description"] ? weatherData.meecastData.forecastdata["item1_description"] : "MeeCast"
+         font {
+            pixelSize: isPortrait ? Theme.fontSizeExtraSmall : Theme.fontSizeSmall
             family: Theme.fontFamilyHeading
-        }
-        truncationMode: TruncationMode.Fade
-        anchors {
+         }
+         truncationMode: TruncationMode.Fade
+         anchors {
             left: icon.right
+            top: stationname.bottom 
+            topMargin: -(Theme.paddingMedium)
             leftMargin: isPortrait ? Theme.paddingSmall : Theme.paddingLarge
-            bottom: parent.bottom
             right: temperature.left
-        }
+         }
     }
+
     Label {
         id: temperature
         text: {
             if (weatherData.meecastData.forecastdata["item1_temperature"] && weatherData.meecastData.forecastdata["item1_temperature"] != "N/A"){
-                return weatherData.meecastData.forecastdata["item1_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                return weatherData.meecastData.forecastdata["item1_temperature"] + '°' 
             }else{
                 if (weatherData.meecastData.forecastdata["item1_temperature_low"] && weatherData.meecastData.forecastdata["item1_temperature_high"])
-                    return weatherData.meecastData.forecastdata["item1_temperature_low"] +  '°' + weatherData.meecastData.forecastdata["temperatureunit"] + "\n"+  weatherData.meecastData.forecastdata["item1_temperature_high"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+                    return weatherData.meecastData.forecastdata["item1_temperature_low"] +  '°' + "/"+  weatherData.meecastData.forecastdata["item1_temperature_high"] + '°' 
                 else
                     return ""
             }

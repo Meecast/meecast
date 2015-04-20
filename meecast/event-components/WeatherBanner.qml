@@ -22,6 +22,8 @@ BackgroundItem {
     visible: enabled
     enabled: enabled 
     height: enabled ? temperature.height + 2*(Theme.paddingLarge) : 0
+    onClicked: { console.log ("Run MeeCast")
+                 weatherData.meecastData.startMeeCast() }
     
     Image {
         id: icon
@@ -65,7 +67,7 @@ BackgroundItem {
         anchors {
             left: icon.right
             top: stationname.bottom 
-            topMargin: -(Theme.paddingMedium)
+            topMargin: -(Theme.paddingSmall)
             leftMargin: isPortrait ? 2*Theme.paddingSmall : 2*Theme.paddingLarge
             right: temperature.left
         }

@@ -21,7 +21,7 @@ BackgroundItem {
 
     visible: enabled
     enabled: enabled 
-    height: enabled ? temperature.height + 2*(isPortrait ? Theme.paddingLarge : Theme.paddingMedium) : 0
+    height: enabled ? temperature.height + 2*(Theme.paddingLarge) : 0
 
     Image {
         id: icon
@@ -39,8 +39,9 @@ BackgroundItem {
     Label {
         id: stationname
         text: weatherData.meecastData.nameString ? weatherData.meecastData.nameString : "MeeCast"
+        color: Theme.primaryColor 
         font {
-            pixelSize: isPortrait ? Theme.fontSizeHuge : Theme.fontSizeExtraLarge
+            pixelSize: Theme.fontSizeExtraLarge 
             family: Theme.fontFamilyHeading
         }
         truncationMode: TruncationMode.Fade
@@ -53,20 +54,21 @@ BackgroundItem {
     }
 
     Label {
-         id: description 
-         text: weatherData.meecastData.forecastdata["item1_description"] ? weatherData.meecastData.forecastdata["item1_description"] : "MeeCast"
-         font {
+        id: description 
+        text: weatherData.meecastData.forecastdata["item1_description"] ? weatherData.meecastData.forecastdata["item1_description"] : "MeeCast"
+        font {
             pixelSize: isPortrait ? Theme.fontSizeExtraSmall : Theme.fontSizeSmall
             family: Theme.fontFamilyHeading
-         }
-         truncationMode: TruncationMode.Fade
-         anchors {
+        }
+        color: Theme.secondaryColor
+        truncationMode: TruncationMode.Fade
+        anchors {
             left: icon.right
             top: stationname.bottom 
             topMargin: -(Theme.paddingMedium)
-            leftMargin: isPortrait ? Theme.paddingSmall : Theme.paddingLarge
+            leftMargin: isPortrait ? 2*Theme.paddingSmall : 2*Theme.paddingLarge
             right: temperature.left
-         }
+        }
     }
 
     Label {

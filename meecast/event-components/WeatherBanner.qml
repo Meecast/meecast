@@ -22,7 +22,7 @@ BackgroundItem {
     visible: enabled
     enabled: enabled 
     height: enabled ? temperature.height + 2*(Theme.paddingLarge) : 0
-
+    
     Image {
         id: icon
         anchors {
@@ -94,6 +94,22 @@ BackgroundItem {
         }
 
 
-}
+    }
+
+    Connections {
+        target: weatherData.meecastData 
+        onRefreshWidget: {            
+            console.log("Refresh MeeCast widget !!!!!!!!!!!!!!")
+            stationname.text = weatherData.meecastData.nameString 
+//            last_update.text = weatherData.meecastData.forecastdata["last_update"]
+            if (weatherData.meecastData.forecastdata["item1_temperature"] && weatherData.meecastData.forecastdata["item1_temperature"] != "N/A"){
+                temperature.text = weatherData.meecastData.forecastdata["item1_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+            }else{
+                 temperature.text = weatherData.meecastData.forecastdata["item1_temperature_low"] +  '°' + weatherData.meecastData.forecastdata["temperatureunit"] + "\n"+  weatherData.meecastData.forecastdata["item1_temperature_high"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+            }
+            icon.source = weatherData.meecastData.forecastdata["item1_icon"]
+            description.text = weatherData.meecastData.forecastdata["item1_description"] ? weatherData.meecastData.forecastdata["item1_description"] : "MeeCast"
+        }
+    }
 
 }

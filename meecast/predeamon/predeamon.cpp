@@ -37,7 +37,7 @@
 #include <QXmlStreamWriter>
 
 
-#define _(String) gettext(String)
+#define _(String)  QObject::trUtf8(String).toStdString().c_str()
 #define DATA_XSD_PATH "/opt/com.meecast.omweather/share/xsd/data.xsd"
 void init_omweather_core(void);
 
@@ -125,14 +125,43 @@ main (int argc, char *argv[]){
 #endif
 
     QCoreApplication a(argc, argv);
-    textdomain("omweather");
-    bindtextdomain("omweather", "/usr/share/harbour-meecast/locale");
 
     config = create_and_fill_config();
     if (!config){
         std::cerr<<"Problem with config file"<<std::endl;
         exit (-1);
     }
+
+
+    /* Locale */
+    // Set up the translator.
+    QTranslator translator;
+    QString locale_string = QLocale().name();
+    QString filename = QString("omweather_%1").arg(locale_string);
+/*    std::cerr<<filename.toStdString().c_str()<<std::endl; */
+
+    QString localepath =QString::fromStdString(Core::AbstractConfig::prefix + "/share/harbour-meecast/locale");
+    if (translator.load(filename, localepath)) {
+        /* std::cerr<<"Success TR"<<std::endl; */
+        a.installTranslator(&translator);
+    }
+
+//    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+    for (unsigned int i=1; i<config->languagesList().size(); i++){
+        if (config->languagesList().at(i).first == config->Language()){
+            QLocale::setDefault(QLocale(config->languagesList().at(i).second.c_str()));
+            filename = QString("omweather_%1").arg(config->languagesList().at(i).second.c_str());
+            std::cerr<<filename.toStdString().c_str()<<std::endl; 
+            QString localepath = QString::fromStdString(Core::AbstractConfig::prefix + "/share/harbour-meecast/locale");
+            if (translator.load(filename, localepath)) {
+                    std::cerr<<"Success TR"<<std::endl;
+                    a.installTranslator(&translator);
+            }
+        }
+    }
+
+
+
     /* Check time for previous updating */
     dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
 
@@ -302,7 +331,7 @@ main (int argc, char *argv[]){
             xmlWriter->writeTextElement("temperature_hi", temp_high);
             xmlWriter->writeTextElement("temperature_low", temp_low);
             xmlWriter->writeTextElement("icon", icon_string);
-            xmlWriter->writeTextElement("description", description.fromUtf8(temp_data->Text().c_str()));
+            xmlWriter->writeTextElement("description", description.fromUtf8(_(temp_data->Text().c_str())));
             QDateTime t;
             t.setTime_t(temp_data->StartTime());
             xmlWriter->writeTextElement("short_day_name", QLocale().toString(t, "ddd"));
@@ -350,7 +379,7 @@ main (int argc, char *argv[]){
                     xmlWriter->writeTextElement("temperature_hi", temp_high);
                     xmlWriter->writeTextElement("temperature_low", temp_low);
                     xmlWriter->writeTextElement("icon", icon_string);
-                    xmlWriter->writeTextElement("description", description.fromUtf8(temp_data->Text().c_str()));
+                    xmlWriter->writeTextElement("description", description.fromUtf8(_(temp_data->Text().c_str())));
                     QDateTime t;
                     t.setTime_t(temp_data->StartTime());
                     xmlWriter->writeTextElement("short_day_name", QLocale().toString(t, "ddd"));

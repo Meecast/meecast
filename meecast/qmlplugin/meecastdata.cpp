@@ -90,9 +90,9 @@ Meecastdata::classBegin(){
 
 void 
 Meecastdata::startMeeCast(){
-    std::cerr<<"Start MeeCast"<<std::endl;
-    QString executable("/usr/bin/harbour-meecast"); 
-    process.startDetached(executable);
+    // std::cerr<<"Start MeeCast"<<std::endl;
+    ContentAction::Action action = ContentAction::Action::launcherAction(QString("harbour-meecast.desktop"), QStringList());
+    action.trigger();
 }
 
 void 

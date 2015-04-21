@@ -1,7 +1,8 @@
 TEMPLATE = lib
 TARGET = meecastdata 
 QT += qml quick dbus
-CONFIG += qt plugin dbus
+CONFIG += qt plugin dbus link_pkgconfig
+PKGCONFIG += contentaction5
 
 TARGET = $$qtLibraryTarget($$TARGET)
 uri = org.meecast.data

@@ -39,7 +39,7 @@
 #include <QDir>
 #include <QFileSystemWatcher>
 #include <iostream>
-#include <QProcess>
+#include <contentaction.h>
 
 class Meecastdata : public QObject, public QQmlParserStatus{
     Q_OBJECT
@@ -69,15 +69,12 @@ signals:
     void forecastdataChanged();
 
 private:
-
     void getWeatherdata();
     QTimer  *_filemonitoring; /* For check exsisting of file */
     QTimer  *_lazyrenderingtimer; /* Timer lazy rendering */
     QVariantMap _weatherdata;
     QFileSystemWatcher *_watcher;
     void parsePeriod(QXmlStreamReader& xml, int itemnumber);
-
-    QProcess process;
 
 private slots:
     void onPropertiesChanged(const QString &interface, const QVariantMap &propertiesChanged, const QStringList &propertiesInvalidated);

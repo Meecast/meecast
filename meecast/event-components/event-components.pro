@@ -12,7 +12,7 @@ SOURCES += \
     weather.cpp
 
 HEADERS += \
-    wetaher_plugin.h \
+    weather_plugin.h \
     weather.h
 
 OTHER_FILES = qmldir

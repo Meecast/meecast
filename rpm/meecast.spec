@@ -50,11 +50,12 @@ MeeCast - multiplatform highly customizable open source weather forecast client 
 
 %package daemon
 Version: 0.7
-Release: 3 
+Release: 6
 Summary: Daemon for Weather forecast application MeeCast on SailfishOS
 Group:      Utility
 License:    GPLv2.1
 Requires:   harbour-meecast    
+BuildRequires:  pkgconfig(contentaction5)
 %description daemon
 MeeCast daemon for multiplatform highly customizable open source weather forecast client based on OMWeather code
 
@@ -75,7 +76,7 @@ Summary: Event Widget for Weather forecast application MeeCast on SailfishOS
 Group:      Utility
 License:    GPLv2.1
 Requires: harbour-meecast 
-Requires: harbour-meecast-daemon => 0.3 
+Requires: harbour-meecast-daemon => 0.7 
 %description event
 MeeCast event widget for multiplatform highly customizable open source weather forecast client based on OMWeather code
 

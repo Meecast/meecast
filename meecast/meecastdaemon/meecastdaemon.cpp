@@ -363,7 +363,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
    //std::cerr<<"MyMWidget::SetCurrentData pre refreshview"<<std::endl; 
    //_lazyrenderingtimer->start(3000);
   // this->refreshview();
-   _lazyupdatedatatimer->start(3000);
+   _lazyupdatedatatimer->start(2000);
 
    if ((until_valid_time - utc_time.toTime_t()) > 0 && 
        (until_valid_time - utc_time.toTime_t()) < 12* 3600){
@@ -835,7 +835,7 @@ MyMWidget::currentfileChanged(QString path){
             updateIntervalChanged(3600);
         }
 
-        _lazyrenderingtimer->start(3000);
+        _lazyrenderingtimer->start(2000);
 
     }else{
         std::cerr<<"Problem with current.xml file\n"<< std::endl;

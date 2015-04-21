@@ -80,7 +80,7 @@ Meecastdata::SetCurrentData(const QString &station, const QString &temperature,
 
 
    //std::cerr<<"MyMWidget::SetCurrentData pre refreshview"<<std::endl; 
-   _lazyrenderingtimer->start(3000);
+   _lazyrenderingtimer->start(2000);
   // this->refreshview();
 }
 

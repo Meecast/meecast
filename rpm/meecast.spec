@@ -50,7 +50,7 @@ MeeCast - multiplatform highly customizable open source weather forecast client 
 
 %package daemon
 Version: 0.7
-Release: 8
+Release: 10 
 Summary: Daemon for Weather forecast application MeeCast on SailfishOS
 Group:      Utility
 License:    GPLv2.1

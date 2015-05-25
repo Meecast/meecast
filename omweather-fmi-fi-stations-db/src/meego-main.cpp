@@ -639,12 +639,13 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     time_t sunrise_time = 0;
     time_t sunset_time = 0;
     time_t day_begin = 0;
-
+    
     std::string sun_time;
     if (val.get("sunrise","").asString() != ""){
         setlocale(LC_TIME, "POSIX");
         sun_time = val.get("sunrise","").asString();
         tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
+        tmp_tm.tm_isdst = time_tm1.tm_isdst;
         strptime((const char*)sun_time.c_str(), "%Y%m%dT%H%M%S", &tmp_tm);
         sunrise_time = mktime(&tmp_tm); 
         tmp_tm.tm_hour = 0; tmp_tm.tm_min = 0; tmp_tm.tm_sec = 0;
@@ -655,6 +656,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         sun_time = val.get("sunset","").asString();
         setlocale(LC_TIME, "POSIX");
         tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
+        tmp_tm.tm_isdst = time_tm1.tm_isdst;
         strptime((const char*)sun_time.c_str(), "%Y%m%dT%H%M%S", &tmp_tm);
         sunset_time = mktime(&tmp_tm); 
         setlocale(LC_TIME, "");

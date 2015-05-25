@@ -25,6 +25,7 @@ CONFIG = link_pkgconfig
 PKGCONFIG += libxml-2.0 
 QMAKE_CXXFLAGS += -fPIC
 
+QMAKE_CXXFLAGS += -std=c++11
 #system(pkg-config --exists glib-2.0){
 #    PKGCONFIG += glib-2.0
 #    message(GLIB-2.0 is exist)

@@ -74,7 +74,8 @@ namespace Core {
         QFile file(QString::fromStdString(filename));
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
                 std::cerr<<"error file open"<<std::endl;
-                throw("Invalid source file");
+                std::cerr<<"Invalid source file"<<std::endl;
+                //throw("Invalid source file");
                 return;
         }
         if (false){

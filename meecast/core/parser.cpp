@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2015 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -40,8 +40,8 @@ namespace Core {
     Parser::Parser(){}
     Parser::Parser(const std::string& filename, const std::string& schema_filename)
                         : AbstractConfig(){
-        _filename = filename;
-    //   std::cerr<<"Parse file "<<filename<<std::endl; 
+    _filename = filename;
+//    std::cerr<<"Parse file "<<filename<<std::endl; 
     #ifdef LIBXML
         if(filename.empty())
             throw("Invalid source file.");
@@ -112,8 +112,9 @@ namespace Core {
         std::cerr<<"Reloadfile _Filename "<<_filename<<std::endl; 
         QFile file(QString::fromStdString(_filename));
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
-                std::cerr<<"error file open"<<std::endl;
-                throw("Invalid source file");
+                std::cerr<<"error file open "<<std::endl;
+                std::cerr<<"Invalid source file"<<std::endl;
+                //throw("Invalid source file");
                 return;
         }
         if (!_doc.setContent((&file))){

@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2015 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -74,7 +74,8 @@ namespace Core {
         QFile file(QString::fromStdString(filename));
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
                 std::cerr<<"error file open"<<std::endl;
-                throw("Invalid source file");
+                std::cerr<<"Invalid source file"<<std::endl;
+                //throw("Invalid source file");
                 return;
         }
         if (false){

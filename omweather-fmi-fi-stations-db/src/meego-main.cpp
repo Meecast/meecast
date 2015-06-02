@@ -91,6 +91,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     gmtime_r(&current_time, &time_tm1);
     localtime_r(&current_time, &time_tm2);
     localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
+    tmp_tm.tm_isdst = time_tm1.tm_isdst;
     setlocale(LC_NUMERIC, "POSIX");
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", buffer);
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");

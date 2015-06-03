@@ -5,7 +5,7 @@ meecast (1.1.1) unstable; urgency=low
   * Fixed crashing related zero size of config file
   * Updated Germany, Danish translations
 
- -- Vlad Vasiliev <vlad@gas.by> Mon, 25 May 2015 10:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by> Wed, 03 Jun 2015 22:31:23 +0200
 
 
 meecast (1.0.4) unstable; urgency=low

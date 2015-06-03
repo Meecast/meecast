@@ -297,7 +297,7 @@ msgstr "Justér GPSstation"
 
 #: meecast/qt-qml/qml/AboutPage.qml:249
 msgid "Albanian - Ilir Gjika\n"
-msgstr "Albansk - Ilir Gjika"
+msgstr "Albansk - Ilir Gjika\n"
 
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
 #: omweather/src/weather-settings.c:1381
@@ -1195,7 +1195,7 @@ msgstr "Luftfugtighed:"
 
 #: meecast/qt-qml/qml/AboutPage.qml:260
 msgid "Hungarian - Salmi, László Kara\n"
-msgstr "Ungarsk - Salmi, László Kara"
+msgstr "Ungarsk - Salmi, László Kara\n"
 
 #: omweather/src/hash.data:107
 msgid "Ice Pellets"
@@ -2525,7 +2525,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:245
 msgid "Slovak - Roman Moravčík\n"
-msgstr "Slovakisk - Roman Moravčík"
+msgstr "Slovakisk - Roman Moravčík\n"
 
 #: meecast/qt-qml/qml/AboutPage.qml:261
 msgid "Slovenian - Boštjan Štrumbelj\n"
@@ -2906,7 +2906,8 @@ msgstr ""
 msgid ""
 "Use GSM and/or WLAN for periodic updating\n"
 " the weather information.\n"
-msgstr "Brug GSM og/eller WLAN for periodisk  ajourføring af vejrinformation"
+msgstr "Brug GSM og/eller WLAN for periodisk\n"
+" ajourføring af vejrinformation\n"
 
 #: omweather/src/weather-sensor.c:65
 msgid "Use device temperature sensor"

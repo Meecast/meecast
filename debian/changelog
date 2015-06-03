@@ -3,6 +3,7 @@ meecast (1.1.1) unstable; urgency=low
   * Fixed problem with sunrise in fmi source again
   * fixed problem with incorrect time in hourly forecast in fmi source
   * Fixed crashing related zero size of config file
+  * Updated Germany translation
 
  -- Vlad Vasiliev <vlad@gas.by> Mon, 25 May 2015 10:31:23 +0200
 

@@ -608,14 +608,14 @@ Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
             <source>Chinese - Wong Man Kong, Michael,
  	gwmgdemj
 </source>
-            <translation>Chinesisch- Wong Man Kong, Michael,
+            <translation>Chinesisch - Wong Man Kong, Michael,
  	gwmgdemj
 </translation>
         </message>
         <message>
             <source>Chinese(Taiwan) - osk2, 
 </source>
-            <translation>Chinesisch(Taiwan) - osk2, 
+            <translation>Chinesisch (Taiwan) - osk2
 </translation>
         </message>
         <message>
@@ -1568,7 +1568,7 @@ Spanisch - Alejandro Lopez</translation>
  	Salvatore Fiorenzo, Ilir Gjika,
  	Luca Onnis
 </source>
-            <translation>Italienisch Lorenzo Facca,
+            <translation>Italienisch -  Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
  	Luca Onnis

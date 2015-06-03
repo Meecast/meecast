@@ -90,8 +90,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     current_time = time(NULL);
     gmtime_r(&current_time, &time_tm1);
     localtime_r(&current_time, &time_tm2);
-    localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
-    tmp_tm.tm_isdst = time_tm1.tm_isdst;
+    tmp_tm.tm_isdst = time_tm2.tm_isdst;
+    localtimezone = time_tm2.tm_gmtoff/3600; 
     setlocale(LC_NUMERIC, "POSIX");
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", buffer);
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
@@ -111,10 +111,12 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             if (cur_time!=""){
                 min_distance = atof(val[i].get("distance","").asCString());
                 max_count_of_parameters = val[i].size();
+                tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
+                tmp_tm.tm_isdst = time_tm2.tm_isdst;
                 setlocale(LC_TIME, "POSIX");
                 strptime((const char*)cur_time.c_str(), "%Y%m%d%H%M", &tmp_tm);
-                setlocale(LC_TIME, "");
                 current_time = mktime(&tmp_tm) + 3600*localtimezone; 
+                setlocale(LC_TIME, "");
                 if (val[i].get("Temperature","").asString() != ""){
                     if (val[i].get("Temperature","").asString() == "nan"){
                         current_temperature = INT_MAX;
@@ -322,17 +324,21 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
 
         utc_time_string = val[i].get("utctime","").asCString();
         if (utc_time_string != ""){
+            tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
+            tmp_tm.tm_isdst = time_tm2.tm_isdst;
             setlocale(LC_TIME, "POSIX");
             strptime((const char*)utc_time_string.c_str(), "%Y%m%dT%H%M%S", &tmp_tm);
-            setlocale(LC_TIME, "");
             utc_time = mktime(&tmp_tm); 
+            setlocale(LC_TIME, "");
             /* get timezone */
             if (!check_timezone){
                 local_time_string = val[i].get("localtime","").asCString();
+                tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
+                tmp_tm.tm_isdst = time_tm2.tm_isdst;
                 setlocale(LC_TIME, "POSIX");
                 strptime((const char*)local_time_string.c_str(), "%Y%m%dT%H%M%S", &tmp_tm);
-                setlocale(LC_TIME, "");
                 local_time = mktime(&tmp_tm); 
+                setlocale(LC_TIME, "");
                 timezone = (int)((local_time-utc_time)/3600);
                 fprintf(file_out,"  <timezone>%i</timezone>\n", timezone);
                 check_timezone = true;
@@ -646,7 +652,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         setlocale(LC_TIME, "POSIX");
         sun_time = val.get("sunrise","").asString();
         tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
-        tmp_tm.tm_isdst = time_tm1.tm_isdst;
+        tmp_tm.tm_isdst = time_tm2.tm_isdst;
         strptime((const char*)sun_time.c_str(), "%Y%m%dT%H%M%S", &tmp_tm);
         sunrise_time = mktime(&tmp_tm); 
         tmp_tm.tm_hour = 0; tmp_tm.tm_min = 0; tmp_tm.tm_sec = 0;
@@ -657,7 +663,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         sun_time = val.get("sunset","").asString();
         setlocale(LC_TIME, "POSIX");
         tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
-        tmp_tm.tm_isdst = time_tm1.tm_isdst;
+        tmp_tm.tm_isdst = time_tm2.tm_isdst;
         strptime((const char*)sun_time.c_str(), "%Y%m%dT%H%M%S", &tmp_tm);
         sunset_time = mktime(&tmp_tm); 
         setlocale(LC_TIME, "");

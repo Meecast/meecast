@@ -7,7 +7,6 @@ meecast (1.1.1) unstable; urgency=low
 
  -- Vlad Vasiliev <vlad@gas.by> Wed, 03 Jun 2015 22:31:23 +0200
 
-
 meecast (1.0.4) unstable; urgency=low
 
   * Fixed problem with wind speed in gismeteo.ru  source

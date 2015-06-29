@@ -4,8 +4,8 @@
 #
 #-------------------------------------------------
 
-QT += sql xml xmlpatterns network qml 
-#QT += sql xml xmlpatterns network qml positioning
+#QT += sql xml xmlpatterns network qml 
+QT += sql xml xmlpatterns network qml positioning
 
 TARGET = harbour-meecast 
 TEMPLATE = app
@@ -34,8 +34,8 @@ SOURCES += main.cpp \
     countrymodel.cpp \
     regionmodel.cpp \
     citymodel.cpp \
+    gpsposition.cpp \
     meecastcover.cpp 
-#    gpsposition.cpp \
 
 HEADERS  += \
     dataqml.h \
@@ -51,8 +51,8 @@ HEADERS  += \
     countrymodel.h \
     regionmodel.h \
     citymodel.h \
+    gpsposition.h \
     meecastcover.h
-#    gpsposition.h \
 
 FORMS    +=
 #RESOURCES += weatherlayoutitem.qrc

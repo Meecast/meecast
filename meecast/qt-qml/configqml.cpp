@@ -129,10 +129,12 @@ ConfigQml::init(){
     wind_list << "m/s" << "km/h" << "mph" << "kn" << "Beaufort scale";
     press_list << "mbar" << "kPa" << "mmHg";
     vis_list << "m" << "km" << "mi";
-/*
     _gps = NULL;
     if (gps()){
+         
+         std::cerr<<"ConfigQml::init() GPS!!!!"<<std::endl;
         _gps = new GpsPosition();
+        _gps->startGps(); 
         _gps->startTimer();
         connect(_gps, SIGNAL(findCoord(double, double)), this, SLOT(addGpsStation(double, double)));
         // if gps station exist, find it coordinates
@@ -159,7 +161,6 @@ ConfigQml::init(){
             delete db_w;
         }
     }
-*/
 #if 0 
     if (QFile::exists("/home/user/.cache/com.meecast.omweather/splash.png")){
         /* Check file size */
@@ -651,7 +652,6 @@ ConfigQml::gps(){
 void
 ConfigQml::setgps(bool c){
     /* if gps option changed */
-#if 0    
     if (c == ConfigQml::Config::Gps())
         return;
     if (c)
@@ -671,7 +671,6 @@ ConfigQml::setgps(bool c){
     ConfigQml::Config::Gps(c);
     saveConfig();
     refreshconfig();
-#endif        
 }
 
 QString
@@ -1132,7 +1131,6 @@ ConfigQml::updatestations(){
 
 void
 ConfigQml::updategpsstation(){
-    /*
     qDebug() << "Update GPS ";
     if (ConfigQml::Config::Gps()){
         if (_gps){
@@ -1141,7 +1139,6 @@ ConfigQml::updategpsstation(){
         }
         enableGps();
     }
-    */
 }
 
 
@@ -1189,14 +1186,12 @@ ConfigQml::tr(QString str){
 
 void
 ConfigQml::enableGps(){
-    /*
     if (!_gps) {
         _gps = new GpsPosition();
         _gps->startGps();
         qDebug() << "create gps, add slot";
         connect(_gps, SIGNAL(findCoord(double, double)), this, SLOT(addGpsStation(double, double)));
     }
-    */
     //addGpsStation(55.1882, 30.2177);
 }
 
@@ -1207,7 +1202,7 @@ ConfigQml::addGpsStation(double latitude, double longitude){
     int index;
     int source_id = 0;
     double lat, lon;
-    /* qDebug() << "gggggggggg lat=" << latitude << " lon" << longitude; */
+    qDebug() << "ConfigQml::addGpsStation lat=" << latitude << " lon" << longitude; 
     std::string path(Core::AbstractConfig::prefix);
     path += Core::AbstractConfig::sharePath;
     path += "db/";
@@ -1251,9 +1246,7 @@ ConfigQml::addGpsStation(double latitude, double longitude){
     qDebug() << "SAVE GPS STATION";
 
     /* save gps station's coordinates */
-    /*
     _gps->setLastCoordinates(lat, lon);
-    */
 }
 
 int

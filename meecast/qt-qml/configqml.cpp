@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2014 Vlad Vasilyeu
+ * Copyright (C) 2006-2015 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -1241,6 +1241,7 @@ ConfigQml::addGpsStation(double latitude, double longitude){
             source_id = i;
     }
 
+    qDebug() << "Name "<<QString::fromStdString(name);
     saveStation1(QString::fromStdString(code), QString::fromStdString(name)+" (GPS)", QString::fromStdString(region),
                  QString::fromStdString(country), "weather.com", source_id, true, latitude, longitude);
     qDebug() << "SAVE GPS STATION";

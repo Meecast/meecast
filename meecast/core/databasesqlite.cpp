@@ -430,6 +430,7 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
 #endif
     if (!db)
         return; /* database doesn't open */
+    setlocale(LC_NUMERIC, "POSIX");
     snprintf(sql,
              sizeof(sql) - 1,
              "select regions.name, stations.code, stations.name, stations.latitude, stations.longititude, countries.name \
@@ -438,7 +439,7 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
              where regions.latitudemax>%f and regions.latitudemin<%f and regions.longititudemax>%f and regions.longititudemin<%f",
              lat, lat, lon, lon);
     std::cerr << "sql = " << sql << std::endl;
-
+    setlocale(LC_NUMERIC, "");
     rc = sqlite3_get_table(db,
                            sql,
                            &result,

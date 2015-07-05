@@ -34,7 +34,7 @@ GpsPosition::~GpsPosition()
 void GpsPosition::positionUpdated(QGeoPositionInfo info)
 {
     double latitude, longitude;
-    //qDebug() << "gps info " << info;
+    qDebug() << "GpsPosition::positionUpdated  gps info " << info;
     QGeoCoordinate coord = info.coordinate();
     if (coord.isValid()){
         longitude = coord.longitude();

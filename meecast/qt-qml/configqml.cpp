@@ -670,7 +670,7 @@ ConfigQml::setgps(bool c){
     }
     ConfigQml::Config::Gps(c);
     saveConfig();
-    refreshconfig();
+    refreshconfig2();
 }
 
 QString

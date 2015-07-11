@@ -173,7 +173,7 @@ systemctl-user start meecastd.service
 
 
 %changelog
-* Wed Jun 03 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.2
+* Sat Jul 11 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.2
 
   * Added GPS station 
   * Added icon for openstreetmap.org

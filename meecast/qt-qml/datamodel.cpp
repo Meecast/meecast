@@ -112,7 +112,9 @@ DataModel::clear(){
 void
 DataModel::remove(const int row)
 {
+    beginRemoveRows(QModelIndex(), row, row);
     this->_list.removeAt(row);
+    endRemoveRows();
 }
 
 void

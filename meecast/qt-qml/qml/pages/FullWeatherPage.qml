@@ -26,7 +26,8 @@ Page {
     function check_hours(){
         var i = 0;
         var result = false;
-        console.log("check_hours()");
+        console.log("check_hours() day", day);
+        model_hours.update_model(4);
         var fulldate = model_day.getdata(day, "fulldate");
         while (i<model_hours.rowCount()){   
             if (model_hours.getdata(i, "fulldate") == fulldate){
@@ -268,7 +269,15 @@ Page {
             day_rect.visible = true;
             current_rect.visible = false;
             hours_list.visible = true;
+            hours_condition.clear();
             flickable.contentHeight = 80 * model_hours.rowCount() + day_rect.height;
+            var i = 0;
+            while (i<model_hours.rowCount()){   
+                hours_condition.append({fulldate: model_hours.getdata(i, 'fulldate'), hourdate: model_hours.getdata(i, 'hourdate'),
+                                        pict: model_hours.getdata(i, 'pict'), precipitation: model_hours.getdata(i, 'precipitation'),
+                                        temp: model_hours.getdata(i, 'temp'), temp_high: model_hours.getdata(i, 'temp_high')});
+                i++;
+            }
 	}
         if ((model_day.getdata(day, "sunrise")) != "N/A")
             condition2.append({cond_name: Config.tr("Sunrise:"),
@@ -549,11 +558,15 @@ Page {
                     }
                 }
             }
+            ListModel {
+                id: hours_condition
+            }
+
             ListView {
                     id: hours_list
                     visible: false 
                     anchors.top: day_rect.bottom
-                    model: model_hours 
+                    model: hours_condition 
                     delegate: itemDelegate
                     width: parent.width
                     height: 80 * model_hours.rowCount()
@@ -613,7 +626,7 @@ Page {
                             Text {
                                 id: txt_temp
                                 font.pointSize: 18
-                                color: getColor(temp_high)
+                                color: getColor(model.temp_high)
                                 text: model.temp + '°'
                                 anchors.right: parent.right
                                 anchors.rightMargin: (model.precipitation == "N/A") ? margin + 70 : margin + 30

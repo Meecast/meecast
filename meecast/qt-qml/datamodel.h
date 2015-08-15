@@ -56,7 +56,7 @@ public:
     ~DataModel();
     Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const;
     Q_INVOKABLE QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
-    void appendRow(DataItem* item);
+    Q_INVOKABLE void appendRow(DataItem* item);
     Q_INVOKABLE DataItem* find(const int row);
     Q_INVOKABLE void remove(const int row);
     void clear();

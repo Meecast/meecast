@@ -278,6 +278,8 @@ Page {
                                         temp: model_hours.getdata(i, 'temp'), temp_high: model_hours.getdata(i, 'temp_high')});
                 i++;
             }
+            hours_list.height = 80 * hours_condition.rowCount();
+
 	}
         if ((model_day.getdata(day, "sunrise")) != "N/A")
             condition2.append({cond_name: Config.tr("Sunrise:"),
@@ -569,7 +571,7 @@ Page {
                     model: hours_condition 
                     delegate: itemDelegate
                     width: parent.width
-                    height: 80 * model_hours.rowCount()
+                    height: 80 * 24 
                     interactive: false
                     clip: true
             }

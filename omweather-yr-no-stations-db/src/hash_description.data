@@ -18,5 +18,6 @@
     hash_insert(hash, "Snø", "Snow");
     hash_insert(hash, "Snøbyger", "Light Snow");
     hash_insert(hash, "Kraftig regn", "Heavy Rain");
+    hash_insert(hash, "Lett regn", "Light Rain");
 
 /* http://www.yr.no/om_yrno/1.1940495 */ 

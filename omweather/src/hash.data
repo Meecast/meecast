@@ -141,6 +141,7 @@
     g_hash_table_insert(hash, (void*)"Looks like there's no info for this location.", _("Looks like there's no info for this location."));
     g_hash_table_insert(hash, (void*)"Low", _("Low"));
     g_hash_table_insert(hash, (void*)"Manage locations", _("Manage locations"));
+    g_hash_table_insert(hash, (void*)"Mainly cloudy, showers", _("Mainly cloudy, showers"));
     g_hash_table_insert(hash, (void*)"Mist", _("Mist"));
     g_hash_table_insert(hash, (void*)"Moderate Sleet", _("Moderate Sleet"));
     g_hash_table_insert(hash, (void*)"Moderate Freezing Rain", _("Moderate Freezing Rain"));

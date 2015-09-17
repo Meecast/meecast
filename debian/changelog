@@ -3,7 +3,7 @@ meecast (1.1.4) unstable; urgency=low
   * Added new translation string for gismeteo.ru and yr.no 
   * Fixed time format problem for settings in Harmattan (12/24h) 
 
- -- Vlad Vasiliev <vlad@gas.by> Wed, 03 Jun 2015 22:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by> Thu, 17 Sep 2015 22:31:23 +0200
 
 meecast (1.1.3) unstable; urgency=low
 

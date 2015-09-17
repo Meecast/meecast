@@ -416,7 +416,14 @@ DataItem::hourdate()
     QDateTime t;
     t.setTime_t(DataItem::Data::StartTime());
 
-    if ((t.toString(Qt::SystemLocaleShortDate)).indexOf("M",0, Qt::CaseInsensitive) > 0)
+
+    bool format12h = false;
+    format12h = (MLocale().timeFormat24h() == MLocale::TwelveHourTimeFormat24h ? true :
+                (MLocale().timeFormat24h() == MLocale::TwentyFourHourTimeFormat24h ? false :
+                 MLocale().defaultTimeFormat24h() == MLocale::TwelveHourTimeFormat24h));
+
+    if (format12h)
+//    if ((t.toString(Qt::SystemLocaleShortDate)).indexOf("M",0, Qt::CaseInsensitive) > 0)
         return t.toString("hh:mm A");
     else
         return t.toString("hh:mm");

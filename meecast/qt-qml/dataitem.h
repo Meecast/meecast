@@ -39,6 +39,7 @@
 #include <locale.h>
 #include <fstream>
 #include <iostream>
+#include <MLocale>
 
 #define _(String) gettext(String)
 

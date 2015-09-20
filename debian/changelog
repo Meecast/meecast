@@ -1,3 +1,9 @@
+meecast (1.1.6) unstable; urgency=low
+
+  * Nothing
+
+ -- Vlad Vasiliev <vlad@gas.by> Sun, 20 Sep 2015 10:01:23 +0200
+
 meecast (1.1.5) unstable; urgency=low
 
   * Fixed time format problem for sunrise and sunset time

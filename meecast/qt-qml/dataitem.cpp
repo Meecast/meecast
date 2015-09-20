@@ -338,7 +338,16 @@ DataItem::sunrise() {
     }
     t.setTime_t(DataItem::Data::SunRiseTime());
 
-    if ((t.toString(Qt::SystemLocaleShortDate)).indexOf("M",0, Qt::CaseInsensitive) > 0)
+    bool format12h = false;
+#if defined(MEEGO_EDITION_HARMATTAN)
+    format12h = (MLocale().timeFormat24h() == MLocale::TwelveHourTimeFormat24h ? true :
+                (MLocale().timeFormat24h() == MLocale::TwentyFourHourTimeFormat24h ? false :
+                 MLocale().defaultTimeFormat24h() == MLocale::TwelveHourTimeFormat24h));
+#else
+    if (!((t.toString(Qt::SystemLocaleShortDate)).indexOf("M",0, Qt::CaseInsensitive) > 0))
+        format12h = true;
+#endif
+    if (format12h)
         return t.toString("hh:mm A");
     else
         return t.toString("hh:mm");
@@ -353,7 +362,16 @@ DataItem::sunset() {
         return c;
     }
     t.setTime_t(DataItem::Data::SunSetTime());
-    if ((t.toString(Qt::SystemLocaleShortDate)).indexOf("M",0, Qt::CaseInsensitive) > 0)
+    bool format12h = false;
+#if defined(MEEGO_EDITION_HARMATTAN)
+    format12h = (MLocale().timeFormat24h() == MLocale::TwelveHourTimeFormat24h ? true :
+                (MLocale().timeFormat24h() == MLocale::TwentyFourHourTimeFormat24h ? false :
+                 MLocale().defaultTimeFormat24h() == MLocale::TwelveHourTimeFormat24h));
+#else
+    if (!((t.toString(Qt::SystemLocaleShortDate)).indexOf("M",0, Qt::CaseInsensitive) > 0))
+        format12h = true;
+#endif
+    if (format12h)
         return t.toString("hh:mm A");
     else
         return t.toString("hh:mm");

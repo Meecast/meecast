@@ -39,6 +39,9 @@
 #include <locale.h>
 #include <fstream>
 #include <iostream>
+#if defined(MEEGO_EDITION_HARMATTAN)
+#include <MLocale>
+#endif
 
 #define _(String)  QObject::trUtf8(String).toStdString().c_str()
 class DataItem : public QObject, public Core::Data

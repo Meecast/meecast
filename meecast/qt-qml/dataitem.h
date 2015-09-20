@@ -39,7 +39,9 @@
 #include <locale.h>
 #include <fstream>
 #include <iostream>
+#if defined(MEEGO_EDITION_HARMATTAN)
 #include <MLocale>
+#endif
 
 #define _(String) gettext(String)
 

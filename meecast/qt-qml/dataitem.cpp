@@ -418,12 +418,15 @@ DataItem::hourdate()
 
 
     bool format12h = false;
+#if defined(MEEGO_EDITION_HARMATTAN)
     format12h = (MLocale().timeFormat24h() == MLocale::TwelveHourTimeFormat24h ? true :
                 (MLocale().timeFormat24h() == MLocale::TwentyFourHourTimeFormat24h ? false :
                  MLocale().defaultTimeFormat24h() == MLocale::TwelveHourTimeFormat24h));
-
+#else
+    if (!((t.toString(Qt::SystemLocaleShortDate)).indexOf("M",0, Qt::CaseInsensitive) > 0))
+        format12h = true;
+#endif
     if (format12h)
-//    if ((t.toString(Qt::SystemLocaleShortDate)).indexOf("M",0, Qt::CaseInsensitive) > 0)
         return t.toString("hh:mm A");
     else
         return t.toString("hh:mm");

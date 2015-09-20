@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2014 Vlad Vasilyeu
+ * Copyright (C) 2006-2015 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *

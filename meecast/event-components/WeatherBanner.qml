@@ -8,6 +8,9 @@ BackgroundItem {
     property bool autoRefresh: false
     property bool active: true 
     property QtObject meecastData
+    property bool expanded
+
+    onClicked: expanded = !expanded
 
     Component.onCompleted: {
         meecastData = Qt.createQmlObject('import QtQuick 2.0; import org.meecast.data 1.0 as Meecast; Meecast.Data {}', weatherData)
@@ -21,83 +24,78 @@ BackgroundItem {
 
     visible: enabled
     enabled: enabled 
-    height: enabled ? temperature.height + 2*(Theme.paddingLarge) : 0
-    onClicked: { console.log ("Run MeeCast")
-                 weatherData.meecastData.startMeeCast() }
+    height: enabled ? column.height : 0
     
-    Image {
-        id: icon
+    Column {
+        id: column
+        width: parent.width
         anchors {
-            top: parent.top
-            bottom: parent.bottom
-            topMargin: Theme.paddingMedium
-            bottomMargin: Theme.paddingMedium
             left: parent.left
-            leftMargin: isPortrait ? 0 : Theme.paddingMedium + Theme.paddingSmall
         }
-        width: height
-        source: weatherData.meecastData.forecastdata["item1_icon"]
-    }
-    Label {
-        id: stationname
-        text: weatherData.meecastData.nameString ? weatherData.meecastData.nameString : "MeeCast"
-        color: Theme.primaryColor 
-        font {
-            pixelSize: Theme.fontSizeExtraLarge 
-            family: Theme.fontFamilyHeading
-        }
-        truncationMode: TruncationMode.Fade
-        anchors {
-            left: icon.right
-            leftMargin: isPortrait ? Theme.paddingSmall : Theme.paddingLarge
-            top: parent.top
-            right: temperature.left
-        }
-    }
-
-    Label {
-        id: description 
-        text: weatherData.meecastData.forecastdata["item1_description"] ? weatherData.meecastData.forecastdata["item1_description"] : "MeeCast"
-        font {
-            pixelSize: isPortrait ? Theme.fontSizeExtraSmall : Theme.fontSizeSmall
-            family: Theme.fontFamilyHeading
-        }
-        color: Theme.secondaryColor
-        truncationMode: TruncationMode.Fade
-        anchors {
-            left: icon.right
-            top: stationname.bottom 
-            topMargin: -(Theme.paddingSmall)
-            leftMargin: isPortrait ? 2*Theme.paddingSmall : 2*Theme.paddingLarge
-            right: temperature.left
-        }
-    }
-
-    Label {
-        id: temperature
-        text: {
-            if (weatherData.meecastData.forecastdata["item1_temperature"] && weatherData.meecastData.forecastdata["item1_temperature"] != "N/A"){
-                return weatherData.meecastData.forecastdata["item1_temperature"] + '°' 
-            }else{
-                if (weatherData.meecastData.forecastdata["item1_temperature_low"] && weatherData.meecastData.forecastdata["item1_temperature_high"])
-                    return weatherData.meecastData.forecastdata["item1_temperature_low"] +  '°' + "/"+  weatherData.meecastData.forecastdata["item1_temperature_high"] + '°' 
-                else
-                    return ""
+        Row {
+            id: row
+            spacing: Theme.paddingMedium
+            anchors.horizontalCenter: parent.horizontalCenter
+            height: Theme.itemSizeSmall
+            anchors {
+                left: parent.left
             }
-        }
-        y: isPortrait ? Theme.paddingLarge : Theme.paddingMedium
-        anchors {
-            right: parent.right
-            rightMargin: Theme.paddingMedium
-        }
-        font {
-            pixelSize: isPortrait ? Theme.fontSizeHuge : Theme.fontSizeExtraLarge
-            family: Theme.fontFamilyHeading
-        }
 
+            Image {
+                id: icon
+                height: parent.height 
+                width: height
+                source: weatherData.meecastData.forecastdata["item1_icon"]
+            }
+            Label {
+                id: temperature
+                text: {
+                    if (weatherData.meecastData.forecastdata["item1_temperature"] && weatherData.meecastData.forecastdata["item1_temperature"] != "N/A"){
+                        return weatherData.meecastData.forecastdata["item1_temperature"] + '°' 
+                    }else{
+                        if (weatherData.meecastData.forecastdata["item1_temperature_low"] && weatherData.meecastData.forecastdata["item1_temperature_high"])
+                            return weatherData.meecastData.forecastdata["item1_temperature_low"] +  '°' + "/"+  weatherData.meecastData.forecastdata["item1_temperature_high"] + '°' 
+                        else
+                            return ""
+                    }
+                }
+                y: isPortrait ? Theme.paddingLarge : Theme.paddingMedium
+                anchors {
+                    top: parent.top
+                }
+                font {
+                    pixelSize: isPortrait ? Theme.fontSizeHuge : Theme.fontSizeExtraLarge
+                    family: Theme.fontFamilyHeading
+                }
+            }
 
+            Column {
+                Label {
+                    id: stationname
+                    text: weatherData.meecastData.nameString ? weatherData.meecastData.nameString : "MeeCast"
+                    color: Theme.primaryColor 
+                    horizontalAlignment: Text.AlignHCenter
+                    font {
+                        pixelSize: Theme.fontSizeLarge 
+                        family: Theme.fontFamilyHeading
+                    }
+                    truncationMode: TruncationMode.Fade
+                }
+
+                Label {
+                    id: description 
+                    text: weatherData.meecastData.forecastdata["item1_description"] ? weatherData.meecastData.forecastdata["item1_description"] : "MeeCast"
+                    font {
+                        pixelSize: isPortrait ? Theme.fontSizeExtraSmall : Theme.fontSizeSmall
+                        family: Theme.fontFamilyHeading
+                    }
+                    color: Theme.secondaryColor
+                    truncationMode: TruncationMode.Fade
+                }
+            }
+
+        }
     }
-
     Connections {
         target: weatherData.meecastData 
         onRefreshWidget: {            

@@ -70,10 +70,13 @@ BackgroundItem {
             }
 
             Column {
+                width:  parent.width - temperature.width - icon.width - 40
                 Label {
                     id: stationname
+                    width: parent.width
                     text: weatherData.meecastData.nameString ? weatherData.meecastData.nameString : "MeeCast"
                     color: Theme.primaryColor 
+                    //horizontalAlignment: Text.AlignRight
                     horizontalAlignment: Text.AlignHCenter
                     font {
                         pixelSize: Theme.fontSizeLarge 
@@ -84,7 +87,9 @@ BackgroundItem {
 
                 Label {
                     id: description 
+                    width: parent.width
                     text: weatherData.meecastData.forecastdata["item1_description"] ? weatherData.meecastData.forecastdata["item1_description"] : "MeeCast"
+                    horizontalAlignment: Text.AlignHCenter
                     font {
                         pixelSize: isPortrait ? Theme.fontSizeExtraSmall : Theme.fontSizeSmall
                         family: Theme.fontFamilyHeading

@@ -37,9 +37,8 @@ BackgroundItem {
             spacing: Theme.paddingMedium
             anchors.horizontalCenter: parent.horizontalCenter
             height: Theme.itemSizeSmall
-            anchors {
-                left: parent.left
-            }
+            anchors.left: parent.left
+            anchors.leftMargin: isPortrait ? Theme.paddingSmall : Theme.paddingMedium + Theme.paddingSmall
 
             Image {
                 id: icon

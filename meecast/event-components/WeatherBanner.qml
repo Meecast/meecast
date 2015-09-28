@@ -70,7 +70,7 @@ BackgroundItem {
             }
 
             Column {
-                width:  parent.width - temperature.width - icon.width - 40
+                width:  parent.width - temperature.width - icon.width 
                 Label {
                     id: stationname
                     width: parent.width

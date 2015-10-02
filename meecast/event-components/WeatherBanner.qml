@@ -10,12 +10,71 @@ BackgroundItem {
     property QtObject meecastData
     property bool expanded
 
-    onClicked: expanded = !expanded
+    onClicked: {expanded = !expanded; weatherData.refresh()}
 
     Component.onCompleted: {
         meecastData = Qt.createQmlObject('import QtQuick 2.0; import org.meecast.data 1.0 as Meecast; Meecast.Data {}', weatherData)
     }
 
+    function refresh(){
+
+        stationname.text = weatherData.meecastData.nameString 
+        description.text = weatherData.meecastData.forecastdata["item1_description"] ? weatherData.meecastData.forecastdata["item1_description"] : "MeeCast"
+        if (weatherData.meecastData.forecastdata["item1_temperature"] && weatherData.meecastData.forecastdata["item1_temperature"] != "N/A"){
+            temperature.text = weatherData.meecastData.forecastdata["item1_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+        }else{
+             temperature.text = weatherData.meecastData.forecastdata["item1_temperature_low"] +  '°' + weatherData.meecastData.forecastdata["temperatureunit"] + "\n"+  weatherData.meecastData.forecastdata["item1_temperature_high"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+        }
+        if (expanded){
+    //            last_update.text = weatherData.meecastData.forecastdata["last_update"]
+            if ( weatherData.meecastData.forecastdata["item2_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item2_temperature_low"] == "N/A" ){   
+                temperature_2.text = weatherData.meecastData.forecastdata["item2_temperature"] + '°'
+            }else{
+                if (weatherData.meecastData.forecastdata["item2_temperature_low"] && weatherData.meecastData.forecastdata["item2_temperature_high"])
+                    temperature_2.text = weatherData.meecastData.forecastdata["item2_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item2_temperature_high"]  + '°'     
+                else{
+                    temperature_2.text = "" 
+                }
+            }
+            if ( weatherData.meecastData.forecastdata["item3_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item3_temperature_low"] == "N/A" ){   
+                temperature_3.text = weatherData.meecastData.forecastdata["item3_temperature"] + '°'
+            }else{
+                if (weatherData.meecastData.forecastdata["item3_temperature_low"] && weatherData.meecastData.forecastdata["item3_temperature_high"])
+                    temperature_3.text = weatherData.meecastData.forecastdata["item3_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item3_temperature_high"]  + '°'     
+                else{
+                    temperature_3.text = "" 
+                }
+            }
+            if ( weatherData.meecastData.forecastdata["item4_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item4_temperature_low"] == "N/A" ){   
+                temperature_4.text = weatherData.meecastData.forecastdata["item4_temperature"] + '°'
+            }else{
+                if (weatherData.meecastData.forecastdata["item4_temperature_low"] && weatherData.meecastData.forecastdata["item4_temperature_high"])
+                    temperature_4.text = weatherData.meecastData.forecastdata["item4_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item4_temperature_high"]  + '°'     
+                else{
+                    temperature_4.text = "" 
+                }
+            }
+            if ( weatherData.meecastData.forecastdata["item5_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item5_temperature_low"] == "N/A" ){   
+                temperature_5.text = weatherData.meecastData.forecastdata["item5_temperature"] + '°'
+            }else{
+                if (weatherData.meecastData.forecastdata["item5_temperature_low"] && weatherData.meecastData.forecastdata["item5_temperature_high"])
+                    temperature_5.text = weatherData.meecastData.forecastdata["item5_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item5_temperature_high"]  + '°'     
+                else{
+                    temperature_5.text = "" 
+                }
+            }
+            day_name_2.text = weatherData.meecastData.forecastdata["item2_short_day_name"]
+            day_name_3.text = weatherData.meecastData.forecastdata["item3_short_day_name"]
+            day_name_4.text = weatherData.meecastData.forecastdata["item4_short_day_name"]
+            day_name_5.text = weatherData.meecastData.forecastdata["item5_short_day_name"]
+            icon.source = weatherData.meecastData.forecastdata["item1_icon"]
+            icon2.source = weatherData.meecastData.forecastdata["item2_icon"]
+            icon3.source = weatherData.meecastData.forecastdata["item3_icon"]
+            icon4.source = weatherData.meecastData.forecastdata["item4_icon"]
+            icon5.source = weatherData.meecastData.forecastdata["item5_icon"]
+        }
+
+    }
     function reload() {
         console.log("reload")
     }
@@ -284,59 +343,7 @@ BackgroundItem {
         target: weatherData.meecastData 
         onRefreshWidget: {            
             console.log("Refresh MeeCast widget !!!!!!!!!!!!!!")
-            stationname.text = weatherData.meecastData.nameString 
-//            last_update.text = weatherData.meecastData.forecastdata["last_update"]
-            if (weatherData.meecastData.forecastdata["item1_temperature"] && weatherData.meecastData.forecastdata["item1_temperature"] != "N/A"){
-                temperature.text = weatherData.meecastData.forecastdata["item1_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
-            }else{
-                 temperature.text = weatherData.meecastData.forecastdata["item1_temperature_low"] +  '°' + weatherData.meecastData.forecastdata["temperatureunit"] + "\n"+  weatherData.meecastData.forecastdata["item1_temperature_high"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
-            }
-            if ( weatherData.meecastData.forecastdata["item2_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item2_temperature_low"] == "N/A" ){   
-                temperature_2.text = weatherData.meecastData.forecastdata["item2_temperature"] + '°'
-            }else{
-                if (weatherData.meecastData.forecastdata["item2_temperature_low"] && weatherData.meecastData.forecastdata["item2_temperature_high"])
-                    temperature_2.text = weatherData.meecastData.forecastdata["item2_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item2_temperature_high"]  + '°'     
-                else{
-                    temperature_2.text = "" 
-                }
-            }
-            if ( weatherData.meecastData.forecastdata["item3_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item3_temperature_low"] == "N/A" ){   
-                temperature_3.text = weatherData.meecastData.forecastdata["item3_temperature"] + '°'
-            }else{
-                if (weatherData.meecastData.forecastdata["item3_temperature_low"] && weatherData.meecastData.forecastdata["item3_temperature_high"])
-                    temperature_3.text = weatherData.meecastData.forecastdata["item3_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item3_temperature_high"]  + '°'     
-                else{
-                    temperature_3.text = "" 
-                }
-            }
-            if ( weatherData.meecastData.forecastdata["item4_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item4_temperature_low"] == "N/A" ){   
-                temperature_4.text = weatherData.meecastData.forecastdata["item4_temperature"] + '°'
-            }else{
-                if (weatherData.meecastData.forecastdata["item4_temperature_low"] && weatherData.meecastData.forecastdata["item4_temperature_high"])
-                    temperature_4.text = weatherData.meecastData.forecastdata["item4_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item4_temperature_high"]  + '°'     
-                else{
-                    temperature_4.text = "" 
-                }
-            }
-            if ( weatherData.meecastData.forecastdata["item5_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item5_temperature_low"] == "N/A" ){   
-                temperature_5.text = weatherData.meecastData.forecastdata["item5_temperature"] + '°'
-            }else{
-                if (weatherData.meecastData.forecastdata["item5_temperature_low"] && weatherData.meecastData.forecastdata["item5_temperature_high"])
-                    temperature_5.text = weatherData.meecastData.forecastdata["item5_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item5_temperature_high"]  + '°'     
-                else{
-                    temperature_5.text = "" 
-                }
-            }
-            day_name_2.text = weatherData.meecastData.forecastdata["item2_short_day_name"]
-            day_name_3.text = weatherData.meecastData.forecastdata["item3_short_day_name"]
-            day_name_4.text = weatherData.meecastData.forecastdata["item4_short_day_name"]
-            day_name_5.text = weatherData.meecastData.forecastdata["item5_short_day_name"]
-            icon.source = weatherData.meecastData.forecastdata["item1_icon"]
-            icon2.source = weatherData.meecastData.forecastdata["item2_icon"]
-            icon3.source = weatherData.meecastData.forecastdata["item3_icon"]
-            icon4.source = weatherData.meecastData.forecastdata["item4_icon"]
-            icon5.source = weatherData.meecastData.forecastdata["item5_icon"]
-            description.text = weatherData.meecastData.forecastdata["item1_description"] ? weatherData.meecastData.forecastdata["item1_description"] : "MeeCast"
+            weatherData.refresh();
         }
     }
 

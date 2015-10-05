@@ -159,9 +159,9 @@ BackgroundItem {
         }
         Row {
             id: forecasts_row
-            x: Theme.horizontalPageMargin-Theme.paddingLarge
-            width: parent.width - 2*x
-//            width: parent.width 
+//            x: Theme.horizontalPageMargin-Theme.paddingLarge
+//            width: parent.width - 2*x
+            width: parent.width 
             height: 0
             opacity: 0.0
             spacing: Theme.paddingMedium*1.16
@@ -171,7 +171,7 @@ BackgroundItem {
                 PropertyChanges {
                     target: forecasts_row
                     opacity: 1.0
-                    height: 2*(Screen.sizeCategory >= Screen.Large ? Theme.itemSizeLarge : Theme.itemSizeSmall)
+                    height: 1.6*(Screen.sizeCategory >= Screen.Large ? Theme.itemSizeLarge : Theme.itemSizeSmall)
                 }
             }
 
@@ -348,27 +348,26 @@ BackgroundItem {
             }
 
         }
-        Row {
-            height: 0
-            opacity: 0.0
-            id: lastupdate_row
-            states: State {
-                name: "expanded"
-                when: weatherData.expanded
-                PropertyChanges {
-                    target: lastupdate_row
-                    opacity: 1.0
-            //        height: 80 
-                    height: Theme.itemSizeExtrasSmall
-                }
-            }
-
-            Label {
-                id: last_update
-                font.pixelSize: Theme.fontSizeSmall 
-                text: "Last update: " + weatherData.meecastData.forecastdata["last_update"]
-            }
-        }
+//        Row {
+//            height: 0
+//            opacity: 0.0
+//            id: lastupdate_row
+//            states: State {
+//                name: "expanded"
+//                when: weatherData.expanded
+//                PropertyChanges {
+//                    target: lastupdate_row
+//                    opacity: 1.0
+//                    height: Theme.itemSizeExtrasSmall
+//                }
+//            }
+//
+//            Label {
+//                id: last_update
+//                font.pixelSize: Theme.fontSizeSmall 
+//                text: "Last update: " + weatherData.meecastData.forecastdata["last_update"]
+//            }
+//        }
     }
     Connections {
         target: weatherData.meecastData 

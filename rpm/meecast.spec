@@ -15,7 +15,7 @@
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
 Version:    1.1.5
-Release:    6
+Release:    1
 Group:      Utility
 License:    GPLv2.1
 URL:        https://github.com/Meecast/meecast 
@@ -71,7 +71,7 @@ Requires: patchmanager
 MeeCast Lockscreen widget for multiplatform highly customizable open source weather forecast client based on OMWeather code
 
 %package event
-Version: 0.3
+Version: 0.4
 Summary: Event Widget for Weather forecast application MeeCast on SailfishOS
 Group:      Utility
 License:    GPLv2.1

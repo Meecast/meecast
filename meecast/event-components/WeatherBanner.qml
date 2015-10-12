@@ -23,7 +23,7 @@ BackgroundItem {
         if (weatherData.meecastData.forecastdata["item1_temperature"] && weatherData.meecastData.forecastdata["item1_temperature"] != "N/A"){
             temperature.text = weatherData.meecastData.forecastdata["item1_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
         }else{
-             temperature.text = weatherData.meecastData.forecastdata["item1_temperature_low"] +  '°' + weatherData.meecastData.forecastdata["temperatureunit"] + "\n"+  weatherData.meecastData.forecastdata["item1_temperature_high"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+             temperature.text = weatherData.meecastData.forecastdata["item1_temperature_low"] +  '°' + weatherData.meecastData.forecastdata["temperatureunit"] + "/"+  weatherData.meecastData.forecastdata["item1_temperature_high"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
         }
         if (expanded){
             last_update.text = "Last update: " + weatherData.meecastData.forecastdata["last_update"]
@@ -133,7 +133,8 @@ BackgroundItem {
                     id: stationname
                     width: parent.width
                     text: weatherData.meecastData.nameString ? weatherData.meecastData.nameString : "MeeCast"
-                    color: Theme.primaryColor 
+                    //color: Theme.primaryColor 
+                    color: Theme.highlightColor 
                     //horizontalAlignment: Text.AlignRight
                     horizontalAlignment: Text.AlignHCenter
                     font {
@@ -348,26 +349,30 @@ BackgroundItem {
             }
 
         }
-//        Row {
-//            height: 0
-//            opacity: 0.0
-//            id: lastupdate_row
-//            states: State {
-//                name: "expanded"
-//                when: weatherData.expanded
-//                PropertyChanges {
-//                    target: lastupdate_row
-//                    opacity: 1.0
-//                    height: Theme.itemSizeExtrasSmall
-//                }
-//            }
-//
-//            Label {
-//                id: last_update
-//                font.pixelSize: Theme.fontSizeSmall 
-//                text: "Last update: " + weatherData.meecastData.forecastdata["last_update"]
-//            }
-//        }
+        Row {
+            height: 0
+            opacity: 0.0
+            id: lastupdate_row
+            width: parent.width
+            states: State {
+                name: "expanded"
+                when: weatherData.expanded
+                PropertyChanges {
+                    target: lastupdate_row
+                    opacity: 1.0
+                    height: Theme.itemSizeExtrasSmall
+                }
+            }
+
+            Label {
+                id: last_update
+                width: parent.width
+                font.pixelSize: Theme.fontSizeSmall 
+                color: Theme.secondaryColor
+                horizontalAlignment: Text.AlignRight
+                text: "Last update: " + weatherData.meecastData.forecastdata["last_update"]
+            }
+        }
     }
     Connections {
         target: weatherData.meecastData 

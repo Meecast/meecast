@@ -593,8 +593,6 @@ Station::Station(const std::string& source_name, const std::string& id,
                 std::cerr<<map_url<<" "<<attrib.st_mtime<< " "<<time(NULL)<< std::endl;
                 Downloader::downloadData(map_url, this->mapURL(), "");
             }
-            
-            
         }
         run_converter();
         delete forecastURL;

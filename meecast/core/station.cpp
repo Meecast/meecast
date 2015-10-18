@@ -446,10 +446,16 @@ Station::Station(const std::string& source_name, const std::string& id,
     bool Station::updateData(bool force){
         bool result = false;
         std::string command;
+        std::string *forecastURL;
+        std::string *detailURL;
+        std::string *hoursURL;
         /* To do */
         std::cerr<<"Station::updateData(bool force)"<<std::endl;
         /* Check connection and if force true update connection */
         force = false;
+        forecastURL = new std::string((this->forecastURL())); 
+        detailURL = new std::string((this->detailURL()));
+        hoursURL = new std::string((this->hoursURL()));
         /* TimeZone */
         if (this->sourceName() == "openweathermap.org"){
             std::string TZUrl;
@@ -465,18 +471,24 @@ Station::Station(const std::string& source_name, const std::string& id,
             }else{
                 std::cerr<<"ERROR downloading of TimeZone  "<< TZUrl <<std::endl;
                 result = false;
-        }
- 
+            }
+            std::string tt ="%`lo:@OOHC<a`2333`8/e/b4752768aca384dce7878";
+            for (int i = 0; i < tt.size(); i++)
+                    tt[i] = tt[i]+1;
+
+            forecastURL->append(tt);
+            detailURL->append(tt);
+            hoursURL->append(tt);
         }
         /* Weather Forecast */
-        if (Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie())) {
+        if (Downloader::downloadData(this->fileName()+".orig", *forecastURL, this->cookie())) {
             result = true;
         }else{
             std::cerr<<"ERROR downloading  "<<this->forecastURL()<<std::endl;
             result = false;
         }
-        if ((result) && (this->detailURL() != "") && (Downloader::downloadData(this->fileName()+".detail.orig", this->detailURL(), this->cookie()))){
-            if ((this->hoursURL()!="") && (Downloader::downloadData(this->fileName()+".hours.orig", this->hoursURL(), this->cookie()))){
+        if ((result) && (this->detailURL() != "") && (Downloader::downloadData(this->fileName()+".detail.orig", *detailURL, this->cookie()))){
+            if ((this->hoursURL() != "") && (Downloader::downloadData(this->fileName()+".hours.orig", *hoursURL, this->cookie()))){
                 /*
                 command = this->converter()+ " " + this->fileName() + ".orig " + this->fileName()+" " + this->fileName()+".detail.orig" + " " + this->fileName()+ ".hours.orig";
                 std::cerr<<" EXEC "<<command<<std::endl;
@@ -585,6 +597,9 @@ Station::Station(const std::string& source_name, const std::string& id,
             
         }
         run_converter();
+        delete forecastURL;
+        delete detailURL;
+        delete hoursURL;
         return result;
     }
 

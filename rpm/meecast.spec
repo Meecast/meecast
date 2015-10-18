@@ -14,7 +14,7 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    1.1.5
+Version:    1.1.6
 Release:    1
 Group:      Utility
 License:    GPLv2.1
@@ -49,8 +49,8 @@ BuildRequires: qt5-qtpositioning-devel
 MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code
 
 %package daemon
-Version: 0.7
-Release: 10 
+Version: 0.8
+Release: 1 
 Summary: Daemon for Weather forecast application MeeCast on SailfishOS
 Group:      Utility
 License:    GPLv2.1
@@ -72,11 +72,12 @@ MeeCast Lockscreen widget for multiplatform highly customizable open source weat
 
 %package event
 Version: 0.4
+Release: 5 
 Summary: Event Widget for Weather forecast application MeeCast on SailfishOS
 Group:      Utility
 License:    GPLv2.1
 Requires: harbour-meecast 
-Requires: harbour-meecast-daemon => 0.7 
+Requires: harbour-meecast-daemon => 0.8 
 %description event
 MeeCast event widget for multiplatform highly customizable open source weather forecast client based on OMWeather code
 
@@ -173,6 +174,10 @@ systemctl-user start meecastd.service
 
 
 %changelog
+* Tue Oct 14 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.6
+
+  * Increased count of days in predeamon (for Landscape mode on  EventView) 
+
 * Sun Aug 16 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.4
 
   * Nothing

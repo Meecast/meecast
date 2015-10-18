@@ -342,7 +342,7 @@ main (int argc, char *argv[]){
             i = 1; /* plus 1 second  */ 
             int itemnumber = 2;
             //std::cerr<<" Time for check "<< current_day + 15 * 3600  + i<<std::endl;
-            while  (dp != NULL && ((temp_data = dp->data().GetDataForTime(current_day + 15 * 3600  + i )) && (i < 4*3600*24)) || (i < 4*3600*24)) {
+            while  (dp != NULL && ((temp_data = dp->data().GetDataForTime(current_day + 15 * 3600  + i )) && (i < 7*3600*24)) || (i < 7*3600*24)) {
                 if (temp_data){
                     //std::cerr << "Success " << current_day + 15 * 3600 + i << std::endl;
                     QString icon_string =  config->iconspath().c_str();

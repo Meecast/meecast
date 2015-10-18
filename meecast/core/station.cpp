@@ -470,13 +470,13 @@ Station::Station(const std::string& source_name, const std::string& id,
 
         }
         /* Weather Forecast */
-        if (Downloader::downloadData(this->fileName()+".orig", forecastURL(), this->cookie())) {
+        if (Downloader::downloadData(this->fileName()+".orig", forecastURL, this->cookie())) {
             result = true;
         }else{
             std::cerr<<"ERROR downloading  "<<this->forecastURL()<<std::endl;
             result = false;
         }
-        if ((result) && (this->detailURL() != "") && (Downloader::downloadData(this->fileName()+".detail.orig", >detailURL(), this->cookie()))){
+        if ((result) && (this->detailURL() != "") && (Downloader::downloadData(this->fileName()+".detail.orig", detailURL, this->cookie()))){
             if ((this->hoursURL()!="") && (Downloader::downloadData(this->fileName()+".hours.orig", hoursURL(), this->cookie()))){
                 command = this->converter()+ " " + this->fileName() + ".orig " + this->fileName()+" " + this->fileName()+".detail.orig" + " " + this->fileName()+ ".hours.orig";
                 std::cerr<<" EXEC "<<command<<std::endl;

@@ -1,8 +1,8 @@
 meecast (1.1.6) unstable; urgency=low
 
-  * Nothing
+  * Fixed problem in openweathermap.org source  
 
- -- Vlad Vasiliev <vlad@gas.by> Sun, 20 Sep 2015 10:01:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by> Sun, 19 Oct 2015 10:01:23 +0200
 
 meecast (1.1.5) unstable; urgency=low
 

@@ -1,6 +1,6 @@
 meecast (1.1.7) unstable; urgency=low
 
-  * Nothing  
+  * Added new translation string for gismeteo.ru 
 
  -- Vlad Vasiliev <vlad@gas.by> Sun, 19 Oct 2015 10:01:23 +0200
 

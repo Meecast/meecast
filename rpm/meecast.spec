@@ -174,6 +174,12 @@ systemctl-user start meecastd.service
 
 
 %changelog
+
+* Sun Oct 18 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.7
+
+  * Added new translation string for gismeteo.ru 
+  * Fixed problem in openweathermap.org source again
+
 * Sun Oct 18 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.6
 
   * Increased count of days in predeamon (for Landscape mode on  EventView) 

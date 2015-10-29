@@ -472,7 +472,7 @@ Station::Station(const std::string& source_name, const std::string& id,
                 std::cerr<<"ERROR downloading of TimeZone  "<< TZUrl <<std::endl;
                 result = false;
             }
-            std::string tt ="%`lo:@OOHC<a`2333`8/e/b4752768aca384dce7878";
+            std::string tt ="%@OOHC<a`2333`8/e/b4752768aca384dce7878";
             for (int i = 0; i < tt.size(); i++)
                     tt[i] = tt[i]+1;
 

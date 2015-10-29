@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-17 22:39+0300\n"
+"POT-Creation-Date: 2015-10-29 22:02+0300\n"
 "PO-Revision-Date: 2015-03-12 17:22+0000\n"
 "Last-Translator: Agustí Clara <agusti.clara@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/meecast/language/"
@@ -113,11 +113,11 @@ msgstr ""
 "\n"
 "Vie: "
 
-#: meecast/qt-qml/dataitem.cpp:548 meecast/qt-qml/dataitem.cpp:549
+#: meecast/qt-qml/dataitem.cpp:569 meecast/qt-qml/dataitem.cpp:570
 msgid "(Low)"
 msgstr "(Bajo)"
 
-#: meecast/qt-qml/dataitem.cpp:550 meecast/qt-qml/dataitem.cpp:551
+#: meecast/qt-qml/dataitem.cpp:571 meecast/qt-qml/dataitem.cpp:572
 msgid "(Moderate)"
 msgstr "(Moderado)"
 
@@ -3245,11 +3245,11 @@ msgstr "hora en lugar actual"
 msgid "d:"
 msgstr "d:"
 
-#: meecast/qt-qml/dataitem.cpp:496
+#: meecast/qt-qml/dataitem.cpp:517
 msgid "day ago"
 msgstr "día atrás"
 
-#: meecast/qt-qml/dataitem.cpp:498
+#: meecast/qt-qml/dataitem.cpp:519
 msgid "days ago"
 msgstr "días atrás"
 
@@ -3293,11 +3293,11 @@ msgstr "en descenso"
 msgid "feels like"
 msgstr "Sensación térmica"
 
-#: meecast/qt-qml/dataitem.cpp:490
+#: meecast/qt-qml/dataitem.cpp:511
 msgid "hour ago"
 msgstr "hora atrás"
 
-#: meecast/qt-qml/dataitem.cpp:493
+#: meecast/qt-qml/dataitem.cpp:514
 msgid "hours ago"
 msgstr "horas atrás"
 
@@ -3392,11 +3392,11 @@ msgstr "mi/h"
 msgid "mi/s"
 msgstr "mi/s"
 
-#: meecast/qt-qml/dataitem.cpp:484
+#: meecast/qt-qml/dataitem.cpp:505
 msgid "minute ago"
 msgstr "minuto atrás"
 
-#: meecast/qt-qml/dataitem.cpp:487
+#: meecast/qt-qml/dataitem.cpp:508
 msgid "minutes ago"
 msgstr "minutos atrás"
 
@@ -3453,7 +3453,7 @@ msgstr "M"
 msgid "rising"
 msgstr "en ascenso"
 
-#: meecast/qt-qml/dataitem.cpp:481
+#: meecast/qt-qml/dataitem.cpp:502
 msgid "seconds ago"
 msgstr "segundos atrás"
 

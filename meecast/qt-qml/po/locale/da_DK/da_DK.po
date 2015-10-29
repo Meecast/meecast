@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-17 22:39+0300\n"
+"POT-Creation-Date: 2015-10-29 22:02+0300\n"
 "PO-Revision-Date: 2015-05-17 22:57+0000\n"
 "Last-Translator: Peter Jespersen <flywheeldk@gmail.com>\n"
 "Language-Team: Danish (Denmark) (http://www.transifex.com/projects/p/meecast/"
@@ -96,11 +96,11 @@ msgstr ""
 "\n"
 "V:"
 
-#: meecast/qt-qml/dataitem.cpp:548 meecast/qt-qml/dataitem.cpp:549
+#: meecast/qt-qml/dataitem.cpp:569 meecast/qt-qml/dataitem.cpp:570
 msgid "(Low)"
 msgstr "(Lav)"
 
-#: meecast/qt-qml/dataitem.cpp:550 meecast/qt-qml/dataitem.cpp:551
+#: meecast/qt-qml/dataitem.cpp:571 meecast/qt-qml/dataitem.cpp:572
 msgid "(Moderate)"
 msgstr "(Moderat)"
 
@@ -3175,11 +3175,11 @@ msgstr "lokal tid for aktuelle placering"
 msgid "d:"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:496
+#: meecast/qt-qml/dataitem.cpp:517
 msgid "day ago"
 msgstr "dag siden"
 
-#: meecast/qt-qml/dataitem.cpp:498
+#: meecast/qt-qml/dataitem.cpp:519
 msgid "days ago"
 msgstr "dage siden"
 
@@ -3223,11 +3223,11 @@ msgstr "falder"
 msgid "feels like"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:490
+#: meecast/qt-qml/dataitem.cpp:511
 msgid "hour ago"
 msgstr "time siden"
 
-#: meecast/qt-qml/dataitem.cpp:493
+#: meecast/qt-qml/dataitem.cpp:514
 msgid "hours ago"
 msgstr "timer siden"
 
@@ -3322,11 +3322,11 @@ msgstr ""
 msgid "mi/s"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:484
+#: meecast/qt-qml/dataitem.cpp:505
 msgid "minute ago"
 msgstr "minut siden"
 
-#: meecast/qt-qml/dataitem.cpp:487
+#: meecast/qt-qml/dataitem.cpp:508
 msgid "minutes ago"
 msgstr "minutter siden"
 
@@ -3383,7 +3383,7 @@ msgstr ""
 msgid "rising"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:481
+#: meecast/qt-qml/dataitem.cpp:502
 msgid "seconds ago"
 msgstr "sekunder siden"
 

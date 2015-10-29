@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-17 22:39+0300\n"
+"POT-Creation-Date: 2015-10-29 22:02+0300\n"
 "PO-Revision-Date: 2015-03-10 14:46+0000\n"
 "Last-Translator: Mehmet Ç. <mehmetfnldstntn@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/meecast/language/"
@@ -112,11 +112,11 @@ msgstr ""
 "\n"
 "W:"
 
-#: meecast/qt-qml/dataitem.cpp:548 meecast/qt-qml/dataitem.cpp:549
+#: meecast/qt-qml/dataitem.cpp:569 meecast/qt-qml/dataitem.cpp:570
 msgid "(Low)"
 msgstr "(Düşük)"
 
-#: meecast/qt-qml/dataitem.cpp:550 meecast/qt-qml/dataitem.cpp:551
+#: meecast/qt-qml/dataitem.cpp:571 meecast/qt-qml/dataitem.cpp:572
 msgid "(Moderate)"
 msgstr "(Orta)"
 
@@ -3237,11 +3237,11 @@ msgstr "şimdiki yerel konum saati"
 msgid "d:"
 msgstr "d:"
 
-#: meecast/qt-qml/dataitem.cpp:496
+#: meecast/qt-qml/dataitem.cpp:517
 msgid "day ago"
 msgstr "gün önce"
 
-#: meecast/qt-qml/dataitem.cpp:498
+#: meecast/qt-qml/dataitem.cpp:519
 msgid "days ago"
 msgstr "gün önce"
 
@@ -3285,11 +3285,11 @@ msgstr "dokülme"
 msgid "feels like"
 msgstr "hissedilen benzerlikler"
 
-#: meecast/qt-qml/dataitem.cpp:490
+#: meecast/qt-qml/dataitem.cpp:511
 msgid "hour ago"
 msgstr "saat önce"
 
-#: meecast/qt-qml/dataitem.cpp:493
+#: meecast/qt-qml/dataitem.cpp:514
 msgid "hours ago"
 msgstr "saat önce"
 
@@ -3384,11 +3384,11 @@ msgstr "mi/saat"
 msgid "mi/s"
 msgstr "mi/saniye"
 
-#: meecast/qt-qml/dataitem.cpp:484
+#: meecast/qt-qml/dataitem.cpp:505
 msgid "minute ago"
 msgstr "dakika önce"
 
-#: meecast/qt-qml/dataitem.cpp:487
+#: meecast/qt-qml/dataitem.cpp:508
 msgid "minutes ago"
 msgstr "dakika önce"
 
@@ -3445,7 +3445,7 @@ msgstr "nmi"
 msgid "rising"
 msgstr "yukselen"
 
-#: meecast/qt-qml/dataitem.cpp:481
+#: meecast/qt-qml/dataitem.cpp:502
 msgid "seconds ago"
 msgstr "saniye önce"
 

@@ -301,14 +301,14 @@ MWidget *WeatherApplicationExtension::widget(){
 MyMWidget::MyMWidget(){
 
         
-#if 0
+//#if 0
     QFile file("/tmp/1.log");
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "Begin PreInit MyWidget ."<<".\n";
 	    file.close();
 	}
-#endif
+//#endif
       publisher = new QValueSpacePublisher("Weather");
 
       _stationname = "Unknown";
@@ -345,14 +345,14 @@ MyMWidget::MyMWidget(){
       if (!_wallpaperItem || _wallpaperItem->value() == QVariant::Invalid)
         _wallpaper_path = "/home/user/.wallpapers/wallpaper.png";
       else{
-#if 0
+//#if 0
           // Debug begin
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "PreInit MyWidget ."<<_wallpaperItem->value().toString()<<".\n";
 	    file.close();
 	}
-#endif
+//#endif
         _wallpaper_path = _wallpaperItem->value().toString();
         if (_wallpaper_path.indexOf("MeeCast",0) != -1){
             _wallpaper_path = "/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png";
@@ -369,14 +369,14 @@ MyMWidget::MyMWidget(){
       }
 
       connect(_timer, SIGNAL(timeout()), this, SLOT(update_data()));
-#if 0
+//#if 0
     // Debug begin
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "Finish Init MyWidget ."<<_wallpaper_path<<".\n";
 	    file.close();
 	}
-#endif
+//#endif
 }
  
 MyMWidget::~MyMWidget(){
@@ -437,7 +437,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
 
    if ((until_valid_time - utc_time.toTime_t()) > 0 && 
        (until_valid_time - utc_time.toTime_t()) < 12* 3600){
-#if 0
+//#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -446,10 +446,10 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
         _timer->start(((until_valid_time - utc_time.toTime_t() + 60)*1000));
    }else{
-#if 0
+//#if 0
       // Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -458,14 +458,14 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
         _timer->start(3600000);
    }
 
 }
 void 
 MyMWidget::refreshRequested(){
-#if 0
+//#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -474,11 +474,11 @@ MyMWidget::refreshRequested(){
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
     this->startpredeamon();
 }
 void MyMWidget::update_data(){
-#if 0
+//#if 0
     // Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -487,9 +487,18 @@ void MyMWidget::update_data(){
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
     QNetworkConfigurationManager m_network;
     if  (m_network.isOnline()){
+//#if 0
+        QFile file("/tmp/1.log");
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "m_network.isOnline()"<< "\n";
+            file.close();
+        }
+
+//#endif
         fprintf(stderr," Connection!!!!!!!!!!!!!!!\n");
         this->startpredeamon();
     }

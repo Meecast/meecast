@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2014 Vlad Vasilyeu
+ * Copyright (C) 2006-2015 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -624,6 +624,7 @@ Config::InitLanguagesList(){
     _languages_list->push_back(std::make_pair("English", "en_GB"));
     _languages_list->push_back(std::make_pair("Finnish", "fi_FI"));
     _languages_list->push_back(std::make_pair("French", "fr_FR"));
+    _languages_list->push_back(std::make_pair("Galician", "gl_GL"));
     _languages_list->push_back(std::make_pair("Hungarian", "hu_HU"));
     _languages_list->push_back(std::make_pair("Italian", "it_IT"));
     _languages_list->push_back(std::make_pair("Norwegian", "no_NO"));

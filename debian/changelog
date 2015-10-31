@@ -2,7 +2,8 @@ meecast (1.1.7) unstable; urgency=low
 
   * Added new translation string for gismeteo.ru 
   * Fixed problem in openweathermap.org source again
-  * Added Galician
+  * Added Galician translation
+  * Updated Russian tarnslation
 
  -- Vlad Vasiliev <vlad@gas.by> Sun, 19 Oct 2015 10:01:23 +0200
 

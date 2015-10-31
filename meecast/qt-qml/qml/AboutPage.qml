@@ -254,6 +254,7 @@ Portuguese - Jose Narciso,\n") + Config.tr("\
 Turkish - Burak Kaan Kose,\n \
 \tMehmet Çilingir\n") + Config.tr("\
 Catalan - Agustí Clara\n") + Config.tr("\
+Galician - pakoR\n") + Config.tr("\
 Arabic - Tarad Alfandi\n") + Config.tr("\
 Danish - Peter Jespersen\n") + Config.tr("\
 Serbian - Aleksandar Zaric\n") + Config.tr("\

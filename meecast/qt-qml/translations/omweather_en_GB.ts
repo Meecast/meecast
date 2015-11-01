@@ -2078,6 +2078,14 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
+            <source>Mainly cloudy, drizzle</source>
+            <translation type="unfinished">S</translation>
+        </message>
+        <message>
+            <source>Mainly cloudy, showers</source>
+            <translation type="unfinished">S</translation>
+        </message>
+        <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
 </source>
             <translation type="unfinished">

@@ -1777,6 +1777,14 @@ Slovak - Roman Moravčík</source>
             <translation type="unfinished">Túlnyomóan borult ég, elszórtan esőzés</translation>
         </message>
         <message>
+            <source>Mainly cloudy, drizzle</source>
+            <translation type="unfinished">Helyenként felhős, záporokkal</translation>
+        </message>
+        <message>
+            <source>Mainly cloudy, showers</source>
+            <translation type="unfinished">Helyenként felhős, záporokkal</translation>
+        </message>
+        <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
 </source>
             <translation>Karbantartók: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;

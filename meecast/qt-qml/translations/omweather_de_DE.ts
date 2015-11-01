@@ -1807,6 +1807,14 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Überwiegend bewölkt mit einzelnen Regenschauern</translation>
         </message>
         <message>
+            <source>Mainly cloudy, drizzle</source>
+            <translation type="unfinished">Teilweise bewölkt und Schauer</translation>
+        </message>
+        <message>
+            <source>Mainly cloudy, showers</source>
+            <translation type="unfinished">Teilweise bewölkt und Schauer</translation>
+        </message>
+        <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
 </source>
             <translation>Produktpflege: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;

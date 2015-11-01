@@ -1806,6 +1806,14 @@ Slovakiska - Roman Moravčík</translation>
             <translation>Huvudsakligen molnigt med sporadiska regnskurar</translation>
         </message>
         <message>
+            <source>Mainly cloudy, drizzle</source>
+            <translation>Mestadels molnigt, Duggregn</translation>
+        </message>
+        <message>
+            <source>Mainly cloudy, showers</source>
+            <translation>Mestadels molnigt, regnskurar</translation>
+        </message>
+        <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
 </source>
             <translation>Underhåll: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;

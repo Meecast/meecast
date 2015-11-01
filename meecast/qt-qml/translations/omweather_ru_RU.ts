@@ -1369,13 +1369,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Haze, Smoke or Dust</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Мгла, Дымка или Пыль</translation>
         </message>
         <message>
             <source>Heavy Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Сильный град</translation>
         </message>
         <message>
             <source>Heavy Precipitation</source>
@@ -1395,18 +1393,15 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Heavy Rain Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Сильные ливневые дожди</translation>
         </message>
         <message>
             <source>Heavy Sleet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Сильный мокрый снег</translation>
         </message>
         <message>
             <source>Heavy Sleet Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Сильные дожди с мокрым снегом</translation>
         </message>
         <message>
             <source>Heavy Snow</source>
@@ -1418,13 +1413,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Сильные дожди со снегом</translation>
         </message>
         <message>
             <source>Heavy Snowfall</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Сильный снегопад</translation>
         </message>
         <message>
             <source>Heavy Thunder</source>
@@ -1790,7 +1783,17 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Mainly cloudy, Slight shower of rain</source>
-            <translation type="unfinished">Пасмурно, временами дождь</translation>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Mainly cloudy, drizzle</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Mainly cloudy, showers</source>
+            <translation>Пасмурно, ливень</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -1841,8 +1844,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Moderate Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Небольшой град</translation>
         </message>
         <message>
             <source>Moderate Rain</source>
@@ -1850,18 +1852,15 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Moderate Rain Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Небольшие ливни</translation>
         </message>
         <message>
             <source>Moderate Sleet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Небольшой мокрый снег</translation>
         </message>
         <message>
             <source>Moderate Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Небольшой снег и дожди</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -1961,8 +1960,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Пасмурно, небольшой дождь, слабый ливень</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
@@ -2748,8 +2746,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rain and snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Дождь и снег</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>
@@ -3146,8 +3143,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Sleet Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Мокрый дождь со снегом</translation>
         </message>
         <message>
             <source>Slovak - Roman Moravčík

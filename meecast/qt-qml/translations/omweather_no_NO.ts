@@ -1795,6 +1795,14 @@ Slovak - Roman Moravčík</translation>
             <translation type="unfinished">Hovedsaklig skyet med sporadisk regn.</translation>
         </message>
         <message>
+            <source>Mainly cloudy, drizzle</source>
+            <translation type="unfinished">Delvis skyet og byger</translation>
+        </message>
+        <message>
+            <source>Mainly cloudy, showers</source>
+            <translation type="unfinished">Delvis skyet og byger</translation>
+        </message>
+        <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
 </source>
             <translation>Vedlikehold: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;

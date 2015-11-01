@@ -1804,6 +1804,14 @@ Luca Onnis
             <translation>多云,小雨</translation>
         </message>
         <message>
+            <source>Mainly cloudy, drizzle</source>
+            <translation type="unfinished">局部多云有阵雨</translation>
+        </message>
+        <message>
+            <source>Mainly cloudy, showers</source>
+            <translation type="unfinished">局部多云有阵雨</translation>
+        </message>
+        <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
 </source>
             <translation>维护: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;

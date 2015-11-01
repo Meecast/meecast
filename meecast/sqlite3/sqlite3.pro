@@ -5,7 +5,7 @@ CONFIG += link_pkgconfig staticlib
 
 QMAKE_CFLAGS += -DSQLITE_OMIT_LOAD_EXTENSION=1
 
-target.path = /usr/share/harbour-meecast/lib
+#target.path = /usr/share/harbour-meecast/lib
 
 SOURCES += sqlite3.c
 HEADERS  += sqlite3.h

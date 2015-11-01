@@ -4,7 +4,7 @@ TEMPLATE = lib
 CONFIG += link_pkgconfig staticlib
 
 
-target.path = /usr/share/harbour-meecast/lib
+#target.path = /usr/share/harbour-meecast/lib
 
 SOURCES += *.c
 HEADERS  += *.h

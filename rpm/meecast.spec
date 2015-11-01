@@ -15,7 +15,7 @@
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
 Version:    1.1.7
-Release:    4
+Release:    1
 Group:      Utility
 License:    GPLv2.1
 URL:        https://github.com/Meecast/meecast 
@@ -154,7 +154,7 @@ systemctl-user start meecastd.service
 /usr/bin/harbour-meecast
 /usr/share/harbour-meecast
 #/usr/share/iconsets
-/usr/share/icons/hicolor/86x86/apps
+/usr/share/icons/hicolor
 #/opt/com.meecast.omweather/share
 
 %files daemon
@@ -175,10 +175,15 @@ systemctl-user start meecastd.service
 
 %changelog
 
-* Sun Oct 18 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.7
+* Sun Nov 1 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.7
 
   * Added new translation string for gismeteo.ru 
   * Fixed problem in openweathermap.org source again
+  * Fixed problem useless *.a files https://github.com/Meecast/meecast/issues/23 
+  * Added desktop icons (108x108 128x128 256x256)
+  * Added Galician translation
+  * Updated Russian, Swedish tarnslations
+
 
 * Sun Oct 18 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.6
 

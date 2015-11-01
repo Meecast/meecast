@@ -45,7 +45,7 @@ source.files = data/foreca.com.xml
 source.path = /usr/share/harbour-meecast/sources/
 
 #install
-target.path = /usr/share/harbour-meecast/lib
-INSTALLS += target db source
+#target.path = /usr/share/harbour-meecast/lib
+#INSTALLS += target db source
 
 

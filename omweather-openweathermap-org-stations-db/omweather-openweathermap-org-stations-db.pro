@@ -48,7 +48,7 @@ source.files = data/openweathermap.org.xml
 source.path = /usr/share/harbour-meecast/sources/
 
 #install
-target.path = /usr/share/harbour-meecast/lib
-INSTALLS += target db icon source
+#target.path = /usr/share/harbour-meecast/lib
+#INSTALLS += target db icon source
 
 

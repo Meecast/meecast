@@ -19,6 +19,7 @@ BackgroundItem {
 
     function refresh(){
 
+        icon.source = weatherData.meecastData.forecastdata["item1_icon"]
         stationname.text = weatherData.meecastData.nameString 
         description.text = weatherData.meecastData.forecastdata["item1_description"] ? weatherData.meecastData.forecastdata["item1_description"] : "MeeCast"
         if (weatherData.meecastData.forecastdata["item1_temperature"] && weatherData.meecastData.forecastdata["item1_temperature"] != "N/A"){
@@ -99,7 +100,6 @@ BackgroundItem {
             day_name_6.text = weatherData.meecastData.forecastdata["item6_short_day_name"]
             day_name_7.text = weatherData.meecastData.forecastdata["item7_short_day_name"]
             day_name_8.text = weatherData.meecastData.forecastdata["item8_short_day_name"]
-            icon.source = weatherData.meecastData.forecastdata["item1_icon"]
             icon2.source = weatherData.meecastData.forecastdata["item2_icon"]
             icon3.source = weatherData.meecastData.forecastdata["item3_icon"]
             icon4.source = weatherData.meecastData.forecastdata["item4_icon"]

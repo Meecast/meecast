@@ -144,10 +144,10 @@ buttonicons.path = /usr/share/harbour-meecast/buttons_icons
 buttonicons.files += data/button_icons/*.png
 images.path = /usr/share/harbour-meecast/images
 images.files += data/images/*.png
-alib.files = libomweather-core.a
-alib.path = /usr/share/harbour-meecast/lib
+#alib.files = libomweather-core.a
+#alib.path = /usr/share/harbour-meecast/lib
 
-INSTALLS += target databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee datanoun dataatmos xsd buttonicons images alib icon50  icon16 icon32 icon64 icon108 icon128 icon256 icon86 donation
+INSTALLS += target databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee datanoun dataatmos xsd buttonicons images  icon50  icon16 icon32 icon64 icon108 icon128 icon256 icon86 donation
 QMAKE_CLEAN += lib$$TARGET* \
     *.pro.user
 

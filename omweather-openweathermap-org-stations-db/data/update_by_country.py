@@ -10,8 +10,8 @@ import os
 import re
 import string
 import zipfile
-country = "India"
-country_code = "IN"
+country = "Russia"
+country_code = "RU"
                 
 
 def normalizing4 (source):
@@ -34,7 +34,8 @@ def normalizing3 (source):
 #timezoneurl=" http://api.geonames.org/timezone?lat=47.01&lng=10.2&username=demo"
 
 baseurl = "http://download.geonames.org/export/dump/"
-openweathrmapurl = "http://api.openweathermap.org/data/2.5/weather?id=" 
+#openweathrmapurl = "http://api.openweathermap.org/data/2.5/weather?id=" 
+openweathrmapurl = "http://openweathermap.org/city/" 
 
 #connect to database
 c = db.connect(database=r"./openweathermap.org.db")
@@ -65,6 +66,8 @@ outfile.write(z.read(country_code + ".txt"))
 outfile.close()
 fh.close()
 
+
+
 #fill regions
 regions = {}
 regions_name = {}
@@ -82,7 +85,6 @@ for line in fh.readlines():
 #        regions_name[pattern[20]] = pattern[4]
 #        regions_name_second[pattern[20]] = pattern[6]
 fh.close
-
 
 regions_name["00"] = "Other/" + country
 regions_name_second["00"] = "Other/" + country
@@ -113,8 +115,10 @@ fh = open(country_code + ".txt")
 for line in fh.readlines():
     pattern = re.split('(\t)', line)
 #    print "Station %s" %(line)
+#    print "Pattern %s" %(pattern[20])
 #    if (pattern[14] == "PPLA" or pattern[14] == "PPLA2" or pattern[14] == "PPLC" or pattern[14] == "PPL"):    
-    if (pattern[14] == "PPLA" or pattern[14] == "PPLA2" or pattern[14] == "PPLA3" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
+#    if ((pattern[14] == "PPLA" or pattern[14] == "PPLA2" or pattern[14] == "PPLA3" or pattern[14] == "PPLC" or pattern[14] == "PPL") and (pattern[20] == "42")):
+    if (pattern[14] == "PPLA" or pattern[14] == "PPLA2" or pattern[14] == "PPLC" or pattern[14] == "PPL"):    
 #        print "%s %s" %(pattern[4], pattern[28]) 
         if (pattern[20] != "" and int(pattern[28]) >= 80000):
             if (regions_name.get(pattern[20]) == None):
@@ -139,15 +143,16 @@ for line in fh.readlines():
 #            print region_id 
 #            print "Station %s" %(normalizing(pattern[4]))
 
-            url = openweathrmapurl  +  pattern[0]
+            url = openweathrmapurl  +  pattern[0] 
             print url
 
             req = urllib2.Request(url, None, {'User-agent': 'Mozilla/5.0', 'Accept-Language':'ru'})
             page = urllib2.urlopen(req)
             error_flag = False
             for line2 in page.readlines():
-                if (line2.find("Error") != -1):
+                if (line2.find("of London") != -1):
                     error_flag = True
+                    print ("Error %s", url)
 
             if (error_flag):
                 continue

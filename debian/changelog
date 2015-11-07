@@ -1,6 +1,6 @@
 meecast (1.1.9) unstable; urgency=low
 
-  * Nothing 
+  * Added stations in Russia to Openweathermap.org 
 
  -- Vlad Vasiliev <vlad@gas.by> Sun, 19 Oct 2015 10:01:23 +0200
 

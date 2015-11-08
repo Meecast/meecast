@@ -1,3 +1,10 @@
+meecast (1.1.9) unstable; urgency=low
+
+  * Added stations in Russia to Openweathermap.org (Sverdlovskaya oblast,
+    Krsnodarkiy Kray and Leningradskaya oblast) 
+
+ -- Vlad Vasiliev <vlad@gas.by> Sun, 19 Oct 2015 10:01:23 +0200
+
 meecast (1.1.7) unstable; urgency=low
 
   * Added new translation string for gismeteo.ru 

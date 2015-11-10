@@ -2,7 +2,7 @@ meecast (1.1.9) unstable; urgency=low
 
   * Added stations in Russia to Openweathermap.org (Sverdlovskaya oblast,
     Krsnodarkiy Kray and Leningradskaya oblast) 
-  * Updated Russian, Swedish, Finnish tarnslations
+  * Updated Russian, Swedish, Finnish, Norwegian tarnslations
 
  -- Vlad Vasiliev <vlad@gas.by> Sun, 19 Oct 2015 10:01:23 +0200
 

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-31 20:22+0300\n"
+"POT-Creation-Date: 2015-11-10 10:50+0300\n"
 "PO-Revision-Date: 2012-10-05 08:15+0000\n"
 "Last-Translator: quytrong287 <quytrong287@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/meecast/"
@@ -369,7 +369,7 @@ msgstr ""
 "Quản lý ứng dụng sẽ bắt đầu⏎ cài đặt 'MeeCast'.⏎\n"
 "Bạn nên gỡ bỏ AccuWeather ⏎ trước khi cài ứng dụng này"
 
-#: meecast/qt-qml/qml/AboutPage.qml:256
+#: meecast/qt-qml/qml/AboutPage.qml:257
 msgid "Arabic - Tarad Alfandi\n"
 msgstr ""
 
@@ -482,7 +482,7 @@ msgid ""
 " \tgwmgdemj\n"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:263
+#: meecast/qt-qml/qml/AboutPage.qml:264
 msgid "Chinese(Taiwan) - osk2, \n"
 msgstr ""
 
@@ -696,7 +696,7 @@ msgstr ""
 msgid "Custom"
 msgstr "Tùy chỉnh"
 
-#: meecast/qt-qml/qml/AboutPage.qml:262
+#: meecast/qt-qml/qml/AboutPage.qml:263
 msgid "Czech - Jakub Kožíšek, Pavel Šrubař\n"
 msgstr ""
 
@@ -704,7 +704,7 @@ msgstr ""
 msgid "Daily"
 msgstr "Hàng ngày"
 
-#: meecast/qt-qml/qml/AboutPage.qml:257
+#: meecast/qt-qml/qml/AboutPage.qml:258
 msgid "Danish - Peter Jespersen\n"
 msgstr ""
 
@@ -1126,6 +1126,10 @@ msgstr "GSM+WLAN"
 msgid "GUI|Clear"
 msgstr ""
 
+#: meecast/qt-qml/qml/AboutPage.qml:256
+msgid "Galician - pakoR\n"
+msgstr ""
+
 #: meecast/qt-qml/qml/AboutPage.qml:236
 msgid ""
 "German -  Claudius Henrichs,\n"
@@ -1251,7 +1255,7 @@ msgstr "Độ ẩm:"
 msgid "Humidity:"
 msgstr "Độ ẩm:"
 
-#: meecast/qt-qml/qml/AboutPage.qml:260
+#: meecast/qt-qml/qml/AboutPage.qml:261
 msgid "Hungarian - Salmi, László Kara\n"
 msgstr ""
 
@@ -1275,7 +1279,7 @@ msgstr "Biểu tượng"
 msgid "Iconset"
 msgstr "Bộ biểu tượng"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:277
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:278
 msgid "Iconsets"
 msgstr "Các bộ biểu tượng"
 
@@ -1361,7 +1365,7 @@ msgstr "Bố trí:"
 msgid "Lead designers"
 msgstr "Chỉ đạo thiết kế"
 
-#: meecast/qt-qml/qml/AboutPage.qml:311
+#: meecast/qt-qml/qml/AboutPage.qml:312
 msgid "License"
 msgstr "Giấy phép"
 
@@ -1847,7 +1851,7 @@ msgstr "Không có dữ liệu thời tiết ngày hôm nay."
 msgid "No weather data for this station."
 msgstr "Không có dữ liệu thời tiết ở trạm này."
 
-#: meecast/qt-qml/qml/AboutPage.qml:259
+#: meecast/qt-qml/qml/AboutPage.qml:260
 msgid "Norwegian - Peer-Atle Motland\n"
 msgstr ""
 
@@ -2519,7 +2523,7 @@ msgstr "Chọn trạm"
 msgid "Sensor"
 msgstr "Cảm biến"
 
-#: meecast/qt-qml/qml/AboutPage.qml:258
+#: meecast/qt-qml/qml/AboutPage.qml:259
 msgid "Serbian - Aleksandar Zaric\n"
 msgstr ""
 
@@ -2648,7 +2652,7 @@ msgstr "Mưa rào rải rác"
 msgid "Slovak - Roman Moravčík\n"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:261
+#: meecast/qt-qml/qml/AboutPage.qml:262
 msgid "Slovenian - Boštjan Štrumbelj\n"
 msgstr ""
 
@@ -2714,7 +2718,7 @@ msgstr "Có tuyết rơi"
 msgid "Source"
 msgstr "Nguồn"
 
-#: meecast/qt-qml/qml/AboutPage.qml:333
+#: meecast/qt-qml/qml/AboutPage.qml:334
 #, fuzzy
 msgid "Source code"
 msgstr "Nguồn"
@@ -2806,7 +2810,7 @@ msgstr ""
 msgid "Swap hi/low temperature"
 msgstr "Hoán đổi nhiệt độ Cao/thấp:"
 
-#: meecast/qt-qml/qml/AboutPage.qml:266
+#: meecast/qt-qml/qml/AboutPage.qml:267
 msgid ""
 "Swedish - Angela Nennebrandt,\n"
 " \tÅke Engelbrektson, \n"
@@ -2882,7 +2886,7 @@ msgstr ""
 msgid "This is experimental feature. Only English is supported."
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:320
+#: meecast/qt-qml/qml/AboutPage.qml:321
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3046,7 +3050,7 @@ msgstr "Thời gian hợp lệ cho thời tiết hiện tại:"
 msgid "Very High"
 msgstr "Rất cao"
 
-#: meecast/qt-qml/qml/AboutPage.qml:264
+#: meecast/qt-qml/qml/AboutPage.qml:265
 msgid ""
 "Vietnamese - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
@@ -3353,7 +3357,7 @@ msgstr "Giờ trước"
 msgid "hours ago"
 msgstr "Giờ trước"
 
-#: meecast/qt-qml/qml/AboutPage.qml:342
+#: meecast/qt-qml/qml/AboutPage.qml:343
 msgid "http://github.com/Meecast/meecast"
 msgstr ""
 

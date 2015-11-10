@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-31 20:22+0300\n"
+"POT-Creation-Date: 2015-11-10 10:50+0300\n"
 "PO-Revision-Date: 2014-05-15 13:55+0000\n"
 "Last-Translator: osk2 <sc60714@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/meecast/"
@@ -364,7 +364,7 @@ msgstr ""
 "程式管理員將會開始安裝 MeeCast applet。\n"
 "安裝之前請先將 AccuWeather 移除。"
 
-#: meecast/qt-qml/qml/AboutPage.qml:256
+#: meecast/qt-qml/qml/AboutPage.qml:257
 msgid "Arabic - Tarad Alfandi\n"
 msgstr ""
 
@@ -479,7 +479,7 @@ msgid ""
 " \tgwmgdemj\n"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:263
+#: meecast/qt-qml/qml/AboutPage.qml:264
 msgid "Chinese(Taiwan) - osk2, \n"
 msgstr ""
 
@@ -690,7 +690,7 @@ msgstr ""
 msgid "Custom"
 msgstr "自訂"
 
-#: meecast/qt-qml/qml/AboutPage.qml:262
+#: meecast/qt-qml/qml/AboutPage.qml:263
 msgid "Czech - Jakub Kožíšek, Pavel Šrubař\n"
 msgstr ""
 
@@ -698,7 +698,7 @@ msgstr ""
 msgid "Daily"
 msgstr "每天"
 
-#: meecast/qt-qml/qml/AboutPage.qml:257
+#: meecast/qt-qml/qml/AboutPage.qml:258
 msgid "Danish - Peter Jespersen\n"
 msgstr ""
 
@@ -1115,6 +1115,10 @@ msgstr "GSM+WLAN"
 msgid "GUI|Clear"
 msgstr "使用者介面 | 清除"
 
+#: meecast/qt-qml/qml/AboutPage.qml:256
+msgid "Galician - pakoR\n"
+msgstr ""
+
 #: meecast/qt-qml/qml/AboutPage.qml:236
 msgid ""
 "German -  Claudius Henrichs,\n"
@@ -1235,7 +1239,7 @@ msgstr "濕度"
 msgid "Humidity:"
 msgstr "濕度"
 
-#: meecast/qt-qml/qml/AboutPage.qml:260
+#: meecast/qt-qml/qml/AboutPage.qml:261
 msgid "Hungarian - Salmi, László Kara\n"
 msgstr ""
 
@@ -1259,7 +1263,7 @@ msgstr "圖示"
 msgid "Iconset"
 msgstr "圖示集"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:277
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:278
 msgid "Iconsets"
 msgstr "圖示集"
 
@@ -1344,7 +1348,7 @@ msgstr "頁面樣式︰"
 msgid "Lead designers"
 msgstr "首席設計師"
 
-#: meecast/qt-qml/qml/AboutPage.qml:311
+#: meecast/qt-qml/qml/AboutPage.qml:312
 msgid "License"
 msgstr "版權"
 
@@ -1821,7 +1825,7 @@ msgstr "無今日氣象資料。"
 msgid "No weather data for this station."
 msgstr "此站點無氣象資料。"
 
-#: meecast/qt-qml/qml/AboutPage.qml:259
+#: meecast/qt-qml/qml/AboutPage.qml:260
 msgid "Norwegian - Peer-Atle Motland\n"
 msgstr ""
 
@@ -2485,7 +2489,7 @@ msgstr "選擇站點"
 msgid "Sensor"
 msgstr "感測器"
 
-#: meecast/qt-qml/qml/AboutPage.qml:258
+#: meecast/qt-qml/qml/AboutPage.qml:259
 msgid "Serbian - Aleksandar Zaric\n"
 msgstr ""
 
@@ -2608,7 +2612,7 @@ msgstr "短暫陣雨"
 msgid "Slovak - Roman Moravčík\n"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:261
+#: meecast/qt-qml/qml/AboutPage.qml:262
 msgid "Slovenian - Boštjan Štrumbelj\n"
 msgstr ""
 
@@ -2674,7 +2678,7 @@ msgstr "雪"
 msgid "Source"
 msgstr "來源"
 
-#: meecast/qt-qml/qml/AboutPage.qml:333
+#: meecast/qt-qml/qml/AboutPage.qml:334
 msgid "Source code"
 msgstr "程式原始碼"
 
@@ -2765,7 +2769,7 @@ msgstr "支援"
 msgid "Swap hi/low temperature"
 msgstr "調換高低氣溫"
 
-#: meecast/qt-qml/qml/AboutPage.qml:266
+#: meecast/qt-qml/qml/AboutPage.qml:267
 msgid ""
 "Swedish - Angela Nennebrandt,\n"
 " \tÅke Engelbrektson, \n"
@@ -2841,7 +2845,7 @@ msgstr "此清單內沒有戰點可以顯示"
 msgid "This is experimental feature. Only English is supported."
 msgstr "此為實驗功能。僅提供英文版。"
 
-#: meecast/qt-qml/qml/AboutPage.qml:320
+#: meecast/qt-qml/qml/AboutPage.qml:321
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3005,7 +3009,7 @@ msgstr "Valid time for current weather:"
 msgid "Very High"
 msgstr "非常高"
 
-#: meecast/qt-qml/qml/AboutPage.qml:264
+#: meecast/qt-qml/qml/AboutPage.qml:265
 msgid ""
 "Vietnamese - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
@@ -3305,7 +3309,7 @@ msgstr "小時前"
 msgid "hours ago"
 msgstr "小時前"
 
-#: meecast/qt-qml/qml/AboutPage.qml:342
+#: meecast/qt-qml/qml/AboutPage.qml:343
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 

@@ -1339,6 +1339,12 @@ Slovak - Roman Moravčík</source>
             <translation>Очистить</translation>
         </message>
         <message>
+            <source>Galician - pakoR
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>German -  Claudius Henrichs,
  	Jens Klingen,
  	DeadHorseRiding
@@ -1783,13 +1789,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Mainly cloudy, Slight shower of rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Пасмурно, небольшой дождь</translation>
         </message>
         <message>
             <source>Mainly cloudy, drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Пасмурно, морось</translation>
         </message>
         <message>
             <source>Mainly cloudy, showers</source>

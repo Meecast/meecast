@@ -1363,6 +1363,12 @@ Slovakia - Roman Moravčík</translation>
             <translation>Tyhjennä</translation>
         </message>
         <message>
+            <source>Galician - pakoR
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>German -  Claudius Henrichs,
  	Jens Klingen,
  	DeadHorseRiding

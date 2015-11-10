@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-31 20:22+0300\n"
+"POT-Creation-Date: 2015-11-10 10:50+0300\n"
 "PO-Revision-Date: 2014-04-15 08:34+0000\n"
 "Last-Translator: Aleksandar Zarić <alexandarzaric@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/meecast/language/"
@@ -369,7 +369,7 @@ msgstr ""
 "Trebalo bi da deinstalirate AccuWeather \n"
 "pre instalacije ovog paketa"
 
-#: meecast/qt-qml/qml/AboutPage.qml:256
+#: meecast/qt-qml/qml/AboutPage.qml:257
 msgid "Arabic - Tarad Alfandi\n"
 msgstr ""
 
@@ -484,7 +484,7 @@ msgid ""
 " \tgwmgdemj\n"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:263
+#: meecast/qt-qml/qml/AboutPage.qml:264
 msgid "Chinese(Taiwan) - osk2, \n"
 msgstr ""
 
@@ -695,7 +695,7 @@ msgstr ""
 msgid "Custom"
 msgstr "Po želji"
 
-#: meecast/qt-qml/qml/AboutPage.qml:262
+#: meecast/qt-qml/qml/AboutPage.qml:263
 msgid "Czech - Jakub Kožíšek, Pavel Šrubař\n"
 msgstr ""
 
@@ -703,7 +703,7 @@ msgstr ""
 msgid "Daily"
 msgstr "Dnevno"
 
-#: meecast/qt-qml/qml/AboutPage.qml:257
+#: meecast/qt-qml/qml/AboutPage.qml:258
 msgid "Danish - Peter Jespersen\n"
 msgstr ""
 
@@ -1121,6 +1121,10 @@ msgstr "GSM+WLAN"
 msgid "GUI|Clear"
 msgstr "GUI|Očisti"
 
+#: meecast/qt-qml/qml/AboutPage.qml:256
+msgid "Galician - pakoR\n"
+msgstr ""
+
 #: meecast/qt-qml/qml/AboutPage.qml:236
 msgid ""
 "German -  Claudius Henrichs,\n"
@@ -1241,7 +1245,7 @@ msgstr "Vlažnost"
 msgid "Humidity:"
 msgstr "Vlažnost:"
 
-#: meecast/qt-qml/qml/AboutPage.qml:260
+#: meecast/qt-qml/qml/AboutPage.qml:261
 msgid "Hungarian - Salmi, László Kara\n"
 msgstr ""
 
@@ -1265,7 +1269,7 @@ msgstr "Ikone"
 msgid "Iconset"
 msgstr "Set ikona"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:277
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:278
 msgid "Iconsets"
 msgstr "Setovi ikona"
 
@@ -1350,7 +1354,7 @@ msgstr "Prikaz:"
 msgid "Lead designers"
 msgstr "Glavni dizajneri"
 
-#: meecast/qt-qml/qml/AboutPage.qml:311
+#: meecast/qt-qml/qml/AboutPage.qml:312
 msgid "License"
 msgstr "Dozvola"
 
@@ -1828,7 +1832,7 @@ msgstr "Nema vremenskih podataka za ovaj dan."
 msgid "No weather data for this station."
 msgstr "Nema vremenskih podataka za ovu stanicu."
 
-#: meecast/qt-qml/qml/AboutPage.qml:259
+#: meecast/qt-qml/qml/AboutPage.qml:260
 msgid "Norwegian - Peer-Atle Motland\n"
 msgstr ""
 
@@ -2492,7 +2496,7 @@ msgstr "Odabira se stanica"
 msgid "Sensor"
 msgstr "Senzor"
 
-#: meecast/qt-qml/qml/AboutPage.qml:258
+#: meecast/qt-qml/qml/AboutPage.qml:259
 msgid "Serbian - Aleksandar Zaric\n"
 msgstr ""
 
@@ -2615,7 +2619,7 @@ msgstr "Po koji pljusak"
 msgid "Slovak - Roman Moravčík\n"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:261
+#: meecast/qt-qml/qml/AboutPage.qml:262
 msgid "Slovenian - Boštjan Štrumbelj\n"
 msgstr ""
 
@@ -2681,7 +2685,7 @@ msgstr "Sneg"
 msgid "Source"
 msgstr "Izvor"
 
-#: meecast/qt-qml/qml/AboutPage.qml:333
+#: meecast/qt-qml/qml/AboutPage.qml:334
 msgid "Source code"
 msgstr "Izvorni kod"
 
@@ -2772,7 +2776,7 @@ msgstr "Podrška"
 msgid "Swap hi/low temperature"
 msgstr "Zameni mesta najviša/najniža temperatura"
 
-#: meecast/qt-qml/qml/AboutPage.qml:266
+#: meecast/qt-qml/qml/AboutPage.qml:267
 msgid ""
 "Swedish - Angela Nennebrandt,\n"
 " \tÅke Engelbrektson, \n"
@@ -2848,7 +2852,7 @@ msgstr "Nema stanica za prikaz u ovom pregledu liste"
 msgid "This is experimental feature. Only English is supported."
 msgstr "Ovo je eksperimentalna opcija. Podržan je samo engleski jezik."
 
-#: meecast/qt-qml/qml/AboutPage.qml:320
+#: meecast/qt-qml/qml/AboutPage.qml:321
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3016,7 +3020,7 @@ msgstr "Ispravno vreme za trenutne vremenske uslove"
 msgid "Very High"
 msgstr "Mnogo visok"
 
-#: meecast/qt-qml/qml/AboutPage.qml:264
+#: meecast/qt-qml/qml/AboutPage.qml:265
 msgid ""
 "Vietnamese - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
@@ -3325,7 +3329,7 @@ msgstr "sat ranije"
 msgid "hours ago"
 msgstr "sati ranije"
 
-#: meecast/qt-qml/qml/AboutPage.qml:342
+#: meecast/qt-qml/qml/AboutPage.qml:343
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 

@@ -1362,6 +1362,12 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>GUI|Чисто</translation>
         </message>
         <message>
+            <source>Galician - pakoR
+</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>German -  Claudius Henrichs,
  	Jens Klingen,
  	DeadHorseRiding

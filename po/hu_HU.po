@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-31 20:22+0300\n"
+"POT-Creation-Date: 2015-11-10 10:50+0300\n"
 "PO-Revision-Date: 2014-07-28 05:20+0000\n"
 "Last-Translator: Macilaci457 <laci.kara@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/meecast/"
@@ -331,7 +331,7 @@ msgid ""
 "before installing this package"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:256
+#: meecast/qt-qml/qml/AboutPage.qml:257
 msgid "Arabic - Tarad Alfandi\n"
 msgstr ""
 
@@ -441,7 +441,7 @@ msgid ""
 " \tgwmgdemj\n"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:263
+#: meecast/qt-qml/qml/AboutPage.qml:264
 msgid "Chinese(Taiwan) - osk2, \n"
 msgstr ""
 
@@ -650,7 +650,7 @@ msgstr ""
 msgid "Custom"
 msgstr "Egyedi"
 
-#: meecast/qt-qml/qml/AboutPage.qml:262
+#: meecast/qt-qml/qml/AboutPage.qml:263
 msgid "Czech - Jakub Kožíšek, Pavel Šrubař\n"
 msgstr ""
 
@@ -658,7 +658,7 @@ msgstr ""
 msgid "Daily"
 msgstr "Naponta"
 
-#: meecast/qt-qml/qml/AboutPage.qml:257
+#: meecast/qt-qml/qml/AboutPage.qml:258
 msgid "Danish - Peter Jespersen\n"
 msgstr ""
 
@@ -1048,6 +1048,10 @@ msgstr "GSM+WLAN"
 msgid "GUI|Clear"
 msgstr "GUI|Töröl"
 
+#: meecast/qt-qml/qml/AboutPage.qml:256
+msgid "Galician - pakoR\n"
+msgstr ""
+
 #: meecast/qt-qml/qml/AboutPage.qml:236
 msgid ""
 "German -  Claudius Henrichs,\n"
@@ -1159,7 +1163,7 @@ msgstr "Páratartalom"
 msgid "Humidity:"
 msgstr "Páratartalom:"
 
-#: meecast/qt-qml/qml/AboutPage.qml:260
+#: meecast/qt-qml/qml/AboutPage.qml:261
 msgid "Hungarian - Salmi, László Kara\n"
 msgstr ""
 
@@ -1183,7 +1187,7 @@ msgstr "Ikonok"
 msgid "Iconset"
 msgstr "Ikoncsomag"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:277
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:278
 msgid "Iconsets"
 msgstr "Ikoncsomagok"
 
@@ -1268,7 +1272,7 @@ msgstr "Megjelenés:"
 msgid "Lead designers"
 msgstr "Vezető tervezők"
 
-#: meecast/qt-qml/qml/AboutPage.qml:311
+#: meecast/qt-qml/qml/AboutPage.qml:312
 msgid "License"
 msgstr "Licensz"
 
@@ -1735,7 +1739,7 @@ msgstr "Nincs időjárásadat ehhez a naphoz."
 msgid "No weather data for this station."
 msgstr "Nincs időjárás adat az állomásról."
 
-#: meecast/qt-qml/qml/AboutPage.qml:259
+#: meecast/qt-qml/qml/AboutPage.qml:260
 msgid "Norwegian - Peer-Atle Motland\n"
 msgstr ""
 
@@ -2395,7 +2399,7 @@ msgstr "Állomás kiválasztása"
 msgid "Sensor"
 msgstr "Érzékelő"
 
-#: meecast/qt-qml/qml/AboutPage.qml:258
+#: meecast/qt-qml/qml/AboutPage.qml:259
 msgid "Serbian - Aleksandar Zaric\n"
 msgstr ""
 
@@ -2517,7 +2521,7 @@ msgstr ""
 msgid "Slovak - Roman Moravčík\n"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:261
+#: meecast/qt-qml/qml/AboutPage.qml:262
 msgid "Slovenian - Boštjan Štrumbelj\n"
 msgstr ""
 
@@ -2581,7 +2585,7 @@ msgstr ""
 msgid "Source"
 msgstr "Forrás"
 
-#: meecast/qt-qml/qml/AboutPage.qml:333
+#: meecast/qt-qml/qml/AboutPage.qml:334
 msgid "Source code"
 msgstr "Forráskód"
 
@@ -2672,7 +2676,7 @@ msgstr "Támogatás"
 msgid "Swap hi/low temperature"
 msgstr "Alacsony/magas hőmérséklet felcserélése"
 
-#: meecast/qt-qml/qml/AboutPage.qml:266
+#: meecast/qt-qml/qml/AboutPage.qml:267
 msgid ""
 "Swedish - Angela Nennebrandt,\n"
 " \tÅke Engelbrektson, \n"
@@ -2748,7 +2752,7 @@ msgstr "Ebben a nézetben nem láthatók állomások"
 msgid "This is experimental feature. Only English is supported."
 msgstr "Ez egy kísérleti funkció. Csak az angol nyelv támogatott."
 
-#: meecast/qt-qml/qml/AboutPage.qml:320
+#: meecast/qt-qml/qml/AboutPage.qml:321
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2904,7 +2908,7 @@ msgstr "Pontos idő a jelenlegi időjáráshoz:"
 msgid "Very High"
 msgstr "Nagyon magas"
 
-#: meecast/qt-qml/qml/AboutPage.qml:264
+#: meecast/qt-qml/qml/AboutPage.qml:265
 msgid ""
 "Vietnamese - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
@@ -3204,7 +3208,7 @@ msgstr "órája"
 msgid "hours ago"
 msgstr "órája"
 
-#: meecast/qt-qml/qml/AboutPage.qml:342
+#: meecast/qt-qml/qml/AboutPage.qml:343
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 

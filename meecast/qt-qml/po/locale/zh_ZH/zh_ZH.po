@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-31 20:22+0300\n"
+"POT-Creation-Date: 2015-11-10 10:50+0300\n"
 "PO-Revision-Date: 2015-03-20 11:39+0000\n"
 "Last-Translator: gwmgdemj <gwmgdemj@163.com>\n"
 "Language-Team: Chinese (http://www.transifex.com/projects/p/meecast/language/"
@@ -368,7 +368,7 @@ msgstr ""
 "安装前请确认”AccuWeather“ \n"
 "这个程序已经卸载"
 
-#: meecast/qt-qml/qml/AboutPage.qml:256
+#: meecast/qt-qml/qml/AboutPage.qml:257
 msgid "Arabic - Tarad Alfandi\n"
 msgstr "阿拉伯语 - Tarad Alfandi\n"
 
@@ -486,7 +486,7 @@ msgstr ""
 "gwmgdemj\n"
 "\n"
 
-#: meecast/qt-qml/qml/AboutPage.qml:263
+#: meecast/qt-qml/qml/AboutPage.qml:264
 msgid "Chinese(Taiwan) - osk2, \n"
 msgstr "繁体中文(Taiwan) - osk2,\n"
 
@@ -695,7 +695,7 @@ msgstr "封面"
 msgid "Custom"
 msgstr "自定义"
 
-#: meecast/qt-qml/qml/AboutPage.qml:262
+#: meecast/qt-qml/qml/AboutPage.qml:263
 msgid "Czech - Jakub Kožíšek, Pavel Šrubař\n"
 msgstr "捷克 - jakub Kožíšek, Pavel Šrubař\n"
 
@@ -703,7 +703,7 @@ msgstr "捷克 - jakub Kožíšek, Pavel Šrubař\n"
 msgid "Daily"
 msgstr "每天"
 
-#: meecast/qt-qml/qml/AboutPage.qml:257
+#: meecast/qt-qml/qml/AboutPage.qml:258
 msgid "Danish - Peter Jespersen\n"
 msgstr "丹麦语 - Peter Jespersen\n"
 
@@ -1125,6 +1125,10 @@ msgstr "GSM+WLAN"
 msgid "GUI|Clear"
 msgstr "清除"
 
+#: meecast/qt-qml/qml/AboutPage.qml:256
+msgid "Galician - pakoR\n"
+msgstr ""
+
 #: meecast/qt-qml/qml/AboutPage.qml:236
 msgid ""
 "German -  Claudius Henrichs,\n"
@@ -1238,7 +1242,7 @@ msgstr "湿度: "
 msgid "Humidity:"
 msgstr "湿度: "
 
-#: meecast/qt-qml/qml/AboutPage.qml:260
+#: meecast/qt-qml/qml/AboutPage.qml:261
 msgid "Hungarian - Salmi, László Kara\n"
 msgstr "匈牙利语 - Salmi, László Kara\n"
 
@@ -1262,7 +1266,7 @@ msgstr "图标"
 msgid "Iconset"
 msgstr "图标设置"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:277
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:278
 msgid "Iconsets"
 msgstr "图标集"
 
@@ -1348,7 +1352,7 @@ msgstr "设计: "
 msgid "Lead designers"
 msgstr "主设计"
 
-#: meecast/qt-qml/qml/AboutPage.qml:311
+#: meecast/qt-qml/qml/AboutPage.qml:312
 msgid "License"
 msgstr "许可协议"
 
@@ -1812,7 +1816,7 @@ msgstr "无今日气象信息."
 msgid "No weather data for this station."
 msgstr "此地区没有天气数据."
 
-#: meecast/qt-qml/qml/AboutPage.qml:259
+#: meecast/qt-qml/qml/AboutPage.qml:260
 msgid "Norwegian - Peer-Atle Motland\n"
 msgstr "挪威语 - Peer-Atle Motland\n"
 
@@ -2467,7 +2471,7 @@ msgstr "选择地区"
 msgid "Sensor"
 msgstr "传感器"
 
-#: meecast/qt-qml/qml/AboutPage.qml:258
+#: meecast/qt-qml/qml/AboutPage.qml:259
 msgid "Serbian - Aleksandar Zaric\n"
 msgstr "塞尔维亚语 - Aleksandar Zaric\n"
 
@@ -2589,7 +2593,7 @@ msgstr "短时冻雨"
 msgid "Slovak - Roman Moravčík\n"
 msgstr "斯洛伐克语 - Roman Moravčík\n"
 
-#: meecast/qt-qml/qml/AboutPage.qml:261
+#: meecast/qt-qml/qml/AboutPage.qml:262
 msgid "Slovenian - Boštjan Štrumbelj\n"
 msgstr "斯洛文尼亚语 - Boštjan Štrumbelj\n"
 
@@ -2653,7 +2657,7 @@ msgstr "降雪"
 msgid "Source"
 msgstr "服务器"
 
-#: meecast/qt-qml/qml/AboutPage.qml:333
+#: meecast/qt-qml/qml/AboutPage.qml:334
 msgid "Source code"
 msgstr "源码"
 
@@ -2744,7 +2748,7 @@ msgstr "支持"
 msgid "Swap hi/low temperature"
 msgstr "互换高/低温."
 
-#: meecast/qt-qml/qml/AboutPage.qml:266
+#: meecast/qt-qml/qml/AboutPage.qml:267
 msgid ""
 "Swedish - Angela Nennebrandt,\n"
 " \tÅke Engelbrektson, \n"
@@ -2824,7 +2828,7 @@ msgstr "列表中没有位置可以显示"
 msgid "This is experimental feature. Only English is supported."
 msgstr "仅作为测试功能,只支持英文版."
 
-#: meecast/qt-qml/qml/AboutPage.qml:320
+#: meecast/qt-qml/qml/AboutPage.qml:321
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2993,7 +2997,7 @@ msgstr "当前气候的有效性:"
 msgid "Very High"
 msgstr "非常高"
 
-#: meecast/qt-qml/qml/AboutPage.qml:264
+#: meecast/qt-qml/qml/AboutPage.qml:265
 msgid ""
 "Vietnamese - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
@@ -3297,7 +3301,7 @@ msgstr "小时前"
 msgid "hours ago"
 msgstr "小时前"
 
-#: meecast/qt-qml/qml/AboutPage.qml:342
+#: meecast/qt-qml/qml/AboutPage.qml:343
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 

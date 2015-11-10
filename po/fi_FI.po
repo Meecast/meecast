@@ -14,11 +14,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-10 10:50+0300\n"
-"PO-Revision-Date: 2015-03-12 16:35+0000\n"
-"Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
-"Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/"
-"meecast/language/fi_FI/)\n"
+"POT-Creation-Date: 2015-11-10 13:22+0300\n"
+"PO-Revision-Date: 2015-11-10 09:08+0000\n"
+"Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
+"Language-Team: Finnish (Finland) (http://www.transifex.com/vasvlad/meecast/"
+"language/fi_FI/)\n"
 "Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1517,14 +1517,12 @@ msgid "Mainly cloudy, Slight shower of rain"
 msgstr "Melko pilvistä, kevyitä sadekuuroja"
 
 #: omweather/src/hash.data:145
-#, fuzzy
 msgid "Mainly cloudy, drizzle"
-msgstr "Puolipilvistä ja sadekuuroja"
+msgstr "Enimmäkseen pilvistä, tihkusadetta"
 
 #: omweather/src/hash.data:144
-#, fuzzy
 msgid "Mainly cloudy, showers"
-msgstr "Puolipilvistä ja sadekuuroja"
+msgstr "Enimmäkseen pilvistä, sadekuuroja"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""

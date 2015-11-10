@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-10 10:50+0300\n"
-"PO-Revision-Date: 2015-10-31 17:31+0000\n"
+"POT-Creation-Date: 2015-11-10 13:12+0300\n"
+"PO-Revision-Date: 2015-11-10 09:12+0000\n"
 "Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Language-Team: Swedish (http://www.transifex.com/vasvlad/meecast/language/"
 "sv/)\n"
@@ -1131,7 +1131,7 @@ msgstr "GUI|Rensa"
 
 #: meecast/qt-qml/qml/AboutPage.qml:256
 msgid "Galician - pakoR\n"
-msgstr ""
+msgstr "Galiciska - pakoR\n"
 
 #: meecast/qt-qml/qml/AboutPage.qml:236
 msgid ""

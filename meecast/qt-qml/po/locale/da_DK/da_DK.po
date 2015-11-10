@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-31 20:22+0300\n"
+"POT-Creation-Date: 2015-11-10 10:50+0300\n"
 "PO-Revision-Date: 2015-05-17 22:57+0000\n"
 "Last-Translator: Peter Jespersen <flywheeldk@gmail.com>\n"
 "Language-Team: Danish (Denmark) (http://www.transifex.com/projects/p/meecast/"
@@ -337,7 +337,7 @@ msgid ""
 "before installing this package"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:256
+#: meecast/qt-qml/qml/AboutPage.qml:257
 msgid "Arabic - Tarad Alfandi\n"
 msgstr ""
 
@@ -452,7 +452,7 @@ msgid ""
 " \tgwmgdemj\n"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:263
+#: meecast/qt-qml/qml/AboutPage.qml:264
 msgid "Chinese(Taiwan) - osk2, \n"
 msgstr ""
 
@@ -661,7 +661,7 @@ msgstr "Miniature"
 msgid "Custom"
 msgstr "Brugerdefineret"
 
-#: meecast/qt-qml/qml/AboutPage.qml:262
+#: meecast/qt-qml/qml/AboutPage.qml:263
 msgid "Czech - Jakub Kožíšek, Pavel Šrubař\n"
 msgstr ""
 
@@ -669,7 +669,7 @@ msgstr ""
 msgid "Daily"
 msgstr "Daglig"
 
-#: meecast/qt-qml/qml/AboutPage.qml:257
+#: meecast/qt-qml/qml/AboutPage.qml:258
 msgid "Danish - Peter Jespersen\n"
 msgstr ""
 
@@ -1081,6 +1081,10 @@ msgstr ""
 msgid "GUI|Clear"
 msgstr ""
 
+#: meecast/qt-qml/qml/AboutPage.qml:256
+msgid "Galician - pakoR\n"
+msgstr ""
+
 #: meecast/qt-qml/qml/AboutPage.qml:236
 msgid ""
 "German -  Claudius Henrichs,\n"
@@ -1193,7 +1197,7 @@ msgstr "Luftfugtighed"
 msgid "Humidity:"
 msgstr "Luftfugtighed:"
 
-#: meecast/qt-qml/qml/AboutPage.qml:260
+#: meecast/qt-qml/qml/AboutPage.qml:261
 msgid "Hungarian - Salmi, László Kara\n"
 msgstr "Ungarsk - Salmi, László Kara\n"
 
@@ -1217,7 +1221,7 @@ msgstr "Ikoner"
 msgid "Iconset"
 msgstr "Ikonsæt"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:277
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:278
 msgid "Iconsets"
 msgstr ""
 
@@ -1299,7 +1303,7 @@ msgstr "Layout:"
 msgid "Lead designers"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:311
+#: meecast/qt-qml/qml/AboutPage.qml:312
 msgid "License"
 msgstr "Licens"
 
@@ -1762,7 +1766,7 @@ msgstr ""
 msgid "No weather data for this station."
 msgstr "Ingen vejrdata fra denne station"
 
-#: meecast/qt-qml/qml/AboutPage.qml:259
+#: meecast/qt-qml/qml/AboutPage.qml:260
 msgid "Norwegian - Peer-Atle Motland\n"
 msgstr ""
 
@@ -2415,7 +2419,7 @@ msgstr "Vælg station"
 msgid "Sensor"
 msgstr "Sensor"
 
-#: meecast/qt-qml/qml/AboutPage.qml:258
+#: meecast/qt-qml/qml/AboutPage.qml:259
 msgid "Serbian - Aleksandar Zaric\n"
 msgstr ""
 
@@ -2537,7 +2541,7 @@ msgstr ""
 msgid "Slovak - Roman Moravčík\n"
 msgstr "Slovakisk - Roman Moravčík\n"
 
-#: meecast/qt-qml/qml/AboutPage.qml:261
+#: meecast/qt-qml/qml/AboutPage.qml:262
 msgid "Slovenian - Boštjan Štrumbelj\n"
 msgstr ""
 
@@ -2601,7 +2605,7 @@ msgstr "Snefald"
 msgid "Source"
 msgstr "Kilde"
 
-#: meecast/qt-qml/qml/AboutPage.qml:333
+#: meecast/qt-qml/qml/AboutPage.qml:334
 msgid "Source code"
 msgstr "Kildekode"
 
@@ -2692,7 +2696,7 @@ msgstr ""
 msgid "Swap hi/low temperature"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:266
+#: meecast/qt-qml/qml/AboutPage.qml:267
 msgid ""
 "Swedish - Angela Nennebrandt,\n"
 " \tÅke Engelbrektson, \n"
@@ -2772,7 +2776,7 @@ msgstr ""
 msgid "This is experimental feature. Only English is supported."
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:320
+#: meecast/qt-qml/qml/AboutPage.qml:321
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2936,7 +2940,7 @@ msgstr ""
 msgid "Very High"
 msgstr "Meget Høj"
 
-#: meecast/qt-qml/qml/AboutPage.qml:264
+#: meecast/qt-qml/qml/AboutPage.qml:265
 msgid ""
 "Vietnamese - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
@@ -3236,7 +3240,7 @@ msgstr "time siden"
 msgid "hours ago"
 msgstr "timer siden"
 
-#: meecast/qt-qml/qml/AboutPage.qml:342
+#: meecast/qt-qml/qml/AboutPage.qml:343
 msgid "http://github.com/Meecast/meecast"
 msgstr ""
 

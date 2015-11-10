@@ -13,10 +13,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-31 20:22+0300\n"
-"PO-Revision-Date: 2015-03-10 11:04+0000\n"
+"POT-Creation-Date: 2015-11-10 10:50+0300\n"
+"PO-Revision-Date: 2015-10-31 17:31+0000\n"
 "Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
-"Language-Team: Swedish (http://www.transifex.com/projects/p/meecast/language/"
+"Language-Team: Swedish (http://www.transifex.com/vasvlad/meecast/language/"
 "sv/)\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -371,7 +371,7 @@ msgstr ""
 "Du bör avinstallera AccuWeather\n"
 "innan installation av detta paket"
 
-#: meecast/qt-qml/qml/AboutPage.qml:256
+#: meecast/qt-qml/qml/AboutPage.qml:257
 msgid "Arabic - Tarad Alfandi\n"
 msgstr "Arabiska - Tarad Alfandi\n"
 
@@ -488,7 +488,7 @@ msgstr ""
 "Kinesiska - Wong Man Kong, Michael,\n"
 " \tgwmgdemj\n"
 
-#: meecast/qt-qml/qml/AboutPage.qml:263
+#: meecast/qt-qml/qml/AboutPage.qml:264
 msgid "Chinese(Taiwan) - osk2, \n"
 msgstr "Kinesiska (Taiwan) - osk2, \n"
 
@@ -697,7 +697,7 @@ msgstr "Programminiatyr"
 msgid "Custom"
 msgstr "Anpassat"
 
-#: meecast/qt-qml/qml/AboutPage.qml:262
+#: meecast/qt-qml/qml/AboutPage.qml:263
 msgid "Czech - Jakub Kožíšek, Pavel Šrubař\n"
 msgstr "Tjeckiska - Jakub Kožíšek, Pavel Šrubař\n"
 
@@ -705,7 +705,7 @@ msgstr "Tjeckiska - Jakub Kožíšek, Pavel Šrubař\n"
 msgid "Daily"
 msgstr "Dagligen"
 
-#: meecast/qt-qml/qml/AboutPage.qml:257
+#: meecast/qt-qml/qml/AboutPage.qml:258
 msgid "Danish - Peter Jespersen\n"
 msgstr "Danska - Peter Jespersen\n"
 
@@ -1129,6 +1129,10 @@ msgstr "GSM+WLAN"
 msgid "GUI|Clear"
 msgstr "GUI|Rensa"
 
+#: meecast/qt-qml/qml/AboutPage.qml:256
+msgid "Galician - pakoR\n"
+msgstr ""
+
 #: meecast/qt-qml/qml/AboutPage.qml:236
 msgid ""
 "German -  Claudius Henrichs,\n"
@@ -1244,7 +1248,7 @@ msgstr "Luftfuktighet"
 msgid "Humidity:"
 msgstr "Fuktighet:"
 
-#: meecast/qt-qml/qml/AboutPage.qml:260
+#: meecast/qt-qml/qml/AboutPage.qml:261
 msgid "Hungarian - Salmi, László Kara\n"
 msgstr "Ungerska - Salmi, László Kara\n"
 
@@ -1268,7 +1272,7 @@ msgstr "Ikoner"
 msgid "Iconset"
 msgstr "Ikonset"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:277
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:278
 msgid "Iconsets"
 msgstr "Ikonset"
 
@@ -1354,7 +1358,7 @@ msgstr "Utseende:"
 msgid "Lead designers"
 msgstr "Ledande designers"
 
-#: meecast/qt-qml/qml/AboutPage.qml:311
+#: meecast/qt-qml/qml/AboutPage.qml:312
 msgid "License"
 msgstr "Licens"
 
@@ -1511,14 +1515,12 @@ msgid "Mainly cloudy, Slight shower of rain"
 msgstr "Huvudsakligen molnigt med sporadiska regnskurar"
 
 #: omweather/src/hash.data:145
-#, fuzzy
 msgid "Mainly cloudy, drizzle"
-msgstr "Delvis molnigt med regnskurar"
+msgstr "Mestadels molnigt, Duggregn"
 
 #: omweather/src/hash.data:144
-#, fuzzy
 msgid "Mainly cloudy, showers"
-msgstr "Delvis molnigt med regnskurar"
+msgstr "Mestadels molnigt, regnskurar"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
@@ -1819,7 +1821,7 @@ msgstr "Ingen väderdata för den här dagen."
 msgid "No weather data for this station."
 msgstr "Ingen väderdata för denna station."
 
-#: meecast/qt-qml/qml/AboutPage.qml:259
+#: meecast/qt-qml/qml/AboutPage.qml:260
 msgid "Norwegian - Peer-Atle Motland\n"
 msgstr "Norska - Peer-Atle Motland\n"
 
@@ -2474,7 +2476,7 @@ msgstr "Välj väderstation"
 msgid "Sensor"
 msgstr "Sensor"
 
-#: meecast/qt-qml/qml/AboutPage.qml:258
+#: meecast/qt-qml/qml/AboutPage.qml:259
 msgid "Serbian - Aleksandar Zaric\n"
 msgstr "Serbiska - Aleksandar Zaric\n"
 
@@ -2596,7 +2598,7 @@ msgstr "Byar av snöblandat regn"
 msgid "Slovak - Roman Moravčík\n"
 msgstr "Slovakiska - Roman Moravčík\n"
 
-#: meecast/qt-qml/qml/AboutPage.qml:261
+#: meecast/qt-qml/qml/AboutPage.qml:262
 msgid "Slovenian - Boštjan Štrumbelj\n"
 msgstr "Slovenska - Boštjan Štrumbelj\n"
 
@@ -2660,7 +2662,7 @@ msgstr "Snöfall"
 msgid "Source"
 msgstr "Källa"
 
-#: meecast/qt-qml/qml/AboutPage.qml:333
+#: meecast/qt-qml/qml/AboutPage.qml:334
 msgid "Source code"
 msgstr "Källkod"
 
@@ -2751,7 +2753,7 @@ msgstr "Support"
 msgid "Swap hi/low temperature"
 msgstr "Växla hög/låg temperatur"
 
-#: meecast/qt-qml/qml/AboutPage.qml:266
+#: meecast/qt-qml/qml/AboutPage.qml:267
 msgid ""
 "Swedish - Angela Nennebrandt,\n"
 " \tÅke Engelbrektson, \n"
@@ -2831,7 +2833,7 @@ msgstr "Det finns inga stationer i denna listvyn"
 msgid "This is experimental feature. Only English is supported."
 msgstr "Experimentell funktion. Endast Engelskt språkstöd."
 
-#: meecast/qt-qml/qml/AboutPage.qml:320
+#: meecast/qt-qml/qml/AboutPage.qml:321
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2999,7 +3001,7 @@ msgstr "Giltighetstid för aktuellt väder:"
 msgid "Very High"
 msgstr "Mycket hög"
 
-#: meecast/qt-qml/qml/AboutPage.qml:264
+#: meecast/qt-qml/qml/AboutPage.qml:265
 msgid ""
 "Vietnamese - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
@@ -3311,7 +3313,7 @@ msgstr "timme sedan"
 msgid "hours ago"
 msgstr "timmar sedan"
 
-#: meecast/qt-qml/qml/AboutPage.qml:342
+#: meecast/qt-qml/qml/AboutPage.qml:343
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 

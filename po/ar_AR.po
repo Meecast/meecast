@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-31 20:22+0300\n"
+"POT-Creation-Date: 2015-11-10 10:50+0300\n"
 "PO-Revision-Date: 2014-03-31 08:24+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/meecast/language/"
@@ -367,7 +367,7 @@ msgstr ""
 "يجب حذف تطبيق AccuWeather \n"
 "قبل تثبيت هذه الحزمة"
 
-#: meecast/qt-qml/qml/AboutPage.qml:256
+#: meecast/qt-qml/qml/AboutPage.qml:257
 msgid "Arabic - Tarad Alfandi\n"
 msgstr ""
 
@@ -482,7 +482,7 @@ msgid ""
 " \tgwmgdemj\n"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:263
+#: meecast/qt-qml/qml/AboutPage.qml:264
 msgid "Chinese(Taiwan) - osk2, \n"
 msgstr ""
 
@@ -693,7 +693,7 @@ msgstr ""
 msgid "Custom"
 msgstr "مخصص"
 
-#: meecast/qt-qml/qml/AboutPage.qml:262
+#: meecast/qt-qml/qml/AboutPage.qml:263
 msgid "Czech - Jakub Kožíšek, Pavel Šrubař\n"
 msgstr ""
 
@@ -701,7 +701,7 @@ msgstr ""
 msgid "Daily"
 msgstr "يومي"
 
-#: meecast/qt-qml/qml/AboutPage.qml:257
+#: meecast/qt-qml/qml/AboutPage.qml:258
 msgid "Danish - Peter Jespersen\n"
 msgstr ""
 
@@ -1120,6 +1120,10 @@ msgstr "جي إس إم+شبكة WLAN"
 msgid "GUI|Clear"
 msgstr "واجهة المستخدم | مسح"
 
+#: meecast/qt-qml/qml/AboutPage.qml:256
+msgid "Galician - pakoR\n"
+msgstr ""
+
 #: meecast/qt-qml/qml/AboutPage.qml:236
 msgid ""
 "German -  Claudius Henrichs,\n"
@@ -1241,7 +1245,7 @@ msgstr "الرطوبة"
 msgid "Humidity:"
 msgstr "الرطوبة:"
 
-#: meecast/qt-qml/qml/AboutPage.qml:260
+#: meecast/qt-qml/qml/AboutPage.qml:261
 msgid "Hungarian - Salmi, László Kara\n"
 msgstr ""
 
@@ -1265,7 +1269,7 @@ msgstr "أيقونات"
 msgid "Iconset"
 msgstr "مجموعة الأيقونات"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:277
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:278
 msgid "Iconsets"
 msgstr "مجموعة الأيقونات"
 
@@ -1350,7 +1354,7 @@ msgstr "التصميم:"
 msgid "Lead designers"
 msgstr "إداره التصميم"
 
-#: meecast/qt-qml/qml/AboutPage.qml:311
+#: meecast/qt-qml/qml/AboutPage.qml:312
 msgid "License"
 msgstr "الرخصة"
 
@@ -1827,7 +1831,7 @@ msgstr "لايوجد أي معلومات عن الطقس لهذا اليوم."
 msgid "No weather data for this station."
 msgstr "لايوجد أي معلومات عن الطقس لهذه المحطة."
 
-#: meecast/qt-qml/qml/AboutPage.qml:259
+#: meecast/qt-qml/qml/AboutPage.qml:260
 msgid "Norwegian - Peer-Atle Motland\n"
 msgstr ""
 
@@ -2491,7 +2495,7 @@ msgstr "إختيار المحطة"
 msgid "Sensor"
 msgstr "الحساس"
 
-#: meecast/qt-qml/qml/AboutPage.qml:258
+#: meecast/qt-qml/qml/AboutPage.qml:259
 msgid "Serbian - Aleksandar Zaric\n"
 msgstr ""
 
@@ -2614,7 +2618,7 @@ msgstr "زخات مطر قليله"
 msgid "Slovak - Roman Moravčík\n"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:261
+#: meecast/qt-qml/qml/AboutPage.qml:262
 msgid "Slovenian - Boštjan Štrumbelj\n"
 msgstr ""
 
@@ -2680,7 +2684,7 @@ msgstr "ثلج"
 msgid "Source"
 msgstr "المصدر"
 
-#: meecast/qt-qml/qml/AboutPage.qml:333
+#: meecast/qt-qml/qml/AboutPage.qml:334
 msgid "Source code"
 msgstr "المصدر البرمجي"
 
@@ -2771,7 +2775,7 @@ msgstr "الدعم"
 msgid "Swap hi/low temperature"
 msgstr "تبديل الحراره مرتفع/منخفض"
 
-#: meecast/qt-qml/qml/AboutPage.qml:266
+#: meecast/qt-qml/qml/AboutPage.qml:267
 msgid ""
 "Swedish - Angela Nennebrandt,\n"
 " \tÅke Engelbrektson, \n"
@@ -2847,7 +2851,7 @@ msgstr "لايوجد محطات لعرضها في هذه القائمة"
 msgid "This is experimental feature. Only English is supported."
 msgstr "هذه  الميزة تجريبية. مدعومه باللغة الإنجليزية فقط."
 
-#: meecast/qt-qml/qml/AboutPage.qml:320
+#: meecast/qt-qml/qml/AboutPage.qml:321
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3014,7 +3018,7 @@ msgstr "الوقت الصحيح للطقس الحالي:"
 msgid "Very High"
 msgstr "مرتفع جدا"
 
-#: meecast/qt-qml/qml/AboutPage.qml:264
+#: meecast/qt-qml/qml/AboutPage.qml:265
 msgid ""
 "Vietnamese - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
@@ -3323,7 +3327,7 @@ msgstr "قبل ساعة"
 msgid "hours ago"
 msgstr "قبل ساعات"
 
-#: meecast/qt-qml/qml/AboutPage.qml:342
+#: meecast/qt-qml/qml/AboutPage.qml:343
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 

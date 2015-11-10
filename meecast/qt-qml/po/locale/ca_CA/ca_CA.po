@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-31 20:22+0300\n"
+"POT-Creation-Date: 2015-11-10 10:50+0300\n"
 "PO-Revision-Date: 2015-03-12 17:22+0000\n"
 "Last-Translator: Agustí Clara <agusti.clara@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/meecast/language/"
@@ -368,7 +368,7 @@ msgstr ""
 "Heu de desinstal·lar AccuWeather \n"
 "abans d'instal·lar aquest paquet"
 
-#: meecast/qt-qml/qml/AboutPage.qml:256
+#: meecast/qt-qml/qml/AboutPage.qml:257
 msgid "Arabic - Tarad Alfandi\n"
 msgstr "Àrab - Tarad Alfandi\n"
 
@@ -486,7 +486,7 @@ msgstr ""
 "Xinès - Wong Man Kong, Michael,\n"
 " \tgwmgdemj\n"
 
-#: meecast/qt-qml/qml/AboutPage.qml:263
+#: meecast/qt-qml/qml/AboutPage.qml:264
 msgid "Chinese(Taiwan) - osk2, \n"
 msgstr "Xinès (Taiwan) - osk2,\n"
 
@@ -695,7 +695,7 @@ msgstr "Pàgina de portada"
 msgid "Custom"
 msgstr "Personalitza"
 
-#: meecast/qt-qml/qml/AboutPage.qml:262
+#: meecast/qt-qml/qml/AboutPage.qml:263
 msgid "Czech - Jakub Kožíšek, Pavel Šrubař\n"
 msgstr "Txec - Jakub Kožíšek, Pavel Šrubař\n"
 
@@ -703,7 +703,7 @@ msgstr "Txec - Jakub Kožíšek, Pavel Šrubař\n"
 msgid "Daily"
 msgstr "Diària"
 
-#: meecast/qt-qml/qml/AboutPage.qml:257
+#: meecast/qt-qml/qml/AboutPage.qml:258
 msgid "Danish - Peter Jespersen\n"
 msgstr "Danès - Peter Jespersen\n"
 
@@ -1128,6 +1128,10 @@ msgstr "GSM+WLAN"
 msgid "GUI|Clear"
 msgstr "Esborra"
 
+#: meecast/qt-qml/qml/AboutPage.qml:256
+msgid "Galician - pakoR\n"
+msgstr ""
+
 #: meecast/qt-qml/qml/AboutPage.qml:236
 msgid ""
 "German -  Claudius Henrichs,\n"
@@ -1243,7 +1247,7 @@ msgstr "Humitat"
 msgid "Humidity:"
 msgstr "Humitat:"
 
-#: meecast/qt-qml/qml/AboutPage.qml:260
+#: meecast/qt-qml/qml/AboutPage.qml:261
 msgid "Hungarian - Salmi, László Kara\n"
 msgstr "Hongarès - Salmi, László Kara\n"
 
@@ -1267,7 +1271,7 @@ msgstr "Icones"
 msgid "Iconset"
 msgstr "Joc d'icones"
 
-#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:277
+#: omweather/src/hash.data:109 meecast/qt-qml/qml/AboutPage.qml:278
 msgid "Iconsets"
 msgstr "Jocs d'icones"
 
@@ -1353,7 +1357,7 @@ msgstr "Format:"
 msgid "Lead designers"
 msgstr "Dissenyadors principals"
 
-#: meecast/qt-qml/qml/AboutPage.qml:311
+#: meecast/qt-qml/qml/AboutPage.qml:312
 msgid "License"
 msgstr "Llicència"
 
@@ -1818,7 +1822,7 @@ msgstr "No hi ha dades per aquest dia sobre el temps"
 msgid "No weather data for this station."
 msgstr "No hi ha dades per aquesta estació sobre el temps"
 
-#: meecast/qt-qml/qml/AboutPage.qml:259
+#: meecast/qt-qml/qml/AboutPage.qml:260
 msgid "Norwegian - Peer-Atle Motland\n"
 msgstr "Noruec - Peer-Atle Motland\n"
 
@@ -2473,7 +2477,7 @@ msgstr "S'està seleccionant l'estació"
 msgid "Sensor"
 msgstr "Sensor"
 
-#: meecast/qt-qml/qml/AboutPage.qml:258
+#: meecast/qt-qml/qml/AboutPage.qml:259
 msgid "Serbian - Aleksandar Zaric\n"
 msgstr "Serbi - Aleksandar Zaric\n"
 
@@ -2595,7 +2599,7 @@ msgstr "Ruixats d'aiguaneu"
 msgid "Slovak - Roman Moravčík\n"
 msgstr "Eslovac - Roman Moravčík\n"
 
-#: meecast/qt-qml/qml/AboutPage.qml:261
+#: meecast/qt-qml/qml/AboutPage.qml:262
 msgid "Slovenian - Boštjan Štrumbelj\n"
 msgstr "Eslovè - Boštjan Štrumbelj\n"
 
@@ -2659,7 +2663,7 @@ msgstr "Neu"
 msgid "Source"
 msgstr "Origen"
 
-#: meecast/qt-qml/qml/AboutPage.qml:333
+#: meecast/qt-qml/qml/AboutPage.qml:334
 msgid "Source code"
 msgstr "Codi font"
 
@@ -2750,7 +2754,7 @@ msgstr "Doneu suport"
 msgid "Swap hi/low temperature"
 msgstr "Inverteix temp. màx./mín."
 
-#: meecast/qt-qml/qml/AboutPage.qml:266
+#: meecast/qt-qml/qml/AboutPage.qml:267
 msgid ""
 "Swedish - Angela Nennebrandt,\n"
 " \tÅke Engelbrektson, \n"
@@ -2830,7 +2834,7 @@ msgstr "No hi ha cap estació en aquesta visualització de la llista"
 msgid "This is experimental feature. Only English is supported."
 msgstr "Aquesta funció és experimental. Només està disponible en anglès."
 
-#: meecast/qt-qml/qml/AboutPage.qml:320
+#: meecast/qt-qml/qml/AboutPage.qml:321
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3001,7 +3005,7 @@ msgstr "Vigència del temps actual:"
 msgid "Very High"
 msgstr "Molt alta"
 
-#: meecast/qt-qml/qml/AboutPage.qml:264
+#: meecast/qt-qml/qml/AboutPage.qml:265
 msgid ""
 "Vietnamese - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
@@ -3309,7 +3313,7 @@ msgstr "hora enrere"
 msgid "hours ago"
 msgstr "hores enrere"
 
-#: meecast/qt-qml/qml/AboutPage.qml:342
+#: meecast/qt-qml/qml/AboutPage.qml:343
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 

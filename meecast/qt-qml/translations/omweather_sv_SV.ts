@@ -1364,8 +1364,8 @@ Slovakiska - Roman Moravčík</translation>
         <message>
             <source>Galician - pakoR
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Galiciska - pakoR
+</translation>
         </message>
         <message>
             <source>German -  Claudius Henrichs,

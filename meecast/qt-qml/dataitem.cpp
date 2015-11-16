@@ -345,7 +345,7 @@ DataItem::sunrise() {
                 (MLocale().timeFormat24h() == MLocale::TwentyFourHourTimeFormat24h ? false :
                  MLocale().defaultTimeFormat24h() == MLocale::TwelveHourTimeFormat24h));
 #else
-    if (!((t.toString(Qt::SystemLocaleShortDate)).indexOf("M",0, Qt::CaseInsensitive) > 0))
+    if (((t.toString(Qt::SystemLocaleShortDate)).indexOf("M",0, Qt::CaseInsensitive) > 0))
         format12h = true;
 #endif
     if (format12h)
@@ -369,7 +369,7 @@ DataItem::sunset() {
                 (MLocale().timeFormat24h() == MLocale::TwentyFourHourTimeFormat24h ? false :
                  MLocale().defaultTimeFormat24h() == MLocale::TwelveHourTimeFormat24h));
 #else
-    if (!((t.toString(Qt::SystemLocaleShortDate)).indexOf("M",0, Qt::CaseInsensitive) > 0))
+    if (((t.toString(Qt::SystemLocaleShortDate)).indexOf("M",0, Qt::CaseInsensitive) > 0))
         format12h = true;
 #endif
     if (format12h)
@@ -442,7 +442,7 @@ DataItem::hourdate()
                 (MLocale().timeFormat24h() == MLocale::TwentyFourHourTimeFormat24h ? false :
                  MLocale().defaultTimeFormat24h() == MLocale::TwelveHourTimeFormat24h));
 #else
-    if (!((t.toString(Qt::SystemLocaleShortDate)).indexOf("M",0, Qt::CaseInsensitive) > 0))
+    if (((t.toString(Qt::SystemLocaleShortDate)).indexOf("M",0, Qt::CaseInsensitive) > 0))
         format12h = true;
 #endif
     if (format12h)

@@ -15,7 +15,7 @@
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
 Version:    1.1.9
-Release:    1
+Release:    2
 Group:      Utility
 License:    GPLv2.1
 URL:        https://github.com/Meecast/meecast 
@@ -177,7 +177,10 @@ systemctl-user start meecastd.service
 
 * Mon Nov 2 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.9
 
-  *  
+  * Added stations in Russia to Openweathermap.org (Sverdlovskaya oblast,
+    Krasnodarkiy Kray and Leningradskaya oblast) 
+  * Updated Russian, Swedish, Finnish, Norwegian tarnslations
+  * Fixed 12/24 clock viewing problem 
 
 * Mon Nov 2 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.8
 

@@ -1,8 +1,9 @@
 meecast (1.1.9) unstable; urgency=low
 
   * Added stations in Russia to Openweathermap.org (Sverdlovskaya oblast,
-    Krsnodarkiy Kray and Leningradskaya oblast) 
+    Krasnodarkiy Kray and Leningradskaya oblast) 
   * Updated Russian, Swedish, Finnish, Norwegian tarnslations
+  * Fixed 12/24 clock viewing problem 
 
  -- Vlad Vasiliev <vlad@gas.by> Sun, 19 Oct 2015 10:01:23 +0200
 

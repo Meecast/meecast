@@ -175,7 +175,7 @@ systemctl-user start meecastd.service
 
 %changelog
 
-* Mon Nov 2 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.9
+* Tue Nov 17 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.9
 
   * Added stations in Russia to Openweathermap.org (Sverdlovskaya oblast,
     Krasnodarkiy Kray and Leningradskaya oblast) 

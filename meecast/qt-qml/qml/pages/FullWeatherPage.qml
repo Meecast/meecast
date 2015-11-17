@@ -289,11 +289,20 @@ Page {
 
 	}
         if ((model_day.getdata(day, "sunrise")) != "N/A")
-            condition2.append({cond_name: Config.tr("Sunrise:"),
-                         value: model_day.getdata(day, "sunrise")});
+
+            if (timeFormatConfig.value === "24") 
+                condition2.append({cond_name: Config.tr("Sunrise:"),
+                         value: model_day.getdata(day, "sunrise24")});
+            else
+                condition2.append({cond_name: Config.tr("Sunrise:"),
+                         value: model_day.getdata(day, "sunrise12")});
         if ((model_day.getdata(day, "sunset")) != "N/A")
-            condition2.append({cond_name: Config.tr("Sunset:"),
-                         value: model_day.getdata(day, "sunset")});
+            if (timeFormatConfig.value === "24") 
+                condition2.append({cond_name: Config.tr("Sunset:"),
+                         value: model_day.getdata(day, "sunset24")});
+            else
+                condition2.append({cond_name: Config.tr("Sunset:"),
+                         value: model_day.getdata(day, "sunset12")});
         if ((model_day.getdata(day, "daylength")) != "N/A")
             condition2.append({cond_name: Config.tr("Day length:"),
                          value: model_day.getdata(day, "daylength")});

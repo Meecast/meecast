@@ -103,7 +103,11 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[PrecipitationRole] = "precipitation";
     names[PrecipitationRateRole] = "precipitation_rate";
     names[SunRiseRole] = "sunrise";
+    names[SunRise12Role] = "sunrise12";
+    names[SunRise24Role] = "sunrise24";
     names[SunSetRole] = "sunset";
+    names[SunSet12Role] = "sunset12";
+    names[SunSet24Role] = "sunset24";
     names[LastUpdateRole] = "lastupdate";
     names[LastUpdateTimeRole] = "lastupdatetime";
     names[TemperatureLabelRole] = "temperature_label";
@@ -173,8 +177,16 @@ QVariant DataItem::data(int role)
         return pressure();
     case SunRiseRole:
         return sunrise();
+    case SunRise12Role:
+        return sunrise12();
+    case SunRise24Role:
+        return sunrise24();
     case SunSetRole:
         return sunset();
+    case SunSet12Role:
+        return sunset12();
+    case SunSet24Role:
+        return sunset24();
     case DayLengthRole:
         return daylength();
     case FlikeRole:
@@ -361,6 +373,30 @@ DataItem::sunrise() {
 }
 
 QString
+DataItem::sunrise12() {
+    QString c;
+    QDateTime t;
+    if (DataItem::Data::SunRiseTime() == 0){
+        c = "N/A";
+        return c;
+    }
+    t.setTime_t(DataItem::Data::SunRiseTime());
+    return t.toString("hh:mm A");
+}
+
+QString
+DataItem::sunrise24() {
+    QString c;
+    QDateTime t;
+    if (DataItem::Data::SunRiseTime() == 0){
+        c = "N/A";
+        return c;
+    }
+    t.setTime_t(DataItem::Data::SunRiseTime());
+    return t.toString("hh:mm");
+}
+
+QString
 DataItem::sunset() {
     QString c;
     QDateTime t;
@@ -382,6 +418,30 @@ DataItem::sunset() {
         return t.toString("hh:mm A");
     else
         return t.toString("hh:mm");
+}
+
+QString
+DataItem::sunset12() {
+    QString c;
+    QDateTime t;
+    if (DataItem::Data::SunSetTime() == 0){
+        c = "N/A";
+        return c;
+    }
+    t.setTime_t(DataItem::Data::SunSetTime());
+    return t.toString("hh:mm A");
+}
+
+QString
+DataItem::sunset24() {
+    QString c;
+    QDateTime t;
+    if (DataItem::Data::SunSetTime() == 0){
+        c = "N/A";
+        return c;
+    }
+    t.setTime_t(DataItem::Data::SunSetTime());
+    return t.toString("hh:mm");
 }
 
 QString

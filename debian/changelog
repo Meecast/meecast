@@ -1,3 +1,8 @@
+meecast (1.1.10) unstable; urgency=low
+
+
+ -- Vlad Vasiliev <vlad@gas.by> Tue, 17 Nov 2015 10:01:23 +0200
+
 meecast (1.1.9) unstable; urgency=low
 
   * Added stations in Russia to Openweathermap.org (Sverdlovskaya oblast,

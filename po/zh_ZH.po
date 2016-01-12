@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-12 07:21+0200\n"
+"POT-Creation-Date: 2016-01-12 09:15+0200\n"
 "PO-Revision-Date: 2015-03-20 11:39+0000\n"
 "Last-Translator: gwmgdemj <gwmgdemj@163.com>\n"
 "Language-Team: Chinese (http://www.transifex.com/projects/p/meecast/language/"
@@ -406,7 +406,7 @@ msgstr "作者"
 msgid "Automatically update data when connecting to the Internet"
 msgstr "更新数据时自动连接到互联网"
 
-#: omweather/src/hash.data:367
+#: omweather/src/hash.data:368
 msgid "Back"
 msgstr "返回"
 
@@ -428,11 +428,11 @@ msgstr "蒲福风力级别"
 msgid "Blowing Snow"
 msgstr "飞雪"
 
-#: omweather/src/hash.data:369
+#: omweather/src/hash.data:370
 msgid "Broken Clouds"
 msgstr "多云"
 
-#: omweather/src/hash.data:370
+#: omweather/src/hash.data:371
 msgid "Broken clouds"
 msgstr "多云"
 
@@ -589,7 +589,7 @@ msgstr "多云时阵雪"
 msgid "Cloudy and wet snow showers"
 msgstr "多云潮湿阵雪"
 
-#: omweather/src/hash.data:391
+#: omweather/src/hash.data:392
 msgid "Cloudy with occasional rain."
 msgstr "多云有雨"
 
@@ -687,7 +687,7 @@ msgstr "国家"
 msgid "Country:"
 msgstr "国家: "
 
-#: omweather/src/hash.data:403
+#: omweather/src/hash.data:404
 msgid "Cover Page"
 msgstr "封面"
 
@@ -933,7 +933,7 @@ msgstr "初始化GConf失败. 设置不保存.\n"
 msgid "Fair"
 msgstr "晴"
 
-#: omweather/src/hash.data:365
+#: omweather/src/hash.data:366
 msgid "Feels like"
 msgstr "体感温度"
 
@@ -941,7 +941,7 @@ msgstr "体感温度"
 msgid "Feels like:"
 msgstr "室内温度:"
 
-#: omweather/src/hash.data:372
+#: omweather/src/hash.data:373
 msgid "Few Clouds"
 msgstr "少云"
 
@@ -965,7 +965,7 @@ msgstr "短暂阵雪"
 msgid "Few Snow Showers / Wind"
 msgstr "阵雪/刮风"
 
-#: omweather/src/hash.data:371
+#: omweather/src/hash.data:372
 msgid "Few clouds"
 msgstr "少云"
 
@@ -1219,7 +1219,7 @@ msgstr "强降雪"
 msgid "Heavy Thunder"
 msgstr "雷暴"
 
-#: omweather/src/hash.data:392
+#: omweather/src/hash.data:393
 msgid "Heavy intensity rain"
 msgstr "强降雨"
 
@@ -1227,7 +1227,7 @@ msgstr "强降雨"
 msgid "High"
 msgstr "高"
 
-#: omweather/src/hash.data:366
+#: omweather/src/hash.data:367
 msgid "Hourly"
 msgstr "每小时"
 
@@ -1318,7 +1318,7 @@ msgstr "公里"
 msgid "Knots"
 msgstr "海里"
 
-#: omweather/src/hash.data:368
+#: omweather/src/hash.data:369
 msgid "Language"
 msgstr "语言"
 
@@ -1373,7 +1373,7 @@ msgstr "微冻雨"
 msgid "Light Freezing Rain"
 msgstr "小冻雨"
 
-#: omweather/src/hash.data:119 omweather/src/hash.data:374
+#: omweather/src/hash.data:119 omweather/src/hash.data:375
 msgid "Light Rain"
 msgstr "小雨"
 
@@ -1401,7 +1401,7 @@ msgstr "晚有小雨"
 msgid "Light Rain Shower"
 msgstr "小阵雨"
 
-#: omweather/src/hash.data:375
+#: omweather/src/hash.data:376
 msgid "Light Rain Showers"
 msgstr "阵雨"
 
@@ -1461,11 +1461,11 @@ msgstr "阵雪"
 msgid "Light Snowfall"
 msgstr "小雪"
 
-#: omweather/src/hash.data:377
+#: omweather/src/hash.data:378
 msgid "Light intensity drizzle"
 msgstr "小幅降雨"
 
-#: omweather/src/hash.data:393
+#: omweather/src/hash.data:394
 msgid "Light intensity shower rain"
 msgstr "小幅度阵雨"
 
@@ -1473,11 +1473,11 @@ msgstr "小幅度阵雨"
 msgid "Light or Moderate Precipitation"
 msgstr "轻度或中度降雨"
 
-#: omweather/src/hash.data:373
+#: omweather/src/hash.data:374
 msgid "Light rain"
 msgstr "小雨"
 
-#: omweather/src/hash.data:376
+#: omweather/src/hash.data:377
 msgid "Light snow"
 msgstr "小雪"
 
@@ -1505,11 +1505,11 @@ msgstr "无当地天气预报信息."
 msgid "Low"
 msgstr "最低"
 
-#: omweather/src/hash.data:389
+#: omweather/src/hash.data:390
 msgid "Mainly cloudy with occasional rain."
 msgstr "大部分多云有雨"
 
-#: omweather/src/hash.data:390
+#: omweather/src/hash.data:391
 msgid "Mainly cloudy, Slight shower of rain"
 msgstr "多云,小雨"
 
@@ -1574,11 +1574,11 @@ msgstr "薄雾"
 msgid "Moderate Freezing Rain"
 msgstr "中幅冻雨"
 
-#: omweather/src/hash.data:379
+#: omweather/src/hash.data:380
 msgid "Moderate Rain"
 msgstr "中雨"
 
-#: omweather/src/hash.data:380
+#: omweather/src/hash.data:381
 msgid "Moderate Rain Showers"
 msgstr "短时中雨"
 
@@ -1590,7 +1590,7 @@ msgstr "中幅雨雪"
 msgid "Moderate Snow Showers"
 msgstr "短时中幅降雪"
 
-#: omweather/src/hash.data:378
+#: omweather/src/hash.data:379
 msgid "Moderate rain"
 msgstr "中雨"
 
@@ -1889,7 +1889,7 @@ msgstr "OMWeather 其他信息"
 msgid "Overcast"
 msgstr "密云"
 
-#: omweather/src/hash.data:382
+#: omweather/src/hash.data:383
 msgid "Overcast Clouds"
 msgstr "阴云"
 
@@ -1929,7 +1929,7 @@ msgstr "阴天有湿雪"
 msgid "Overcast and wet snow showers"
 msgstr "阴有湿阵雪"
 
-#: omweather/src/hash.data:381
+#: omweather/src/hash.data:382
 msgid "Overcast clouds"
 msgstr "阴云"
 
@@ -2288,7 +2288,7 @@ msgstr "雨雪混合/刮风"
 msgid "Read sensor every:"
 msgstr "传感器读取间隔:"
 
-#: omweather/src/hash.data:401
+#: omweather/src/hash.data:402
 msgid "Refresh"
 msgstr "刷新"
 
@@ -2360,7 +2360,7 @@ msgstr "S_short"
 msgid "Save"
 msgstr "保存"
 
-#: omweather/src/hash.data:384
+#: omweather/src/hash.data:385
 msgid "Scattered Clouds"
 msgstr "少云"
 
@@ -2380,7 +2380,7 @@ msgstr "零星阵雪"
 msgid "Scattered T-Storms"
 msgstr "零星雷雨"
 
-#: omweather/src/hash.data:383
+#: omweather/src/hash.data:384
 msgid "Scattered clouds"
 msgstr "少云"
 
@@ -2522,7 +2522,7 @@ msgstr "短"
 msgid "Show arrows"
 msgstr "显示箭头"
 
-#: omweather/src/hash.data:400
+#: omweather/src/hash.data:401
 msgid "Show last update time"
 msgstr "显示最后更新时间"
 
@@ -2534,7 +2534,7 @@ msgstr "在地图里显示"
 msgid "Show only current weather on first icon"
 msgstr "第一个图标显示当前天气情况"
 
-#: omweather/src/hash.data:399
+#: omweather/src/hash.data:400
 msgid "Show source logo"
 msgstr "显示天气来源logo"
 
@@ -2578,11 +2578,11 @@ msgstr "周围有阵雨"
 msgid "Showers or Intermittent Precipitation"
 msgstr "阵雨或间歇性降雨"
 
-#: omweather/src/hash.data:386
+#: omweather/src/hash.data:387
 msgid "Sky is Clear"
 msgstr "天空晴朗"
 
-#: omweather/src/hash.data:385
+#: omweather/src/hash.data:386
 msgid "Sky is clear"
 msgstr "天空晴朗"
 
@@ -2610,51 +2610,56 @@ msgstr "烟雾"
 msgid "Snow"
 msgstr "雪"
 
-#: omweather/src/hash.data:305
+#: omweather/src/hash.data:306
 msgid "Snow / Wind"
 msgstr "下雪夹风"
 
-#: omweather/src/hash.data:307
+#: omweather/src/hash.data:304
+#, fuzzy
+msgid "Snow Early"
+msgstr "早间阵雨"
+
+#: omweather/src/hash.data:308
 msgid "Snow Shower"
 msgstr "阵雪"
 
-#: omweather/src/hash.data:306
+#: omweather/src/hash.data:307
 msgid "Snow Shower / Wind"
 msgstr "阵雪/刮风"
 
-#: omweather/src/hash.data:308
+#: omweather/src/hash.data:309
 msgid "Snow Showers"
 msgstr "阵雪"
 
-#: omweather/src/hash.data:309
+#: omweather/src/hash.data:310
 msgid "Snow Showers / Wind Early"
 msgstr "阵雪/早间刮风"
 
-#: omweather/src/hash.data:310
+#: omweather/src/hash.data:311
 msgid "Snow Showers Early"
 msgstr "早间阵雪"
 
-#: omweather/src/hash.data:311
+#: omweather/src/hash.data:312
 msgid "Snow Showers Late"
 msgstr "晚间阵雪"
 
-#: omweather/src/hash.data:312
+#: omweather/src/hash.data:313
 msgid "Snow and Freezing Rain"
 msgstr "雪夹冻雨"
 
-#: omweather/src/hash.data:313
+#: omweather/src/hash.data:314
 msgid "Snow to Rain"
 msgstr "雪转有雨"
 
-#: omweather/src/hash.data:315
+#: omweather/src/hash.data:316
 msgid "Snow to Wintry Mix"
 msgstr "雪转雪雨"
 
-#: omweather/src/hash.data:314
+#: omweather/src/hash.data:315
 msgid "Snow to Wintry Mix / Wind"
 msgstr "雨雪混合/刮风"
 
-#: omweather/src/hash.data:304
+#: omweather/src/hash.data:305
 msgid "Snowfall"
 msgstr "降雪"
 
@@ -2705,11 +2710,11 @@ msgstr "地区 %i"
 msgid "Stations"
 msgstr "监测站"
 
-#: omweather/src/hash.data:316 omweather/src/weather-alerts.c:154
+#: omweather/src/hash.data:317 omweather/src/weather-alerts.c:154
 msgid "Storm"
 msgstr "暴风"
 
-#: omweather/src/hash.data:317
+#: omweather/src/hash.data:318
 msgid "Strong Thundershowers"
 msgstr "短时雷暴"
 
@@ -2717,19 +2722,19 @@ msgstr "短时雷暴"
 msgid "Successfully loaded"
 msgstr "成功加载"
 
-#: omweather/src/hash.data:319
+#: omweather/src/hash.data:320
 msgid "Sunny"
 msgstr "晴朗"
 
-#: omweather/src/hash.data:318
+#: omweather/src/hash.data:319
 msgid "Sunny / Wind"
 msgstr "晴时/刮风"
 
-#: omweather/src/hash.data:387 omweather/src/hash.data:388
+#: omweather/src/hash.data:388 omweather/src/hash.data:389
 msgid "Sunny periods and a few showers."
 msgstr "短时晴朗有阵雨"
 
-#: omweather/src/hash.data:320 meecast/qt-qml/qml/FullWeatherPage.qml:335
+#: omweather/src/hash.data:321 meecast/qt-qml/qml/FullWeatherPage.qml:335
 msgid "Sunrise:"
 msgstr "日出:"
 
@@ -2737,7 +2742,7 @@ msgstr "日出:"
 msgid "Sunrise: "
 msgstr "日出: "
 
-#: omweather/src/hash.data:321 meecast/qt-qml/qml/FullWeatherPage.qml:338
+#: omweather/src/hash.data:322 meecast/qt-qml/qml/FullWeatherPage.qml:338
 msgid "Sunset:"
 msgstr "日落:"
 
@@ -2769,27 +2774,27 @@ msgstr ""
 msgid "Switch to the next station after:"
 msgstr "切换到下一个地区后: "
 
-#: omweather/src/hash.data:323
+#: omweather/src/hash.data:324
 msgid "T-Showers"
 msgstr "雷阵雨"
 
-#: omweather/src/hash.data:322
+#: omweather/src/hash.data:323
 msgid "T-Showers Early"
 msgstr "早间持续雷阵雨"
 
-#: omweather/src/hash.data:324
+#: omweather/src/hash.data:325
 msgid "T-Storm"
 msgstr "雷雨"
 
-#: omweather/src/hash.data:327
+#: omweather/src/hash.data:328
 msgid "T-Storms"
 msgstr "持续雷雨"
 
-#: omweather/src/hash.data:325
+#: omweather/src/hash.data:326
 msgid "T-Storms Early"
 msgstr "早有持续雷雨"
 
-#: omweather/src/hash.data:326
+#: omweather/src/hash.data:327
 msgid "T-Storms Late"
 msgstr "晚有持续雷雨"
 
@@ -2799,7 +2804,7 @@ msgstr "晚有持续雷雨"
 msgid "Temperature"
 msgstr "温度"
 
-#: omweather/src/hash.data:328 meecast/qt-qml/qml/UnitsPage.qml:30
+#: omweather/src/hash.data:329 meecast/qt-qml/qml/UnitsPage.qml:30
 #: meecast/qt-qml/qml/UnitsPage.qml:102
 msgid "Temperature units"
 msgstr "温度单位"
@@ -2825,11 +2830,11 @@ msgstr "鸣谢"
 msgid "The weather has been updated."
 msgstr "已更新天气信息"
 
-#: omweather/src/hash.data:394
+#: omweather/src/hash.data:395
 msgid "There are no stations to show in this view of the list"
 msgstr "列表中没有位置可以显示"
 
-#: omweather/src/hash.data:396
+#: omweather/src/hash.data:397
 msgid "This is experimental feature. Only English is supported."
 msgstr "仅作为测试功能,只支持英文版."
 
@@ -2859,15 +2864,15 @@ msgstr ""
 "This software is free software; you can redistribute it and/or modify it "
 "under the terms of the GNU General Public License\n"
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:330
 msgid "Thunder"
 msgstr "雷雨"
 
-#: omweather/src/hash.data:331
+#: omweather/src/hash.data:332
 msgid "Thunder in the Vicinity"
 msgstr "周围有阵雨"
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:331
 msgid "Thundershowers"
 msgstr "阵雷"
 
@@ -2890,7 +2895,7 @@ msgstr ""
 "翻译人员: 法语 - Nicolas Granziano, Philippe, Benot Knecht; 俄语 - Pavel "
 "Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 
-#: omweather/src/hash.data:402
+#: omweather/src/hash.data:403
 msgid "Transparency"
 msgstr "透明度"
 
@@ -2899,7 +2904,7 @@ msgstr "透明度"
 msgid "Transparency:"
 msgstr "透明度:"
 
-#: omweather/src/hash.data:332 meecast/qt-qml/qml/WeatherPage.qml:501
+#: omweather/src/hash.data:333 meecast/qt-qml/qml/WeatherPage.qml:501
 msgid "Try to update"
 msgstr "更新试试"
 
@@ -2941,7 +2946,7 @@ msgstr "单位"
 msgid "Unknown"
 msgstr "未知"
 
-#: omweather/src/hash.data:333
+#: omweather/src/hash.data:334
 msgid "Unlimited"
 msgstr "无限"
 
@@ -2958,7 +2963,7 @@ msgstr "正在更新中."
 msgid "Update interval"
 msgstr "自动更新"
 
-#: omweather/src/hash.data:334 meecast/qt-qml/qml/WeatherPage.qml:360
+#: omweather/src/hash.data:335 meecast/qt-qml/qml/WeatherPage.qml:360
 msgid "Updating forecast"
 msgstr "更新预报中"
 
@@ -2990,7 +2995,7 @@ msgstr ""
 msgid "Use device temperature sensor"
 msgstr "使用设备的温度传感器"
 
-#: omweather/src/hash.data:335
+#: omweather/src/hash.data:336
 msgid "VAR"
 msgstr "VAR"
 
@@ -2998,7 +3003,7 @@ msgstr "VAR"
 msgid "Valid time for current weather:"
 msgstr "当前气候的有效性:"
 
-#: omweather/src/hash.data:336
+#: omweather/src/hash.data:337
 msgid "Very High"
 msgstr "非常高"
 
@@ -3010,7 +3015,7 @@ msgstr ""
 "越南语 - Hieu Nguyen\n"
 "Anh Dương and truongnx\n"
 
-#: omweather/src/hash.data:397
+#: omweather/src/hash.data:398
 msgid "Violent Rain Showers"
 msgstr "短时暴雨"
 
@@ -3032,15 +3037,15 @@ msgstr "可见度:"
 msgid "Visuals"
 msgstr "视觉效果"
 
-#: omweather/src/hash.data:395
+#: omweather/src/hash.data:396
 msgid "Voice forecast button on a widget"
 msgstr "插件上的语音播放按钮"
 
-#: omweather/src/hash.data:398
+#: omweather/src/hash.data:399
 msgid "Voice weather forecast"
 msgstr "语音播放天气预报"
 
-#: omweather/src/hash.data:337
+#: omweather/src/hash.data:338
 msgid "W"
 msgstr "西"
 
@@ -3050,31 +3055,31 @@ msgstr "西"
 msgid "WLAN"
 msgstr "WLAN"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:339
 msgid "WNW"
 msgstr "西北偏西"
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:340
 msgid "WNW_short"
 msgstr "WNW_short"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:341
 msgid "WSW"
 msgstr "西南偏西"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:342
 msgid "WSW_short"
 msgstr "WSW_short"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:343
 msgid "W_short"
 msgstr "W_short"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:344
 msgid "Waning Crescent"
 msgstr "残月"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:345
 msgid "Waning Gibbous"
 msgstr "亏凸月"
 
@@ -3082,11 +3087,11 @@ msgstr "亏凸月"
 msgid "Warning"
 msgstr "警告"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:346
 msgid "Waxing Crescent"
 msgstr "娥眉月"
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:347
 msgid "Waxing Gibbous"
 msgstr "盈凸月"
 
@@ -3123,7 +3128,7 @@ msgstr "插件风格"
 msgid "Widget style and Iconset"
 msgstr "插件界面风格和图标"
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:351
 msgid "Wind"
 msgstr "风"
 
@@ -3133,7 +3138,7 @@ msgstr "风"
 msgid "Wind direction"
 msgstr "风向"
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:348
 msgid "Wind direction:"
 msgstr "风向:"
 
@@ -3143,7 +3148,7 @@ msgstr "风向:"
 msgid "Wind gust:"
 msgstr "风力:"
 
-#: omweather/src/hash.data:349 meecast/qt-qml/qml/FullWeatherPage.qml:147
+#: omweather/src/hash.data:350 meecast/qt-qml/qml/FullWeatherPage.qml:147
 #: meecast/qt-qml/qml/FullWeatherPage.qml:150
 #: meecast/qt-qml/qml/FullWeatherPage.qml:220
 #: meecast/qt-qml/qml/FullWeatherPage.qml:223
@@ -3152,7 +3157,7 @@ msgstr "风力:"
 msgid "Wind speed"
 msgstr "风速"
 
-#: omweather/src/hash.data:348 meecast/qt-qml/qml/UnitsPage.qml:39
+#: omweather/src/hash.data:349 meecast/qt-qml/qml/UnitsPage.qml:39
 #: meecast/qt-qml/qml/UnitsPage.qml:141
 msgid "Wind speed units"
 msgstr "风速单位"
@@ -3172,19 +3177,19 @@ msgstr "风向:"
 msgid "Wind: "
 msgstr "风向: "
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:355
 msgid "Wintry Mix"
 msgstr "雨雪混合"
 
-#: omweather/src/hash.data:352
+#: omweather/src/hash.data:353
 msgid "Wintry Mix / Wind"
 msgstr "雨雪混合/刮风"
 
-#: omweather/src/hash.data:351
+#: omweather/src/hash.data:352
 msgid "Wintry Mix / Wind Early"
 msgstr "雨雪混合/早间刮风"
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:354
 msgid "Wintry Mix to Snow"
 msgstr "雪雨夹雪"
 
@@ -3290,7 +3295,7 @@ msgstr "每 1 小时"
 msgid "every minute (Debug)"
 msgstr "每 1 分钟 (Debug)"
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:356
 msgid "falling"
 msgstr "下降"
 
@@ -3333,18 +3338,18 @@ msgstr "kPa"
 msgid "km"
 msgstr "km"
 
-#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:356
+#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:357
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
 #: meecast/qt-qml/qml/UnitsPage.qml:159
 msgid "km/h"
 msgstr "km/h"
 
-#: omweather/src/hash.data:357
+#: omweather/src/hash.data:358
 msgid "km/s"
 msgstr "km/s"
 
-#: omweather/src/hash.data:358
+#: omweather/src/hash.data:359
 msgid "kn"
 msgstr "kn"
 
@@ -3355,11 +3360,11 @@ msgstr "kn"
 msgid "m"
 msgstr "m"
 
-#: omweather/src/hash.data:359
+#: omweather/src/hash.data:360
 msgid "m/h"
 msgstr "m/h"
 
-#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:360
+#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:361
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
 #: meecast/qt-qml/qml/UnitsPage.qml:152
@@ -3387,13 +3392,13 @@ msgstr "mbar"
 msgid "mi"
 msgstr "mi"
 
-#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:361
+#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:362
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
 msgid "mi/h"
 msgstr "mi/h"
 
-#: omweather/src/hash.data:362
+#: omweather/src/hash.data:363
 msgid "mi/s"
 msgstr "mi/s"
 
@@ -3454,7 +3459,7 @@ msgstr "下一个地区"
 msgid "nmi"
 msgstr "nmi"
 
-#: omweather/src/hash.data:363
+#: omweather/src/hash.data:364
 msgid "rising"
 msgstr "上升"
 
@@ -3470,38 +3475,38 @@ msgstr "当前地区时间"
 msgid "station name"
 msgstr "地区名称"
 
-#: omweather/src/hash.data:364
+#: omweather/src/hash.data:365
 msgid "steady"
 msgstr "稳定"
 
-#: omweather/src/hash.data:404
+#: omweather/src/hash.data:405
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:405
+#: omweather/src/hash.data:406
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:406
+#: omweather/src/hash.data:407
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:407
+#: omweather/src/hash.data:408
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:408
+#: omweather/src/hash.data:409
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:409
+#: omweather/src/hash.data:410
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:410
+#: omweather/src/hash.data:411
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:411
+#: omweather/src/hash.data:412
 msgid "Ю-З"
 msgstr "Ю-З"

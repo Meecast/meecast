@@ -1439,6 +1439,10 @@ Slovacco - Roman Moravčík</translation>
             <translation>Forti Nevicate / Vento</translation>
         </message>
         <message>
+            <source>Heavy Snow Shower</source>
+            <translation type="unfinished">Forti rovesci nevosi</translation>
+        </message>
+        <message>
             <source>Heavy Snow Showers</source>
             <translation>Forti rovesci nevosi</translation>
         </message>
@@ -1842,8 +1846,8 @@ Ilir Gjika
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
-            <translation>Meecast - sistema di previsioni meteo open source, multipiattaforma e altamente personalizzabile, basato sul codice di OMWeather. Copyright © 2006-2015</translation>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
+            <translation type="unfinished">Meecast - sistema di previsioni meteo open source, multipiattaforma e altamente personalizzabile, basato sul codice di OMWeather. Copyright © 2006-2015</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -3175,6 +3179,10 @@ Ilir Gjika
         <message>
             <source>Snow / Wind</source>
             <translation>Neve / Vento</translation>
+        </message>
+        <message>
+            <source>Snow Early</source>
+            <translation type="unfinished">Rovesci sul presto</translation>
         </message>
         <message>
             <source>Snow Shower</source>

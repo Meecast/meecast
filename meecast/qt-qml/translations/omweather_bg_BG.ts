@@ -1442,6 +1442,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation type="unfinished">Порой/Вятър</translation>
         </message>
         <message>
+            <source>Heavy Snow Shower</source>
+            <translation type="unfinished">Леки Превалявания от Сняг</translation>
+        </message>
+        <message>
             <source>Heavy Snow Showers</source>
             <translation type="unfinished">Леки Превалявания от Сняг</translation>
         </message>
@@ -1847,7 +1851,7 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
             <translation type="unfinished">MeeCast - мултиплатформен лесно персонализируем open source клиент за прогноза на времето базиран на OMWeather код. Copyright (C) 2006-2012</translation>
         </message>
         <message>
@@ -3190,6 +3194,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <message>
             <source>Snow / Wind</source>
             <translation>Сняг/Вятър</translation>
+        </message>
+        <message>
+            <source>Snow Early</source>
+            <translation type="unfinished">Превалявания сутрин</translation>
         </message>
         <message>
             <source>Snow Shower</source>

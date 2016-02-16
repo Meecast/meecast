@@ -370,8 +370,8 @@ W: </source>
         <message>
             <source>Albanian - Ilir Gjika
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Албанский - Ilir Gjika
+</translation>
         </message>
         <message>
             <source>Alerts</source>
@@ -509,8 +509,8 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Bulgarian - Zlatko Enikov
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Болгарский - Zlatko Enikov
+</translation>
         </message>
         <message>
             <source>C</source>
@@ -573,8 +573,8 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Catalan - Agustí Clara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Каталонский - Agustí Clara
+</translation>
         </message>
         <message>
             <source>Celcius</source>
@@ -588,14 +588,15 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
             <source>Chinese - Wong Man Kong, Michael,
  	gwmgdemj
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Китайский - Wong Man Kong, Michael,
+gwmgdemj
+</translation>
         </message>
         <message>
             <source>Chinese(Taiwan) - osk2, 
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Китайский (Taiwan) - osk2,
+</translation>
         </message>
         <message>
             <source>City</source>
@@ -739,8 +740,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Облачно,Легкий дождь,Иногда ливни</translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
@@ -1418,6 +1418,10 @@ Slovak - Roman Moravčík</source>
             <translation>Сильный снег / Ветер</translation>
         </message>
         <message>
+            <source>Heavy Snow Shower</source>
+            <translation type="unfinished">Сильные дожди со снегом</translation>
+        </message>
+        <message>
             <source>Heavy Snow Showers</source>
             <translation>Сильные дожди со снегом</translation>
         </message>
@@ -1726,8 +1730,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Light Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Местами легкий снегопад</translation>
         </message>
         <message>
             <source>Light Snowfall</source>
@@ -1826,7 +1829,7 @@ Slovak - Roman Moravčík</source>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
             <translation type="unfinished">
             </translation>
         </message>
@@ -2539,8 +2542,8 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Polish - Tomasz Dominikowski
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Польский - Tomasz Dominikowski
+</translation>
         </message>
         <message>
             <source>Portuguese - Jose Narciso,
@@ -3172,6 +3175,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Snow / Wind</source>
             <translation>Снег / Ветер</translation>
+        </message>
+        <message>
+            <source>Snow Early</source>
+            <translation type="unfinished">С утра ливни</translation>
         </message>
         <message>
             <source>Snow Shower</source>

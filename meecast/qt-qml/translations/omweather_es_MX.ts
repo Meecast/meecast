@@ -1450,6 +1450,10 @@ Precipitación: </translation>
             <translation type="unfinished">Lluvia intensa / Viento</translation>
         </message>
         <message>
+            <source>Heavy Snow Shower</source>
+            <translation type="unfinished">Pocos chaparrones de nieve</translation>
+        </message>
+        <message>
             <source>Heavy Snow Showers</source>
             <translation type="unfinished">Pocos chaparrones de nieve</translation>
         </message>
@@ -1855,7 +1859,7 @@ Precipitación: </translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
             <translation type="unfinished">MeeCast - cliente de pronósticos del tiempo de código abierto, altamente personalizable y multiplataforma, basado en el código de OMWeather. Copyright (C) 2006, 2011</translation>
         </message>
         <message>
@@ -3207,6 +3211,10 @@ Precipitación: </translation>
         <message>
             <source>Snow / Wind</source>
             <translation>Nieve / Viento</translation>
+        </message>
+        <message>
+            <source>Snow Early</source>
+            <translation type="unfinished">Chaparrones temprano</translation>
         </message>
         <message>
             <source>Snow Shower</source>

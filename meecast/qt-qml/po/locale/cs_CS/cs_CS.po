@@ -3,17 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Cocovina, 2014
+# Cocovina, 2014,2016
 # Jakub Kožíšek <nodevel@gmail.com>, 2014-2015
 # Pavel Šrubař <sansat@centrum.cz>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-12 09:15+0200\n"
-"PO-Revision-Date: 2015-04-01 07:57+0000\n"
-"Last-Translator: Jakub Kožíšek <nodevel@gmail.com>\n"
-"Language-Team: Czech (http://www.transifex.com/projects/p/meecast/language/"
+"POT-Creation-Date: 2016-02-16 07:36+0200\n"
+"PO-Revision-Date: 2016-01-22 12:32+0000\n"
+"Last-Translator: Cocovina\n"
+"Language-Team: Czech (http://www.transifex.com/vasvlad/meecast/language/"
 "cs/)\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -1186,7 +1186,7 @@ msgstr "Vydatná dešťová přeháňka"
 
 #: omweather/src/hash.data:98
 msgid "Heavy Rain Showers"
-msgstr "Prudké dešťové přeháňky"
+msgstr "Vydatné dešťové přeháňky"
 
 #: omweather/src/hash.data:99
 msgid "Heavy Sleet"
@@ -1194,7 +1194,7 @@ msgstr "Prudký déšť se kroupami"
 
 #: omweather/src/hash.data:100
 msgid "Heavy Sleet Showers"
-msgstr "Přeháňky s kroupami"
+msgstr "Vydatné přeháňky s kroupami"
 
 #: omweather/src/hash.data:101
 msgid "Heavy Snow"
@@ -1205,13 +1205,12 @@ msgid "Heavy Snow / Wind"
 msgstr "Silné sněžení / vítr"
 
 #: omweather/src/hash.data:104
-#, fuzzy
 msgid "Heavy Snow Shower"
-msgstr "Přeháňky se sněhem"
+msgstr "Vydatná sněhová přeháňka"
 
 #: omweather/src/hash.data:103
 msgid "Heavy Snow Showers"
-msgstr "Přeháňky se sněhem"
+msgstr "Vydatné sněhové přeháňky"
 
 #: omweather/src/hash.data:102
 msgid "Heavy Snowfall"
@@ -1516,14 +1515,12 @@ msgid "Mainly cloudy, Slight shower of rain"
 msgstr "Převážně zataženo, lehké přeháňky"
 
 #: omweather/src/hash.data:146
-#, fuzzy
 msgid "Mainly cloudy, drizzle"
-msgstr "Částečně oblačno s přeháňkami"
+msgstr "Převážně zataženo, mrholení"
 
 #: omweather/src/hash.data:145
-#, fuzzy
 msgid "Mainly cloudy, showers"
-msgstr "Částečně oblačno s přeháňkami"
+msgstr "Převážně zataženo, přeháňky"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
@@ -1550,9 +1547,10 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
+#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2015"
+"client based on OMWeather code. Copyright (C) 2006-2016"
 msgstr ""
 "MeeCast - multiplatformní, velmi přizpůsobitelný, open source klient pro "
 "předpověď počasí, založený na kódu OMWeather. Copyright (C) 2006-2015"
@@ -2618,9 +2616,8 @@ msgid "Snow / Wind"
 msgstr "Sněžení / větrno"
 
 #: omweather/src/hash.data:304
-#, fuzzy
 msgid "Snow Early"
-msgstr "Brzké přeháňky"
+msgstr "Očekáváno sněžení"
 
 #: omweather/src/hash.data:308
 msgid "Snow Shower"

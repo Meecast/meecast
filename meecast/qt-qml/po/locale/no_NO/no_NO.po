@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Peer-Atle Motland <PeerAtle@online.no>, 2012-2015
+# Peer-Atle Motland <PeerAtle@online.no>, 2012-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-12 09:15+0200\n"
-"PO-Revision-Date: 2015-11-10 09:08+0000\n"
-"Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
+"POT-Creation-Date: 2016-02-16 07:36+0200\n"
+"PO-Revision-Date: 2016-01-24 17:54+0000\n"
+"Last-Translator: Peer-Atle Motland <PeerAtle@online.no>\n"
 "Language-Team: Norwegian (Norway) (http://www.transifex.com/vasvlad/meecast/"
 "language/no_NO/)\n"
 "Language: no_NO\n"
@@ -1128,7 +1128,7 @@ msgstr "GUI|Tøm"
 
 #: meecast/qt-qml/qml/AboutPage.qml:256
 msgid "Galician - pakoR\n"
-msgstr ""
+msgstr "Galisisk- pakoR\n"
 
 #: meecast/qt-qml/qml/AboutPage.qml:236
 msgid ""
@@ -1205,9 +1205,8 @@ msgid "Heavy Snow / Wind"
 msgstr "Mye Snø / Vind"
 
 #: omweather/src/hash.data:104
-#, fuzzy
 msgid "Heavy Snow Shower"
-msgstr "Tung Snøbyger"
+msgstr "Mye Snøbyger"
 
 #: omweather/src/hash.data:103
 msgid "Heavy Snow Showers"
@@ -1548,9 +1547,10 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
+#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2015"
+"client based on OMWeather code. Copyright (C) 2006-2016"
 msgstr ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2015"
@@ -2616,9 +2616,8 @@ msgid "Snow / Wind"
 msgstr "Snø / Vind"
 
 #: omweather/src/hash.data:304
-#, fuzzy
 msgid "Snow Early"
-msgstr "Først Byger"
+msgstr "Først snø"
 
 #: omweather/src/hash.data:308
 msgid "Snow Shower"

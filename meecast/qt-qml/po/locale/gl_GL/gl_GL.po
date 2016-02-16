@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-12 09:15+0200\n"
+"POT-Creation-Date: 2016-02-16 07:36+0200\n"
 "PO-Revision-Date: 2015-09-15 07:48+0000\n"
 "Last-Translator: pakoR <gmpakor@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/vasvlad/meecast/language/"
@@ -1524,7 +1524,7 @@ msgstr ""
 #: meecast/qt-qml/qml/AboutPage.qml:77
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2015"
+"client based on OMWeather code. Copyright (C) 2006-2016"
 msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:23

@@ -5,14 +5,15 @@
 # Translators:
 # Agustí Clara <agusti.clara@gmail.com>, 2012
 # Agustí Clara <agusti.clara@gmail.com>, 2013-2015
+# mjoan <mercifuljoan@hotmail.com>, 2016
 # Vlad Vas <vasvlad@gmail.com>, 2012,2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-12 09:15+0200\n"
-"PO-Revision-Date: 2015-12-04 08:42+0000\n"
-"Last-Translator: Agustí Clara <agusti.clara@gmail.com>\n"
+"POT-Creation-Date: 2016-02-16 07:36+0200\n"
+"PO-Revision-Date: 2016-02-09 08:09+0000\n"
+"Last-Translator: mjoan <mercifuljoan@hotmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/vasvlad/meecast/language/"
 "ca/)\n"
 "Language: ca\n"
@@ -1208,9 +1209,8 @@ msgid "Heavy Snow / Wind"
 msgstr "Neu intensa / Vent"
 
 #: omweather/src/hash.data:104
-#, fuzzy
 msgid "Heavy Snow Shower"
-msgstr "Ruixats de neu intensos"
+msgstr "Fort ruixat de neu "
 
 #: omweather/src/hash.data:103
 msgid "Heavy Snow Showers"
@@ -1551,9 +1551,10 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
+#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2015"
+"client based on OMWeather code. Copyright (C) 2006-2016"
 msgstr ""
 "MeeCast - client multiplataforma, personalitzable i de codi obert basat en "
 "el codi de OMWeather. Copyright (C) 2006-2015"
@@ -2619,9 +2620,8 @@ msgid "Snow / Wind"
 msgstr "Neu / Vent"
 
 #: omweather/src/hash.data:304
-#, fuzzy
 msgid "Snow Early"
-msgstr "Ruixats primer"
+msgstr "Neu primer"
 
 #: omweather/src/hash.data:308
 msgid "Snow Shower"

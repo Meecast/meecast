@@ -4,14 +4,14 @@
 #
 # Translators:
 # Aleksandar Zarić <alexandarzaric@gmail.com>, 2013
-# Aleksandar Zarić <alexandarzaric@gmail.com>, 2013-2014
+# Aleksandar Zarić <alexandarzaric@gmail.com>, 2013-2014,2016
 # Aleksandar Zarić <alexandarzaric@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-12 09:15+0200\n"
-"PO-Revision-Date: 2015-12-20 00:46+0000\n"
+"POT-Creation-Date: 2016-02-16 07:36+0200\n"
+"PO-Revision-Date: 2016-02-08 21:49+0000\n"
 "Last-Translator: Aleksandar Zarić <alexandarzaric@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/vasvlad/meecast/language/"
 "sr/)\n"
@@ -542,7 +542,7 @@ msgstr "Zatvori"
 
 #: omweather/src/hash.data:35
 msgid "Clouds Early / Clearing Late"
-msgstr "U ranim satima oblaci / Kasnije razvedravanje"
+msgstr "U ranijim satima oblaci / Kasnije razvedravanje"
 
 #: omweather/src/hash.data:36
 msgid "Cloudy"
@@ -802,7 +802,7 @@ msgstr "Rominjanje kiše / Vetar"
 
 #: omweather/src/hash.data:67
 msgid "Drizzle Early"
-msgstr "U ranim satima rominjanje kiše"
+msgstr "U ranijim satima rominjanje kiše"
 
 #: omweather/src/hash.data:68
 msgid "Drizzle Late"
@@ -1011,7 +1011,7 @@ msgstr "Magla"
 
 #: omweather/src/hash.data:84
 msgid "Fog Early / Clouds Late"
-msgstr "U ranim satima magla / Kasnije oblaci"
+msgstr "U ranijim satima magla / Kasnije oblaci"
 
 #: omweather/src/hash.data:85
 msgid "Fog Late"
@@ -1019,7 +1019,7 @@ msgstr "U kasnijim satima magla"
 
 #: omweather/src/hash.data:86
 msgid "Fog early / Clearing late"
-msgstr "U ranim satima magla / Kasnije razvedravanje"
+msgstr "U ranijim satima magla / Kasnije razvedravanje"
 
 #: omweather/src/hash.data:88
 msgid "Foggy"
@@ -1209,9 +1209,8 @@ msgid "Heavy Snow / Wind"
 msgstr "Snežna mećava / Vetar"
 
 #: omweather/src/hash.data:104
-#, fuzzy
 msgid "Heavy Snow Shower"
-msgstr "Jake snežne vejavice"
+msgstr "Jaka snežna vejavica"
 
 #: omweather/src/hash.data:103
 msgid "Heavy Snow Showers"
@@ -1397,7 +1396,7 @@ msgstr "Blaga kiša / Kasnije vetar"
 
 #: omweather/src/hash.data:123
 msgid "Light Rain Early"
-msgstr "U ranim satima blaga kiša"
+msgstr "U ranijim satima blaga kiša"
 
 #: omweather/src/hash.data:124
 msgid "Light Rain Late"
@@ -1552,9 +1551,10 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
+#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2015"
+"client based on OMWeather code. Copyright (C) 2006-2016"
 msgstr ""
 "MeeCast - višeplatformni visoko prilagodljivi klijent vremenske prognoze "
 "otvorenog koda baziran na OMWeather kodu. Copyright (C) 2006-2015"
@@ -2620,9 +2620,8 @@ msgid "Snow / Wind"
 msgstr "Sneg / Vetar"
 
 #: omweather/src/hash.data:304
-#, fuzzy
 msgid "Snow Early"
-msgstr "U ranijim satima pljuskovi"
+msgstr "U ranijim satima sneg"
 
 #: omweather/src/hash.data:308
 msgid "Snow Shower"

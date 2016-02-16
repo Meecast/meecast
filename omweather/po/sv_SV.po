@@ -4,7 +4,7 @@
 #
 # Translators:
 # Åke Engelbrektson <eson@svenskasprakfiler.se>, 2014
-# Åke Engelbrektson <eson@svenskasprakfiler.se>, 2015
+# Åke Engelbrektson <eson@svenskasprakfiler.se>, 2015-2016
 #  Angela Nennebrandt <EMAIL@ADDRESS>, 2012
 # Nathan Follens, 2015
 # Niklas Åkerström, 2012-2014
@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-12 09:15+0200\n"
-"PO-Revision-Date: 2015-11-10 09:12+0000\n"
+"POT-Creation-Date: 2016-02-16 07:36+0200\n"
+"PO-Revision-Date: 2016-01-13 00:22+0000\n"
 "Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Language-Team: Swedish (http://www.transifex.com/vasvlad/meecast/language/"
 "sv/)\n"
@@ -1209,9 +1209,8 @@ msgid "Heavy Snow / Wind"
 msgstr "Kraftigt snöfall / Vind"
 
 #: omweather/src/hash.data:104
-#, fuzzy
 msgid "Heavy Snow Shower"
-msgstr "Kraftiga snöbyar"
+msgstr "Tunga snöbyar"
 
 #: omweather/src/hash.data:103
 msgid "Heavy Snow Showers"
@@ -1552,9 +1551,10 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
+#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2015"
+"client based on OMWeather code. Copyright (C) 2006-2016"
 msgstr ""
 "MeeCast - Anpassningsbar väderprognosklient. Multiplattform och öppen "
 "källkod. Baserad på OMWeather-kod. Copyright (C) 2006-2015"
@@ -2620,9 +2620,8 @@ msgid "Snow / Wind"
 msgstr "Snö / Vind"
 
 #: omweather/src/hash.data:304
-#, fuzzy
 msgid "Snow Early"
-msgstr "Regnskurar i början"
+msgstr "Snö tidigt"
 
 #: omweather/src/hash.data:308
 msgid "Snow Shower"

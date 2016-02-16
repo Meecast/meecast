@@ -1,3 +1,12 @@
+meecast (1.1.10) unstable; urgency=low
+
+  * Added string for translation
+  * Updated Russian, Catalan, Germany, Serbian, Swedish,
+    Spanish, Russian, Danish, Norwegian, Dutch, Slovenian,
+    Czech tarnslations
+
+ -- Vlad Vasiliev <vlad@gas.by> Tue, 17 Nov 2015 10:01:23 +0200
+
 meecast (1.1.9) unstable; urgency=low
 
   * Added stations in Russia to Openweathermap.org (Sverdlovskaya oblast,
@@ -5,7 +14,7 @@ meecast (1.1.9) unstable; urgency=low
   * Updated Russian, Swedish, Finnish, Norwegian tarnslations
   * Fixed 12/24 clock viewing problem 
 
- -- Vlad Vasiliev <vlad@gas.by> Sun, 19 Oct 2015 10:01:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by> Tue, 17 Nov 2015 10:01:23 +0200
 
 meecast (1.1.7) unstable; urgency=low
 

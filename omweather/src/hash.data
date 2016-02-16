@@ -101,6 +101,7 @@
     g_hash_table_insert(hash, (void*)"Heavy Snow", _("Heavy Snow"));
     g_hash_table_insert(hash, (void*)"Heavy Snowfall", _("Heavy Snowfall"));
     g_hash_table_insert(hash, (void*)"Heavy Snow Showers", _("Heavy Snow Showers"));
+    g_hash_table_insert(hash, (void*)"Heavy Snow Shower", _("Heavy Snow Shower"));
     g_hash_table_insert(hash, (void*)"Heavy Snow / Wind", _("Heavy Snow / Wind"));
     g_hash_table_insert(hash, (void*)"Heavy Thunder", _("Heavy Thunder"));
     g_hash_table_insert(hash, (void*)"High", _("High"));
@@ -300,6 +301,7 @@
     g_hash_table_insert(hash, (void*)"Sleet Showers", _("Sleet Showers"));
     g_hash_table_insert(hash, (void*)"Smoke", _("Smoke"));
     g_hash_table_insert(hash, (void*)"Snow", _("Snow"));
+    g_hash_table_insert(hash, (void*)"Snow Early", _("Snow Early"));
     g_hash_table_insert(hash, (void*)"Snowfall", _("Snowfall"));
     g_hash_table_insert(hash, (void*)"Snow / Wind", _("Snow / Wind"));
     g_hash_table_insert(hash, (void*)"Snow Shower / Wind", _("Snow Shower / Wind"));

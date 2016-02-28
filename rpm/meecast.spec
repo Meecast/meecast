@@ -71,7 +71,7 @@ Requires: patchmanager
 MeeCast Lockscreen widget for multiplatform highly customizable open source weather forecast client based on OMWeather code
 
 %package event
-Version: 0.5
+Version: 0.6
 Release: 1 
 Summary: Event Widget for Weather forecast application MeeCast on SailfishOS
 Group:      Utility

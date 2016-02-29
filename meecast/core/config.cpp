@@ -574,10 +574,10 @@ Config::LoadConfig(){
 /* Temporary hack for gismeteo.ru  remove it after version 1.2 */
 
             if  (source_name=="gismeteo.ru"){
-                std::cerr<<"ForecastURl "<< forecastURL<<std::endl;
-                std::cerr<<"DetailUrl "<< detailURL<<std::endl;
-                std::cerr<<"station_id "<< station_id<<std::endl;
-                std::cerr<<"station_name "<< station_name<<std::endl;
+                std::cerr<<"ForecastURl "<< forecastURL.toStdString()<<std::endl;
+                std::cerr<<"DetailUrl "<< detailURL.toStdString()<<std::endl;
+                std::cerr<<"station_id "<< station_id.toStdString()<<std::endl;
+                std::cerr<<"station_name "<< station_name.toStdString()<<std::endl;
             }
             std::cerr<<"SOurce name "<<source_name.toStdString()<<std::endl;
             Station *st = new Station(source_name.toStdString(),

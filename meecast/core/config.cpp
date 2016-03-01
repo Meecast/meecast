@@ -572,7 +572,7 @@ Config::LoadConfig(){
             if  (source_name=="yr.no")
                 viewURL.replace("#","/");
 /* Temporary hack for gismeteo.ru  remove it after version 1.2 */
-            if  (source_name=="gismeteo.ru" && (forecastURL.indexOf("weather",0) != -1)){
+            if  (source_name=="gismeteo.ru" && (forecastURL.indexOf("weather",0) == -1)){
                 QString new_url;
                 new_url = "weather-" + station_name + "-" + station_id;
 

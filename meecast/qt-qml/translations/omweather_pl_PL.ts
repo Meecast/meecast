@@ -1439,6 +1439,10 @@ Opady: </translation>
             <translation type="unfinished">Silny deszcz / wiatr</translation>
         </message>
         <message>
+            <source>Heavy Snow Shower</source>
+            <translation type="unfinished">Lekki przelotny śnieg</translation>
+        </message>
+        <message>
             <source>Heavy Snow Showers</source>
             <translation type="unfinished">Lekki przelotny śnieg</translation>
         </message>
@@ -1844,7 +1848,7 @@ Opady: </translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
             <translation type="unfinished">MeeCast - multiplatformowy, możliwy do dostosowania otwartoźródłowy program wyświetlający prognozy pogody, bazujący na kodzie OMWeather. Copyright (C) 2006-2011</translation>
         </message>
         <message>
@@ -3211,6 +3215,10 @@ Opady: </translation>
         <message>
             <source>Snow / Wind</source>
             <translation>Śnieg / wiatr</translation>
+        </message>
+        <message>
+            <source>Snow Early</source>
+            <translation type="unfinished">Wcześnie przelotne deszcze</translation>
         </message>
         <message>
             <source>Snow Shower</source>

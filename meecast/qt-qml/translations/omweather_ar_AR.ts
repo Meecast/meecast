@@ -1439,6 +1439,10 @@ Slovak - Roman Moravčík</source>
             <translation>ثلج كثيف/رياح</translation>
         </message>
         <message>
+            <source>Heavy Snow Shower</source>
+            <translation type="unfinished">زخات ثلج قليله</translation>
+        </message>
+        <message>
             <source>Heavy Snow Showers</source>
             <translation type="unfinished">زخات ثلج قليله</translation>
         </message>
@@ -1842,7 +1846,7 @@ Slovak - Roman Moravčík</source>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
             <translation type="unfinished">MeeCast - هو تطبيق لعرض تنبؤات الطقس مفتوح المصدر وقابل للتعديل إستنادا الى كود OMWeather. الحقوق(C) 2006-2014</translation>
         </message>
         <message>
@@ -3187,6 +3191,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Snow / Wind</source>
             <translation>ثلج / رياح</translation>
+        </message>
+        <message>
+            <source>Snow Early</source>
+            <translation type="unfinished">زخات مُبكرة</translation>
         </message>
         <message>
             <source>Snow Shower</source>

@@ -1365,8 +1365,8 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Galician - pakoR
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Galicisch - pakoR
+</translation>
         </message>
         <message>
             <source>German -  Claudius Henrichs,
@@ -1441,6 +1441,10 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Heavy Snow / Wind</source>
             <translation>Starker Schneefall / Wind</translation>
+        </message>
+        <message>
+            <source>Heavy Snow Shower</source>
+            <translation type="unfinished">Starke Schneeschauer</translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
@@ -1814,11 +1818,11 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Mainly cloudy, drizzle</source>
-            <translation type="unfinished">Teilweise bewölkt und Schauer</translation>
+            <translation>Überwiegend bewölkt, Niesel</translation>
         </message>
         <message>
             <source>Mainly cloudy, showers</source>
-            <translation type="unfinished">Teilweise bewölkt und Schauer</translation>
+            <translation>Überwiegend bewölkt, Regenschauer</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -1847,8 +1851,8 @@ Spanisch - Alejandro Lopez</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
-            <translation>MeeCast - plattformübergreifende und anpassbare Open-Source-Anwendung zur Wettervorhersage, basierend auf dem Code von OMWeather. Copyright (C) 2006-2015</translation>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
+            <translation type="unfinished">MeeCast - plattformübergreifende und anpassbare Open-Source-Anwendung zur Wettervorhersage, basierend auf dem Code von OMWeather. Copyright (C) 2006-2015</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -3181,6 +3185,10 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Snow / Wind</source>
             <translation>Schnee / Wind</translation>
+        </message>
+        <message>
+            <source>Snow Early</source>
+            <translation type="unfinished">Schauer früh</translation>
         </message>
         <message>
             <source>Snow Shower</source>

@@ -1407,6 +1407,10 @@ Slovak - Roman Moravčík</source>
             <translation>Kiadós havazás / szél</translation>
         </message>
         <message>
+            <source>Heavy Snow Shower</source>
+            <translation type="unfinished">Felhőszakadás</translation>
+        </message>
+        <message>
             <source>Heavy Snow Showers</source>
             <translation type="unfinished">
             </translation>
@@ -1817,7 +1821,7 @@ Slovak - Roman Moravčík</source>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
             <translation type="unfinished">MeeCast - multiplatform testreszabható nyilt forráskódú irőjárás jelentő kliens az OMWeather kódja alapján. Szerzői joggal védett (C) 2006-2014</translation>
         </message>
         <message>
@@ -3164,6 +3168,10 @@ Előrejelzés:</translation>
         <message>
             <source>Snow / Wind</source>
             <translation>Hó / szél</translation>
+        </message>
+        <message>
+            <source>Snow Early</source>
+            <translation type="unfinished">Délelőtti záporok</translation>
         </message>
         <message>
             <source>Snow Shower</source>

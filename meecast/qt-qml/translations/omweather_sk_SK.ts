@@ -1443,6 +1443,10 @@ Zrážky: </translation>
             <translation type="unfinished">Silný dážď / Vietor</translation>
         </message>
         <message>
+            <source>Heavy Snow Shower</source>
+            <translation type="unfinished">Ojedinelé snehové prehánky</translation>
+        </message>
+        <message>
             <source>Heavy Snow Showers</source>
             <translation type="unfinished">Ojedinelé snehové prehánky</translation>
         </message>
@@ -1848,7 +1852,7 @@ Zrážky: </translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
             <translation type="unfinished">MeeCast - multiplatformový veľmi prispôsobiteľný open source klient predpoveďe počasia založený na kóde OMWeather. Copyright (C) 2006-2011</translation>
         </message>
         <message>
@@ -3197,6 +3201,10 @@ Zrážky: </translation>
         <message>
             <source>Snow / Wind</source>
             <translation>Sneženie / Vietor</translation>
+        </message>
+        <message>
+            <source>Snow Early</source>
+            <translation type="unfinished">Spočiatku prehánky</translation>
         </message>
         <message>
             <source>Snow Shower</source>

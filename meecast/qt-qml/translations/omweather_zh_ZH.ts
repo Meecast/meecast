@@ -1440,6 +1440,10 @@ DeadHorseRiding</translation>
             <translation>大雪/刮风</translation>
         </message>
         <message>
+            <source>Heavy Snow Shower</source>
+            <translation type="unfinished">短时大雪</translation>
+        </message>
+        <message>
             <source>Heavy Snow Showers</source>
             <translation>短时大雪</translation>
         </message>
@@ -1844,8 +1848,8 @@ Luca Onnis
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
-            <translation>MeeCast - 基于开源的OMWeather源码开发的一款跨平台，高定制性天气预报软件。Copyright (C) 2006-2015</translation>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
+            <translation type="unfinished">MeeCast - 基于开源的OMWeather源码开发的一款跨平台，高定制性天气预报软件。Copyright (C) 2006-2015</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -3178,6 +3182,10 @@ Ed Bartosh
         <message>
             <source>Snow / Wind</source>
             <translation>下雪夹风</translation>
+        </message>
+        <message>
+            <source>Snow Early</source>
+            <translation type="unfinished">早间阵雨</translation>
         </message>
         <message>
             <source>Snow Shower</source>

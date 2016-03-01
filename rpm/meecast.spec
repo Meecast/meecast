@@ -14,8 +14,8 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    1.1.9
-Release:    1
+Version:    1.1.10.
+Release:    12
 Group:      Utility
 License:    GPLv2.1
 URL:        https://github.com/Meecast/meecast 
@@ -71,7 +71,7 @@ Requires: patchmanager
 MeeCast Lockscreen widget for multiplatform highly customizable open source weather forecast client based on OMWeather code
 
 %package event
-Version: 0.5
+Version: 0.6
 Release: 1 
 Summary: Event Widget for Weather forecast application MeeCast on SailfishOS
 Group:      Utility
@@ -175,9 +175,19 @@ systemctl-user start meecastd.service
 
 %changelog
 
-* Mon Nov 2 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.9
+* Mon Feb 22 2016 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.10
 
-  *  
+  * Added string for translation
+  * Updated Russian, Catalan, Germany, Serbian, Swedish,
+    Spanish, Russian, Danish, Norwegian, Dutch, Slovenian,
+    Czech tarnslations
+
+* Tue Nov 17 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.9
+
+  * Added stations in Russia to Openweathermap.org (Sverdlovskaya oblast,
+    Krasnodarkiy Kray and Leningradskaya oblast) 
+  * Updated Russian, Swedish, Finnish, Norwegian tarnslations
+  * Fixed 12/24 clock viewing problem 
 
 * Mon Nov 2 2015 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.8
 

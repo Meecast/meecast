@@ -980,7 +980,7 @@ dels paquets 'omweather-*-stations-db' està instal·lat.</translation>
  	Heimen Stoffels, Nathan Follens
 </source>
             <translation>Neerlandès - Tom Leenders, Michiel Pater
- 	Heimen Stoffels, Nathan Follens
+ /tHeimen Stoffels, Nathan Follens
 </translation>
         </message>
         <message>
@@ -1365,8 +1365,8 @@ Català - Agustí Clara</translation>
         <message>
             <source>Galician - pakoR
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Gallec - pakoR
+</translation>
         </message>
         <message>
             <source>German -  Claudius Henrichs,
@@ -1441,6 +1441,10 @@ Català - Agustí Clara</translation>
         <message>
             <source>Heavy Snow / Wind</source>
             <translation>Neu intensa / Vent</translation>
+        </message>
+        <message>
+            <source>Heavy Snow Shower</source>
+            <translation>Fort ruixat de neu </translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
@@ -1814,11 +1818,11 @@ Català - Agustí Clara</translation>
         </message>
         <message>
             <source>Mainly cloudy, drizzle</source>
-            <translation type="unfinished">En part núvol i ruixats</translation>
+            <translation>Força núvol, plugims</translation>
         </message>
         <message>
             <source>Mainly cloudy, showers</source>
-            <translation type="unfinished">En part núvol i ruixats</translation>
+            <translation>Força núvol, ruixats</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -1847,8 +1851,8 @@ Català - Agustí Clara</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
-            <translation>MeeCast - client multiplataforma, personalitzable i de codi obert basat en el codi de OMWeather. Copyright (C) 2006-2015</translation>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
+            <translation type="unfinished">MeeCast - client multiplataforma, personalitzable i de codi obert basat en el codi de OMWeather. Copyright (C) 2006-2015</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -3181,6 +3185,10 @@ Català - Agustí Clara</translation>
         <message>
             <source>Snow / Wind</source>
             <translation>Neu / Vent</translation>
+        </message>
+        <message>
+            <source>Snow Early</source>
+            <translation>Neu primer</translation>
         </message>
         <message>
             <source>Snow Shower</source>

@@ -384,8 +384,8 @@ W: </translation>
         <message>
             <source>Albanian - Ilir Gjika
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Albanski - Ilir Gjika
+</translation>
         </message>
         <message>
             <source>Alerts</source>
@@ -438,16 +438,19 @@ Eric Link - za zahtev novih opcija i donacije
 for installing package 'MeeCast applet'.
 You should uninstall AccuWeather 
 before installing this package</source>
-            <translation>Sada će se pokrenuti menadžer aplikacija
-zbog instalacije paketa 'MeeCast applet'.
-Trebalo bi da deinstalirate AccuWeather 
+            <translation>Sada će se pokrenuti 
+menadžer aplikacija
+zbog instalacije paketa 
+'MeeCast applet'.
+Trebalo bi da deinstalirate 
+AccuWeather 
 pre instalacije ovog paketa</translation>
         </message>
         <message>
             <source>Arabic - Tarad Alfandi
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Arapski - Tarad Alfandi
+</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -528,8 +531,8 @@ Dizajn za Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Bulgarian - Zlatko Enikov
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bugarski - Zlatko Enikov
+</translation>
         </message>
         <message>
             <source>C</source>
@@ -592,12 +595,12 @@ Dizajn za Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Catalan - Agustí Clara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Katalonski - Agustí Clara
+</translation>
         </message>
         <message>
             <source>Celcius</source>
-            <translation>Celzius</translation>
+            <translation>Celzijus</translation>
         </message>
         <message>
             <source>Celsius</source>
@@ -607,14 +610,15 @@ Dizajn za Fremantle: Krebber Jan Niemelä Ulla
             <source>Chinese - Wong Man Kong, Michael,
  	gwmgdemj
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kineski - Wong Man Kong, Michael,
+ 	gwmgdemj
+</translation>
         </message>
         <message>
             <source>Chinese(Taiwan) - osk2, 
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kineski(Tajvanski) - osk2, 
+</translation>
         </message>
         <message>
             <source>City</source>
@@ -674,7 +678,7 @@ Dizajn za Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Clouds Early / Clearing Late</source>
-            <translation>U ranim satima oblaci / Kasnije razvedravanje</translation>
+            <translation>U ranijim satima oblaci / Kasnije razvedravanje</translation>
         </message>
         <message>
             <source>Cloudy</source>
@@ -758,7 +762,7 @@ Dizajn za Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Oblačno, Jaka kiša</translation>
+            <translation>Oblačno, slaba kiša, kratka obilna kiša</translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
@@ -778,7 +782,7 @@ Dizajn za Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Strong Rain, Heavy Rain</source>
-            <translation type="unfinished">Oblačno, Jaka kiša</translation>
+            <translation>Oblačno, snažan pljusak, jaka kiša</translation>
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
@@ -824,12 +828,11 @@ Predodređeno vreme za povezivanje je isteklo.</translation>
         </message>
         <message>
             <source>Country:</source>
-            <translation>Država</translation>
+            <translation>Država:</translation>
         </message>
         <message>
             <source>Cover Page</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Naslovna strana</translation>
         </message>
         <message>
             <source>Custom</source>
@@ -838,8 +841,8 @@ Predodređeno vreme za povezivanje je isteklo.</translation>
         <message>
             <source>Czech - Jakub Kožíšek, Pavel Šrubař
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Češki - Jakub Kožíšek, Pavel Šrubař
+</translation>
         </message>
         <message>
             <source>Daily</source>
@@ -848,8 +851,8 @@ Predodređeno vreme za povezivanje je isteklo.</translation>
         <message>
             <source>Danish - Peter Jespersen
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Danski - Peter Jespersen
+</translation>
         </message>
         <message>
             <source>Day</source>
@@ -895,18 +898,15 @@ Predodređeno vreme za povezivanje je isteklo.</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Temperatura kondenzacije</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Temperatura kondenzacije</translation>
         </message>
         <message>
             <source>Dew point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Temperatura kondenzacije</translation>
         </message>
         <message>
             <source>Display</source>
@@ -926,7 +926,7 @@ Predodređeno vreme za povezivanje je isteklo.</translation>
         </message>
         <message>
             <source>Distance units:</source>
-            <translation>Jedinice razdaljine</translation>
+            <translation>Jedinice razdaljine:</translation>
         </message>
         <message>
             <source>Does not to add station, because no one
@@ -972,7 +972,7 @@ od 'omweather-*-stations-db' paketa nije instaliran.</translation>
         </message>
         <message>
             <source>Drizzle Early</source>
-            <translation>U ranim satima rominjanje kiše</translation>
+            <translation>U ranijim satima rominjanje kiše</translation>
         </message>
         <message>
             <source>Drizzle Late</source>
@@ -982,8 +982,9 @@ od 'omweather-*-stations-db' paketa nije instaliran.</translation>
             <source>Dutch - Tom Leenders, Michiel Pater
  	Heimen Stoffels, Nathan Follens
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Holandski - Tom Leenders, Michiel Pater
+ 	Heimen Stoffels, Nathan Follens
+</translation>
         </message>
         <message>
             <source>E</source>
@@ -1200,8 +1201,10 @@ Brad Jones aka kazrak - za testiranje
 	deadhead (A-P Partonen),
  	jarliim
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Finski - Marko Vertainen,
+	deadhead (A-P Partonen),
+ 	jarliim
+</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
@@ -1231,7 +1234,7 @@ Brad Jones aka kazrak - za testiranje
         </message>
         <message>
             <source>Fog Early / Clouds Late</source>
-            <translation>U ranim satima magla / Kasnije oblaci</translation>
+            <translation>U ranijim satima magla / Kasnije oblaci</translation>
         </message>
         <message>
             <source>Fog Late</source>
@@ -1239,7 +1242,7 @@ Brad Jones aka kazrak - za testiranje
         </message>
         <message>
             <source>Fog early / Clearing late</source>
-            <translation>U ranim satima magla / Kasnije razvedravanje</translation>
+            <translation>U ranijim satima magla / Kasnije razvedravanje</translation>
         </message>
         <message>
             <source>Foggy</source>
@@ -1295,7 +1298,10 @@ koristeći Menadžer aplikacija</translation>
  	Quentin Caillard, 
  	Jordi
 </source>
-            <translation type="unfinished">Prevodioci: Francuski - Nicolas Granziano, Philippe, Benot Knecht; Ruski - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
+            <translation>Francuski -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard, 
+ 	Jordi
 </translation>
         </message>
         <message>
@@ -1361,16 +1367,18 @@ Slovački - Roman Moravčík</translation>
         <message>
             <source>Galician - pakoR
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Galicijski - pakoR
+</translation>
         </message>
         <message>
             <source>German -  Claudius Henrichs,
  	Jens Klingen,
  	DeadHorseRiding
  </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nemački -  Claudius Henrichs,
+ 	Jens Klingen,
+ 	DeadHorseRiding
+ </translation>
         </message>
         <message>
             <source>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
@@ -1394,17 +1402,15 @@ Slovački - Roman Moravčík</translation>
         </message>
         <message>
             <source>Haze, Smoke or Dust</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Izmaglica, dim ili prašina</translation>
         </message>
         <message>
             <source>Heavy Freezing Rain</source>
-            <translation type="unfinished">Kiša / Ledena kiša</translation>
+            <translation>Jaka ledena kiša</translation>
         </message>
         <message>
             <source>Heavy Precipitation</source>
-            <translation type="unfinished">
-Padavine: </translation>
+            <translation>Jake padavine</translation>
         </message>
         <message>
             <source>Heavy Rain</source>
@@ -1420,15 +1426,15 @@ Padavine: </translation>
         </message>
         <message>
             <source>Heavy Rain Showers</source>
-            <translation type="unfinished">Snažni kišni pljuskovi</translation>
+            <translation>Jaki pljuskovi</translation>
         </message>
         <message>
             <source>Heavy Sleet</source>
-            <translation type="unfinished">Jak sneg</translation>
+            <translation>Jaka susnežica</translation>
         </message>
         <message>
             <source>Heavy Sleet Showers</source>
-            <translation type="unfinished">Snažni kišni pljuskovi</translation>
+            <translation>Jake susnežice</translation>
         </message>
         <message>
             <source>Heavy Snow</source>
@@ -1439,16 +1445,20 @@ Padavine: </translation>
             <translation>Snežna mećava / Vetar</translation>
         </message>
         <message>
+            <source>Heavy Snow Shower</source>
+            <translation>Jaka snežna vejavica</translation>
+        </message>
+        <message>
             <source>Heavy Snow Showers</source>
-            <translation type="unfinished">Po koji snežni nalet</translation>
+            <translation>Jake snežne vejavice</translation>
         </message>
         <message>
             <source>Heavy Snowfall</source>
-            <translation type="unfinished">Jak sneg</translation>
+            <translation>Jak sneg</translation>
         </message>
         <message>
             <source>Heavy Thunder</source>
-            <translation type="unfinished">Grmljavina</translation>
+            <translation>Jaka grmljavina</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1497,13 +1507,12 @@ Padavine: </translation>
         <message>
             <source>Hungarian - Salmi, László Kara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mađarski - Salmi, László Kara
+</translation>
         </message>
         <message>
             <source>Ice Pellets</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Moguć sneg</translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1571,7 +1580,11 @@ Padavine: </translation>
  	Salvatore Fiorenzo, Ilir Gjika,
  	Luca Onnis
 </source>
-            <translation type="unfinished">Italijanski - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Poljski - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</translation>
+            <translation>Italijanski - Lorenzo Facca,
+ 	Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+</translation>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
@@ -1679,7 +1692,7 @@ Padavine: </translation>
         </message>
         <message>
             <source>Light Rain Early</source>
-            <translation>U ranim satima blaga kiša</translation>
+            <translation>U ranijim satima blaga kiša</translation>
         </message>
         <message>
             <source>Light Rain Late</source>
@@ -1691,7 +1704,7 @@ Padavine: </translation>
         </message>
         <message>
             <source>Light Rain Showers</source>
-            <translation type="unfinished">Blagi kišni pljuskovi</translation>
+            <translation>Kratki pljuskovi</translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
@@ -1711,11 +1724,11 @@ Padavine: </translation>
         </message>
         <message>
             <source>Light Sleet</source>
-            <translation type="unfinished">Blagi sneg</translation>
+            <translation>Slaba susnežica</translation>
         </message>
         <message>
             <source>Light Sleet Showers</source>
-            <translation type="unfinished">Blagi snežni naleti</translation>
+            <translation>Blage susnežice</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1743,11 +1756,11 @@ Padavine: </translation>
         </message>
         <message>
             <source>Light Snow Showers</source>
-            <translation type="unfinished">Blagi snežni naleti</translation>
+            <translation>Blage vejavice</translation>
         </message>
         <message>
             <source>Light Snowfall</source>
-            <translation type="unfinished">Blagi sneg</translation>
+            <translation>Blagi sneg</translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
@@ -1759,8 +1772,7 @@ Padavine: </translation>
         </message>
         <message>
             <source>Light or Moderate Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Slabe do umerene padavine</translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1804,15 +1816,15 @@ Padavine: </translation>
         </message>
         <message>
             <source>Mainly cloudy, Slight shower of rain</source>
-            <translation type="unfinished">Pretežno oblačno sa povremenom kišom.</translation>
+            <translation>Uglavnom oblačno, kratki pljusak</translation>
         </message>
         <message>
             <source>Mainly cloudy, drizzle</source>
-            <translation type="unfinished">Delimično oblačno i pljuskovi</translation>
+            <translation>Uglavnom oblačno, sitna kiša</translation>
         </message>
         <message>
             <source>Mainly cloudy, showers</source>
-            <translation type="unfinished">Delimično oblačno i pljuskovi</translation>
+            <translation>Uglavnom oblačno, pljuskovi</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -1841,8 +1853,8 @@ Padavine: </translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
-            <translation type="unfinished">MeeCast - višeplatformni visoko podešavajući klijent vremenske prognoze otvorenog koda baziran na OMWeather kodu. Copyright (C) 2006-2014</translation>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
+            <translation type="unfinished">MeeCast - višeplatformni visoko prilagodljivi klijent vremenske prognoze otvorenog koda baziran na OMWeather kodu. Copyright (C) 2006-2015</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -1862,7 +1874,7 @@ Padavine: </translation>
         </message>
         <message>
             <source>Moderate Freezing Rain</source>
-            <translation type="unfinished">Umerena kiša</translation>
+            <translation>Umerena ledena kiša</translation>
         </message>
         <message>
             <source>Moderate Rain</source>
@@ -1870,15 +1882,15 @@ Padavine: </translation>
         </message>
         <message>
             <source>Moderate Rain Showers</source>
-            <translation type="unfinished">Umerena kiša</translation>
+            <translation>Povremeni pljuskovi</translation>
         </message>
         <message>
             <source>Moderate Sleet</source>
-            <translation type="unfinished">Umerena kiša</translation>
+            <translation>Umerena susnežica</translation>
         </message>
         <message>
             <source>Moderate Snow Showers</source>
-            <translation type="unfinished">Prepodne Snežne mećave</translation>
+            <translation>Umerene vejavice</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -1978,7 +1990,7 @@ Padavine: </translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Oblačno, Jaka kiša</translation>
+            <translation>Pretežno oblačno, Blaga kiša, Kratki obilni pljuskovi</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
@@ -2010,7 +2022,7 @@ Padavine: </translation>
         </message>
         <message>
             <source>Mostly sunny</source>
-            <translation type="unfinished">Pretežno sunčano</translation>
+            <translation>Uglavnom sunčano</translation>
         </message>
         <message>
             <source>N</source>
@@ -2195,8 +2207,8 @@ Padavine: </translation>
         <message>
             <source>Norwegian - Peer-Atle Motland
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Norveški - Peer-Atle Motland
+</translation>
         </message>
         <message>
             <source>Now</source>
@@ -2553,14 +2565,14 @@ Padavine: </translation>
         <message>
             <source>Polish - Tomasz Dominikowski
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Poljski - Tomasz Dominikowski
+</translation>
         </message>
         <message>
             <source>Portuguese - Jose Narciso,
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Portugalski - Jose Narciso,
+</translation>
         </message>
         <message>
             <source>Position:</source>
@@ -2580,38 +2592,31 @@ Padavine: </translation>
         </message>
         <message>
             <source>Precipitation</source>
-            <translation type="unfinished">
-Padavine: </translation>
+            <translation>Padavine</translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">
-Padavine: </translation>
+            <translation>Stopa padavina: </translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">
-Padavine: </translation>
+            <translation>Stopa padavina: </translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
-            <translation type="unfinished">
-Padavine: </translation>
+            <translation>Stopa padavina: </translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Padavine: </translation>
+            <translation>Padavine: </translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Padavine: </translation>
+            <translation>Padavine: </translation>
         </message>
         <message>
             <source>Precipitation:</source>
-            <translation type="unfinished">
-Padavine: </translation>
+            <translation>Padavine: </translation>
         </message>
         <message>
             <source>Preference|Update</source>
@@ -2687,7 +2692,7 @@ Padavine: </translation>
         </message>
         <message>
             <source>Proximity shower rain</source>
-            <translation type="unfinished">Pljusak blagog intenziteta</translation>
+            <translation>Lokalni pljusak</translation>
         </message>
         <message>
             <source>Rain</source>
@@ -2763,7 +2768,7 @@ Padavine: </translation>
         </message>
         <message>
             <source>Rain and snow</source>
-            <translation type="unfinished">Kiša i sneg</translation>
+            <translation>Kiša ili sneg</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>
@@ -2805,8 +2810,9 @@ Padavine: </translation>
             <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
  	Ed Bartosh
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ruski - Pavel Fialko, Vlad Vasilyeu, 
+ 	Ed Bartosh
+</translation>
         </message>
         <message>
             <source>S</source>
@@ -3023,8 +3029,8 @@ Padavine: </translation>
         <message>
             <source>Serbian - Aleksandar Zaric
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Srpski - Aleksandar Zarić
+</translation>
         </message>
         <message>
             <source>Set</source>
@@ -3140,8 +3146,7 @@ Padavine: </translation>
         </message>
         <message>
             <source>Showers or Intermittent Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Pljuskovi ili izmenljive padavine</translation>
         </message>
         <message>
             <source>Sky is Clear</source>
@@ -3157,19 +3162,19 @@ Padavine: </translation>
         </message>
         <message>
             <source>Sleet Showers</source>
-            <translation type="unfinished">Po koji pljusak</translation>
+            <translation>Susnežice</translation>
         </message>
         <message>
             <source>Slovak - Roman Moravčík
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Slovački - Roman Moravčík
+</translation>
         </message>
         <message>
             <source>Slovenian - Boštjan Štrumbelj
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Slovenski - Boštjan Štrumbelj
+</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3184,6 +3189,10 @@ Padavine: </translation>
             <translation>Sneg / Vetar</translation>
         </message>
         <message>
+            <source>Snow Early</source>
+            <translation>U ranijim satima sneg</translation>
+        </message>
+        <message>
             <source>Snow Shower</source>
             <translation>Nalet snega</translation>
         </message>
@@ -3193,7 +3202,7 @@ Padavine: </translation>
         </message>
         <message>
             <source>Snow Showers</source>
-            <translation type="unfinished">Nalet snega</translation>
+            <translation>Vejavice</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -3225,7 +3234,7 @@ Padavine: </translation>
         </message>
         <message>
             <source>Snowfall</source>
-            <translation type="unfinished">Sneg</translation>
+            <translation>Sneg</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3242,8 +3251,8 @@ Padavine: </translation>
         <message>
             <source>Spanish - Alejandro Lopez, Agustí Clara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Španski - Alejandro Lopez, Agustí Clara
+</translation>
         </message>
         <message>
             <source>Speed</source>
@@ -3323,8 +3332,7 @@ Padavine: </translation>
         </message>
         <message>
             <source>Strong Thundershowers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Snažni pljuskovi sa grmljavinom</translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3391,8 +3399,10 @@ Padavine: </translation>
  	Åke Engelbrektson, 
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Švedski - Angela Nennebrandt,
+ 	Åke Engelbrektson, 
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>Switch to the next station after:</source>
@@ -3522,7 +3532,7 @@ kasnija verzija.</translation>
         </message>
         <message>
             <source>Thundershowers</source>
-            <translation type="unfinished">Grmljavina</translation>
+            <translation>Pljuskovi sa grmljavinom</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3582,8 +3592,9 @@ kasnija verzija.</translation>
             <source>Turkish - Burak Kaan Kose,
  	Mehmet Çilingir
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Turski - Burak Kaan Kose,
+ 	Mehmet Çilingir
+</translation>
         </message>
         <message>
             <source>Type of click:</source>
@@ -3743,12 +3754,13 @@ za korigovanje slika applet-a</translation>
             <source>Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vijetnamski- Hieu Nguyen
+ 	Anh Dương and truongnx, 
+</translation>
         </message>
         <message>
             <source>Violent Rain Showers</source>
-            <translation type="unfinished">Blagi kišni pljuskovi</translation>
+            <translation>Nasilni udari pljuskova</translation>
         </message>
         <message>
             <source>Visible items:</source>
@@ -3760,11 +3772,11 @@ za korigovanje slika applet-a</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation>Vidljive jedinice</translation>
+            <translation>Jedinice vidljivosti</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation>Vidljive jedinice</translation>
+            <translation>Jedinice vidljivosti</translation>
         </message>
         <message>
             <source>Visible:</source>
@@ -4046,7 +4058,10 @@ ili ZIP kod!!!</translation>
         </message>
         <message>
             <source>You should activate 'Widget in the events view' option in MeeCast appearance settings for auto update.</source>
-            <translation>Trebalo bi da aktivirate 'Vidžet u pregledniku događaja' opciju u MeeCast podešavanju izgleda za automatsko ažuriranje.</translation>
+            <translation>Trebalo bi da aktivirate opciju
+'Vidžet u pregledniku događaja' 
+u MeeCast podešavanju izgleda 
+za automatsko ažuriranje.</translation>
         </message>
         <message>
             <source>Zoom in popup window </source>
@@ -4166,7 +4181,7 @@ ili ZIP kod!!!</translation>
         </message>
         <message>
             <source>kPa</source>
-            <translation type="unfinished">Pa</translation>
+            <translation>kPa</translation>
         </message>
         <message>
             <source>km</source>
@@ -4382,18 +4397,15 @@ ili ZIP kod!!!</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mmHg</source>
@@ -4433,7 +4445,7 @@ ili ZIP kod!!!</translation>
         </message>
         <message>
             <source>mph</source>
-            <translation type="unfinished">m/h</translation>
+            <translation>mph</translation>
         </message>
         <message>
             <source>n:</source>

@@ -1442,6 +1442,10 @@ Slovakiska - Roman Moravčík</translation>
             <translation>Kraftigt snöfall / Vind</translation>
         </message>
         <message>
+            <source>Heavy Snow Shower</source>
+            <translation>Tunga snöbyar</translation>
+        </message>
+        <message>
             <source>Heavy Snow Showers</source>
             <translation>Kraftiga snöbyar</translation>
         </message>
@@ -1846,8 +1850,8 @@ Slovakiska - Roman Moravčík</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
-            <translation>MeeCast - Anpassningsbar väderprognosklient. Multiplattform och öppen källkod. Baserad på OMWeather-kod. Copyright (C) 2006-2015</translation>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
+            <translation type="unfinished">MeeCast - Anpassningsbar väderprognosklient. Multiplattform och öppen källkod. Baserad på OMWeather-kod. Copyright (C) 2006-2015</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -3180,6 +3184,10 @@ Slovakiska - Roman Moravčík</translation>
         <message>
             <source>Snow / Wind</source>
             <translation>Snö / Vind</translation>
+        </message>
+        <message>
+            <source>Snow Early</source>
+            <translation>Snö tidigt</translation>
         </message>
         <message>
             <source>Snow Shower</source>

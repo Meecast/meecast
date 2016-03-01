@@ -1364,8 +1364,8 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>Galician - pakoR
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Galicisch - pakoR
+</translation>
         </message>
         <message>
             <source>German -  Claudius Henrichs,
@@ -1440,6 +1440,10 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>Heavy Snow / Wind</source>
             <translation>Hevige Sneeuwval / Wind</translation>
+        </message>
+        <message>
+            <source>Heavy Snow Shower</source>
+            <translation>Hevige Sneeuwbui</translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
@@ -1813,11 +1817,11 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Mainly cloudy, drizzle</source>
-            <translation type="unfinished">Deels bewolkt en buien</translation>
+            <translation>Overwegend bewolkt, motregen</translation>
         </message>
         <message>
             <source>Mainly cloudy, showers</source>
-            <translation type="unfinished">Deels bewolkt en buien</translation>
+            <translation>Overwegend bewolkt, buien</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -1846,8 +1850,8 @@ Slowaaks - Roman Moravčík</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
-            <translation>MeeCast - een zeer aanpasbare open source multiplatform weerbericht-cliënt op basis van OMWeather code. Copyright (C) 2006-2015</translation>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
+            <translation type="unfinished">MeeCast - een zeer aanpasbare open source multiplatform weerbericht-cliënt op basis van OMWeather code. Copyright (C) 2006-2015</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -3180,6 +3184,10 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>Snow / Wind</source>
             <translation>Sneeuw / Wind</translation>
+        </message>
+        <message>
+            <source>Snow Early</source>
+            <translation>Eerst Sneeuw</translation>
         </message>
         <message>
             <source>Snow Shower</source>

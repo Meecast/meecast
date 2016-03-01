@@ -1363,8 +1363,8 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Galician - pakoR
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Gallego - pakoR
+</translation>
         </message>
         <message>
             <source>German -  Claudius Henrichs,
@@ -1439,6 +1439,10 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Heavy Snow / Wind</source>
             <translation>Nieve intensa / Viento</translation>
+        </message>
+        <message>
+            <source>Heavy Snow Shower</source>
+            <translation type="unfinished">Chubascos de nieve intensos</translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
@@ -1812,11 +1816,11 @@ Eslovaco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Mainly cloudy, drizzle</source>
-            <translation type="unfinished">Parcialmente nublado y chubascos</translation>
+            <translation>Bastante nuboso, lloviznas</translation>
         </message>
         <message>
             <source>Mainly cloudy, showers</source>
-            <translation type="unfinished">Parcialmente nublado y chubascos</translation>
+            <translation>Bastante nuboso, chubascos</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -1845,8 +1849,8 @@ Eslovaco - Roman Moravčík</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
-            <translation>MeeCast - cliente de pronósticos del tiempo de código abierto, altamente personalizable y multiplataforma, basado en el código de OMWeather. Copyright (C) 2006, 2015</translation>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
+            <translation type="unfinished">MeeCast - cliente de pronósticos del tiempo de código abierto, altamente personalizable y multiplataforma, basado en el código de OMWeather. Copyright (C) 2006, 2015</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -3179,6 +3183,10 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Snow / Wind</source>
             <translation>Nieve / Viento</translation>
+        </message>
+        <message>
+            <source>Snow Early</source>
+            <translation type="unfinished">Chubascos temprano</translation>
         </message>
         <message>
             <source>Snow Shower</source>

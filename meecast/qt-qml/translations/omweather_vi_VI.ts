@@ -1442,6 +1442,10 @@ Mưa:</translation>
             <translation type="unfinished">Mưa lớn / Gió</translation>
         </message>
         <message>
+            <source>Heavy Snow Shower</source>
+            <translation type="unfinished">Có tuyết và mưa rào rải rác</translation>
+        </message>
+        <message>
             <source>Heavy Snow Showers</source>
             <translation type="unfinished">Có tuyết và mưa rào rải rác</translation>
         </message>
@@ -1847,7 +1851,7 @@ Mưa:</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
             <translation type="unfinished">MeeCast - ứng dụng đa nền tảng, có thể chỉnh mã nguồn mở của thời tiết dựa trên mã OMWeather. Bản quyền (C) 2006-2011</translation>
         </message>
         <message>
@@ -3204,6 +3208,10 @@ Mưa:</translation>
         <message>
             <source>Snow / Wind</source>
             <translation>Có tuyết và gió</translation>
+        </message>
+        <message>
+            <source>Snow Early</source>
+            <translation type="unfinished">Mưa rào sớm</translation>
         </message>
         <message>
             <source>Snow Shower</source>

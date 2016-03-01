@@ -1635,6 +1635,11 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
+            <source>Heavy Snow Shower</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Heavy Snow Showers</source>
             <translation type="unfinished">
             </translation>
@@ -2131,7 +2136,7 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
             <translation type="unfinished">
             </translation>
         </message>
@@ -3775,6 +3780,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Snow / Wind</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Snow Early</source>
             <translation type="unfinished">
             </translation>
         </message>

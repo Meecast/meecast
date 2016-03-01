@@ -1443,6 +1443,10 @@ Slovakia - Roman Moravčík</translation>
             <translation>Rankkaa lumisadetta / Tuulista</translation>
         </message>
         <message>
+            <source>Heavy Snow Shower</source>
+            <translation type="unfinished">Kovia lumikuuroja</translation>
+        </message>
+        <message>
             <source>Heavy Snow Showers</source>
             <translation>Kovia lumikuuroja</translation>
         </message>
@@ -1847,8 +1851,8 @@ Slovakia - Roman Moravčík</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
-            <translation>MeeCast - OMWeatherin koodiin pohjautuva monipuolinen avoimen lähdekoodin sääohjelma. Copyright (C) 2006-2015</translation>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
+            <translation type="unfinished">MeeCast - OMWeatherin koodiin pohjautuva monipuolinen avoimen lähdekoodin sääohjelma. Copyright (C) 2006-2015</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -3181,6 +3185,10 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Snow / Wind</source>
             <translation>Lumisadetta / Tuulista</translation>
+        </message>
+        <message>
+            <source>Snow Early</source>
+            <translation type="unfinished">Jakson alussa sadekuuroja</translation>
         </message>
         <message>
             <source>Snow Shower</source>

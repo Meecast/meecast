@@ -65,6 +65,8 @@ class DataItem : public QObject, public Core::Data
         ShortDateRole,
         FullDateRole,
         HourDateRole,
+        Hour12DateRole,
+        Hour24DateRole,
         StartRole,
         EndRole,
         PressureRole,
@@ -79,7 +81,11 @@ class DataItem : public QObject, public Core::Data
         WindSpeedLabelRole,
         PressureLabelRole,
         SunSetRole,
+        SunSet12Role,
+        SunSet24Role,
         SunRiseRole,
+        SunRise12Role,
+        SunRise24Role,
         DayLengthRole,
         LastUpdateRole,
         LastUpdateTimeRole,
@@ -134,6 +140,8 @@ public:
     QString shortdate();
     inline QString fulldate();
     inline QString hourdate();
+    inline QString hourdate12();
+    inline QString hourdate24();
     inline QString start();
     inline QString end();
     inline QString flike();
@@ -146,7 +154,11 @@ public:
     QString mapbackground_pattern();
     QString count_of_maps();
     QString sunrise();
+    QString sunrise12();
+    QString sunrise24();
     QString sunset();
+    QString sunset12();
+    QString sunset24();
     QString daylength();
     QString lastupdate();
     QString lastupdatetime();

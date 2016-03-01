@@ -1433,6 +1433,10 @@ Slovaque - Roman Moravčík</translation>
             <translation>Fortes chutes de neige / vent</translation>
         </message>
         <message>
+            <source>Heavy Snow Shower</source>
+            <translation type="unfinished">Chutes de neige importantes</translation>
+        </message>
+        <message>
             <source>Heavy Snow Showers</source>
             <translation>Chutes de neige importantes</translation>
         </message>
@@ -1833,7 +1837,7 @@ Slovaque - Roman Moravčík</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
             <translation type="unfinished">MeeCast - client de prévisions météorologiques multiplateformes hautement personnalisable open source basé sur le code OMWeather. Copyright (C) 2006-2014</translation>
         </message>
         <message>
@@ -3166,6 +3170,10 @@ Slovaque - Roman Moravčík</translation>
         <message>
             <source>Snow / Wind</source>
             <translation>Neige / vent</translation>
+        </message>
+        <message>
+            <source>Snow Early</source>
+            <translation type="unfinished">Averses en matinée</translation>
         </message>
         <message>
             <source>Snow Shower</source>

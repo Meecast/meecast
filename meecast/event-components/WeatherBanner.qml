@@ -138,6 +138,7 @@ BackgroundItem {
                 id: icon
                 height: parent.height 
                 width: height
+                opacity: lipstickSettings.lowPowerMode ? 0.8 : 1.0
                 source: weatherData.meecastData.forecastdata["item1_icon"]
             }
             Label {
@@ -160,6 +161,7 @@ BackgroundItem {
                     pixelSize: isPortrait ? Theme.fontSizeHuge : Theme.fontSizeExtraLarge
                     family: Theme.fontFamilyHeading
                 }
+                color: lipstickSettings.lowPowerMode ? Theme.highlightColor : Theme.primaryColor
             }
 
             Column {
@@ -188,7 +190,7 @@ BackgroundItem {
                         pixelSize: isPortrait ? Theme.fontSizeExtraSmall : Theme.fontSizeSmall
                         family: Theme.fontFamilyHeading
                     }
-                    color: Theme.secondaryColor
+                    color: lipstickSettings.lowPowerMode ? Theme.highlightColor : Theme.secondaryColor
                     truncationMode: TruncationMode.Fade
                 }
             }

@@ -91,6 +91,8 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[ShortDateRole] = "shortdate";
     names[FullDateRole] = "fulldate";
     names[HourDateRole] = "hourdate";
+    names[Hour12DateRole] = "hourdate12";
+    names[Hour24DateRole] = "hourdate24";
     names[DayLengthRole] = "daylength";
     names[StartRole] = "start";
     names[EndRole] = "end";
@@ -101,7 +103,11 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[PrecipitationRole] = "precipitation";
     names[PrecipitationRateRole] = "precipitation_rate";
     names[SunRiseRole] = "sunrise";
+    names[SunRise12Role] = "sunrise12";
+    names[SunRise24Role] = "sunrise24";
     names[SunSetRole] = "sunset";
+    names[SunSet12Role] = "sunset12";
+    names[SunSet24Role] = "sunset24";
     names[LastUpdateRole] = "lastupdate";
     names[LastUpdateTimeRole] = "lastupdatetime";
     names[TemperatureLabelRole] = "temperature_label";
@@ -159,6 +165,10 @@ QVariant DataItem::data(int role)
         return fulldate();
     case HourDateRole:
         return hourdate();
+    case Hour12DateRole:
+        return hourdate12();
+    case Hour24DateRole:
+        return hourdate24();
     case StartRole:
         return start();
     case EndRole:
@@ -167,8 +177,16 @@ QVariant DataItem::data(int role)
         return pressure();
     case SunRiseRole:
         return sunrise();
+    case SunRise12Role:
+        return sunrise12();
+    case SunRise24Role:
+        return sunrise24();
     case SunSetRole:
         return sunset();
+    case SunSet12Role:
+        return sunset12();
+    case SunSet24Role:
+        return sunset24();
     case DayLengthRole:
         return daylength();
     case FlikeRole:
@@ -355,6 +373,30 @@ DataItem::sunrise() {
 }
 
 QString
+DataItem::sunrise12() {
+    QString c;
+    QDateTime t;
+    if (DataItem::Data::SunRiseTime() == 0){
+        c = "N/A";
+        return c;
+    }
+    t.setTime_t(DataItem::Data::SunRiseTime());
+    return t.toString("hh:mm A");
+}
+
+QString
+DataItem::sunrise24() {
+    QString c;
+    QDateTime t;
+    if (DataItem::Data::SunRiseTime() == 0){
+        c = "N/A";
+        return c;
+    }
+    t.setTime_t(DataItem::Data::SunRiseTime());
+    return t.toString("hh:mm");
+}
+
+QString
 DataItem::sunset() {
     QString c;
     QDateTime t;
@@ -376,6 +418,30 @@ DataItem::sunset() {
         return t.toString("hh:mm A");
     else
         return t.toString("hh:mm");
+}
+
+QString
+DataItem::sunset12() {
+    QString c;
+    QDateTime t;
+    if (DataItem::Data::SunSetTime() == 0){
+        c = "N/A";
+        return c;
+    }
+    t.setTime_t(DataItem::Data::SunSetTime());
+    return t.toString("hh:mm A");
+}
+
+QString
+DataItem::sunset24() {
+    QString c;
+    QDateTime t;
+    if (DataItem::Data::SunSetTime() == 0){
+        c = "N/A";
+        return c;
+    }
+    t.setTime_t(DataItem::Data::SunSetTime());
+    return t.toString("hh:mm");
 }
 
 QString
@@ -429,6 +495,7 @@ DataItem::shortdate()
     //return QString::fromUtf8(DataItem::ShortDayName().c_str());
 
 }
+
 QString
 DataItem::hourdate()
 {
@@ -450,6 +517,22 @@ DataItem::hourdate()
     else
         return t.toString("hh:mm");
     //return QString::fromUtf8(DataItem::ShortDayName().c_str());
+}
+
+QString
+DataItem::hourdate12()
+{
+    QDateTime t;
+    t.setTime_t(DataItem::Data::StartTime());
+    return t.toString("hh:mm A");
+}
+
+QString
+DataItem::hourdate24()
+{
+    QDateTime t;
+    t.setTime_t(DataItem::Data::StartTime());
+    return t.toString("hh:mm");
 }
 
 QString

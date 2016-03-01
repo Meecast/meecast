@@ -1441,6 +1441,10 @@ Rreshjet: </translation>
             <translation>Stuhi bore / Erë</translation>
         </message>
         <message>
+            <source>Heavy Snow Shower</source>
+            <translation type="unfinished">Disa stuhira dëbore</translation>
+        </message>
+        <message>
             <source>Heavy Snow Showers</source>
             <translation type="unfinished">Disa stuhira dëbore</translation>
         </message>
@@ -1846,7 +1850,7 @@ Rreshjet: </translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
             <translation type="unfinished">MeeCast është një program multiplataformë dhe i personalizueshëm, me kod të hapur, për paraqitjen e parashikimeve te motit i bazuar në kodin e OMWeather. Të gjitha të drejtat janë të rezervuara 2006-2012</translation>
         </message>
         <message>
@@ -3189,6 +3193,10 @@ Rreshjet: </translation>
         <message>
             <source>Snow / Wind</source>
             <translation>Dëborë / Erë</translation>
+        </message>
+        <message>
+            <source>Snow Early</source>
+            <translation type="unfinished">Herët me rrebeshe</translation>
         </message>
         <message>
             <source>Snow Shower</source>

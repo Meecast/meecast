@@ -54,25 +54,15 @@ Page {
             anchors.left: parent.left
             color: "#999999"
         }
-<<<<<<< HEAD:meecast/qt-qml/qml/pages/AboutPage.qml
         Label {
             id: aboutfulltext
-            text: Config.tr("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015")
+            text: Config.tr("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016")
             anchors.leftMargin: 20
             anchors.left: parent.left
             anchors.top: abouttext.bottom
             wrapMode: Text.Wrap
-=======
-	Label {
-            id: aboutfulltext 
-            text: Config.tr("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016")
-	    anchors.leftMargin: 20
-	    anchors.left: parent.left
-	    anchors.top: abouttext.bottom
-	    wrapMode: Text.Wrap                                                                                                                                            
->>>>>>> master:meecast/qt-qml/qml/AboutPage.qml
             width: parent.width - 20
-}
+        }
         Label {
             id: projectsitetext
             text: Config.tr("Support") + ":"

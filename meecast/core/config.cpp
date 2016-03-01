@@ -583,7 +583,6 @@ Config::LoadConfig(){
                 std::cerr<<"station_id "<< station_id.toStdString()<<std::endl;
                 std::cerr<<"station_name "<< station_name.toStdString()<<std::endl;
             }
-
             std::cerr<<"SOurce name "<<source_name.toStdString()<<std::endl;
             Station *st = new Station(source_name.toStdString(),
                                       station_id.toStdString(),

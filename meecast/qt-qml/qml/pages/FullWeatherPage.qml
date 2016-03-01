@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import org.nemomobile.configuration 1.0
 
 Page {
     id: fullweather
@@ -273,7 +274,13 @@ Page {
             flickable.contentHeight = 80 * model_hours.rowCount() + day_rect.height;
             var i = 0;
             while (i<model_hours.rowCount()){   
-                hours_condition.append({fulldate: model_hours.getdata(i, 'fulldate'), hourdate: model_hours.getdata(i, 'hourdate'),
+                var hour_data = ""
+                if (timeFormatConfig.value === "24") {
+                    hour_data=model_hours.getdata(i, 'hourdate24')
+                }else{
+                    hour_data=model_hours.getdata(i, 'hourdate12')
+                }
+                hours_condition.append({fulldate: model_hours.getdata(i, 'fulldate'), hourdate: hour_data,
                                         pict: model_hours.getdata(i, 'pict'), precipitation: model_hours.getdata(i, 'precipitation'),
                                         temp: model_hours.getdata(i, 'temp'), temp_high: model_hours.getdata(i, 'temp_high')});
                 i++;
@@ -282,11 +289,20 @@ Page {
 
 	}
         if ((model_day.getdata(day, "sunrise")) != "N/A")
-            condition2.append({cond_name: Config.tr("Sunrise:"),
-                         value: model_day.getdata(day, "sunrise")});
+
+            if (timeFormatConfig.value === "24") 
+                condition2.append({cond_name: Config.tr("Sunrise:"),
+                         value: model_day.getdata(day, "sunrise24")});
+            else
+                condition2.append({cond_name: Config.tr("Sunrise:"),
+                         value: model_day.getdata(day, "sunrise12")});
         if ((model_day.getdata(day, "sunset")) != "N/A")
-            condition2.append({cond_name: Config.tr("Sunset:"),
-                         value: model_day.getdata(day, "sunset")});
+            if (timeFormatConfig.value === "24") 
+                condition2.append({cond_name: Config.tr("Sunset:"),
+                         value: model_day.getdata(day, "sunset24")});
+            else
+                condition2.append({cond_name: Config.tr("Sunset:"),
+                         value: model_day.getdata(day, "sunset12")});
         if ((model_day.getdata(day, "daylength")) != "N/A")
             condition2.append({cond_name: Config.tr("Day length:"),
                          value: model_day.getdata(day, "daylength")});
@@ -331,6 +347,11 @@ Page {
             c2 = (t - (-30))*(0-66/255)/(-30+15) + 66/255;
             return Qt.rgba(c1, c2, 1, 1);
         }
+    }
+
+    ConfigurationValue {
+        id: timeFormatConfig
+        key: "/sailfish/i18n/lc_timeformat24h"
     }
 
     Rectangle{

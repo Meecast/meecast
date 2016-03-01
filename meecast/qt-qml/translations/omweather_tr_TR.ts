@@ -1428,6 +1428,10 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Ağır Kar / Rüzgar</translation>
         </message>
         <message>
+            <source>Heavy Snow Shower</source>
+            <translation type="unfinished">Şiddetli Sağanak Kar</translation>
+        </message>
+        <message>
             <source>Heavy Snow Showers</source>
             <translation>Şiddetli Sağanak Kar</translation>
         </message>
@@ -1832,8 +1836,8 @@ Turkish - Burak Kaan Kose</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</source>
-            <translation>MeeCast - multiplatform son derece özelleştirilebilir açık kaynaklı hava durumu uygulaması, OMWeather kodunu baz alarak geliştirilmiştir. Copyright (C) 2006-2015</translation>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
+            <translation type="unfinished">MeeCast - multiplatform son derece özelleştirilebilir açık kaynaklı hava durumu uygulaması, OMWeather kodunu baz alarak geliştirilmiştir. Copyright (C) 2006-2015</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -3166,6 +3170,10 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Snow / Wind</source>
             <translation>Kar / Rüzgar</translation>
+        </message>
+        <message>
+            <source>Snow Early</source>
+            <translation type="unfinished">Sabahtan Sağanak</translation>
         </message>
         <message>
             <source>Snow Shower</source>

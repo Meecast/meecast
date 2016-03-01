@@ -517,8 +517,13 @@ Config::LoadConfig(){
             if  (source_name=="yr.no")
                 viewURL.replace("#","/");
 /* Temporary hack for gismeteo.ru  remove it after version 1.2 */
-            if  (source_name=="gismeteo.ru"){
+            if  (source_name=="gismeteo.ru" && (forecastURL.find("weather") != string::npos)){
+                std::string new_url;
+                new_url = "weather-" + station_name + "-" station_id;
+
                 std::cerr<<"ForecastURl "<< forecastURL.toStdString()<<std::endl;
+                std::replace(forecastURL->begin(), forecastURL->end(), station_id, new_url);
+                std::cerr<<"ForecastURl again "<< forecastURL.toStdString()<<std::endl;
                 std::cerr<<"DetailUrl "<< detailURL.toStdString()<<std::endl;
                 std::cerr<<"station_id "<< station_id.toStdString()<<std::endl;
                 std::cerr<<"station_name "<< station_name.toStdString()<<std::endl;

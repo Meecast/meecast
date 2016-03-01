@@ -574,7 +574,7 @@ Config::LoadConfig(){
 /* Temporary hack for gismeteo.ru  remove it after version 1.2 */
             if  (source_name=="gismeteo.ru" && (forecastURL.indexOf("weather",0) != -1)){
                 QString new_url;
-                new_url = "weather-" + station_name + "-" station_id;
+                new_url = "weather-" + station_name + "-" + station_id;
 
                 std::cerr<<"ForecastURl "<< forecastURL.toStdString()<<std::endl;
                 forecastURL.replace(station_id, new_url);

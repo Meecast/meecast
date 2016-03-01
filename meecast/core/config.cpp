@@ -575,8 +575,8 @@ Config::LoadConfig(){
             if  (source_name=="gismeteo.ru" && (forecastURL.indexOf("weather",0) == -1)){
                 QString new_url;
                 new_url = "weather-" + station_name + "-" + station_id;
-
                 std::cerr<<"ForecastURl "<< forecastURL.toStdString()<<std::endl;
+                forecastURL.replace("/city/weekly", "/");
                 forecastURL.replace(station_id, new_url);
                 std::cerr<<"ForecastURl again "<< forecastURL.toStdString()<<std::endl;
                 std::cerr<<"DetailUrl "<< detailURL.toStdString()<<std::endl;

@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2015 Vlad Vasilyeu
+ * Copyright (C) 2006-2016 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -571,6 +571,19 @@ Config::LoadConfig(){
                 forecastURL.replace("#","/");
             if  (source_name=="yr.no")
                 viewURL.replace("#","/");
+/* Temporary hack for gismeteo.ru  remove it after version 1.2 */
+            if  (source_name=="gismeteo.ru" && (forecastURL.find("weather") != string::npos)){
+                std::string new_url;
+                new_url = "weather-" + station_name + "-" station_id;
+
+                std::cerr<<"ForecastURl "<< forecastURL.toStdString()<<std::endl;
+                std::replace(forecastURL->begin(), forecastURL->end(), station_id, new_url);
+                std::cerr<<"ForecastURl again "<< forecastURL.toStdString()<<std::endl;
+                std::cerr<<"DetailUrl "<< detailURL.toStdString()<<std::endl;
+                std::cerr<<"station_id "<< station_id.toStdString()<<std::endl;
+                std::cerr<<"station_name "<< station_name.toStdString()<<std::endl;
+            }
+
             std::cerr<<"SOurce name "<<source_name.toStdString()<<std::endl;
             Station *st = new Station(source_name.toStdString(),
                                       station_id.toStdString(),

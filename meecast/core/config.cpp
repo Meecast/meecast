@@ -520,17 +520,18 @@ Config::LoadConfig(){
             if  (source_name=="gismeteo.ru" && (forecastURL.indexOf("weather",0) != -1)){
                 QString new_url;
                 new_url = "weather-" + station_name + "-" + station_id;
-                std::cerr<<"ForecastURl "<< forecastURL.toStdString()<<std::endl;
+                std::cerr<<"Replaced Gismeteo.ru URL "<< forecastURL.toStdString()<<std::endl;
                 forecastURL.replace("/city/weekly/", "/");
                 forecastURL.replace(station_id, new_url);
                 forecastURL.append("10-days/");
-                std::cerr<<"ForecastURl new "<< forecastURL.toStdString()<<std::endl;
-                std::cerr<<"DetailUrl "<< detailURL.toStdString()<<std::endl;
-                detailURL.replace("city/hourly/","");
-                detailURL.replace(station_id, new_url);
-                detailURL.append("hourly/");
-                std::cerr<<"DetailUrl new "<< detailURL.toStdString()<<std::endl;
+                std::cerr<<"New Gismeteo ForecastURl new "<< forecastURL.toStdString()<<std::endl;
+                if (detailURL.indexOf("weather",0) != -1){
+                    detailURL.replace("city/hourly/","");
+                    detailURL.replace(station_id, new_url);
+                    detailURL.append("hourly/");
+                }
             }
+
             std::cerr<<"SOurce name "<<source_name.toStdString()<<std::endl;
             Station *st = new Station(source_name.toStdString(),
                                       station_id.toStdString(),

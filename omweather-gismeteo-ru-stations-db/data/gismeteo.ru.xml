@@ -3,8 +3,8 @@
 <name>gismeteo.ru</name>
 <logo>gismeteo.ru.png</logo>
 <base>gismeteo.ru.db</base>
-<forecast url="http://www.gismeteo.by/city/weekly/%s/" />
-<detail url="http://gismeteo.ru/city/hourly/%s/" />
+<forecast url="http://www.gismeteo.by/weather-%s/14-days/" />
+<detail url="http://www.gismeteo.by/weather-%s/hourly/" />
 <search url="http://xoap.weather.com/search/search?where=%s" />
 <library>libomweather-gismeteo-ru-source.so</library>
 </source>

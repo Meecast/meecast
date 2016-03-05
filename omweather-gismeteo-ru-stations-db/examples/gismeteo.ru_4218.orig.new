@@ -1,0 +1,673 @@
+	<!DOCTYPE html>
+<html lang="ru" xml:lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head><script>window.self !== window.top && window.top.document.domain !== 'webvisor.com' ? location.href = 'https://www.gismeteo.by/agreement/' : void(0);</script>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><link rel="shortcut icon" type="image/ico" href="//nby01.gismeteo.by/favicon.ico" /><link rel="icon" type="image/ico" href="//nby01.gismeteo.by/favicon.ico" /><link rel="apple-touch-icon" href="//nby01.gismeteo.by/assets/flat-ui/img/favicons/ios/default_icon_60x60.png?c565436249dafc599bdd5bed3eba069f"><link rel="apple-touch-icon" sizes="57x57" href="//nby08.gismeteo.by/assets/flat-ui/img/favicons/ios/icon_57.png?52e59b7d651264e918b68ed7759af543"><link rel="apple-touch-icon" sizes="72x72" href="//nby03.gismeteo.by/assets/flat-ui/img/favicons/ios/icon_72.png?3534498f9223c27052c6c24dafaea35c"><link rel="apple-touch-icon" sizes="76x76" href="//nby07.gismeteo.by/assets/flat-ui/img/favicons/ios/icon_76.png?9c4ec4874d574a485c5fd28e767130e3"><link rel="apple-touch-icon" sizes="114x114" href="//nby09.gismeteo.by/assets/flat-ui/img/favicons/ios/icon_114.png?c4dce36400a98cb622c98ef3035469ab"><link rel="apple-touch-icon" sizes="120x120" href="//nby03.gismeteo.by/assets/flat-ui/img/favicons/ios/icon_120.png?df0ddf6c313300151679f227635a0784"><link rel="apple-touch-icon" sizes="144x144" href="//nby06.gismeteo.by/assets/flat-ui/img/favicons/ios/icon_144.png?967763e0edc4c189a288ea44e2d3dd8b"><link rel="apple-touch-icon" sizes="152x152" href="//nby03.gismeteo.by/assets/flat-ui/img/favicons/ios/icon_152.png?18c5372b84202ab34619107e819333f0"><link rel="shortcut icon" sizes="196x196" href="//nby06.gismeteo.by/assets/flat-ui/img/favicons/android/default-highres-icon.png?27b5b21d91c527d140e042f0a8f074fd"><link rel="shortcut icon" sizes="128x128" href="//nby01.gismeteo.by/assets/flat-ui/img/favicons/android/icon_128.png?96762c3cf27ef54f8b3e3cfef6ea277f"><link rel="shortcut icon" sizes="96x96"  href="//nby03.gismeteo.by/assets/flat-ui/img/favicons/android/icon_for_xhdpi.png?e6834cb0bd48c019c279cad9fc829982"><link rel="shortcut icon" sizes="72x72"  href="//nby09.gismeteo.by/assets/flat-ui/img/favicons/android/icon_for_hdpi.png?7fdea4e2b8955b67b7c773029e63fb96"><link rel="shortcut icon" sizes="48x48"  href="//nby04.gismeteo.by/assets/flat-ui/img/favicons/android/icon_for_mdpi.png?fdae4b91b745067ea62e544f32617739"><link rel="alternate" media="only screen and (max-width: 640px)" href="https://m.gismeteo.by" ><title>GISMETEO: Погода в Витебске сегодня - прогноз погоды на сегодня, Витебск, Витебская область, Беларусь</title><meta property="og:title" content="Погода в Витебске."  /><meta property="og:description" content="Прогноз погоды  в Витебске."  /><meta name="description" content="Погода в Витебске на сегодня, точный прогноз погоды на сегодня для населенного пункта Витебск, Витебск, Витебская область, Беларусь."  /><meta name="keywords" content="погода в Витебске, погода Витебск, погода в Витебске на сегодня, погода Витебск сегодня, прогноз погоды в Витебске, прогноз погоды Витебск, прогноз погоды в Витебске на сегодня, прогноз погоды Витебск сегодня, Витебск"  /><meta name="viewport" content="width=1000"  /><meta name="apple-itunes-app" content="app-id=916760091"  /><meta name="MobileOptimized" content="1000"  /><meta property="fb:admins" content="100001623167931,1437987721"  /><meta itemprop="name" content="Gismeteo.by"  /><meta itemprop="image" content="//nby09.gismeteo.by/assets/flat-ui/img/favicons/ios/icon_114.png?c4dce36400a98cb622c98ef3035469ab"  /><meta itemprop="description" content="Погода в Витебске на сегодня, точный прогноз погоды на сегодня для населенного пункта Витебск, Витебск, Витебская область, Беларусь."  /><meta property="og:url" content="https://www.gismeteo.by/weather-vitebsk-4218/"  /><meta property="og:type" content="company"  /><meta property="og:image" content="//nby09.gismeteo.by/assets/flat-ui/img/favicons/ios/icon_114.png?c4dce36400a98cb622c98ef3035469ab"  /><meta property="og:site_name" content="GISMETEO.BY"  />	<link rel="stylesheet" type="text/css" href="//nby02.gismeteo.by/assets/flat-ui/min/css/weather.min.css?bb721284c2267852ce7e2d47756981f0">
+	<script>var MG = {};MG.Config = {};</script>
+			<script src="//nby07.gismeteo.by/assets/flat-ui/js/modules/MG.Media.js?dd77c7cc186f2a6b0d7fb83535719f90"></script>
+		<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-12105830-21', 'auto');
+ga('send', 'pageview');
+</script><!-- {"CPage":"\/ssi\/bannerGoogleAnalytics\/","DateTime":"2016-03-03 11:52:40","DateTimeLive":"2016-03-06 11:52:40"} -->
+	<!-- {"CPage":"\/ssi\/bannerHead\/","DateTime":"2016-03-03 17:42:03","DateTimeLive":"2016-03-03 18:42:03"} -->
+	</head>
+<body class="body by page-1-day">
+    <!-- Top -->
+    <section class="media_top"><div class="wrap">
+	<div id="media-top" class="media_top_frame">
+    <script type="text/javascript">
+var N = 3,
+ar_duo1 = Math.floor(Math.random()*N+1); 
+new adriver("media-top", {sid:129909,bt:52,pz:1,bn:ar_duo1,keyword:"main",custom:{"1":"cloud","2":0,"9":"1-3","110":screen.width,"111":screen.height}});
+</script>
+</div>
+</div><!-- {"CPage":"\/ssi\/bannerTop\/4218\/","DateTime":"2016-03-03 17:12:46","DateTimeLive":"2016-03-03 18:12:46"} --></section>	<!-- Header -->
+
+    <header class="header">
+        <div class="wrap"><div class="nav"><div class="nav_block _logo logo"><a href="/" class="link svg img no_border"><svg xmlns="http://www.w3.org/2000/svg" width="150" height="28" viewBox="0 0 240 40"><path fill="#39f" d="M19.674 17.165c-.114 0-.227.113-.227.227v5.783c0 .113.113.227.227.227h9.638v9.015c-2.268.51-5.103.85-8.958.85-8.39 0-13.267-5.045-13.267-12.982s4.876-13.78 14.685-13.78c5.613 0 8.73.625 11.51 1.42.17 0 .34-.058.34-.172l.566-6.18c0-.113-.057-.283-.227-.283C30.79.61 27.22.156 22.46.156 7.938.156 0 8.943 0 20.283c0 11.34 7.938 19.56 19.844 19.56 7.824 0 12.303-1.076 16.045-2.947.11-.057.22-.17.22-.284v-19.22c0-.113-.117-.227-.23-.227H19.67zm46.21 22.68c8.56 0 11.565-2.893 11.565-8.45 0-5.895-3.92-7.37-9.81-8.9-4.09-1.077-6.24-1.304-6.24-2.948 0-2.154 1.7-2.438 4.99-2.438 3.23 0 6.35.51 8.5 1.3.11 0 .28-.06.28-.17l.51-5.39c0-.116-.058-.17-.17-.23-1.928-.398-5.217-.91-9.47-.91-7.257 0-10.886 2.778-10.886 7.938 0 5.046 2.78 7.086 7.995 8.39 5.44 1.36 7.597 1.532 7.597 3.913 0 1.76-1.136 2.496-5.5 2.496-3.913 0-6.578-.624-8.79-1.19-.057 0-.17.056-.17.17l-.567 5.442c0 .113.06.17.17.17 1.817.283 5.22.794 9.98.794zM42.864 12.29c-.114 0-.228.11-.228.225V39.05c0 .114.113.227.227.227H49.1c.113 0 .227-.112.227-.226V12.52c0-.113-.114-.227-.227-.227h-6.237zm0-9.924c-.114 0-.228.113-.228.227v6.634c0 .113.113.227.227.227H49.1c.113 0 .227-.113.227-.227V2.594c0-.113-.114-.227-.227-.227h-6.237z"/><path d="M88.845 12.29c.113 0 .227.112.227.226v1.134c0 .51-.113 1.248-.227 1.588h.113c.113-.34.454-.794.737-1.077 1.7-1.58 4.025-2.43 6.69-2.43 5.216 0 7.428 2.95 8.107 4.028.68-.85 3.686-4.025 9.3-4.025 5.555 0 10.09 3.29 10.09 10.376v16.95c0 .113-.112.226-.226.226h-6.464c-.113 0-.227-.11-.227-.225V21.82c0-2.947-2.324-4.31-5.273-4.31-2.947 0-5.272 1.36-5.272 4.31v17.23c0 .113-.113.226-.227.226H99.9c-.113 0-.227-.112-.227-.226V21.814c0-2.948-2.38-4.31-5.33-4.31-2.948 0-5.272 1.36-5.272 4.31V39.05c0 .113-.11.226-.22.226h-6.3c-.11 0-.222-.112-.222-.226V12.516c0-.113.114-.227.228-.227h6.3zm81.53 5.782h7.03c.114 0 .228-.113.228-.227v-5.33c0-.113-.113-.227-.227-.227h-7.03V3.16c0-.113-.114-.226-.228-.226h-6.293c-.113 0-.227.112-.227.227v9.13h-4.536c-.113 0-.227.12-.227.23v5.33c0 .12.113.23.227.23h4.536v14.4c0 3.23 1.474 7.37 7.71 7.37 2.893 0 5.33-.51 6.237-.79.113-.056.17-.112.17-.226l-.566-5.046c0-.113-.12-.17-.17-.17-1.14.396-2.56.623-4.2.623s-2.21-.793-2.44-2.21V18.07zm55.507 21.772c-8.9 0-14.06-6.236-14.06-14.062 0-7.823 5.16-14.06 14.06-14.06S240 17.957 240 25.78c0 7.825-5.217 14.062-14.118 14.062zm0-5.387c5.104 0 7.314-4.082 7.314-8.675 0-4.592-2.21-8.674-7.314-8.674-5.103 0-7.257 4.082-7.257 8.674 0 4.593 2.154 8.675 7.257 8.675zm-89.41-6.69c0 3.913 2.606 6.69 8.56 6.69 3.912 0 6.805-.906 7.71-1.247.115 0 .23.057.23.17l.68 5.16c0 .112-.057.17-.17.227-1.135.453-4.877 1.077-9.186 1.077-10.546 0-14.57-6.236-14.57-14.062 0-7.823 4.932-14.06 13.833-14.06 8.33 0 11.56 6.236 11.56 12.983v2.834c0 .11-.118.22-.23.22h-18.42zm6.916-10.66c-4.366 0-6.917 2.155-6.917 5.273h12.42c0-3.174-1.93-5.272-5.5-5.272zm44.677 10.66c0 3.913 2.608 6.69 8.562 6.69 3.912 0 6.804-.906 7.71-1.247.113 0 .227.057.227.17l.68 5.16c0 .112-.056.17-.17.227-1.134.453-4.875 1.077-9.185 1.077-10.55 0-14.57-6.236-14.57-14.062 0-7.823 4.93-14.06 13.83-14.06 8.33 0 11.56 6.236 11.56 12.983v2.834c0 .11-.115.22-.23.22h-18.42zm0-5.386h12.416c0-3.17-1.92-5.27-5.49-5.27-4.363 0-6.915 2.16-6.915 5.27z"/></svg></a></div><div class="nav_block _delimit"></div><div class="nav_block _fav"><i class="js-makefav _fav_star"><svg viewBox="-355 54 17 17"><path fill="none" d="M-349.2 63.6l-4.2-3h5.2l1.7-5 1.6 5h5.3l-4.4 3 1.9 5-4.4-3.1-4.3 3.2z"/></svg></i><div class="dd_cnt js_dropmenu"><span class="dd_btn blue js_drop_trig" id="js_fmenu"><span class="nav_title"> Витебск </span><i class="_fav_chevron"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 16"><path fill="none" stroke="#0299FE" stroke-width="3" stroke-miterlimit="10" d="M24.657 1.83L13 13.487 1.343 1.83"/></svg></i></span><div class="dd_list js_drop_list"><div class="dd_list_inside"><div class="mylocations"><div class="mylocations_list" id="favoriteList"></div></div></div></div></div></div><div class="nav_block _search"><div class="search">
+    <form method="get" action="/search" id="search-form" class="search_form">
+        <div class="search_label">
+            <input type="search" id="js-search" class="search_input"
+               placeholder="город, район, область, страна, аэропорт..."
+               name="q" autocomplete="off" tabindex="1">
+            <i id="js-icons" class="fa search_control"></i>
+        </div>
+                    <div id="js-search-btn" class="search_btn">
+                            </div>
+        
+        <div id="js-search-container" class="found">
+            <ul id="js-search-list" class="found_list"></ul>
+                                                                                                                                                                                           </div>
+    </form>
+</div><!-- {"CPage":"\/ssi\/citiesFavoriteAndSearch\/","DateTime":"2016-03-03 17:03:35","DateTimeLive":"2016-03-04 01:03:35"} --></div></div></div>	</header>
+	<!-- Content -->
+	<section class="content">
+		<div class="wrap">
+            <div class="flexbox clearfix">
+                <div class="content_side _left">
+                                            <nav class="subnav"><div class="subnav_list"><div class="menu_pages subnav_item dd_cnt _all js_dropmenu subnav_devider"><span class="dd_btn js_drop_trig white subnav_link"><i class="fa fa-hamburger"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 9"><path fill="#FFF" d="M0 0h12v1H0V0zm0 4h12v1H0V4zm0 4h12v1H0V8z"/></svg></i>
+        Весь сайт
+    </span><div class="dd_list js_drop_list"><div class="dd_list_inside"><div class="drop_list"><li class="drop_item"><span class="span_item nolink"><span class="title nolink">Погода</span></span></li><li class="drop_item"><a href="//www.gismeteo.by/news/"  target='_blank'  class="span_item _hover nolink"><span class="title nolink">Новости</span></a></li><li class="drop_item"><a href="//www.gismeteo.ru/soft/"  target='_blank'  class="span_item _hover nolink"><span class="title nolink">Приложения</span></a></li><li class="drop_item"><a href="/informers/"  class="span_item _hover nolink"><span class="title nolink">Информеры</span></a></li><li class="drop_item"><a href="/maps/"  class="span_item _hover nolink"><span class="title nolink">Карты</span></a></li><li class="drop_item"><a href="/catalog/"  class="span_item _hover nolink"><span class="title nolink">Поиск пунктов</span></a></li></div></div></div></div><div class="subnav_item active "><span class="white bold subnav_link">
+                 Сегодня             </span></div><a href="/weather-vitebsk-4218/tomorrow/" class="nolink subnav_item "><span class="white bold subnav_link">
+                 Завтра             </span></a><a href="/nowcast-vitebsk-4218/" class="nolink subnav_item fixedWidth"><span class="white bold subnav_link">
+                 Интерактивный радар             </span></a><a href="/weather-vitebsk-4218/3-days/" class="nolink subnav_item "><span class="white bold subnav_link">
+                 3 дня             </span></a><a href="/weather-vitebsk-4218/weekly/" class="nolink subnav_item "><span class="white bold subnav_link">
+                 Неделя             </span></a><a href="/weather-vitebsk-4218/10-days/" class="nolink subnav_item "><span class="white bold subnav_link">
+                 10 дней             </span></a><a href="/weather-vitebsk-4218/month/" class="nolink subnav_item "><span class="white bold subnav_link">
+                 Месяц             </span></a><div class="subnav_item dd_cnt _else js_dropmenu"><span class="dd_btn js_drop_trig white roundcorners_right subnav_link">
+        Еще
+        <i class="subnav_chevron"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 16"><path fill="none" stroke="#0299FE" stroke-width="3" stroke-miterlimit="10" d="M24.657 1.83L13 13.487 1.343 1.83"/></svg></i></span><div class="dd_list js_drop_list"><div class="dd_list_inside"><div class="drop_list"><li class="drop_item"><a href="/weather-vitebsk-4218/hourly/" class="span_item _hover nolink"><span class="title">По часам</span></a></li><li class="drop_item"><a href="/weather-vitebsk-4218/weekend/" class="span_item _hover nolink"><span class="title">Выходные</span></a></li><li class="drop_item"><a href="/weather-vitebsk-4218/gm/" class="span_item _hover nolink"><span class="title">Геомагнитное поле</span></a></li></div></div></div></div></div></nav><!-- {"CPage":"\/ssi\/shared\/cityMenu\/ru\/4218\/1\/","DateTime":"2016-03-03 17:40:16","DateTimeLive":"2016-03-03 18:40:16"} -->
+                    
+                    <div class="main"><div class="breadcrumbs"><ul class="list" vocab="http://schema.org/" typeof="BreadcrumbList"><li class="item"><a class="js-crumb crumb link blue" href="/catalog/" title="Весь мир"><span>Весь мир</span></a></li><span class="delimiter">/</span><li class="item" property="itemListElement" typeof="ListItem"><a class="js-crumb crumb link blue" href="/catalog/belarus/" title="Беларусь" property="item" typeof="WebPage"><span property="name">Беларусь</span></a><meta property="position" content="1"></li><span class="delimiter">/</span><li class="item" property="itemListElement" typeof="ListItem"><a class="js-crumb crumb link blue" href="/catalog/belarus/vitebsk-region/" title="Витебская область" property="item" typeof="WebPage"><span property="name">Витебская область</span></a><meta property="position" content="2"></li><span class="delimiter">/</span><li class="item" property="itemListElement" typeof="ListItem"><a class="js-crumb crumb link blue" href="/catalog/belarus/vitebsk-region/vitebsk/" title="Витебск" property="item" typeof="WebPage"><span property="name">Витебск</span></a><meta property="position" content="3"></li></ul></div><div class="pageinfo clearfix"><div class="pageinfo_title index-h1"><h1>Погода в Витебске</h1><span><nobr>сегодня</nobr></span></div><div class="pageinfo_meas"><div class="pageinfo_arrows">
+    <div class="pageinfo_arrow _left js_arrows disabled" data-next="/weather-vitebsk-4218/tomorrow/">
+        <i class="fa"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 22 14 25"><path fill="#5ea2e6" d="M12.5 47l1.07-1.07-11.431-11.43 11.431-11.43-1.07-1.07-12.5 12.5 12.5 12.5z"/></svg></i>
+    </div>
+    <div class="inline_block dd_cnt js_dropmenu">
+        <div class="pageinfo_arrow _mid dd_btn js_drop_trig">
+            <i class="fa"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g class="fl" fill="#5ea2e6"><path d="M0 2l1-1v15l-1-1h16l-1 1v-15l1 1h-16zm0-1h16v15h-16v-15z"/><path d="M0 4h16v1h-16v-1zm3-4h2v3h-2v-3zm8 0h2v3h-2v-3z"/><text font-family="Helvetica Neue" font-size="9" font-weight="260" font-style="normal"><tspan x="2.996" y="13">03</tspan></text></g></svg></i>
+        </div>
+        <div class="dd_list _calendar js_drop_list">
+            <div class="dd_list_inside">
+                                <div class="minicalendar">
+    <div class="minicalendar_month">
+        Февраль&nbsp;&ndash;&nbsp;Март    </div>
+    <div class="minicalendar_week minicalendar_weektitles">
+                    <div class="minicalendar_weekday ">Пн</div>
+                    <div class="minicalendar_weekday ">Вт</div>
+                    <div class="minicalendar_weekday ">Ср</div>
+                    <div class="minicalendar_weekday ">Чт</div>
+                    <div class="minicalendar_weekday ">Пт</div>
+                    <div class="minicalendar_weekday weekend">Сб</div>
+                    <div class="minicalendar_weekday weekend">Вс</div>
+            </div>
+                        <div class="minicalendar_week">
+                            <div class="minicalendar_day gray">29</div>
+                                                <div class="minicalendar_day gray">1</div>
+                                                <div class="minicalendar_day gray">2</div>
+                                                                            <div class="minicalendar_day current">3</div>
+                                                                                        <a href="/weather-vitebsk-4218/tomorrow/" class="minicalendar_day nolink blue">4</a>
+                                                                                        <a href="/weather-vitebsk-4218/3-day/" class="minicalendar_day nolink blue">5</a>
+                                                                                        <a href="/weather-vitebsk-4218/4-day/" class="minicalendar_day nolink blue">6</a>
+                                        </div>
+                                <div class="minicalendar_week">
+                                                        <a href="/weather-vitebsk-4218/5-day/" class="minicalendar_day nolink blue">7</a>
+                                                                                        <a href="/weather-vitebsk-4218/6-day/" class="minicalendar_day nolink blue">8</a>
+                                                                                        <a href="/weather-vitebsk-4218/7-day/" class="minicalendar_day nolink blue">9</a>
+                                                                                        <a href="/weather-vitebsk-4218/8-day/" class="minicalendar_day nolink blue">10</a>
+                                                                                        <a href="/weather-vitebsk-4218/9-day/" class="minicalendar_day nolink blue">11</a>
+                                                            <div class="minicalendar_day gray">12</div>
+                                                <div class="minicalendar_day gray">13</div>
+                            </div>
+            </div>            </div>
+        </div>
+    </div>
+    <div class="pageinfo_arrow _right js_arrows " data-next="/weather-vitebsk-4218/tomorrow/">
+        <i class="fa"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 22 14 25"><path fill="#5ea2e6" d="M13.57 34.5l-12.5-12.5-1.07 1.07 11.431 11.43-11.431 11.43 1.07 1.07 12.5-12.5z"/></svg></i>
+    </div>
+</div><!-- {"CPage":"\/ssi\/shared\/weatherCalendar\/ru\/4218\/1\/","DateTime":"2016-03-03 17:07:06","DateTimeLive":"2016-03-03 18:07:06"} --></div></div><div class="__frame_sm"><div class="forecast_frame hw_wrap one_day" data-items="9"><div class="forecast_wrap horizontal"><div class="header_item showed clearfix"><span class="">Чт,  3 марта</span><div class="astroline"><i class="fa fa-sunrise tooltip" data-title="2016-03-03 07:40"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="#ECBF2F" d="M8,13.4l-3.9-1.7l1.7,3.9C6.4,14.7,7.2,13.9,8,13.4z"/><path fill="#ECBF2F" d="M14.1,12.2c0.6,0.1,1.2,0.3,1.7,0.6l-0.5-4.2l-2.5,3.5C13.2,12.1,13.6,12.1,14.1,12.2z"/><path fill="#ECBF2F" d="M11.8,12.1L9.3,8.6l-0.4,4.2C9.8,12.4,10.8,12.1,11.8,12.1z"/><path fill="#ECBF2F" d="M18.8,15.5l1.7-3.9l-3.9,1.7C17.5,13.9,18.2,14.6,18.8,15.5z"/><g><rect x="12" y="1" fill="#F15A24" width="1" height="8"/><rect x="11" y="2" fill="#F15A24" width="1" height="1"/><rect x="13" y="2" fill="#F15A24" width="1" height="1"/><rect x="10" y="3" fill="#F15A24" width="1" height="1"/><rect x="14" y="3" fill="#F15A24" width="1" height="1"/><rect x="9" y="4" fill="#F15A24" width="1" height="1"/><rect x="15" y="4" fill="#F15A24" width="1" height="1"/></g><path fill="#ECBF2F" d="M21.8,18l1.7-1.3l-4.2-0.4c0.3,0.5,0.5,0.7,0.6,1.7H21.8z"/><path fill="#ECBF2F" d="M4.8,18c0.1-1,0.3-1.1,0.6-1.6l-4.2,0.5L2.7,18H4.8z"/><path fill="#ECBF2F" d="M18.6,18c-0.2-1-0.4-1.1-0.7-1.7c-0.9-1.5-2.4-2.5-4.1-2.9c-0.5-0.1-1-0.2-1.4-0.2c-2.9,0-5.4,1.7-6.2,4.7 H18.6z"/></svg></i><span class="astro_item">7:40</span><i class="fa fa-sunset tooltip" data-title=""><svg><path fill="#F7931E" d="M8.5,13.4l-3.9-1.7l1.8,3.9C6.9,14.7,7.6,13.9,8.5,13.4z"/><path fill="#F7931E" d="M14.5,12.2c0.6,0.1,1.2,0.3,1.7,0.6l-0.5-4.2l-2.5,3.5C13.6,12.1,14.1,12.1,14.5,12.2z"/><path fill="#F7931E" d="M12.2,12.1L9.7,8.6l-0.4,4.2C10.2,12.4,11.2,12.1,12.2,12.1z"/><path fill="#F7931E" d="M19.2,15.5l1.7-3.9L17,13.3C17.9,13.9,18.6,14.6,19.2,15.5z"/><g><rect x="12" y="1" fill="#F15A24" width="1" height="8"/><rect x="13" y="7" fill="#F15A24" width="1" height="1"/><rect x="11" y="7" fill="#F15A24" width="1" height="1"/><rect x="14" y="6" fill="#F15A24" width="1" height="1"/><rect x="10" y="6" fill="#F15A24" width="1" height="1"/><rect x="15" y="5" fill="#F15A24" width="1" height="1"/><rect x="9" y="5" fill="#F15A24" width="1" height="1"/></g><g><path fill="#F7931E" d="M19,18c-0.2-1-0.4-1.1-0.7-1.7c-0.9-1.5-2.4-2.5-4.1-2.9c-0.5-0.1-1-0.2-1.4-0.2c-2.9,0-5.4,1.7-6.2,4.7H19 z"/></g><path fill="#F7931E" d="M5.2,18c0.1-1,0.3-1.1,0.6-1.6l-4.2,0.5L3.1,18H5.2z"/><path fill="#F7931E" d="M22.2,18l1.7-1.3l-4.2-0.4c0.3,0.5,0.5,0.7,0.6,1.7H22.2z"/></svg></i><span class="astro_item">18:41</span><i class="fa fa-moon" title=""><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"><path fill="#F7E69C" d="M.5 8.493C.5 4.077 4.085.5 8.503.5c.997 0-.003 8-.003 8s1 8-.003 8c-4.418 0-8-3.583-7.997-8v-.007z"/><path fill="#59513E" d="M8.503.5S6.02 1.976 6.02 8.496 8.496 16.5 8.496 16.5c4.003 0 8.003-3.986 8.003-7.993S12.5.5 8.503.5z"/></svg></i><span class="astro_item"> 32%<span class="gray">, луна стареющая</span></span></div></div><div class="frame_items_9"><div class="_line timeline clearfix"><div class="weather_item"><div class="time_of_day" title="Фактические данные от: 2016-03-02 21:00:00(UTC)"><span>0</span><sup>00</sup></div></div><div class="weather_item"><div class="time_of_day" title="Фактические данные от: 2016-03-03 00:00:00(UTC)"><span>3</span><sup>00</sup></div></div><div class="weather_item"><div class="time_of_day" title="Фактические данные от: 2016-03-03 03:00:00(UTC)"><span>6</span><sup>00</sup></div></div><div class="weather_item"><div class="time_of_day" title="Фактические данные от: 2016-03-03 06:00:00(UTC)"><span>9</span><sup>00</sup></div></div><div class="weather_item"><div class="time_of_day" title="Фактические данные от: 2016-03-03 09:00:00(UTC)"><span>12</span><sup>00</sup></div></div><div class="weather_item"><div class="time_of_day" title="Фактические данные от: 2016-03-03 12:00:00(UTC)"><span>15</span><sup>00</sup></div></div><div class="weather_item"><div class="time_of_day" title="Фактические данные от: 2016-03-03 15:00:00(UTC)"><span>18</span><sup>00</sup></div></div><div class="weather_item"><div class="time_of_day" title="Прогноз от: 2016-03-03 18:00:00(UTC)"><span>21</span><sup>00</sup></div></div><div class="weather_item"><div class="time_of_day" title="Прогноз от: 2016-03-03 21:00:00(UTC)"><span>0</span><sup>00</sup></div></div></div><div class="_line iconline clearfix"><div class="weather_item tooltip"><div class="img"><svg viewBox="0 0 55 36" xmlns="http://www.w3.org/2000/svg"><g fill="none"><path d="M0-2h55v55H0z"/><path d="M43.213 22.852l-.9-.414-.073-.99c-.236-3.182-2.924-5.676-6.12-5.676-.565 0-1.136.08-1.7.238l-.986.276-.697-.75a8.222 8.222 0 0 0-6.004-2.615c-3.888 0-7.268 2.772-8.033 6.59l-.178.895-.85.338c-2.865 1.135-4.79 3.964-4.79 7.04 0 4.176 3.4 7.576 7.577 7.576h20.027c3.61 0 6.545-2.94 6.545-6.555a6.575 6.575 0 0 0-3.82-5.953zm-1.12-11.886c-.277-5.932-5.16-10.66-11.16-10.66-3.708 0-6.984 1.812-9.02 4.59a11.163 11.163 0 0 1 4.303 2.21 8.13 8.13 0 0 1 2.806-.488c1.304 0 2.645.3 3.878.868 2.826 1.306 4.756 3.826 5.038 6.58l.04.392c3.15.794 5.58 3.516 5.83 6.875l.005.064.06.027c2.706 1.247 4.49 3.892 4.69 6.833a10.786 10.786 0 0 0 2.29-6.647c-.002-5.275-3.77-9.667-8.76-10.644zM11.312 27.783c0-3.714 2.324-7.13 5.783-8.5l.055-.022.012-.057c.91-4.55 4.937-7.852 9.574-7.852a9.8 9.8 0 0 1 7.154 3.116l.046.05.064-.018a7.892 7.892 0 0 1 2.123-.296l.255.025c-.215-2.108-1.736-4.207-4.133-5.314-2.222-1.025-4.602-.92-6.33.056l-.39-.39C22.757 6.1 18.656 5.246 15.07 7.182c-2.45 1.32-4.07 3.787-4.617 6.514l-.107.536-.07.085-.534.21c-2.956 1.174-5.216 3.812-5.538 6.977-.467 4.57 2.802 8.487 7.12 9.08h.43a9.08 9.08 0 0 1-.443-2.8z" fill="#D5DCE2"/></g></svg></div><span class="tip _top _left">Пасмурно</span></div><div class="weather_item tooltip"><div class="img"><svg viewBox="0 0 55 36" xmlns="http://www.w3.org/2000/svg"><g fill="none"><path d="M0-2h55v55H0z"/><path d="M43.213 22.852l-.9-.414-.073-.99c-.236-3.182-2.924-5.676-6.12-5.676-.565 0-1.136.08-1.7.238l-.986.276-.697-.75a8.222 8.222 0 0 0-6.004-2.615c-3.888 0-7.268 2.772-8.033 6.59l-.178.895-.85.338c-2.865 1.135-4.79 3.964-4.79 7.04 0 4.176 3.4 7.576 7.577 7.576h20.027c3.61 0 6.545-2.94 6.545-6.555a6.575 6.575 0 0 0-3.82-5.953zm-1.12-11.886c-.277-5.932-5.16-10.66-11.16-10.66-3.708 0-6.984 1.812-9.02 4.59a11.163 11.163 0 0 1 4.303 2.21 8.13 8.13 0 0 1 2.806-.488c1.304 0 2.645.3 3.878.868 2.826 1.306 4.756 3.826 5.038 6.58l.04.392c3.15.794 5.58 3.516 5.83 6.875l.005.064.06.027c2.706 1.247 4.49 3.892 4.69 6.833a10.786 10.786 0 0 0 2.29-6.647c-.002-5.275-3.77-9.667-8.76-10.644zM11.312 27.783c0-3.714 2.324-7.13 5.783-8.5l.055-.022.012-.057c.91-4.55 4.937-7.852 9.574-7.852a9.8 9.8 0 0 1 7.154 3.116l.046.05.064-.018a7.892 7.892 0 0 1 2.123-.296l.255.025c-.215-2.108-1.736-4.207-4.133-5.314-2.222-1.025-4.602-.92-6.33.056l-.39-.39C22.757 6.1 18.656 5.246 15.07 7.182c-2.45 1.32-4.07 3.787-4.617 6.514l-.107.536-.07.085-.534.21c-2.956 1.174-5.216 3.812-5.538 6.977-.467 4.57 2.802 8.487 7.12 9.08h.43a9.08 9.08 0 0 1-.443-2.8z" fill="#D5DCE2"/></g></svg></div><span class="tip _top _center">Пасмурно</span></div><div class="weather_item tooltip"><div class="img"><svg viewBox="0 0 55 36" xmlns="http://www.w3.org/2000/svg"><g fill="none"><path d="M0-2h55v55H0z"/><path d="M43.213 22.852l-.9-.414-.073-.99c-.236-3.182-2.924-5.676-6.12-5.676-.565 0-1.136.08-1.7.238l-.986.276-.697-.75a8.222 8.222 0 0 0-6.004-2.615c-3.888 0-7.268 2.772-8.033 6.59l-.178.895-.85.338c-2.865 1.135-4.79 3.964-4.79 7.04 0 4.176 3.4 7.576 7.577 7.576h20.027c3.61 0 6.545-2.94 6.545-6.555a6.575 6.575 0 0 0-3.82-5.953zm-1.12-11.886c-.277-5.932-5.16-10.66-11.16-10.66-3.708 0-6.984 1.812-9.02 4.59a11.163 11.163 0 0 1 4.303 2.21 8.13 8.13 0 0 1 2.806-.488c1.304 0 2.645.3 3.878.868 2.826 1.306 4.756 3.826 5.038 6.58l.04.392c3.15.794 5.58 3.516 5.83 6.875l.005.064.06.027c2.706 1.247 4.49 3.892 4.69 6.833a10.786 10.786 0 0 0 2.29-6.647c-.002-5.275-3.77-9.667-8.76-10.644zM11.312 27.783c0-3.714 2.324-7.13 5.783-8.5l.055-.022.012-.057c.91-4.55 4.937-7.852 9.574-7.852a9.8 9.8 0 0 1 7.154 3.116l.046.05.064-.018a7.892 7.892 0 0 1 2.123-.296l.255.025c-.215-2.108-1.736-4.207-4.133-5.314-2.222-1.025-4.602-.92-6.33.056l-.39-.39C22.757 6.1 18.656 5.246 15.07 7.182c-2.45 1.32-4.07 3.787-4.617 6.514l-.107.536-.07.085-.534.21c-2.956 1.174-5.216 3.812-5.538 6.977-.467 4.57 2.802 8.487 7.12 9.08h.43a9.08 9.08 0 0 1-.443-2.8z" fill="#D5DCE2"/></g></svg></div><span class="tip _top _center">Пасмурно</span></div><div class="weather_item tooltip"><div class="img"><svg viewBox="0 0 55 36" xmlns="http://www.w3.org/2000/svg"><g fill="none"><path d="M0-2h55v55H0z"/><path d="M43.213 22.852l-.9-.414-.073-.99c-.236-3.182-2.924-5.676-6.12-5.676-.565 0-1.136.08-1.7.238l-.986.276-.697-.75a8.222 8.222 0 0 0-6.004-2.615c-3.888 0-7.268 2.772-8.033 6.59l-.178.895-.85.338c-2.865 1.135-4.79 3.964-4.79 7.04 0 4.176 3.4 7.576 7.577 7.576h20.027c3.61 0 6.545-2.94 6.545-6.555a6.575 6.575 0 0 0-3.82-5.953zm-1.12-11.886c-.277-5.932-5.16-10.66-11.16-10.66-3.708 0-6.984 1.812-9.02 4.59a11.163 11.163 0 0 1 4.303 2.21 8.13 8.13 0 0 1 2.806-.488c1.304 0 2.645.3 3.878.868 2.826 1.306 4.756 3.826 5.038 6.58l.04.392c3.15.794 5.58 3.516 5.83 6.875l.005.064.06.027c2.706 1.247 4.49 3.892 4.69 6.833a10.786 10.786 0 0 0 2.29-6.647c-.002-5.275-3.77-9.667-8.76-10.644zM11.312 27.783c0-3.714 2.324-7.13 5.783-8.5l.055-.022.012-.057c.91-4.55 4.937-7.852 9.574-7.852a9.8 9.8 0 0 1 7.154 3.116l.046.05.064-.018a7.892 7.892 0 0 1 2.123-.296l.255.025c-.215-2.108-1.736-4.207-4.133-5.314-2.222-1.025-4.602-.92-6.33.056l-.39-.39C22.757 6.1 18.656 5.246 15.07 7.182c-2.45 1.32-4.07 3.787-4.617 6.514l-.107.536-.07.085-.534.21c-2.956 1.174-5.216 3.812-5.538 6.977-.467 4.57 2.802 8.487 7.12 9.08h.43a9.08 9.08 0 0 1-.443-2.8z" fill="#D5DCE2"/></g></svg></div><span class="tip _top _center">Пасмурно, дымка</span></div><div class="weather_item tooltip"><div class="img"><svg viewBox="0 0 55 36" xmlns="http://www.w3.org/2000/svg"><g fill="none"><path d="M0-2h55v55H0z"/><path d="M43.213 22.852l-.9-.414-.073-.99c-.236-3.182-2.924-5.676-6.12-5.676-.565 0-1.136.08-1.7.238l-.986.276-.697-.75a8.222 8.222 0 0 0-6.004-2.615c-3.888 0-7.268 2.772-8.033 6.59l-.178.895-.85.338c-2.865 1.135-4.79 3.964-4.79 7.04 0 4.176 3.4 7.576 7.577 7.576h20.027c3.61 0 6.545-2.94 6.545-6.555a6.575 6.575 0 0 0-3.82-5.953zm-1.12-11.886c-.277-5.932-5.16-10.66-11.16-10.66-3.708 0-6.984 1.812-9.02 4.59a11.163 11.163 0 0 1 4.303 2.21 8.13 8.13 0 0 1 2.806-.488c1.304 0 2.645.3 3.878.868 2.826 1.306 4.756 3.826 5.038 6.58l.04.392c3.15.794 5.58 3.516 5.83 6.875l.005.064.06.027c2.706 1.247 4.49 3.892 4.69 6.833a10.786 10.786 0 0 0 2.29-6.647c-.002-5.275-3.77-9.667-8.76-10.644zM11.312 27.783c0-3.714 2.324-7.13 5.783-8.5l.055-.022.012-.057c.91-4.55 4.937-7.852 9.574-7.852a9.8 9.8 0 0 1 7.154 3.116l.046.05.064-.018a7.892 7.892 0 0 1 2.123-.296l.255.025c-.215-2.108-1.736-4.207-4.133-5.314-2.222-1.025-4.602-.92-6.33.056l-.39-.39C22.757 6.1 18.656 5.246 15.07 7.182c-2.45 1.32-4.07 3.787-4.617 6.514l-.107.536-.07.085-.534.21c-2.956 1.174-5.216 3.812-5.538 6.977-.467 4.57 2.802 8.487 7.12 9.08h.43a9.08 9.08 0 0 1-.443-2.8z" fill="#D5DCE2"/></g></svg></div><span class="tip _top _center">Пасмурно</span></div><div class="weather_item tooltip"><div class="img"><svg viewBox="0 0 55 36" xmlns="http://www.w3.org/2000/svg"><g fill="none"><path d="M0-2h55v55H0z"/><path d="M43.213 22.852l-.9-.414-.073-.99c-.236-3.182-2.924-5.676-6.12-5.676-.565 0-1.136.08-1.7.238l-.986.276-.697-.75a8.222 8.222 0 0 0-6.004-2.615c-3.888 0-7.268 2.772-8.033 6.59l-.178.895-.85.338c-2.865 1.135-4.79 3.964-4.79 7.04 0 4.176 3.4 7.576 7.577 7.576h20.027c3.61 0 6.545-2.94 6.545-6.555a6.575 6.575 0 0 0-3.82-5.953zm-1.12-11.886c-.277-5.932-5.16-10.66-11.16-10.66-3.708 0-6.984 1.812-9.02 4.59a11.163 11.163 0 0 1 4.303 2.21 8.13 8.13 0 0 1 2.806-.488c1.304 0 2.645.3 3.878.868 2.826 1.306 4.756 3.826 5.038 6.58l.04.392c3.15.794 5.58 3.516 5.83 6.875l.005.064.06.027c2.706 1.247 4.49 3.892 4.69 6.833a10.786 10.786 0 0 0 2.29-6.647c-.002-5.275-3.77-9.667-8.76-10.644zM11.312 27.783c0-3.714 2.324-7.13 5.783-8.5l.055-.022.012-.057c.91-4.55 4.937-7.852 9.574-7.852a9.8 9.8 0 0 1 7.154 3.116l.046.05.064-.018a7.892 7.892 0 0 1 2.123-.296l.255.025c-.215-2.108-1.736-4.207-4.133-5.314-2.222-1.025-4.602-.92-6.33.056l-.39-.39C22.757 6.1 18.656 5.246 15.07 7.182c-2.45 1.32-4.07 3.787-4.617 6.514l-.107.536-.07.085-.534.21c-2.956 1.174-5.216 3.812-5.538 6.977-.467 4.57 2.802 8.487 7.12 9.08h.43a9.08 9.08 0 0 1-.443-2.8z" fill="#D5DCE2"/></g></svg></div><span class="tip _top _center">Пасмурно</span></div><div class="weather_item tooltip"><div class="img"><svg viewBox="0 0 55 36" xmlns="http://www.w3.org/2000/svg"><g fill="none"><path d="M0-2h55v55H0z"/><path d="M43.213 22.852l-.9-.414-.073-.99c-.236-3.182-2.924-5.676-6.12-5.676-.565 0-1.136.08-1.7.238l-.986.276-.697-.75a8.222 8.222 0 0 0-6.004-2.615c-3.888 0-7.268 2.772-8.033 6.59l-.178.895-.85.338c-2.865 1.135-4.79 3.964-4.79 7.04 0 4.176 3.4 7.576 7.577 7.576h20.027c3.61 0 6.545-2.94 6.545-6.555a6.575 6.575 0 0 0-3.82-5.953zm-1.12-11.886c-.277-5.932-5.16-10.66-11.16-10.66-3.708 0-6.984 1.812-9.02 4.59a11.163 11.163 0 0 1 4.303 2.21 8.13 8.13 0 0 1 2.806-.488c1.304 0 2.645.3 3.878.868 2.826 1.306 4.756 3.826 5.038 6.58l.04.392c3.15.794 5.58 3.516 5.83 6.875l.005.064.06.027c2.706 1.247 4.49 3.892 4.69 6.833a10.786 10.786 0 0 0 2.29-6.647c-.002-5.275-3.77-9.667-8.76-10.644zM11.312 27.783c0-3.714 2.324-7.13 5.783-8.5l.055-.022.012-.057c.91-4.55 4.937-7.852 9.574-7.852a9.8 9.8 0 0 1 7.154 3.116l.046.05.064-.018a7.892 7.892 0 0 1 2.123-.296l.255.025c-.215-2.108-1.736-4.207-4.133-5.314-2.222-1.025-4.602-.92-6.33.056l-.39-.39C22.757 6.1 18.656 5.246 15.07 7.182c-2.45 1.32-4.07 3.787-4.617 6.514l-.107.536-.07.085-.534.21c-2.956 1.174-5.216 3.812-5.538 6.977-.467 4.57 2.802 8.487 7.12 9.08h.43a9.08 9.08 0 0 1-.443-2.8z" fill="#D5DCE2"/></g></svg></div><span class="tip _top _center">Пасмурно</span></div><div class="weather_item tooltip"><div class="img"><svg viewBox="0 0 55 36" xmlns="http://www.w3.org/2000/svg"><g fill="none"><path d="M0-2h55v55H0z"/><path d="M43.213 22.852l-.9-.414-.073-.99c-.236-3.182-2.924-5.676-6.12-5.676-.565 0-1.136.08-1.7.238l-.986.276-.697-.75a8.222 8.222 0 0 0-6.004-2.615c-3.888 0-7.268 2.772-8.033 6.59l-.178.895-.85.338c-2.865 1.135-4.79 3.964-4.79 7.04 0 4.176 3.4 7.576 7.577 7.576h20.027c3.61 0 6.545-2.94 6.545-6.555a6.575 6.575 0 0 0-3.82-5.953zm-1.12-11.886c-.277-5.932-5.16-10.66-11.16-10.66-3.708 0-6.984 1.812-9.02 4.59a11.163 11.163 0 0 1 4.303 2.21 8.13 8.13 0 0 1 2.806-.488c1.304 0 2.645.3 3.878.868 2.826 1.306 4.756 3.826 5.038 6.58l.04.392c3.15.794 5.58 3.516 5.83 6.875l.005.064.06.027c2.706 1.247 4.49 3.892 4.69 6.833a10.786 10.786 0 0 0 2.29-6.647c-.002-5.275-3.77-9.667-8.76-10.644zM11.312 27.783c0-3.714 2.324-7.13 5.783-8.5l.055-.022.012-.057c.91-4.55 4.937-7.852 9.574-7.852a9.8 9.8 0 0 1 7.154 3.116l.046.05.064-.018a7.892 7.892 0 0 1 2.123-.296l.255.025c-.215-2.108-1.736-4.207-4.133-5.314-2.222-1.025-4.602-.92-6.33.056l-.39-.39C22.757 6.1 18.656 5.246 15.07 7.182c-2.45 1.32-4.07 3.787-4.617 6.514l-.107.536-.07.085-.534.21c-2.956 1.174-5.216 3.812-5.538 6.977-.467 4.57 2.802 8.487 7.12 9.08h.43a9.08 9.08 0 0 1-.443-2.8z" fill="#D5DCE2"/></g></svg></div><span class="tip _top _center">Пасмурно</span></div><div class="weather_item tooltip"><div class="img"><svg viewBox="0 0 55 45" xmlns="http://www.w3.org/2000/svg"><g fill="none"><path d="M0-2h55v55H0z"/><path d="M43.213 22.852l-.9-.414-.073-.99c-.236-3.182-2.924-5.676-6.12-5.676-.565 0-1.136.08-1.7.238l-.986.276-.697-.75a8.222 8.222 0 0 0-6.004-2.615c-3.888 0-7.268 2.772-8.033 6.59l-.178.895-.85.338c-2.865 1.135-4.79 3.964-4.79 7.04 0 4.176 3.4 7.576 7.577 7.576h20.027c3.61 0 6.545-2.94 6.545-6.555a6.575 6.575 0 0 0-3.82-5.953zm-1.12-11.886c-.277-5.932-5.16-10.66-11.16-10.66-3.708 0-6.984 1.812-9.02 4.59a11.163 11.163 0 0 1 4.303 2.21 8.13 8.13 0 0 1 2.806-.488c1.304 0 2.645.3 3.878.868 2.826 1.306 4.756 3.826 5.038 6.58l.04.392c3.15.794 5.58 3.516 5.83 6.875l.005.064.06.027c2.706 1.247 4.49 3.892 4.69 6.833a10.786 10.786 0 0 0 2.29-6.647c-.002-5.275-3.77-9.667-8.76-10.644zM11.312 27.783c0-3.714 2.324-7.13 5.783-8.5l.055-.022.012-.057c.91-4.55 4.937-7.852 9.574-7.852a9.8 9.8 0 0 1 7.154 3.116l.046.05.064-.018a7.892 7.892 0 0 1 2.123-.296l.255.025c-.215-2.108-1.736-4.207-4.133-5.314-2.222-1.025-4.602-.92-6.33.056l-.39-.39C22.757 6.1 18.656 5.246 15.07 7.182c-2.45 1.32-4.07 3.787-4.617 6.514l-.107.536-.07.085-.534.21c-2.956 1.174-5.216 3.812-5.538 6.977-.467 4.57 2.802 8.487 7.12 9.08h.43a9.08 9.08 0 0 1-.443-2.8z" fill="#D5DCE2"/><g><path d="M0-2h55v55H0z"/><path d="M25.64 41.745l-2.257-.553 1.65-1.636a.333.333 0 0 0 0-.47l-.048-.047a.33.33 0 0 0-.47-.004l-1.653 1.638-.55-2.26a.335.335 0 0 0-.405-.244l-.064.016a.337.337 0 0 0-.248.403l.566 2.305-2.306-.563a.337.337 0 0 0-.405.245l-.015.064a.33.33 0 0 0 .245.404l2.254.55-1.647 1.635a.338.338 0 0 0-.003.472l.048.047c.13.13.34.13.47.002l1.652-1.642.555 2.264c.042.178.224.29.4.244l.065-.014a.332.332 0 0 0 .247-.403l-.563-2.305 2.304.562a.333.333 0 0 0 .402-.244l.017-.064a.334.334 0 0 0-.244-.405zm15.387 0l-2.256-.553 1.65-1.636a.333.333 0 0 0 0-.47l-.047-.047a.33.33 0 0 0-.47-.004l-1.653 1.638-.55-2.26a.335.335 0 0 0-.405-.244l-.064.016a.337.337 0 0 0-.247.403l.566 2.305-2.308-.563a.337.337 0 0 0-.405.245l-.014.064a.33.33 0 0 0 .245.404l2.254.55-1.647 1.635a.338.338 0 0 0-.003.472l.048.047c.13.13.34.13.47.002l1.652-1.642.555 2.264c.043.178.225.29.402.244l.063-.014a.334.334 0 0 0 .248-.403l-.562-2.305 2.305.562a.333.333 0 0 0 .402-.244l.017-.064a.337.337 0 0 0-.245-.405z" fill="#38C0E0"/></g></g></svg></div><span class="tip _top _right">Пасмурно, небольшой снег</span></div></div><div class="_line templine clearfix"><div class="templine_inner"><div class="svg"></div><div class="weather_item js_temp_graph" data-air="-3"><div class="value js_meas_container" data-type="temperature" data-value="-3"><span class="js_value val_to_convert">&minus;3</span></div></div><div class="weather_item js_temp_graph" data-air="-3"><div class="value js_meas_container" data-type="temperature" data-value="-3"><span class="js_value val_to_convert">&minus;3</span></div></div><div class="weather_item js_temp_graph" data-air="-2"><div class="value js_meas_container" data-type="temperature" data-value="-2"><span class="js_value val_to_convert">&minus;2</span></div></div><div class="weather_item js_temp_graph" data-air="-2"><div class="value js_meas_container" data-type="temperature" data-value="-2"><span class="js_value val_to_convert">&minus;2</span></div></div><div class="weather_item js_temp_graph" data-air="-1"><div class="value js_meas_container" data-type="temperature" data-value="-1"><span class="js_value val_to_convert">&minus;1</span></div></div><div class="weather_item js_temp_graph" data-air="1"><div class="value js_meas_container" data-type="temperature" data-value="1"><span class="js_value val_to_convert">+1</span></div></div><div class="weather_item js_temp_graph" data-air="0"><div class="value js_meas_container" data-type="temperature" data-value="0"><span class="js_value val_to_convert">0</span></div></div><div class="weather_item js_temp_graph" data-air="-1"><div class="value js_meas_container" data-type="temperature" data-value="-1"><span class="js_value val_to_convert">&minus;1</span></div></div><div class="weather_item js_temp_graph last-item" data-air="-3"><div class="value js_meas_container" data-type="temperature" data-value="-3"><span class="js_value val_to_convert">&minus;3</span></div></div></div></div><div class="_line windline js_wind clearfix"><div class="headerline"><span class="title">Ветер, <span class="js_unit" data-type="wind">м/с</span></span></div><div class="weather_item"><div class="wind_arrow arrow_7"><div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="#DB3939" d="M17.6 7.6L10 .2v.1-.1L2.4 7.6l.8.8 6.2-6v17.4h1.1V2.4l6.3 6z"/></svg></div></div><div class="wind_value js_meas_container" data-value="2" data-type="wind"><span class="item_value js_value val_to_convert">2</span><span class="item_unit">З</span></div></div><div class="weather_item"><div class="wind_arrow arrow_6"><div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="#DB3939" d="M17.6 7.6L10 .2v.1-.1L2.4 7.6l.8.8 6.2-6v17.4h1.1V2.4l6.3 6z"/></svg></div></div><div class="wind_value js_meas_container" data-value="1" data-type="wind"><span class="item_value js_value val_to_convert">1</span><span class="item_unit">ЮЗ</span></div></div><div class="weather_item"><div class="wind_arrow arrow_7"><div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="#DB3939" d="M17.6 7.6L10 .2v.1-.1L2.4 7.6l.8.8 6.2-6v17.4h1.1V2.4l6.3 6z"/></svg></div></div><div class="wind_value js_meas_container" data-value="1" data-type="wind"><span class="item_value js_value val_to_convert">1</span><span class="item_unit">З</span></div></div><div class="weather_item"><div class="wind_arrow arrow_0"><div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="#DB3939" d="M10 15c-2.8 0-5-2.3-5-5s2.3-5 5-5 5 2.3 5 5-2.2 5-5 5zm0-8.7C8 6.3 6.3 8 6.3 10S8 13.7 10 13.7s3.7-1.7 3.7-3.7S12 6.3 10 6.3z"/></svg></div></div><div class="wind_value js_meas_container" data-value="0" data-type="wind"><span class="item_unit">штиль</span></div></div><div class="weather_item"><div class="wind_arrow arrow_0"><div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="#DB3939" d="M10 15c-2.8 0-5-2.3-5-5s2.3-5 5-5 5 2.3 5 5-2.2 5-5 5zm0-8.7C8 6.3 6.3 8 6.3 10S8 13.7 10 13.7s3.7-1.7 3.7-3.7S12 6.3 10 6.3z"/></svg></div></div><div class="wind_value js_meas_container" data-value="0" data-type="wind"><span class="item_unit">штиль</span></div></div><div class="weather_item"><div class="wind_arrow arrow_0"><div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="#DB3939" d="M10 15c-2.8 0-5-2.3-5-5s2.3-5 5-5 5 2.3 5 5-2.2 5-5 5zm0-8.7C8 6.3 6.3 8 6.3 10S8 13.7 10 13.7s3.7-1.7 3.7-3.7S12 6.3 10 6.3z"/></svg></div></div><div class="wind_value js_meas_container" data-value="0" data-type="wind"><span class="item_unit">штиль</span></div></div><div class="weather_item"><div class="wind_arrow arrow_2"><div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="#DB3939" d="M17.6 7.6L10 .2v.1-.1L2.4 7.6l.8.8 6.2-6v17.4h1.1V2.4l6.3 6z"/></svg></div></div><div class="wind_value js_meas_container" data-value="1" data-type="wind"><span class="item_value js_value val_to_convert">1</span><span class="item_unit">СВ</span></div></div><div class="weather_item"><div class="wind_arrow arrow_3"><div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="#DB3939" d="M17.6 7.6L10 .2v.1-.1L2.4 7.6l.8.8 6.2-6v17.4h1.1V2.4l6.3 6z"/></svg></div></div><div class="wind_value js_meas_container" data-value="3" data-type="wind"><span class="item_value js_value val_to_convert">3</span><span class="item_unit">В</span></div></div><div class="weather_item"><div class="wind_arrow arrow_3"><div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="#DB3939" d="M17.6 7.6L10 .2v.1-.1L2.4 7.6l.8.8 6.2-6v17.4h1.1V2.4l6.3 6z"/></svg></div></div><div class="wind_value js_meas_container" data-value="2" data-type="wind"><span class="item_value js_value val_to_convert">2</span><span class="item_unit">В</span></div></div></div><div class="_line nil pressureline_wrap js_pressure clearfix"><div class="headerline"><span class="title">Давление, мм рт. ст.</span></div><div class="pressureline"><div class="pressureline_inner"><div class="svg"></div><div class="weather_item js_pressure_graph" data-pressure="738"><div class="value js_meas_container" data-type="pressure" data-value="738"><span class="js_value val_to_convert">738</span></div></div><div class="weather_item js_pressure_graph" data-pressure="740"><div class="value js_meas_container" data-type="pressure" data-value="740"><span class="js_value val_to_convert">740</span></div></div><div class="weather_item js_pressure_graph" data-pressure="741"><div class="value js_meas_container" data-type="pressure" data-value="741"><span class="js_value val_to_convert">741</span></div></div><div class="weather_item js_pressure_graph" data-pressure="742"><div class="value js_meas_container" data-type="pressure" data-value="742"><span class="js_value val_to_convert">742</span></div></div><div class="weather_item js_pressure_graph" data-pressure="742"><div class="value js_meas_container" data-type="pressure" data-value="742"><span class="js_value val_to_convert">742</span></div></div><div class="weather_item js_pressure_graph" data-pressure="743"><div class="value js_meas_container" data-type="pressure" data-value="743"><span class="js_value val_to_convert">743</span></div></div><div class="weather_item js_pressure_graph" data-pressure="743"><div class="value js_meas_container" data-type="pressure" data-value="743"><span class="js_value val_to_convert">743</span></div></div><div class="weather_item js_pressure_graph" data-pressure="747"><div class="value js_meas_container" data-type="pressure" data-value="747"><span class="js_value val_to_convert">747</span></div></div><div class="weather_item js_pressure_graph last-item" data-pressure="747"><div class="value js_meas_container" data-type="pressure" data-value="747"><span class="js_value val_to_convert">747</span></div></div></div></div></div><div class="_line nil humidityline js_humidity clearfix"><div class="headerline"><span class="title">Влажность, %</span></div><div class="weather_item"><div class="humidity_icon"><div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" enable-background="new 0 0 72 72"><g fill="#0094ec"><circle cx="4.496" cy="4.496" r="1.8"/><circle cx="4.496" cy="67.504" r="1.8"/><circle cx="4.496" cy="36" r="1.8"/><circle cx="4.496" cy="25.492" r="1.8"/><circle cx="4.496" cy="56.992" r="1.8"/><circle cx="4.496" cy="46.508" r="1.8"/><circle cx="4.496" cy="15.008" r="1.8"/><circle cx="67.504" cy="4.496" r="1.8"/><circle cx="67.504" cy="67.504" r="1.8"/><circle cx="67.504" cy="36" r="1.8"/><circle cx="67.504" cy="25.492" r="1.8"/><circle cx="67.504" cy="56.992" r="1.8"/><circle cx="67.504" cy="46.508" r="1.8"/><circle cx="67.504" cy="15.008" r="1.8"/><circle cx="46.508" cy="4.496" r="1.8"/><circle cx="46.508" cy="67.504" r="1.8"/><circle cx="46.508" cy="36" r="1.8"/><circle cx="46.508" cy="25.492" r="1.8"/><circle cx="46.508" cy="56.992" r="1.8"/><circle cx="46.508" cy="46.508" r="1.8"/><circle cx="46.508" cy="15.008" r="1.8"/><circle cx="15.005" cy="4.496" r="1.8"/><circle cx="15.005" cy="67.504" r="1.8"/><circle cx="15.005" cy="36" r="1.8"/><circle cx="15.005" cy="25.492" r="1.8"/><circle cx="15.005" cy="56.992" r="1.8"/><circle cx="15.005" cy="46.508" r="1.8"/><circle cx="15.005" cy="15.008" r="1.8"/><circle cx="25.492" cy="4.496" r="1.8"/><circle cx="25.492" cy="67.504" r="1.8"/><circle cx="25.492" cy="36" r="1.8"/><circle cx="25.492" cy="25.492" r="1.8"/><circle cx="25.492" cy="56.992" r="1.8"/><circle cx="25.492" cy="46.508" r="1.8"/><circle cx="25.492" cy="15.008" r="1.8"/><circle cx="36" cy="4.496" r="1.8"/><circle cx="36" cy="67.504" r="1.8"/><circle cx="36" cy="36" r="1.8"/><circle cx="36" cy="25.492" r="1.8"/><circle cx="36" cy="56.992" r="1.8"/><circle cx="36" cy="46.508" r="1.8"/><circle cx="36" cy="15.008" r="1.8"/><circle cx="56.995" cy="4.496" r="1.8"/><circle cx="56.995" cy="67.504" r="1.8"/><circle cx="56.995" cy="36" r="1.8"/><circle cx="56.995" cy="25.492" r="1.8"/><circle cx="56.995" cy="56.992" r="1.8"/><circle cx="56.995" cy="46.508" r="1.8"/><circle cx="56.995" cy="15.008" r="1.8"/></g></svg></div></div><div class="humidity_value"><span class="item_value">87</span></div></div><div class="weather_item"><div class="humidity_icon"><div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" enable-background="new 0 0 72 72"><g fill="#0094ec"><circle cx="4.496" cy="4.496" r="1.8"/><circle cx="4.496" cy="67.504" r="1.8"/><circle cx="4.496" cy="36" r="1.8"/><circle cx="4.496" cy="25.492" r="1.8"/><circle cx="4.496" cy="56.992" r="1.8"/><circle cx="4.496" cy="46.508" r="1.8"/><circle cx="4.496" cy="15.008" r="1.8"/><circle cx="67.504" cy="4.496" r="1.8"/><circle cx="67.504" cy="67.504" r="1.8"/><circle cx="67.504" cy="36" r="1.8"/><circle cx="67.504" cy="25.492" r="1.8"/><circle cx="67.504" cy="56.992" r="1.8"/><circle cx="67.504" cy="46.508" r="1.8"/><circle cx="67.504" cy="15.008" r="1.8"/><circle cx="46.508" cy="4.496" r="1.8"/><circle cx="46.508" cy="67.504" r="1.8"/><circle cx="46.508" cy="36" r="1.8"/><circle cx="46.508" cy="25.492" r="1.8"/><circle cx="46.508" cy="56.992" r="1.8"/><circle cx="46.508" cy="46.508" r="1.8"/><circle cx="46.508" cy="15.008" r="1.8"/><circle cx="15.005" cy="4.496" r="1.8"/><circle cx="15.005" cy="67.504" r="1.8"/><circle cx="15.005" cy="36" r="1.8"/><circle cx="15.005" cy="25.492" r="1.8"/><circle cx="15.005" cy="56.992" r="1.8"/><circle cx="15.005" cy="46.508" r="1.8"/><circle cx="15.005" cy="15.008" r="1.8"/><circle cx="25.492" cy="4.496" r="1.8"/><circle cx="25.492" cy="67.504" r="1.8"/><circle cx="25.492" cy="36" r="1.8"/><circle cx="25.492" cy="25.492" r="1.8"/><circle cx="25.492" cy="56.992" r="1.8"/><circle cx="25.492" cy="46.508" r="1.8"/><circle cx="25.492" cy="15.008" r="1.8"/><circle cx="36" cy="4.496" r="1.8"/><circle cx="36" cy="67.504" r="1.8"/><circle cx="36" cy="36" r="1.8"/><circle cx="36" cy="25.492" r="1.8"/><circle cx="36" cy="56.992" r="1.8"/><circle cx="36" cy="46.508" r="1.8"/><circle cx="36" cy="15.008" r="1.8"/><circle cx="56.995" cy="4.496" r="1.8"/><circle cx="56.995" cy="67.504" r="1.8"/><circle cx="56.995" cy="36" r="1.8"/><circle cx="56.995" cy="25.492" r="1.8"/><circle cx="56.995" cy="56.992" r="1.8"/><circle cx="56.995" cy="46.508" r="1.8"/><circle cx="56.995" cy="15.008" r="1.8"/></g></svg></div></div><div class="humidity_value"><span class="item_value">89</span></div></div><div class="weather_item"><div class="humidity_icon"><div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" enable-background="new 0 0 72 72"><g fill="#0094ec"><circle cx="4.496" cy="4.496" r="1.8"/><circle cx="4.496" cy="67.504" r="1.8"/><circle cx="4.496" cy="36" r="1.8"/><circle cx="4.496" cy="25.492" r="1.8"/><circle cx="4.496" cy="56.992" r="1.8"/><circle cx="4.496" cy="46.508" r="1.8"/><circle cx="4.496" cy="15.008" r="1.8"/><circle cx="67.504" cy="4.496" r="1.8"/><circle cx="67.504" cy="67.504" r="1.8"/><circle cx="67.504" cy="36" r="1.8"/><circle cx="67.504" cy="25.492" r="1.8"/><circle cx="67.504" cy="56.992" r="1.8"/><circle cx="67.504" cy="46.508" r="1.8"/><circle cx="67.504" cy="15.008" r="1.8"/><circle cx="46.508" cy="4.496" r="1.8"/><circle cx="46.508" cy="67.504" r="1.8"/><circle cx="46.508" cy="36" r="1.8"/><circle cx="46.508" cy="25.492" r="1.8"/><circle cx="46.508" cy="56.992" r="1.8"/><circle cx="46.508" cy="46.508" r="1.8"/><circle cx="46.508" cy="15.008" r="1.8"/><circle cx="15.005" cy="4.496" r="1.8"/><circle cx="15.005" cy="67.504" r="1.8"/><circle cx="15.005" cy="36" r="1.8"/><circle cx="15.005" cy="25.492" r="1.8"/><circle cx="15.005" cy="56.992" r="1.8"/><circle cx="15.005" cy="46.508" r="1.8"/><circle cx="15.005" cy="15.008" r="1.8"/><circle cx="25.492" cy="4.496" r="1.8"/><circle cx="25.492" cy="67.504" r="1.8"/><circle cx="25.492" cy="36" r="1.8"/><circle cx="25.492" cy="25.492" r="1.8"/><circle cx="25.492" cy="56.992" r="1.8"/><circle cx="25.492" cy="46.508" r="1.8"/><circle cx="25.492" cy="15.008" r="1.8"/><circle cx="36" cy="4.496" r="1.8"/><circle cx="36" cy="67.504" r="1.8"/><circle cx="36" cy="36" r="1.8"/><circle cx="36" cy="25.492" r="1.8"/><circle cx="36" cy="56.992" r="1.8"/><circle cx="36" cy="46.508" r="1.8"/><circle cx="36" cy="15.008" r="1.8"/><circle cx="56.995" cy="4.496" r="1.8"/><circle cx="56.995" cy="67.504" r="1.8"/><circle cx="56.995" cy="36" r="1.8"/><circle cx="56.995" cy="25.492" r="1.8"/><circle cx="56.995" cy="56.992" r="1.8"/><circle cx="56.995" cy="46.508" r="1.8"/><circle cx="56.995" cy="15.008" r="1.8"/></g></svg></div></div><div class="humidity_value"><span class="item_value">89</span></div></div><div class="weather_item"><div class="humidity_icon"><div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" enable-background="new 0 0 72 72"><g fill="#0094ec"><circle cx="4.496" cy="4.496" r="1.8"/><circle cx="4.496" cy="67.504" r="1.8"/><circle cx="4.496" cy="36" r="1.8"/><circle cx="4.496" cy="25.492" r="1.8"/><circle cx="4.496" cy="56.992" r="1.8"/><circle cx="4.496" cy="46.508" r="1.8"/><circle cx="4.496" cy="15.008" r="1.8"/><circle cx="67.504" cy="4.496" r="1.8"/><circle cx="67.504" cy="67.504" r="1.8"/><circle cx="67.504" cy="36" r="1.8"/><circle cx="67.504" cy="25.492" r="1.8"/><circle cx="67.504" cy="56.992" r="1.8"/><circle cx="67.504" cy="46.508" r="1.8"/><circle cx="67.504" cy="15.008" r="1.8"/><circle cx="46.508" cy="4.496" r="1.8"/><circle cx="46.508" cy="67.504" r="1.8"/><circle cx="46.508" cy="36" r="1.8"/><circle cx="46.508" cy="25.492" r="1.8"/><circle cx="46.508" cy="56.992" r="1.8"/><circle cx="46.508" cy="46.508" r="1.8"/><circle cx="46.508" cy="15.008" r="1.8"/><circle cx="15.005" cy="4.496" r="1.8"/><circle cx="15.005" cy="67.504" r="1.8"/><circle cx="15.005" cy="36" r="1.8"/><circle cx="15.005" cy="25.492" r="1.8"/><circle cx="15.005" cy="56.992" r="1.8"/><circle cx="15.005" cy="46.508" r="1.8"/><circle cx="15.005" cy="15.008" r="1.8"/><circle cx="25.492" cy="4.496" r="1.8"/><circle cx="25.492" cy="67.504" r="1.8"/><circle cx="25.492" cy="36" r="1.8"/><circle cx="25.492" cy="25.492" r="1.8"/><circle cx="25.492" cy="56.992" r="1.8"/><circle cx="25.492" cy="46.508" r="1.8"/><circle cx="25.492" cy="15.008" r="1.8"/><circle cx="36" cy="4.496" r="1.8"/><circle cx="36" cy="67.504" r="1.8"/><circle cx="36" cy="36" r="1.8"/><circle cx="36" cy="25.492" r="1.8"/><circle cx="36" cy="56.992" r="1.8"/><circle cx="36" cy="46.508" r="1.8"/><circle cx="36" cy="15.008" r="1.8"/><circle cx="56.995" cy="4.496" r="1.8"/><circle cx="56.995" cy="67.504" r="1.8"/><circle cx="56.995" cy="36" r="1.8"/><circle cx="56.995" cy="25.492" r="1.8"/><circle cx="56.995" cy="56.992" r="1.8"/><circle cx="56.995" cy="46.508" r="1.8"/><circle cx="56.995" cy="15.008" r="1.8"/></g></svg></div></div><div class="humidity_value"><span class="item_value">89</span></div></div><div class="weather_item"><div class="humidity_icon"><div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" enable-background="new 0 0 72 72"><g fill="#0094ec"><circle cx="4.496" cy="4.496" r="1.8"/><circle cx="4.496" cy="67.504" r="1.8"/><circle cx="4.496" cy="36" r="1.8"/><circle cx="4.496" cy="25.492" r="1.8"/><circle cx="4.496" cy="56.992" r="1.8"/><circle cx="4.496" cy="46.508" r="1.8"/><circle cx="4.496" cy="15.008" r="1.8"/><circle cx="67.504" cy="4.496" r="1.8"/><circle cx="67.504" cy="67.504" r="1.8"/><circle cx="67.504" cy="36" r="1.8"/><circle cx="67.504" cy="25.492" r="1.8"/><circle cx="67.504" cy="56.992" r="1.8"/><circle cx="67.504" cy="46.508" r="1.8"/><circle cx="67.504" cy="15.008" r="1.8"/><circle cx="46.508" cy="4.496" r="1.8"/><circle cx="46.508" cy="67.504" r="1.8"/><circle cx="46.508" cy="36" r="1.8"/><circle cx="46.508" cy="25.492" r="1.8"/><circle cx="46.508" cy="56.992" r="1.8"/><circle cx="46.508" cy="46.508" r="1.8"/><circle cx="46.508" cy="15.008" r="1.8"/><circle cx="15.005" cy="4.496" r="1.8"/><circle cx="15.005" cy="67.504" r="1.8"/><circle cx="15.005" cy="36" r="1.8"/><circle cx="15.005" cy="25.492" r="1.8"/><circle cx="15.005" cy="56.992" r="1.8"/><circle cx="15.005" cy="46.508" r="1.8"/><circle cx="15.005" cy="15.008" r="1.8"/><circle cx="25.492" cy="4.496" r="1.8"/><circle cx="25.492" cy="67.504" r="1.8"/><circle cx="25.492" cy="36" r="1.8"/><circle cx="25.492" cy="25.492" r="1.8"/><circle cx="25.492" cy="56.992" r="1.8"/><circle cx="25.492" cy="46.508" r="1.8"/><circle cx="25.492" cy="15.008" r="1.8"/><circle cx="36" cy="4.496" r="1.8"/><circle cx="36" cy="67.504" r="1.8"/><circle cx="36" cy="36" r="1.8"/><circle cx="36" cy="25.492" r="1.8"/><circle cx="36" cy="56.992" r="1.8"/><circle cx="36" cy="46.508" r="1.8"/><circle cx="36" cy="15.008" r="1.8"/><circle cx="56.995" cy="4.496" r="1.8"/><circle cx="56.995" cy="67.504" r="1.8"/><circle cx="56.995" cy="36" r="1.8"/><circle cx="56.995" cy="25.492" r="1.8"/><circle cx="56.995" cy="56.992" r="1.8"/><circle cx="56.995" cy="46.508" r="1.8"/><circle cx="56.995" cy="15.008" r="1.8"/></g></svg></div></div><div class="humidity_value"><span class="item_value">75</span></div></div><div class="weather_item"><div class="humidity_icon"><div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" enable-background="new 0 0 72 72"><g fill="#0094ec"><circle cx="4.496" cy="4.496" r="1.8"/><circle cx="67.504" cy="4.496" r="1.8"/><circle cx="51.75" cy="4.496" r="1.8"/><circle cx="36" cy="4.496" r="1.8"/><circle cx="20.25" cy="4.496" r="1.8"/><circle cx="4.496" cy="67.504" r="1.8"/><circle cx="67.504" cy="67.504" r="1.8"/><circle cx="51.75" cy="67.504" r="1.8"/><circle cx="36" cy="67.504" r="1.8"/><circle cx="20.25" cy="67.504" r="1.8"/><circle cx="4.496" cy="51.75" r="1.8"/><circle cx="67.504" cy="51.75" r="1.8"/><circle cx="51.75" cy="51.75" r="1.8"/><circle cx="36" cy="51.75" r="1.8"/><circle cx="20.25" cy="51.75" r="1.8"/><circle cx="4.496" cy="36" r="1.8"/><circle cx="67.504" cy="36" r="1.8"/><circle cx="51.75" cy="36" r="1.8"/><circle cx="36" cy="36" r="1.8"/><circle cx="20.25" cy="36" r="1.8"/><circle cx="4.496" cy="20.25" r="1.8"/><circle cx="67.504" cy="20.25" r="1.8"/><circle cx="51.75" cy="20.25" r="1.8"/><circle cx="36" cy="20.25" r="1.8"/><circle cx="20.25" cy="20.25" r="1.8"/></g></svg></div></div><div class="humidity_value"><span class="item_value">68</span></div></div><div class="weather_item"><div class="humidity_icon"><div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" enable-background="new 0 0 72 72"><g fill="#0094ec"><circle cx="4.496" cy="4.496" r="1.8"/><circle cx="67.504" cy="4.496" r="1.8"/><circle cx="51.75" cy="4.496" r="1.8"/><circle cx="36" cy="4.496" r="1.8"/><circle cx="20.25" cy="4.496" r="1.8"/><circle cx="4.496" cy="67.504" r="1.8"/><circle cx="67.504" cy="67.504" r="1.8"/><circle cx="51.75" cy="67.504" r="1.8"/><circle cx="36" cy="67.504" r="1.8"/><circle cx="20.25" cy="67.504" r="1.8"/><circle cx="4.496" cy="51.75" r="1.8"/><circle cx="67.504" cy="51.75" r="1.8"/><circle cx="51.75" cy="51.75" r="1.8"/><circle cx="36" cy="51.75" r="1.8"/><circle cx="20.25" cy="51.75" r="1.8"/><circle cx="4.496" cy="36" r="1.8"/><circle cx="67.504" cy="36" r="1.8"/><circle cx="51.75" cy="36" r="1.8"/><circle cx="36" cy="36" r="1.8"/><circle cx="20.25" cy="36" r="1.8"/><circle cx="4.496" cy="20.25" r="1.8"/><circle cx="67.504" cy="20.25" r="1.8"/><circle cx="51.75" cy="20.25" r="1.8"/><circle cx="36" cy="20.25" r="1.8"/><circle cx="20.25" cy="20.25" r="1.8"/></g></svg></div></div><div class="humidity_value"><span class="item_value">71</span></div></div><div class="weather_item"><div class="humidity_icon"><div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" enable-background="new 0 0 72 72"><g fill="#0094ec"><circle cx="4.496" cy="4.496" r="1.8"/><circle cx="4.496" cy="67.504" r="1.8"/><circle cx="4.496" cy="36" r="1.8"/><circle cx="4.496" cy="25.492" r="1.8"/><circle cx="4.496" cy="56.992" r="1.8"/><circle cx="4.496" cy="46.508" r="1.8"/><circle cx="4.496" cy="15.008" r="1.8"/><circle cx="67.504" cy="4.496" r="1.8"/><circle cx="67.504" cy="67.504" r="1.8"/><circle cx="67.504" cy="36" r="1.8"/><circle cx="67.504" cy="25.492" r="1.8"/><circle cx="67.504" cy="56.992" r="1.8"/><circle cx="67.504" cy="46.508" r="1.8"/><circle cx="67.504" cy="15.008" r="1.8"/><circle cx="46.508" cy="4.496" r="1.8"/><circle cx="46.508" cy="67.504" r="1.8"/><circle cx="46.508" cy="36" r="1.8"/><circle cx="46.508" cy="25.492" r="1.8"/><circle cx="46.508" cy="56.992" r="1.8"/><circle cx="46.508" cy="46.508" r="1.8"/><circle cx="46.508" cy="15.008" r="1.8"/><circle cx="15.005" cy="4.496" r="1.8"/><circle cx="15.005" cy="67.504" r="1.8"/><circle cx="15.005" cy="36" r="1.8"/><circle cx="15.005" cy="25.492" r="1.8"/><circle cx="15.005" cy="56.992" r="1.8"/><circle cx="15.005" cy="46.508" r="1.8"/><circle cx="15.005" cy="15.008" r="1.8"/><circle cx="25.492" cy="4.496" r="1.8"/><circle cx="25.492" cy="67.504" r="1.8"/><circle cx="25.492" cy="36" r="1.8"/><circle cx="25.492" cy="25.492" r="1.8"/><circle cx="25.492" cy="56.992" r="1.8"/><circle cx="25.492" cy="46.508" r="1.8"/><circle cx="25.492" cy="15.008" r="1.8"/><circle cx="36" cy="4.496" r="1.8"/><circle cx="36" cy="67.504" r="1.8"/><circle cx="36" cy="36" r="1.8"/><circle cx="36" cy="25.492" r="1.8"/><circle cx="36" cy="56.992" r="1.8"/><circle cx="36" cy="46.508" r="1.8"/><circle cx="36" cy="15.008" r="1.8"/><circle cx="56.995" cy="4.496" r="1.8"/><circle cx="56.995" cy="67.504" r="1.8"/><circle cx="56.995" cy="36" r="1.8"/><circle cx="56.995" cy="25.492" r="1.8"/><circle cx="56.995" cy="56.992" r="1.8"/><circle cx="56.995" cy="46.508" r="1.8"/><circle cx="56.995" cy="15.008" r="1.8"/></g></svg></div></div><div class="humidity_value"><span class="item_value">88</span></div></div><div class="weather_item"><div class="humidity_icon"><div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" enable-background="new 0 0 72 72"><g fill="#0094ec"><circle cx="4.496" cy="4.496" r="1.8"/><circle cx="4.496" cy="67.504" r="1.8"/><circle cx="4.496" cy="36" r="1.8"/><circle cx="4.496" cy="25.492" r="1.8"/><circle cx="4.496" cy="56.992" r="1.8"/><circle cx="4.496" cy="46.508" r="1.8"/><circle cx="4.496" cy="15.008" r="1.8"/><circle cx="67.504" cy="4.496" r="1.8"/><circle cx="67.504" cy="67.504" r="1.8"/><circle cx="67.504" cy="36" r="1.8"/><circle cx="67.504" cy="25.492" r="1.8"/><circle cx="67.504" cy="56.992" r="1.8"/><circle cx="67.504" cy="46.508" r="1.8"/><circle cx="67.504" cy="15.008" r="1.8"/><circle cx="46.508" cy="4.496" r="1.8"/><circle cx="46.508" cy="67.504" r="1.8"/><circle cx="46.508" cy="36" r="1.8"/><circle cx="46.508" cy="25.492" r="1.8"/><circle cx="46.508" cy="56.992" r="1.8"/><circle cx="46.508" cy="46.508" r="1.8"/><circle cx="46.508" cy="15.008" r="1.8"/><circle cx="15.005" cy="4.496" r="1.8"/><circle cx="15.005" cy="67.504" r="1.8"/><circle cx="15.005" cy="36" r="1.8"/><circle cx="15.005" cy="25.492" r="1.8"/><circle cx="15.005" cy="56.992" r="1.8"/><circle cx="15.005" cy="46.508" r="1.8"/><circle cx="15.005" cy="15.008" r="1.8"/><circle cx="25.492" cy="4.496" r="1.8"/><circle cx="25.492" cy="67.504" r="1.8"/><circle cx="25.492" cy="36" r="1.8"/><circle cx="25.492" cy="25.492" r="1.8"/><circle cx="25.492" cy="56.992" r="1.8"/><circle cx="25.492" cy="46.508" r="1.8"/><circle cx="25.492" cy="15.008" r="1.8"/><circle cx="36" cy="4.496" r="1.8"/><circle cx="36" cy="67.504" r="1.8"/><circle cx="36" cy="36" r="1.8"/><circle cx="36" cy="25.492" r="1.8"/><circle cx="36" cy="56.992" r="1.8"/><circle cx="36" cy="46.508" r="1.8"/><circle cx="36" cy="15.008" r="1.8"/><circle cx="56.995" cy="4.496" r="1.8"/><circle cx="56.995" cy="67.504" r="1.8"/><circle cx="56.995" cy="36" r="1.8"/><circle cx="56.995" cy="25.492" r="1.8"/><circle cx="56.995" cy="56.992" r="1.8"/><circle cx="56.995" cy="46.508" r="1.8"/><circle cx="56.995" cy="15.008" r="1.8"/></g></svg></div></div><div class="humidity_value"><span class="item_value">91</span></div></div></div><div class="_line precipitationline js_precipitation clearfix"><div class="headerline"><span class="title">Осадки, мм</span></div><div class="weather_item"><div class="unit zero lightgray">0</div></div><div class="weather_item"><div class="unit zero lightgray">0</div></div><div class="weather_item"><div class="unit zero lightgray">0</div></div><div class="weather_item"><div class="unit zero lightgray">0</div></div><div class="weather_item"><div class="unit zero lightgray">0</div></div><div class="weather_item"><div class="unit zero lightgray">0</div></div><div class="weather_item"><div class="unit zero lightgray">0</div></div><div class="weather_item"><div class="unit zero lightgray">0</div></div><div class="weather_item"><div class="unit lightblue">
+            0,1
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 6"><path fill="#149aff" d="M10 1.408C4.03 3.874-.007.464 0 .464V6h20V.464s-4.03-1.52-10 .944z"/></svg></div></div></div></div></div></div><!-- {"CPage":"\/ssi\/shared\/weatherForecastDay\/ru\/4218\/1\/","DateTime":"2016-03-03 17:21:46","DateTimeLive":"2016-03-03 20:59:46"} --><div class="clearfix"><div class="dayMore float_left blue link with_inline dotted" id="showAllMeasure"><i class="fa fa-hamburger blue-fill"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 9"><path fill="#FFF" d="M0 0h12v1H0V0zm0 4h12v1H0V4zm0 4h12v1H0V8z"/></svg></i><span data-negative-text="Скрыть давление и влажность" data-positive-text="Показать давление и влажность">Показать давление и влажность</span></div></div></div><!-- Media frame --><div class="__frame"></div>
+<div class="media_middle">
+	<div id="media-middle">
+        <div id="yandex_650x250"></div>
+<script type="text/javascript">
+//new adriver("yandex_650x250",{sid:129909,bt:52,pz:3,bn:4,custom:{"1":"cloud","2":0,"9":"1-3","110":screen.width,"111":screen.height}});
+MG.Media.adriverOnScroll('yandex_650x250',{sid:129909,bt:52,pz:3,bn:4,custom:{"1":"cloud","2":0,"9":"1-3","110":screen.width,"111":screen.height}});
+</script>
+    </div>
+</div><!-- {"CPage":"\/ssi\/bannerMiddle\/","DateTime":"2016-03-03 17:42:03","DateTimeLive":"2016-03-03 18:42:03"} --><!-- End Media frame --><!-- News frame -->    <div class="news_frame __frame">
+        <h3>
+            <a href="//www.gismeteo.by/news/" class="link blue">
+                <span>Новости Гисметео</span>
+            </a>
+            о погоде, природе и космосе
+        </h3>
+        <div class="news_frame_list">
+                            <div class="news_item">
+                    <div class="_ctx">
+                        <a href="/news/proisshestviya/17961-kitay-zavoloklo-smogom/" class="link semiwhite with_inline nohover">
+                            <img class="img" width="165px" height="110px" src="//nby04.gismeteo.by/static/news/img/anno/17961/da1f0e6c.jpg">
+                            <em class="title semiwhite">
+                                <span class="">Китай заволокло смогом</span>
+                            </em>
+                        </a>
+                    </div>
+                    <div class="_bg" style="background-color: rgb(130,127,121)"></div>
+                </div>
+                            <div class="news_item">
+                    <div class="_ctx">
+                        <a href="/news/stihiynye-yavleniya/17960-navodnenie-na-yuge-angoly-uneslo-zhizni-24-chelovek-video/" class="link semiwhite with_inline nohover">
+                            <img class="img" width="165px" height="110px" src="//nby01.gismeteo.by/static/news/img/anno/17960/86edbd04.jpg">
+                            <em class="title semiwhite">
+                                <span class="">Наводнение на&nbsp;юге Анголы унесло жизни 24&nbsp;человек (видео)</span>
+                            </em>
+                        </a>
+                    </div>
+                    <div class="_bg" style="background-color: rgb(138,125,113)"></div>
+                </div>
+                            <div class="news_item">
+                    <div class="_ctx">
+                        <a href="/news/stihiynye-yavleniya/17959-v-amerikanskom-shtata-alabama-pronessya-tornado/" class="link semiwhite with_inline nohover">
+                            <img class="img" width="165px" height="110px" src="//nby09.gismeteo.by/static/news/img/anno/17959/969f2d3e.jpg">
+                            <em class="title semiwhite">
+                                <span class="">В&nbsp;американском штата Алабама пронесся торнадо</span>
+                            </em>
+                        </a>
+                    </div>
+                    <div class="_bg" style="background-color: rgb(57,54,57)"></div>
+                </div>
+                            <div class="news_item">
+                    <div class="_ctx">
+                        <a href="/news/sobytiya/17958-potok-solnechnogo-vetra-zazheg-polyarnye-siyaniya-na-zemle/" class="link semiwhite with_inline nohover">
+                            <img class="img" width="165px" height="110px" src="//nby03.gismeteo.by/static/news/img/anno/17958/d4b81a92.jpg">
+                            <em class="title semiwhite">
+                                <span class="">Поток солнечного ветра зажег полярные сияния на&nbsp;Земле</span>
+                            </em>
+                        </a>
+                    </div>
+                    <div class="_bg" style="background-color: rgb(45,55,60)"></div>
+                </div>
+                    </div>
+    </div>
+<!-- {"CPage":"\/ssi\/topNews\/","DateTime":"2016-03-03 17:47:00","DateTimeLive":"2016-03-03 17:50:00"} --><!-- End News frame --><div class="widget_gm __frame">
+    <h3><a href="/weather-vitebsk-4218/gm/" class="link blue no_border">Геомагнитное поле</a></h3>
+    <div class="gm_items clearfix">
+                    <div class="gm_item">
+                <div class="gmi_title"><span class="link blue no_border">Чт,  3 мар</span></div>
+                <div class="gmi_block gm-border-2">
+                    <div class="gmib_value">2<span class="gmib_unit">&nbsp;балла</span></div>
+                    <div class="gmib_legend">Небольшие возмущения</div>
+                    <div class="gmib_bg gm-2"></div>
+                </div>
+            </div>
+                    <div class="gm_item">
+                <div class="gmi_title"><span class="link blue no_border">Пт,  4 мар</span></div>
+                <div class="gmi_block gm-border-2">
+                    <div class="gmib_value">2<span class="gmib_unit">&nbsp;балла</span></div>
+                    <div class="gmib_legend">Небольшие возмущения</div>
+                    <div class="gmib_bg gm-2"></div>
+                </div>
+            </div>
+                    <div class="gm_item">
+                <div class="gmi_title"><span class="link weekend no_border">Сб,  5 мар</span></div>
+                <div class="gmi_block gm-border-3">
+                    <div class="gmib_value">3<span class="gmib_unit">&nbsp;балла</span></div>
+                    <div class="gmib_legend">Слабая геомагнитная буря</div>
+                    <div class="gmib_bg gm-3"></div>
+                </div>
+            </div>
+            </div>
+</div><!-- {"CPage":"\/ssi\/shared\/widgetGeomagnetic\/ru\/4218\/","DateTime":"2016-03-03 17:38:43","DateTimeLive":"2016-03-03 20:59:43"} --><div class="astronomy_frame  __frame">
+    <h3>Солнце и Луна сегодня, 3 марта</h3>
+    <div class="astronomy_blocks clearfix">
+        <div class="astronomy_block _sun">
+                            <div class="info clearfix">
+                    <div class="ii info_icon">
+                        <svg viewBox="0 0 55 38" xmlns="http://www.w3.org/2000/svg"><g fill="none"><path d="M28.367 7.787a11.205 11.205 0 0 0-2.505.085c-5.105.754-9.1 5.035-9.497 10.178-.477 6.135 4.126 11.517 10.265 11.998.838.064 1.68.035 2.505-.086 5.103-.754 9.097-5.035 9.49-10.18a11.072 11.072 0 0 0-2.64-8.123 11.084 11.084 0 0 0-7.618-3.873zm5.604 22.097l-.27.16a12.578 12.578 0 0 1-3.477 1.33l4.966 4.947-.322-7.01-.212.136c-.223.154-.452.3-.685.438zm-7.464 1.754a12.755 12.755 0 0 1-2.88-.576l1.823 6.774 3.237-6.235c-.723.07-1.453.095-2.18.038zm-8.43-4.145l-1.815 6.782 5.92-3.777a12.782 12.782 0 0 1-4.105-3.005zm-3.04-5.843l-4.945 4.955 7.002-.32a12.73 12.73 0 0 1-2.056-4.635zm-.262-3.724c.077-.994.28-1.956.58-2.88l-6.77 1.824 6.22 3.227a12.46 12.46 0 0 1-.03-2.17zm2.412-6.47l.085-.12c.228-.303.466-.596.717-.88l.067-.076c.28-.308.567-.606.873-.885L12.14 7.683l3.778 5.912c.353-.756.78-1.47 1.268-2.14zm3.845-3.51l.267-.157a12.616 12.616 0 0 1 3.48-1.33L19.81 1.51l.322 7.01.202-.128c.227-.156.46-.304.697-.446zm7.46-1.75c.993.077 1.955.28 2.883.572L29.547 0l-3.235 6.232a12.76 12.76 0 0 1 2.177-.035zm4.34 1.135a12.7 12.7 0 0 1 4.093 3l1.814-6.773L32.83 7.33zm5.082 4.214a12.636 12.636 0 0 1 2.056 4.632l4.94-4.953-6.996.32zm2.283 6.186c.065.716.08 1.442.024 2.174a12.44 12.44 0 0 1-.58 2.885l6.778-1.833-6.223-3.227zm-4.127 10.606l6.795 1.81-3.79-5.922a12.738 12.738 0 0 1-3.005 4.112z" fill="#FFCE00"/></g></svg>
+                    </div>
+                                                            <div class="ii info_detail">
+                        <div class="id_item title">Долгота дня &mdash; 11 ч 1 мин.</div>
+                        <div class="id_item">Восход &mdash; 7:40</div>
+                        <div class="id_item">Заход &mdash; 18:41</div>
+                    </div>
+                </div>
+                                <div class="divider">
+                    <div class="fill" id="sunrise" data-diff="" data-length="661"
+                         data-sunrise="2016-03-03 07:40" data-color="255,206,0"><span class="circle"></span>
+                    </div>
+                </div>
+                <div class="description">
+                                                                                                            <span class="txt">Завтра день на 4 минуты длиннее, чем сегодня</span>
+                                    </div>
+                    </div>
+        <div class="astronomy_block _moon">
+            <div class="info clearfix">
+                <div class="ii info_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" enable-background="new 0 0 100 100"><path fill="#7597B5" d="M50.02 0c.29 0 .58.213.87.42C48.384 2.557 37.5 12.693 37.5 50c0 37.696 10.857 47.448 13.35 49.584-.29.206-.58.417-.87.417C22.367 100-.015 77.61 0 50v-.04C.014 22.358 22.406 0 50.02 0z"/></svg>
+                </div>
+                <div class="ii info_detail">
+                    <div class="id_item title">
+                        Луна стареющая, 33%                    </div>
+                                                                        <div class="id_item">Заход &mdash; 13:12</div>
+                            <div class="id_item">Восход &mdash; 4:38</div>
+                                                            </div>
+            </div>
+            <div class="divider"></div>
+            <div class="description">
+                                <span class="small_icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" enable-background="new 0 0 100 100"><circle fill="#7597B5" cx="50" cy="50" r="50"/></svg>
+				</span>
+                <span class="txt">Полнолуние &mdash; 23 марта, через 20 дней</span>
+            </div>
+        </div>
+    </div>
+</div><!-- {"CPage":"\/ssi\/shared\/widgetAstro\/ru\/4218\/1\/","DateTime":"2016-03-03 14:59:27","DateTimeLive":"2016-03-03 20:59:27"} --><!-- Media and Map frame --><div class="media_with_map __frame clearfix"><h3><a href="/maps/" class="link blue">Погодные карты</a></h3><div class="maps_frame"><div class="maps"><div class="map"><div class="img"><a href="/maps/558/" class="nolink"><img src="//nby05.gismeteo.by/images/maps/ru/preview/preview.558.2.13.1.jpg" width="100" height="64"></a></div><div class="title"><a href="/maps/558/" class="link black">Осадки в&nbsp;Европе</a></div></div><div class="map"><div class="img"><a href="/maps/612/" class="nolink"><img src="//nby09.gismeteo.by/images/maps/ru/preview/preview.612.4.19.1.jpg" width="100" height="64"></a></div><div class="title"><a href="/maps/612/" class="link black">Температура воздуха в&nbsp;Беларуси</a></div></div><div class="map"><div class="img"><a href="/maps/613/" class="nolink"><img src="//nby04.gismeteo.by/images/maps/ru/preview/preview.613.3.19.1.jpg" width="100" height="64"></a></div><div class="title"><a href="/maps/613/" class="link black">Облачность и фронты в&nbsp;Беларуси</a></div></div><div class="map"><div class="img"><a href="/maps/614/" class="nolink"><img src="//nby05.gismeteo.by/images/maps/ru/preview/preview.614.2.19.1.jpg" width="100" height="64"></a></div><div class="title"><a href="/maps/614/" class="link black">Осадки в&nbsp;Беларуси</a></div></div></div></div></div><!-- {"CPage":"\/ssi\/mapSelector\/","DateTime":"2016-03-03 15:55:25","DateTimeLive":"2016-03-03 21:55:25"} --><!-- End Media and Map frame --><!-- City frame --><noscript id="noscript"><a href="/weather-baranovichi-4263/" class="locations_nos" data-id="4263" data-name="Барановичи" data-nameP="в Барановичах" data-countrycapital="" data-url="/weather-baranovichi-4263/" alt="Погода в Барановичах" title="Погода в Барановичах">Погода в Барановичах</a>,
+    		<a href="/weather-bobruysk-4064/" class="locations_nos" data-id="4064" data-name="Бобруйск" data-nameP="в Бобруйске" data-countrycapital="" data-url="/weather-bobruysk-4064/" alt="Погода в Бобруйске" title="Погода в Бобруйске">Погода в Бобруйске</a>,
+    		<a href="/weather-borisov-4235/" class="locations_nos" data-id="4235" data-name="Борисов" data-nameP="в Борисове" data-countrycapital="" data-url="/weather-borisov-4235/" alt="Погода в Борисове" title="Погода в Борисове">Погода в Борисове</a>,
+    		<a href="/weather-braslav-11813/" class="locations_nos" data-id="11813" data-name="Браслав" data-nameP="в Браславе" data-countrycapital="" data-url="/weather-braslav-11813/" alt="Погода в Браславе" title="Погода в Браславе">Погода в Браславе</a>,
+    		<a href="/weather-brest-4912/" class="locations_nos" data-id="4912" data-name="Брест" data-nameP="в Бресте" data-countrycapital="" data-url="/weather-brest-4912/" alt="Погода в Бресте" title="Погода в Бресте">Погода в Бресте</a>,
+    		<a href="/weather-gomel-4918/" class="locations_nos" data-id="4918" data-name="Гомель" data-nameP="в Гомеле" data-countrycapital="" data-url="/weather-gomel-4918/" alt="Погода в Гомеле" title="Погода в Гомеле">Погода в Гомеле</a>,
+    		<a href="/weather-grodno-4243/" class="locations_nos" data-id="4243" data-name="Гродно" data-nameP="в Гродно" data-countrycapital="" data-url="/weather-grodno-4243/" alt="Погода в Гродно" title="Погода в Гродно">Погода в Гродно</a>,
+    		<a href="/weather-zhlobin-4267/" class="locations_nos" data-id="4267" data-name="Жлобин" data-nameP="в Жлобине" data-countrycapital="" data-url="/weather-zhlobin-4267/" alt="Погода в Жлобине" title="Погода в Жлобине">Погода в Жлобине</a>,
+    		<a href="/weather-zhodino-11949/" class="locations_nos" data-id="11949" data-name="Жодино" data-nameP="в Жодино" data-countrycapital="" data-url="/weather-zhodino-11949/" alt="Погода в Жодино" title="Погода в Жодино">Погода в Жодино</a>,
+    		<a href="/weather-lida-4244/" class="locations_nos" data-id="4244" data-name="Лида" data-nameP="в Лиде" data-countrycapital="" data-url="/weather-lida-4244/" alt="Погода в Лиде" title="Погода в Лиде">Погода в Лиде</a>,
+    		<a href="/weather-luninets-11820/" class="locations_nos" data-id="11820" data-name="Лунинец" data-nameP="в Лунинце" data-countrycapital="" data-url="/weather-luninets-11820/" alt="Погода в Лунинце" title="Погода в Лунинце">Погода в Лунинце</a>,
+    		<a href="/weather-minsk-4248/" class="locations_nos" data-id="4248" data-name="Минск" data-nameP="в Минске" data-countrycapital="" data-url="/weather-minsk-4248/" alt="Погода в Минске" title="Погода в Минске">Погода в Минске</a>,
+    		<a href="/weather-mogilev-4251/" class="locations_nos" data-id="4251" data-name="Могилёв" data-nameP="в Могилёве" data-countrycapital="" data-url="/weather-mogilev-4251/" alt="Погода в Могилёве" title="Погода в Могилёве">Погода в Могилёве</a>,
+    		<a href="/weather-mozyr-4916/" class="locations_nos" data-id="4916" data-name="Мозырь" data-nameP="в Мозыре" data-countrycapital="" data-url="/weather-mozyr-4916/" alt="Погода в Мозыре" title="Погода в Мозыре">Погода в Мозыре</a>,
+    		<a href="/weather-molodechno-11818/" class="locations_nos" data-id="11818" data-name="Молодечно" data-nameP="в Молодечно" data-countrycapital="" data-url="/weather-molodechno-11818/" alt="Погода в Молодечно" title="Погода в Молодечно">Погода в Молодечно</a>,
+    		<a href="/weather-novogrudok-4246/" class="locations_nos" data-id="4246" data-name="Новогрудок" data-nameP="в Новогрудке" data-countrycapital="" data-url="/weather-novogrudok-4246/" alt="Погода в Новогрудке" title="Погода в Новогрудке">Погода в Новогрудке</a>,
+    		<a href="/weather-novopolock-11026/" class="locations_nos" data-id="11026" data-name="Новополоцк" data-nameP="в Новополоцке" data-countrycapital="" data-url="/weather-novopolock-11026/" alt="Погода в Новополоцке" title="Погода в Новополоцке">Погода в Новополоцке</a>,
+    		<a href="/weather-orsha-4236/" class="locations_nos" data-id="4236" data-name="Орша" data-nameP="в Орше" data-countrycapital="" data-url="/weather-orsha-4236/" alt="Погода в Орше" title="Погода в Орше">Погода в Орше</a>,
+    		<a href="/weather-pinsk-4914/" class="locations_nos" data-id="4914" data-name="Пинск" data-nameP="в Пинске" data-countrycapital="" data-url="/weather-pinsk-4914/" alt="Погода в Пинске" title="Погода в Пинске">Погода в Пинске</a>,
+    		<a href="/weather-polock-4215/" class="locations_nos" data-id="4215" data-name="Полоцк" data-nameP="в Полоцке" data-countrycapital="" data-url="/weather-polock-4215/" alt="Погода в Полоцке" title="Погода в Полоцке">Погода в Полоцке</a>,
+    		<a href="/weather-pruzhanyi-4261/" class="locations_nos" data-id="4261" data-name="Пружаны" data-nameP="в Пружанах" data-countrycapital="" data-url="/weather-pruzhanyi-4261/" alt="Погода в Пружанах" title="Погода в Пружанах">Погода в Пружанах</a>,
+    		<a href="/weather-rechica-11808/" class="locations_nos" data-id="11808" data-name="Речица" data-nameP="в Речице" data-countrycapital="" data-url="/weather-rechica-11808/" alt="Погода в Речице" title="Погода в Речице">Погода в Речице</a>,
+    		<a href="/weather-svetlogorsk-11807/" class="locations_nos" data-id="11807" data-name="Светлогорск" data-nameP="в Светлогорске" data-countrycapital="" data-url="/weather-svetlogorsk-11807/" alt="Погода в Светлогорске" title="Погода в Светлогорске">Погода в Светлогорске</a>,
+    		<a href="/weather-soligorsk-11817/" class="locations_nos" data-id="11817" data-name="Солигорск" data-nameP="в Солигорске" data-countrycapital="" data-url="/weather-soligorsk-11817/" alt="Погода в Солигорске" title="Погода в Солигорске">Погода в Солигорске</a>,
+    </noscript><div class="nc_frame __frame"><h2><a href="/catalog/belarus/" class="link blue">Погода в Беларуси</a></h2><div class="cities cities_frame inside clearfix js_cities_pcities"></div></div><!-- End City frame --></div>                                            <div class="right_col_1">
+			<div class="wrap_small">
+            <div class="weather_now blockIt">
+        <div class="wn_header">
+        В Витебске <span id="time"><time id="js_timestamp" data-format="G:i">20:43</time>, <span class="gray">чт,  3 мар</span></span>
+    </div>
+            <div class="wn_body">
+        <div class="info_item clearfix">
+            <div class="ii _ic">
+                <div class="icon tooltip" data-icon='c4'>
+                    <div class="img">
+                        <svg viewBox="0 0 55 36" xmlns="http://www.w3.org/2000/svg"><g fill="none"><path d="M0-2h55v55H0z"/><path d="M43.213 22.852l-.9-.414-.073-.99c-.236-3.182-2.924-5.676-6.12-5.676-.565 0-1.136.08-1.7.238l-.986.276-.697-.75a8.222 8.222 0 0 0-6.004-2.615c-3.888 0-7.268 2.772-8.033 6.59l-.178.895-.85.338c-2.865 1.135-4.79 3.964-4.79 7.04 0 4.176 3.4 7.576 7.577 7.576h20.027c3.61 0 6.545-2.94 6.545-6.555a6.575 6.575 0 0 0-3.82-5.953zm-1.12-11.886c-.277-5.932-5.16-10.66-11.16-10.66-3.708 0-6.984 1.812-9.02 4.59a11.163 11.163 0 0 1 4.303 2.21 8.13 8.13 0 0 1 2.806-.488c1.304 0 2.645.3 3.878.868 2.826 1.306 4.756 3.826 5.038 6.58l.04.392c3.15.794 5.58 3.516 5.83 6.875l.005.064.06.027c2.706 1.247 4.49 3.892 4.69 6.833a10.786 10.786 0 0 0 2.29-6.647c-.002-5.275-3.77-9.667-8.76-10.644zM11.312 27.783c0-3.714 2.324-7.13 5.783-8.5l.055-.022.012-.057c.91-4.55 4.937-7.852 9.574-7.852a9.8 9.8 0 0 1 7.154 3.116l.046.05.064-.018a7.892 7.892 0 0 1 2.123-.296l.255.025c-.215-2.108-1.736-4.207-4.133-5.314-2.222-1.025-4.602-.92-6.33.056l-.39-.39C22.757 6.1 18.656 5.246 15.07 7.182c-2.45 1.32-4.07 3.787-4.617 6.514l-.107.536-.07.085-.534.21c-2.956 1.174-5.216 3.812-5.538 6.977-.467 4.57 2.802 8.487 7.12 9.08h.43a9.08 9.08 0 0 1-.443-2.8z" fill="#D5DCE2"/></g></svg>
+                    </div>
+                                            <span class="tip _top _center">Пасмурно</span>
+                                    </div>
+            </div>
+            <div class="ii _temp">
+                <div class="js_meas_container temperature" data-value="0" data-type='temperature'>
+                    <span class="value js_value val_to_convert">0<sup>&deg;C</sup></span>
+                </div>
+            </div>
+        </div>
+        <div class="information _attention">
+            <div class="info_item clearfix">
+                <div class="ii info_label">По ощущению&nbsp;<i class="fa fa-help tooltip"><span class="tip _top _center">Температура, которую ощущает человек, одетый по сезону.<br/>Зависит от влажности и скорости ветра.</span><svg viewBox="0 0 13 13"><g fill="none"><circle fill="#D8D8D8" cx="6.5" cy="6.5" r="6.5"/><path d="M6.111 8.937v1.063h1.063v-1.063h-1.063zm-1.561-3.639h.814c0-.223.026-.431.077-.622.051-.192.132-.358.244-.498.112-.14.251-.252.417-.335.166-.083.364-.124.594-.124.345 0 .618.099.819.297.201.198.314.472.34.824.013.236-.016.437-.086.603-.07.166-.164.318-.282.455-.118.137-.246.268-.383.393-.137.124-.268.26-.393.407-.124.147-.23.314-.316.503-.086.188-.136.417-.148.685v.45h.814v-.373c0-.166.024-.314.072-.445.048-.131.112-.252.192-.364.08-.112.169-.217.268-.316l.302-.292.302-.316c.099-.109.187-.227.263-.354.077-.128.139-.27.187-.426.048-.156.072-.334.072-.531 0-.306-.049-.578-.148-.814-.099-.236-.238-.436-.417-.598-.179-.163-.391-.287-.637-.373-.246-.086-.519-.129-.819-.129-.332 0-.632.057-.9.172-.268.115-.495.276-.68.484-.185.207-.327.452-.426.733-.099.281-.145.584-.139.91l-.003-.006z" fill="#fff"/></g></svg></i></div>
+                <div class="ii info_value">
+                    <span class="value">
+                                                    0
+                                            </span>
+                </div>
+            </div>
+        </div>
+        <div class="information _additional">
+            <div class="info_item clearfix">
+                <div class="ii info_label">Ветер</div>
+                <div class="ii info_value"><span class="value">1</span> м/с, СВ</div>
+            </div>
+            <div class="info_item clearfix">
+                <div class="ii info_label">Давление</div>
+                <div class="ii info_value"><span class="value">743</span> мм рт. ст.
+                </div>
+            </div>
+            <div class="info_item clearfix">
+                <div class="ii info_label">Влажность</div>
+                <div class="ii info_value"><span class="value">71</span>&nbsp;%</div>
+            </div>
+            <div class="info_item clearfix">
+                <div class="ii info_label">
+                                            <a href="/weather-vitebsk-4218/gm/" class="link blue no_border">Геомагнитное поле</a>
+                                    </div>
+                <div class="ii info_value">
+                    <span class="value">2</span> балла
+                </div>
+            </div>
+            <div class="info_item clearfix">
+                <div class="ii info_label">Температура воды</div>
+                <div class="ii info_value"><span class="value">+3</span></div>
+            </div>
+            <div class="wn_time">
+                <div class="gray">По данным на 18:00 по местному времени</div>
+            </div>
+        </div>
+    </div>
+                <div class="wn_footer colorIt _hover">
+            <div id="collapse">
+                <i class="fa arrow-down-small"><svg width="17" height="11" viewBox="0 0 17 11" xmlns="http://www.w3.org/2000/svg"><path d="M15.999 1l-7.499 8.499-7.499-8.499" stroke="#fff" stroke-width="2" fill="none"/></svg></i>
+            </div>
+        </div>
+    </div><!-- {"CPage":"\/ssi\/shared\/weatherNow\/ru\/","DateTime":"2016-03-03 17:43:27","DateTimeLive":"2016-03-03 18:43:27"} -->
+		</div>
+				<div class="wrap_small __frame">
+	<div class="media_frame x400">
+		<div id="media-right" class="media_content">
+            <script type="text/javascript">
+if(ar_duo1 === undefined) {var ar_duo1 = Math.floor(Math.random()*3+1);}
+new adriver("media-right", {sid:129909,bt:52,pz:2,bn:ar_duo1,keyword:"main",custom:{"1":"cloud","2":0,"9":"1-3","110":screen.width,"111":screen.height}});
+</script>
+        </div>
+	</div>
+</div><div class="wrap_small __frame">
+	<div class="media_frame">
+		<div class="media_content">
+			<div class="media_feed">
+									<div class="media_logo">
+						<img src="//nby04.gismeteo.by/assets/flat-ui/img/tut_by.png" >
+					</div>
+					<div class="media_lines"></div>
+								<div class="media_content">
+											<div class="media_content_item">
+                                                            <a href="http://news.tut.by/society/487094.html?utm_campaign=out-traf&amp;utm_medium=block-news&amp;utm_source=gismeteo" rel="nofollow" target="_blank" class="img_link img">
+                                    <img src="//nby03.gismeteo.by/images/rss/news_tut_by_zamiestitiel_ghiendiriektora_borisovdrieva_zadierzhan_po_podozrien.jpg"  border="0" alt="" title=""  width="70px">
+                                </a><span class="text"><a href="http://news.tut.by/society/487094.html?utm_campaign=out-traf&amp;utm_medium=block-news&amp;utm_source=gismeteo" rel="nofollow" class="link black no_border" target="_blank">Заместитель гендиректора &quot;Борисовдрева&quot; задержан по подозрен…</a></span>
+                            						</div>
+											<div class="media_content_item">
+                                                            <a href="http://news.tut.by/society/487140.html?utm_campaign=out-traf&amp;utm_medium=block-news&amp;utm_source=gismeteo" rel="nofollow" target="_blank" class="img_link img">
+                                    <img src="//nby02.gismeteo.by/images/rss/news_tut_by_sud_po_dielu_o_krupnieishiei_narkosieti_kto_v_nashie_vriemia_iezdit.jpg"  border="0" alt="" title=""  width="70px">
+                                </a><span class="text"><a href="http://news.tut.by/society/487140.html?utm_campaign=out-traf&amp;utm_medium=block-news&amp;utm_source=gismeteo" rel="nofollow" class="link black no_border" target="_blank">Суд по делу о крупнейшей наркосети: &quot;Кто в наше время ездит …</a></span>
+                            						</div>
+											<div class="media_content_item">
+                                                            <a href="http://news.tut.by/economics/487135.html?utm_campaign=out-traf&amp;utm_medium=block-news&amp;utm_source=gismeteo" rel="nofollow" target="_blank" class="img_link img">
+                                    <img src="//nby08.gismeteo.by/images/rss/news_tut_by_na_torghakh_3_marta_rubl_upal_k_korzinie_u_rossiiskogho_rublia.jpg"  border="0" alt="" title=""  width="70px">
+                                </a><span class="text"><a href="http://news.tut.by/economics/487135.html?utm_campaign=out-traf&amp;utm_medium=block-news&amp;utm_source=gismeteo" rel="nofollow" class="link black no_border" target="_blank">На торгах 3 марта рубль упал к корзине, у российского рубля …</a></span>
+                            						</div>
+											<div class="media_content_item">
+                                                            <a href="http://news.tut.by/society/487089.html?utm_campaign=out-traf&amp;utm_medium=block-news&amp;utm_source=gismeteo" rel="nofollow" target="_blank" class="img_link img">
+                                    <img src="//nby02.gismeteo.by/images/rss/news_tut_by_grozit_tiur_ma_kitaiets_pytaietsia_viernut_300_tysiach_dollarov.jpg"  border="0" alt="" title=""  width="70px">
+                                </a><span class="text"><a href="http://news.tut.by/society/487089.html?utm_campaign=out-traf&amp;utm_medium=block-news&amp;utm_source=gismeteo" rel="nofollow" class="link black no_border" target="_blank">&quot;Грозит тюрьма&quot;. Китаец пытается вернуть 300 тысяч долларов,…</a></span>
+                            						</div>
+											<div class="media_content_item">
+                                                            <a href="http://finance.tut.by/news487115.html?utm_campaign=out-traf&amp;utm_medium=block-news&amp;utm_source=gismeteo" rel="nofollow" target="_blank" class="img_link img">
+                                    <img src="//nby04.gismeteo.by/images/rss/news_tut_by_pravitiel_stvo_sobiraietsia_vviesti_bieznalichnyie_zhilishchnyie_subsidi.jpg"  border="0" alt="" title=""  width="70px">
+                                </a><span class="text"><a href="http://finance.tut.by/news487115.html?utm_campaign=out-traf&amp;utm_medium=block-news&amp;utm_source=gismeteo" rel="nofollow" class="link black no_border" target="_blank">Правительство собирается ввести безналичные жилищные субсиди…</a></span>
+                            						</div>
+											<div class="media_content_item">
+                                                            <a href="http://news.tut.by/economics/487062.html?utm_campaign=out-traf&amp;utm_medium=block-news&amp;utm_source=gismeteo" rel="nofollow" target="_blank" class="img_link img">
+                                    <img src="//nby05.gismeteo.by/images/rss/news_tut_by_nakoniets_prishlo_vriemia_dlia_nastoiashchiei_privatizatsii.jpg"  border="0" alt="" title=""  width="70px">
+                                </a><span class="text"><a href="http://news.tut.by/economics/487062.html?utm_campaign=out-traf&amp;utm_medium=block-news&amp;utm_source=gismeteo" rel="nofollow" class="link black no_border" target="_blank">Наконец пришло время для настоящей приватизации?</a></span>
+                            						</div>
+											<div class="media_content_item">
+                                                            <a href="http://42.tut.by/487098?utm_campaign=out-traf&amp;utm_medium=block-news&amp;utm_source=gismeteo" rel="nofollow" target="_blank" class="img_link img">
+                                    <img src="//nby07.gismeteo.by/images/rss/news_tut_by_naznachiena_novyi_ghiendiriektor_opieratora_life.jpg"  border="0" alt="" title=""  width="70px">
+                                </a><span class="text"><a href="http://42.tut.by/487098?utm_campaign=out-traf&amp;utm_medium=block-news&amp;utm_source=gismeteo" rel="nofollow" class="link black no_border" target="_blank">Назначена новый гендиректор оператора life:)</a></span>
+                            						</div>
+											<div class="media_content_item">
+                                                            <a href="http://sport.tut.by/news/aboutsport/486943.html?utm_campaign=out-traf&amp;utm_medium=block-news&amp;utm_source=gismeteo" rel="nofollow" target="_blank" class="img_link img">
+                                    <img src="//nby07.gismeteo.by/images/rss/news_tut_by_domrachieva_mirnyi_i_drughiie_sportsmieny_v_roli_ghlav_ministierst.jpg"  border="0" alt="" title=""  width="70px">
+                                </a><span class="text"><a href="http://sport.tut.by/news/aboutsport/486943.html?utm_campaign=out-traf&amp;utm_medium=block-news&amp;utm_source=gismeteo" rel="nofollow" class="link black no_border" target="_blank">Домрачева, Мирный и другие спортсмены в роли глав министерст…</a></span>
+                            						</div>
+											<div class="media_content_item">
+                                                            <a href="http://finance.tut.by/news487141.html?utm_campaign=out-traf&amp;utm_medium=block-news&amp;utm_source=gismeteo" rel="nofollow" target="_blank" class="img_link img">
+                                    <img src="//nby06.gismeteo.by/images/rss/news_tut_by_pochiemu_stoprotsientnoie_otoplieniie_podorozhalo_s_2010_ghoda_pocht.jpg"  border="0" alt="" title=""  width="70px">
+                                </a><span class="text"><a href="http://finance.tut.by/news487141.html?utm_campaign=out-traf&amp;utm_medium=block-news&amp;utm_source=gismeteo" rel="nofollow" class="link black no_border" target="_blank">Почему &quot;стопроцентное&quot; отопление подорожало с 2010 года почт…</a></span>
+                            						</div>
+											<div class="media_content_item">
+                                                            <a href="http://news.tut.by/culture/487146.html?utm_campaign=out-traf&amp;utm_medium=block-news&amp;utm_source=gismeteo" rel="nofollow" target="_blank" class="img_link img">
+                                    <img src="//nby05.gismeteo.by/images/rss/news_tut_by_minchanka_proizviela_furor_na_ukrainskom_shou_golos.jpg"  border="0" alt="" title=""  width="70px">
+                                </a><span class="text"><a href="http://news.tut.by/culture/487146.html?utm_campaign=out-traf&amp;utm_medium=block-news&amp;utm_source=gismeteo" rel="nofollow" class="link black no_border" target="_blank">Минчанка произвела фурор на украинском шоу &quot;Голос&quot;</a></span>
+                            						</div>
+									</div>
+			</div>
+		</div>
+	</div>
+</div><!-- {"CPage":"\/ssi\/bannerTopRight\/","DateTime":"2016-03-03 17:27:37","DateTimeLive":"2016-03-03 18:27:37"} -->
+	</div>                                    </div>
+                <div class="content_side _right">
+                                    </div>
+            </div>
+        </div>
+		<div class="footer-buffer"></div>
+	</section>
+	<!-- Footer -->
+	<footer class="footer">
+        <div class="divider lightgray"></div><div class="wrap center"><div class="footer_list"><div class="footer_item"><a href="/page/contacts/" class="link black"><span>О Гисметео</span></a></div>
+<div class="footer_item"><a href="/page/forweb/" class="link black"><span>Предоставление данных</span></a></div>
+<div class="footer_item"><a href="/page/adv/" class="link black"><span>Размещение рекламы</span></a></div>
+<div class="footer_item"><a href="/page/agreement/" class="link black"><span>Соглашение</span></a></div>
+<div class="footer_item"><a href="/sitemap/" class="link black"><span>Карта сайта</span></a></div><!-- {"CPage":"\/ssi\/footerLinks\/ru\/","DateTime":"2016-03-03 17:42:38","DateTimeLive":"2016-03-03 20:42:38"} --><div class="footer_item"><a href="javascript:void(0);" id="go-to-old" class="link black"><span>Старый сайт</span></a></div><div class="footer_item feedback"><span class="dotted with_inline orange" id="ue-btn"><i class="fa fa-feedback"></i><span>Оставить отзыв</span></span></div></div><div class="footer_text"><a href="/" class="nolink gray">Погода</a> в Витебске на сегодня предоставлена исключительно для личного некоммерческого использования.</br>Прогноз погоды в Витебске на сегодня подготовлен НПЦ «Мэп Мейкер».
+	    
+    </div><div class="footer_crosslinks"><div class="footer_item"><a href="https://www.gismeteo.pl/" target="_blank" class="nolink"><img src="//nby09.gismeteo.by/assets/flat-ui/img/footers/footer-7.svg?374f595d52c66c9d48ec49ecc8cf7ddb"></a></div><div class="footer_item"><a href="https://www.gismeteo.ru/" target="_blank" class="nolink"><img src="//nby02.gismeteo.by/assets/flat-ui/img/footers/footer-5.svg?42d5eb0502b6a172a43484138d187eed"></a></div><div class="footer_item"><a href="https://www.gismeteo.ua/" target="_blank" class="nolink"><img src="//nby03.gismeteo.by/assets/flat-ui/img/footers/footer-6.svg?028c8a45776473f14755aadc89070179"></a></div><div class="footer_item"><a href="https://www.gismeteo.lt/" target="_blank" class="nolink"><img src="//nby09.gismeteo.by/assets/flat-ui/img/footers/footer-1.svg?4f2e8af90aac07520c300da10a894353"></a></div><div class="footer_item"><a href="https://www.gismeteo.lv/" target="_blank" class="nolink"><img src="//nby01.gismeteo.by/assets/flat-ui/img/footers/footer-0.svg?cc058cc541cd17e152e8e6d18b260f4f"></a></div><div class="footer_item"><a href="https://www.gismeteo.md/" target="_blank" class="nolink"><img src="//nby09.gismeteo.by/assets/flat-ui/img/footers/footer-2.svg?09569145ade0a50eceb5facf7a8a8e82"></a></div><div class="footer_item"><a href="https://www.gismeteo.kz/" target="_blank" class="nolink"><img src="//nby05.gismeteo.by/assets/flat-ui/img/footers/footer-4.svg?5461bf9ce02285417d8ff216428d2ae5"></a></div></div><div class="footer_copy"><div class="gray">&copy; Gismeteo</div></div></div>    </footer>
+	<script type="text/javascript">
+		MG.Config.page 		= '1-day';
+		MG.Config.day 		= '1';
+
+		MG.Config.city 		= {"id":4218,"name":"\u0412\u0438\u0442\u0435\u0431\u0441\u043a","nameP":"\u0432 \u0412\u0438\u0442\u0435\u0431\u0441\u043a\u0435","url":"\/weather-vitebsk-4218\/","kind":"M","lat":55.19,"lng":30.21,"distance":null,"date":{"UTC":"2016-03-03 17:48:03","unix":1457027283,"local":"2016-03-03 20:48:03","offset":180},"district":{"name":"\u0412\u0438\u0442\u0435\u0431\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c","nameP":"\u0432 \u0412\u0438\u0442\u0435\u0431\u0441\u043a\u043e\u0439 \u043e\u0431\u043b\u0430\u0441\u0442\u0438","nameR":"\u0412\u0438\u0442\u0435\u0431\u0441\u043a\u043e\u0439 \u043e\u0431\u043b\u0430\u0441\u0442\u0438","id":343,"url":"\/catalog\/belarus\/vitebsk-region\/"},"subDistrict":[],"country":{"name":"\u0411\u0435\u043b\u0430\u0440\u0443\u0441\u044c","nameP":"\u0432 \u0411\u0435\u043b\u0430\u0440\u0443\u0441\u0438","nameR":"\u0411\u0435\u043b\u0430\u0440\u0443\u0441\u0438","id":19,"url":"\/catalog\/belarus\/"},"astro":[{"polar":false,"sunrise":{"previous":"2016-03-02 07:42","current":"2016-03-03 07:40","next":"2016-03-04 07:37"},"sunset":{"previous":"2016-03-02 18:39","current":"2016-03-03 18:41","next":"2016-03-04 18:43"},"date":{"local":"2016-03-03","unix":1456963200},"length":{"previous":657,"current":661,"next":666},"dit":0,"phases":{"median":36,"current":32},"moonset":{"current":"2016-03-03 12:17","next":"2016-03-04 13:12"},"moonrise":{"current":"2016-03-03 03:47","next":"2016-03-04 04:38"},"newmoon":{"current":{"datetime":{"unix":1457488559.5122,"date":"2016-03-09 04:55"}},"next":{"datetime":{"unix":1454942400.6928,"date":"2016-02-08 17:40"}}},"fullmoon":{"current":{"datetime":{"unix":1456165233.8611,"date":"2016-02-22 21:20"}},"next":{"datetime":{"unix":1458734498.341,"date":"2016-03-23 15:01"}}},"icon":13,"moonphase":{"isMoon":false,"label":"\u041b\u0443\u043d\u0430 \u0441\u0442\u0430\u0440\u0435\u044e\u0449\u0430\u044f"}}]};
+		MG.Config.lang      = 'ru'
+		MG.Config.domain    = 'by'
+		MG.Config.country 	= null;
+		MG.Config.staticServers = ["\/\/nby01.gismeteo.by","\/\/nby01.gismeteo.by","\/\/nby02.gismeteo.by","\/\/nby03.gismeteo.by","\/\/nby04.gismeteo.by","\/\/nby05.gismeteo.by","\/\/nby06.gismeteo.by","\/\/nby07.gismeteo.by","\/\/nby08.gismeteo.by","\/\/nby09.gismeteo.by"];
+	</script>
+
+	<script type="text/javascript" src="//nby08.gismeteo.by/assets/flat-ui/min/js/MG.Init.weather.min.js?ac1e6d0c43806eccd222cf75d2eb2717" defer></script>
+<!-- Counters -->
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var pp_gemius_identifier = 'bPCbu0eeLNG8PgcuoR9FBaQPzds6SVux6ODNAuvifUj.e7';
+// lines below shouldn't be edited
+function gemius_pending(i) { window[i] = window[i] || function() {var x = window[i+'_pdata'] = window[i+'_pdata'] || []; x[x.length]=arguments;};};
+gemius_pending('gemius_hit'); gemius_pending('gemius_event'); gemius_pending('pp_gemius_hit'); gemius_pending('pp_gemius_event');
+(function(d,t) {try {var gt=d.createElement(t),s=d.getElementsByTagName(t)[0],l='http'+((location.protocol=='https:')?'s':''); gt.setAttribute('async','async');
+gt.setAttribute('defer','defer'); gt.src=l+'://gaby.hit.gemius.pl/xgemius.js'; s.parentNode.insertBefore(gt,s);} catch (e) {}})(document,'script');
+//--><!]]>
+</script>
+<!--LiveInternet counter-->
+<script type="text/javascript">new Image().src = "//counter.yadro.ru/hit?r" + escape(document.referrer) + ((typeof(screen)=="undefined")?"" : ";s"+screen.width+"*"+screen.height+"*" + (screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + ";u"+escape(document.URL) +  ";" +Math.random();</script>
+<!--/LiveInternet-->
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter35824995 = new Ya.Metrika({
+                    id:35824995,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    trackHash:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/35824995" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter --><!-- {"CPage":"\/ssi\/bannerCounters\/","DateTime":"2016-03-03 11:52:40","DateTimeLive":"2016-03-06 11:52:40"} -->
+<!-- End Counters -->
+<!-- User Echo -->
+<script>
+       var _ues = {
+           host:'gismeteo.userecho.com',
+           forum:'41799',
+           lang:'ru',
+           tab_show:false
+       };
+</script><!-- {"CPage":"\/ssi\/bannerUserEcho\/","DateTime":"2016-03-03 11:52:40","DateTimeLive":"2016-03-06 11:52:40"} -->
+<!-- End User Echo -->
+<!-- templates -->
+<script id="favoritesTemplate" type="text/x-underscore">
+    <% if(total != 0){ %>
+    <%
+        var page = MG.Helper.getPath();
+        _.forEach(_.sortBy(items, 'name'), function(item,i){
+            var weatherBorder = MG.Helper.color(Math.round(item.cw.temperature.air), 1);
+            var weatherBg = MG.Helper.color(Math.round(item.cw.temperature.air), MG.Config.bgTempOpacity);
+            var labelValue = $('.mylocations').hasClass('edit') ? item.id : '';
+            var url = MG.Config.page === 'map' ? item.url.replace('weather','nowcast') : item.url;
+        %>
+        <a href="<%= url %><%= page %>" class="mylocations_item black nolink no_border js-myloc-uid" data-uid="<%= item.id %>" data-timezone="<%= item.city ? item.city.date.offset : ''%>">
+            <label class="mylocations_select_label" for="id-<%= labelValue %>" data-id="<%= item.id %>">
+                <div class="mylocations_section mylocations_select">
+                    <input type="checkbox" class="mylocations_checkbox" data-id="<%= item.id %>" id="id-<%= item.id %>">
+                </div>
+                <div class="mylocations_section mylocations_img">
+                    <img src="/assets/flat-ui/img/icons/weather/flat/svg/<%= item.cw.icon %>.svg" class="mylocations_icon js-myloc-img">
+                </div>
+                <div class="mylocations_section mylocations_place">
+                    <div class="mylocations_name"><%= item.name %></div>
+                    <div class="mylocations_geo gray js-myloc-geo"><%= item.city ? item.city.str : '' %></div>
+                    <div class="mylocations_time gray js-myloc-time">&nbsp;</div>
+                </div>
+                <div class="mylocations_section mylocations_weather">
+                    <span class="mylocations_degrees" style="border-bottom:1px solid <%= weatherBorder %>; background-color: <%= weatherBg %>">
+                        <span class="mylocations_degrees_val js-myloc-temp"><%= pureTemp(Math.round(item.cw.temperature.air)) %></span>
+                    </span>
+                </div>
+            </label>
+        </a>
+    <% }); %>
+    <div class="mylocations_block">
+        <div class="mylocations_btn _edit" id="fav_edit">
+            <span class="mylocations_btn_txt blue">Изменить</span>
+        </div>
+        <div class="mylocations_btn __disabled _del" id="fav_del">
+            <span class="mylocations_btn_txt weekend">Удалить</span>
+        </div>
+        <div class="mylocations_btn _ok" id="fav_ok">
+            <span class="mylocations_btn_txt blue">Готово</span>
+        </div>
+    </div>
+<% } %>
+<% if(!isCurrent && MG.Config.page !== 'countries' && MG.Config.page !== 'map'){%>
+<div class="mylocations_block">
+    <div class="mylocations_btn _add" id="add_current">
+        <span class="mylocations_name blue">Добавить текущий пункт</span>
+    </div>
+</div>
+<%}%>
+
+</script>
+
+<script id="js_cities_fcities_template" type="text/x-underscore">
+    <div class="cities_title_block bold">
+    <span class="cities_title">
+        <%= items.header.title %>
+    </span>
+</div>
+<div class="cities_list column_size_3">
+    <% _.forEach(items, function(item, i){%>
+        <% if(item.title === undefined) {%>
+            <%_.forEach(_.sortBy(item, 'name'), function(it){ %>
+                <div class="cities_item js-myloc-uid-<%= it.id %>">
+                    <a href="<%= it.url %>" class="link no_border blue cities_link <% if(it.isCountryCapital){%>bold<%}%>">
+                        <span class="cities_degrees nolink black js-myloc-temp" style="background-color: <%= color(it.cw.temperature.air, MG.Config.bgTempOpacity) %>">
+                            <%= pureTemp(it.cw.temperature.air) %>
+                        </span>
+                        <span class="fa cities_icon">
+                            <img src="/assets/flat-ui/img/icons/weather/flat/svg/<%= it.cw.icon %>.svg" class="js-myloc-img cities_img"/>
+                        </span>
+                        <span class="cities_name"><%= it.name %></span>
+                    </a>
+                </div>
+            <%})%>
+        <%}%>
+    <%})%>
+</div>
+</script>
+<script id="js_cities_lcities_template" type="text/x-underscore">
+    <% if(items.header.title !== null) {%>
+    <div class="cities_title_block clearfix">
+        <span class="cities_title bold"><%= items.header.title %></span>
+        <span class="cities_clear link gray js_remove_lvcities float_right">Очистить</span>
+    </div>
+<%}%>
+<div class="cities_list">
+    <% _.forEach(items, function(item, i){%>
+        <% if(item.title === undefined) {%>
+            <%_.forEach(_.sortBy(item, 'name'), function(it){ %>
+                <div class="cities_item js-myloc-uid-<%= it.id %>">
+                    <a href="<%= it.url %>" class="link no_border blue cities_link <% if(it.isCountryCapital){%>bold<%}%>">
+                        <span class="cities_name"><%= it.name %></span>
+                    </a>
+                </div>
+            <%})%>
+        <%}%>
+    <%})%>
+</div>
+</script>
+<script id="js_cities_pcities_template" type="text/x-underscore">
+    <% var page = MG.Helper.getPath(); %>
+<% if(items.header.title !== null) {%>
+<div class="cities_title_block bold">
+    <span class="cities_title">
+        <%= items.header.title %>
+    </span>
+</div>
+<% } %>
+<div class="cities_list">
+    <% _.forEach(items, function(item, i){%>
+        <% if(item.title === undefined) {%>
+            <%_.forEach(item, function(it){%>
+                <div class="cities_item">
+                    <% var url = MG.Config.page === 'map' ? it.url.replace('weather','nowcast') : it.url; %>
+                    <a href="<%= url %><%= page %>" class="link no_border blue cities_link <% if(it.isCountryCapital){%>bold<%}%>">
+                        <span class="cities_name"><%= it.name %></span>
+                    </a>
+                </div>
+            <%})%>
+        <%}%>
+    <%})%>
+</div>
+
+
+</script>
+
+<script id="searchTemplate" type="text/x-underscore">
+	<% function renderItemLine(item, iterator, path){ %>
+    <% var url = MG.Config.page === 'map' ? item.url.replace('weather','nowcast') : item.url; %>
+    <li>
+        <a href="<%= url %><%= path %>" class="nolink black found_link js-li js-a" data-index="<%= iterator %>" data-type="city">
+            <i class="fa flags flag-<% if(item.countryCode){%><%= item.countryCode.toLowerCase()%><%}else{%>empty<%}%>"></i>
+            <span class="black found_city"><% if(item.type === 'airport'){%>
+                    <i class="found_airport">
+                        <svg viewBox="0 0 52 48"><path d="M31 21l-17-20.983h-4.686l10.686 20.983h-13l-5-9h-2l3 12-3 12h2l5-9h13l-10.686 20.983h4.686l17-20.983h17c2.151 0 4-.846 4-3 0-2.151-1.849-3-4-3h-17z"/></svg>
+                    </i>
+                <%}%><%= item.name %></span>
+            <span class="gray found_location">
+                <% if(item.subDistrictName) {%><%= item.subDistrictName%>,&nbsp;<%}%><% if(item.districtName) {%><%= item.districtName%>,&nbsp;<%}%><%= item.countryName%>
+            </span>
+        </a>
+    </li>
+<%}%>
+<% function renderMoreLine(iterator, search){%>
+    <li>
+        <a href="/search/<%= search %>/" class="js-li js-a nolink blue found_link found_all" data-index="<%= iterator %>" data-type="more">
+            Найти все пункты
+        </a>
+    </li>
+<%}%>
+<% if(lastViewedCities.total){
+    var iterator = 0;
+    _.forEach(lastViewedCities.items, function(item, i){
+        renderItemLine(item, iterator, path);
+        iterator++;
+    });
+}%>
+<% if(searchedCities.items.length){
+    var iterator = 0;
+    _.forEach(searchedCities.items, function(item, i){
+        renderItemLine(item, iterator, path);
+        iterator++;
+    });
+    if(searchedCities.more){
+        renderMoreLine(iterator, searchedCities.search);
+    }
+} %>
+
+<% if(searchedCities.error || (searchedCities.items.length == 0 && searchedCities.search.length >= searchedCities.minChars)){%>
+    <li class="found_link found_empty">
+        <span class="found_text bold">По вашему запросу ничего не найдено</span>
+    </li>
+<% } %>
+</script>
+</body>
+</html><!-- {"CPage":"\/weather-vitebsk-4218\/","DateTime":"2016-03-03 13:58:11","DateTimeLive":"2016-03-03 20:59:11"} -->

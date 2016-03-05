@@ -519,7 +519,7 @@ Config::LoadConfig(){
 /* Temporary hack for gismeteo.ru  remove it after version 1.2 */
             if  (source_name=="gismeteo.ru" && (forecastURL.indexOf("weather",0) != -1)){
                 QString new_url;
-                new_url = "weather-" + station_name.toLower(); + "-" + station_id;
+                new_url = "weather-" + station_name.toLower() + "-" + station_id;
                 std::cerr<<"Replaced Gismeteo.ru URL "<< forecastURL.toStdString()<<std::endl;
                 forecastURL.replace("/city/weekly/", "/");
                 forecastURL.replace(station_id, new_url);
@@ -529,6 +529,7 @@ Config::LoadConfig(){
                     detailURL.replace("city/hourly/","");
                     detailURL.replace(station_id, new_url);
                     detailURL.append("hourly/");
+                   std::cerr<<"New Gismeteo DetailURl new "<< detailURL.toStdString()<<std::endl;
                 }
                 cookie="old=1";
             }

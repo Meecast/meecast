@@ -19,6 +19,10 @@ all_rows = cu.fetchall()
 
 # Main cicle
 for row in all_rows:
-    print row[0],row[1] 
+    station_name = row[1].replace(" ","-");
+    station_name = station_name.replace("'","")
+    station_name = station_name.lower()
+    result =  station_name + '-' + row[0]
+    print result
 
 c.close()

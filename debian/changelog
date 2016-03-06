@@ -1,7 +1,7 @@
 meecast (1.1.10) unstable; urgency=low
 
   * Added string for translation
-  * Fixed problem with gisemteo.ru source`
+  * Fixed problem with gisemteo.ru source
   * Updated Russian, Catalan, Germany, Serbian, Swedish,
     Spanish, Russian, Danish, Norwegian, Dutch, Slovenian,
     Czech tarnslations

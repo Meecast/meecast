@@ -4,16 +4,16 @@
 #
 # Translators:
 # Agustí Clara <agusti.clara@gmail.com>, 2012
-# Agustí Clara <agusti.clara@gmail.com>, 2013-2015
+# Agustí Clara <agusti.clara@gmail.com>, 2013-2016
 # mjoan <mercifuljoan@hotmail.com>, 2016
 # Vlad Vas <vasvlad@gmail.com>, 2012,2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-16 07:36+0200\n"
-"PO-Revision-Date: 2016-02-09 08:09+0000\n"
-"Last-Translator: mjoan <mercifuljoan@hotmail.com>\n"
+"POT-Creation-Date: 2016-03-06 11:20+0300\n"
+"PO-Revision-Date: 2016-03-03 10:46+0000\n"
+"Last-Translator: Agustí Clara <agusti.clara@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/vasvlad/meecast/language/"
 "ca/)\n"
 "Language: ca\n"
@@ -1551,13 +1551,12 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
-#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2016"
 msgstr ""
 "MeeCast - client multiplataforma, personalitzable i de codi obert basat en "
-"el codi de OMWeather. Copyright (C) 2006-2015"
+"el codi de OMWeather. Copyright (C) 2006-2016"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"

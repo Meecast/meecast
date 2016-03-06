@@ -1,11 +1,12 @@
 meecast (1.1.10) unstable; urgency=low
 
   * Added string for translation
+  * Fixed problem with gisemteo.ru source`
   * Updated Russian, Catalan, Germany, Serbian, Swedish,
     Spanish, Russian, Danish, Norwegian, Dutch, Slovenian,
     Czech tarnslations
 
- -- Vlad Vasiliev <vlad@gas.by> Tue, 17 Nov 2015 10:01:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by> Tue, 05 Mar 2016 18:01:23 +0200
 
 meecast (1.1.9) unstable; urgency=low
 

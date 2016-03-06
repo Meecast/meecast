@@ -1442,7 +1442,7 @@ Eslovaco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Heavy Snow Shower</source>
-            <translation type="unfinished">Chubascos de nieve intensos</translation>
+            <translation>Chubascos de nieve intensos</translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
@@ -1850,7 +1850,7 @@ Eslovaco - Roman Moravčík</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
-            <translation type="unfinished">MeeCast - cliente de pronósticos del tiempo de código abierto, altamente personalizable y multiplataforma, basado en el código de OMWeather. Copyright (C) 2006, 2015</translation>
+            <translation>MeeCast - cliente de pronósticos del tiempo de código abierto, altamente personalizable y multiplataforma, basado en el código de OMWeather. Copyright (C) 2006-2016</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -3186,7 +3186,7 @@ Eslovaco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Snow Early</source>
-            <translation type="unfinished">Chubascos temprano</translation>
+            <translation>Nieve temprano</translation>
         </message>
         <message>
             <source>Snow Shower</source>

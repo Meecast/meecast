@@ -1852,7 +1852,7 @@ Català - Agustí Clara</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
-            <translation type="unfinished">MeeCast - client multiplataforma, personalitzable i de codi obert basat en el codi de OMWeather. Copyright (C) 2006-2015</translation>
+            <translation>MeeCast - client multiplataforma, personalitzable i de codi obert basat en el codi de OMWeather. Copyright (C) 2006-2016</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>

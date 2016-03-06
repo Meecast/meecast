@@ -1851,7 +1851,7 @@ Slovakiska - Roman Moravčík</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
-            <translation type="unfinished">MeeCast - Anpassningsbar väderprognosklient. Multiplattform och öppen källkod. Baserad på OMWeather-kod. Copyright (C) 2006-2015</translation>
+            <translation>MeeCast - Multiplattform, öppen källkods, väderprognosklient baserad på OMWeather-kod. Copyright (C) 2006-2016</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>

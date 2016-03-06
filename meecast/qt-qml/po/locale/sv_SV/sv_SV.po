@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-16 07:36+0200\n"
-"PO-Revision-Date: 2016-01-13 00:22+0000\n"
+"POT-Creation-Date: 2016-03-06 11:20+0300\n"
+"PO-Revision-Date: 2016-02-17 12:18+0000\n"
 "Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Language-Team: Swedish (http://www.transifex.com/vasvlad/meecast/language/"
 "sv/)\n"
@@ -1551,13 +1551,12 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
-#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2016"
 msgstr ""
-"MeeCast - Anpassningsbar väderprognosklient. Multiplattform och öppen "
-"källkod. Baserad på OMWeather-kod. Copyright (C) 2006-2015"
+"MeeCast - Multiplattform, öppen källkods, väderprognosklient baserad på "
+"OMWeather-kod. Copyright (C) 2006-2016"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"

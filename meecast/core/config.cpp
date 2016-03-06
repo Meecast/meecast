@@ -580,7 +580,7 @@ Config::LoadConfig(){
                 forecastURL.replace(station_id, new_url);
                 forecastURL.append("14-days/");
                 std::cerr<<"New Gismeteo ForecastURl new "<< forecastURL.toStdString()<<std::endl;
-                if (detailURL.indexOf("weather",0) != -1){
+                if (detailURL.indexOf("weather",0) == -1){
                     detailURL.replace("city/hourly/","");
                     detailURL.replace(station_id, new_url);
                     detailURL.append("hourly/");

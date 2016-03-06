@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Agustí Clara <agusti.clara@gmail.com>, 2013-2015
+# Agustí Clara <agusti.clara@gmail.com>, 2013-2016
 # Alejandro López <listas.apl@gmail.com>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-16 07:36+0200\n"
-"PO-Revision-Date: 2015-12-04 08:42+0000\n"
+"POT-Creation-Date: 2016-03-06 11:20+0300\n"
+"PO-Revision-Date: 2016-03-03 10:47+0000\n"
 "Last-Translator: Agustí Clara <agusti.clara@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/vasvlad/meecast/language/"
 "es/)\n"
@@ -1203,7 +1203,6 @@ msgid "Heavy Snow / Wind"
 msgstr "Nieve intensa / Viento"
 
 #: omweather/src/hash.data:104
-#, fuzzy
 msgid "Heavy Snow Shower"
 msgstr "Chubascos de nieve intensos"
 
@@ -1546,14 +1545,13 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
-#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2016"
 msgstr ""
 "MeeCast - cliente de pronósticos del tiempo de código abierto, altamente "
 "personalizable y multiplataforma, basado en el código de OMWeather. "
-"Copyright (C) 2006, 2015"
+"Copyright (C) 2006-2016"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -2616,9 +2614,8 @@ msgid "Snow / Wind"
 msgstr "Nieve / Viento"
 
 #: omweather/src/hash.data:304
-#, fuzzy
 msgid "Snow Early"
-msgstr "Chubascos temprano"
+msgstr "Nieve temprano"
 
 #: omweather/src/hash.data:308
 msgid "Snow Shower"

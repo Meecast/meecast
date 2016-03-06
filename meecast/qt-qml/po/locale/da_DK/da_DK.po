@@ -5,14 +5,14 @@
 # Translators:
 # Peter Jespersen <flywheel@illogical.dk>, 2015
 # Peter Jespersen <flywheel@illogical.dk>, 2015
-# Vlad Vas <vasvlad@gmail.com>, 2014
+# Vlad Vas <vasvlad@gmail.com>, 2014,2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-16 07:36+0200\n"
-"PO-Revision-Date: 2016-01-11 07:49+0000\n"
-"Last-Translator: Peter Jespersen <flywheel@illogical.dk>\n"
+"POT-Creation-Date: 2016-03-06 13:02+0300\n"
+"PO-Revision-Date: 2016-03-06 10:00+0000\n"
+"Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Danish (Denmark) (http://www.transifex.com/vasvlad/meecast/"
 "language/da_DK/)\n"
 "Language: da_DK\n"
@@ -48,6 +48,7 @@ msgid ""
 "for Semi-transparency\n"
 "and coloured backgrounds\n"
 msgstr ""
+"\n"
 "Hildon panelprogram \n"
 "for Nokia N800/N810/N900\n"
 "til at vise vejrudsigter.\n"
@@ -61,7 +62,7 @@ msgstr ""
 "Copyright(c) 2008\n"
 "Andrew Olmsted\n"
 "for Semi-transparens \n"
-"and farvede baggrunde"
+"and farvede baggrunde\n"
 
 #: omweather/src/weather-home.c:1383 omweather/src/weather-home.c:1439
 #: omweather/src/weather-popup.c:965 omweather/src/weather-popup.c:1098
@@ -102,6 +103,8 @@ msgid ""
 "\n"
 "V: "
 msgstr ""
+"\n"
+"V: "
 
 #: omweather/src/weather-home.c:1614
 msgid ""
@@ -312,7 +315,7 @@ msgstr "Justér GPSstation"
 
 #: meecast/qt-qml/qml/AboutPage.qml:249
 msgid "Albanian - Ilir Gjika\n"
-msgstr "Albansk - Ilir Gjika"
+msgstr "Albansk - Ilir Gjika\n"
 
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
 #: omweather/src/weather-settings.c:1381
@@ -339,7 +342,7 @@ msgstr ""
 "Arkady Glazov aka Globster - for at teste\n"
 "Alexander Savchenko aka dizel - for at teste\n"
 "Timeless - for programrettelser\n"
-"Eric Link - for anmodninger om  funktionalitet og donationer"
+"Eric Link - for anmodninger om  funktionalitet og donationer\n"
 
 #: omweather/src/weather-download.c:397
 msgid "An unknown error has occurred."
@@ -367,7 +370,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:257
 msgid "Arabic - Tarad Alfandi\n"
-msgstr "Arabisk - Tarad Alfandi"
+msgstr "Arabisk - Tarad Alfandi\n"
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -435,7 +438,7 @@ msgstr "Spredte skyer"
 
 #: meecast/qt-qml/qml/AboutPage.qml:248
 msgid "Bulgarian - Zlatko Enikov\n"
-msgstr "Bulgarsk - Zlatko Enikov"
+msgstr "Bulgarsk - Zlatko Enikov\n"
 
 #: omweather/src/weather-home.c:1536 omweather/src/weather-home.c:1562
 #: omweather/src/weather-simple-popup.c:1042
@@ -464,7 +467,7 @@ msgstr "Kan ikke hente stien til hjemmebiblioteket. Afslutter.\n"
 
 #: meecast/qt-qml/qml/AboutPage.qml:255
 msgid "Catalan - Agustí Clara\n"
-msgstr "Catalansk - Agustí Clara"
+msgstr "Catalansk - Agustí Clara\n"
 
 #: omweather/src/weather-settings.c:3864
 msgid "Celcius"
@@ -484,7 +487,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:264
 msgid "Chinese(Taiwan) - osk2, \n"
-msgstr ""
+msgstr "Kinesisk(Taiwan) - osk2, \n"
 
 #: omweather/src/weather-simple-settings.c:677
 #: omweather/src/weather-simple-settings.c:710
@@ -499,11 +502,11 @@ msgstr "By:"
 
 #: omweather/src/hash.data:27
 msgid "Clear"
-msgstr ""
+msgstr "Klart"
 
 #: omweather/src/hash.data:28
 msgid "Clear / Wind"
-msgstr ""
+msgstr "Klart / Vind"
 
 #: omweather/src/hash.data:29
 msgid "Clear Sky"
@@ -519,7 +522,7 @@ msgstr "Klart, Tåge"
 
 #: omweather/src/hash.data:32
 msgid "Clear, Fog, Drizzle"
-msgstr ""
+msgstr "Klart, Tåge, Støvregn"
 
 #: omweather/src/hash.data:33
 msgid "Clear, Haze"
@@ -668,7 +671,7 @@ msgstr ""
 
 #: omweather/src/weather-download.c:409
 msgid "Couldn't resolve host."
-msgstr ""
+msgstr "Kunne ikke finde vært"
 
 #: omweather/src/weather-download.c:405
 msgid "Couldn't resolve proxy."
@@ -693,7 +696,7 @@ msgstr "Brugerdefineret"
 
 #: meecast/qt-qml/qml/AboutPage.qml:263
 msgid "Czech - Jakub Kožíšek, Pavel Šrubař\n"
-msgstr "Tjekkisk - Jakub Kožíšek, Pavel Šrubař"
+msgstr "Tjekkisk - Jakub Kožíšek, Pavel Šrubař\n"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:183
 msgid "Daily"
@@ -722,7 +725,7 @@ msgstr "Dag:"
 
 #: meecast/qt-qml/qml/StationsPage.qml:75
 msgid "Delete location?"
-msgstr ""
+msgstr "Slette lokation?"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
@@ -781,11 +784,11 @@ msgstr "Fygesne"
 
 #: omweather/src/hash.data:64
 msgid "Drizzle"
-msgstr ""
+msgstr "Støvregn"
 
 #: omweather/src/hash.data:65
 msgid "Drizzle / Fog"
-msgstr ""
+msgstr "Støvregn / Tåge"
 
 #: omweather/src/hash.data:66
 msgid "Drizzle / Wind"
@@ -805,7 +808,7 @@ msgid ""
 " \tHeimen Stoffels, Nathan Follens\n"
 msgstr ""
 "Nederlandsk - Tom Leenders, Michiel Pater\n"
-" \tHeimen Stoffels, Nathan Follens"
+" \tHeimen Stoffels, Nathan Follens\n"
 
 #: omweather/src/hash.data:69
 msgid "E"
@@ -930,11 +933,11 @@ msgstr ""
 
 #: omweather/src/hash.data:366
 msgid "Feels like"
-msgstr ""
+msgstr "Føles som"
 
 #: omweather/src/weather-popup.c:1269 omweather/src/weather-popup.c:1449
 msgid "Feels like:"
-msgstr ""
+msgstr "Føles som:"
 
 #: omweather/src/hash.data:373
 msgid "Few Clouds"
@@ -958,7 +961,7 @@ msgstr "Få Snebyger"
 
 #: omweather/src/hash.data:80
 msgid "Few Snow Showers / Wind"
-msgstr ""
+msgstr "Få Snebyger / Vind"
 
 #: omweather/src/hash.data:372
 msgid "Few clouds"
@@ -985,6 +988,7 @@ msgid ""
 msgstr ""
 "Finsk - Marko Vertainen; German - Claudius Henrichs; Spansk - Alejandro "
 "Lopez; Dutch - Tom Leenders; Slovakisk - Roman Moravčík\n"
+"\n"
 
 #: omweather/src/hash.data:83
 msgid "First Quarter"
@@ -1031,6 +1035,10 @@ msgid ""
 "'Activating MeeCast Applet'\n"
 "using Application manager"
 msgstr ""
+"For at deaktivere MeeCast-kontrol,\n"
+"skal du afinstallere pakken\n"
+"\"Aktivering af MeeCast-applet\"\n"
+"via Marked"
 
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
@@ -1059,7 +1067,7 @@ msgstr ""
 "Fransk -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht, \n"
 " \tQuentin Caillard, \n"
-" \tJordi"
+" \tJordi\n"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1115,11 +1123,11 @@ msgstr "Mobilnetværk+WLAN"
 
 #: omweather/src/weather-simple-settings.c:2395
 msgid "GUI|Clear"
-msgstr ""
+msgstr "GUI|Klart"
 
 #: meecast/qt-qml/qml/AboutPage.qml:256
 msgid "Galician - pakoR\n"
-msgstr "Galicisk - pakoR"
+msgstr "Galicisk - pakoR\n"
 
 #: meecast/qt-qml/qml/AboutPage.qml:236
 msgid ""
@@ -1149,7 +1157,7 @@ msgstr "HTTP fejl."
 
 #: omweather/src/hash.data:91
 msgid "Haze"
-msgstr ""
+msgstr "Dis"
 
 #: omweather/src/hash.data:92
 msgid "Haze, Smoke or Dust"
@@ -1196,7 +1204,6 @@ msgid "Heavy Snow / Wind"
 msgstr ""
 
 #: omweather/src/hash.data:104
-#, fuzzy
 msgid "Heavy Snow Shower"
 msgstr "Kraftige Snebyger"
 
@@ -1242,7 +1249,7 @@ msgstr "Luftfugtighed:"
 
 #: meecast/qt-qml/qml/AboutPage.qml:261
 msgid "Hungarian - Salmi, László Kara\n"
-msgstr "Ungarsk - Salmi, László Kara"
+msgstr "Ungarsk - Salmi, László Kara\n"
 
 #: omweather/src/hash.data:108
 msgid "Ice Pellets"
@@ -1293,7 +1300,7 @@ msgstr ""
 "Italiensk - Lorenzo Facca,\n"
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
-" \tLuca Onnis"
+" \tLuca Onnis\n"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:429
 msgid ""
@@ -1348,7 +1355,7 @@ msgstr "Layout:"
 
 #: meecast/qt-qml/qml/AboutPage.qml:186
 msgid "Lead designers"
-msgstr ""
+msgstr "Ledende designere"
 
 #: meecast/qt-qml/qml/AboutPage.qml:312
 msgid "License"
@@ -1376,7 +1383,7 @@ msgstr "Let Regn / Tåge"
 
 #: omweather/src/hash.data:122
 msgid "Light Rain / Wind"
-msgstr ""
+msgstr "Let Rwgn / Blæst"
 
 #: omweather/src/hash.data:121
 msgid "Light Rain / Wind Late"
@@ -1484,7 +1491,7 @@ msgstr "Lokal Pollenrapport"
 
 #: meecast/qt-qml/qml/AboutPage.qml:170
 msgid "Localization platform"
-msgstr ""
+msgstr "Oversættelsesplatform"
 
 #: omweather/src/weather-settings.c:3454
 msgid "Long"
@@ -1492,7 +1499,7 @@ msgstr ""
 
 #: omweather/src/hash.data:142 meecast/qt-qml/qml/WeatherPage.qml:487
 msgid "Looks like there's no info for this location."
-msgstr ""
+msgstr "Der er ingen info for denne lokation."
 
 #: omweather/src/hash.data:143
 msgid "Low"
@@ -1512,7 +1519,7 @@ msgstr ""
 
 #: omweather/src/hash.data:145
 msgid "Mainly cloudy, showers"
-msgstr ""
+msgstr "Hovedsageligt overskyet, byger"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
@@ -1539,17 +1546,14 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
-#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2016"
 msgstr ""
-"MeeCast - multiplatform, Open Source vejrudsigtklient baseret på OMWeather "
-"kode. Copyright (C) 2006 til 2015"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
-msgstr ""
+msgstr "MeeCast for Harmattan"
 
 #: omweather/src/weather-settings.c:3901
 msgid "Meters"
@@ -1593,7 +1597,7 @@ msgstr "Ændring"
 
 #: omweather/src/hash.data:151
 msgid "Mostly Clear"
-msgstr ""
+msgstr "For det meste klart"
 
 #: omweather/src/hash.data:161
 msgid "Mostly Cloudy"
@@ -1609,7 +1613,7 @@ msgstr "Overvejende Overskyet Lidt Sne"
 
 #: omweather/src/hash.data:155
 msgid "Mostly Cloudy Light Rain"
-msgstr ""
+msgstr "Mest Overskyet Let Regn"
 
 #: omweather/src/hash.data:156
 msgid "Mostly Cloudy Rain"
@@ -1630,7 +1634,7 @@ msgstr "Mest overskyet og blæsende"
 
 #: omweather/src/hash.data:162
 msgid "Mostly Cloudy, Drifting Snow"
-msgstr ""
+msgstr "Mest skyet, Snefygning"
 
 #: omweather/src/hash.data:163
 msgid "Mostly Cloudy, Few Snow"
@@ -1698,7 +1702,7 @@ msgstr "Overvejende Overskyet, Torden"
 
 #: omweather/src/hash.data:179
 msgid "Mostly Sunny"
-msgstr ""
+msgstr "Mest Solskin"
 
 #: omweather/src/hash.data:181
 msgid "Mostly clear"
@@ -1816,7 +1820,7 @@ msgstr "Ingen vejrdata fra denne station"
 
 #: meecast/qt-qml/qml/AboutPage.qml:260
 msgid "Norwegian - Peer-Atle Motland\n"
-msgstr "Norsk - Peer-Atle Motland"
+msgstr "Norsk - Peer-Atle Motland\n"
 
 #: omweather/src/weather-home.c:2734 omweather/src/weather-home.c:2746
 #: omweather/src/weather-popup.c:459 omweather/src/weather-popup.c:570
@@ -2020,7 +2024,7 @@ msgstr "Delvist Overskyet og Blæsende"
 
 #: omweather/src/hash.data:230 omweather/src/hash.data:231
 msgid "Partly Cloudy and Windy"
-msgstr ""
+msgstr "Delvist overskyet og blæst"
 
 #: omweather/src/hash.data:232
 msgid "Partly Cloudy, Few Snow"
@@ -2028,7 +2032,7 @@ msgstr "Delvist Overskyet, Lidt Sne"
 
 #: omweather/src/hash.data:233
 msgid "Partly Cloudy, Haze"
-msgstr ""
+msgstr "Delvist Overskyet, Dis"
 
 #: omweather/src/hash.data:234
 msgid "Partly Cloudy, Heavy Rain"
@@ -2108,11 +2112,11 @@ msgstr "Periode"
 
 #: meecast/qt-qml/qml/AboutPage.qml:244
 msgid "Polish - Tomasz Dominikowski\n"
-msgstr "Polsk - Tomasz Dominikowski"
+msgstr "Polsk - Tomasz Dominikowski\n"
 
 #: meecast/qt-qml/qml/AboutPage.qml:252
 msgid "Portuguese - Jose Narciso,\n"
-msgstr "Portugisisk - Jose Narciso,"
+msgstr "Portugisisk - Jose Narciso,\n"
 
 #: omweather/src/weather-settings.c:3649
 msgid "Position:"
@@ -2203,7 +2207,7 @@ msgstr "Regn / Sne"
 
 #: omweather/src/hash.data:256
 msgid "Rain / Snow / Wind"
-msgstr ""
+msgstr "Regn / Sne / Blæst"
 
 #: omweather/src/hash.data:257
 msgid "Rain / Snow Early"
@@ -2283,7 +2287,7 @@ msgstr "Aflæs sensor hver:"
 
 #: omweather/src/hash.data:402
 msgid "Refresh"
-msgstr "Genindlæs"
+msgstr "Ajourfør"
 
 #: omweather/src/weather-simple-settings.c:733
 #: omweather/src/weather-simple-settings.c:786
@@ -2301,7 +2305,7 @@ msgid ""
 " \tEd Bartosh\n"
 msgstr ""
 "Russisk - Pavel Fialko, Vlad Vasilyeu, \n"
-" \tEd Bartosh"
+" \tEd Bartosh\n"
 
 #: omweather/src/hash.data:277
 msgid "S"
@@ -2309,7 +2313,7 @@ msgstr "S"
 
 #: omweather/src/hash.data:278
 msgid "SE"
-msgstr ""
+msgstr "SØ"
 
 #: omweather/src/hash.data:279
 msgid "SE_short"
@@ -2422,7 +2426,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:267
 msgid "Select the color of font for current temperature"
-msgstr ""
+msgstr "Vælg farven til skrifttype for nuværende temperatur"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:123
 msgid "Select the color of font for station name"
@@ -2471,7 +2475,7 @@ msgstr "Sensor"
 
 #: meecast/qt-qml/qml/AboutPage.qml:259
 msgid "Serbian - Aleksandar Zaric\n"
-msgstr "Serbisk - Aleksandar Zaric"
+msgstr "Serbisk - Aleksandar Zaric\n"
 
 #: omweather/src/weather-simple-settings.c:2228
 msgid "Set"
@@ -2589,11 +2593,11 @@ msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:245
 msgid "Slovak - Roman Moravčík\n"
-msgstr "Slovakisk - Roman Moravčík"
+msgstr "Slovakisk - Roman Moravčík\n"
 
 #: meecast/qt-qml/qml/AboutPage.qml:262
 msgid "Slovenian - Boštjan Štrumbelj\n"
-msgstr "Slovensk - Boštjan Štrumbelj"
+msgstr "Slovensk - Boštjan Štrumbelj\n"
 
 #: omweather/src/hash.data:302
 msgid "Smoke"
@@ -2608,9 +2612,8 @@ msgid "Snow / Wind"
 msgstr "Sne / Vind"
 
 #: omweather/src/hash.data:304
-#, fuzzy
 msgid "Snow Early"
-msgstr "Tidlige Regnbyger"
+msgstr ""
 
 #: omweather/src/hash.data:308
 msgid "Snow Shower"
@@ -2721,7 +2724,7 @@ msgstr "Solrig"
 
 #: omweather/src/hash.data:319
 msgid "Sunny / Wind"
-msgstr ""
+msgstr "Solskin / Vind"
 
 #: omweather/src/hash.data:388 omweather/src/hash.data:389
 msgid "Sunny periods and a few showers."
@@ -2975,7 +2978,8 @@ msgstr ""
 msgid ""
 "Use GSM and/or WLAN for periodic updating\n"
 " the weather information.\n"
-msgstr "Brug GSM og/eller WLAN for periodisk  ajourføring af vejrinformation"
+msgstr ""
+"Brug GSM og/eller WLAN for periodisk  ajourføring af vejrinformation.\n"
 
 #: omweather/src/weather-sensor.c:65
 msgid "Use device temperature sensor"
@@ -3011,7 +3015,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/UnitsPage.qml:57 meecast/qt-qml/qml/UnitsPage.qml:221
 msgid "Visible units"
-msgstr ""
+msgstr "Visuelle enheder"
 
 #: omweather/src/weather-popup.c:1288
 #: meecast/qt-qml/qml/FullWeatherPage.qml:187
@@ -3095,7 +3099,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/VisualsPage.qml:437
 msgid "Widget in LockScreen"
-msgstr ""
+msgstr "Kontrol på Låseskærm"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:464
 msgid "Widget in StandbyScreen"
@@ -3146,11 +3150,11 @@ msgstr "Vindhastighed"
 #: omweather/src/hash.data:349 meecast/qt-qml/qml/UnitsPage.qml:39
 #: meecast/qt-qml/qml/UnitsPage.qml:141
 msgid "Wind speed units"
-msgstr ""
+msgstr "Vindhastighed enheder"
 
 #: omweather/src/weather-settings.c:3974
 msgid "Wind speed units:"
-msgstr ""
+msgstr "Vindhastighed enheder"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
@@ -3451,7 +3455,7 @@ msgstr "sekunder siden"
 
 #: omweather/src/weather-popup.c:271
 msgid "station local time"
-msgstr ""
+msgstr "vejrstation lokaltid"
 
 #: omweather/src/weather-sensor.c:92
 msgid "station name"

@@ -517,7 +517,7 @@ Config::LoadConfig(){
             if  (source_name=="yr.no")
                 viewURL.replace("#","/");
 /* Temporary hack for gismeteo.ru  remove it after version 1.2 */
-            if  (source_name=="gismeteo.ru" && (forecastURL.indexOf("weather",0) != -1)){
+            if  (source_name=="gismeteo.ru" && (forecastURL.indexOf("weather",0) == -1)){
                 QString new_url;
                 new_url = "weather-" + station_name.toLower() + "-" + station_id;
                 std::cerr<<"Replaced Gismeteo.ru URL "<< forecastURL.toStdString()<<std::endl;
@@ -525,7 +525,7 @@ Config::LoadConfig(){
                 forecastURL.replace(station_id, new_url);
                 forecastURL.append("14-days/");
                 std::cerr<<"New Gismeteo ForecastURl new "<< forecastURL.toStdString()<<std::endl;
-                if (detailURL.indexOf("weather",0) != -1){
+                if (detailURL.indexOf("weather",0) == -1){
                     detailURL.replace("city/hourly/","");
                     detailURL.replace(station_id, new_url);
                     detailURL.append("hourly/");

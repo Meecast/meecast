@@ -175,7 +175,7 @@ systemctl-user start meecastd.service
 
 %changelog
 
-* Mon Sun 05 2016 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.10
+* Sun Mar 06 2016 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.10
 
   * Added string for translation
   * Fixed problem with gisemteo.ru source

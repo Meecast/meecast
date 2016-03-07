@@ -104,7 +104,7 @@ void create_about_dialog(void){
                "Maintenance: Pavel Fialko, <pavelnf@gmail.com>\n"
                "Documentation: Marko Vertainen\n"
                "Design UI and default iconset: Andrew Zhilin\n"
-               "Design UI for Fremantle: Krebber Jan Niemelä Ulla\n"));
+               "Design UI for Fremantle: Krebber Jan Niemela Ulla\n"));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                              create_scrolled_window_with_text(tmp_buff,
                                                               GTK_JUSTIFY_LEFT),

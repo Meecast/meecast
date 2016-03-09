@@ -2,7 +2,7 @@
 /*
  * This file is part of MeeCast (Other Maemo Weather(omweather))
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2016 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -301,14 +301,14 @@ MWidget *WeatherApplicationExtension::widget(){
 MyMWidget::MyMWidget(){
 
         
-//#if 0
+#if 0
     QFile file("/tmp/1.log");
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "Begin PreInit MyWidget ."<<".\n";
 	    file.close();
 	}
-//#endif
+#endif
       publisher = new QValueSpacePublisher("Weather");
 
       _stationname = "Unknown";
@@ -437,7 +437,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
 
    if ((until_valid_time - utc_time.toTime_t()) > 0 && 
        (until_valid_time - utc_time.toTime_t()) < 12* 3600){
-//#if 0
+#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -446,10 +446,10 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
         _timer->start(((until_valid_time - utc_time.toTime_t() + 60)*1000));
    }else{
-//#if 0
+#if 0
       // Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -458,14 +458,14 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
         _timer->start(3600000);
    }
 
 }
 void 
 MyMWidget::refreshRequested(){
-//#if 0
+#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -474,11 +474,11 @@ MyMWidget::refreshRequested(){
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
     this->startpredeamon();
 }
 void MyMWidget::update_data(){
-//#if 0
+#if 0
     // Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -487,10 +487,10 @@ void MyMWidget::update_data(){
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
     QNetworkConfigurationManager m_network;
     if  (m_network.isOnline()){
-//#if 0
+#if 0
         QFile file("/tmp/1.log");
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
             QTextStream out(&file);
@@ -498,7 +498,7 @@ void MyMWidget::update_data(){
             file.close();
         }
 
-//#endif
+#endif
         fprintf(stderr," Connection!!!!!!!!!!!!!!!\n");
         this->startpredeamon();
     }

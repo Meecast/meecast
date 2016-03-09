@@ -345,14 +345,14 @@ MyMWidget::MyMWidget(){
       if (!_wallpaperItem || _wallpaperItem->value() == QVariant::Invalid)
         _wallpaper_path = "/home/user/.wallpapers/wallpaper.png";
       else{
-//#if 0
+#if 0
           // Debug begin
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "PreInit MyWidget ."<<_wallpaperItem->value().toString()<<".\n";
 	    file.close();
 	}
-//#endif
+#endif
         _wallpaper_path = _wallpaperItem->value().toString();
         if (_wallpaper_path.indexOf("MeeCast",0) != -1){
             _wallpaper_path = "/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png";
@@ -369,14 +369,14 @@ MyMWidget::MyMWidget(){
       }
 
       connect(_timer, SIGNAL(timeout()), this, SLOT(update_data()));
-//#if 0
+#if 0
     // Debug begin
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "Finish Init MyWidget ."<<_wallpaper_path<<".\n";
 	    file.close();
 	}
-//#endif
+#endif
 }
  
 MyMWidget::~MyMWidget(){

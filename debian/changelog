@@ -1,3 +1,10 @@
+meecast (1.1.12) unstable; urgency=low
+
+  * Added icon for gismeteo.ru 
+  * Added string for translation
+
+ -- Vlad Vasiliev <vlad@gas.by> Sun, 06 Mar 2016 18:01:23 +0200
+
 meecast (1.1.11) unstable; urgency=low
 
   * Fixed problem with sunrise and sunset in gismeteo.ru source 

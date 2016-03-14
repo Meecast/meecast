@@ -6,6 +6,7 @@
     #define hash_insert(hash, s2, s3)  hash->insert(s2, s3);
 #endif
 
+    Partly cloudy, light snow, storm
     hash_insert(hash, "Стареющая", "Waning Gibbous");
     hash_insert(hash, "Полная", "Full");
     hash_insert(hash, "ясно без осадков", "Clear");
@@ -42,6 +43,7 @@
     hash_insert(hash, "Малооблачно, сильный снег", "Partly Cloudy, Heavy Snow");
     hash_insert(hash, "Малооблачно, небольшой дождь", "Partly Cloudy, Light Rain");
     hash_insert(hash, "Малооблачно, небольшой снег", "Partly Cloudy, Few Snow");
+    hash_insert(hash, "Малооблачно, небольшой снег, гроза", "Partly Cloudy, Light Snow, Storm");
     hash_insert(hash, "Мгла", "Haze");
     hash_insert(hash, "Небольшой дождь", "Light Rain");
     hash_insert(hash, "Пасмурно", "Mostly Cloudy");

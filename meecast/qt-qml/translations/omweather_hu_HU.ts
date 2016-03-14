@@ -438,7 +438,7 @@ before installing this package</source>
 Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
-Design UI for Fremantle: Krebber Jan Niemelä Ulla
+Design UI for Fremantle: Krebber Jan Niemela Ulla
 </source>
             <translation type="unfinished">
             </translation>

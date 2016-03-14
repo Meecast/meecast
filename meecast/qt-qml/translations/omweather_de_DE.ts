@@ -463,9 +463,9 @@ deinstallieren.</translation>
 Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
-Design UI for Fremantle: Krebber Jan Niemelä Ulla
+Design UI for Fremantle: Krebber Jan Niemela Ulla
 </source>
-            <translation>Autor und Produktpflege: Vlad Vasiliev, &lt;vlad@gas.by&gt;
+            <translation type="unfinished">Autor und Produktpflege: Vlad Vasiliev, &lt;vlad@gas.by&gt;
 Wartung: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Dokumentation: Marko Vertainen
 Design des Standardsymbolsatzes und der Oberfläche: Andrew Zhilin

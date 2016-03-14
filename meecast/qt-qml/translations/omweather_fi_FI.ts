@@ -462,9 +462,9 @@ poistaa AccuWeather ennen asennusta.</translation>
 Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
-Design UI for Fremantle: Krebber Jan Niemelä Ulla
+Design UI for Fremantle: Krebber Jan Niemela Ulla
 </source>
-            <translation>Tekijä ja ylläpito: Vlad Vasiliev, vlad@gas.by
+            <translation type="unfinished">Tekijä ja ylläpito: Vlad Vasiliev, vlad@gas.by
 Ylläpito: Pavel Fialko, pavelnf@gmail.com
 Ohje: Marko Vertainen
 Käyttöliittymä ja oletus sääsymbolit: Andrew Zhilin

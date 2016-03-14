@@ -462,9 +462,9 @@ before installing this package</source>
 Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
-Design UI for Fremantle: Krebber Jan Niemelä Ulla
+Design UI for Fremantle: Krebber Jan Niemela Ulla
 </source>
-            <translation>作者&amp;维护: Vlad Vasiliev, &lt;vlad@gas.by&gt;
+            <translation type="unfinished">作者&amp;维护: Vlad Vasiliev, &lt;vlad@gas.by&gt;
 维护: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 文件: Marko Vertainen
 UI设计和预设图标集: Andrew Zhilin

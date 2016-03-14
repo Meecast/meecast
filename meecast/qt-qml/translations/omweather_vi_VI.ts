@@ -463,9 +463,9 @@ Bạn nên gỡ bỏ AccuWeather ⏎ trước khi cài ứng dụng này</transl
 Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
-Design UI for Fremantle: Krebber Jan Niemelä Ulla
+Design UI for Fremantle: Krebber Jan Niemela Ulla
 </source>
-            <translation>Tác giả và quản lý: Vlad Vasiliev, &lt;vlad@gas.by&gt;⏎ Duy trì: Pavel Fialko, &lt;pavelnf@gmail.com&gt;⏎ Tài liệu: Marko Vertainen⏎ Thiết kế giao diện và icon: Andrew Zhilin⏎ Thiết kế giao diện cho Fremantle: Krebber Jan Niemelä Ulla⏎
+            <translation type="unfinished">Tác giả và quản lý: Vlad Vasiliev, &lt;vlad@gas.by&gt;⏎ Duy trì: Pavel Fialko, &lt;pavelnf@gmail.com&gt;⏎ Tài liệu: Marko Vertainen⏎ Thiết kế giao diện và icon: Andrew Zhilin⏎ Thiết kế giao diện cho Fremantle: Krebber Jan Niemelä Ulla⏎
 </translation>
         </message>
         <message>

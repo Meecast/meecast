@@ -462,9 +462,9 @@ disintallare AccuWeather</translation>
 Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
-Design UI for Fremantle: Krebber Jan Niemelä Ulla
+Design UI for Fremantle: Krebber Jan Niemela Ulla
 </source>
-            <translation>Autore e manutenzione: Vlad Vasiliev, &lt;vlad@gas.by&gt;
+            <translation type="unfinished">Autore e manutenzione: Vlad Vasiliev, &lt;vlad@gas.by&gt;
 Manutenzione: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Documentazione: Marko Vertainen
 Design UI e set icone di default: Andrew Zhilin

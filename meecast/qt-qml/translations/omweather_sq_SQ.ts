@@ -461,9 +461,9 @@ përpara se të vazhdoni</translation>
 Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
-Design UI for Fremantle: Krebber Jan Niemelä Ulla
+Design UI for Fremantle: Krebber Jan Niemela Ulla
 </source>
-            <translation>Krijuesi dhe mirëmbajtja: Vlad Vasiliev, &lt;vlad@gas.by&gt;
+            <translation type="unfinished">Krijuesi dhe mirëmbajtja: Vlad Vasiliev, &lt;vlad@gas.by&gt;
 Mirëmbajtja: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Dokumentacioni: Marko Vertainen
 Krijimi i ndërfaqes dhe ikonat e paravendosura: Andrew Zhilin

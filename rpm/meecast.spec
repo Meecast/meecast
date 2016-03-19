@@ -15,7 +15,7 @@
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
 Version:    1.1.12
-Release:    2 
+Release:    3 
 Group:      Utility
 License:    GPLv2.1
 URL:        https://github.com/Meecast/meecast 
@@ -178,6 +178,7 @@ systemctl-user start meecastd.service
 * Sat Mar 12 2016 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.12
   * Added icon for gismeteo.ru 
   * Added string for translation
+  * Fixed station Sankt-Peterburg in gismeteo.ru source
 
 * Sat Mar 12 2016 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.11
 

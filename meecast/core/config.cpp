@@ -517,12 +517,11 @@ Config::LoadConfig(){
             if  (source_name=="yr.no")
                 viewURL.replace("#","/");
 /* Temporary hack for gismeteo.ru  remove it after version 1.2 */
-
-            if  (source_name=="gismeteo.ru" && (forecastURL.indexOf("http://www.gismeteo.by/weather-saint-petersburg-4079/14-days/",0) == -1)){
+            if  (source_name=="gismeteo.ru" && (forecastURL.compare("http://www.gismeteo.by/weather-saint-petersburg-4079/14-days/", Qt::CaseInsensitive))){
                 forecastURL="http://www.gismeteo.by/weather-sankt-peterburg-4079/14-days/";
-            }
-            if  (source_name=="gismeteo.ru" && (detailURL.indexOf("http://www.gismeteo.by/weather-saint-petersburg-4079/hourly/",0) == -1)){
+                viewURL="http://www.gismeteo.by/weather-sankt-peterburg-4079/";
                 detailURL="http://www.gismeteo.by/weather-sankt-peterburg-4079/hourly/";
+                std::cerr<<"Replaced Gismeteo.ru URL  for SanktPeterburg "<< forecastURL.toStdString()<<std::endl;
             }
             if  (source_name=="gismeteo.ru" && (forecastURL.indexOf("weather",0) == -1)){
                 QString new_url;

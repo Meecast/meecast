@@ -517,6 +517,13 @@ Config::LoadConfig(){
             if  (source_name=="yr.no")
                 viewURL.replace("#","/");
 /* Temporary hack for gismeteo.ru  remove it after version 1.2 */
+
+            if  (source_name=="gismeteo.ru" && (forecastURL.indexOf("http://www.gismeteo.by/weather-saint-petersburg-4079/14-days/",0) == -1)){
+                forecastURL="http://www.gismeteo.by/weather-sankt-peterburg-4079/14-days/";
+            }
+            if  (source_name=="gismeteo.ru" && (detailURL.indexOf("http://www.gismeteo.by/weather-saint-petersburg-4079/hourly/",0) == -1)){
+                detailURL="http://www.gismeteo.by/weather-sankt-peterburg-4079/hourly/";
+            }
             if  (source_name=="gismeteo.ru" && (forecastURL.indexOf("weather",0) == -1)){
                 QString new_url;
                 new_url = "weather-" + station_name.toLower() + "-" + station_id;

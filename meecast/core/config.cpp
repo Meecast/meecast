@@ -572,7 +572,7 @@ Config::LoadConfig(){
             if  (source_name=="yr.no")
                 viewURL.replace("#","/");
 /* Temporary hack for gismeteo.ru  remove it after version 1.2 */
-            if  (source_name=="gismeteo.ru" && (forecastURL.compare("http://www.gismeteo.by/weather-saint-petersburg-4079/14-days/", Qt::CaseInsensitive))){
+            if  (source_name=="gismeteo.ru" && (forecastURL.compare("http://www.gismeteo.by/weather-saint-petersburg-4079/14-days/", Qt::CaseInsensitive) == 0)){
                 forecastURL="http://www.gismeteo.by/weather-sankt-peterburg-4079/14-days/";
                 viewURL="http://www.gismeteo.by/weather-sankt-peterburg-4079/";
                 detailURL="http://www.gismeteo.by/weather-sankt-peterburg-4079/hourly/";

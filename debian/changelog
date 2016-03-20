@@ -3,6 +3,7 @@ meecast (1.1.12) unstable; urgency=low
   * Added icon for gismeteo.ru 
   * Added string for translation
   * Fixed station Sankt-Peterburg in gismeteo.ru source
+  * Added station Daugavpils to weather.com source
 
  -- Vlad Vasiliev <vlad@gas.by> Sun, 06 Mar 2016 18:01:23 +0200
 

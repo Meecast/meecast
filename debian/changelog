@@ -5,7 +5,7 @@ meecast (1.1.12) unstable; urgency=low
   * Fixed station Sankt-Peterburg in gismeteo.ru source
   * Added station Daugavpils to weather.com source
 
- -- Vlad Vasiliev <vlad@gas.by> Sun, 06 Mar 2016 18:01:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by> Sun, 20 Mar 2016 16:01:23 +0200
 
 meecast (1.1.11) unstable; urgency=low
 

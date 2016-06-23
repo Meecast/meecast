@@ -27,6 +27,7 @@
     g_hash_table_insert(hash, (void*)"Clear", _("Clear"));
     g_hash_table_insert(hash, (void*)"Clear / Wind", _("Clear / Wind"));
     g_hash_table_insert(hash, (void*)"Clear Sky", _("Clear Sky"));
+    g_hash_table_insert(hash, (void*)"Clear sky", _("Clear sky"));
     g_hash_table_insert(hash, (void*)"Clear, Drifting Snow", _("Clear, Drifting Snow"));
     g_hash_table_insert(hash, (void*)"Clear, Fog", _("Clear, Fog"));
     g_hash_table_insert(hash, (void*)"Clear, Fog, Drizzle", _("Clear, Fog, Drizzle"));

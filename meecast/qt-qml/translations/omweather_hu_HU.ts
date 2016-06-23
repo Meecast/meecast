@@ -627,6 +627,10 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
             <translation>Tiszta ég</translation>
         </message>
         <message>
+            <source>Clear sky</source>
+            <translation type="unfinished">Tiszta ég</translation>
+        </message>
+        <message>
             <source>Clear, Drifting Snow</source>
             <translation>Tiszta, hófúvás</translation>
         </message>

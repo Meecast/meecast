@@ -649,6 +649,10 @@ UI Design para Fremantle: Krebber Jan Niemelä Ulla
             <translation>Ceu Limpo</translation>
         </message>
         <message>
+            <source>Clear sky</source>
+            <translation type="unfinished">Ceu Limpo</translation>
+        </message>
+        <message>
             <source>Clear, Drifting Snow</source>
             <translation>Limpo, Chuviscos de Neve </translation>
         </message>

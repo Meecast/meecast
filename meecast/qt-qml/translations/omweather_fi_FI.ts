@@ -650,6 +650,10 @@ Fremantle käyttöliittymä: Krebber Jan ja Niemelä Ulla
             <translation>Selkeää</translation>
         </message>
         <message>
+            <source>Clear sky</source>
+            <translation type="unfinished">Selkeää</translation>
+        </message>
+        <message>
             <source>Clear, Drifting Snow</source>
             <translation>Selkeää, lumituiskuja</translation>
         </message>

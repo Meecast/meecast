@@ -464,7 +464,7 @@ Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
 Design UI for Fremantle: Krebber Jan Niemela Ulla
 </source>
-            <translation type="unfinished">Auteur en onderhouder: Vlad Vasiliev, &lt;vlad@gas.by&gt;
+            <translation>Auteur en onderhouder: Vlad Vasiliev, &lt;vlad@gas.by&gt;
 Onderhouder: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Documentatie: Marko Vertainen
 Ontwerp UI &amp; standaard icoonset: Andrew Zhilin
@@ -648,6 +648,10 @@ Ontwerp UI voor Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Clear Sky</source>
             <translation>Heldere Lucht</translation>
+        </message>
+        <message>
+            <source>Clear sky</source>
+            <translation type="unfinished">Heldere Lucht</translation>
         </message>
         <message>
             <source>Clear, Drifting Snow</source>
@@ -1851,7 +1855,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
-            <translation type="unfinished">MeeCast - een zeer aanpasbare open source multiplatform weerbericht-cliënt op basis van OMWeather code. Copyright (C) 2006-2015</translation>
+            <translation>MeeCast - Een zeer aanpasbare open source multiplatform weerbericht cliënt op basis van OMWeather code. Copyright (C) 2006-2016</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>

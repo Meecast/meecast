@@ -652,6 +652,10 @@ Návrh UI pre Fremantle: Krebber Jan Niemelä Ulla
             <translation>Jasná obloha</translation>
         </message>
         <message>
+            <source>Clear sky</source>
+            <translation type="unfinished">Jasná obloha</translation>
+        </message>
+        <message>
             <source>Clear, Drifting Snow</source>
             <translation>Jasno, padajúci sneh</translation>
         </message>

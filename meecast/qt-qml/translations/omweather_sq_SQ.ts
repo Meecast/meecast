@@ -650,6 +650,10 @@ Krijimi i ndërfaqes për Fremantle-in: Krebber Jan Niemelä Ulla
             <translation>Qiell i kthjellët</translation>
         </message>
         <message>
+            <source>Clear sky</source>
+            <translation type="unfinished">Qiell i kthjellët</translation>
+        </message>
+        <message>
             <source>Clear, Drifting Snow</source>
             <translation>I kthjellët, Dëborë e sjellë nga era</translation>
         </message>

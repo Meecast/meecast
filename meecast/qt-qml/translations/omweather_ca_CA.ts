@@ -464,11 +464,11 @@ Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
 Design UI for Fremantle: Krebber Jan Niemela Ulla
 </source>
-            <translation type="unfinished">Autoria i manteniment: Vlad Vasiliev, &lt;vlad@gas.by&gt;
+            <translation>Autoria i manteniment: Vlad Vasiliev, &lt;vlad@gas.by&gt;
 Manteniment: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Documentació: Marko Vertainen
 Disseny IU i icones per defecte: Andrew Zhilin
-Disseny IU per a Fremantle: Krebber Jan Niemelä Ulla
+Disseny IU per a Fremantle: Krebber Jan Niemela Ulla
 </translation>
         </message>
         <message>
@@ -648,6 +648,10 @@ Disseny IU per a Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Clear Sky</source>
             <translation>Cel serè</translation>
+        </message>
+        <message>
+            <source>Clear sky</source>
+            <translation type="unfinished">Cel serè</translation>
         </message>
         <message>
             <source>Clear, Drifting Snow</source>

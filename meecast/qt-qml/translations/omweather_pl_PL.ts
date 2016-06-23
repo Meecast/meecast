@@ -643,6 +643,10 @@ Interfejs dla Fremantle: Krebber Jan Niemelä Ulla
             <translation>Czyste niebo</translation>
         </message>
         <message>
+            <source>Clear sky</source>
+            <translation type="unfinished">Czyste niebo</translation>
+        </message>
+        <message>
             <source>Clear, Drifting Snow</source>
             <translation>Bezchmurnie, zamieć śnieżna</translation>
         </message>

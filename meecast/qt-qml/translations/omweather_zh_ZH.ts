@@ -650,6 +650,10 @@ gwmgdemj
             <translation>晴天</translation>
         </message>
         <message>
+            <source>Clear sky</source>
+            <translation type="unfinished">晴天</translation>
+        </message>
+        <message>
             <source>Clear, Drifting Snow</source>
             <translation>晴朗, 飘雪</translation>
         </message>

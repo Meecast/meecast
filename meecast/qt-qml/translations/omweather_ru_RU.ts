@@ -631,6 +631,10 @@ gwmgdemj
             <translation>Ясное небо</translation>
         </message>
         <message>
+            <source>Clear sky</source>
+            <translation type="unfinished">Ясное небо</translation>
+        </message>
+        <message>
             <source>Clear, Drifting Snow</source>
             <translation>Ясно, Поземок</translation>
         </message>

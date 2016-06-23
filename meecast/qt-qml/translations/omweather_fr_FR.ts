@@ -649,6 +649,10 @@ Design de l'interface pour Fremantle : Krebber Jan Niemelä Ulla
             <translation>Ciel dégagé</translation>
         </message>
         <message>
+            <source>Clear sky</source>
+            <translation type="unfinished">Ciel dégagé</translation>
+        </message>
+        <message>
             <source>Clear, Drifting Snow</source>
             <translation>Ciel dégagé, congères</translation>
         </message>

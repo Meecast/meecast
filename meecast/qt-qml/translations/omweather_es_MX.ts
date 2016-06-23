@@ -656,6 +656,10 @@ Diseño de la IU para Fremantle: Krebber Jan Niemelä Ulla
             <translation>Cielo despejado</translation>
         </message>
         <message>
+            <source>Clear sky</source>
+            <translation type="unfinished">Cielo despejado</translation>
+        </message>
+        <message>
             <source>Clear, Drifting Snow</source>
             <translation>Despejado, Ventisca de nieve</translation>
         </message>

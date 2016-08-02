@@ -650,6 +650,10 @@ gwmgdemj
             <translation>Cielo Limpido</translation>
         </message>
         <message>
+            <source>Clear sky</source>
+            <translation type="unfinished">Cielo Limpido</translation>
+        </message>
+        <message>
             <source>Clear, Drifting Snow</source>
             <translation>Sereno, Ventate di Neve</translation>
         </message>

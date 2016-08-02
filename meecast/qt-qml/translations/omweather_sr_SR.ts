@@ -653,6 +653,10 @@ Dizajn za Fremantle: Krebber Jan Niemelä Ulla
             <translation>Vedro nebo</translation>
         </message>
         <message>
+            <source>Clear sky</source>
+            <translation type="unfinished">Vedro nebo</translation>
+        </message>
+        <message>
             <source>Clear, Drifting Snow</source>
             <translation>Vedro, Provejavajući sneg</translation>
         </message>

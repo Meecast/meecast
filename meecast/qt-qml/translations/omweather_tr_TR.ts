@@ -640,6 +640,10 @@ Frementle için Dizayn : Krebber Jan Niemelä Ulla
             <translation>Açık Gükyüzü</translation>
         </message>
         <message>
+            <source>Clear sky</source>
+            <translation type="unfinished">Açık Gükyüzü</translation>
+        </message>
+        <message>
             <source>Clear, Drifting Snow</source>
             <translation>Açık , Kaygan Kar</translation>
         </message>

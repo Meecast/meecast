@@ -723,6 +723,11 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
             </translation>
         </message>
         <message>
+            <source>Clear sky</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Clear, Drifting Snow</source>
             <translation type="unfinished">
             </translation>

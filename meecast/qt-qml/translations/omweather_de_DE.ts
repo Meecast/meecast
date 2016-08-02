@@ -651,6 +651,10 @@ Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
             <translation>Klarer Himmel</translation>
         </message>
         <message>
+            <source>Clear sky</source>
+            <translation type="unfinished">Klarer Himmel</translation>
+        </message>
+        <message>
             <source>Clear, Drifting Snow</source>
             <translation>Klar, Schneetreiben</translation>
         </message>

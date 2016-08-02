@@ -650,6 +650,10 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
             <translation>Trời trong</translation>
         </message>
         <message>
+            <source>Clear sky</source>
+            <translation type="unfinished">Trời trong</translation>
+        </message>
+        <message>
             <source>Clear, Drifting Snow</source>
             <translation>Không mây, Tuyết rơi nhẹ</translation>
         </message>

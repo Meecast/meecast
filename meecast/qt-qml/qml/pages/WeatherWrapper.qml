@@ -7,6 +7,11 @@ Page {
     property int margin: 16
     property int screen_height : main.height 
     property int screen_width : main.width 
+    property real ratio: main.screen_width/540
+    property int column_rect_height: 72*ratio
+    property int large_FontPointSize: 28*ratio
+    property int top_rect_height: 274*ratio
+    property int huge_PixelSize: 54*ratio
     property int real_current_id : Config._current_station_id() 
     property bool isUpdate: false
     property real flick_start_position: 0
@@ -212,8 +217,8 @@ Page {
     SilicaListView {
         id: listview
         anchors.fill: parent
-        height: 960 
-        width: 540
+        height: screen_height
+        width: screen_width
         visible: Config.stationname == "Unknown" ? false : true
         orientation: Qt.Horizontal
         highlightRangeMode: ListView.StrictlyEnforceRange
@@ -274,16 +279,16 @@ Page {
                 anchors.top: parent.top
                 width: parent.width
                 color: Config.transparency ? "transparent" : "black"
-                height: 72
+                height: column_rect_height 
             }
             Text {
                 id: empty_text
                 anchors.left: parent.left
                 anchors.top: parent.top
                 width: parent.width
-                height: 72
+                height: column_rect_height 
                 color: "white"
-                font.pointSize: 28
+                font.pointSize: large_FontPointSize 
                 text: Config.tr("MeeCast")
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
@@ -291,7 +296,7 @@ Page {
             Rectangle {
                 anchors.top: empty_text.bottom
                 width: parent.width
-                height: 274 
+                height: top_rect_height 
                 color: Config.transparency ? "transparent" : "black"
             }
 
@@ -301,24 +306,24 @@ Page {
                 anchors.top: empty_text.bottom
                 anchors.left: parent.left
                 width: parent.width
-                height: 274
+                height: top_rect_height
                 sourceComponent: Image {source: Config.imagespath + "/mask_background.png"}
             }
             Rectangle {
                 anchors.top: empty_background1.bottom
                 width: parent.width
-                height: 600 
+                height: 600*ratio 
                 color: Config.transparency ? "transparent" : "black"
             }
             Label {
                 horizontalAlignment: Text.AlignHCenter
                 text: Config.tr("No locations are set up yet.")
-                font.pixelSize: 54 
+                font.pixelSize: huge_PixelSize 
                 color: "#999999"
                 wrapMode: Text.Wrap
-                width: parent.width - 2*margin
+                width: parent.width - 2*margin*ratio
                 anchors.top: parent.top
-                anchors.topMargin: 250
+                anchors.topMargin: 250*ratio
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.leftMargin: margin
@@ -331,7 +336,7 @@ Page {
                 }
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: 150
+                anchors.bottomMargin: 150*ratio
             }
         }
     }

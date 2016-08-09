@@ -7,7 +7,20 @@ Component {
         id: main_rectangle
         width: main.screen_width 
         height: main.screen_height
-        property int icon_size: 128
+        property real ratio: main.screen_width/540
+        property int icon_size: 128*ratio
+        property int top_rect_height: 274*ratio
+        property int row_rect_height: 80*ratio
+        property int small_box_rect_height: 30*ratio
+        property int small_box_rect_top_margin: 32*ratio
+        property int small_box_rect_top_margin2: 22*ratio
+        property int small_box_rect_left_margin: 8*ratio
+        property int current_text_rect_height: 84*ratio
+        property int description_text_rect_height: 44*ratio
+        property int description_FontPointSize: 20*ratio
+        property int medium_FontPointSize: 18*ratio
+        property int large_FontPointSize: 26*ratio
+        property int huge_PixelSize: 54*ratio
         property int main_index : index
         property bool flipmoving : flipmoving 
         color: Config.transparency ? "transparent" : "black"
@@ -114,25 +127,25 @@ Component {
                     anchors.top: empty_text.bottom
                     anchors.left: parent.left
                     width: parent.width
-                    height: 274
+                    height: top_rect_height 
                     sourceComponent: Image {source: Config.imagespath + "/mask_background.png"}
                 }
                 Rectangle {
                     anchors.top: empty_background1.bottom
                     width: parent.width
-                    height: dataview.height - 274
+                    height: dataview.height - top_rect_height 
                     color: Config.transparency ? "transparent" : "black"
                 }
                 Label {
                     horizontalAlignment: Text.AlignHCenter
                     text: Config.tr("No locations are set up yet.")
-                    font.pixelSize: 54 
+                    font.pixelSize: huge_PixelSize 
                     color: "#999999"
                     wrapMode: Text.Wrap
                     width: parent.width - 2*margin
                     //anchors.verticalCenter: parent.verticalCenter
                     anchors.top: parent.top
-                    anchors.topMargin: 250
+                    anchors.topMargin: 250*ratio
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.leftMargin: margin
@@ -145,7 +158,7 @@ Component {
                     }
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.bottom: parent.bottom
-                    anchors.bottomMargin: 50
+                    anchors.bottomMargin: 50*ratio
                 }
             }
 
@@ -158,7 +171,7 @@ Component {
                     anchors.left: parent.left
                     anchors.top: parent.top
                     width: parent.width
-                    height: 92
+                    height: 92*ratio
                     color: Config.transparency ? "transparent" : "black"
                     visible: isUpdate ? true : false
 
@@ -192,32 +205,32 @@ Component {
                     visible: (forecast_model_count(main_index) == 0 && current_model_count(main_index) == 0) ? true : false
                     anchors.top: station_rect.bottom
                     width: parent.width
-                    height: main.screen_height - 92 
+                    height: main.screen_height - updateview.height
                     color: Config.transparency ? "transparent" : "black"
                     Loader {
                         id: empty_background
                         anchors.top: parent.top
                         anchors.left: parent.left
                         width: parent.width
-                        height: 274
+                        height: top_rect_height 
                         sourceComponent: Image {source: Config.imagespath + "/mask_background.png"}
                     }
                     Rectangle {
                         anchors.top: empty_background.bottom
                         width: parent.width
-                        height: dataview.height - 274
+                        height: dataview.height - top_rect_height 
                         color: Config.transparency ? "transparent" : "black"
                     }
                     Label {
                         horizontalAlignment: Text.AlignHCenter
                         text: Config.tr("Looks like there's no info for this location.")
-                        font.pixelSize: 54 
+                        font.pixelSize: huge_PixelSize 
                         color: "#999999"
                         wrapMode: Text.Wrap
                         width: parent.width - 2*margin
                         //anchors.verticalCenter: parent.verticalCenter
                         anchors.top: parent.top
-                        anchors.topMargin: 200
+                        anchors.topMargin: 200*ratio
                         anchors.left: parent.left
                         anchors.right: parent.right
                         anchors.leftMargin: margin
@@ -233,7 +246,7 @@ Component {
                         }
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.bottom: parent.bottom
-                        anchors.bottomMargin: 150
+                        anchors.bottomMargin: 150*ratio
                     }
 
                 }
@@ -242,7 +255,7 @@ Component {
                     visible: current_model_count(main_index) == 0 ? false : true
                     anchors.top: station_rect.bottom
                     width: parent.width
-                    height: 274
+                    height: top_rect_height 
                     Loader {
                         anchors.fill: parent
                         sourceComponent: Image {source: Config.imagespath + "/mask_background_main.png"}
@@ -259,12 +272,12 @@ Component {
                             Text {
                                 id: now
                                 width: main.screen_width/2 - icon_size/2 
-                                height: 84
+                                height: current_text_rect_height 
                                 anchors.top: parent.top
                                 anchors.left: parent.left
                                 color: "white"
                                 text: main.current_model("current", main_index) == true ? Config.tr("Now") : Config.tr("Today")
-                                font.pointSize: 26
+                                font.pointSize: large_FontPointSize 
                                 verticalAlignment: Text.AlignVCenter
                                 horizontalAlignment: Text.AlignHCenter
 
@@ -274,10 +287,10 @@ Component {
                                 anchors.left: icon.right
                                 id: temp_text
                                 width: main.screen_width/2 - icon_size/2
-                                height: 84
+                                height: current_text_rect_height 
                                 color: "white"
                                 text: model.temp + '°'
-                                font.pointSize: 26
+                                font.pointSize: large_FontPointSize
                                 verticalAlignment: Text.AlignVCenter
                                 horizontalAlignment: Text.AlignHCenter
                                 Component.onCompleted: {
@@ -314,7 +327,7 @@ Component {
                             }
                             Rectangle {
                                id: desc  
-                               height: 44
+                               height: description_text_rect_height 
                                color: Config.transparency ? "transparent" : "black"
                                width: current_rect.width 
                                anchors.left: parent.left
@@ -325,7 +338,7 @@ Component {
                                    width: parent.width 
                                    Text { 
                                      id: text; 
-                                     font.pointSize: 20; 
+                                     font.pointSize: description_FontPointSize; 
                                      width: parent.width 
                                      color: desc.textColor; 
                                      text: main.current_model("current", main_index) == true ? main.current_model("description", main_index) : main.forecast_model(index, "description", main_index) ; 
@@ -344,7 +357,7 @@ Component {
                                     }  
                                     NumberAnimation on x { 
                                         id: text_anim; 
-                                        from: 450; to: -500 ; 
+                                        from: 450*ratio; to: -500*ratio; 
                                         duration: 10000; 
                                         loops: Animation.Infinite; 
                                         running : main.current_model("current", main_index) == true ? ((main.current_model("description", main_index) >35) ? true : false) : ((main.forecast_model(index, "description", main_index) >35) ? true : false) ;  
@@ -365,44 +378,44 @@ Component {
                                 id: humidity
                                 source: Config.imagespath + "/humidity.png"
                                 anchors.top: desc.bottom
-                                anchors.topMargin: 32
+                                anchors.topMargin: small_box_rect_top_margin 
                                 anchors.left: parent.left
                                 anchors.leftMargin: margin
-                                width: 30
-                                height: 30
+                                width: small_box_rect_height 
+                                height: small_box_rect_height
                                 smooth: true
                             }
                             Text {
                                 text: main.current_model("current", main_index) == true ? (main.current_model("humidity", main_index) + "%") : (main.forecast_model(index, "humidity", main_index) + "%") 
                                 anchors.left: humidity.right
-                                anchors.leftMargin: 8
+                                anchors.leftMargin: small_box_rect_left_margin 
                                 anchors.top: desc.bottom
-                                anchors.topMargin: 32
-                                height: 30
+                                anchors.topMargin: small_box_rect_top_margin 
+                                height: small_box_rect_height 
                                 color: "white"
-                                font.pointSize: 18
+                                font.pointSize: medium_FontPointSize 
                                 verticalAlignment: Text.AlignVCenter
                             }
                             Image {
                                 id: wind_direction_background
                                 source: Config.imagespath + "/wind_direction_background.png"
                                 anchors.top: desc.bottom
-                                anchors.topMargin: 32
+                                anchors.topMargin: small_box_rect_top_margin
                                 anchors.left: parent.left
                                 anchors.leftMargin: margin + main.width/2
-                                width: 30
-                                height: 30
+                                width: small_box_rect_height 
+                                height: small_box_rect_height
                                 smooth: true
                             }
                             Image {
                                 id: wind_direction
                                 source: Config.imagespath + "/wind_direction_arrow.png"
                                 anchors.top: desc.bottom
-                                anchors.topMargin: 32
+                                anchors.topMargin: small_box_rect_top_margin
                                 anchors.left: parent.left
                                 anchors.leftMargin: margin + main.width/2
-                                width: 30
-                                height: 30
+                                width: small_box_rect_height 
+                                height: small_box_rect_height 
                                 smooth: true
                                 transform: Rotation {
                                     origin.x: 15
@@ -413,56 +426,56 @@ Component {
                             Text {
                                 text: main.current_model("current", main_index) == true ? Config.tr(main.current_model("wind_direction", main_index)) : Config.tr(main.forecast_model(index, "wind_direction", main_index)) 
                                 anchors.left: wind_direction.right
-                                anchors.leftMargin: 8
+                                anchors.leftMargin: small_box_rect_left_margin 
                                 anchors.top: desc.bottom
-                                anchors.topMargin: 32
-                                height: 30
+                                anchors.topMargin: small_box_rect_top_margin
+                                height: small_box_rect_height 
                                 color: "white"
-                                font.pointSize: 18
+                                font.pointSize: medium_FontPointSize 
                                 verticalAlignment: Text.AlignVCenter
                             }
                             Image {
                                     id: pressure
                                     source: Config.imagespath + "/pressure.png"
                                     anchors.top: humidity.bottom
-                                    anchors.topMargin: 22
+                                    anchors.topMargin: small_box_rect_top_margin2 
                                     anchors.left: parent.left
                                     anchors.leftMargin: margin
-                                    width: 30
-                                    height: 30
+                                    width: small_box_rect_height 
+                                    height: small_box_rect_height 
                                     smooth: true
                             }
                             Text {
                                 text: main.current_model("current", main_index) == true ?  main.current_model("pressure", main_index) : main.forecast_model(index, "pressure", main_index) + ' ' + Config.tr(Config.pressureunit)
                                 anchors.left: pressure.right
-                                anchors.leftMargin: 8
+                                anchors.leftMargin: small_box_rect_left_margin 
                                 anchors.top: humidity.bottom
-                                anchors.topMargin: 22
-                                height: 30
+                                anchors.topMargin: small_box_rect_top_margin2 
+                                height: small_box_rect_height 
                                 color: "white"
-                                font.pointSize: 18
+                                font.pointSize: medium_FontPointSize 
                                 verticalAlignment: Text.AlignVCenter
                             }
                             Image {
                                 id: wind_speed
                                 source: Config.imagespath + "/wind_speed.png"
                                 anchors.top: humidity.bottom
-                                anchors.topMargin: 22
+                                anchors.topMargin: small_box_rect_top_margin2 
                                 anchors.left: parent.left
                                 anchors.leftMargin: margin + main.width/2 
-                                width: 30
-                                height: 30
+                                width: small_box_rect_height 
+                                height: small_box_rect_height 
                                 smooth: true
                             }
                             Text {
                                 text: main.current_model("current", main_index) == true ? ((Config.windspeedunit == "Beaufort scale") ? main.current_model("wind_speed", main_index) : main.current_model("wind_speed", main_index) + ' ' + Config.tr(Config.windspeedunit)) : ((Config.windspeedunit == "Beaufort scale") ? main.forecast_model(index, "wind_speed", main_index) : main.forecast_model(index, "wind_speed", main_index) + ' ' + Config.tr(Config.windspeedunit))
                                 anchors.left: wind_speed.right
-                                anchors.leftMargin: 8
+                                anchors.leftMargin: small_box_rect_left_margin 
                                 anchors.top: humidity.bottom
-                                anchors.topMargin: 22
-                                height: 30
+                                anchors.topMargin: small_box_rect_top_margin2 
+                                height: small_box_rect_height 
                                 color: "white"
-                                font.pointSize: 18
+                                font.pointSize: medium_FontPointSize 
                                 verticalAlignment: Text.AlignVCenter
                             }
                         }
@@ -492,13 +505,13 @@ Component {
                     model:  forecast_stub
                     delegate: itemDelegate
                     width: parent.width
-                    height: 80 * 21 
+                    height: row_rect_height * 21 
                     interactive: false
                     clip: true
                     Component.onCompleted: {
                        console.log("list onCompleted ", main_index, forecast_stub.count)
                        console.log("WeatherStationDelegate.qml - Config.stationname ", Config.stationname) 
-                       list.height = 80 * forecast_model_count(main_index) 
+                       list.height = row_rect_height * forecast_model_count(main_index) 
                     }
                 }
                 Component {
@@ -506,23 +519,23 @@ Component {
                     Item {
                         id: day
                         width: parent.width
-                        height: 80
+                        height: row_rect_height 
                         ListView.onAdd: {
                             /* Hack */		
-                            list.height = 80 * forecast_model_count(main_index) 
+                            list.height = row_rect_height * forecast_model_count(main_index) 
                             forecast_stub.remove(list.count-1)
                         }		    
                         visible: main.forecast_model(index, "fulldate", main_index) == undefined ? false : true
 
                         Rectangle {
                             width: parent.width
-                            height: 80
+                            height: row_rect_height
                             color: Config.transparency ? ((index % 2 != 0) ? "transparent" : "#10ffffff") : ((index % 2 != 0) ? "black" : "#0f0f0f")
                             Text {
                                 id: txt_date
                                 text: main.forecast_model(index, "fulldate", main_index) == undefined ? "" : main.forecast_model(index, "fulldate", main_index)
                                 color: "#889397"
-                                font.pointSize: 18
+                                font.pointSize: medium_FontPointSize 
                                 anchors.left: parent.left
                                 anchors.leftMargin: margin
                                 height:parent.height
@@ -531,33 +544,33 @@ Component {
                             Text {
                                 text: main.forecast_model(index, "shortdate", main_index) == undefined ? "" : main.forecast_model(index, "shortdate", main_index) 
                                 color: "white"
-                                font.pointSize: 18
+                                font.pointSize: medium_FontPointSize 
                                 anchors.left: parent.left
-                                anchors.leftMargin: (margin + txt_date.width + 8)
+                                anchors.leftMargin: (margin + txt_date.width + small_box_rect_left_margin)
                                 height:parent.height
                                 verticalAlignment: Text.AlignVCenter
                             }
                             Image {
                                 source: main.forecast_model(index, "pict", main_index) == undefined ? Config.iconspath + "/" + Config.iconset + "/49.png" : Config.iconspath + "/" + Config.iconset + "/" +  main.forecast_model(index, "pict", main_index)
-                                width: 64
-                                height: 64
+                                width: icon_size/2 
+                                height: icon_size/2
                                 anchors.horizontalCenter: parent.horizontalCenter
                                 anchors.verticalCenter: parent.verticalCenter
                                 smooth: true
                             }
                             Text {
                                 id: txt_temphi
-                                font.pointSize: 18
+                                font.pointSize: medium_FontPointSize 
                                 color: main.forecast_model(index, "temp_high", main_index) != undefined ? getColor(main.forecast_model(index, "temp_high", main_index)) : getColor(0)
                                 text: main.forecast_model(index, "temp_high", main_index) + '°'
                                 anchors.right: parent.right
-                                anchors.rightMargin: margin + 70
+                                anchors.rightMargin: margin + 70*ratio
                                 height:parent.height
                                 verticalAlignment: Text.AlignVCenter
                             }
                             Text {
                                 id: txt_templo
-                                font.pointSize: 18
+                                font.pointSize: medium_FontPointSize 
                                 color: "#889397"
                                 text: main.forecast_model(index, "temp_low", main_index) + '°'
                                 anchors.right: parent.right
@@ -594,7 +607,7 @@ Component {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
-            height: 90
+            height: 90*ratio
             color: Config.transparency ? Theme.secondaryHighlightColor : "black"
             opacity: 0.8
             Image {

@@ -6,8 +6,17 @@ Page {
     id: fullweather
     property int screen_height : fullweather.height
     property int screen_width : fullweather.width 
-    property int icon_size: 128
-    property int margin: 16
+    property real ratio: fullweather.screen_width/540
+    property int icon_size: 128*ratio
+    property int top_rect_height: 274*ratio
+    property int current_text_rect_height: 84*ratio
+    property int large_FontPointSize: 26*ratio
+    property int description_text_rect_height: 44*ratio
+    property int description_FontPointSize: 20*ratio
+    property int medium_FontPointSize: 18*ratio
+    property int small_FontPointSize: 14*ratio
+    property int row_rect_height: 80*ratio
+    property int margin: 16*ratio
     property int day: 0
     property bool current: false
     property string day_period: "day"
@@ -271,7 +280,7 @@ Page {
             current_rect.visible = false;
             hours_list.visible = true;
             hours_condition.clear();
-            flickable.contentHeight = 80 * model_hours.rowCount() + day_rect.height;
+            flickable.contentHeight = row_rect_height * model_hours.rowCount() + day_rect.height;
             var i = 0;
             while (i<model_hours.rowCount()){   
                 var hour_data = ""
@@ -285,7 +294,7 @@ Page {
                                         temp: model_hours.getdata(i, 'temp'), temp_high: model_hours.getdata(i, 'temp_high')});
                 i++;
             }
-            hours_list.height = 80 * hours_condition.rowCount();
+            hours_list.height = row_rect_height * hours_condition.rowCount();
 
 	}
         if ((model_day.getdata(day, "sunrise")) != "N/A")
@@ -394,7 +403,7 @@ Page {
                 id: current_rect
                 anchors.top: day_rect.bottom
                 width: parent.width
-                height: 274
+                height: top_rect_height 
                 //color: "black"
                 color: "transparent"
                 Loader {
@@ -405,13 +414,13 @@ Page {
                 Text {
                     id: now
                     width: screen_width/2 - icon_size/2 
-                    height: 84
+                    height: current_text_rect_height 
                     anchors.top: parent.top
                     anchors.left: parent.left
                     anchors.leftMargin: margin
                     color: "white"
                     text: day_period_name;
-                    font.pointSize: 26
+                    font.pointSize: large_FontPointSize
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                 }
@@ -421,7 +430,7 @@ Page {
                     width: icon_size 
                     height: icon_size 
                     anchors.top: parent.top
-                    anchors.topMargin: -22
+                    anchors.topMargin: -22*ratio
                     anchors.left: now.right
                      smooth: true
                 }
@@ -431,15 +440,15 @@ Page {
                     anchors.left: icon.right
                     anchors.rightMargin: margin
                     width: screen_width/2 - icon_size/2 
-                    height: 84
+                    height: current_text_rect_height 
                     color: "white"
-                    font.pointSize: 26
+                    font.pointSize: large_FontPointSize
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                 }
                 Rectangle {
                    id: desc  
-                   height: 44
+                   height: description_text_rect_height
                    color: "transparent"
                    width: parent.width 
                    anchors.left: parent.left
@@ -450,7 +459,7 @@ Page {
                         width: parent.width 
                         Text { 
                             id: text; 
-                            font.pointSize: 20; 
+                            font.pointSize: description_FontPointSize; 
                             width: parent.width 
                             color: desc.textColor; 
                             text: description_text ; 
@@ -468,7 +477,7 @@ Page {
                             }
                         }  
                         NumberAnimation on x { 
-                            id: text_anim; from: 450; to: -500 ; 
+                            id: text_anim; from: 450*ratio; to: -500*ratio ; 
                             duration: 10000; loops: Animation.Infinite; 
                             running : false; 
                         } 
@@ -484,15 +493,15 @@ Page {
                 GridView {
                     id: grid
                     anchors.top: desc.bottom
-                    anchors.topMargin: 20
+                    anchors.topMargin: 20*ratio
                     anchors.left: parent.left
                     anchors.leftMargin: margin
                     anchors.right: parent.right
                     anchors.rightMargin: margin
                     width: parent.width - 2*margin
-                    height: 260
+                    height: 260*ratio
                     cellWidth: (parent.width - 2*margin) / 2
-                    cellHeight: (condition.count > 6) ? 64 : 94
+                    cellHeight: (condition.count > 6) ? 64*ratio : 94*ratio
                     model: condition
                     interactive: false
                     clip: true
@@ -502,21 +511,21 @@ Page {
                         Text {
                             text: model.cond_name
                             color: "#999999"
-                            font.pointSize: 18
+                            font.pointSize: medium_FontPointSize 
                         }
                         Text {
                             text: model.value
                             color: "white"
-                            font.pointSize: 18
+                            font.pointSize: medium_FontPointSize
                         }
                     }
                 }
                 Rectangle {
                     id: splitter
                     color: Config.transparency ? "#cfcfcf" : "#303030"
-                    x: 20; width: parent.width - 40; height: 2
+                    x: 20*ratio; width: parent.width - 40*ratio; height: 2*ratio
                     anchors.top: grid.bottom 
-                    anchors.leftMargin: 20
+                    anchors.leftMargin: 20*ratio
                 }
                 ListModel {
                     id: condition2
@@ -524,13 +533,13 @@ Page {
                 GridView {
                     id: grid2
                     anchors.top: splitter.bottom
-                    anchors.topMargin: 10
+                    anchors.topMargin: 10*ratio
                     anchors.left: parent.left
                     anchors.leftMargin: margin
                     anchors.right: parent.right
                     anchors.rightMargin: margin
                     width: parent.width - 2*margin
-                    height: 165
+                    height: 165*ratio
                     cellWidth: (parent.width - 2*margin) / 2
                     model: condition2
                     interactive: false
@@ -541,31 +550,31 @@ Page {
                         Text {
                             text: model.cond_name
                             color: "#999999"
-                            font.pointSize: 18
+                            font.pointSize: medium_FontPointSize 
                         }
                         Text {
                             text: model.value
                             color: "white"
-                            font.pointSize: 18
+                            font.pointSize: medium_FontPointSize
                         }
                     }
                 }
                 Rectangle {
                    id: map_rect  
                    visible: (count_of_maps > 0) ? true : false
-                   height: 44
+                   height: description_text_rect_height
                    color: "transparent"
                    width: parent.width 
                    anchors.left: parent.left
                    anchors.top: grid2.bottom 
-                   anchors.topMargin: 20
+                   anchors.topMargin: 20*ratio
                    Text {
                         id: map_text
                         anchors.fill: parent
                         text:  Config.tr("Show on Map") 
                         color: "white"
                         visible: false
-                        font.pointSize: 24 
+                        font.pointSize: large_FontPointSize 
                         width: parent.width 
                         horizontalAlignment: Text.AlignHCenter
                    }
@@ -592,7 +601,7 @@ Page {
                     model: hours_condition 
                     delegate: itemDelegate
                     width: parent.width
-                    height: 80 * 24 
+                    height: row_rect_height * 24 
                     interactive: false
                     clip: true
             }
@@ -601,17 +610,17 @@ Page {
                     Item {
                         id: day
                         width: parent.width
-                        height: 80
+                        height: row_rect_height 
 
                         Rectangle {
                             width: parent.width
-                            height: 80
+                            height: row_rect_height 
                             color: Config.transparency ? ((index % 2 != 0) ? "transparent" : "#10ffffff") : ((index % 2 != 0) ? "black" : "#0f0f0f")
                             Text {
                                 id: txt_date
                                 text: model.fulldate
                                 color: "#889397"
-                                font.pointSize: 18
+                                font.pointSize: medium_FontPointSize 
                                 anchors.left: parent.left
                                 anchors.leftMargin: margin
                                 height:parent.height
@@ -620,39 +629,39 @@ Page {
                             Text {
                                 text: model.hourdate
                                 color: "white"
-                                font.pointSize: 18
+                                font.pointSize: medium_FontPointSize 
                                 anchors.left: parent.left
-                                anchors.leftMargin: (margin + txt_date.width + 8)
+                                anchors.leftMargin: (margin + txt_date.width + 8*ratio)
                                 height:parent.height
                                 verticalAlignment: Text.AlignVCenter
                             }
                             Image {
 				id: horly_icon
                                 source: Config.iconspath + "/" + Config.iconset + "/" + model.pict
-                                width: 64
-                                height: 64
+                                width: icon_size/2 
+                                height: icon_size/2
                                 anchors.horizontalCenter: parent.horizontalCenter
                                 anchors.verticalCenter: parent.verticalCenter
                                 smooth: true
                             }
                             Text {
                                 id: txt_precipitation
-				visible: (model.precipitation == "N/A") ? false : true
-                                font.pointSize: 14
+                                visible: (model.precipitation == "N/A") ? false : true
+                                font.pointSize: small_FontPointSize 
                                 color: (model.precipitation == "0.0") ? "#889397" : "white" 
                                 text: model.precipitation + Config.tr("mm")
-				anchors.left: parent.left 
-                                anchors.leftMargin: screen_width/2 + 64/2 + 30 
+                                anchors.left: parent.left 
+                                anchors.leftMargin: screen_width/2 + icon_size/4 + 30 
                                 height:parent.height
                                 verticalAlignment: Text.AlignVCenter
                             }
                             Text {
                                 id: txt_temp
-                                font.pointSize: 18
+                                font.pointSize: medium_FontPointSize 
                                 color: getColor(model.temp_high)
                                 text: model.temp + '°'
                                 anchors.right: parent.right
-                                anchors.rightMargin: (model.precipitation == "N/A") ? margin + 70 : margin + 30
+                                anchors.rightMargin: (model.precipitation == "N/A") ? margin + 70*ratio : margin + 30*ratio
                                 height:parent.height
                                 verticalAlignment: Text.AlignVCenter
                             }

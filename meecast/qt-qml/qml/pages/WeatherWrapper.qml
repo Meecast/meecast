@@ -7,7 +7,8 @@ Page {
     property int margin: 16
     property int screen_height : main.height 
     property int screen_width : main.width 
-    property real ratio: main.screen_width/540
+    property real ratio: Theme.pixelRatio 
+    //property real ratio: main.screen_width/540
     property int column_rect_height: 72*ratio
     property int large_FontPointSize: 28*ratio
     property int top_rect_height: 274*ratio

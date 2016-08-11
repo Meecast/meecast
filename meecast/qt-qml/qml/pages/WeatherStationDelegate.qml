@@ -7,7 +7,8 @@ Component {
         id: main_rectangle
         width: main.screen_width 
         height: main.screen_height
-        property real ratio: main.screen_width/540
+        //property real ratio: main.screen_width/540
+        property real ratio: Theme.pixelRatio
         property int icon_size: 128*ratio
         property int top_rect_height: 274*ratio
         property int row_rect_height: 80*ratio

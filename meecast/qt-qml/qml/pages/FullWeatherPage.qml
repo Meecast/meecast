@@ -6,7 +6,8 @@ Page {
     id: fullweather
     property int screen_height : fullweather.height
     property int screen_width : fullweather.width 
-    property real ratio: fullweather.screen_width/540
+    //property real ratio: fullweather.screen_width/540
+    property real ratio: Theme.pixelRatio
     property int icon_size: 128*ratio
     property int top_rect_height: 274*ratio
     property int current_text_rect_height: 84*ratio

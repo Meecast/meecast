@@ -6,6 +6,9 @@ Page {
     id: fullweather
     property int screen_height : fullweather.height
     property int screen_width : fullweather.width 
+//    property int screen_height : (isPortrait) ? fullweather.height : fullweather.width
+//    property int screen_width : (isPortrait) ? fullweather.width :  fullweather.height
+
     //property real ratio: fullweather.screen_width/540
     property real ratio: Theme.pixelRatio
     property int icon_size: 128*ratio
@@ -17,6 +20,7 @@ Page {
     property int medium_FontPointSize: 18*ratio
     property int small_FontPointSize: 14*ratio
     property int row_rect_height: 80*ratio
+    property int toolbar_height: 100*ratio
     property int margin: 16*ratio
     property int day: 0
     property bool current: false
@@ -368,7 +372,7 @@ Page {
         width: screen_width
         height: screen_height 
         color: Config.transparency ? "transparent" : "black"
-        Flickable {
+        SilicaFlickable {
             id: flickable
             anchors.top: parent.top
             anchors.left: parent.left
@@ -404,12 +408,17 @@ Page {
                 id: current_rect
                 anchors.top: day_rect.bottom
                 width: parent.width
-                height: top_rect_height 
+                height: screen_height + toolbar_height
                 //color: "black"
                 color: "transparent"
-                Loader {
-                    anchors.fill: parent
-                    sourceComponent: Image {source: Config.imagespath + "/mask_background_main.png"}
+                Rectangle {
+                    height: top_rect_height
+                    width: parent.width
+                    color: "transparent"
+                    Loader {
+                        anchors.fill: parent
+                        sourceComponent: Image {source: Config.imagespath + "/mask_background_main.png"}
+                    }
                 }
 
                 Text {
@@ -679,7 +688,7 @@ Page {
             color: Config.transparency ? Theme.secondaryHighlightColor : "black"
             opacity: 0.8
             id: toolbar
-            height: 0.094*screen_height 
+            height: toolbar_height 
             Row {
                 spacing: Theme.paddingLarge
                 //spacing: Theme.itemSizeSmall

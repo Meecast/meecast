@@ -1,6 +1,6 @@
 meecast (1.1.15) unstable; urgency=low
 
-  * Added new translation string for weather.com
+  * Added new translation strings for weather.com
   * Updated Russian tarnslation
 
  -- Vlad Vasiliev <vlad@gas.by> Sun, 20 Mar 2016 16:01:23 +0200

@@ -86,6 +86,7 @@
     g_hash_table_insert(hash, (void*)"Fog Late", _("Fog Late"));
     g_hash_table_insert(hash, (void*)"Fog early / Clearing late", _("Fog early / Clearing late"));
     g_hash_table_insert(hash, (void*)"Fog", _("Fog"));
+    g_hash_table_insert(hash, (void*)"Fog / Windy", _("Fog / Windy"));
     g_hash_table_insert(hash, (void*)"Foggy", _("Foggy"));
     g_hash_table_insert(hash, (void*)"Freezing Drizzle", _("Freezing Drizzle"));
     g_hash_table_insert(hash, (void*)"Full", _("Full"));

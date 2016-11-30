@@ -26,8 +26,22 @@ Andrew Olmsted
 for Semi-transparency
 and coloured backgrounds
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Aplikacja
+dla Nokii N800/N810/N900
+pokazująca prognozę pogody
+Wersja %s Kompilacja %s
+ Copyright(c) 2006-2013
+Vlad Vasiliev, Pavel Fialko
+Copyright(c) 2008
+Domyślny zestaw ikon
+i interfejs
+Andrew Zhilin
+Copyright(c) 2008⏎
+Andrew Olmsted
+półprzezroczystość
+i kolorowe tła
+</translation>
         </message>
         <message>
             <source>
@@ -109,23 +123,19 @@ W: </translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Niewielkie)</translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Niewielkie)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Umiarkowane)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Umiarkowane)</translation>
         </message>
         <message>
             <source>1 day</source>
@@ -137,19 +147,19 @@ W: </translation>
         </message>
         <message>
             <source>1 hour</source>
-            <translation>1 godzina</translation>
+            <translation>1 godzinę</translation>
         </message>
         <message>
             <source>1 hour</source>
-            <translation>1 godzina</translation>
+            <translation>1 godzinę</translation>
         </message>
         <message>
             <source>1 hour</source>
-            <translation>1 godzina</translation>
+            <translation>1 godzinę</translation>
         </message>
         <message>
             <source>1 hour</source>
-            <translation>1 godzina</translation>
+            <translation>1 godzinę</translation>
         </message>
         <message>
             <source>1 minute</source>
@@ -165,7 +175,7 @@ W: </translation>
         </message>
         <message>
             <source>12 hours</source>
-            <translation type="unfinished">2 godziny</translation>
+            <translation>12 godzin</translation>
         </message>
         <message>
             <source>15 minutes</source>
@@ -369,13 +379,14 @@ W: </translation>
         </message>
         <message>
             <source>Adjust GPS station</source>
-            <translation type="unfinished">Dodaj stację</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Albanian - Ilir Gjika
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Albański - Ilir Gjika
+</translation>
         </message>
         <message>
             <source>Alerts</source>
@@ -436,8 +447,8 @@ przed instalowaniem tego pakietu.</translation>
         <message>
             <source>Arabic - Tarad Alfandi
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Arabski - Tarad Alfandi
+</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -454,11 +465,11 @@ Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
 Design UI for Fremantle: Krebber Jan Niemela Ulla
 </source>
-            <translation type="unfinished">Autor i opiekun: Vlad Vasiliev, &lt;vlad@gas.by&gt;
-Opieka: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
+            <translation>Autor i utrzymanie: Vlad Vasiliev, &lt;vlad@gas.by&gt;
+Utrzymanie: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Dokumentacja: Marko Vertainen
-Interfejs i domyślny zestaw ikon: Andrew Zhilin
-Interfejs dla Fremantle: Krebber Jan Niemelä Ulla
+Projekt UI i domyślny zestaw ikon: Andrew Zhilin
+Projekt UI dla Fremantle: Krebber Jan Niemela Ulla
 </translation>
         </message>
         <message>
@@ -477,8 +488,7 @@ Interfejs dla Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Back</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Wróć</translation>
         </message>
         <message>
             <source>Background color:</source>
@@ -521,8 +531,8 @@ Interfejs dla Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Bulgarian - Zlatko Enikov
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bułgarski - Zlatko Enikov
+</translation>
         </message>
         <message>
             <source>C</source>
@@ -585,8 +595,8 @@ Interfejs dla Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Catalan - Agustí Clara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kataloński - Agustí Clara
+</translation>
         </message>
         <message>
             <source>Celcius</source>
@@ -594,21 +604,21 @@ Interfejs dla Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Celsius</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>stopnie Celsjusza</translation>
         </message>
         <message>
             <source>Chinese - Wong Man Kong, Michael,
  	gwmgdemj
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chiński -  - Wong Man Kong, Michael,
+	gwmgdemj
+</translation>
         </message>
         <message>
             <source>Chinese(Taiwan) - osk2, 
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chiński(Tajwan) - osk2,
+</translation>
         </message>
         <message>
             <source>City</source>
@@ -720,11 +730,12 @@ Interfejs dla Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy and wet snow showers</source>
-            <translation type="unfinished">Pochmurno, opady śniegu</translation>
+            <translation>Zachmurzenie, opady śniegu z deszczem</translation>
         </message>
         <message>
             <source>Cloudy with occasional rain.</source>
-            <translation type="unfinished">Pochmurno, przelotny deszcz</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Cloudy, Drifting Snow</source>
@@ -756,7 +767,8 @@ Interfejs dla Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Pochmurnie, silny deszcz</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
@@ -776,11 +788,12 @@ Interfejs dla Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Strong Rain, Heavy Rain</source>
-            <translation type="unfinished">Pochmurnie, silny deszcz</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
-            <translation type="unfinished">Zachmurzenie, burze z deszczem</translation>
+            <translation>Burzliwie, opady </translation>
         </message>
         <message>
             <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
@@ -836,18 +849,18 @@ Czas połączenia wygasł.</translation>
         <message>
             <source>Czech - Jakub Kožíšek, Pavel Šrubař
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Czeski - Jakub Kožíšek, Pavel Šrubař
+</translation>
         </message>
         <message>
             <source>Daily</source>
-            <translation>Dziennie</translation>
+            <translation>Codziennie</translation>
         </message>
         <message>
             <source>Danish - Peter Jespersen
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Duński - Peter Jespersen
+</translation>
         </message>
         <message>
             <source>Day</source>
@@ -980,8 +993,9 @@ pakietów &quot;omweather-*-stations-db&quot;.</translation>
             <source>Dutch - Tom Leenders, Michiel Pater
  	Heimen Stoffels, Nathan Follens
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Niderlandzki - Tom Leenders, Michiel Pater
+	Heimen Stoffels, Nathan Follens
+</translation>
         </message>
         <message>
             <source>E</source>
@@ -1009,8 +1023,7 @@ pakietów &quot;omweather-*-stations-db&quot;.</translation>
         </message>
         <message>
             <source>E_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Wsch.</translation>
         </message>
         <message>
             <source>Ed Bartosh - for more feature requests, support and criticism
@@ -1156,7 +1169,7 @@ Brad Jones aka kazrak - za testowanie
         </message>
         <message>
             <source>Feels like</source>
-            <translation type="unfinished">Odczuwalna:</translation>
+            <translation>Temperatura odczuwalna</translation>
         </message>
         <message>
             <source>Feels like:</source>
@@ -1168,7 +1181,8 @@ Brad Jones aka kazrak - za testowanie
         </message>
         <message>
             <source>Few Clouds</source>
-            <translation type="unfinished">Pochmurnie</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Few Showers</source>
@@ -1204,8 +1218,10 @@ Brad Jones aka kazrak - za testowanie
 	deadhead (A-P Partonen),
  	jarliim
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Fiński - Marko Vertainen,
+	deadhead (A-P Partonen),
+	jarliim
+</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
@@ -1219,19 +1235,23 @@ Brad Jones aka kazrak - za testowanie
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Odczuwalna:</translation>
+            <translation>Temp. odczuwalna</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Odczuwalna:</translation>
+            <translation>Temp. odczuwalna</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Odczuwalna:</translation>
+            <translation>Temp. odczuwalna</translation>
         </message>
         <message>
             <source>Fog</source>
             <translation>Mgła</translation>
+        </message>
+        <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Śnieg / wiatr</translation>
         </message>
         <message>
             <source>Fog Early / Clouds Late</source>
@@ -1299,7 +1319,10 @@ używając Menedżera aplikacji</translation>
  	Quentin Caillard, 
  	Jordi
 </source>
-            <translation type="unfinished">Tłumaczenia: Francuski - Nicolas Granziano, Philippe, Benot Knecht; Rosyjski - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
+            <translation>French - Nicolas Granziano, 
+	Philippe, Benot Knecht, 
+	Quentin Caillard, 
+	Jordi
 </translation>
         </message>
         <message>
@@ -1365,16 +1388,17 @@ słowacki - Roman Moravčík</translation>
         <message>
             <source>Galician - pakoR
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Galicyjski - pakoR
+</translation>
         </message>
         <message>
             <source>German -  Claudius Henrichs,
  	Jens Klingen,
  	DeadHorseRiding
  </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Niemiecki - Claudius Henrichs,
+	Jens Klingen,
+	DeadHorseRiding</translation>
         </message>
         <message>
             <source>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
@@ -1403,12 +1427,13 @@ słowacki - Roman Moravčík</translation>
         </message>
         <message>
             <source>Heavy Freezing Rain</source>
-            <translation type="unfinished">Deszcz / marznący deszcz</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy Precipitation</source>
             <translation type="unfinished">
-Opady: </translation>
+            </translation>
         </message>
         <message>
             <source>Heavy Rain</source>
@@ -1424,15 +1449,18 @@ Opady: </translation>
         </message>
         <message>
             <source>Heavy Rain Showers</source>
-            <translation type="unfinished">Obfite opady deszcu</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy Sleet</source>
-            <translation type="unfinished">Silny śnieg</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy Sleet Showers</source>
-            <translation type="unfinished">Obfite opady deszcu</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy Snow</source>
@@ -1440,27 +1468,32 @@ Opady: </translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
-            <translation type="unfinished">Silny deszcz / wiatr</translation>
+            <translation>Silny śnieg / wiatr</translation>
         </message>
         <message>
             <source>Heavy Snow Shower</source>
-            <translation type="unfinished">Lekki przelotny śnieg</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
-            <translation type="unfinished">Lekki przelotny śnieg</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy Snowfall</source>
-            <translation type="unfinished">Silny śnieg</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy Thunder</source>
-            <translation type="unfinished">Burza</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
-            <translation type="unfinished">Silny deszcz</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>High</source>
@@ -1468,7 +1501,7 @@ Opady: </translation>
         </message>
         <message>
             <source>Hourly</source>
-            <translation type="unfinished">Godziny</translation>
+            <translation>Godzinowa</translation>
         </message>
         <message>
             <source>Hours</source>
@@ -1476,15 +1509,15 @@ Opady: </translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Wilgotność:</translation>
+            <translation>Wilgotność</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Wilgotność:</translation>
+            <translation>Wilgotność</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Wilgotność:</translation>
+            <translation>Wilgotność</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1505,8 +1538,8 @@ Opady: </translation>
         <message>
             <source>Hungarian - Salmi, László Kara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Węgierski - Salmi, László Kara
+</translation>
         </message>
         <message>
             <source>Ice Pellets</source>
@@ -1579,7 +1612,11 @@ Opady: </translation>
  	Salvatore Fiorenzo, Ilir Gjika,
  	Luca Onnis
 </source>
-            <translation type="unfinished">włoski - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; polski - Kuba Mędrek, Tomasz Dominikowski; Bułgarski - Zlatko Enikov</translation>
+            <translation>Włoski - Lorenzo Facca,
+	Pavel Fialko, Alessandro Pasotti,
+	Salvatore Fiorenzo, Ilir Gjika,
+	Luca Onnis
+</translation>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
@@ -1591,13 +1628,11 @@ Opady: </translation>
         </message>
         <message>
             <source>Knots</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Węzły</translation>
         </message>
         <message>
             <source>Language</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Język</translation>
         </message>
         <message>
             <source>Last Quarter</source>
@@ -1649,7 +1684,8 @@ Opady: </translation>
         </message>
         <message>
             <source>Lead designers</source>
-            <translation type="unfinished">Projekt interfejsu</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>License</source>
@@ -1661,7 +1697,8 @@ Opady: </translation>
         </message>
         <message>
             <source>Light Freezing Drizzle</source>
-            <translation type="unfinished">Marznąca mżawka</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -1688,6 +1725,10 @@ Opady: </translation>
             <translation>Lekki deszcz / później wiatr</translation>
         </message>
         <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Lekki deszcz / wiatr</translation>
+        </message>
+        <message>
             <source>Light Rain Early</source>
             <translation>Wcześnie lekki deszcz </translation>
         </message>
@@ -1701,7 +1742,8 @@ Opady: </translation>
         </message>
         <message>
             <source>Light Rain Showers</source>
-            <translation type="unfinished">Lekki przelotny deszcz</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
@@ -1721,11 +1763,13 @@ Opady: </translation>
         </message>
         <message>
             <source>Light Sleet</source>
-            <translation type="unfinished">Lekki śnieg</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light Sleet Showers</source>
-            <translation type="unfinished">Lekki przelotny śnieg</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1753,19 +1797,23 @@ Opady: </translation>
         </message>
         <message>
             <source>Light Snow Showers</source>
-            <translation type="unfinished">Lekki przelotny śnieg</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light Snowfall</source>
-            <translation type="unfinished">Lekki śnieg</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
-            <translation type="unfinished">Silny deszcz</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
-            <translation type="unfinished">Silny deszcz</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light or Moderate Precipitation</source>
@@ -1774,11 +1822,13 @@ Opady: </translation>
         </message>
         <message>
             <source>Light rain</source>
-            <translation type="unfinished">Lekki deszcz</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light snow</source>
-            <translation type="unfinished">Lekki śnieg</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Loading station list</source>
@@ -1790,8 +1840,7 @@ Opady: </translation>
         </message>
         <message>
             <source>Localization platform</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Platforma tłumaczeń</translation>
         </message>
         <message>
             <source>Long</source>
@@ -1811,19 +1860,23 @@ Opady: </translation>
         </message>
         <message>
             <source>Mainly cloudy with occasional rain.</source>
-            <translation type="unfinished">Umiarkowane zachmurzenie i przelotne opady deszczu</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Mainly cloudy, Slight shower of rain</source>
-            <translation type="unfinished">Umiarkowane zachmurzenie i przelotne opady deszczu</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Mainly cloudy, drizzle</source>
-            <translation type="unfinished">Umiarkowane zachmurzenie, opady</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Mainly cloudy, showers</source>
-            <translation type="unfinished">Umiarkowane zachmurzenie, opady</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -1845,7 +1898,7 @@ Opady: </translation>
         </message>
         <message>
             <source>Measurement units</source>
-            <translation>Jednostki pomiaru</translation>
+            <translation>Jednostki</translation>
         </message>
         <message>
             <source>MeeCast</source>
@@ -1853,7 +1906,7 @@ Opady: </translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
-            <translation type="unfinished">MeeCast - multiplatformowy, możliwy do dostosowania otwartoźródłowy program wyświetlający prognozy pogody, bazujący na kodzie OMWeather. Copyright (C) 2006-2011</translation>
+            <translation>MeeCast - wieloplarformowy, wysoko konfigurowalny, otwartoźródłowy klient prognozy pogody, bazujący na kodzie OMWeather. Copyright (C) 2006-2016</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -1873,27 +1926,33 @@ Opady: </translation>
         </message>
         <message>
             <source>Moderate Freezing Rain</source>
-            <translation type="unfinished">Zachmurzenie, deszcz</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Moderate Rain</source>
-            <translation type="unfinished">Zachmurzenie, deszcz</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Moderate Rain Showers</source>
-            <translation type="unfinished">Zachmurzenie, deszcz</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Moderate Sleet</source>
-            <translation type="unfinished">Zachmurzenie, deszcz</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Moderate Snow Showers</source>
-            <translation type="unfinished">Rano przelotny śnieg</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Moderate rain</source>
-            <translation type="unfinished">Zachmurzenie, deszcz</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Modification</source>
@@ -1989,7 +2048,8 @@ Opady: </translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Pochmurnie, silny deszcz</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
@@ -2021,7 +2081,8 @@ Opady: </translation>
         </message>
         <message>
             <source>Mostly sunny</source>
-            <translation type="unfinished">Głównie słonecznie</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>N</source>
@@ -2123,8 +2184,7 @@ Opady: </translation>
         </message>
         <message>
             <source>N_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Płn.</translation>
         </message>
         <message>
             <source>Name:</source>
@@ -2213,8 +2273,8 @@ Opady: </translation>
         <message>
             <source>Norwegian - Peer-Atle Motland
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Norweski - Peer-Atle Motland
+</translation>
         </message>
         <message>
             <source>Now</source>
@@ -2338,7 +2398,8 @@ Opady: </translation>
         </message>
         <message>
             <source>Overcast Clouds</source>
-            <translation type="unfinished">Pochmurnie</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Overcast and light rain</source>
@@ -2378,7 +2439,8 @@ Opady: </translation>
         </message>
         <message>
             <source>Overcast clouds</source>
-            <translation type="unfinished">Pochmurnie</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Overcast, thunderstorms with rain</source>
@@ -2455,7 +2517,8 @@ Opady: </translation>
         </message>
         <message>
             <source>Partly Cloudy / Windy</source>
-            <translation type="unfinished">Częściowe zachmurzenie / wiatr</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
@@ -2572,14 +2635,14 @@ Opady: </translation>
         <message>
             <source>Polish - Tomasz Dominikowski
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Polski - Tomasz Dominikowski
+</translation>
         </message>
         <message>
             <source>Portuguese - Jose Narciso,
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Portugalski - Jose Narciso,
+</translation>
         </message>
         <message>
             <source>Position:</source>
@@ -2603,37 +2666,37 @@ Opady: </translation>
         <message>
             <source>Precipitation</source>
             <translation type="unfinished">
-Opady: </translation>
+            </translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
             <translation type="unfinished">
-Opady: </translation>
+            </translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
             <translation type="unfinished">
-Opady: </translation>
+            </translation>
         </message>
         <message>
             <source>Precipitation rate:</source>
             <translation type="unfinished">
-Opady: </translation>
+            </translation>
         </message>
         <message>
             <source>Precipitation:</source>
             <translation type="unfinished">
-Opady: </translation>
+            </translation>
         </message>
         <message>
             <source>Precipitation:</source>
             <translation type="unfinished">
-Opady: </translation>
+            </translation>
         </message>
         <message>
             <source>Precipitation:</source>
             <translation type="unfinished">
-Opady: </translation>
+            </translation>
         </message>
         <message>
             <source>Preference|Update</source>
@@ -2693,11 +2756,12 @@ Opady: </translation>
         </message>
         <message>
             <source>Programmer</source>
-            <translation type="unfinished">Kierownik zespołu programistów</translation>
+            <translation>Programista</translation>
         </message>
         <message>
             <source>Project administrators</source>
-            <translation type="unfinished">Koordynator projektu</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Project manager</source>
@@ -2709,7 +2773,8 @@ Opady: </translation>
         </message>
         <message>
             <source>Proximity shower rain</source>
-            <translation type="unfinished">Silny deszcz</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Rain</source>
@@ -2785,7 +2850,8 @@ Opady: </translation>
         </message>
         <message>
             <source>Rain and snow</source>
-            <translation type="unfinished">Deszcz i śnieg</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>
@@ -2805,8 +2871,7 @@ Opady: </translation>
         </message>
         <message>
             <source>Refresh</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Odśwież</translation>
         </message>
         <message>
             <source>Region</source>
@@ -2828,8 +2893,9 @@ Opady: </translation>
             <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
  	Ed Bartosh
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Rosyjski - Pavel Fialko, Vlad Vasilyeu, 
+	Ed Bartosh
+</translation>
         </message>
         <message>
             <source>S</source>
@@ -2908,7 +2974,8 @@ Opady: </translation>
         </message>
         <message>
             <source>Scattered Clouds</source>
-            <translation type="unfinished">Rozproszony śnieg</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Scattered Showers</source>
@@ -2928,7 +2995,8 @@ Opady: </translation>
         </message>
         <message>
             <source>Scattered clouds</source>
-            <translation type="unfinished">Rozproszony śnieg</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Sea miles</source>
@@ -2988,28 +3056,23 @@ Opady: </translation>
         </message>
         <message>
             <source>Select the X-position for left corner of widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Wybierz pozycję lewego górnego rogu widżetu w poziomie</translation>
         </message>
         <message>
             <source>Select the Y-position for left corner of widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Wybierz pozycję lewego górnego rogu widżetu w pionie</translation>
         </message>
         <message>
             <source>Select the color of font for current temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kolor czcionki dla aktualnej temperatury</translation>
         </message>
         <message>
             <source>Select the color of font for station name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kolor czcionki dla nazwy miejscowości</translation>
         </message>
         <message>
             <source>Select the color of font for temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kolor czcionki dla temperatury</translation>
         </message>
         <message>
             <source>Select the iconset</source>
@@ -3017,7 +3080,7 @@ Opady: </translation>
         </message>
         <message>
             <source>Select the language</source>
-            <translation type="unfinished">Wybierz zestaw ikon</translation>
+            <translation>Wybierz język</translation>
         </message>
         <message>
             <source>Select the weather source</source>
@@ -3058,8 +3121,8 @@ Opady: </translation>
         <message>
             <source>Serbian - Aleksandar Zaric
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Serbski - Aleksandar Zaric
+</translation>
         </message>
         <message>
             <source>Set</source>
@@ -3095,16 +3158,15 @@ Opady: </translation>
         </message>
         <message>
             <source>Settings for Lockscreen widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Widżet ekranu blokady</translation>
         </message>
         <message>
             <source>Settings for standby widget</source>
-            <translation type="unfinished">Ustawienia ekranu czuwania</translation>
+            <translation>Widżetu ekranu czuwania</translation>
         </message>
         <message>
             <source>Settings of LockScreen</source>
-            <translation type="unfinished">Ustawienia ekranu czuwania</translation>
+            <translation>Ustawienia ekranu blokady</translation>
         </message>
         <message>
             <source>Settings of StandbyScreen</source>
@@ -3124,11 +3186,12 @@ Opady: </translation>
         </message>
         <message>
             <source>Show last update time</source>
-            <translation type="unfinished">Ostatnia aktualizacja: </translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Show on Map</source>
-            <translation type="unfinished">Wyświetlanie nazwy stacji</translation>
+            <translation>Pokaż na mapie</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
@@ -3182,11 +3245,13 @@ Opady: </translation>
         </message>
         <message>
             <source>Sky is Clear</source>
-            <translation type="unfinished">Przeważnie bezchmurnie</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Sky is clear</source>
-            <translation type="unfinished">Przeważnie bezchmurnie</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Sleet</source>
@@ -3194,19 +3259,20 @@ Opady: </translation>
         </message>
         <message>
             <source>Sleet Showers</source>
-            <translation type="unfinished">Lekki przelotny deszcz</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Slovak - Roman Moravčík
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Słowacki - Roman Moravčík
+</translation>
         </message>
         <message>
             <source>Slovenian - Boštjan Štrumbelj
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Słoweński - Boštjan Štrumbelj
+</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3222,7 +3288,12 @@ Opady: </translation>
         </message>
         <message>
             <source>Snow Early</source>
-            <translation type="unfinished">Wcześnie przelotne deszcze</translation>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Później przelotny deszcz</translation>
         </message>
         <message>
             <source>Snow Shower</source>
@@ -3234,7 +3305,8 @@ Opady: </translation>
         </message>
         <message>
             <source>Snow Showers</source>
-            <translation type="unfinished">Przelotny snieg</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -3266,7 +3338,8 @@ Opady: </translation>
         </message>
         <message>
             <source>Snowfall</source>
-            <translation type="unfinished">Śnieg</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Source</source>
@@ -3274,7 +3347,7 @@ Opady: </translation>
         </message>
         <message>
             <source>Source code</source>
-            <translation type="unfinished">Źródło</translation>
+            <translation>Kod źródłowy</translation>
         </message>
         <message>
             <source>Source:</source>
@@ -3283,8 +3356,8 @@ Opady: </translation>
         <message>
             <source>Spanish - Alejandro Lopez, Agustí Clara
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hiszpański - Alejandro Lopez, Agustí Clara
+</translation>
         </message>
         <message>
             <source>Speed</source>
@@ -3332,8 +3405,7 @@ Opady: </translation>
         </message>
         <message>
             <source>Splash screen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Obrazek przy uruchamianiu</translation>
         </message>
         <message>
             <source>State:</source>
@@ -3436,8 +3508,10 @@ Opady: </translation>
  	Åke Engelbrektson, 
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szwedzki -  - Angela Nennebrandt,
+	Åke Engelbrektson, 
+	Niklas Åkerström, 
+	Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>Switch to the next station after:</source>
@@ -3537,8 +3611,7 @@ Opady: </translation>
         </message>
         <message>
             <source>This is experimental feature. Only English is supported.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>To jest funkcja eksperymentalna. Tylko język angielski jest obsługiwany.</translation>
         </message>
         <message>
             <source>This software is free software; you can
@@ -3570,7 +3643,8 @@ Fundację wolnego oprogramowania.</translation>
         </message>
         <message>
             <source>Thundershowers</source>
-            <translation type="unfinished">Burza</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Today</source>
@@ -3604,7 +3678,7 @@ Fundację wolnego oprogramowania.</translation>
         </message>
         <message>
             <source>Transparency</source>
-            <translation type="unfinished">Przezroczystość:</translation>
+            <translation>Przezroczystość</translation>
         </message>
         <message>
             <source>Transparency:</source>
@@ -3630,8 +3704,9 @@ Fundację wolnego oprogramowania.</translation>
             <source>Turkish - Burak Kaan Kose,
  	Mehmet Çilingir
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Turecki - Burak Kaan Kose,
+	Mehmet Çilingir
+</translation>
         </message>
         <message>
             <source>Type of click:</source>
@@ -3639,8 +3714,7 @@ Fundację wolnego oprogramowania.</translation>
         </message>
         <message>
             <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Indeks UV:</translation>
         </message>
         <message>
             <source>Units</source>
@@ -3793,14 +3867,16 @@ aktualizowania prognoz.
             <source>Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
 </source>
+            <translation>Wietnamski - Hieu Nguyen
+	Anh Dương and truongnx, 
+</translation>
+        </message>
+        <message>
+            <source>Violent Rain Showers</source>
             <translation type="unfinished">
             </translation>
         </message>
         <message>
-            <source>Violent Rain Showers</source>
-            <translation type="unfinished">Lekki przelotny deszcz</translation>
-        </message>
-        <message>
             <source>Visible items:</source>
             <translation>Widoczne elementy:</translation>
         </message>
@@ -3810,11 +3886,11 @@ aktualizowania prognoz.
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">Widoczne elementy:</translation>
+            <translation>Jednostki odległości</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">Widoczne elementy:</translation>
+            <translation>Jednostki odległości</translation>
         </message>
         <message>
             <source>Visible:</source>
@@ -3843,12 +3919,12 @@ aktualizowania prognoz.
         </message>
         <message>
             <source>Voice weather forecast</source>
-            <translation type="unfinished">Prognoza OMWeather</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>W</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zach.</translation>
         </message>
         <message>
             <source>WLAN</source>
@@ -3929,7 +4005,7 @@ aktualizowania prognoz.
         </message>
         <message>
             <source>Widget in events view</source>
-            <translation>Widżety w widoku zdarzeń</translation>
+            <translation>Widżet w widoku zdarzeń</translation>
         </message>
         <message>
             <source>Widget style</source>
@@ -3949,15 +4025,15 @@ aktualizowania prognoz.
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Kierunek wiatru:</translation>
+            <translation>Kierunek wiatru</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Kierunek wiatru:</translation>
+            <translation>Kierunek wiatru</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Kierunek wiatru:</translation>
+            <translation>Kierunek wiatru</translation>
         </message>
         <message>
             <source>Wind direction:</source>
@@ -4179,8 +4255,7 @@ lub kod ZIP.</translation>
         </message>
         <message>
             <source>http://github.com/Meecast/meecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>http://github.com/Meecast/meecast</translation>
         </message>
         <message>
             <source>inHg</source>
@@ -4220,7 +4295,7 @@ lub kod ZIP.</translation>
         </message>
         <message>
             <source>kPa</source>
-            <translation type="unfinished">Pa</translation>
+            <translation>kPa</translation>
         </message>
         <message>
             <source>km</source>
@@ -4353,8 +4428,7 @@ lub kod ZIP.</translation>
         </message>
         <message>
             <source>mbar</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mbar</translation>
         </message>
         <message>
             <source>mi</source>
@@ -4438,18 +4512,15 @@ lub kod ZIP.</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mm/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm/h</translation>
         </message>
         <message>
             <source>mmHg</source>
@@ -4489,7 +4560,8 @@ lub kod ZIP.</translation>
         </message>
         <message>
             <source>mph</source>
-            <translation type="unfinished">m/h</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>n:</source>

@@ -1403,6 +1403,11 @@ Brad Jones aka kazrak - for testing
             </translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation type="unfinished">
             </translation>
@@ -1933,6 +1938,10 @@ Slovak - Roman Moravčík</source>
             <source>Light Rain / Wind Late</source>
             <translation type="unfinished">
             </translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">S</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3770,6 +3779,10 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Snow Early</source>
+            <translation type="unfinished">S</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
             <translation type="unfinished">S</translation>
         </message>
         <message>

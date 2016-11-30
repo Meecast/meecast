@@ -1216,6 +1216,10 @@ Brad Jones aka kazrak - за тестування
             <translation>Туман</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Сніг / Вітер</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>На початку дня туман, пізніше хмарно</translation>
         </message>
@@ -1672,6 +1676,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>Невеликий дощ / Пізніше вітер</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Невеликий дощ / Вітер</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3201,6 +3209,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Snow Early</source>
             <translation type="unfinished">Зранку зливи</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Пізніше зливи</translation>
         </message>
         <message>
             <source>Snow Shower</source>

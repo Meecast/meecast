@@ -1235,6 +1235,10 @@ Brad Jones aka kazrak - for testing
             <translation>Ít sương mù</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Có tuyết và gió</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>Sáng sớm có sương mù, sau trời nhiều mây</translation>
         </message>
@@ -1689,6 +1693,10 @@ Mưa:</translation>
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>Mưa nhẹ / Gió muộn</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Mưa nhẹ / Gió</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3216,6 +3224,10 @@ Mưa:</translation>
         <message>
             <source>Snow Early</source>
             <translation type="unfinished">Mưa rào sớm</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Mưa rào muộn</translation>
         </message>
         <message>
             <source>Snow Shower</source>

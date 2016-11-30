@@ -1234,6 +1234,10 @@ Brad Jones aka kazrak - for testing
             <translation>Fog</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Snow / Wind</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>Fog Early / Clouds Late</translation>
         </message>
@@ -1685,6 +1689,10 @@ Precipitation: </translation>
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>Light Rain / Wind Late</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Light Rain / Wind</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3198,6 +3206,10 @@ Precipitation: </translation>
         <message>
             <source>Snow Early</source>
             <translation type="unfinished">Showers Early</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Showers Late</translation>
         </message>
         <message>
             <source>Snow Shower</source>

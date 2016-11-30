@@ -1234,6 +1234,10 @@ Brad Jones aka kazrak - testauksesta
             <translation>Sumua</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Lumisadetta / Tuulista</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>Ensin sumua / Myöhemmin pilvistä</translation>
         </message>
@@ -1691,6 +1695,10 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>Kevyttä vesisadetta / Myöhemmin tuulista</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Kevyttä vesisadetta / Tuulista</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3193,6 +3201,10 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Snow Early</source>
             <translation type="unfinished">Jakson alussa sadekuuroja</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Myöhemmin sadekuuroja</translation>
         </message>
         <message>
             <source>Snow Shower</source>

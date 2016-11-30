@@ -445,12 +445,8 @@ Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
 Design UI for Fremantle: Krebber Jan Niemela Ulla
 </source>
-            <translation type="unfinished">Автор и поддержка: Влад Васильев, &lt;vlad@gas.by&gt;
-Поддержка: Павел Фиалко, &lt;pavelnf@gmail.com&gt;
-Документация: Marko Vertainen
-Дизайн интерфейса и набор иконок по-умолчанию: Андрей Жилин
-Дизайн интерфейса для Fremantle: Krebber Jan Niemelä Ulla
-</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Author and maintenance: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
@@ -1213,6 +1209,10 @@ Brad Jones aka kazrak - за тестирование
             <translation>Туман</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Снег / Ветер</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>В начале дня туман, позже облачно</translation>
         </message>
@@ -1423,11 +1423,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Heavy Snow Shower</source>
-            <translation type="unfinished">Сильные дожди со снегом</translation>
+            <translation>Сильный снегопад</translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
-            <translation>Сильные дожди со снегом</translation>
+            <translation>Сильные снегопады</translation>
         </message>
         <message>
             <source>Heavy Snowfall</source>
@@ -1665,6 +1665,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>Небольшой дождь / Позже ветер</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Небольшой дождь / Ветер</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3182,7 +3186,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Snow Early</source>
-            <translation type="unfinished">С утра ливни</translation>
+            <translation>С утра снег</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Позже ливни</translation>
         </message>
         <message>
             <source>Snow Shower</source>

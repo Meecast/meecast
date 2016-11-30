@@ -27,19 +27,19 @@ for Semi-transparency
 and coloured backgrounds
 </source>
             <translation>
-Hilon desktop applet 
+Hildon-desktopapplet 
 voor de Nokia N800/N810/N900
-om weersvoorspellingen te weergeven. 
+om weersverwachtingen te weergeven. 
 Versie %s Build: %s 
 Copyright(c) 2006-2011 
 Vlad Vasiliev, Pavel Fialko 
 Copyright(c) 2008 
-voor de default icoonset (Glance) 
-en interface ontwerp 
+voor de standaardpictogramset (Glance) 
+en interfaceontwerp 
 Andrew Zhilin 
 Copyright(c) 2008
 Andrew Olmsted 
-voor Semi-transparante
+voor semi-transparante
 en gekleurde achtergronden 
 </translation>
         </message>
@@ -251,87 +251,87 @@ W:</translation>
         </message>
         <message>
             <source>AM Clouds / PM Sun</source>
-            <translation>AM Bewolkt / PM Zon</translation>
+            <translation>AM bewolkt / PM zon</translation>
         </message>
         <message>
             <source>AM Drizzle</source>
-            <translation>AM Motregen</translation>
+            <translation>AM motregen</translation>
         </message>
         <message>
             <source>AM Drizzle / Wind</source>
-            <translation>AM Motregen/Wind</translation>
+            <translation>AM motregen / wind</translation>
         </message>
         <message>
             <source>AM Fog / PM Clouds</source>
-            <translation>AM Mist / PM Bewolkt</translation>
+            <translation>AM mist / PM bewolkt</translation>
         </message>
         <message>
             <source>AM Fog / PM Sun</source>
-            <translation>AM Mist / PM Zon</translation>
+            <translation>AM mist / PM zon</translation>
         </message>
         <message>
             <source>AM Light Rain</source>
-            <translation>AM Lichte Regen</translation>
+            <translation>AM lichte regen</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
-            <translation>AM Lichte Regen/Wind</translation>
+            <translation>AM lichte regen / wind</translation>
         </message>
         <message>
             <source>AM Light Snow</source>
-            <translation>AM Lichte Sneeuwval</translation>
+            <translation>AM lichte sneeuwval</translation>
         </message>
         <message>
             <source>AM Light Snow / Wind</source>
-            <translation>AM Lichte Sneeuwval/Wind</translation>
+            <translation>AM lichte sneeuwval / wind</translation>
         </message>
         <message>
             <source>AM Light Wintry Mix</source>
-            <translation>AM Winterachtig</translation>
+            <translation>AM winterachtig</translation>
         </message>
         <message>
             <source>AM Rain</source>
-            <translation>AM Regen</translation>
+            <translation>AM regen</translation>
         </message>
         <message>
             <source>AM Rain / Snow</source>
-            <translation>AM Regen/Sneeuw</translation>
+            <translation>AM regen / sneeuw</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
-            <translation>AM Regen-/Sneeuwbuien</translation>
+            <translation>AM regen-/sneeuwbuien</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers / Wind</source>
-            <translation>AM Regen-/Sneeuwbuien/Wind</translation>
+            <translation>AM regen-/sneeuwbuien / wind</translation>
         </message>
         <message>
             <source>AM Rain / Wind</source>
-            <translation>AM Regen / Wind</translation>
+            <translation>AM regen / wind</translation>
         </message>
         <message>
             <source>AM Showers</source>
-            <translation>AM Buien</translation>
+            <translation>AM buien</translation>
         </message>
         <message>
             <source>AM Showers / Wind</source>
-            <translation>AM Buien / Wind</translation>
+            <translation>AM buien / wind</translation>
         </message>
         <message>
             <source>AM Snow</source>
-            <translation>AM Sneeuw</translation>
+            <translation>AM sneeuw</translation>
         </message>
         <message>
             <source>AM Snow Showers</source>
-            <translation>AM Sneeuwbuien</translation>
+            <translation>AM sneeuwbuien</translation>
         </message>
         <message>
             <source>AM Snow Showers / Wind</source>
-            <translation>AM Sneeuwbuien / Wind</translation>
+            <translation>AM sneeuwbuien / wind</translation>
         </message>
         <message>
             <source>AM Snow Showers / Wind Late</source>
-            <translation>AM Laat: Sneeuwbuien / Wind</translation>
+            <translation>AM laat: sneeuwbuien / wind</translation>
         </message>
         <message>
             <source>About</source>
@@ -363,15 +363,15 @@ W:</translation>
         </message>
         <message>
             <source>Access denied to the given URL.</source>
-            <translation>Geen toegang tot URL</translation>
+            <translation>Geen toegang tot URL.</translation>
         </message>
         <message>
             <source>Action|Update</source>
-            <translation>Actie | Update</translation>
+            <translation>Actie | Bijwerken</translation>
         </message>
         <message>
             <source>Add</source>
-            <translation>Voeg toe</translation>
+            <translation>Toevoegen</translation>
         </message>
         <message>
             <source>Add Station</source>
@@ -379,7 +379,7 @@ W:</translation>
         </message>
         <message>
             <source>Adjust GPS station</source>
-            <translation>Update GPS station</translation>
+            <translation>GPS-station bijwerken</translation>
         </message>
         <message>
             <source>Albanian - Ilir Gjika
@@ -418,7 +418,7 @@ Marc Dillon - Voor spelling/stijlcheck van de Engelse tekst
 Arkady Glazov aka Globster - voor het testen
 Alexander Savchenko aka dizel - voor het testen
 Timeless - voor de patches
-Eric Link - Voor het aanvragen van applicatie opties en donatie
+Eric Link - voor het aanvragen van applicatieopties en donatie
 </translation>
         </message>
         <message>
@@ -439,9 +439,9 @@ for installing package 'MeeCast applet'.
 You should uninstall AccuWeather 
 before installing this package</source>
             <translation>Applicatiebeheer start nu met
-installeren 'MeeCast Applet'.
+installeren van 'MeeCast Applet'.
 Verwijder AccuWeather
-alvorens te installeren.</translation>
+alvorens te installeren</translation>
         </message>
         <message>
             <source>Arabic - Tarad Alfandi
@@ -455,7 +455,7 @@ alvorens te installeren.</translation>
         </message>
         <message>
             <source>Are you sure?</source>
-            <translation>Bent u zeker?</translation>
+            <translation>Ben je zeker?</translation>
         </message>
         <message>
             <source>Author and maintenance: Vlad Vasiliev, &lt;vlad@gas.by&gt;
@@ -467,7 +467,7 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
             <translation>Auteur en onderhouder: Vlad Vasiliev, &lt;vlad@gas.by&gt;
 Onderhouder: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Documentatie: Marko Vertainen
-Ontwerp UI &amp; standaard icoonset: Andrew Zhilin
+Ontwerp UI &amp; standaardpictogramset: Andrew Zhilin
 Ontwerp UI voor Fremantle: Krebber Jan Niemelä Ulla
 </translation>
         </message>
@@ -483,7 +483,7 @@ Ontwerp UI voor Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Automatically update data when connecting to the Internet</source>
-            <translation>Update automatisch bij verbinding met internet</translation>
+            <translation>Automatisch bijwerken bij verbinding met internet</translation>
         </message>
         <message>
             <source>Back</source>
@@ -581,12 +581,12 @@ Ontwerp UI voor Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cancel</source>
-            <translation>Annuleer</translation>
+            <translation>Annuleren</translation>
         </message>
         <message>
             <source>Cannot get path to the HOME directory. Quitting.
 </source>
-            <translation>Kan niet bij de HOME directory. Afsluiten⏎
+            <translation>Kan niet bij de HOME-directory. Afsluiten.
 </translation>
         </message>
         <message>
@@ -643,43 +643,43 @@ Ontwerp UI voor Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Clear / Wind</source>
-            <translation>Helder / Wind</translation>
+            <translation>Helder / wind</translation>
         </message>
         <message>
             <source>Clear Sky</source>
-            <translation>Heldere Lucht</translation>
+            <translation>Heldere lucht</translation>
         </message>
         <message>
             <source>Clear sky</source>
-            <translation type="unfinished">Heldere Lucht</translation>
+            <translation type="unfinished">Heldere lucht</translation>
         </message>
         <message>
             <source>Clear, Drifting Snow</source>
-            <translation>Helder, Overtrekkende Sneeuw</translation>
+            <translation>Helder, overtrekkende sneeuw</translation>
         </message>
         <message>
             <source>Clear, Fog</source>
-            <translation>Helder, Mist</translation>
+            <translation>Helder, mist</translation>
         </message>
         <message>
             <source>Clear, Fog, Drizzle</source>
-            <translation>Helder, Mist, Motregen</translation>
+            <translation>Helder, mist, motregen</translation>
         </message>
         <message>
             <source>Clear, Haze</source>
-            <translation>Helder, Nevel</translation>
+            <translation>Helder, nevel</translation>
         </message>
         <message>
             <source>Clear, Smoke</source>
-            <translation>Helder, Rook</translation>
+            <translation>Helder, rook</translation>
         </message>
         <message>
             <source>Close</source>
-            <translation>Sluit</translation>
+            <translation>Sluiten</translation>
         </message>
         <message>
             <source>Clouds Early / Clearing Late</source>
-            <translation>Bewolkt / Later opklarend</translation>
+            <translation>Bewolkt / later opklarend</translation>
         </message>
         <message>
             <source>Cloudy</source>
@@ -687,39 +687,39 @@ Ontwerp UI voor Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy / Wind</source>
-            <translation>Bewolkt / Wind</translation>
+            <translation>Bewolkt / wind</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
-            <translation>Bewolkt: Weinig Sneeuw</translation>
+            <translation>Bewolkt: weinig sneeuw</translation>
         </message>
         <message>
             <source>Cloudy Light Rain</source>
-            <translation>Bewolkt: Lichte Regen</translation>
+            <translation>Bewolkt: lichte regen</translation>
         </message>
         <message>
             <source>Cloudy T-Storm</source>
-            <translation>Bewolkt: Onweer</translation>
+            <translation>Bewolkt: onweer</translation>
         </message>
         <message>
             <source>Cloudy and Windy</source>
-            <translation>Bewolkt en Winderig</translation>
+            <translation>Bewolkt en winderig</translation>
         </message>
         <message>
             <source>Cloudy and light rain</source>
-            <translation>Bewolkt en Lichte Regen</translation>
+            <translation>Bewolkt en lichte regen</translation>
         </message>
         <message>
             <source>Cloudy and light snow</source>
-            <translation>Bewolkt en Lichte Sneeuw</translation>
+            <translation>Bewolkt en lichte sneeuw</translation>
         </message>
         <message>
             <source>Cloudy and light wet snow</source>
-            <translation>Bewolkt en Lichte Natte Sneeuw</translation>
+            <translation>Bewolkt en lichte natte neeuw</translation>
         </message>
         <message>
             <source>Cloudy and showers</source>
-            <translation>Bewolkt en Buien</translation>
+            <translation>Bewolkt en buien</translation>
         </message>
         <message>
             <source>Cloudy and snow showers</source>
@@ -735,55 +735,55 @@ Ontwerp UI voor Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Drifting Snow</source>
-            <translation>Bewolkt, Sneeuwjacht</translation>
+            <translation>Bewolkt, sneeuwjacht</translation>
         </message>
         <message>
             <source>Cloudy, Few Snow</source>
-            <translation>Bewolkt, Lichte Sneeuwval</translation>
+            <translation>Bewolkt, lichte neeuwval</translation>
         </message>
         <message>
             <source>Cloudy, Heavy Rain</source>
-            <translation>Bewolkt, Zware Regen</translation>
+            <translation>Bewolkt, zware regen</translation>
         </message>
         <message>
             <source>Cloudy, Heavy Rain, T-Storm</source>
-            <translation>Bewolkt, Zware Regen, Onweer</translation>
+            <translation>Bewolkt, zware regen, onweer</translation>
         </message>
         <message>
             <source>Cloudy, Heavy Snow</source>
-            <translation>Bewolkt, Zware Sneeuwval</translation>
+            <translation>Bewolkt, zware sneeuwval</translation>
         </message>
         <message>
             <source>Cloudy, Light Rain</source>
-            <translation>Bewolkt, Lichte Regen</translation>
+            <translation>Bewolkt, lichte regen</translation>
         </message>
         <message>
             <source>Cloudy, Light Rain, T-Storm</source>
-            <translation>Bewolkt, Lichte Regen, Onweer</translation>
+            <translation>Bewolkt, lichte regen, onweer</translation>
         </message>
         <message>
             <source>Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation>Bewolkt, Lichte Regen, Zwakke Hevige Regen</translation>
+            <translation>Bewolkt, lichte regen, zwakke hevige regen</translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
-            <translation>Bewolkt, Regen</translation>
+            <translation>Bewolkt, regen</translation>
         </message>
         <message>
             <source>Cloudy, Rain, T-Storm</source>
-            <translation>Bewolkt, Regen, Onweer</translation>
+            <translation>Bewolkt, regen, onweer</translation>
         </message>
         <message>
             <source>Cloudy, Smoke</source>
-            <translation>Bewolkt, Rook</translation>
+            <translation>Bewolkt, rook</translation>
         </message>
         <message>
             <source>Cloudy, Snow</source>
-            <translation>Bewolkt, Sneeuw</translation>
+            <translation>Bewolkt, sneeuw</translation>
         </message>
         <message>
             <source>Cloudy, Strong Rain, Heavy Rain</source>
-            <translation>Bewolkt, Zware Regen, Hevige Regen</translation>
+            <translation>Bewolkt, zware regen, hevige regen</translation>
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
@@ -808,7 +808,7 @@ Verbinding is verlopen.</translation>
         <message>
             <source>Could not create weather cache directory.
 </source>
-            <translation>Kan geen weer cache map maken.
+            <translation>Kan geen weercachemap maken.
 </translation>
         </message>
         <message>
@@ -833,11 +833,11 @@ Verbinding is verlopen.</translation>
         </message>
         <message>
             <source>Cover Page</source>
-            <translation>Hoespagina</translation>
+            <translation>Omslagpagina</translation>
         </message>
         <message>
             <source>Custom</source>
-            <translation>Custom</translation>
+            <translation>Aangepast</translation>
         </message>
         <message>
             <source>Czech - Jakub Kožíšek, Pavel Šrubař
@@ -886,7 +886,7 @@ Verbinding is verlopen.</translation>
         <message>
             <source>Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
 </source>
-            <translation>Ontwerp UI en default iconen: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
+            <translation>Ontwerp UI en standaardpictogramset: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
 </translation>
         </message>
         <message>
@@ -927,7 +927,7 @@ Verbinding is verlopen.</translation>
         </message>
         <message>
             <source>Distance units:</source>
-            <translation>Afstand</translation>
+            <translation>Afstandseenheden:</translation>
         </message>
         <message>
             <source>Does not to add station, because no one
@@ -949,7 +949,7 @@ of 'omweather-*-stations-db' packages was installed.</source>
         </message>
         <message>
             <source>Download and show detailed weather</source>
-            <translation>Download en toon weer-details</translation>
+            <translation>Download en toon gedetailleerd weerbericht</translation>
         </message>
         <message>
             <source>Download timed out.</source>
@@ -965,19 +965,19 @@ of 'omweather-*-stations-db' packages was installed.</source>
         </message>
         <message>
             <source>Drizzle / Fog</source>
-            <translation>Motregen / Mist</translation>
+            <translation>Motregen / mist</translation>
         </message>
         <message>
             <source>Drizzle / Wind</source>
-            <translation>Motregen / Wind</translation>
+            <translation>Motregen / wind</translation>
         </message>
         <message>
             <source>Drizzle Early</source>
-            <translation>Vroege Motregen</translation>
+            <translation>Vroege motregen</translation>
         </message>
         <message>
             <source>Drizzle Late</source>
-            <translation>Late Motregen</translation>
+            <translation>Late motregen</translation>
         </message>
         <message>
             <source>Dutch - Tom Leenders, Michiel Pater
@@ -1023,29 +1023,29 @@ Brian Knight - for idea of iconset, criticism and donation ;-)
 Andrew aka Tabster - for testing and ideas
 Brad Jones aka kazrak - for testing
 </source>
-            <translation>Ed Bartosh - voor het aanvragen van applicatie opties, support en kritiek
-Daniel Wilms - voor het aanvragen van applicatie opties en het testen
-Eugen Kaluta aka tren - voor het aanvragen van applicatie opties en support
+            <translation>Ed Bartosh - voor het aanvragen van applicatieopties, ondersteuning en kritiek
+Daniel Wilms - voor het aanvragen van applicatieopties en het testen
+Eugen Kaluta aka tren - voor het aanvragen van applicatieopties en ondersteuning
 Maxim Kalinkevish aka spark - voor het testen
 Yuri Komyakov - voor de Nokia 770
-Greg Thompson voor de support van het stations.txt. bestand
-Frand Persian - Voor het idee van een nieuwe lay-out
-Brian Knight - Voor het idee van de icoonset, kritiek en donatie ;-)
+Greg Thompson voor de ondersteuning van het stations.txt. bestand
+Frand Persian - voor het idee van een nieuwe lay-out
+Brian Knight - voor het idee van de pictogramset, kritiek en donatie ;-)
 Andrew aka Tabster - voor het testen en de ideeën
 Brad Jones aka kazrak - voor het testen
 </translation>
         </message>
         <message>
             <source>Edit custom layout</source>
-            <translation>Bewerk custom layout</translation>
+            <translation>Aangepaste lay-out bewerken</translation>
         </message>
         <message>
             <source>Edit custom layout</source>
-            <translation>Bewerk custom layout</translation>
+            <translation>Aangepaste lay-out bewerken</translation>
         </message>
         <message>
             <source>Enable GPS</source>
-            <translation>GPS aan</translation>
+            <translation>GPS inschakelen</translation>
         </message>
         <message>
             <source>Enter search</source>
@@ -1054,12 +1054,12 @@ Brad Jones aka kazrak - voor het testen
         <message>
             <source>Error in xml file
 </source>
-            <translation>Fout in XML file
+            <translation>Fout in XML-bestand
 </translation>
         </message>
         <message>
             <source>Error initializing the OMWeather applet</source>
-            <translation>Fout bij het ​​initialiseren van de OMWeather applet</translation>
+            <translation>Fout bij het ​​initialiseren van de OMWeather-applet</translation>
         </message>
         <message>
             <source>Exit</source>
@@ -1155,15 +1155,15 @@ Brad Jones aka kazrak - voor het testen
         </message>
         <message>
             <source>Feels like</source>
-            <translation>Voelt als</translation>
+            <translation>Voelt aan als</translation>
         </message>
         <message>
             <source>Feels like:</source>
-            <translation>Voelt als:</translation>
+            <translation>Voelt aan als:</translation>
         </message>
         <message>
             <source>Feels like:</source>
-            <translation>Voelt als:</translation>
+            <translation>Voelt aan als:</translation>
         </message>
         <message>
             <source>Few Clouds</source>
@@ -1171,23 +1171,23 @@ Brad Jones aka kazrak - voor het testen
         </message>
         <message>
             <source>Few Showers</source>
-            <translation>Enkele Buien</translation>
+            <translation>Enkele buien</translation>
         </message>
         <message>
             <source>Few Showers / Wind</source>
-            <translation>Enkele Buien / Wind</translation>
+            <translation>Enkele buien / wind</translation>
         </message>
         <message>
             <source>Few Snow</source>
-            <translation>Wat Sneeuw</translation>
+            <translation>Wat sneeuw</translation>
         </message>
         <message>
             <source>Few Snow Showers</source>
-            <translation>Enkele Sneeuwbuien</translation>
+            <translation>Enkele sneeuwbuien</translation>
         </message>
         <message>
             <source>Few Snow Showers / Wind</source>
-            <translation>Enkele Sneeuwbuien / Wind</translation>
+            <translation>Enkele sneeuwbuien / wind</translation>
         </message>
         <message>
             <source>Few clouds</source>
@@ -1215,35 +1215,39 @@ Brad Jones aka kazrak - voor het testen
         </message>
         <message>
             <source>First Quarter</source>
-            <translation>Eerste Kwartier</translation>
+            <translation>Eerste kwartier</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation>Gevoel:</translation>
+            <translation>Gevoel</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation>Gevoel:</translation>
+            <translation>Gevoel</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation>Gevoel:</translation>
+            <translation>Gevoel</translation>
         </message>
         <message>
             <source>Fog</source>
             <translation>Mist</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Sneeuw / wind</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
-            <translation>Vroege Mist /  Later Bewolkt</translation>
+            <translation>Vroege mist / later bewolkt</translation>
         </message>
         <message>
             <source>Fog Late</source>
-            <translation>Later Mist</translation>
+            <translation>Late mist</translation>
         </message>
         <message>
             <source>Fog early / Clearing late</source>
-            <translation>Vroeg Mist / Later Opklaring</translation>
+            <translation>Vroege mist / later opklaring</translation>
         </message>
         <message>
             <source>Foggy</source>
@@ -1251,47 +1255,47 @@ Brad Jones aka kazrak - voor het testen
         </message>
         <message>
             <source>Font color:</source>
-            <translation>Font kleur:</translation>
+            <translation>Lettertypekleur:</translation>
         </message>
         <message>
             <source>Font:</source>
-            <translation>Font:</translation>
+            <translation>Lettertype:</translation>
         </message>
         <message>
             <source>Font:</source>
-            <translation>Font:</translation>
+            <translation>Lettertype:</translation>
         </message>
         <message>
             <source>For disabling MeeCast widget,
 you should uninstall package
 'Activating MeeCast Applet'
 using Application manager</source>
-            <translation>Om de MeeCast widget uit te
+            <translation>Om de MeeCast-widget uit te
 schakelen moet het pakket
 'MeeCast Applet' gedeïnstalleerd
 worden.</translation>
         </message>
         <message>
             <source>Forecast</source>
-            <translation>Verwachting</translation>
+            <translation>Weerbericht</translation>
         </message>
         <message>
             <source>Forecast at: </source>
-            <translation>Verwachting om: </translation>
+            <translation>Weerbericht om:</translation>
         </message>
         <message>
             <source>Forecast at: </source>
-            <translation>Verwachting om: </translation>
+            <translation>Weerbericht om:</translation>
         </message>
         <message>
             <source>Forecast: 
 </source>
-            <translation>Verwachting:
+            <translation>Weerbericht:
 </translation>
         </message>
         <message>
             <source>Freezing Drizzle</source>
-            <translation>Lichte IJzel</translation>
+            <translation>Lichte ijzel</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
@@ -1335,7 +1339,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Fullscreen mode</source>
-            <translation>Volledig scherm</translation>
+            <translation>Volledigschermmodus</translation>
         </message>
         <message>
             <source>G: </source>
@@ -1383,7 +1387,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
-            <translation>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</translation>
+            <translation>Grzanka's pictogramset: Copyright 2005 door Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</translation>
         </message>
         <message>
             <source>Gust:</source>
@@ -1395,7 +1399,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>HTTP error.</source>
-            <translation>HTTP fout.</translation>
+            <translation>HTTP-fout.</translation>
         </message>
         <message>
             <source>Haze</source>
@@ -1403,63 +1407,63 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Haze, Smoke or Dust</source>
-            <translation>Mist, Rook of Stof</translation>
+            <translation>Mist, rook of stof</translation>
         </message>
         <message>
             <source>Heavy Freezing Rain</source>
-            <translation>Hevige IJsregen</translation>
+            <translation>Hevige ijsregen</translation>
         </message>
         <message>
             <source>Heavy Precipitation</source>
-            <translation>Hevige Neerslag</translation>
+            <translation>Hevige neerslag</translation>
         </message>
         <message>
             <source>Heavy Rain</source>
-            <translation>Zware Regen</translation>
+            <translation>Zware regen</translation>
         </message>
         <message>
             <source>Heavy Rain / Wind</source>
-            <translation>Zware Regen / Wind</translation>
+            <translation>Zware regen / wind</translation>
         </message>
         <message>
             <source>Heavy Rain Shower</source>
-            <translation>Zware Regenbui</translation>
+            <translation>Zware regenbui</translation>
         </message>
         <message>
             <source>Heavy Rain Showers</source>
-            <translation>Hevige Regenbuien</translation>
+            <translation>Hevige regenbuien</translation>
         </message>
         <message>
             <source>Heavy Sleet</source>
-            <translation>Hevige Sneeuwval</translation>
+            <translation>Hevige sneeuwval</translation>
         </message>
         <message>
             <source>Heavy Sleet Showers</source>
-            <translation>Hevige Sneeuwbuien</translation>
+            <translation>Hevige sneeuwbuien</translation>
         </message>
         <message>
             <source>Heavy Snow</source>
-            <translation>Zware Sneeuwval</translation>
+            <translation>Zware sneeuwval</translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
-            <translation>Hevige Sneeuwval / Wind</translation>
+            <translation>Hevige sneeuwval / wind</translation>
         </message>
         <message>
             <source>Heavy Snow Shower</source>
-            <translation>Hevige Sneeuwbui</translation>
+            <translation>Hevige sneeuwbui</translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
-            <translation>Hevige Sneeuwbuien</translation>
+            <translation>Hevige sneeuwbuien</translation>
         </message>
         <message>
             <source>Heavy Snowfall</source>
-            <translation>Hevige Sneeuwval</translation>
+            <translation>Hevige sneeuwval</translation>
         </message>
         <message>
             <source>Heavy Thunder</source>
-            <translation>Hevig Onweer</translation>
+            <translation>Hevig onweer</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1517,39 +1521,39 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Icon set:</source>
-            <translation>Icoonset:</translation>
+            <translation>Pictogramset:</translation>
         </message>
         <message>
             <source>Icon size:</source>
-            <translation>Icoongrootte:</translation>
+            <translation>Pictogramgrootte:</translation>
         </message>
         <message>
             <source>Icon size:</source>
-            <translation>Icoongrootte:</translation>
+            <translation>Pictogramgrootte:</translation>
         </message>
         <message>
             <source>Icons</source>
-            <translation>Iconen</translation>
+            <translation>Pictogrammen</translation>
         </message>
         <message>
             <source>Icons</source>
-            <translation>Iconen</translation>
+            <translation>Pictogrammen</translation>
         </message>
         <message>
             <source>Iconset</source>
-            <translation>Icoonset</translation>
+            <translation>Pictogramset</translation>
         </message>
         <message>
             <source>Iconset</source>
-            <translation>Icoonset</translation>
+            <translation>Pictogramset</translation>
         </message>
         <message>
             <source>Iconsets</source>
-            <translation>Icoonsets</translation>
+            <translation>Pictogramsets</translation>
         </message>
         <message>
             <source>Iconsets</source>
-            <translation>Icoonsets</translation>
+            <translation>Pictogramsets</translation>
         </message>
         <message>
             <source>Information</source>
@@ -1569,11 +1573,11 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Isolated T-Storms</source>
-            <translation>Lokaal Onweer</translation>
+            <translation>Lokaal onweer</translation>
         </message>
         <message>
             <source>Isolated T-Storms / Wind</source>
-            <translation>Lokaal Onweer / Wind</translation>
+            <translation>Lokaal onweer / wind</translation>
         </message>
         <message>
             <source>Italian - Lorenzo Facca,
@@ -1605,39 +1609,39 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Last Quarter</source>
-            <translation>Laatste Kwartier</translation>
+            <translation>Laatste kwartier</translation>
         </message>
         <message>
             <source>Last update at server: </source>
-            <translation>Laatste update op server:</translation>
+            <translation>Laatst bijgewerkt op server:</translation>
         </message>
         <message>
             <source>Last update from server: </source>
-            <translation>Laatste update van server:</translation>
+            <translation>Laatst bijgewerkt van server:</translation>
         </message>
         <message>
             <source>Last update from server: </source>
-            <translation>Laatste update van server:</translation>
+            <translation>Laatst bijgewerkt van server:</translation>
         </message>
         <message>
             <source>Last update:</source>
-            <translation>Laatste update:</translation>
+            <translation>Laatst bijgewerkt:</translation>
         </message>
         <message>
             <source>Last update:</source>
-            <translation>Laatste update:</translation>
+            <translation>Laatst bijgewerkt:</translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation>Laatste update</translation>
+            <translation>Laatst bijgewerkt:</translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation>Laatste update</translation>
+            <translation>Laatst bijgewerkt:</translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation>Laatste update</translation>
+            <translation>Laatst bijgewerkt:</translation>
         </message>
         <message>
             <source>Lawn and Garden Weather</source>
@@ -1645,11 +1649,11 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Layout:</source>
-            <translation>Layout:</translation>
+            <translation>Lay-out:</translation>
         </message>
         <message>
             <source>Layout:</source>
-            <translation>Layout:</translation>
+            <translation>Lay-out:</translation>
         </message>
         <message>
             <source>Lead designers</source>
@@ -1661,107 +1665,111 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light Drizzle</source>
-            <translation>Lichte Motregen</translation>
+            <translation>Lichte motregen</translation>
         </message>
         <message>
             <source>Light Freezing Drizzle</source>
-            <translation>Lichte IJzel</translation>
+            <translation>Lichte ijzel</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
-            <translation>Lichte IJzel</translation>
+            <translation>Lichte ijzel</translation>
         </message>
         <message>
             <source>Light Rain</source>
-            <translation>Lichte Regen</translation>
+            <translation>Lichte regen</translation>
         </message>
         <message>
             <source>Light Rain</source>
-            <translation>Lichte Regen</translation>
+            <translation>Lichte regen</translation>
         </message>
         <message>
             <source>Light Rain / Fog</source>
-            <translation>Lichte Regen / Mist</translation>
+            <translation>Lichte regen / mist</translation>
         </message>
         <message>
             <source>Light Rain / Wind</source>
-            <translation>Lichte Regen / Wind</translation>
+            <translation>Lichte regen / wind</translation>
         </message>
         <message>
             <source>Light Rain / Wind Late</source>
-            <translation>Later Lichte Regen / Wind</translation>
+            <translation>Later lichte regen / wind</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Lichte regen / wind</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
-            <translation>Eerst Lichte Regen</translation>
+            <translation>Eerst lichte regen</translation>
         </message>
         <message>
             <source>Light Rain Late</source>
-            <translation>Later Lichte Regen</translation>
+            <translation>Later lichte regen</translation>
         </message>
         <message>
             <source>Light Rain Shower</source>
-            <translation>Lichte Regenbui</translation>
+            <translation>Lichte regenbui</translation>
         </message>
         <message>
             <source>Light Rain Showers</source>
-            <translation>Lichte Regenbuien</translation>
+            <translation>Lichte regenbuien</translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
-            <translation>Lichte Regen en IJzel</translation>
+            <translation>Lichte regen en ijzel</translation>
         </message>
         <message>
             <source>Light Rain and Shower</source>
-            <translation>Lichte Regen en Buien</translation>
+            <translation>Lichte regen en buien</translation>
         </message>
         <message>
             <source>Light Rain and Windy</source>
-            <translation>Lichte Regen en Winderig</translation>
+            <translation>Lichte regen en winderig</translation>
         </message>
         <message>
             <source>Light Rain with Thunder</source>
-            <translation>Lichte Regen en Onweer</translation>
+            <translation>Lichte regen en onweer</translation>
         </message>
         <message>
             <source>Light Sleet</source>
-            <translation>Lichte Sneeuw</translation>
+            <translation>Lichte sneeuw</translation>
         </message>
         <message>
             <source>Light Sleet Showers</source>
-            <translation>Lichte Sneeuwbuien</translation>
+            <translation>Lichte sneeuwbuien</translation>
         </message>
         <message>
             <source>Light Snow</source>
-            <translation>Lichte Sneeuw</translation>
+            <translation>Lichte sneeuw</translation>
         </message>
         <message>
             <source>Light Snow / Fog</source>
-            <translation>Lichte Sneeuw / Mist</translation>
+            <translation>Lichte sneeuw / mist</translation>
         </message>
         <message>
             <source>Light Snow / Wind</source>
-            <translation>Lichte Sneeuw / Wind</translation>
+            <translation>Lichte sneeuw / wind</translation>
         </message>
         <message>
             <source>Light Snow Early</source>
-            <translation>Eerst Lichte Sneeuw</translation>
+            <translation>Eerst lichte sneeuw</translation>
         </message>
         <message>
             <source>Light Snow Late</source>
-            <translation>Later Lichte Sneeuw</translation>
+            <translation>Later lichte sneeuw</translation>
         </message>
         <message>
             <source>Light Snow Shower</source>
-            <translation>Lichte Sneeuwbui</translation>
+            <translation>Lichte sneeuwbui</translation>
         </message>
         <message>
             <source>Light Snow Showers</source>
-            <translation>Lichte Sneeuwbuien</translation>
+            <translation>Lichte sneeuwbuien</translation>
         </message>
         <message>
             <source>Light Snowfall</source>
-            <translation>Lichte Sneeuwval</translation>
+            <translation>Lichte sneeuwval</translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
@@ -1773,7 +1781,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light or Moderate Precipitation</source>
-            <translation>Lichte of Middelmatige Neerslag</translation>
+            <translation>Lichte of matige neerslag</translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1785,15 +1793,15 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Loading station list</source>
-            <translation>Laden stationslijst</translation>
+            <translation>Stationslijst wordt geladen</translation>
         </message>
         <message>
             <source>Local Pollen Reports</source>
-            <translation>Lokale Pollen Rapporten</translation>
+            <translation>Lokale pollenrapporten</translation>
         </message>
         <message>
             <source>Localization platform</source>
-            <translation>Lokalisatie platform</translation>
+            <translation>Localisatieplatform</translation>
         </message>
         <message>
             <source>Long</source>
@@ -1801,11 +1809,11 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Looks like there's no info for this location.</source>
-            <translation>Waarschijnlijk geen info voor deze locatie.</translation>
+            <translation>Er is zo te zien geen info voor deze locatie.</translation>
         </message>
         <message>
             <source>Looks like there's no info for this location.</source>
-            <translation>Waarschijnlijk geen info voor deze locatie.</translation>
+            <translation>Er is zo te zien geen info voor deze locatie.</translation>
         </message>
         <message>
             <source>Low</source>
@@ -1835,15 +1843,15 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Manage locations</source>
-            <translation>Bewerk locaties</translation>
+            <translation>Locaties bewerken</translation>
         </message>
         <message>
             <source>Manage locations</source>
-            <translation>Bewerk locaties</translation>
+            <translation>Locaties bewerken</translation>
         </message>
         <message>
             <source>Manual</source>
-            <translation>Handleiding</translation>
+            <translation>Handmatig</translation>
         </message>
         <message>
             <source>Measurement units</source>
@@ -1855,7 +1863,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
-            <translation>MeeCast - Een zeer aanpasbare open source multiplatform weerbericht cliënt op basis van OMWeather code. Copyright (C) 2006-2016</translation>
+            <translation>MeeCast - een zeer aanpasbare open-bron-multiplatformweerberichtcliënt op basis van OMWeather-code. Copyright (C) 2006-2016</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -1875,23 +1883,23 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Moderate Freezing Rain</source>
-            <translation>Middelmatige IJregen</translation>
+            <translation>Matige ijsregen</translation>
         </message>
         <message>
             <source>Moderate Rain</source>
-            <translation>Matige Regen</translation>
+            <translation>Matige regen</translation>
         </message>
         <message>
             <source>Moderate Rain Showers</source>
-            <translation>Middelmatige Regenbuien</translation>
+            <translation>Matige regenbuien</translation>
         </message>
         <message>
             <source>Moderate Sleet</source>
-            <translation>Middelmatige Sneeuw</translation>
+            <translation>Matige sneeuw</translation>
         </message>
         <message>
             <source>Moderate Snow Showers</source>
-            <translation>Middelmatige Sneeuwbuien</translation>
+            <translation>Matige sneeuwbuien</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -1903,127 +1911,127 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Mostly Clear</source>
-            <translation>Overwegend Helder</translation>
+            <translation>Overwegend helder</translation>
         </message>
         <message>
             <source>Mostly Cloudy</source>
-            <translation>Overwegend Bewolkt</translation>
+            <translation>Overwegend bewolkt</translation>
         </message>
         <message>
             <source>Mostly Cloudy / Wind</source>
-            <translation>Overwegend Bewolkt / Wind</translation>
+            <translation>Overwegend bewolkt / wind</translation>
         </message>
         <message>
             <source>Mostly Cloudy Few Snow</source>
-            <translation>Overwegend Bewolkt met Sneeuw</translation>
+            <translation>Overwegend bewolkt met sneeuw</translation>
         </message>
         <message>
             <source>Mostly Cloudy Light Rain</source>
-            <translation>Overwegend Bewolkt en Lichte Regen</translation>
+            <translation>Overwegend bewolkt en lichte regen</translation>
         </message>
         <message>
             <source>Mostly Cloudy Rain</source>
-            <translation>Overwegend Bewolkt met Regen</translation>
+            <translation>Overwegend bewolkt met regen</translation>
         </message>
         <message>
             <source>Mostly Cloudy Snow</source>
-            <translation>Overwegend Bewolkt en Sneeuw</translation>
+            <translation>Overwegend bewolkt en sneeuw</translation>
         </message>
         <message>
             <source>Mostly Cloudy T-Storm</source>
-            <translation>Overwegend Bewolkt en Onweer</translation>
+            <translation>Overwegend bewolkt en onweer</translation>
         </message>
         <message>
             <source>Mostly Cloudy and Windy</source>
-            <translation>Overwegend Bewolkt en Winderig</translation>
+            <translation>Overwegend bewolkt en winderig</translation>
         </message>
         <message>
             <source>Mostly Cloudy and Windy</source>
-            <translation>Overwegend Bewolkt en Winderig</translation>
+            <translation>Overwegend bewolkt en winderig</translation>
         </message>
         <message>
             <source>Mostly Cloudy and Windy</source>
-            <translation>Overwegend Bewolkt en Winderig</translation>
+            <translation>Overwegend bewolkt en winderig</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Drifting Snow</source>
-            <translation>Overwegend Bewolkt, Sneeuw</translation>
+            <translation>Overwegend bewolkt, jachtsneeuw</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Few Snow</source>
-            <translation>Overwegend Bewolkt, Wat Sneeuw</translation>
+            <translation>Overwegend bewolkt, wat sneeuw</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Fog</source>
-            <translation>Overwegend Bewolkt, Mist</translation>
+            <translation>Overwegend bewolkt, mist</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Fog, Drizzle</source>
-            <translation>Overwegend Bewolkt, Mist, Motregen</translation>
+            <translation>Overwegend bewolkt, mist, motregen</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Rain</source>
-            <translation>Overwegend Bewolkt, Zware Regen</translation>
+            <translation>Overwegend bewolkt, zware regen</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Rain, T-Storm</source>
-            <translation>Overwegend Bewolkt, Zware Regen, Onweer</translation>
+            <translation>Overwegend bewolkt, zware regen, onweer</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Snow</source>
-            <translation>Overwegend Bewolkt, Zware Sneeuw</translation>
+            <translation>Overwegend bewolkt, zware sneeuw</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Snow, Freezing Rain</source>
-            <translation>Overwegend Bewolkt, Zware Sneeuw, IJzel</translation>
+            <translation>Overwegend bewolkt, zware sneeuw, ijzel</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain</source>
-            <translation>Overwegend Bewolkt, Lichte Regen</translation>
+            <translation>Overwegend bewolkt, lichte regen</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Drizzle</source>
-            <translation>Overwegend Bewolkt, Lichte Regen, Motregen</translation>
+            <translation>Overwegend bewolkt, lichte regen, motregen</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, T-Storm</source>
-            <translation>Overwegend Bewolkt, Lichte Regen, Onweer</translation>
+            <translation>Overwegend bewolkt, lichte regen, onweer</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation>Overwegend Bewolkt, Lichte Regen, Zwakke Hevige Regen</translation>
+            <translation>Overwegend bewolkt, lichte regen, zwakke hevige regen</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
-            <translation>Overwegend Bewolkt, Regen</translation>
+            <translation>Overwegend bewolkt, regen</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain, T-Storm</source>
-            <translation>Overwegend Bewolkt, Regen, Onweer</translation>
+            <translation>Overwegend bewolkt, regen, onweer</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Smoke</source>
-            <translation>Overwegend Bewolkt, Rook</translation>
+            <translation>Overwegend bewolkt, rook</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Snow</source>
-            <translation>Overwegend Bewolkt, Sneeuw</translation>
+            <translation>Overwegend bewolkt, sneeuw</translation>
         </message>
         <message>
             <source>Mostly Cloudy, T-Storm</source>
-            <translation>Overwegend Bewolkt, Onweer</translation>
+            <translation>Overwegend bewolkt, onweer</translation>
         </message>
         <message>
             <source>Mostly Sunny</source>
-            <translation>Overwegend Zonnig</translation>
+            <translation>Overwegend zonnig</translation>
         </message>
         <message>
             <source>Mostly clear</source>
-            <translation>Overwegend Helder</translation>
+            <translation>Overwegend helder</translation>
         </message>
         <message>
             <source>Mostly sunny</source>
-            <translation>Overwegend Zonnig</translation>
+            <translation>Overwegend zonnig</translation>
         </message>
         <message>
             <source>N</source>
@@ -2031,55 +2039,55 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>N/A</translation>
+            <translation>N/b</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>N/A</translation>
+            <translation>N/b</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>N/A</translation>
+            <translation>N/b</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>N/A</translation>
+            <translation>N/b</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>N/A</translation>
+            <translation>N/b</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>N/A</translation>
+            <translation>N/b</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>N/A</translation>
+            <translation>N/b</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>N/A</translation>
+            <translation>N/b</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>N/A</translation>
+            <translation>N/b</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>N/A</translation>
+            <translation>N/b</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>N/A</translation>
+            <translation>N/b</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>N/A</translation>
+            <translation>N/b</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation>N/A</translation>
+            <translation>N/b</translation>
         </message>
         <message>
             <source>NE</source>
@@ -2277,251 +2285,251 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>OK</source>
-            <translation>OK</translation>
+            <translation>Oké</translation>
         </message>
         <message>
             <source>OK</source>
-            <translation>OK</translation>
+            <translation>Oké</translation>
         </message>
         <message>
             <source>OK</source>
-            <translation>OK</translation>
+            <translation>Oké</translation>
         </message>
         <message>
             <source>OMWeather Forecast</source>
-            <translation>OMWeather Voorspelling</translation>
+            <translation>OMWeather-weerbericht</translation>
         </message>
         <message>
             <source>OMWeather Settings</source>
-            <translation>OMWeather Instellingen</translation>
+            <translation>OMWeather-instellingen</translation>
         </message>
         <message>
             <source>OMWeather Settings</source>
-            <translation>OMWeather Instellingen</translation>
+            <translation>OMWeather-instellingen</translation>
         </message>
         <message>
             <source>OMWeather settings</source>
-            <translation>OMWeather instellingen</translation>
+            <translation>OMWeather-instellingen</translation>
         </message>
         <message>
             <source>OMWeather settings</source>
-            <translation>OMWeather instellingen</translation>
+            <translation>OMWeather-instellingen</translation>
         </message>
         <message>
             <source>Ok</source>
-            <translation>Ok</translation>
+            <translation>Oké</translation>
         </message>
         <message>
             <source>Ok</source>
-            <translation>Ok</translation>
+            <translation>Oké</translation>
         </message>
         <message>
             <source>Ok</source>
-            <translation>Ok</translation>
+            <translation>Oké</translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
-            <translation>Overige Maemo Weather info</translation>
+            <translation>Overige Maemo Weather-info</translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
-            <translation>Overige Maemo Weather info</translation>
+            <translation>Overige Maemo Weather-info</translation>
         </message>
         <message>
             <source>Overcast</source>
-            <translation>Grijs</translation>
+            <translation>Zwaarbewolkt</translation>
         </message>
         <message>
             <source>Overcast Clouds</source>
-            <translation>Bewolkt</translation>
+            <translation>Zwaarbewolkt</translation>
         </message>
         <message>
             <source>Overcast and light rain</source>
-            <translation>Grijs en lichte regen</translation>
+            <translation>Zwaarbewolkt en lichte regen</translation>
         </message>
         <message>
             <source>Overcast and light snow</source>
-            <translation>Grijs en lichte sneeuw</translation>
+            <translation>Zwaarbewolkt en lichte sneeuw</translation>
         </message>
         <message>
             <source>Overcast and light wet snow</source>
-            <translation>Grijs en wat natte sneeuw</translation>
+            <translation>Zwaarbewolkt en wat natte sneeuw</translation>
         </message>
         <message>
             <source>Overcast and rain</source>
-            <translation>Bewolking en regen</translation>
+            <translation>Zwaarbewolkt en regen</translation>
         </message>
         <message>
             <source>Overcast and showers</source>
-            <translation>Grijs en buien</translation>
+            <translation>Zwaarbewolkt en buien</translation>
         </message>
         <message>
             <source>Overcast and snow</source>
-            <translation>Grijs en sneeuw</translation>
+            <translation>Zwaarbewolkt en sneeuw</translation>
         </message>
         <message>
             <source>Overcast and snow showers</source>
-            <translation>Grijs en sneeuwbuien</translation>
+            <translation>Zwaarbewolkt en sneeuwbuien</translation>
         </message>
         <message>
             <source>Overcast and wet snow</source>
-            <translation>Grijs en natte sneeuw</translation>
+            <translation>Zwaarbewolkt en natte sneeuw</translation>
         </message>
         <message>
             <source>Overcast and wet snow showers</source>
-            <translation>Grijs en natte sneeuwbuien </translation>
+            <translation>Zwaarbewolkt en natte sneeuwbuien</translation>
         </message>
         <message>
             <source>Overcast clouds</source>
-            <translation>Bewolkt</translation>
+            <translation>Zwaarbewolkt</translation>
         </message>
         <message>
             <source>Overcast, thunderstorms with rain</source>
-            <translation>Bewolking, onweer met regen</translation>
+            <translation>Zwaarbewolkt, onweer met regen</translation>
         </message>
         <message>
             <source>PM Fog</source>
-            <translation>PM Mist</translation>
+            <translation>PM mist</translation>
         </message>
         <message>
             <source>PM Light Rain</source>
-            <translation>PM Lichte Regen</translation>
+            <translation>PM lichte regen</translation>
         </message>
         <message>
             <source>PM Light Rain / Wind</source>
-            <translation>PM Lichte Regen / Wind</translation>
+            <translation>PM lichte regen / wind</translation>
         </message>
         <message>
             <source>PM Light Snow</source>
-            <translation>PM Lichte Sneeuw</translation>
+            <translation>PM lichte sneeuw</translation>
         </message>
         <message>
             <source>PM Light Snow / Wind</source>
-            <translation>PM Lichte Sneeuw / Wind</translation>
+            <translation>PM lichte sneeuw / wind</translation>
         </message>
         <message>
             <source>PM Rain</source>
-            <translation>PM Regen</translation>
+            <translation>PM regen</translation>
         </message>
         <message>
             <source>PM Rain / Snow</source>
-            <translation>PM Regen / Sneeuw</translation>
+            <translation>PM regen / sneeuw</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>
-            <translation>PM Regen / Wind</translation>
+            <translation>PM regen / wind</translation>
         </message>
         <message>
             <source>PM Showers</source>
-            <translation>PM Buien</translation>
+            <translation>PM buien</translation>
         </message>
         <message>
             <source>PM Showers / Wind</source>
-            <translation>PM Buien / Wind</translation>
+            <translation>PM buien / wind</translation>
         </message>
         <message>
             <source>PM Snow</source>
-            <translation>PM Sneeuw</translation>
+            <translation>PM sneeuw</translation>
         </message>
         <message>
             <source>PM Snow Showers</source>
-            <translation>PM Sneeuwbuien</translation>
+            <translation>PM sneeuwbuien</translation>
         </message>
         <message>
             <source>PM Snow Showers / Wind</source>
-            <translation>PM Sneeuwbuien / Wind</translation>
+            <translation>PM sneeuwbuien / wind</translation>
         </message>
         <message>
             <source>PM T-Showers</source>
-            <translation>PM Onweersbuien</translation>
+            <translation>PM onweersbuien</translation>
         </message>
         <message>
             <source>PM T-Storms</source>
-            <translation>PM Onweer</translation>
+            <translation>PM onweer</translation>
         </message>
         <message>
             <source>Partly Cloudy</source>
-            <translation>Deels Bewolkt</translation>
+            <translation>Deels bewolkt</translation>
         </message>
         <message>
             <source>Partly Cloudy / Wind</source>
-            <translation>Deels Bewolkt / Wind</translation>
+            <translation>Deels bewolkt / wind</translation>
         </message>
         <message>
             <source>Partly Cloudy / Windy</source>
-            <translation>Deels Bewolkt / Winderig</translation>
+            <translation>Deels bewolkt / winderig</translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
-            <translation>Deels Bewolkt met Sneeuw</translation>
+            <translation>Deels bewolkt met sneeuw</translation>
         </message>
         <message>
             <source>Partly Cloudy Light Rain</source>
-            <translation>Deels Bewolkt, Lichte Regen</translation>
+            <translation>Deels bewolkt, lichte regen</translation>
         </message>
         <message>
             <source>Partly Cloudy T-Storm</source>
-            <translation>Deels Bewolkt, Onweer</translation>
+            <translation>Deels bewolkt, onweer</translation>
         </message>
         <message>
             <source>Partly Cloudy and Windly</source>
-            <translation>Deels Bewolkt en Winderig</translation>
+            <translation>Deels bewolkt en winderig</translation>
         </message>
         <message>
             <source>Partly Cloudy and Windy</source>
-            <translation>Deels Bewolkt en Winderig</translation>
+            <translation>Deels bewolkt en winderig</translation>
         </message>
         <message>
             <source>Partly Cloudy and Windy</source>
-            <translation>Deels Bewolkt en Winderig</translation>
+            <translation>Deels bewolkt en winderig</translation>
         </message>
         <message>
             <source>Partly Cloudy, Few Snow</source>
-            <translation>Deels Bewolkt, Wat Sneeuw</translation>
+            <translation>Deels bewolkt, wat sneeuw</translation>
         </message>
         <message>
             <source>Partly Cloudy, Haze</source>
-            <translation>Deels Bewolkt, Nevel</translation>
+            <translation>Deels bewolkt, nevel</translation>
         </message>
         <message>
             <source>Partly Cloudy, Heavy Rain</source>
-            <translation>Deels Bewolkt, Zware Regen</translation>
+            <translation>Deels bewolkt, zware regen</translation>
         </message>
         <message>
             <source>Partly Cloudy, Heavy Rain, T-Storm</source>
-            <translation>Deels Bewolkt, Zware Regen, Onweer</translation>
+            <translation>Deels bewolkt, zware regen, onweer</translation>
         </message>
         <message>
             <source>Partly Cloudy, Heavy Snow</source>
-            <translation>Deels Bewolkt, Zware Sneeuw</translation>
+            <translation>Deels bewolkt, zware sneeuw</translation>
         </message>
         <message>
             <source>Partly Cloudy, Light Rain</source>
-            <translation>Deels Bewolkt, Lichte Regen</translation>
+            <translation>Deels bewolkt, lichte regen</translation>
         </message>
         <message>
             <source>Partly Cloudy, Light Rain, T-Storm</source>
-            <translation>Deels Bewolkt, Lichte Regen, Onweer</translation>
+            <translation>Deels bewolkt, lichte regen, onweer</translation>
         </message>
         <message>
             <source>Partly Cloudy, Rain</source>
-            <translation>Deels Bewolkt, Regen</translation>
+            <translation>Deels bewolkt, regen</translation>
         </message>
         <message>
             <source>Partly Cloudy, Rain, T-Storm</source>
-            <translation>Deels Bewolkt, Regen, Onweer</translation>
+            <translation>Deels bewolkt, regen, onweer</translation>
         </message>
         <message>
             <source>Partly Cloudy, Smoke</source>
-            <translation>Deels Bewolkt, Rook</translation>
+            <translation>Deels bewolkt, rook</translation>
         </message>
         <message>
             <source>Partly Cloudy, Snow</source>
-            <translation>Deels Bewolkt, Sneeuw</translation>
+            <translation>Deels bewolkt, sneeuw</translation>
         </message>
         <message>
             <source>Partly Cloudy, T-Storm</source>
-            <translation>Deels Bewolkt, Onweer</translation>
+            <translation>Deels bewolkt, onweer</translation>
         </message>
         <message>
             <source>Partly cloudy</source>
@@ -2553,11 +2561,11 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Partly cloudy, possible thunderstorms with rain</source>
-            <translation>Gedeeltelijk bewolkt, mogelijk onweer met regen</translation>
+            <translation>Deels bewolkt, mogelijk onweer met regen</translation>
         </message>
         <message>
             <source>Partly cloudy, possible thunderstorms with rain</source>
-            <translation>Gedeeltelijk bewolkt, mogelijk onweer met regen</translation>
+            <translation>Deels bewolkt, mogelijk onweer met regen</translation>
         </message>
         <message>
             <source>Period</source>
@@ -2633,15 +2641,15 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Pressure units</source>
-            <translation>Luchtdruk</translation>
+            <translation>Luchtdrukeenheden</translation>
         </message>
         <message>
             <source>Pressure units</source>
-            <translation>Luchtdruk</translation>
+            <translation>Luchtdrukeenheden</translation>
         </message>
         <message>
             <source>Pressure units:</source>
-            <translation>Luchtdruk:</translation>
+            <translation>Luchtdrukeenheden:</translation>
         </message>
         <message>
             <source>Pressure:</source>
@@ -2681,15 +2689,15 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Project administrators</source>
-            <translation>Project administrators</translation>
+            <translation>Projectadministrators</translation>
         </message>
         <message>
             <source>Project manager</source>
-            <translation>Project manager</translation>
+            <translation>Projectbeheerder</translation>
         </message>
         <message>
             <source>Provided by</source>
-            <translation>Geleverd door</translation>
+            <translation>Aangeboden door</translation>
         </message>
         <message>
             <source>Proximity shower rain</source>
@@ -2701,55 +2709,55 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain / Freezing Rain</source>
-            <translation>Regen / IJzel</translation>
+            <translation>Regen / ijzel</translation>
         </message>
         <message>
             <source>Rain / Snow</source>
-            <translation>Regen / Sneeuw</translation>
+            <translation>Regen / sneeuw</translation>
         </message>
         <message>
             <source>Rain / Snow / Wind</source>
-            <translation>Regen / Sneeuw / Wind</translation>
+            <translation>Regen / sneeuw / wind</translation>
         </message>
         <message>
             <source>Rain / Snow Early</source>
-            <translation>Regen / Eerder Sneeuw</translation>
+            <translation>Regen / eerder sneeuw</translation>
         </message>
         <message>
             <source>Rain / Snow Late</source>
-            <translation>Regen / Later Sneeuw</translation>
+            <translation>Regen / later sneeuw</translation>
         </message>
         <message>
             <source>Rain / Snow Showers</source>
-            <translation>Regen / Sneeuwbuien</translation>
+            <translation>Regen / sneeuwbuien</translation>
         </message>
         <message>
             <source>Rain / Snow Showers / Wind</source>
-            <translation>Regen / Sneeuwbuien / Wind</translation>
+            <translation>Regen / sneeuwbuien / wind</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>
-            <translation>Regen / Later Sneeuwbuien</translation>
+            <translation>Regen / later sneeuwbuien</translation>
         </message>
         <message>
             <source>Rain / Thunder</source>
-            <translation>Regen / Onweer</translation>
+            <translation>Regen / onweer</translation>
         </message>
         <message>
             <source>Rain / Wind</source>
-            <translation>Regen / Wind</translation>
+            <translation>Regen / wind</translation>
         </message>
         <message>
             <source>Rain / Wind Early</source>
-            <translation>Regen / Eerst Wind</translation>
+            <translation>Regen / eerst wind</translation>
         </message>
         <message>
             <source>Rain Early</source>
-            <translation>Eerst Regen</translation>
+            <translation>Eerst regen</translation>
         </message>
         <message>
             <source>Rain Late</source>
-            <translation>Later Regen</translation>
+            <translation>Later regen</translation>
         </message>
         <message>
             <source>Rain Shower</source>
@@ -2765,7 +2773,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain and Snow</source>
-            <translation>Regen en Sneeuw</translation>
+            <translation>Regen en sneeuw</translation>
         </message>
         <message>
             <source>Rain and snow</source>
@@ -2773,15 +2781,15 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>
-            <translation>Regen en Sneeuw / Wind</translation>
+            <translation>Regen en sneeuw / wind</translation>
         </message>
         <message>
             <source>Rain to Wintry Mix</source>
-            <translation>Regen en Winterse Bui</translation>
+            <translation>Regen en winterse bui</translation>
         </message>
         <message>
             <source>Rain to Wintry Mix / Wind</source>
-            <translation>Regen en Winterse Bui / Wind</translation>
+            <translation>Regen en winterse bui / wind</translation>
         </message>
         <message>
             <source>Read sensor every:</source>
@@ -2885,23 +2893,23 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Scattered Clouds</source>
-            <translation>Verspreide Wolken</translation>
+            <translation>Verspreide wolken</translation>
         </message>
         <message>
             <source>Scattered Showers</source>
-            <translation>Verspreide Buien</translation>
+            <translation>Verspreide buien</translation>
         </message>
         <message>
             <source>Scattered Snow</source>
-            <translation>Verspreide Sneeuw</translation>
+            <translation>Verspreide sneeuw</translation>
         </message>
         <message>
             <source>Scattered Snow Showers</source>
-            <translation>Verspreide Sneeuwbuien</translation>
+            <translation>Verspreide sneeuwbuien</translation>
         </message>
         <message>
             <source>Scattered T-Storms</source>
-            <translation>Verspreid Onweer</translation>
+            <translation>Verspreid onweer</translation>
         </message>
         <message>
             <source>Scattered clouds</source>
@@ -2913,7 +2921,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Search</source>
-            <translation>Zoek</translation>
+            <translation>Zoeken</translation>
         </message>
         <message>
             <source>Select city</source>
@@ -2973,43 +2981,43 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Select the color of font for current temperature</source>
-            <translation>Selecteer lettertype kleur voor huidige temperatuur</translation>
+            <translation>Selecteer lettertypekleur voor huidige temperatuur</translation>
         </message>
         <message>
             <source>Select the color of font for station name</source>
-            <translation>Selecteer lettertype kleur voor station naam</translation>
+            <translation>Selecteer lettertypekleur voor station naam</translation>
         </message>
         <message>
             <source>Select the color of font for temperature</source>
-            <translation>Selecteer lettertype kleur voor temperatuur</translation>
+            <translation>Selecteer lettertypekleur voor temperatuur</translation>
         </message>
         <message>
             <source>Select the iconset</source>
-            <translation>Kies icoonset</translation>
+            <translation>Kies de pictogramset</translation>
         </message>
         <message>
             <source>Select the language</source>
-            <translation>Selecteer taal</translation>
+            <translation>Selecteer de taal</translation>
         </message>
         <message>
             <source>Select the weather source</source>
-            <translation>Kies bron weerbericht</translation>
+            <translation>Kies bron voor weerbericht</translation>
         </message>
         <message>
             <source>Selecting country</source>
-            <translation>Kiezen land</translation>
+            <translation>Land kiezen</translation>
         </message>
         <message>
             <source>Selecting region</source>
-            <translation>Kiezen regio</translation>
+            <translation>Regio kiezen</translation>
         </message>
         <message>
             <source>Selecting source</source>
-            <translation>Kiezen bron</translation>
+            <translation>Bron kiezen</translation>
         </message>
         <message>
             <source>Selecting station</source>
-            <translation>Kiezen station</translation>
+            <translation>Station kiezen</translation>
         </message>
         <message>
             <source>Sensor</source>
@@ -3035,7 +3043,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Set</source>
-            <translation>Kies</translation>
+            <translation>Instellen</translation>
         </message>
         <message>
             <source>Set locations</source>
@@ -3067,23 +3075,23 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Settings for Lockscreen widget</source>
-            <translation>Lockscreen widget instellingen</translation>
+            <translation>Vergrendelingsschermwidgetinstellingen</translation>
         </message>
         <message>
             <source>Settings for standby widget</source>
-            <translation>Standby widget instellingen</translation>
+            <translation>Standby-widgetinstellingen</translation>
         </message>
         <message>
             <source>Settings of LockScreen</source>
-            <translation>LockScreen instellingen</translation>
+            <translation>Vergrendelingsscherminstellingen</translation>
         </message>
         <message>
             <source>Settings of StandbyScreen</source>
-            <translation>StandbyScreen Instellingen</translation>
+            <translation>Standbyscherminstellingen</translation>
         </message>
         <message>
             <source>Shallow Fog</source>
-            <translation>Oppervlakkige Mist</translation>
+            <translation>Oppervlakkige mist</translation>
         </message>
         <message>
             <source>Short</source>
@@ -3099,11 +3107,11 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Show on Map</source>
-            <translation>Weergeef op kaart</translation>
+            <translation>Weergeven op kaart</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
-            <translation>Alleen huidig weer op eerste icoon</translation>
+            <translation>Toon alleen huidig weer op eerste pictogram</translation>
         </message>
         <message>
             <source>Show source logo</source>
@@ -3127,27 +3135,27 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Showers / Wind</source>
-            <translation>Buien / Wind</translation>
+            <translation>Buien / wind</translation>
         </message>
         <message>
             <source>Showers / Wind Early</source>
-            <translation>Buien / Eerst Wind</translation>
+            <translation>Buien / eerst wind</translation>
         </message>
         <message>
             <source>Showers Early</source>
-            <translation>Eerst Wind</translation>
+            <translation>Eerst wind</translation>
         </message>
         <message>
             <source>Showers Late</source>
-            <translation>Late Buien</translation>
+            <translation>Late buien</translation>
         </message>
         <message>
             <source>Showers in the Vicinity</source>
-            <translation>Buien in de Omgeving</translation>
+            <translation>Buien in de omgeving</translation>
         </message>
         <message>
             <source>Showers or Intermittent Precipitation</source>
-            <translation>Regenbuien of Aanhoudende Neerslag</translation>
+            <translation>Regenbuien of aanhoudende neerslag</translation>
         </message>
         <message>
             <source>Sky is Clear</source>
@@ -3159,7 +3167,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Sleet</source>
-            <translation>Natte Sneeuw</translation>
+            <translation>Natte sneeuw</translation>
         </message>
         <message>
             <source>Sleet Showers</source>
@@ -3187,11 +3195,15 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Snow / Wind</source>
-            <translation>Sneeuw / Wind</translation>
+            <translation>Sneeuw / wind</translation>
         </message>
         <message>
             <source>Snow Early</source>
-            <translation>Eerst Sneeuw</translation>
+            <translation>Eerst sneeuw</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Late buien</translation>
         </message>
         <message>
             <source>Snow Shower</source>
@@ -3199,7 +3211,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Snow Shower / Wind</source>
-            <translation>Sneeuwbui / Wind</translation>
+            <translation>Sneeuwbui / wind</translation>
         </message>
         <message>
             <source>Snow Showers</source>
@@ -3207,31 +3219,31 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
-            <translation>Sneeuwbuien / Eerst Wind</translation>
+            <translation>Sneeuwbuien / eerst wind</translation>
         </message>
         <message>
             <source>Snow Showers Early</source>
-            <translation>Eerst Sneeuwbuien</translation>
+            <translation>Eerst sneeuwbuien</translation>
         </message>
         <message>
             <source>Snow Showers Late</source>
-            <translation>Later Sneeuwbuien</translation>
+            <translation>Later sneeuwbuien</translation>
         </message>
         <message>
             <source>Snow and Freezing Rain</source>
-            <translation>Sneeuw en IJzel</translation>
+            <translation>Sneeuw en ijzel</translation>
         </message>
         <message>
             <source>Snow to Rain</source>
-            <translation>Sneeuw tot Regen</translation>
+            <translation>Sneeuw tot regen</translation>
         </message>
         <message>
             <source>Snow to Wintry Mix</source>
-            <translation>Sneeuw tot Winterse Bui</translation>
+            <translation>Sneeuw tot winterse bui</translation>
         </message>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
-            <translation>Winterse Buien / Wind</translation>
+            <translation>Winterse buien / wind</translation>
         </message>
         <message>
             <source>Snowfall</source>
@@ -3243,7 +3255,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Source code</source>
-            <translation>Bron code</translation>
+            <translation>Broncode</translation>
         </message>
         <message>
             <source>Source:</source>
@@ -3301,11 +3313,11 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Splash screen</source>
-            <translation>Intro scherm</translation>
+            <translation>Opstartscherm</translation>
         </message>
         <message>
             <source>State:</source>
-            <translation>Staat:</translation>
+            <translation>Status:</translation>
         </message>
         <message>
             <source>Station %i</source>
@@ -3333,7 +3345,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Strong Thundershowers</source>
-            <translation>Zware Onweersbuien</translation>
+            <translation>Zware onweersbuien</translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3345,7 +3357,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Sunny / Wind</source>
-            <translation>Zonnig / Wind</translation>
+            <translation>Zonnig / wind</translation>
         </message>
         <message>
             <source>Sunny periods and a few showers.</source>
@@ -3381,11 +3393,11 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Sunset: </source>
-            <translation>Zonsondergang: </translation>
+            <translation>Zonsondergang:</translation>
         </message>
         <message>
             <source>Sunset: </source>
-            <translation>Zonsondergang: </translation>
+            <translation>Zonsondergang:</translation>
         </message>
         <message>
             <source>Support</source>
@@ -3393,7 +3405,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Swap hi/low temperature</source>
-            <translation>Wissel hoog/laag temp.</translation>
+            <translation>Wissel hoge/lage temperatuur</translation>
         </message>
         <message>
             <source>Swedish - Angela Nennebrandt,
@@ -3407,7 +3419,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Switch to the next station after:</source>
-            <translation>Wissel naar volgend station na:</translation>
+            <translation>Wissel naar het volgend station na:</translation>
         </message>
         <message>
             <source>T-Showers</source>
@@ -3415,7 +3427,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>T-Showers Early</source>
-            <translation>Vroege Onweersbuien</translation>
+            <translation>Vroege onweersbuien</translation>
         </message>
         <message>
             <source>T-Storm</source>
@@ -3427,11 +3439,11 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>T-Storms Early</source>
-            <translation>Eerst Onweer</translation>
+            <translation>Eerst onweer</translation>
         </message>
         <message>
             <source>T-Storms Late</source>
-            <translation>Later Onweer</translation>
+            <translation>Later onweer</translation>
         </message>
         <message>
             <source>Temperature</source>
@@ -3455,15 +3467,15 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Temperature units</source>
-            <translation>Temperatuur</translation>
+            <translation>Temperatuureenheden</translation>
         </message>
         <message>
             <source>Temperature units</source>
-            <translation>Temperatuur</translation>
+            <translation>Temperatuureenheden</translation>
         </message>
         <message>
             <source>Temperature units</source>
-            <translation>Temperatuur</translation>
+            <translation>Temperatuureenheden</translation>
         </message>
         <message>
             <source>Temperature units:</source>
@@ -3491,7 +3503,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>The weather has been updated.</source>
-            <translation>Het weerbericht is ge-update.</translation>
+            <translation>Het weerbericht is bijgewerkt.</translation>
         </message>
         <message>
             <source>There are no stations to show in this view of the list</source>
@@ -3499,7 +3511,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>This is experimental feature. Only English is supported.</source>
-            <translation>Dit is experimentele functie. Alleen Engels wordt ondersteund.</translation>
+            <translation>Dit is een experimentele functie. Alleen Engels wordt ondersteund.</translation>
         </message>
         <message>
             <source>This software is free software; you can
@@ -3509,17 +3521,18 @@ Slowaaks - Roman Moravčík</translation>
  Foundation; either version 2.1 of the 
  License, or (at your option) any 
  later version.</source>
-            <translation>Deze software is gratis; het kan
+            <translation>Dit is vrije software; het kan
 geherdistribueerd en/of aangepast
 worden onder de voorwaarden van 
 de GNU General Public License zoals
-gepubliceerd door de Free Software 
-Foundation; versie 2.1 of latere versies.</translation>
+gepubliceerd door de Free Software
+Foundation; ofwel versie 2.1 van de
+Licentie, of (naar keuze) een latere versie.</translation>
         </message>
         <message>
             <source>This software is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
 </source>
-            <translation>Deze software is gratis; het kan geherdistribueerd en/of aangepast worden onder de voorwaarden van de GNU General Public License
+            <translation>Dit is vrije software; het kan geherdistribueerd en/of aangepast worden onder de voorwaarden van de GNU General Public License
 </translation>
         </message>
         <message>
@@ -3570,23 +3583,23 @@ Foundation; versie 2.1 of latere versies.</translation>
         </message>
         <message>
             <source>Transparency:</source>
-            <translation>Transparantie:</translation>
+            <translation>Doorzichtigheid:</translation>
         </message>
         <message>
             <source>Transparency:</source>
-            <translation>Transparantie:</translation>
+            <translation>Doorzichtigheid:</translation>
         </message>
         <message>
             <source>Transparency:</source>
-            <translation>Transparantie:</translation>
+            <translation>Doorzichtigheid:</translation>
         </message>
         <message>
             <source>Try to update</source>
-            <translation>Probeer te updaten</translation>
+            <translation>Probeer bij te werken</translation>
         </message>
         <message>
             <source>Try to update</source>
-            <translation>Probeer te updaten</translation>
+            <translation>Probeer bij te werken</translation>
         </message>
         <message>
             <source>Turkish - Burak Kaan Kose,
@@ -3602,7 +3615,7 @@ Foundation; versie 2.1 of latere versies.</translation>
         </message>
         <message>
             <source>UV index:</source>
-            <translation>UV index:</translation>
+            <translation>UV-index:</translation>
         </message>
         <message>
             <source>Units</source>
@@ -3686,45 +3699,45 @@ Foundation; versie 2.1 of latere versies.</translation>
         </message>
         <message>
             <source>Update</source>
-            <translation>Update</translation>
+            <translation>Bijwerken</translation>
         </message>
         <message>
             <source>Update</source>
-            <translation>Update</translation>
+            <translation>Bijwerken</translation>
         </message>
         <message>
             <source>Update</source>
-            <translation>Update</translation>
+            <translation>Bijwerken</translation>
         </message>
         <message>
             <source>Update already running.</source>
-            <translation>Update loopt al.</translation>
+            <translation>Bezig met bijwerken.</translation>
         </message>
         <message>
             <source>Update interval</source>
-            <translation>Update interval</translation>
+            <translation>Bijwerkingsinterval</translation>
         </message>
         <message>
             <source>Updating forecast</source>
-            <translation>Update voorspelling</translation>
+            <translation>Weerbericht wordt bijgewerkt</translation>
         </message>
         <message>
             <source>Updating forecast</source>
-            <translation>Update voorspelling</translation>
+            <translation>Weerbericht wordt bijgewerkt</translation>
         </message>
         <message>
             <source>Updating of weather data:</source>
-            <translation>Update weergegevens:</translation>
+            <translation>Weergegevens worden bijgewerkt:</translation>
         </message>
         <message>
             <source>Updating weather</source>
-            <translation>Update weer</translation>
+            <translation>Weerbericht wordt bijgewerkt</translation>
         </message>
         <message>
             <source>Use Edit layout 
 for tuning images of applet</source>
             <translation>Gebruik Lay-out bewerken 
-voor het bewerken van de applet beelden</translation>
+voor het bewerken van de appletbeelden</translation>
         </message>
         <message>
             <source>Use GSM and/or WLAN for periodic updating
@@ -3748,7 +3761,7 @@ van weerinformatie.
         </message>
         <message>
             <source>Very High</source>
-            <translation>Erg Hoog</translation>
+            <translation>Erg hoog</translation>
         </message>
         <message>
             <source>Vietnamese - Hieu Nguyen
@@ -3760,7 +3773,7 @@ van weerinformatie.
         </message>
         <message>
             <source>Violent Rain Showers</source>
-            <translation>Heftige Regenbuien</translation>
+            <translation>Hevige regenbuien</translation>
         </message>
         <message>
             <source>Visible items:</source>
@@ -3772,11 +3785,11 @@ van weerinformatie.
         </message>
         <message>
             <source>Visible units</source>
-            <translation>Zichtbaarheid</translation>
+            <translation>Zichtbare eenheden</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation>Zichtbaarheid</translation>
+            <translation>Zichtbare eenheden</translation>
         </message>
         <message>
             <source>Visible:</source>
@@ -3800,11 +3813,11 @@ van weerinformatie.
         </message>
         <message>
             <source>Voice forecast button on a widget</source>
-            <translation>Gesproken weersvoorspelling knop op een widget</translation>
+            <translation>Gesprokenweerberichtknop op een widget</translation>
         </message>
         <message>
             <source>Voice weather forecast</source>
-            <translation>Gesproken weersvoorspelling</translation>
+            <translation>Gesproken weerbericht</translation>
         </message>
         <message>
             <source>W</source>
@@ -3844,11 +3857,11 @@ van weerinformatie.
         </message>
         <message>
             <source>Waning Crescent</source>
-            <translation>Asgrauwe Maan</translation>
+            <translation>Asgrauwe maan</translation>
         </message>
         <message>
             <source>Waning Gibbous</source>
-            <translation>Krimpende Maan</translation>
+            <translation>Krimpende maan</translation>
         </message>
         <message>
             <source>Warning</source>
@@ -3856,47 +3869,47 @@ van weerinformatie.
         </message>
         <message>
             <source>Waxing Crescent</source>
-            <translation>Jonge Maansikkel</translation>
+            <translation>Jonge maansikkel</translation>
         </message>
         <message>
             <source>Waxing Gibbous</source>
-            <translation>Wassende Maan</translation>
+            <translation>Wassende maan</translation>
         </message>
         <message>
             <source>Weather data provided by: </source>
-            <translation>Weerdata afkomstig van: </translation>
+            <translation>Weerbericht aangeboden door:</translation>
         </message>
         <message>
             <source>Weather forecast for the Meego. Version </source>
-            <translation>Weerbericht voor Meego. Versie </translation>
+            <translation>Weerbericht voor Meego. Versie</translation>
         </message>
         <message>
             <source>Widget OMWeather is reloading</source>
-            <translation>Herladen van OMWeather Widget</translation>
+            <translation>OMWeather-widget wordt herladen</translation>
         </message>
         <message>
             <source>Widget in LockScreen</source>
-            <translation>Widget in Lockscherm</translation>
+            <translation>Widget op vergrendelingsscherm</translation>
         </message>
         <message>
             <source>Widget in StandbyScreen</source>
-            <translation>Widget in Standbyscherm</translation>
+            <translation>Widget op standbyscherm</translation>
         </message>
         <message>
             <source>Widget in events view</source>
-            <translation>Widget in Notificaties</translation>
+            <translation>Widget op gebeurtenissenscherm</translation>
         </message>
         <message>
             <source>Widget style</source>
-            <translation>Widget-stijl</translation>
+            <translation>Widgetstijl</translation>
         </message>
         <message>
             <source>Widget style</source>
-            <translation>Widget-stijl</translation>
+            <translation>Widgetstijl</translation>
         </message>
         <message>
             <source>Widget style and Iconset</source>
-            <translation>Widget-stijl en Icoonset</translation>
+            <translation>Widgetstijl en pictogramset</translation>
         </message>
         <message>
             <source>Wind</source>
@@ -3960,19 +3973,19 @@ van weerinformatie.
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation>Windsnelheid</translation>
+            <translation>Windsnelheidseenheden</translation>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation>Windsnelheid</translation>
+            <translation>Windsnelheidseenheden</translation>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation>Windsnelheid</translation>
+            <translation>Windsnelheidseenheden</translation>
         </message>
         <message>
             <source>Wind speed units:</source>
-            <translation>Windsnelheid:</translation>
+            <translation>Windsnelheidseenheden:</translation>
         </message>
         <message>
             <source>Wind:</source>
@@ -4008,19 +4021,19 @@ van weerinformatie.
         </message>
         <message>
             <source>Wintry Mix</source>
-            <translation>Winterse Bui</translation>
+            <translation>Winterse bui</translation>
         </message>
         <message>
             <source>Wintry Mix / Wind</source>
-            <translation>Winterse Bui / Wind</translation>
+            <translation>Winterse bui / wind</translation>
         </message>
         <message>
             <source>Wintry Mix / Wind Early</source>
-            <translation>Winterse Bui / Vroege Wind</translation>
+            <translation>Winterse bui / vroege wind</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>
-            <translation>Winterse Bui tot Sneeuw</translation>
+            <translation>Winterse bui tot sneeuw</translation>
         </message>
         <message>
             <source>Wrong station code 
@@ -4038,35 +4051,35 @@ of postcode!!!</translation>
         </message>
         <message>
             <source>You can make donation here: </source>
-            <translation>U kunt hier doneren: </translation>
+            <translation>Je kan hier doneren: </translation>
         </message>
         <message>
             <source>You should activate 
 'Widget in events view'
  for using LockScreen widget</source>
-            <translation>Activeer
-'Widget in Notificaties'
-voor Lock-scherm widget</translation>
+            <translation>Schakel
+'Widget op gebeurtenissenscherm'
+in voor vergrendelingsschermwidget</translation>
         </message>
         <message>
             <source>You should activate 
 'Widget in events view'
  for using StandbyScreen widget</source>
-            <translation>Activeer
-'Widget in Notificaties'
-voor Standby-scherm widget</translation>
+            <translation>Schakel
+'Widget op gebeurtenissenscherm'
+in voor standbyschermwidget</translation>
         </message>
         <message>
             <source>You should activate 'Widget in the events view' option in MeeCast appearance settings for auto update.</source>
-            <translation>Activeer 'Widget in Notificaties' optie in MeeCast instellingen voor automatische updates.</translation>
+            <translation>Schakel de 'Widget op gebeurtenissenscherm'-optie in in de MeeCast-instellingen voor automatische updates.</translation>
         </message>
         <message>
             <source>Zoom in popup window </source>
-            <translation>Zoom in popup venster</translation>
+            <translation>Zoomen in pop-upvenster</translation>
         </message>
         <message>
             <source>Zooming in popup window</source>
-            <translation>Zoomen in popup venster</translation>
+            <translation>Zoomen in pop-upvenster</translation>
         </message>
         <message>
             <source>as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</source>
@@ -4118,7 +4131,7 @@ voor Standby-scherm widget</translation>
         </message>
         <message>
             <source>every minute (Debug)</source>
-            <translation>elke minuut(debug)</translation>
+            <translation>elke minuut (debug)</translation>
         </message>
         <message>
             <source>falling</source>
@@ -4126,7 +4139,7 @@ voor Standby-scherm widget</translation>
         </message>
         <message>
             <source>feels like</source>
-            <translation>voelt als</translation>
+            <translation>voelt aan als</translation>
         </message>
         <message>
             <source>hour ago</source>
@@ -4134,11 +4147,11 @@ voor Standby-scherm widget</translation>
         </message>
         <message>
             <source>hours ago</source>
-            <translation>uren geleden</translation>
+            <translation>uur geleden</translation>
         </message>
         <message>
             <source>http://github.com/Meecast/meecast</source>
-            <translation>http://github.com/Meecast/meecast</translation>
+            <translation>https://github.com/Meecast/meecast</translation>
         </message>
         <message>
             <source>inHg</source>
@@ -4454,7 +4467,7 @@ voor Standby-scherm widget</translation>
         </message>
         <message>
             <source>new icon</source>
-            <translation>nieuw icoon</translation>
+            <translation>nieuw pictogram</translation>
         </message>
         <message>
             <source>next</source>

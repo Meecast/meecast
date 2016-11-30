@@ -1235,6 +1235,10 @@ Brad Jones aka kazrak - fürs Testen
             <translation>Nebel</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Schnee / Wind</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>Nebel früh / Wolken spät</translation>
         </message>
@@ -1691,6 +1695,10 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>Leichter Regen / Wind spät</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Leichter Regen / Wind</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3193,6 +3201,10 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Snow Early</source>
             <translation type="unfinished">Schauer früh</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Schauer spät</translation>
         </message>
         <message>
             <source>Snow Shower</source>

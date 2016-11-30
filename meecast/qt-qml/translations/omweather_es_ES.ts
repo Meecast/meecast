@@ -1233,6 +1233,10 @@ Brad &quot;kazrak&quot; Jones - por testear
             <translation>Niebla</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Nieve / Viento</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>Niebla temprano / Nublado tarde</translation>
         </message>
@@ -1689,6 +1693,10 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>Lluvia ligera / Viento tarde</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Lluvia ligera / Viento</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3191,6 +3199,10 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Snow Early</source>
             <translation>Nieve temprano</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Chubascos tarde</translation>
         </message>
         <message>
             <source>Snow Shower</source>

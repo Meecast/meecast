@@ -1234,6 +1234,10 @@ jarliim
             <translation>雾</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">下雪夹风</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>早有雾/晚转多云</translation>
         </message>
@@ -1688,6 +1692,10 @@ Luca Onnis
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>小雨/晚转微风</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">小雨/微风</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3190,6 +3198,10 @@ Ed Bartosh
         <message>
             <source>Snow Early</source>
             <translation type="unfinished">早间阵雨</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">晚间阵雨</translation>
         </message>
         <message>
             <source>Snow Shower</source>

@@ -1234,6 +1234,10 @@ Brad Jones aka kazrak - للتجربة
             <translation>ضباب</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">ثلج / رياح</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>ضباب مُبكر / غيوم في وقت متأخر</translation>
         </message>
@@ -1685,6 +1689,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>مطر خفيف / رياح متأخرة</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">مطر خفيف / رياح</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3199,6 +3207,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Snow Early</source>
             <translation type="unfinished">زخات مُبكرة</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">زخات متأخره</translation>
         </message>
         <message>
             <source>Snow Shower</source>

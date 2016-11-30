@@ -1236,6 +1236,10 @@ Brad Jones aka kazrak - for testing
             <translation>Tåke</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Snø / Vind</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>Først Tåke / Senere Skyer</translation>
         </message>
@@ -1692,6 +1696,10 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>Lett Regn / Senere Vind</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Lett Regn / Vind</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3194,6 +3202,10 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Snow Early</source>
             <translation>Først snø</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Senere Byger</translation>
         </message>
         <message>
             <source>Snow Shower</source>

@@ -1238,6 +1238,10 @@ Brad Jones aka kazrak - for testing
             <translation>Мъгла</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Сняг/Вятър</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>Мъгла Сутрин/Облачно Следобед</translation>
         </message>
@@ -1689,6 +1693,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>Слаб Дъжд/Вятър следобед</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Слаб Дъжд/Вятър</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3202,6 +3210,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <message>
             <source>Snow Early</source>
             <translation type="unfinished">Превалявания сутрин</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Превалявания следобед</translation>
         </message>
         <message>
             <source>Snow Shower</source>

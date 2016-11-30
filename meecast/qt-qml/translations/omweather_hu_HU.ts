@@ -1207,6 +1207,10 @@ Brad Jones aka kazrak - for testing
             <translation>Köd</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Hó / szél</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>Délelőtt ködös, délután felhős</translation>
         </message>
@@ -1655,6 +1659,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>Záporok / délután szeles</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Könnyű eső / szél</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3176,6 +3184,10 @@ Előrejelzés:</translation>
         <message>
             <source>Snow Early</source>
             <translation type="unfinished">Délelőtti záporok</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Délutáni záporok</translation>
         </message>
         <message>
             <source>Snow Shower</source>

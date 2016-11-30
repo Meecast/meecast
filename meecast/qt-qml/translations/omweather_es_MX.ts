@@ -1245,6 +1245,10 @@ Brad &quot;kazrak&quot; Jones - por testear
             <translation>Niebla</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Nieve / Viento</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>Niebla temprano / Nublado tarde</translation>
         </message>
@@ -1697,6 +1701,10 @@ Precipitación: </translation>
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>Lluvia ligera / Viento tarde</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Lluvia ligera / Viento</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3219,6 +3227,10 @@ Precipitación: </translation>
         <message>
             <source>Snow Early</source>
             <translation type="unfinished">Chaparrones temprano</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Chaparrones tarde</translation>
         </message>
         <message>
             <source>Snow Shower</source>

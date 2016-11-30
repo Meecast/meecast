@@ -1230,6 +1230,10 @@ Brad Jones dit kazrak - pour les tests
             <translation>Brouillard</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Neige / vent</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>Brouillard en matinée / nuages en soirée</translation>
         </message>
@@ -1677,6 +1681,10 @@ Slovaque - Roman Moravčík</translation>
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>Pluie légère / vent en soirée</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Pluie légère / vent</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3178,6 +3186,10 @@ Slovaque - Roman Moravčík</translation>
         <message>
             <source>Snow Early</source>
             <translation type="unfinished">Averses en matinée</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Averses en soirée</translation>
         </message>
         <message>
             <source>Snow Shower</source>

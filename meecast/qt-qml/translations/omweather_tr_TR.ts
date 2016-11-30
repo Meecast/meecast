@@ -1221,6 +1221,10 @@ fikir ve testleri için Andrew aka Tabster'a ve testleri için Brad Jones'a
             <translation>Sis</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Kar / Rüzgar</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>Sabahtan Sisli / Sonra Bulutlu</translation>
         </message>
@@ -1676,6 +1680,10 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>Hafif Yağmur / Akşama Doğru Yağmur</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Hafif Yağmur / Rüzgar</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3178,6 +3186,10 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Snow Early</source>
             <translation type="unfinished">Sabahtan Sağanak</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Akşama Doğru Sağanak</translation>
         </message>
         <message>
             <source>Snow Shower</source>

@@ -1233,6 +1233,10 @@ Brad Jones aka kazrak - para testes
             <translation>Nevoeiro</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Neve / Vento</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>Nevoeiro Matinal / Nublado Tarde</translation>
         </message>
@@ -1684,6 +1688,10 @@ Precipitação:</translation>
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>Chuva Fraca / Vento Final do dia</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Chuva Fraca / Vento</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3196,6 +3204,10 @@ Precipitação:</translation>
         <message>
             <source>Snow Early</source>
             <translation type="unfinished">Aguaceiros Matinais</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Aguaceiros fim da tarde</translation>
         </message>
         <message>
             <source>Snow Shower</source>

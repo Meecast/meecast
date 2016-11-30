@@ -464,11 +464,11 @@ Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
 Design UI for Fremantle: Krebber Jan Niemela Ulla
 </source>
-            <translation type="unfinished">Utveckling och underhåll: Vlad Vasiliev, &lt;vlad@gas.by&gt;
+            <translation>Utveckling och underhåll: Vlad Vasiliev, &lt;vlad@gas.by&gt;
 Underhåll: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Dokumentation: Marko Vertainen
 Design UI och standardikoner: Andrew Zhilin
-Design UI för Fremantle: Krebber Jan Niemelä Ulla
+Design UI för Fremantle: Krebber Jan Niemela Ulla
 </translation>
         </message>
         <message>
@@ -1234,6 +1234,10 @@ Brad Jones aka kazrak - för testning
             <translation>Dimma</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Snö / Vind</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>Dimma Tidigt / Moln Sent</translation>
         </message>
@@ -1690,6 +1694,10 @@ Slovakiska - Roman Moravčík</translation>
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>Lätt regn / Vind senare</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Lätt regn / Dimma</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3192,6 +3200,10 @@ Slovakiska - Roman Moravčík</translation>
         <message>
             <source>Snow Early</source>
             <translation>Snö tidigt</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Regnskurar senare</translation>
         </message>
         <message>
             <source>Snow Shower</source>

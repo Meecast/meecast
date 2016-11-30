@@ -1235,6 +1235,10 @@ Brad Jones alias kazrak - per il testing
             <translation>Nebbia</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Neve / Vento</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>Nebbia sul presto / Nuvole più tardi</translation>
         </message>
@@ -1685,6 +1689,10 @@ Ilir Gjika
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>Deboli piogge / Vento tardi</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Deboli piogge / Vento</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3187,6 +3195,10 @@ Ilir Gjika
         <message>
             <source>Snow Early</source>
             <translation type="unfinished">Rovesci sul presto</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Rovesci sul tardi</translation>
         </message>
         <message>
             <source>Snow Shower</source>

@@ -1236,6 +1236,10 @@ Brad Jones aka kazrak - for testing
             <translation>Mjegull</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Dëborë / Erë</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>Mjegull herët / Me re më vonë</translation>
         </message>
@@ -1688,6 +1692,10 @@ Rreshjet: </translation>
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>Shi i dobët / Erë më vonë</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Shi i dobët / Erë</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3201,6 +3209,10 @@ Rreshjet: </translation>
         <message>
             <source>Snow Early</source>
             <translation type="unfinished">Herët me rrebeshe</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Rreshje të shkurtëra vonë</translation>
         </message>
         <message>
             <source>Snow Shower</source>

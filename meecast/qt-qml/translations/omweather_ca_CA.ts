@@ -1234,6 +1234,10 @@ Brad Jones aka kazrak - per les proves
             <translation>Boira</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Neu / Vent</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>Boira primer / Núvol més tard</translation>
         </message>
@@ -1691,6 +1695,10 @@ Català - Agustí Clara</translation>
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>Pluja suau / Vent més tard</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Pluja suau / Vent</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3193,6 +3201,10 @@ Català - Agustí Clara</translation>
         <message>
             <source>Snow Early</source>
             <translation>Neu primer</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Ruixats més tard</translation>
         </message>
         <message>
             <source>Snow Shower</source>

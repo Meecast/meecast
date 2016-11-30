@@ -1237,6 +1237,10 @@ Brad Jones aka kazrak - za testiranje
             <translation>Magla</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Sneg / Vetar</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>U ranijim satima magla / Kasnije oblaci</translation>
         </message>
@@ -1693,6 +1697,10 @@ Slovački - Roman Moravčík</translation>
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>Blaga kiša / Kasnije vetar</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Blaga kiša / Vetar</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3195,6 +3203,10 @@ Slovački - Roman Moravčík</translation>
         <message>
             <source>Snow Early</source>
             <translation>U ranijim satima sneg</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">U kasnijim satima pljuskovi</translation>
         </message>
         <message>
             <source>Snow Shower</source>

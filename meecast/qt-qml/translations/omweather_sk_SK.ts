@@ -1238,6 +1238,10 @@ Brad Jones aka kazrak - za testovanie
             <translation>Hmla</translation>
         </message>
         <message>
+            <source>Fog / Windy</source>
+            <translation type="unfinished">Sneženie / Vietor</translation>
+        </message>
+        <message>
             <source>Fog Early / Clouds Late</source>
             <translation>Spočiatku hmla / Neskôr oblačno</translation>
         </message>
@@ -1690,6 +1694,10 @@ Zrážky: </translation>
         <message>
             <source>Light Rain / Wind Late</source>
             <translation>Slabý dážď / Neskôr vietor</translation>
+        </message>
+        <message>
+            <source>Light Rain / Windy</source>
+            <translation type="unfinished">Slabý dážď / Vietor</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -3209,6 +3217,10 @@ Zrážky: </translation>
         <message>
             <source>Snow Early</source>
             <translation type="unfinished">Spočiatku prehánky</translation>
+        </message>
+        <message>
+            <source>Snow Late</source>
+            <translation type="unfinished">Neskôr prehánky</translation>
         </message>
         <message>
             <source>Snow Shower</source>

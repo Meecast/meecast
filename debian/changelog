@@ -3,6 +3,7 @@ meecast (1.1.15) unstable; urgency=low
   * Added new translation strings for weather.com
   * Updated Russian translation
   * Added Innopolis city to gismeteo.ru, foreca.com sources
+  * Updated Russian translation
 
  -- Vlad Vasiliev <vlad@gas.by> Sun, 20 Mar 2016 16:01:23 +0200
 

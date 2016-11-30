@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-07 11:01+0200\n"
-"PO-Revision-Date: 2016-11-07 16:34+0000\n"
+"PO-Revision-Date: 2016-11-30 22:17+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/vasvlad/meecast/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -1110,11 +1110,11 @@ msgstr "Сильный снег / Ветер"
 
 #: omweather/src/hash.data:104
 msgid "Heavy Snow Shower"
-msgstr ""
+msgstr "Сильный снегопад"
 
 #: omweather/src/hash.data:103
 msgid "Heavy Snow Showers"
-msgstr "Сильные дожди со снегом"
+msgstr "Сильные снегопады"
 
 #: omweather/src/hash.data:102
 msgid "Heavy Snowfall"

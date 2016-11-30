@@ -86,6 +86,7 @@
     g_hash_table_insert(hash, (void*)"Fog Late", _("Fog Late"));
     g_hash_table_insert(hash, (void*)"Fog early / Clearing late", _("Fog early / Clearing late"));
     g_hash_table_insert(hash, (void*)"Fog", _("Fog"));
+    g_hash_table_insert(hash, (void*)"Fog / Windy", _("Fog / Windy"));
     g_hash_table_insert(hash, (void*)"Foggy", _("Foggy"));
     g_hash_table_insert(hash, (void*)"Freezing Drizzle", _("Freezing Drizzle"));
     g_hash_table_insert(hash, (void*)"Full", _("Full"));
@@ -121,6 +122,7 @@
     g_hash_table_insert(hash, (void*)"Light Rain / Fog", _("Light Rain / Fog"));    
     g_hash_table_insert(hash, (void*)"Light Rain / Wind Late", _("Light Rain / Wind Late"));    
     g_hash_table_insert(hash, (void*)"Light Rain / Wind", _("Light Rain / Wind"));
+    g_hash_table_insert(hash, (void*)"Light Rain / Windy", _("Light Rain / Windy"));
     g_hash_table_insert(hash, (void*)"Light Rain Early", _("Light Rain Early"));
     g_hash_table_insert(hash, (void*)"Light Rain Late", _("Light Rain Late"));
     g_hash_table_insert(hash, (void*)"Light Rain Shower", _("Light Rain Shower"));    
@@ -303,6 +305,7 @@
     g_hash_table_insert(hash, (void*)"Smoke", _("Smoke"));
     g_hash_table_insert(hash, (void*)"Snow", _("Snow"));
     g_hash_table_insert(hash, (void*)"Snow Early", _("Snow Early"));
+    g_hash_table_insert(hash, (void*)"Snow Late", _("Snow Late"));
     g_hash_table_insert(hash, (void*)"Snowfall", _("Snowfall"));
     g_hash_table_insert(hash, (void*)"Snow / Wind", _("Snow / Wind"));
     g_hash_table_insert(hash, (void*)"Snow Shower / Wind", _("Snow Shower / Wind"));

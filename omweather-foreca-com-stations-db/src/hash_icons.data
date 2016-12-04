@@ -41,6 +41,7 @@
     hash_insert(hash, "n320.png", "45");
     hash_insert(hash, "d321.png", "5");
     hash_insert(hash, "d322.png", "13");
+    hash_insert(hash, "n322.png", "46");
     hash_insert(hash, "d340.png", "37");
     hash_insert(hash, "d400.png", "26");
     hash_insert(hash, "n400.png", "26");

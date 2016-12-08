@@ -89,6 +89,7 @@
     g_hash_table_insert(hash, (void*)"Fog / Windy", _("Fog / Windy"));
     g_hash_table_insert(hash, (void*)"Foggy", _("Foggy"));
     g_hash_table_insert(hash, (void*)"Freezing Drizzle", _("Freezing Drizzle"));
+    g_hash_table_insert(hash, (void*)"Freezing Rain", _("Freezing Rain"));
     g_hash_table_insert(hash, (void*)"Full", _("Full"));
     g_hash_table_insert(hash, (void*)"Haze", _("Haze"));
     g_hash_table_insert(hash, (void*)"Haze, Smoke or Dust", _("Haze, Smoke or Dust"));

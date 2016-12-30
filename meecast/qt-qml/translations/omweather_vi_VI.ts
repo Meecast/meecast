@@ -1299,6 +1299,10 @@ bằng trình quản lý ứng dụng</translation>
             <translation>Trời băng giá, có mưa phùn</translation>
         </message>
         <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">Có mưa kèm băng giá</translation>
+        </message>
+        <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
@@ -2736,6 +2740,10 @@ Mưa:</translation>
             <translation>Mưa/ Tuyết/ Gió</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">Mưa/ Tuyết/ Gió</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>Mưa, có tuyết rơi sớm</translation>
         </message>
@@ -4053,6 +4061,10 @@ for tuning images of applet</source>
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>Lạnh giá kèm gió sớm</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">Lạnh giá và có gió</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

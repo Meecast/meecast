@@ -1298,6 +1298,10 @@ using Application manager</translation>
             <translation>Freezing Drizzle</translation>
         </message>
         <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">Rain / Freezing Rain</translation>
+        </message>
+        <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
@@ -2724,6 +2728,10 @@ Precipitation: </translation>
             <translation>Rain / Snow / Wind</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">Rain / Snow / Wind</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>Rain / Snow Early</translation>
         </message>
@@ -4038,6 +4046,10 @@ for tuning images of applet</translation>
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>Wintry Mix / Wind Early</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">Wintry Mix / Wind</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

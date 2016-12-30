@@ -1299,6 +1299,10 @@ dal Gestore Applicazioni</translation>
             <translation>Pioggerella gelata</translation>
         </message>
         <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">Forte pioggia congelantesi</translation>
+        </message>
+        <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
@@ -2716,6 +2720,10 @@ Ilir Gjika
             <translation>Pioggia / Neve / Vento</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">Pioggia / Neve / Vento</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>Pioggia / Neve sul presto</translation>
         </message>
@@ -4026,6 +4034,10 @@ Anh Dương and truongnx
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>Nevischio / Vento sul presto</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">Nevischio / Vento</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

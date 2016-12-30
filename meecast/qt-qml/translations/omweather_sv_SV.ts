@@ -651,7 +651,7 @@ Design UI för Fremantle: Krebber Jan Niemela Ulla
         </message>
         <message>
             <source>Clear sky</source>
-            <translation type="unfinished">Klar himmel</translation>
+            <translation>Klar himmel</translation>
         </message>
         <message>
             <source>Clear, Drifting Snow</source>
@@ -1235,7 +1235,7 @@ Brad Jones aka kazrak - för testning
         </message>
         <message>
             <source>Fog / Windy</source>
-            <translation type="unfinished">Snö / Vind</translation>
+            <translation>Dimma / Blåsigt</translation>
         </message>
         <message>
             <source>Fog Early / Clouds Late</source>
@@ -1296,6 +1296,10 @@ Hantera program.</translation>
         <message>
             <source>Freezing Drizzle</source>
             <translation>Underkylt Duggregn</translation>
+        </message>
+        <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">Kraftigt underkylt regn</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
@@ -1697,7 +1701,7 @@ Slovakiska - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light Rain / Windy</source>
-            <translation type="unfinished">Lätt regn / Dimma</translation>
+            <translation>Lätt regn / Blåsigt</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -2720,6 +2724,10 @@ Slovakiska - Roman Moravčík</translation>
             <translation>Regn / Snö / Vind</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">Regn / Snö / Vind</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>Regn / Tidigt snö</translation>
         </message>
@@ -3203,7 +3211,7 @@ Slovakiska - Roman Moravčík</translation>
         </message>
         <message>
             <source>Snow Late</source>
-            <translation type="unfinished">Regnskurar senare</translation>
+            <translation>Sent snöfall</translation>
         </message>
         <message>
             <source>Snow Shower</source>
@@ -4030,6 +4038,10 @@ uppdaterng av väderinformation.
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>Snöblandat/underkylt regn eller hagel / Blåsigt i början</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">Snöblandat/underkylt regn eller hagel / Vind</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

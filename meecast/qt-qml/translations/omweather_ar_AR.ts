@@ -1298,6 +1298,10 @@ using Application manager</source>
             <translation>رذار متجمد</translation>
         </message>
         <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">أمطار / أمطار متجمدة</translation>
+        </message>
+        <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
@@ -2724,6 +2728,10 @@ Slovak - Roman Moravčík</source>
             <translation>أمطار / ثلج / رياح</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">أمطار / ثلج / رياح</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>أمطار / ثلوج مُبكره</translation>
         </message>
@@ -4033,6 +4041,10 @@ for tuning images of applet</source>
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>بمزيج شتوي/ رياح مُبكره</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">مزيج شتوي/ رياح</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

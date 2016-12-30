@@ -1297,6 +1297,10 @@ using Application manager</source>
             <translation>冻毛毛雨</translation>
         </message>
         <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">大冰雨</translation>
+        </message>
+        <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
@@ -2718,6 +2722,10 @@ Luca Onnis
             <translation>下雨/雪夹/刮风</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">下雨/雪夹/刮风</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>早有雨/雪</translation>
         </message>
@@ -4028,6 +4036,10 @@ Anh Dương and truongnx
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>雨雪混合/早间刮风</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">雨雪混合/刮风</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

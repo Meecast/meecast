@@ -1302,6 +1302,10 @@ pomocou Správcu aplikácií</translation>
             <translation>Mrznúce mrholenie</translation>
         </message>
         <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">Dážď / Mrznúci dážď</translation>
+        </message>
+        <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
@@ -2729,6 +2733,10 @@ Zrážky: </translation>
             <translation>Dážď / Sneženie / Vietor</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">Dážď / Sneženie / Vietor</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>Dážď / Spočiatku sneženie</translation>
         </message>
@@ -4051,6 +4059,10 @@ zovanie informácií o počasí.
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>Chladno a sychravo / Spočiatku vietor</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">Chladno a sychravo / Vietor</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

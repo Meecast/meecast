@@ -1314,6 +1314,10 @@ używając Menedżera aplikacji</translation>
             <translation>Marznąca mżawka</translation>
         </message>
         <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">Lekki zamarzający deszcz</translation>
+        </message>
+        <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
@@ -2793,6 +2797,10 @@ słowacki - Roman Moravčík</translation>
             <translation>Deszcz / śnieg / wiatr</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">Deszcz / śnieg / wiatr</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>Deszcz / wcześnie śnieg</translation>
         </message>
@@ -4138,6 +4146,10 @@ aktualizowania prognoz.
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>Deszcz ze śniegiem / wcześnie wiatr</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">Deszcz ze śniegiem / wiatr</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

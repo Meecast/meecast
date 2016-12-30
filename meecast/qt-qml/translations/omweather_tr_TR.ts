@@ -1284,6 +1284,10 @@ paketini kaldırın.</translation>
             <translation>Dondurucu Çiseleyen Yagmur</translation>
         </message>
         <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">Şiddetli Dondurucu Yağmur</translation>
+        </message>
+        <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
@@ -2706,6 +2710,10 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Yağmur / Kar / Rüzgar</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">Yağmur / Kar / Rüzgar</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>Yağmur / Sabahtan Kar</translation>
         </message>
@@ -4012,6 +4020,10 @@ GSM ve/veya WLAN kullan.
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>Karisik Soğuk / Sabahtan Rüzgarlı</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">Karışık Soğuk / Rüzgar</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

@@ -651,7 +651,7 @@ Ontwerp UI voor Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Clear sky</source>
-            <translation type="unfinished">Heldere lucht</translation>
+            <translation>Heldere lucht</translation>
         </message>
         <message>
             <source>Clear, Drifting Snow</source>
@@ -1235,7 +1235,7 @@ Brad Jones aka kazrak - voor het testen
         </message>
         <message>
             <source>Fog / Windy</source>
-            <translation type="unfinished">Sneeuw / wind</translation>
+            <translation>Mist / wind</translation>
         </message>
         <message>
             <source>Fog Early / Clouds Late</source>
@@ -1296,6 +1296,10 @@ worden.</translation>
         <message>
             <source>Freezing Drizzle</source>
             <translation>Lichte ijzel</translation>
+        </message>
+        <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">Hevige ijsregen</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
@@ -1697,7 +1701,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light Rain / Windy</source>
-            <translation type="unfinished">Lichte regen / wind</translation>
+            <translation>Lichte regen / wind</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -2720,6 +2724,10 @@ Slowaaks - Roman Moravčík</translation>
             <translation>Regen / sneeuw / wind</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">Regen / sneeuw / wind</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>Regen / eerder sneeuw</translation>
         </message>
@@ -3203,7 +3211,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Snow Late</source>
-            <translation type="unfinished">Late buien</translation>
+            <translation>Late sneeuw</translation>
         </message>
         <message>
             <source>Snow Shower</source>
@@ -4030,6 +4038,10 @@ van weerinformatie.
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>Winterse bui / vroege wind</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">Winterse bui / wind</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

@@ -1299,6 +1299,10 @@ sinun tulee poistaa
             <translation>Jäätävää tihkusadetta</translation>
         </message>
         <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">Kovaa jäätävää sadetetta</translation>
+        </message>
+        <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
@@ -2721,6 +2725,10 @@ Slovakia - Roman Moravčík</translation>
             <translation>Vesisadetta / Lumisadetta / Tuulista</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">Vesisadetta / Lumisadetta / Tuulista</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>Vesisadetta / Ensin lumisadetta</translation>
         </message>
@@ -4033,6 +4041,10 @@ ajoitettuun päivitykseen.
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>Räntäsadetta / Ensin tuulista</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">Räntäsadetta / Tuulista</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

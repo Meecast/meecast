@@ -1298,6 +1298,10 @@ utilitzant el Gestor d'aplicacions</translation>
             <translation>Plugims gebradors</translation>
         </message>
         <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">Pluja gebradora intensa</translation>
+        </message>
+        <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
@@ -2721,6 +2725,10 @@ Català - Agustí Clara</translation>
             <translation>Pluja / Neu / Vent</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">Pluja / Neu / Vent</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>Pluja / Neu primer</translation>
         </message>
@@ -4030,6 +4038,10 @@ de la informació del temps.
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>Aiguaneu / Vent primer</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">Aiguaneu / Vent</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

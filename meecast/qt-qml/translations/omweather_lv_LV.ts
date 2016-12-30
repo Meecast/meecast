@@ -1479,6 +1479,11 @@ using Application manager</source>
             </translation>
         </message>
         <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
@@ -3214,6 +3219,11 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation type="unfinished">
             </translation>
@@ -4806,6 +4816,11 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Wintry Mix / Wind Early</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
             <translation type="unfinished">
             </translation>
         </message>

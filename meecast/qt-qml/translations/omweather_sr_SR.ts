@@ -1301,6 +1301,10 @@ koristeći Menadžer aplikacija</translation>
             <translation>Ledena kiša</translation>
         </message>
         <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">Jaka ledena kiša</translation>
+        </message>
+        <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
@@ -2723,6 +2727,10 @@ Slovački - Roman Moravčík</translation>
             <translation>Kiša / Sneg / Vetar</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">Kiša / Sneg / Vetar</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>Kiša / U ranijim satima sneg</translation>
         </message>
@@ -4033,6 +4041,10 @@ za korigovanje slika applet-a</translation>
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>Zimski miks / U ranijim satima vetar</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">Zimski miks / Vetar</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

@@ -1281,6 +1281,10 @@ using Application manager</source>
             <translation>Мряка з градом</translation>
         </message>
         <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">Дощ / Холодний дощ</translation>
+        </message>
+        <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
@@ -2723,6 +2727,10 @@ Slovak - Roman Moravčík</source>
             <translation>Дощ / Сніг / Вітер</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">Дощ / Сніг / Вітер</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>Дощ / Зранку сніг</translation>
         </message>
@@ -4038,6 +4046,10 @@ for tuning images of applet</source>
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>Сніг з дощем / Вранці вітер</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">Сніг з дощем / Вітер</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

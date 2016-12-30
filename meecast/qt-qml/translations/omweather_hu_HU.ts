@@ -1269,6 +1269,10 @@ using Application manager</source>
             <translation>Szitáló jégeső</translation>
         </message>
         <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">Könnyű jégeső</translation>
+        </message>
+        <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
@@ -2703,6 +2707,10 @@ Előrejelzés:</translation>
             <translation>Eső / hó / szél</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">Eső / hó / szél</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>Eső / délelőtti havazás</translation>
         </message>
@@ -4011,6 +4019,10 @@ adatok rendszeres frissítéséhet.
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>Havas eső / délelőtti szél</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">Havas eső / szél</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

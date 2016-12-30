@@ -1294,6 +1294,10 @@ en utilisant le gestionnaire d'applications</translation>
             <translation>Bruine verglaçante</translation>
         </message>
         <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">Grosse pluie verglassante</translation>
+        </message>
+        <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
@@ -2707,6 +2711,10 @@ Slovaque - Roman Moravčík</translation>
             <translation>Pluie / neige / vent</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">Pluie / neige / vent</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>Pluie / neige en matinée</translation>
         </message>
@@ -4013,6 +4021,10 @@ pour la météo actuelle :</translation>
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>Précipitations hivernales / vent en matinée</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">Précipitations hivernales / vent</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

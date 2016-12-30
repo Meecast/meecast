@@ -1297,6 +1297,10 @@ usando o Gestor de Aplicações</translation>
             <translation>Gelo</translation>
         </message>
         <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">Chuva / Granizo</translation>
+        </message>
+        <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
@@ -2722,6 +2726,10 @@ Precipitação:</translation>
             <translation>Chuva / Neve / Vento</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">Chuva / Neve / Vento</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>Chuva / Neve pela manhã</translation>
         </message>
@@ -4033,6 +4041,10 @@ de informações do tempo.
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>Tempo Instável  / Vento Matinal</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">Tempo Instável / Vento</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

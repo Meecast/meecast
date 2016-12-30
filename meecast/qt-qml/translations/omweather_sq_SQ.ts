@@ -1300,6 +1300,10 @@ duke përdorur Application manager</translation>
             <translation>Shi i ngrirë</translation>
         </message>
         <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">Shi / Shi i ngrirë</translation>
+        </message>
+        <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
@@ -2727,6 +2731,10 @@ Rreshjet: </translation>
             <translation>Shi / Dëborë / Erë</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">Shi / Dëborë / Erë</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>Shi / Dëborë herët</translation>
         </message>
@@ -4041,6 +4049,10 @@ për të ndryshuar fotografinë applet</translation>
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>Shi i përzjerë me akull dhe borë / Erë herët</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">Shi i përzjerë me akull dhe borë / Erë</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

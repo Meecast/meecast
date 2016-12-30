@@ -1300,6 +1300,10 @@ bør du avinstallere pakken
             <translation>Underkjølt Yr</translation>
         </message>
         <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">Mye Underkjølt Regn</translation>
+        </message>
+        <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
@@ -2722,6 +2726,10 @@ Slovak - Roman Moravčík</translation>
             <translation>Regn / Snø / Vind</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">Regn / Snø / Vind</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>Rain / Først Snø</translation>
         </message>
@@ -4032,6 +4040,10 @@ av værinformasjonen.
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>Glatt Føre / Først Vind</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">Glatt Føre / Vind</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

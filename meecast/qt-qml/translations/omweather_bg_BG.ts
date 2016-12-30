@@ -1302,6 +1302,10 @@ using Application manager</source>
             <translation>Леден ръмеж</translation>
         </message>
         <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">Дъжд/Леден дъжд</translation>
+        </message>
+        <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
@@ -2728,6 +2732,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Дъжд/Сняг/Вятър</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">Дъжд/Сняг/Вятър</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>Дъжд/Сняг сутрин</translation>
         </message>
@@ -4042,6 +4050,10 @@ for tuning images of applet</source>
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>Лапавица/Вятър сутрин</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">Лапавица/Вятър</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

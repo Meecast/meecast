@@ -1297,6 +1297,10 @@ el Administrador de Aplicaciones.</translation>
             <translation>Llovisna helada</translation>
         </message>
         <message>
+            <source>Freezing Rain</source>
+            <translation type="unfinished">Lluvia helada intensa</translation>
+        </message>
+        <message>
             <source>French -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
@@ -2719,6 +2723,10 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Lluvia / Nieve / Viento</translation>
         </message>
         <message>
+            <source>Rain / Snow / Wind Early</source>
+            <translation type="unfinished">Lluvia / Nieve / Viento</translation>
+        </message>
+        <message>
             <source>Rain / Snow Early</source>
             <translation>Lluvia / Nieve temprano</translation>
         </message>
@@ -4028,6 +4036,10 @@ la información del clima.
         <message>
             <source>Wintry Mix / Wind Early</source>
             <translation>Agua nieve / Viento temprano</translation>
+        </message>
+        <message>
+            <source>Wintry Mix / Windy</source>
+            <translation type="unfinished">Agua nieve / Viento</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

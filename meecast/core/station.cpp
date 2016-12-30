@@ -517,6 +517,7 @@ Station::Station(const std::string& source_name, const std::string& id,
                result = false;
             */
         }
+#if 0        
         /* BAseMap */
         if (this->basemapURL() != ""){
             std::string mapfilename(Core::AbstractConfig::getCachePath());
@@ -594,6 +595,8 @@ Station::Station(const std::string& source_name, const std::string& id,
                 Downloader::downloadData(map_url, this->mapURL(), "");
             }
         }
+
+#endif    
         run_converter();
         delete forecastURL;
         delete detailURL;

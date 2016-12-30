@@ -115,6 +115,7 @@ Page {
             if ((model_current.getdata(day, "dewpoint")) != "N/A")
                 condition.append({cond_name: Config.tr("Dew point") + ":",
                          value: model_current.getdata(day, "dewpoint") + '°' + Config.temperatureunit});
+/*                         
             if ((model_current.getdata(day, "map_pattern")) != ""){
                 map_pattern = model_current.getdata(day, "map_pattern")
                 map_text.visible = true;
@@ -122,7 +123,8 @@ Page {
                 count_of_maps = model_current.getdata(day, "count_of_maps")
             }else
                 map_text.visible = false;
-
+*/
+            map_text.visible = false;
             if ((model_current.getdata(day, "temp")) != "N/A")
                 temperature.text =  model_current.getdata(day, "temp") + '°'
      	    else{
@@ -198,6 +200,7 @@ Page {
                 if ((model_day.getdata(day, "temp_high")) != "N/A")
                	    temperature.text =  model_day.getdata(day, "temp_high") + '°'
             }
+/*            
             if ((model_day.getdata(day, "map_pattern")) != ""){
                 map_pattern = model_day.getdata(day, "map_pattern")
                 mapbackground_pattern = model_day.getdata(day, "mapbackground_pattern")
@@ -205,6 +208,8 @@ Page {
                 count_of_maps = model_day.getdata(day, "count_of_maps")
             }else
                 map_text.visible = false;
+*/                
+            map_text.visible = false;
 	}
 	if (day_period == "night"){
             day_period_name = Config.tr("Night");
@@ -266,6 +271,7 @@ Page {
                 if ((model_night.getdata(day, "temp_low")) != "N/A")
                     temperature.text =  model_night.getdata(day, "temp_low") + '°'
             }
+/*            
             if ((model_night.getdata(day, "map_pattern")) != ""){
                 map_pattern = model_night.getdata(day, "map_pattern")
                 mapbackground_pattern = model_night.getdata(day, "mapbackground_pattern")
@@ -273,7 +279,8 @@ Page {
                 count_of_maps = model_night.getdata(day, "count_of_maps")
             }else
                 map_text.visible = false;
-
+*/
+            map_text.visible = false;
 	}
 	if (day_period == "hours"){
             day_period_name = Config.tr("Hours");

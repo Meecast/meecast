@@ -89,6 +89,7 @@
     g_hash_table_insert(hash, (void*)"Fog / Windy", _("Fog / Windy"));
     g_hash_table_insert(hash, (void*)"Foggy", _("Foggy"));
     g_hash_table_insert(hash, (void*)"Freezing Drizzle", _("Freezing Drizzle"));
+    g_hash_table_insert(hash, (void*)"Freezing Rain", _("Freezing Rain"));
     g_hash_table_insert(hash, (void*)"Full", _("Full"));
     g_hash_table_insert(hash, (void*)"Haze", _("Haze"));
     g_hash_table_insert(hash, (void*)"Haze, Smoke or Dust", _("Haze, Smoke or Dust"));
@@ -257,6 +258,7 @@
     g_hash_table_insert(hash, (void*)"Rain", _("Rain"));
     g_hash_table_insert(hash, (void*)"Rain / Freezing Rain", _("Rain / Freezing Rain"));
     g_hash_table_insert(hash, (void*)"Rain / Snow / Wind", _("Rain / Snow / Wind"));
+    g_hash_table_insert(hash, (void*)"Rain / Snow / Wind Early", _("Rain / Snow / Wind Early"));
     g_hash_table_insert(hash, (void*)"Rain / Snow Early", _("Rain / Snow Early"));
     g_hash_table_insert(hash, (void*)"Rain / Snow Late", _("Rain / Snow Late"));
     g_hash_table_insert(hash, (void*)"Rain / Snow Showers / Wind", _("Rain / Snow Showers / Wind"));
@@ -355,6 +357,7 @@
     g_hash_table_insert(hash, (void*)"Wind", _("Wind"));
     g_hash_table_insert(hash, (void*)"Wintry Mix / Wind Early", _("Wintry Mix / Wind Early"));
     g_hash_table_insert(hash, (void*)"Wintry Mix / Wind", _("Wintry Mix / Wind"));
+    g_hash_table_insert(hash, (void*)"Wintry Mix / Windy", _("Wintry Mix / Windy"));
     g_hash_table_insert(hash, (void*)"Wintry Mix to Snow", _("Wintry Mix to Snow"));
     g_hash_table_insert(hash, (void*)"Wintry Mix", _("Wintry Mix"));
     g_hash_table_insert(hash, (void*)"falling", _("falling"));

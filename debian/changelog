@@ -1,4 +1,4 @@
-meecast (1.1.15) unstable; urgency=low
+meecast (1.1.16) unstable; urgency=low
 
   * Added new translation strings for weather.com
   * Added icon for foreca.com
@@ -7,7 +7,7 @@ meecast (1.1.15) unstable; urgency=low
   * Updated Russian, Danish, Dutch, Polish, Swedish, Slovenian, Galician,
     Spanish, Catalan translations
 
- -- Vlad Vasiliev <vlad@gas.by> Sun, 20 Mar 2016 16:01:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by> Sat, 31 Dec 2016 10:01:23 +0200
 
 meecast (1.1.13) unstable; urgency=low
 

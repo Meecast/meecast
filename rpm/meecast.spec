@@ -14,8 +14,8 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    1.1.15
-Release:    4 
+Version:    1.1.16
+Release:    1 
 Group:      Utility
 License:    GPLv2.1
 URL:        https://github.com/Meecast/meecast 
@@ -175,9 +175,18 @@ systemctl-user start meecastd.service
 
 %changelog
 
+* Sat Dec 31 2016 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.16
+
+  * Added new translation strings for weather.com
+  * Added icon for foreca.com
+  * Disabled Map
+  * Added Innopolis city to gismeteo.ru, foreca.com sources
+  * Updated Russian, Danish, Dutch, Polish, Swedish, Slovenian, Galician,
+    Spanish, Catalan translations
+
 * Sat Aug 28 2016 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.15
 
-  * Fixed problem with landscape orientation again
+  * Fixed problem with landscape orientation 
 
 * Fri Aug 12 2016 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.14
 

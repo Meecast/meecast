@@ -2,6 +2,7 @@ meecast (1.1.16) unstable; urgency=low
 
   * Added new translation strings for weather.com
   * Added icon for foreca.com
+  * Disabled Map
   * Added Innopolis city to gismeteo.ru, foreca.com sources
   * Updated Russian, Danish, Dutch, Polish, Swedish, Slovenian, Galician,
     Spanish, Catalan translations

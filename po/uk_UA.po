@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-01 01:31+0300\n"
+"POT-Creation-Date: 2016-12-30 21:28+0300\n"
 "PO-Revision-Date: 2013-11-20 16:44+0000\n"
 "Last-Translator: oksana_berry <mkalinkevich@gmail.com>\n"
 "Language-Team: Ukrainian (Ukraine) (http://www.transifex.com/projects/p/"
@@ -386,7 +386,7 @@ msgstr "Автори"
 msgid "Automatically update data when connecting to the Internet"
 msgstr "Автоматично оновлювати дані після з'єднання з Інтернетом"
 
-#: omweather/src/hash.data:372
+#: omweather/src/hash.data:375
 msgid "Back"
 msgstr "Назад"
 
@@ -408,11 +408,11 @@ msgstr "Шкала Бофорта"
 msgid "Blowing Snow"
 msgstr "Завірюха"
 
-#: omweather/src/hash.data:374
+#: omweather/src/hash.data:377
 msgid "Broken Clouds"
 msgstr "Хмарно з проясненнями"
 
-#: omweather/src/hash.data:375
+#: omweather/src/hash.data:378
 msgid "Broken clouds"
 msgstr "Хмарно з проясненнями"
 
@@ -573,7 +573,7 @@ msgstr "Хмарно та снігопад"
 msgid "Cloudy and wet snow showers"
 msgstr "Хмарно та короткочасний мокрий сніг"
 
-#: omweather/src/hash.data:396
+#: omweather/src/hash.data:399
 msgid "Cloudy with occasional rain."
 msgstr "Хмарно, часом дощ."
 
@@ -675,7 +675,7 @@ msgstr "Країна"
 msgid "Country:"
 msgstr "Країна:"
 
-#: omweather/src/hash.data:408
+#: omweather/src/hash.data:411
 msgid "Cover Page"
 msgstr ""
 
@@ -920,7 +920,7 @@ msgstr "Неможливо ініціалізувати GConf. Налаштув�
 msgid "Fair"
 msgstr "Ясна погода"
 
-#: omweather/src/hash.data:370
+#: omweather/src/hash.data:373
 msgid "Feels like"
 msgstr "По відчуттям"
 
@@ -928,7 +928,7 @@ msgstr "По відчуттям"
 msgid "Feels like:"
 msgstr "За відчуттями:"
 
-#: omweather/src/hash.data:377
+#: omweather/src/hash.data:380
 msgid "Few Clouds"
 msgstr "Малохмарно"
 
@@ -952,7 +952,7 @@ msgstr "Часом Снігопад"
 msgid "Few Snow Showers / Wind"
 msgstr "Часом Снігопад / Вітер"
 
-#: omweather/src/hash.data:376
+#: omweather/src/hash.data:379
 msgid "Few clouds"
 msgstr "Малохмарно"
 
@@ -1033,8 +1033,7 @@ msgstr ""
 msgid "Forecast"
 msgstr "Прогноз"
 
-#: omweather/src/weather-popup.c:1433
-#: omweather/src/weather-simple-popup.c:1028
+#: omweather/src/weather-popup.c:1433 omweather/src/weather-simple-popup.c:1028
 msgid "Forecast at: "
 msgstr "Прогноз на:"
 
@@ -1045,6 +1044,11 @@ msgstr "Прогноз:\n"
 #: omweather/src/hash.data:91
 msgid "Freezing Drizzle"
 msgstr "Мряка з градом"
+
+#: omweather/src/hash.data:92
+#, fuzzy
+msgid "Freezing Rain"
+msgstr "Дощ / Холодний дощ"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
 msgid ""
@@ -1076,7 +1080,7 @@ msgstr ""
 "Польська - Tomasz Dominikowski\n"
 "Словацька - Roman Moravčík"
 
-#: omweather/src/hash.data:92
+#: omweather/src/hash.data:93
 msgid "Full"
 msgstr "Повний місяць"
 
@@ -1135,90 +1139,90 @@ msgstr "Пориви:"
 msgid "HTTP error."
 msgstr "Помилка HTTP."
 
-#: omweather/src/hash.data:93
+#: omweather/src/hash.data:94
 msgid "Haze"
 msgstr "Легкий туман"
 
-#: omweather/src/hash.data:94
+#: omweather/src/hash.data:95
 msgid "Haze, Smoke or Dust"
 msgstr ""
 
-#: omweather/src/hash.data:95
+#: omweather/src/hash.data:96
 #, fuzzy
 msgid "Heavy Freezing Rain"
 msgstr "Дощ / Холодний дощ"
 
-#: omweather/src/hash.data:96
+#: omweather/src/hash.data:97
 #, fuzzy
 msgid "Heavy Precipitation"
 msgstr ""
 "\n"
 "Атмосферні опади:"
 
-#: omweather/src/hash.data:97
+#: omweather/src/hash.data:98
 msgid "Heavy Rain"
 msgstr "Сильний дощ"
 
-#: omweather/src/hash.data:98
+#: omweather/src/hash.data:99
 msgid "Heavy Rain / Wind"
 msgstr "Сильний дощ / Вітер"
 
-#: omweather/src/hash.data:99
-msgid "Heavy Rain Shower"
-msgstr "Сильна злива"
-
 #: omweather/src/hash.data:100
-#, fuzzy
-msgid "Heavy Rain Showers"
+msgid "Heavy Rain Shower"
 msgstr "Сильна злива"
 
 #: omweather/src/hash.data:101
 #, fuzzy
+msgid "Heavy Rain Showers"
+msgstr "Сильна злива"
+
+#: omweather/src/hash.data:102
+#, fuzzy
 msgid "Heavy Sleet"
 msgstr "Сильний Сніг"
 
-#: omweather/src/hash.data:102
+#: omweather/src/hash.data:103
 #, fuzzy
 msgid "Heavy Sleet Showers"
 msgstr "Сильна злива"
 
-#: omweather/src/hash.data:103
+#: omweather/src/hash.data:104
 msgid "Heavy Snow"
 msgstr "Сильний Сніг"
 
-#: omweather/src/hash.data:107
+#: omweather/src/hash.data:108
 msgid "Heavy Snow / Wind"
 msgstr "Сильний сніг / Вітер"
 
-#: omweather/src/hash.data:106
+#: omweather/src/hash.data:107
 #, fuzzy
 msgid "Heavy Snow Shower"
 msgstr "Часом Снігопад"
 
-#: omweather/src/hash.data:105
+#: omweather/src/hash.data:106
 #, fuzzy
 msgid "Heavy Snow Showers"
 msgstr "Часом Снігопад"
 
-#: omweather/src/hash.data:104
+#: omweather/src/hash.data:105
 #, fuzzy
 msgid "Heavy Snowfall"
 msgstr "Сильний Сніг"
 
-#: omweather/src/hash.data:108
+#: omweather/src/hash.data:109
 #, fuzzy
 msgid "Heavy Thunder"
 msgstr "Грім"
 
-#: omweather/src/hash.data:397
+#: omweather/src/hash.data:400
 msgid "Heavy intensity rain"
 msgstr "Сильний дощ"
 
-#: omweather/src/hash.data:109
+#: omweather/src/hash.data:110
 msgid "High"
 msgstr "Високий"
 
-#: omweather/src/hash.data:371
+#: omweather/src/hash.data:374
 msgid "Hourly"
 msgstr "Погодинний"
 
@@ -1242,7 +1246,7 @@ msgstr "Вологість:"
 msgid "Hungarian - Salmi, László Kara\n"
 msgstr ""
 
-#: omweather/src/hash.data:110
+#: omweather/src/hash.data:111
 msgid "Ice Pellets"
 msgstr ""
 
@@ -1258,26 +1262,25 @@ msgstr "розмір символу:"
 msgid "Icons"
 msgstr "Набори іконок"
 
-#: omweather/src/hash.data:111 meecast/qt-qml/qml/VisualsPage.qml:391
+#: omweather/src/hash.data:112 meecast/qt-qml/qml/VisualsPage.qml:391
 msgid "Iconset"
 msgstr "Набір іконок"
 
-#: omweather/src/hash.data:112 meecast/qt-qml/qml/AboutPage.qml:278
+#: omweather/src/hash.data:113 meecast/qt-qml/qml/AboutPage.qml:278
 msgid "Iconsets"
 msgstr "Набори іконок:"
 
-#: meecast/qt-qml/qml/VisualsPage.qml:64
-#: meecast/qt-qml/qml/VisualsPage.qml:136
+#: meecast/qt-qml/qml/VisualsPage.qml:64 meecast/qt-qml/qml/VisualsPage.qml:136
 #: meecast/qt-qml/qml/VisualsPage.qml:163
 #: meecast/qt-qml/qml/VisualsPage.qml:226
 msgid "Information"
 msgstr "Інформація"
 
-#: omweather/src/hash.data:114
+#: omweather/src/hash.data:115
 msgid "Isolated T-Storms"
 msgstr "Місцями грози"
 
-#: omweather/src/hash.data:113
+#: omweather/src/hash.data:114
 msgid "Isolated T-Storms / Wind"
 msgstr "Місцями грози / Вітер"
 
@@ -1303,11 +1306,11 @@ msgstr "Кілометри"
 msgid "Knots"
 msgstr ""
 
-#: omweather/src/hash.data:373
+#: omweather/src/hash.data:376
 msgid "Language"
 msgstr "Мова"
 
-#: omweather/src/hash.data:115
+#: omweather/src/hash.data:116
 msgid "Last Quarter"
 msgstr "Остання чверть"
 
@@ -1319,7 +1322,7 @@ msgstr "Останні оновлення на сервері:"
 msgid "Last update from server: "
 msgstr "Останнє оновлення з серверу:"
 
-#: omweather/src/hash.data:116 meecast/qt-qml/qml/FullWeatherPage.qml:344
+#: omweather/src/hash.data:117 meecast/qt-qml/qml/FullWeatherPage.qml:344
 msgid "Last update:"
 msgstr "Останнє оновлення:"
 
@@ -1330,7 +1333,7 @@ msgstr "Останнє оновлення:"
 msgid "Last update: "
 msgstr "Останнє оновлення:"
 
-#: omweather/src/hash.data:117
+#: omweather/src/hash.data:118
 msgid "Lawn and Garden Weather"
 msgstr ""
 
@@ -1347,134 +1350,134 @@ msgstr "Ведучий дизайнер"
 msgid "License"
 msgstr "Ліцензія"
 
-#: omweather/src/hash.data:118
+#: omweather/src/hash.data:119
 msgid "Light Drizzle"
 msgstr "Невелика мряка"
 
-#: omweather/src/hash.data:120
+#: omweather/src/hash.data:121
 #, fuzzy
 msgid "Light Freezing Drizzle"
 msgstr "Мряка з градом"
 
-#: omweather/src/hash.data:119
+#: omweather/src/hash.data:120
 msgid "Light Freezing Rain"
 msgstr "Невеликий град"
 
-#: omweather/src/hash.data:121 omweather/src/hash.data:379
+#: omweather/src/hash.data:122 omweather/src/hash.data:382
 msgid "Light Rain"
 msgstr "Невеликий дощ"
 
-#: omweather/src/hash.data:122
+#: omweather/src/hash.data:123
 msgid "Light Rain / Fog"
 msgstr "Невеликий дощ / Туман"
 
-#: omweather/src/hash.data:124
+#: omweather/src/hash.data:125
 msgid "Light Rain / Wind"
 msgstr "Невеликий дощ / Вітер"
 
-#: omweather/src/hash.data:123
+#: omweather/src/hash.data:124
 msgid "Light Rain / Wind Late"
 msgstr "Невеликий дощ / Пізніше вітер"
 
-#: omweather/src/hash.data:125
+#: omweather/src/hash.data:126
 #, fuzzy
 msgid "Light Rain / Windy"
 msgstr "Невеликий дощ / Вітер"
 
-#: omweather/src/hash.data:126
+#: omweather/src/hash.data:127
 msgid "Light Rain Early"
 msgstr "Вранці невеликий дощ"
 
-#: omweather/src/hash.data:127
+#: omweather/src/hash.data:128
 msgid "Light Rain Late"
 msgstr "Невеликий дощ пізніше"
 
-#: omweather/src/hash.data:128
+#: omweather/src/hash.data:129
 msgid "Light Rain Shower"
 msgstr "Невелика злива"
 
-#: omweather/src/hash.data:380
+#: omweather/src/hash.data:383
 #, fuzzy
 msgid "Light Rain Showers"
 msgstr "Невелика злива"
 
-#: omweather/src/hash.data:129
+#: omweather/src/hash.data:130
 msgid "Light Rain and Freezing Rain"
 msgstr "Невеликий дощ та Дощ з ожеледицею"
 
-#: omweather/src/hash.data:130
+#: omweather/src/hash.data:131
 msgid "Light Rain and Shower"
 msgstr "Невеликий дощ та злива"
 
-#: omweather/src/hash.data:131
+#: omweather/src/hash.data:132
 msgid "Light Rain and Windy"
 msgstr "Невеликий дощ та вітряно"
 
-#: omweather/src/hash.data:132
+#: omweather/src/hash.data:133
 msgid "Light Rain with Thunder"
 msgstr "Невеликий дощ з громом"
 
-#: omweather/src/hash.data:133
+#: omweather/src/hash.data:134
 #, fuzzy
 msgid "Light Sleet"
 msgstr "Невеликий сніг"
 
-#: omweather/src/hash.data:134
+#: omweather/src/hash.data:135
 #, fuzzy
 msgid "Light Sleet Showers"
 msgstr "Невеликий снігопад"
 
-#: omweather/src/hash.data:135
+#: omweather/src/hash.data:136
 msgid "Light Snow"
 msgstr "Невеликий сніг"
 
-#: omweather/src/hash.data:137
+#: omweather/src/hash.data:138
 msgid "Light Snow / Fog"
 msgstr "Невеликий сніг / Туман"
 
-#: omweather/src/hash.data:138
+#: omweather/src/hash.data:139
 msgid "Light Snow / Wind"
 msgstr "Невеликий сніг / Вітер"
 
-#: omweather/src/hash.data:139
+#: omweather/src/hash.data:140
 msgid "Light Snow Early"
 msgstr "Вранці невеликий сніг"
 
-#: omweather/src/hash.data:140
+#: omweather/src/hash.data:141
 msgid "Light Snow Late"
 msgstr "Невеликий сніг пізніше"
 
-#: omweather/src/hash.data:141
+#: omweather/src/hash.data:142
 msgid "Light Snow Shower"
 msgstr "Невеликий снігопад"
 
-#: omweather/src/hash.data:142
+#: omweather/src/hash.data:143
 #, fuzzy
 msgid "Light Snow Showers"
 msgstr "Невеликий снігопад"
 
-#: omweather/src/hash.data:136
+#: omweather/src/hash.data:137
 #, fuzzy
 msgid "Light Snowfall"
 msgstr "Невеликий сніг"
 
-#: omweather/src/hash.data:382
+#: omweather/src/hash.data:385
 msgid "Light intensity drizzle"
 msgstr ""
 
-#: omweather/src/hash.data:398
+#: omweather/src/hash.data:401
 msgid "Light intensity shower rain"
 msgstr "Короткочасний легкий дощ"
 
-#: omweather/src/hash.data:143
+#: omweather/src/hash.data:144
 msgid "Light or Moderate Precipitation"
 msgstr ""
 
-#: omweather/src/hash.data:378
+#: omweather/src/hash.data:381
 msgid "Light rain"
 msgstr "Невеликий дощ"
 
-#: omweather/src/hash.data:381
+#: omweather/src/hash.data:384
 msgid "Light snow"
 msgstr "Невеликий сніг"
 
@@ -1482,7 +1485,7 @@ msgstr "Невеликий сніг"
 msgid "Loading station list"
 msgstr "Завантаження списку станцій"
 
-#: omweather/src/hash.data:144
+#: omweather/src/hash.data:145
 msgid "Local Pollen Reports"
 msgstr ""
 
@@ -1494,29 +1497,29 @@ msgstr ""
 msgid "Long"
 msgstr "Довготривалий"
 
-#: omweather/src/hash.data:145 meecast/qt-qml/qml/WeatherPage.qml:487
+#: omweather/src/hash.data:146 meecast/qt-qml/qml/WeatherPage.qml:487
 msgid "Looks like there's no info for this location."
 msgstr "Дуже схоже, чщо немає даних для цього місця розташування."
 
-#: omweather/src/hash.data:146
+#: omweather/src/hash.data:147
 msgid "Low"
 msgstr "Низький"
 
-#: omweather/src/hash.data:394
+#: omweather/src/hash.data:397
 msgid "Mainly cloudy with occasional rain."
 msgstr "Пасмурно, часом дощ."
 
-#: omweather/src/hash.data:395
+#: omweather/src/hash.data:398
 #, fuzzy
 msgid "Mainly cloudy, Slight shower of rain"
 msgstr "Пасмурно, часом дощ."
 
-#: omweather/src/hash.data:149
+#: omweather/src/hash.data:150
 #, fuzzy
 msgid "Mainly cloudy, drizzle"
 msgstr "Часткова хмарність та зливи"
 
-#: omweather/src/hash.data:148
+#: omweather/src/hash.data:149
 #, fuzzy
 msgid "Mainly cloudy, showers"
 msgstr "Часткова хмарність та зливи"
@@ -1527,7 +1530,7 @@ msgid ""
 "com>\n"
 msgstr ""
 
-#: omweather/src/hash.data:147 meecast/qt-qml/qml/StationsPage.qml:158
+#: omweather/src/hash.data:148 meecast/qt-qml/qml/StationsPage.qml:158
 msgid "Manage locations"
 msgstr "Управління місцями розташування"
 
@@ -1561,35 +1564,35 @@ msgstr "Метри"
 msgid "Miles"
 msgstr "Милі"
 
-#: omweather/src/hash.data:150
+#: omweather/src/hash.data:151
 msgid "Mist"
 msgstr "Легкий туман"
 
-#: omweather/src/hash.data:152
+#: omweather/src/hash.data:153
 #, fuzzy
 msgid "Moderate Freezing Rain"
 msgstr "Помірний дощ"
 
-#: omweather/src/hash.data:384
+#: omweather/src/hash.data:387
 msgid "Moderate Rain"
 msgstr "Помірний дощ"
 
-#: omweather/src/hash.data:385
+#: omweather/src/hash.data:388
 #, fuzzy
 msgid "Moderate Rain Showers"
 msgstr "Помірний дощ"
 
-#: omweather/src/hash.data:151
+#: omweather/src/hash.data:152
 #, fuzzy
 msgid "Moderate Sleet"
 msgstr "Помірний дощ"
 
-#: omweather/src/hash.data:153
+#: omweather/src/hash.data:154
 #, fuzzy
 msgid "Moderate Snow Showers"
 msgstr "До полудня снігопади"
 
-#: omweather/src/hash.data:383
+#: omweather/src/hash.data:386
 msgid "Moderate rain"
 msgstr "Помірний дощ"
 
@@ -1597,126 +1600,126 @@ msgstr "Помірний дощ"
 msgid "Modification"
 msgstr "Модифікація"
 
-#: omweather/src/hash.data:154
+#: omweather/src/hash.data:155
 msgid "Mostly Clear"
 msgstr "Переважно ясно"
 
-#: omweather/src/hash.data:164
+#: omweather/src/hash.data:165
 msgid "Mostly Cloudy"
 msgstr "Переважно хмарно"
 
-#: omweather/src/hash.data:156
+#: omweather/src/hash.data:157
 msgid "Mostly Cloudy / Wind"
 msgstr "Переважно хмарно / Вітер"
 
-#: omweather/src/hash.data:157
+#: omweather/src/hash.data:158
 msgid "Mostly Cloudy Few Snow"
 msgstr "Переважно хмарно Часом сніг"
 
-#: omweather/src/hash.data:158
+#: omweather/src/hash.data:159
 msgid "Mostly Cloudy Light Rain"
 msgstr "Переважно хмарно Невеликий дощ"
 
-#: omweather/src/hash.data:159
+#: omweather/src/hash.data:160
 msgid "Mostly Cloudy Rain"
 msgstr "Переважно хмарно Дощ"
 
-#: omweather/src/hash.data:160
+#: omweather/src/hash.data:161
 msgid "Mostly Cloudy Snow"
 msgstr "Переважно хмарно Сніг"
 
-#: omweather/src/hash.data:161
+#: omweather/src/hash.data:162
 msgid "Mostly Cloudy T-Storm"
 msgstr "Переважно хмарно Гроза"
 
-#: omweather/src/hash.data:155 omweather/src/hash.data:162
-#: omweather/src/hash.data:163
+#: omweather/src/hash.data:156 omweather/src/hash.data:163
+#: omweather/src/hash.data:164
 msgid "Mostly Cloudy and Windy"
 msgstr "Переважно хмарно та вітряно"
 
-#: omweather/src/hash.data:165
+#: omweather/src/hash.data:166
 msgid "Mostly Cloudy, Drifting Snow"
 msgstr "Переважно хмарно, Снігові замети"
 
-#: omweather/src/hash.data:166
+#: omweather/src/hash.data:167
 msgid "Mostly Cloudy, Few Snow"
 msgstr "Переважно хмарно, Часом сніг"
 
-#: omweather/src/hash.data:167
+#: omweather/src/hash.data:168
 msgid "Mostly Cloudy, Fog"
 msgstr "Переважно хмарно, Туман"
 
-#: omweather/src/hash.data:168
+#: omweather/src/hash.data:169
 msgid "Mostly Cloudy, Fog, Drizzle"
 msgstr "Переважно хмарно, Туман, Мряка"
 
-#: omweather/src/hash.data:169
+#: omweather/src/hash.data:170
 msgid "Mostly Cloudy, Heavy Rain"
 msgstr "Переважно хмарно, Сильний Дощ"
 
-#: omweather/src/hash.data:170
+#: omweather/src/hash.data:171
 msgid "Mostly Cloudy, Heavy Rain, T-Storm"
 msgstr "Пасмурно, Сильний Дощ, Гроза"
 
-#: omweather/src/hash.data:171
+#: omweather/src/hash.data:172
 msgid "Mostly Cloudy, Heavy Snow"
 msgstr "Переважно Хмарно, Сильний Сніг"
 
-#: omweather/src/hash.data:172
+#: omweather/src/hash.data:173
 msgid "Mostly Cloudy, Heavy Snow, Freezing Rain"
 msgstr "Пасмурно, Сильний сніг, Ожеледиця"
 
-#: omweather/src/hash.data:173
+#: omweather/src/hash.data:174
 msgid "Mostly Cloudy, Light Rain"
 msgstr "Переважно хмарно, Невеликий дощ"
 
-#: omweather/src/hash.data:174
+#: omweather/src/hash.data:175
 msgid "Mostly Cloudy, Light Rain, Drizzle"
 msgstr "Переважно хмарно, Невеликий дощ, Мряка"
 
-#: omweather/src/hash.data:175
+#: omweather/src/hash.data:176
 msgid "Mostly Cloudy, Light Rain, T-Storm"
 msgstr "Переважно хмарно, Невеликий дощ, Гроза"
 
-#: omweather/src/hash.data:176
+#: omweather/src/hash.data:177
 #, fuzzy
 msgid "Mostly Cloudy, Light Rain, Weak Heavy Rain"
 msgstr "Хмарно, Сильний Дощ"
 
-#: omweather/src/hash.data:177
+#: omweather/src/hash.data:178
 msgid "Mostly Cloudy, Rain"
 msgstr "Переважно хмарно, Дощ"
 
-#: omweather/src/hash.data:178
+#: omweather/src/hash.data:179
 msgid "Mostly Cloudy, Rain, T-Storm"
 msgstr "Переважно хмарно, Дощ, Гроза"
 
-#: omweather/src/hash.data:179
+#: omweather/src/hash.data:180
 msgid "Mostly Cloudy, Smoke"
 msgstr "Переважно хмарно, Серпанок"
 
-#: omweather/src/hash.data:180
+#: omweather/src/hash.data:181
 msgid "Mostly Cloudy, Snow"
 msgstr "Переважно хмарно, Сніг"
 
-#: omweather/src/hash.data:181
+#: omweather/src/hash.data:182
 msgid "Mostly Cloudy, T-Storm"
 msgstr "Переважно хмарно, Гроза"
 
-#: omweather/src/hash.data:182
+#: omweather/src/hash.data:183
 msgid "Mostly Sunny"
 msgstr "Переважно сонячно"
 
-#: omweather/src/hash.data:184
+#: omweather/src/hash.data:185
 msgid "Mostly clear"
 msgstr "Переважно ясно"
 
-#: omweather/src/hash.data:183
+#: omweather/src/hash.data:184
 #, fuzzy
 msgid "Mostly sunny"
 msgstr "Переважно сонячно"
 
-#: omweather/src/hash.data:185
+#: omweather/src/hash.data:186
 msgid "N"
 msgstr "Пн"
 
@@ -1726,47 +1729,47 @@ msgstr "Пн"
 #: omweather/src/weather-home.c:2727 omweather/src/weather-home.c:2735
 #: omweather/src/weather-home.c:2818 omweather/src/weather-home.c:2822
 #: omweather/src/weather-home.c:2835 omweather/src/weather-home.c:2839
-#: omweather/src/hash.data:186
+#: omweather/src/hash.data:187
 msgid "N/A"
 msgstr "Н/Д"
 
-#: omweather/src/hash.data:187
+#: omweather/src/hash.data:188
 msgid "NE"
 msgstr "ПнС"
 
-#: omweather/src/hash.data:188
+#: omweather/src/hash.data:189
 msgid "NE_short"
 msgstr "ПнС"
 
-#: omweather/src/hash.data:189
+#: omweather/src/hash.data:190
 msgid "NNE"
 msgstr "ПнПнС"
 
-#: omweather/src/hash.data:190
+#: omweather/src/hash.data:191
 msgid "NNE_short"
 msgstr "ПнПнС"
 
-#: omweather/src/hash.data:191
+#: omweather/src/hash.data:192
 msgid "NNW"
 msgstr "ПнПнЗ"
 
-#: omweather/src/hash.data:192
+#: omweather/src/hash.data:193
 msgid "NNW_short"
 msgstr "ПнПнС"
 
-#: omweather/src/hash.data:193
+#: omweather/src/hash.data:194
 msgid "NO STATION"
 msgstr "Немає станції"
 
-#: omweather/src/hash.data:194
+#: omweather/src/hash.data:195
 msgid "NW"
 msgstr "ПнЗ"
 
-#: omweather/src/hash.data:195
+#: omweather/src/hash.data:196
 msgid "NW_short"
 msgstr "ПнЗ"
 
-#: omweather/src/hash.data:196
+#: omweather/src/hash.data:197
 msgid "N_short"
 msgstr "Пн"
 
@@ -1781,7 +1784,7 @@ msgstr "Ім'я:"
 msgid "Never"
 msgstr "Ніколи"
 
-#: omweather/src/hash.data:197
+#: omweather/src/hash.data:198
 msgid "New"
 msgstr "Новий"
 
@@ -1810,7 +1813,7 @@ msgstr "Ні"
 msgid "No current weather data."
 msgstr "Немає даних для поточної погоди."
 
-#: omweather/src/hash.data:198 meecast/qt-qml/qml/WeatherPage.qml:313
+#: omweather/src/hash.data:199 meecast/qt-qml/qml/WeatherPage.qml:313
 msgid "No locations are set up yet."
 msgstr "Місця розташування ще не вибрані."
 
@@ -1886,228 +1889,228 @@ msgstr ""
 msgid "Other Maemo Weather Info"
 msgstr "Інформація"
 
-#: omweather/src/hash.data:209
+#: omweather/src/hash.data:210
 msgid "Overcast"
 msgstr "Суцільна хмарність"
 
-#: omweather/src/hash.data:387
+#: omweather/src/hash.data:390
 msgid "Overcast Clouds"
 msgstr "Хмарно"
 
-#: omweather/src/hash.data:199
+#: omweather/src/hash.data:200
 msgid "Overcast and light rain"
 msgstr "Суцільна хмарність та невеликий дощ"
 
-#: omweather/src/hash.data:200
+#: omweather/src/hash.data:201
 msgid "Overcast and light snow"
 msgstr "Суцільна хмарність та невеликий сніг"
 
-#: omweather/src/hash.data:201
+#: omweather/src/hash.data:202
 msgid "Overcast and light wet snow"
 msgstr "Суцільна хмарність та невеликий мокрий сніг"
 
-#: omweather/src/hash.data:202
+#: omweather/src/hash.data:203
 msgid "Overcast and rain"
 msgstr "Хмарно та дощ"
 
-#: omweather/src/hash.data:203
+#: omweather/src/hash.data:204
 msgid "Overcast and showers"
 msgstr "Хмарно та зливи"
 
-#: omweather/src/hash.data:205
+#: omweather/src/hash.data:206
 msgid "Overcast and snow"
 msgstr "Хмарно та сніг"
 
-#: omweather/src/hash.data:204
+#: omweather/src/hash.data:205
 msgid "Overcast and snow showers"
 msgstr "Суцільна хмарність та снігопади"
 
-#: omweather/src/hash.data:207
+#: omweather/src/hash.data:208
 msgid "Overcast and wet snow"
 msgstr "Хмарно та мокрий сніг"
 
-#: omweather/src/hash.data:206
+#: omweather/src/hash.data:207
 msgid "Overcast and wet snow showers"
 msgstr "Хмарно та снігопади з мокрим снігом"
 
-#: omweather/src/hash.data:386
+#: omweather/src/hash.data:389
 msgid "Overcast clouds"
 msgstr "Хмарно"
 
-#: omweather/src/hash.data:208
+#: omweather/src/hash.data:209
 msgid "Overcast, thunderstorms with rain"
 msgstr "Хмарно, гроза з дощем"
 
-#: omweather/src/hash.data:210
+#: omweather/src/hash.data:211
 msgid "PM Fog"
 msgstr "Після полудня Туман"
 
-#: omweather/src/hash.data:212
+#: omweather/src/hash.data:213
 msgid "PM Light Rain"
 msgstr "Після полудня Невеликий Дощ"
 
-#: omweather/src/hash.data:211
+#: omweather/src/hash.data:212
 msgid "PM Light Rain / Wind"
 msgstr "Після полудня Невеликий Дощ / Вітер"
 
-#: omweather/src/hash.data:214
+#: omweather/src/hash.data:215
 msgid "PM Light Snow"
 msgstr "Після полудня Невеликий Сніг"
 
-#: omweather/src/hash.data:213
+#: omweather/src/hash.data:214
 msgid "PM Light Snow / Wind"
 msgstr "Після полудня Невеликий Сніг / Вітер"
 
-#: omweather/src/hash.data:217
+#: omweather/src/hash.data:218
 msgid "PM Rain"
 msgstr "Після полудня Дощ"
 
-#: omweather/src/hash.data:215
+#: omweather/src/hash.data:216
 msgid "PM Rain / Snow"
 msgstr "Після полудня Дощ/ Сніг"
 
-#: omweather/src/hash.data:216
+#: omweather/src/hash.data:217
 msgid "PM Rain / Wind"
 msgstr "Після полудня Дощ / Вітер"
 
-#: omweather/src/hash.data:219
+#: omweather/src/hash.data:220
 msgid "PM Showers"
 msgstr "Після полудня Злива"
 
-#: omweather/src/hash.data:218
+#: omweather/src/hash.data:219
 msgid "PM Showers / Wind"
 msgstr "Після полудня Злива/ Вітер"
 
-#: omweather/src/hash.data:222
+#: omweather/src/hash.data:223
 msgid "PM Snow"
 msgstr "Після полудня Сніг"
 
-#: omweather/src/hash.data:221
+#: omweather/src/hash.data:222
 msgid "PM Snow Showers"
 msgstr "Після полудня Снігопад"
 
-#: omweather/src/hash.data:220
+#: omweather/src/hash.data:221
 msgid "PM Snow Showers / Wind"
 msgstr "Після полудня Снігопад / Вітер"
 
-#: omweather/src/hash.data:223
+#: omweather/src/hash.data:224
 msgid "PM T-Showers"
 msgstr "Після полудня грозові зливи"
 
-#: omweather/src/hash.data:224
+#: omweather/src/hash.data:225
 msgid "PM T-Storms"
 msgstr "Після полудня грозові зливи"
 
-#: omweather/src/hash.data:226
+#: omweather/src/hash.data:227
 msgid "Partly Cloudy"
 msgstr "Частково Хмарно"
 
-#: omweather/src/hash.data:227
+#: omweather/src/hash.data:228
 msgid "Partly Cloudy / Wind"
 msgstr "Часткова хмарність / Вітер"
 
-#: omweather/src/hash.data:228
+#: omweather/src/hash.data:229
 #, fuzzy
 msgid "Partly Cloudy / Windy"
 msgstr "Часткова хмарність / Вітер"
 
-#: omweather/src/hash.data:229
+#: omweather/src/hash.data:230
 msgid "Partly Cloudy Few Snow"
 msgstr "Часткова хмарність Часом сніг"
 
-#: omweather/src/hash.data:230
+#: omweather/src/hash.data:231
 msgid "Partly Cloudy Light Rain"
 msgstr "Часткова хмарність Невеликий Дощ"
 
-#: omweather/src/hash.data:231
+#: omweather/src/hash.data:232
 msgid "Partly Cloudy T-Storm"
 msgstr "Часткова хмарність Гроза"
 
-#: omweather/src/hash.data:232
+#: omweather/src/hash.data:233
 msgid "Partly Cloudy and Windly"
 msgstr "Часткова хмарність та Вітряно"
 
-#: omweather/src/hash.data:233 omweather/src/hash.data:234
+#: omweather/src/hash.data:234 omweather/src/hash.data:235
 msgid "Partly Cloudy and Windy"
 msgstr "Часткова хмарність та Вітряно"
 
-#: omweather/src/hash.data:235
+#: omweather/src/hash.data:236
 msgid "Partly Cloudy, Few Snow"
 msgstr "Частково Хмарно, Часом Сніг"
 
-#: omweather/src/hash.data:236
+#: omweather/src/hash.data:237
 msgid "Partly Cloudy, Haze"
 msgstr "Частково Хмарно, Легкий туман"
 
-#: omweather/src/hash.data:237
+#: omweather/src/hash.data:238
 msgid "Partly Cloudy, Heavy Rain"
 msgstr "Часткова хмарність, Сильний дощ"
 
-#: omweather/src/hash.data:238
+#: omweather/src/hash.data:239
 msgid "Partly Cloudy, Heavy Rain, T-Storm"
 msgstr "Часткова хмарність, Сильний дощ, Гроза"
 
-#: omweather/src/hash.data:239
+#: omweather/src/hash.data:240
 msgid "Partly Cloudy, Heavy Snow"
 msgstr "Часткова хмарність, Сильний сніг"
 
-#: omweather/src/hash.data:240
+#: omweather/src/hash.data:241
 msgid "Partly Cloudy, Light Rain"
 msgstr "Часткова хмарність, Невеликий дощ"
 
-#: omweather/src/hash.data:241
+#: omweather/src/hash.data:242
 msgid "Partly Cloudy, Light Rain, T-Storm"
 msgstr "Часткова хмарність, Невеликий дощ, Гроза"
 
-#: omweather/src/hash.data:242
+#: omweather/src/hash.data:243
 msgid "Partly Cloudy, Rain"
 msgstr "Часткова хмарність, Дощ"
 
-#: omweather/src/hash.data:243
+#: omweather/src/hash.data:244
 msgid "Partly Cloudy, Rain, T-Storm"
 msgstr "Часткова хмарність, Дощ, Гроза"
 
-#: omweather/src/hash.data:244
+#: omweather/src/hash.data:245
 msgid "Partly Cloudy, Smoke"
 msgstr "Часткова хмарність, Серпанок"
 
-#: omweather/src/hash.data:245
+#: omweather/src/hash.data:246
 msgid "Partly Cloudy, Snow"
 msgstr "Часткова хмарність, Сніг"
 
-#: omweather/src/hash.data:246
+#: omweather/src/hash.data:247
 msgid "Partly Cloudy, T-Storm"
 msgstr "Часткова хмарність, Гроза"
 
-#: omweather/src/hash.data:254
+#: omweather/src/hash.data:255
 msgid "Partly cloudy"
 msgstr "Часткова хмарність"
 
-#: omweather/src/hash.data:247
+#: omweather/src/hash.data:248
 msgid "Partly cloudy and light rain"
 msgstr "Часткова хмарність та невеликий дощ"
 
-#: omweather/src/hash.data:248
+#: omweather/src/hash.data:249
 msgid "Partly cloudy and light snow"
 msgstr "Часткова хмарність та невеликий сніг"
 
-#: omweather/src/hash.data:249
+#: omweather/src/hash.data:250
 msgid "Partly cloudy and light wet snow"
 msgstr "Часткова хмарність та невеликий мокрий сніг"
 
-#: omweather/src/hash.data:250
+#: omweather/src/hash.data:251
 msgid "Partly cloudy and showers"
 msgstr "Часткова хмарність та зливи"
 
-#: omweather/src/hash.data:251
+#: omweather/src/hash.data:252
 msgid "Partly cloudy and snow showers"
 msgstr "Часткова хмарність та снігопади"
 
-#: omweather/src/hash.data:252
+#: omweather/src/hash.data:253
 msgid "Partly cloudy and wet snow showers"
 msgstr "Мінлива хмарність та короткочасний мокрий сніг"
 
-#: omweather/src/hash.data:225 omweather/src/hash.data:253
+#: omweather/src/hash.data:226 omweather/src/hash.data:254
 msgid "Partly cloudy, possible thunderstorms with rain"
 msgstr "Мінлива хмарність, можлива гроза з дощем"
 
@@ -2133,7 +2136,7 @@ msgstr "Позиція:"
 msgid "Ppcp:"
 msgstr ""
 
-#: omweather/src/hash.data:255
+#: omweather/src/hash.data:256
 #, fuzzy
 msgid "Precipitation"
 msgstr ""
@@ -2203,97 +2206,102 @@ msgstr "Менеджер проекту"
 msgid "Provided by"
 msgstr ""
 
-#: omweather/src/hash.data:256
+#: omweather/src/hash.data:257
 #, fuzzy
 msgid "Proximity shower rain"
 msgstr "Короткочасний легкий дощ"
 
-#: omweather/src/hash.data:257
+#: omweather/src/hash.data:258
 msgid "Rain"
 msgstr "Дощ"
 
-#: omweather/src/hash.data:258
+#: omweather/src/hash.data:259
 msgid "Rain / Freezing Rain"
 msgstr "Дощ / Холодний дощ"
 
-#: omweather/src/hash.data:265
+#: omweather/src/hash.data:267
 msgid "Rain / Snow"
 msgstr "Дощ / Сніг"
 
-#: omweather/src/hash.data:259
+#: omweather/src/hash.data:260
 msgid "Rain / Snow / Wind"
 msgstr "Дощ / Сніг / Вітер"
 
-#: omweather/src/hash.data:260
+#: omweather/src/hash.data:261
+#, fuzzy
+msgid "Rain / Snow / Wind Early"
+msgstr "Дощ / Сніг / Вітер"
+
+#: omweather/src/hash.data:262
 msgid "Rain / Snow Early"
 msgstr "Дощ / Зранку сніг"
 
-#: omweather/src/hash.data:261
+#: omweather/src/hash.data:263
 msgid "Rain / Snow Late"
 msgstr "Дощ / Пізніше сніг"
 
-#: omweather/src/hash.data:264
+#: omweather/src/hash.data:266
 msgid "Rain / Snow Showers"
 msgstr "Дощ / Снігопад"
 
-#: omweather/src/hash.data:262
+#: omweather/src/hash.data:264
 msgid "Rain / Snow Showers / Wind"
 msgstr "Дощ / Снігопад / Вітер"
 
-#: omweather/src/hash.data:263
+#: omweather/src/hash.data:265
 msgid "Rain / Snow Showers Late"
 msgstr "Дощ / Пізніше снігопади"
 
-#: omweather/src/hash.data:266
+#: omweather/src/hash.data:268
 msgid "Rain / Thunder"
 msgstr "Дощ / Грім"
 
-#: omweather/src/hash.data:268
+#: omweather/src/hash.data:270
 msgid "Rain / Wind"
 msgstr "Дощ / Вітер"
 
-#: omweather/src/hash.data:267
+#: omweather/src/hash.data:269
 msgid "Rain / Wind Early"
 msgstr "Дощ / Зранку вітер"
 
-#: omweather/src/hash.data:269
+#: omweather/src/hash.data:271
 msgid "Rain Early"
 msgstr "Зранку Дощ"
 
-#: omweather/src/hash.data:270
+#: omweather/src/hash.data:272
 msgid "Rain Late"
 msgstr "Пізніше дощ"
 
-#: omweather/src/hash.data:272
+#: omweather/src/hash.data:274
 msgid "Rain Shower"
 msgstr "Злива"
 
-#: omweather/src/hash.data:271
+#: omweather/src/hash.data:273
 msgid "Rain Shower and Windy"
 msgstr "Злива та Вітряно"
 
-#: omweather/src/hash.data:273
+#: omweather/src/hash.data:275
 msgid "Rain Showers"
 msgstr "Зливи"
 
-#: omweather/src/hash.data:274
+#: omweather/src/hash.data:276
 msgid "Rain and Snow"
 msgstr "Дощ та Сніг"
 
-#: omweather/src/hash.data:275
+#: omweather/src/hash.data:277
 #, fuzzy
 msgid "Rain and snow"
 msgstr "Дощ та Сніг"
 
-#: omweather/src/hash.data:276
+#: omweather/src/hash.data:278
 msgid "Rain to Snow / Wind"
 msgstr "Дощ що змінюється снігом / Вітер"
 
-#: omweather/src/hash.data:278
+#: omweather/src/hash.data:280
 msgid "Rain to Wintry Mix"
 msgstr "Дощ що змінюється на сніг з дощем"
 
-#: omweather/src/hash.data:277
+#: omweather/src/hash.data:279
 msgid "Rain to Wintry Mix / Wind"
 msgstr "Дощ що змінюється на сніг з дощем / Вітер"
 
@@ -2301,7 +2309,7 @@ msgstr "Дощ що змінюється на сніг з дощем / Віте�
 msgid "Read sensor every:"
 msgstr "Опитувати датчик кожні:"
 
-#: omweather/src/hash.data:406
+#: omweather/src/hash.data:409
 msgid "Refresh"
 msgstr ""
 
@@ -2311,7 +2319,7 @@ msgstr ""
 msgid "Region"
 msgstr "Регіон"
 
-#: omweather/src/hash.data:279
+#: omweather/src/hash.data:281
 msgid "Rush Hour Traffic"
 msgstr ""
 
@@ -2321,43 +2329,43 @@ msgid ""
 " \tEd Bartosh\n"
 msgstr ""
 
-#: omweather/src/hash.data:280
+#: omweather/src/hash.data:282
 msgid "S"
 msgstr "Пд"
 
-#: omweather/src/hash.data:281
+#: omweather/src/hash.data:283
 msgid "SE"
 msgstr "ПдС"
 
-#: omweather/src/hash.data:282
+#: omweather/src/hash.data:284
 msgid "SE_short"
 msgstr "ПдС"
 
-#: omweather/src/hash.data:283
+#: omweather/src/hash.data:285
 msgid "SSE"
 msgstr "ПдПдС"
 
-#: omweather/src/hash.data:284
+#: omweather/src/hash.data:286
 msgid "SSE_short"
 msgstr "ПдПдС"
 
-#: omweather/src/hash.data:285
+#: omweather/src/hash.data:287
 msgid "SSW"
 msgstr "ПдПдЗ"
 
-#: omweather/src/hash.data:286
+#: omweather/src/hash.data:288
 msgid "SSW_short"
 msgstr "ПдПдЗ"
 
-#: omweather/src/hash.data:287
+#: omweather/src/hash.data:289
 msgid "SW"
 msgstr "ПдЗ"
 
-#: omweather/src/hash.data:288
+#: omweather/src/hash.data:290
 msgid "SW_short"
 msgstr "ПдЗ"
 
-#: omweather/src/hash.data:289
+#: omweather/src/hash.data:291
 msgid "S_short"
 msgstr "Пд"
 
@@ -2371,27 +2379,27 @@ msgstr "Пд"
 msgid "Save"
 msgstr "Зберегти"
 
-#: omweather/src/hash.data:389
+#: omweather/src/hash.data:392
 msgid "Scattered Clouds"
 msgstr "Мінлива хмарність"
 
-#: omweather/src/hash.data:290
+#: omweather/src/hash.data:292
 msgid "Scattered Showers"
 msgstr "Місцями Зливи"
 
-#: omweather/src/hash.data:292
+#: omweather/src/hash.data:294
 msgid "Scattered Snow"
 msgstr "Місцями Сніг"
 
-#: omweather/src/hash.data:291
+#: omweather/src/hash.data:293
 msgid "Scattered Snow Showers"
 msgstr "Місцями Снігопади"
 
-#: omweather/src/hash.data:293
+#: omweather/src/hash.data:295
 msgid "Scattered T-Storms"
 msgstr "Місцями грози"
 
-#: omweather/src/hash.data:388
+#: omweather/src/hash.data:391
 msgid "Scattered clouds"
 msgstr "Мінлива хмарність"
 
@@ -2495,7 +2503,7 @@ msgstr ""
 msgid "Set"
 msgstr "Набір"
 
-#: omweather/src/hash.data:294 meecast/qt-qml/qml/WeatherPage.qml:327
+#: omweather/src/hash.data:296 meecast/qt-qml/qml/WeatherPage.qml:327
 msgid "Set locations"
 msgstr "Встановіть місце розташування"
 
@@ -2521,7 +2529,7 @@ msgstr "Налаштування для LockScreen екрана"
 msgid "Settings of StandbyScreen"
 msgstr "Налаштування для StandbyScreen екрана"
 
-#: omweather/src/hash.data:295
+#: omweather/src/hash.data:297
 msgid "Shallow Fog"
 msgstr ""
 
@@ -2533,7 +2541,7 @@ msgstr "Короткий"
 msgid "Show arrows"
 msgstr "Показати стрілки"
 
-#: omweather/src/hash.data:405
+#: omweather/src/hash.data:408
 #, fuzzy
 msgid "Show last update time"
 msgstr "Останнє оновлення:"
@@ -2546,7 +2554,7 @@ msgstr "Показати на мапі"
 msgid "Show only current weather on first icon"
 msgstr "Тільки поточна погода у першій іконці"
 
-#: omweather/src/hash.data:404
+#: omweather/src/hash.data:407
 msgid "Show source logo"
 msgstr ""
 
@@ -2562,47 +2570,47 @@ msgstr "Показати температуру:"
 msgid "Show wind"
 msgstr "Показати вітер"
 
-#: omweather/src/hash.data:296
+#: omweather/src/hash.data:298
 msgid "Showers"
 msgstr "Зливи"
 
-#: omweather/src/hash.data:298
+#: omweather/src/hash.data:300
 msgid "Showers / Wind"
 msgstr "Зливи / Вітер"
 
-#: omweather/src/hash.data:297
+#: omweather/src/hash.data:299
 msgid "Showers / Wind Early"
 msgstr "Зливи / Зранку вітер"
 
-#: omweather/src/hash.data:299
+#: omweather/src/hash.data:301
 msgid "Showers Early"
 msgstr "Зранку зливи"
 
-#: omweather/src/hash.data:300
+#: omweather/src/hash.data:302
 msgid "Showers Late"
 msgstr "Пізніше зливи"
 
-#: omweather/src/hash.data:301
+#: omweather/src/hash.data:303
 msgid "Showers in the Vicinity"
 msgstr "Місцями зливи"
 
-#: omweather/src/hash.data:302
+#: omweather/src/hash.data:304
 msgid "Showers or Intermittent Precipitation"
 msgstr ""
 
-#: omweather/src/hash.data:391
+#: omweather/src/hash.data:394
 msgid "Sky is Clear"
 msgstr "Ясно"
 
-#: omweather/src/hash.data:390
+#: omweather/src/hash.data:393
 msgid "Sky is clear"
 msgstr "Ясно"
 
-#: omweather/src/hash.data:303
+#: omweather/src/hash.data:305
 msgid "Sleet"
 msgstr "Мокрий сніг"
 
-#: omweather/src/hash.data:304
+#: omweather/src/hash.data:306
 #, fuzzy
 msgid "Sleet Showers"
 msgstr "Часом Зливи"
@@ -2615,70 +2623,70 @@ msgstr ""
 msgid "Slovenian - Boštjan Štrumbelj\n"
 msgstr ""
 
-#: omweather/src/hash.data:305
+#: omweather/src/hash.data:307
 msgid "Smoke"
 msgstr "Серпанок"
 
-#: omweather/src/hash.data:306
+#: omweather/src/hash.data:308
 msgid "Snow"
 msgstr "Сніг"
 
-#: omweather/src/hash.data:310
+#: omweather/src/hash.data:312
 msgid "Snow / Wind"
 msgstr "Сніг / Вітер"
 
-#: omweather/src/hash.data:307
+#: omweather/src/hash.data:309
 #, fuzzy
 msgid "Snow Early"
 msgstr "Зранку зливи"
 
-#: omweather/src/hash.data:308
+#: omweather/src/hash.data:310
 #, fuzzy
 msgid "Snow Late"
 msgstr "Пізніше зливи"
 
-#: omweather/src/hash.data:312
+#: omweather/src/hash.data:314
 msgid "Snow Shower"
 msgstr "Снігопад"
 
-#: omweather/src/hash.data:311
+#: omweather/src/hash.data:313
 msgid "Snow Shower / Wind"
 msgstr "Снігопад / Вітер"
 
-#: omweather/src/hash.data:313
+#: omweather/src/hash.data:315
 #, fuzzy
 msgid "Snow Showers"
 msgstr "Снігопад"
 
-#: omweather/src/hash.data:314
+#: omweather/src/hash.data:316
 msgid "Snow Showers / Wind Early"
 msgstr "Снігопади / Зранку вітер"
 
-#: omweather/src/hash.data:315
+#: omweather/src/hash.data:317
 msgid "Snow Showers Early"
 msgstr "Зранку снігопади"
 
-#: omweather/src/hash.data:316
+#: omweather/src/hash.data:318
 msgid "Snow Showers Late"
 msgstr "Пізніше снігопади"
 
-#: omweather/src/hash.data:317
+#: omweather/src/hash.data:319
 msgid "Snow and Freezing Rain"
 msgstr "Сніг з холодним дощем"
 
-#: omweather/src/hash.data:318
+#: omweather/src/hash.data:320
 msgid "Snow to Rain"
 msgstr "Сніг що переходить в дощ"
 
-#: omweather/src/hash.data:320
+#: omweather/src/hash.data:322
 msgid "Snow to Wintry Mix"
 msgstr "Сніг що переходить в сніг з дощем"
 
-#: omweather/src/hash.data:319
+#: omweather/src/hash.data:321
 msgid "Snow to Wintry Mix / Wind"
 msgstr "Сніг що переходить в сніг з дощем / Вітер"
 
-#: omweather/src/hash.data:309
+#: omweather/src/hash.data:311
 #, fuzzy
 msgid "Snowfall"
 msgstr "Сніг"
@@ -2730,11 +2738,11 @@ msgstr "Станція %i"
 msgid "Stations"
 msgstr "Станції"
 
-#: omweather/src/hash.data:321 omweather/src/weather-alerts.c:154
+#: omweather/src/hash.data:323 omweather/src/weather-alerts.c:154
 msgid "Storm"
 msgstr "Шторм"
 
-#: omweather/src/hash.data:322
+#: omweather/src/hash.data:324
 msgid "Strong Thundershowers"
 msgstr ""
 
@@ -2742,19 +2750,19 @@ msgstr ""
 msgid "Successfully loaded"
 msgstr "Успішно завантажено"
 
-#: omweather/src/hash.data:324
+#: omweather/src/hash.data:326
 msgid "Sunny"
 msgstr "Сонячно"
 
-#: omweather/src/hash.data:323
+#: omweather/src/hash.data:325
 msgid "Sunny / Wind"
 msgstr "Сонячно / Вітер"
 
-#: omweather/src/hash.data:392 omweather/src/hash.data:393
+#: omweather/src/hash.data:395 omweather/src/hash.data:396
 msgid "Sunny periods and a few showers."
 msgstr ""
 
-#: omweather/src/hash.data:325 meecast/qt-qml/qml/FullWeatherPage.qml:335
+#: omweather/src/hash.data:327 meecast/qt-qml/qml/FullWeatherPage.qml:335
 msgid "Sunrise:"
 msgstr "Схід сонця:"
 
@@ -2762,7 +2770,7 @@ msgstr "Схід сонця:"
 msgid "Sunrise: "
 msgstr "Схід сонця:"
 
-#: omweather/src/hash.data:326 meecast/qt-qml/qml/FullWeatherPage.qml:338
+#: omweather/src/hash.data:328 meecast/qt-qml/qml/FullWeatherPage.qml:338
 msgid "Sunset:"
 msgstr "Захід сонця:"
 
@@ -2790,27 +2798,27 @@ msgstr ""
 msgid "Switch to the next station after:"
 msgstr "Переключитися на слідуючу станцію через:"
 
-#: omweather/src/hash.data:328
+#: omweather/src/hash.data:330
 msgid "T-Showers"
 msgstr "Грозові зливи"
 
-#: omweather/src/hash.data:327
+#: omweather/src/hash.data:329
 msgid "T-Showers Early"
 msgstr "Грозові зливи зранку"
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:331
 msgid "T-Storm"
 msgstr "Гроза"
 
-#: omweather/src/hash.data:332
+#: omweather/src/hash.data:334
 msgid "T-Storms"
 msgstr "Грози"
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:332
 msgid "T-Storms Early"
 msgstr "Зранку грози"
 
-#: omweather/src/hash.data:331
+#: omweather/src/hash.data:333
 msgid "T-Storms Late"
 msgstr "Пізніше грози"
 
@@ -2820,7 +2828,7 @@ msgstr "Пізніше грози"
 msgid "Temperature"
 msgstr "Температура"
 
-#: omweather/src/hash.data:333 meecast/qt-qml/qml/UnitsPage.qml:30
+#: omweather/src/hash.data:335 meecast/qt-qml/qml/UnitsPage.qml:30
 #: meecast/qt-qml/qml/UnitsPage.qml:102
 msgid "Temperature units"
 msgstr "Одениці температури"
@@ -2846,11 +2854,11 @@ msgstr "Подяка"
 msgid "The weather has been updated."
 msgstr "Дані про погоду оновлені."
 
-#: omweather/src/hash.data:399
+#: omweather/src/hash.data:402
 msgid "There are no stations to show in this view of the list"
 msgstr "Немає ніяких станцій, щоб показати їх у цьому списку"
 
-#: omweather/src/hash.data:401
+#: omweather/src/hash.data:404
 msgid "This is experimental feature. Only English is supported."
 msgstr ""
 
@@ -2871,15 +2879,15 @@ msgid ""
 "under the terms of the GNU General Public License\n"
 msgstr ""
 
-#: omweather/src/hash.data:334
+#: omweather/src/hash.data:336
 msgid "Thunder"
 msgstr "Грім"
 
-#: omweather/src/hash.data:336
+#: omweather/src/hash.data:338
 msgid "Thunder in the Vicinity"
 msgstr "Місцями гроза"
 
-#: omweather/src/hash.data:335
+#: omweather/src/hash.data:337
 #, fuzzy
 msgid "Thundershowers"
 msgstr "Грім"
@@ -2901,7 +2909,7 @@ msgid ""
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 msgstr ""
 
-#: omweather/src/hash.data:407
+#: omweather/src/hash.data:410
 #, fuzzy
 msgid "Transparency"
 msgstr "Прозорість:"
@@ -2911,7 +2919,7 @@ msgstr "Прозорість:"
 msgid "Transparency:"
 msgstr "Прозорість:"
 
-#: omweather/src/hash.data:337 meecast/qt-qml/qml/WeatherPage.qml:501
+#: omweather/src/hash.data:339 meecast/qt-qml/qml/WeatherPage.qml:501
 msgid "Try to update"
 msgstr "Спробуйте оновити"
 
@@ -2951,7 +2959,7 @@ msgstr "Одиниці"
 msgid "Unknown"
 msgstr "Невідомо"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:340
 msgid "Unlimited"
 msgstr "Без обмежень"
 
@@ -2968,7 +2976,7 @@ msgstr "Оновлення вже працює."
 msgid "Update interval"
 msgstr "Iнтервал оновлення"
 
-#: omweather/src/hash.data:339 meecast/qt-qml/qml/WeatherPage.qml:360
+#: omweather/src/hash.data:341 meecast/qt-qml/qml/WeatherPage.qml:360
 msgid "Updating forecast"
 msgstr "Відбувається оновлення даних про погоду."
 
@@ -3001,7 +3009,7 @@ msgstr ""
 msgid "Use device temperature sensor"
 msgstr "Використовувати вбудований датчик температури"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:342
 msgid "VAR"
 msgstr "Змінний"
 
@@ -3009,7 +3017,7 @@ msgstr "Змінний"
 msgid "Valid time for current weather:"
 msgstr "Актуальність поточної погоди"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:343
 msgid "Very High"
 msgstr "Дуже високе"
 
@@ -3019,7 +3027,7 @@ msgid ""
 " \tAnh Dương and truongnx, \n"
 msgstr ""
 
-#: omweather/src/hash.data:402
+#: omweather/src/hash.data:405
 #, fuzzy
 msgid "Violent Rain Showers"
 msgstr "Невелика злива"
@@ -3042,16 +3050,16 @@ msgstr "Видимість:"
 msgid "Visuals"
 msgstr "Оформлення"
 
-#: omweather/src/hash.data:400
+#: omweather/src/hash.data:403
 msgid "Voice forecast button on a widget"
 msgstr ""
 
-#: omweather/src/hash.data:403
+#: omweather/src/hash.data:406
 #, fuzzy
 msgid "Voice weather forecast"
 msgstr "OMWeather прогноз погоди"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:344
 msgid "W"
 msgstr "З"
 
@@ -3061,31 +3069,31 @@ msgstr "З"
 msgid "WLAN"
 msgstr "WLAN"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:345
 msgid "WNW"
 msgstr "ЗПнЗ"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:346
 msgid "WNW_short"
 msgstr "ЗПнЗ"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:347
 msgid "WSW"
 msgstr "ЗПнЗ"
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:348
 msgid "WSW_short"
 msgstr "ЗПнЗ"
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:349
 msgid "W_short"
 msgstr "З"
 
-#: omweather/src/hash.data:348
+#: omweather/src/hash.data:350
 msgid "Waning Crescent"
 msgstr "Спадаючий старий місяць"
 
-#: omweather/src/hash.data:349
+#: omweather/src/hash.data:351
 msgid "Waning Gibbous"
 msgstr "Спадаючий місяць"
 
@@ -3093,11 +3101,11 @@ msgstr "Спадаючий місяць"
 msgid "Warning"
 msgstr "Попередження"
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:352
 msgid "Waxing Crescent"
 msgstr "Зростаючий місяць"
 
-#: omweather/src/hash.data:351
+#: omweather/src/hash.data:353
 msgid "Waxing Gibbous"
 msgstr "Зростаючий молодий місяць"
 
@@ -3134,7 +3142,7 @@ msgstr "Стиль віджета"
 msgid "Widget style and Iconset"
 msgstr "Стиль віджета і набір іконок"
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:357
 msgid "Wind"
 msgstr "Вітер"
 
@@ -3144,7 +3152,7 @@ msgstr "Вітер"
 msgid "Wind direction"
 msgstr "Напрямок вітру"
 
-#: omweather/src/hash.data:352
+#: omweather/src/hash.data:354
 msgid "Wind direction:"
 msgstr "Напрямок вітру:"
 
@@ -3154,7 +3162,7 @@ msgstr "Напрямок вітру:"
 msgid "Wind gust:"
 msgstr "Пориви вітру:"
 
-#: omweather/src/hash.data:354 meecast/qt-qml/qml/FullWeatherPage.qml:147
+#: omweather/src/hash.data:356 meecast/qt-qml/qml/FullWeatherPage.qml:147
 #: meecast/qt-qml/qml/FullWeatherPage.qml:150
 #: meecast/qt-qml/qml/FullWeatherPage.qml:220
 #: meecast/qt-qml/qml/FullWeatherPage.qml:223
@@ -3163,7 +3171,7 @@ msgstr "Пориви вітру:"
 msgid "Wind speed"
 msgstr "Швидкість вітру"
 
-#: omweather/src/hash.data:353 meecast/qt-qml/qml/UnitsPage.qml:39
+#: omweather/src/hash.data:355 meecast/qt-qml/qml/UnitsPage.qml:39
 #: meecast/qt-qml/qml/UnitsPage.qml:141
 msgid "Wind speed units"
 msgstr "Одиниці швидкості вітру"
@@ -3183,19 +3191,24 @@ msgstr "Вітер:"
 msgid "Wind: "
 msgstr "Вітер:"
 
-#: omweather/src/hash.data:359
+#: omweather/src/hash.data:362
 msgid "Wintry Mix"
 msgstr "Сніг з дощем"
 
-#: omweather/src/hash.data:357
+#: omweather/src/hash.data:359
 msgid "Wintry Mix / Wind"
 msgstr "Сніг з дощем / Вітер"
 
-#: omweather/src/hash.data:356
+#: omweather/src/hash.data:358
 msgid "Wintry Mix / Wind Early"
 msgstr "Сніг з дощем / Вранці вітер"
 
-#: omweather/src/hash.data:358
+#: omweather/src/hash.data:360
+#, fuzzy
+msgid "Wintry Mix / Windy"
+msgstr "Сніг з дощем / Вітер"
+
+#: omweather/src/hash.data:361
 msgid "Wintry Mix to Snow"
 msgstr "Сніг з дощем що переходить в сніг"
 
@@ -3309,7 +3322,7 @@ msgstr "кожну годину"
 msgid "every minute (Debug)"
 msgstr "кожну хвилину (відладка)"
 
-#: omweather/src/hash.data:360
+#: omweather/src/hash.data:363
 msgid "falling"
 msgstr "падає"
 
@@ -3353,18 +3366,18 @@ msgstr "Па"
 msgid "km"
 msgstr "км"
 
-#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:361
+#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:364
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
 #: meecast/qt-qml/qml/UnitsPage.qml:159
 msgid "km/h"
 msgstr "км/год"
 
-#: omweather/src/hash.data:362
+#: omweather/src/hash.data:365
 msgid "km/s"
 msgstr "км/с"
 
-#: omweather/src/hash.data:363
+#: omweather/src/hash.data:366
 msgid "kn"
 msgstr ""
 
@@ -3375,11 +3388,11 @@ msgstr ""
 msgid "m"
 msgstr "м"
 
-#: omweather/src/hash.data:364
+#: omweather/src/hash.data:367
 msgid "m/h"
 msgstr "м/год"
 
-#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:365
+#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:368
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
 #: meecast/qt-qml/qml/UnitsPage.qml:152
@@ -3407,13 +3420,13 @@ msgstr "мбар"
 msgid "mi"
 msgstr "ми"
 
-#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:366
+#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:369
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
 msgid "mi/h"
 msgstr "ми/год"
 
-#: omweather/src/hash.data:367
+#: omweather/src/hash.data:370
 msgid "mi/s"
 msgstr "ми/с"
 
@@ -3475,7 +3488,7 @@ msgstr "наступна"
 msgid "nmi"
 msgstr "м.ми"
 
-#: omweather/src/hash.data:368
+#: omweather/src/hash.data:371
 msgid "rising"
 msgstr "зростає"
 
@@ -3491,38 +3504,38 @@ msgstr "місцевого часу станції"
 msgid "station name"
 msgstr "в назві станції"
 
-#: omweather/src/hash.data:369
+#: omweather/src/hash.data:372
 msgid "steady"
 msgstr "стійке"
 
-#: omweather/src/hash.data:409
+#: omweather/src/hash.data:412
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:410
+#: omweather/src/hash.data:413
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:411
+#: omweather/src/hash.data:414
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:412
+#: omweather/src/hash.data:415
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:413
+#: omweather/src/hash.data:416
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:414
+#: omweather/src/hash.data:417
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:415
+#: omweather/src/hash.data:418
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:416
+#: omweather/src/hash.data:419
 msgid "Ю-З"
 msgstr ""

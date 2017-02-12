@@ -197,6 +197,11 @@ Meecastdata::getWeatherdata(){
                     _weatherdata.insert("temperatureunit", xml.readElementText());
                     continue;
                 }
+                if(xml.name() == "last_update_text") {
+                     std::cerr<<"last_update_text "<<std::endl;
+                    _weatherdata.insert("last_update_text", xml.readElementText());
+                    continue;
+                }
                 if(xml.name() == "station") {
                     QXmlStreamAttributes attributes = xml.attributes();
                     if(attributes.hasAttribute("name")){

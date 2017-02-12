@@ -28,7 +28,7 @@ BackgroundItem {
              temperature.text = weatherData.meecastData.forecastdata["item1_temperature_low"] +  '°' + weatherData.meecastData.forecastdata["temperatureunit"] + "/"+  weatherData.meecastData.forecastdata["item1_temperature_high"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
         }
         if (expanded){
-            last_update.text = "Last update: " + weatherData.meecastData.forecastdata["last_update"]
+            last_update.text = weatherData.meecastData.forecastdata["last_update_text"] + " " + weatherData.meecastData.forecastdata["last_update"]
             if ( weatherData.meecastData.forecastdata["item2_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item2_temperature_low"] == "N/A" ){   
                 temperature_2.text = weatherData.meecastData.forecastdata["item2_temperature"] + '°'
             }else{

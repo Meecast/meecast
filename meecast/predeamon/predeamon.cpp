@@ -317,6 +317,7 @@ main (int argc, char *argv[]){
                 xmlWriter->writeTextElement("lockscreen", "false");
 
             xmlWriter->writeTextElement("temperatureunit", config->TemperatureUnit().c_str());
+            xmlWriter->writeTextElement("last_update_text", (_("Last update:")));
             xmlWriter->writeStartElement("station");
             xmlWriter->writeAttribute("name", stationname.fromUtf8(config->stationname().c_str()));
             xmlWriter->writeTextElement("last_update", t.toString("dd MMM h:mm"));

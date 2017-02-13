@@ -197,12 +197,11 @@ BackgroundItem {
         }
         Row {
             id: forecasts_row
-//            x: Theme.horizontalPageMargin-Theme.paddingLarge
-//            width: parent.width - 2*x
-            width: parent.width 
+            width: parent.width - 2*Theme.paddingSmall*1.16
             height: 0
             opacity: 0.0
-            spacing: Theme.paddingMedium*1.16
+            spacing: Theme.paddingSmall*1.16
+            anchors.horizontalCenter: parent.horizontalCenter
             states: State {
                 name: "expanded"
                 when: weatherData.expanded

@@ -256,6 +256,7 @@
     g_hash_table_insert(hash, (void*)"Precipitation", _("Precipitation"));
     g_hash_table_insert(hash, (void*)"Proximity shower rain", _("Proximity shower rain"));
     g_hash_table_insert(hash, (void*)"Rain", _("Rain"));
+    g_hash_table_insert(hash, (void*)"Rain / Ice Early", _("Rain / Ice Early"));
     g_hash_table_insert(hash, (void*)"Rain / Freezing Rain", _("Rain / Freezing Rain"));
     g_hash_table_insert(hash, (void*)"Rain / Snow / Wind", _("Rain / Snow / Wind"));
     g_hash_table_insert(hash, (void*)"Rain / Snow / Wind Early", _("Rain / Snow / Wind Early"));

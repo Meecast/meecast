@@ -13,9 +13,9 @@ import string
 #SELECT regions.name  FROM regions WHERE regions.id NOT IN (SELECT stations.region_id FROM stations)
 
 #Country name and code
-country = "/Europe/Italy"
+country = "/Asia/Iran"
 id_region = "97"
-first_letter = "L"
+first_letter = "A"
 
 def normalizing (source):
     result = source.replace("'","")

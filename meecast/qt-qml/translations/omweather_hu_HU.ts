@@ -1488,6 +1488,10 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">Délelőtt szitálás</translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation type="unfinished">
             </translation>
@@ -2697,6 +2701,10 @@ Előrejelzés:</translation>
         <message>
             <source>Rain / Freezing Rain</source>
             <translation>Eső / jégeső</translation>
+        </message>
+        <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">Eső / délelőtti havazás</translation>
         </message>
         <message>
             <source>Rain / Snow</source>

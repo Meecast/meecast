@@ -1517,6 +1517,10 @@ Precipitation: </translation>
             </translation>
         </message>
         <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">Drizzle Early</translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation type="unfinished">
             </translation>
@@ -2718,6 +2722,10 @@ Precipitation: </translation>
         <message>
             <source>Rain / Freezing Rain</source>
             <translation>Rain / Freezing Rain</translation>
+        </message>
+        <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">Rain / Snow Early</translation>
         </message>
         <message>
             <source>Rain / Snow</source>

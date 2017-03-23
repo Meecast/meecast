@@ -1506,6 +1506,10 @@ Turkish - Burak Kaan Kose</translation>
 </translation>
         </message>
         <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">Sabahtan Çiseleyen Yağmur</translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation>Buz Tanecikleri</translation>
         </message>
@@ -2700,6 +2704,10 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Rain / Freezing Rain</source>
             <translation>Yağmur / Dondurucu Yağmur</translation>
+        </message>
+        <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">Yağmur / Sabahtan Kar</translation>
         </message>
         <message>
             <source>Rain / Snow</source>

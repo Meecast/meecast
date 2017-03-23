@@ -1731,6 +1731,11 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation type="unfinished">
             </translation>
@@ -3205,6 +3210,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rain / Freezing Rain</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Rain / Ice Early</source>
             <translation type="unfinished">
             </translation>
         </message>

@@ -1546,6 +1546,10 @@ słowacki - Roman Moravčík</translation>
 </translation>
         </message>
         <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">Rano mżawka</translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation type="unfinished">
             </translation>
@@ -2787,6 +2791,10 @@ słowacki - Roman Moravčík</translation>
         <message>
             <source>Rain / Freezing Rain</source>
             <translation>Deszcz / marznący deszcz</translation>
+        </message>
+        <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">Deszcz / wcześnie śnieg</translation>
         </message>
         <message>
             <source>Rain / Snow</source>

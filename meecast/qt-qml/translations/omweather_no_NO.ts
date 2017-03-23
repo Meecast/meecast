@@ -466,11 +466,11 @@ Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
 Design UI for Fremantle: Krebber Jan Niemela Ulla
 </source>
-            <translation type="unfinished">Forfatter og vedlikehold: Vlad Vasiliev, &lt;vlad@gas.by&gt;
+            <translation>Utvikler og vedlikehold: Vlad Vasiliev, &lt;vlad@gas.by&gt;
 Vedlikehold: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Dokumentasjon: Marko Vertainen
 Design UI og standard iconset: Andrew Zhilin
-Design UI for Fremantle: Krebber Jan Niemelä Ulla
+Design UI for Fremantle: Krebber Jan Niemela Ulla
 </translation>
         </message>
         <message>
@@ -653,7 +653,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Clear sky</source>
-            <translation type="unfinished">Klart Vær</translation>
+            <translation>Klart Vær</translation>
         </message>
         <message>
             <source>Clear, Drifting Snow</source>
@@ -1237,7 +1237,7 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Fog / Windy</source>
-            <translation type="unfinished">Snø / Vind</translation>
+            <translation>Tåke / Vind</translation>
         </message>
         <message>
             <source>Fog Early / Clouds Late</source>
@@ -1301,7 +1301,7 @@ bør du avinstallere pakken
         </message>
         <message>
             <source>Freezing Rain</source>
-            <translation type="unfinished">Mye Underkjølt Regn</translation>
+            <translation>Underkjølt Regn</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
@@ -1522,6 +1522,10 @@ Slovak - Roman Moravčík</translation>
 </translation>
         </message>
         <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">Først Duskregn</translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation>Ishagl</translation>
         </message>
@@ -1703,7 +1707,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light Rain / Windy</source>
-            <translation type="unfinished">Lett Regn / Vind</translation>
+            <translation>Lett Regn</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -1869,7 +1873,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
-            <translation type="unfinished">MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2015</translation>
+            <translation>MeeCast - multiplattform lett tilpasselig åpen kildekode værmeldings klient basert på OMWeather kode. Copyright (C) 2006-2016</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2718,6 +2722,10 @@ Slovak - Roman Moravčík</translation>
             <translation>Regn / Underkjølt Regn</translation>
         </message>
         <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">Rain / Først Snø</translation>
+        </message>
+        <message>
             <source>Rain / Snow</source>
             <translation>Regn / Snø</translation>
         </message>
@@ -2727,7 +2735,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain / Snow / Wind Early</source>
-            <translation type="unfinished">Regn / Snø / Vind</translation>
+            <translation>Regn / Snø / Først Vind</translation>
         </message>
         <message>
             <source>Rain / Snow Early</source>
@@ -3213,7 +3221,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Snow Late</source>
-            <translation type="unfinished">Senere Byger</translation>
+            <translation>Senere Snø</translation>
         </message>
         <message>
             <source>Snow Shower</source>
@@ -4043,7 +4051,7 @@ av værinformasjonen.
         </message>
         <message>
             <source>Wintry Mix / Windy</source>
-            <translation type="unfinished">Glatt Føre / Vind</translation>
+            <translation>Vinterlig vær / Vind</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

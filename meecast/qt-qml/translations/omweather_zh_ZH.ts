@@ -1518,6 +1518,10 @@ DeadHorseRiding</translation>
 </translation>
         </message>
         <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">早时细雨</translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation>冰凌</translation>
         </message>
@@ -2712,6 +2716,10 @@ Luca Onnis
         <message>
             <source>Rain / Freezing Rain</source>
             <translation>下雨或冻雨</translation>
+        </message>
+        <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">早有雨/雪</translation>
         </message>
         <message>
             <source>Rain / Snow</source>

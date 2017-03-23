@@ -1501,6 +1501,10 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">Вранці мряка</translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation type="unfinished">
             </translation>
@@ -2717,6 +2721,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Rain / Freezing Rain</source>
             <translation>Дощ / Холодний дощ</translation>
+        </message>
+        <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">Дощ / Зранку сніг</translation>
         </message>
         <message>
             <source>Rain / Snow</source>

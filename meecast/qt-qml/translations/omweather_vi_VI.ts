@@ -1520,6 +1520,10 @@ Mưa:</translation>
             </translation>
         </message>
         <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">Mưa phùn sớm</translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation type="unfinished">
             </translation>
@@ -2730,6 +2734,10 @@ Mưa:</translation>
         <message>
             <source>Rain / Freezing Rain</source>
             <translation>Có mưa kèm băng giá</translation>
+        </message>
+        <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">Mưa, có tuyết rơi sớm</translation>
         </message>
         <message>
             <source>Rain / Snow</source>

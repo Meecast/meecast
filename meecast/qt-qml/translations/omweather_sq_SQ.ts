@@ -1519,6 +1519,10 @@ Rreshjet: </translation>
             </translation>
         </message>
         <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">Shi i imët herët</translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation type="unfinished">
             </translation>
@@ -2721,6 +2725,10 @@ Rreshjet: </translation>
         <message>
             <source>Rain / Freezing Rain</source>
             <translation>Shi / Shi i ngrirë</translation>
+        </message>
+        <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">Shi / Dëborë herët</translation>
         </message>
         <message>
             <source>Rain / Snow</source>

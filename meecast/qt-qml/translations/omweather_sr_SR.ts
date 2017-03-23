@@ -1523,6 +1523,10 @@ Slovački - Roman Moravčík</translation>
 </translation>
         </message>
         <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">U ranijim satima rominjanje kiše</translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation>Moguć sneg</translation>
         </message>
@@ -2717,6 +2721,10 @@ Slovački - Roman Moravčík</translation>
         <message>
             <source>Rain / Freezing Rain</source>
             <translation>Kiša / Ledena kiša</translation>
+        </message>
+        <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">Kiša / U ranijim satima sneg</translation>
         </message>
         <message>
             <source>Rain / Snow</source>

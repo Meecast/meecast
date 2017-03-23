@@ -1521,6 +1521,10 @@ Spanisch - Alejandro Lopez</translation>
 </translation>
         </message>
         <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">Nieselregen früh</translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation>Graupeln</translation>
         </message>
@@ -2715,6 +2719,10 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Rain / Freezing Rain</source>
             <translation>Regen / überfrierender Regen</translation>
+        </message>
+        <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">Regen / Schnee früh</translation>
         </message>
         <message>
             <source>Rain / Snow</source>

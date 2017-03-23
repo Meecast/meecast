@@ -628,7 +628,8 @@ gwmgdemj
         </message>
         <message>
             <source>Clear sky</source>
-            <translation type="unfinished">Ясное небо</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Clear, Drifting Snow</source>
@@ -700,7 +701,7 @@ gwmgdemj
         </message>
         <message>
             <source>Cloudy and snow showers</source>
-            <translation>Облачно и кратковременный снег</translation>
+            <translation>Облачно и и временами снег</translation>
         </message>
         <message>
             <source>Cloudy and wet snow showers</source>
@@ -1210,7 +1211,8 @@ Brad Jones aka kazrak - за тестирование
         </message>
         <message>
             <source>Fog / Windy</source>
-            <translation type="unfinished">Снег / Ветер</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Fog Early / Clouds Late</source>
@@ -1275,7 +1277,8 @@ using Application manager</source>
         </message>
         <message>
             <source>Freezing Rain</source>
-            <translation type="unfinished">Сильный град</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
@@ -1492,6 +1495,10 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">Утром изморось</translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation>Ледяные гранулы</translation>
         </message>
@@ -1672,7 +1679,8 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Light Rain / Windy</source>
-            <translation type="unfinished">Небольшой дождь / Ветер</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -2700,6 +2708,10 @@ Slovak - Roman Moravčík</source>
             <translation>Дождь / Холодный дождь</translation>
         </message>
         <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">Дождь / С утра снег</translation>
+        </message>
+        <message>
             <source>Rain / Snow</source>
             <translation>Дождь / Снег</translation>
         </message>
@@ -2709,7 +2721,8 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rain / Snow / Wind Early</source>
-            <translation type="unfinished">Дождь / Снег / Ветер</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Rain / Snow Early</source>
@@ -3198,7 +3211,8 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Snow Late</source>
-            <translation type="unfinished">Позже ливни</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Snow Shower</source>
@@ -4024,7 +4038,7 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Wintry Mix / Windy</source>
-            <translation type="unfinished">Поземка / Ветер</translation>
+            <translation>Поземка / Ветренно</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

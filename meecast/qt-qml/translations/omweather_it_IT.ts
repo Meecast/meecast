@@ -1517,6 +1517,10 @@ Slovacco - Roman Moravčík</translation>
             </translation>
         </message>
         <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">Pioggerella sul presto</translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation>Grandine</translation>
         </message>
@@ -2710,6 +2714,10 @@ Ilir Gjika
         <message>
             <source>Rain / Freezing Rain</source>
             <translation>Pioggia / Pioggia congelata</translation>
+        </message>
+        <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">Pioggia / Neve sul presto</translation>
         </message>
         <message>
             <source>Rain / Snow</source>

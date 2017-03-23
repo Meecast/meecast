@@ -1519,6 +1519,10 @@ Eslovaco - Roman Moravčík</translation>
 </translation>
         </message>
         <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">Llovizna temprano</translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation>Granizo</translation>
         </message>
@@ -2713,6 +2717,10 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Rain / Freezing Rain</source>
             <translation>Lluvia / Lluvia helada</translation>
+        </message>
+        <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">Lluvia / Nieve temprano</translation>
         </message>
         <message>
             <source>Rain / Snow</source>

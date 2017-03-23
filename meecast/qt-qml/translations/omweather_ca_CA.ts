@@ -1521,6 +1521,10 @@ Català - Agustí Clara</translation>
 </translation>
         </message>
         <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">Plugims primer</translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation>Calamarsa</translation>
         </message>
@@ -2715,6 +2719,10 @@ Català - Agustí Clara</translation>
         <message>
             <source>Rain / Freezing Rain</source>
             <translation>Pluja / Pluja gebradora</translation>
+        </message>
+        <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">Pluja / Neu primer</translation>
         </message>
         <message>
             <source>Rain / Snow</source>

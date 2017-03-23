@@ -1516,6 +1516,10 @@ Precipitação:</translation>
             </translation>
         </message>
         <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">Chuviscos Matinais</translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation type="unfinished">
             </translation>
@@ -2716,6 +2720,10 @@ Precipitação:</translation>
         <message>
             <source>Rain / Freezing Rain</source>
             <translation>Chuva / Granizo</translation>
+        </message>
+        <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">Chuva / Neve pela manhã</translation>
         </message>
         <message>
             <source>Rain / Snow</source>

@@ -1521,6 +1521,10 @@ Slovakia - Roman Moravčík</translation>
 </translation>
         </message>
         <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">Aikaisin tihkusadetta</translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation>Rakeita</translation>
         </message>
@@ -2715,6 +2719,10 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Rain / Freezing Rain</source>
             <translation>Vesisadetta / Jäätävää sadetta</translation>
+        </message>
+        <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">Vesisadetta / Ensin lumisadetta</translation>
         </message>
         <message>
             <source>Rain / Snow</source>

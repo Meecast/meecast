@@ -1299,7 +1299,7 @@ worden.</translation>
         </message>
         <message>
             <source>Freezing Rain</source>
-            <translation type="unfinished">Hevige ijsregen</translation>
+            <translation>IJzel</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
@@ -1518,6 +1518,10 @@ Slowaaks - Roman Moravčík</translation>
 </source>
             <translation>Hongaars - Salmi, László Kara
 </translation>
+        </message>
+        <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">Vroege motregen</translation>
         </message>
         <message>
             <source>Ice Pellets</source>
@@ -2716,6 +2720,10 @@ Slowaaks - Roman Moravčík</translation>
             <translation>Regen / ijzel</translation>
         </message>
         <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">Regen / eerder sneeuw</translation>
+        </message>
+        <message>
             <source>Rain / Snow</source>
             <translation>Regen / sneeuw</translation>
         </message>
@@ -2725,7 +2733,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain / Snow / Wind Early</source>
-            <translation type="unfinished">Regen / sneeuw / wind</translation>
+            <translation>Regen / sneeuw / eerder wind</translation>
         </message>
         <message>
             <source>Rain / Snow Early</source>
@@ -4041,7 +4049,7 @@ van weerinformatie.
         </message>
         <message>
             <source>Wintry Mix / Windy</source>
-            <translation type="unfinished">Winterse bui / wind</translation>
+            <translation>Winterse bui / wind</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

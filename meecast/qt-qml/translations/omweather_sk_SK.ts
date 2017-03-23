@@ -1521,6 +1521,10 @@ Zrážky: </translation>
             </translation>
         </message>
         <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">Spočiatku mrholenie</translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation type="unfinished">
             </translation>
@@ -2723,6 +2727,10 @@ Zrážky: </translation>
         <message>
             <source>Rain / Freezing Rain</source>
             <translation>Dážď / Mrznúci dážď</translation>
+        </message>
+        <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">Dážď / Spočiatku sneženie</translation>
         </message>
         <message>
             <source>Rain / Snow</source>

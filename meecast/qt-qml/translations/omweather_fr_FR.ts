@@ -1511,6 +1511,10 @@ Slovaque - Roman Moravčík</translation>
             </translation>
         </message>
         <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">Bruine en matinée</translation>
+        </message>
+        <message>
             <source>Ice Pellets</source>
             <translation>Granules de glace</translation>
         </message>
@@ -2701,6 +2705,10 @@ Slovaque - Roman Moravčík</translation>
         <message>
             <source>Rain / Freezing Rain</source>
             <translation>Pluie / pluie verglaçante</translation>
+        </message>
+        <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">Pluie / neige en matinée</translation>
         </message>
         <message>
             <source>Rain / Snow</source>

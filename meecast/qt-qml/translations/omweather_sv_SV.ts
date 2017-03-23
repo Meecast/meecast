@@ -1299,7 +1299,7 @@ Hantera program.</translation>
         </message>
         <message>
             <source>Freezing Rain</source>
-            <translation type="unfinished">Kraftigt underkylt regn</translation>
+            <translation>Underkylt regn</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
@@ -1518,6 +1518,10 @@ Slovakiska - Roman Moravčík</translation>
 </source>
             <translation>Ungerska - Salmi, László Kara
 </translation>
+        </message>
+        <message>
+            <source>Ice Early</source>
+            <translation type="unfinished">Duggregn tidigt</translation>
         </message>
         <message>
             <source>Ice Pellets</source>
@@ -2716,6 +2720,10 @@ Slovakiska - Roman Moravčík</translation>
             <translation>Regn / Underkylt regn</translation>
         </message>
         <message>
+            <source>Rain / Ice Early</source>
+            <translation type="unfinished">Regn / Tidigt snö</translation>
+        </message>
+        <message>
             <source>Rain / Snow</source>
             <translation>Regn / Snö</translation>
         </message>
@@ -2725,7 +2733,7 @@ Slovakiska - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain / Snow / Wind Early</source>
-            <translation type="unfinished">Regn / Snö / Vind</translation>
+            <translation>Regn / Snö / </translation>
         </message>
         <message>
             <source>Rain / Snow Early</source>
@@ -4041,7 +4049,7 @@ uppdaterng av väderinformation.
         </message>
         <message>
             <source>Wintry Mix / Windy</source>
-            <translation type="unfinished">Snöblandat/underkylt regn eller hagel / Vind</translation>
+            <translation>Vintrig mix / Blåsigt</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

@@ -4,13 +4,13 @@
 #
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012
-# Vlad Vas <vasvlad@gmail.com>, 2013-2016
+# Vlad Vas <vasvlad@gmail.com>, 2013-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-30 21:28+0300\n"
-"PO-Revision-Date: 2016-11-30 22:17+0000\n"
+"POT-Creation-Date: 2017-02-19 20:50+0300\n"
+"PO-Revision-Date: 2017-02-19 17:47+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/vasvlad/meecast/language/"
 "ru/)\n"
@@ -488,9 +488,8 @@ msgid "Clear Sky"
 msgstr "Ясное небо"
 
 #: omweather/src/hash.data:30
-#, fuzzy
 msgid "Clear sky"
-msgstr "Ясное небо"
+msgstr ""
 
 #: omweather/src/hash.data:31
 msgid "Clear, Drifting Snow"
@@ -562,7 +561,7 @@ msgstr "Облачно и кратковременные осадки"
 
 #: omweather/src/hash.data:47
 msgid "Cloudy and snow showers"
-msgstr "Облачно и кратковременный снег"
+msgstr "Облачно и и временами снег"
 
 #: omweather/src/hash.data:48
 msgid "Cloudy and wet snow showers"
@@ -978,9 +977,8 @@ msgid "Fog"
 msgstr "Туман"
 
 #: omweather/src/hash.data:89
-#, fuzzy
 msgid "Fog / Windy"
-msgstr "Снег / Ветер"
+msgstr ""
 
 #: omweather/src/hash.data:85
 msgid "Fog Early / Clouds Late"
@@ -1036,9 +1034,8 @@ msgid "Freezing Drizzle"
 msgstr "Изморось с градом"
 
 #: omweather/src/hash.data:92
-#, fuzzy
 msgid "Freezing Rain"
-msgstr "Сильный град"
+msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
 msgid ""
@@ -1357,9 +1354,8 @@ msgid "Light Rain / Wind Late"
 msgstr "Небольшой дождь / Позже ветер"
 
 #: omweather/src/hash.data:126
-#, fuzzy
 msgid "Light Rain / Windy"
-msgstr "Небольшой дождь / Ветер"
+msgstr ""
 
 #: omweather/src/hash.data:127
 msgid "Light Rain Early"
@@ -2180,9 +2176,8 @@ msgid "Rain / Snow / Wind"
 msgstr "Дождь / Снег / Ветер"
 
 #: omweather/src/hash.data:261
-#, fuzzy
 msgid "Rain / Snow / Wind Early"
-msgstr "Дождь / Снег / Ветер"
+msgstr ""
 
 #: omweather/src/hash.data:262
 msgid "Rain / Snow Early"
@@ -2589,9 +2584,8 @@ msgid "Snow Early"
 msgstr "С утра снег"
 
 #: omweather/src/hash.data:310
-#, fuzzy
 msgid "Snow Late"
-msgstr "Позже ливни"
+msgstr ""
 
 #: omweather/src/hash.data:314
 msgid "Snow Shower"
@@ -3147,9 +3141,8 @@ msgid "Wintry Mix / Wind Early"
 msgstr "Поземка / C утра ветер"
 
 #: omweather/src/hash.data:360
-#, fuzzy
 msgid "Wintry Mix / Windy"
-msgstr "Поземка / Ветер"
+msgstr "Поземка / Ветренно"
 
 #: omweather/src/hash.data:361
 msgid "Wintry Mix to Snow"

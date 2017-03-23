@@ -1,3 +1,11 @@
+meecast (1.1.17) unstable; urgency=low
+
+  * Updated Russian translation
+  * Added string for translation
+  * Added Iran and Georgia to foreca.com
+
+ -- Vlad Vasiliev <vlad@gas.by> Sat, 31 Dec 2016 10:01:23 +0200
+
 meecast (1.1.16) unstable; urgency=low
 
   * Added new translation strings for weather.com

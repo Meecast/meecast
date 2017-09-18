@@ -14,7 +14,7 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    1.1.16
+Version:    1.1.17
 Release:    1 
 Group:      Utility
 License:    GPLv2.1
@@ -174,6 +174,10 @@ systemctl-user start meecastd.service
 
 
 %changelog
+* Mon Sep 18 2017 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.17
+  * Added string for translation
+  * Added Iran and Georgia to foreca.com
+  * Updated Russian, Dutch, Norwegian, Slovenian, Swedish, Germany translations
 
 * Sat Dec 31 2016 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.16
 

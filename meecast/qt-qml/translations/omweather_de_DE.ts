@@ -465,11 +465,11 @@ Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
 Design UI for Fremantle: Krebber Jan Niemela Ulla
 </source>
-            <translation type="unfinished">Autor und Produktpflege: Vlad Vasiliev, &lt;vlad@gas.by&gt;
+            <translation>Autor und Produktpflege: Vlad Vasiliev, &lt;vlad@gas.by&gt;
 Wartung: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Dokumentation: Marko Vertainen
 Design des Standardsymbolsatzes und der Oberfläche: Andrew Zhilin
-Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
+Design der Oberfläche für Freemante: Krebber Jan Niemela Ulla
 </translation>
         </message>
         <message>
@@ -652,7 +652,7 @@ Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Clear sky</source>
-            <translation type="unfinished">Klarer Himmel</translation>
+            <translation>Klarer Himmel</translation>
         </message>
         <message>
             <source>Clear, Drifting Snow</source>
@@ -1236,7 +1236,7 @@ Brad Jones aka kazrak - fürs Testen
         </message>
         <message>
             <source>Fog / Windy</source>
-            <translation type="unfinished">Schnee / Wind</translation>
+            <translation>Nebel / Windig</translation>
         </message>
         <message>
             <source>Fog Early / Clouds Late</source>
@@ -1300,7 +1300,7 @@ Programm-Manager deinstallieren.</translation>
         </message>
         <message>
             <source>Freezing Rain</source>
-            <translation type="unfinished">Starker Eisregen</translation>
+            <translation>Eisregen</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
@@ -1456,7 +1456,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Heavy Snow Shower</source>
-            <translation type="unfinished">Starke Schneeschauer</translation>
+            <translation>Starke Schneeschauer</translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
@@ -1706,7 +1706,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Light Rain / Windy</source>
-            <translation type="unfinished">Leichter Regen / Wind</translation>
+            <translation>Leichter Regen / Windig</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -1872,7 +1872,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
-            <translation type="unfinished">MeeCast - plattformübergreifende und anpassbare Open-Source-Anwendung zur Wettervorhersage, basierend auf dem Code von OMWeather. Copyright (C) 2006-2015</translation>
+            <translation>MeeCast - plattformübergreifende und anpassbare Open-Source-Anwendung zur Wettervorhersage, basierend auf dem Code von OMWeather. Copyright (C) 2006-2016</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2726,7 +2726,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Rain / Snow</source>
-            <translation>Regen / Snow</translation>
+            <translation>Regen / Schnee</translation>
         </message>
         <message>
             <source>Rain / Snow / Wind</source>
@@ -2734,7 +2734,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Rain / Snow / Wind Early</source>
-            <translation type="unfinished">Regen / Schnee / Wind</translation>
+            <translation>Regen / Schnee / Wind Früh</translation>
         </message>
         <message>
             <source>Rain / Snow Early</source>
@@ -3216,11 +3216,11 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Snow Early</source>
-            <translation type="unfinished">Schauer früh</translation>
+            <translation>Schneefall früh</translation>
         </message>
         <message>
             <source>Snow Late</source>
-            <translation type="unfinished">Schauer spät</translation>
+            <translation>Schneefall spät</translation>
         </message>
         <message>
             <source>Snow Shower</source>
@@ -4051,7 +4051,7 @@ um die Darstellung des Applets anzupassen</translation>
         </message>
         <message>
             <source>Wintry Mix / Windy</source>
-            <translation type="unfinished">Winterlich / Wind</translation>
+            <translation>Winter Mix / Windig</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

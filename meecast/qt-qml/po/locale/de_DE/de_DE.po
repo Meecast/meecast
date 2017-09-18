@@ -4,18 +4,19 @@
 #
 # Translators:
 # Cristian Măgherușan-Stanciu <cristi.magherusan@gmail.com>, 2012
-# DeadHorseRiding <D3adHorseRIdlng@Gmail.com>, 2014-2015
+# DeadHorseRiding <D3adHorseRIdlng@Gmail.com>, 2014-2017
 # jklingen, 2014
 # DeadHorseRiding <D3adHorseRIdlng@Gmail.com>, 2014
+# Ricardo Breitkopf, 2017
 # DeadHorseRiding <D3adHorseRIdlng@Gmail.com>, 2014
 # Vlad Vas <vasvlad@gmail.com>, 2012-2013,2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-23 20:51+0300\n"
-"PO-Revision-Date: 2015-11-19 20:56+0000\n"
-"Last-Translator: DeadHorseRiding <D3adHorseRIdlng@Gmail.com>\n"
+"POT-Creation-Date: 2017-08-26 17:43+0300\n"
+"PO-Revision-Date: 2017-07-10 16:54+0000\n"
+"Last-Translator: Ricardo Breitkopf\n"
 "Language-Team: German (Germany) (http://www.transifex.com/vasvlad/meecast/"
 "language/de_DE/)\n"
 "Language: de_DE\n"
@@ -385,7 +386,6 @@ msgid "Are you sure?"
 msgstr "Sind Sie sicher?"
 
 #: omweather/src/weather-help.c:103
-#, fuzzy
 msgid ""
 "Author and maintenance: Vlad Vasiliev, <vlad@gas.by>\n"
 "Maintenance: Pavel Fialko, <pavelnf@gmail.com>\n"
@@ -397,7 +397,7 @@ msgstr ""
 "Wartung: Pavel Fialko, <pavelnf@gmail.com>\n"
 "Dokumentation: Marko Vertainen\n"
 "Design des Standardsymbolsatzes und der Oberfläche: Andrew Zhilin\n"
-"Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla\n"
+"Design der Oberfläche für Freemante: Krebber Jan Niemela Ulla\n"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:415
 msgid "Author and maintenance: Vlad Vasilyeu, <vlad@gas.by>\n"
@@ -519,7 +519,6 @@ msgid "Clear Sky"
 msgstr "Klarer Himmel"
 
 #: omweather/src/hash.data:30
-#, fuzzy
 msgid "Clear sky"
 msgstr "Klarer Himmel"
 
@@ -1018,9 +1017,8 @@ msgid "Fog"
 msgstr "Nebel"
 
 #: omweather/src/hash.data:89
-#, fuzzy
 msgid "Fog / Windy"
-msgstr "Schnee / Wind"
+msgstr "Nebel / Windig"
 
 #: omweather/src/hash.data:85
 msgid "Fog Early / Clouds Late"
@@ -1075,9 +1073,8 @@ msgid "Freezing Drizzle"
 msgstr "Überfrierender Nieselregen"
 
 #: omweather/src/hash.data:92
-#, fuzzy
 msgid "Freezing Rain"
-msgstr "Starker Eisregen"
+msgstr "Eisregen"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
 msgid ""
@@ -1226,7 +1223,6 @@ msgid "Heavy Snow / Wind"
 msgstr "Starker Schneefall / Wind"
 
 #: omweather/src/hash.data:107
-#, fuzzy
 msgid "Heavy Snow Shower"
 msgstr "Starke Schneeschauer"
 
@@ -1417,9 +1413,8 @@ msgid "Light Rain / Wind Late"
 msgstr "Leichter Regen / Wind spät"
 
 #: omweather/src/hash.data:127
-#, fuzzy
 msgid "Light Rain / Windy"
-msgstr "Leichter Regen / Wind"
+msgstr "Leichter Regen / Windig"
 
 #: omweather/src/hash.data:128
 msgid "Light Rain Early"
@@ -1578,14 +1573,13 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
-#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2016"
 msgstr ""
 "MeeCast - plattformübergreifende und anpassbare Open-Source-Anwendung zur "
 "Wettervorhersage, basierend auf dem Code von OMWeather. Copyright (C) "
-"2006-2015"
+"2006-2016"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -2244,16 +2238,15 @@ msgstr "Regen / Schnee früh"
 
 #: omweather/src/hash.data:269
 msgid "Rain / Snow"
-msgstr "Regen / Snow"
+msgstr "Regen / Schnee"
 
 #: omweather/src/hash.data:262
 msgid "Rain / Snow / Wind"
 msgstr "Regen / Schnee / Wind"
 
 #: omweather/src/hash.data:263
-#, fuzzy
 msgid "Rain / Snow / Wind Early"
-msgstr "Regen / Schnee / Wind"
+msgstr "Regen / Schnee / Wind Früh"
 
 #: omweather/src/hash.data:264
 msgid "Rain / Snow Early"
@@ -2658,14 +2651,12 @@ msgid "Snow / Wind"
 msgstr "Schnee / Wind"
 
 #: omweather/src/hash.data:311
-#, fuzzy
 msgid "Snow Early"
-msgstr "Schauer früh"
+msgstr "Schneefall früh"
 
 #: omweather/src/hash.data:312
-#, fuzzy
 msgid "Snow Late"
-msgstr "Schauer spät"
+msgstr "Schneefall spät"
 
 #: omweather/src/hash.data:316
 msgid "Snow Shower"
@@ -3239,9 +3230,8 @@ msgid "Wintry Mix / Wind Early"
 msgstr "Winterlich / Wind früh"
 
 #: omweather/src/hash.data:362
-#, fuzzy
 msgid "Wintry Mix / Windy"
-msgstr "Winterlich / Wind"
+msgstr "Winter Mix / Windig"
 
 #: omweather/src/hash.data:363
 msgid "Wintry Mix to Snow"

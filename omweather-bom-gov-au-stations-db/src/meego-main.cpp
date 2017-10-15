@@ -166,7 +166,12 @@ parse_and_write_bom_gov_au_detail_data(const char *station_name, htmlDocPtr doc,
             fprintf(file_out,"     <wind_gust>%i</wind_gust>\n", ((atoi((const char*)xpathObj2->nodesetval->nodeTab[i]->content)*1000)/3600));
             xmlFree(xpathObj2);
             xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-pressure')]/text()", xpathCtx);
-            fprintf(file_out,"     <pressure>%s</pressure>\n", xpathObj2->nodesetval->nodeTab[i]->content);
+            if(xmlXPathNodeSetIsEmpty(xpathObj2->nodesetval)){
+                xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-press')]/text()", xpathCtx);
+            }
+            if(!xmlXPathNodeSetIsEmpty(xpathObj2->nodesetval)){
+                fprintf(file_out,"     <pressure>%s</pressure>\n", xpathObj2->nodesetval->nodeTab[i]->content);
+            }
             fprintf(file_out, "     <description>%s</description>\n", current_title);
             fprintf(file_out, "     <icon>%s</icon>\n", current_icon);
             fprintf(file_out,"    </period>\n");

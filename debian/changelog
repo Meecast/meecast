@@ -1,6 +1,7 @@
 meecast (1.1.18) unstable; urgency=low
 
-  * 
+  * Added string for translation
+  * Added stations to Ukraine in gismeteo.ru source
 
  -- Vlad Vasiliev <vlad@gas.by> Sat, 26 Aug 2017 18:02:23 +0200
 

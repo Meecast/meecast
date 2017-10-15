@@ -74,7 +74,7 @@ choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
 #endif
 /*******************************************************************************/
 int
-parse_and_write_detail_data(const char *station_name, htmlDocPtr doc, const char *result_file){
+parse_and_write_bom_gov_au_detail_data(const char *station_name, htmlDocPtr doc, const char *result_file){
 #ifdef GLIB
     GSList      *forecast = NULL;
     GSList      *tmp = NULL;
@@ -166,7 +166,12 @@ parse_and_write_detail_data(const char *station_name, htmlDocPtr doc, const char
             fprintf(file_out,"     <wind_gust>%i</wind_gust>\n", ((atoi((const char*)xpathObj2->nodesetval->nodeTab[i]->content)*1000)/3600));
             xmlFree(xpathObj2);
             xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-pressure')]/text()", xpathCtx);
-            fprintf(file_out,"     <pressure>%s</pressure>\n", xpathObj2->nodesetval->nodeTab[i]->content);
+            if(xmlXPathNodeSetIsEmpty(xpathObj2->nodesetval)){
+                xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-press')]/text()", xpathCtx);
+            }
+            if(!xmlXPathNodeSetIsEmpty(xpathObj2->nodesetval)){
+                fprintf(file_out,"     <pressure>%s</pressure>\n", xpathObj2->nodesetval->nodeTab[i]->content);
+            }
             fprintf(file_out, "     <description>%s</description>\n", current_title);
             fprintf(file_out, "     <icon>%s</icon>\n", current_icon);
             fprintf(file_out,"    </period>\n");
@@ -439,7 +444,7 @@ convert_station_bomgovau_data(const char *station_id_with_path, const char *resu
                             xmlCleanupParser();
                         }
                         else{
-                            parse_and_write_detail_data(buffer2, doc, result_file);
+                            parse_and_write_bom_gov_au_detail_data(buffer2, doc, result_file);
                             xmlFreeDoc(doc);
                             xmlCleanupParser();
                         }
@@ -463,7 +468,7 @@ convert_station_bomgovau_data(const char *station_id_with_path, const char *resu
 }
 /*******************************************************************************/
 int
-main(int argc, char *argv[]){
+main_bom_gov_au(int argc, char *argv[]){
     int result; 
     if (argc < 3) {
         fprintf(stderr, "bomgovau <input_file> <output_file> <input_detail_data>\n");

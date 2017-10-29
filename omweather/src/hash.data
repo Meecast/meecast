@@ -14,6 +14,7 @@
     g_hash_table_insert(hash, (void*)"AM Rain / Snow Showers / Wind", _("AM Rain / Snow Showers / Wind"));  
     g_hash_table_insert(hash, (void*)"AM Rain / Snow Showers", _("AM Rain / Snow Showers"));
     g_hash_table_insert(hash, (void*)"AM Rain / Snow", _("AM Rain / Snow"));
+    g_hash_table_insert(hash, (void*)"AM Rain / Snow / Wind", _("AM Rain / Snow / Wind"));
     g_hash_table_insert(hash, (void*)"AM Rain / Wind", _("AM Rain / Wind"));    
     g_hash_table_insert(hash, (void*)"AM Rain", _("AM Rain"));
     g_hash_table_insert(hash, (void*)"AM Showers / Wind", _("AM Showers / Wind"));

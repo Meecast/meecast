@@ -372,8 +372,8 @@ CoverBackground {
         id: icon
         visible: isUpdate ? false : true
         source: (Config.stationname == "Unknown" || Current.rowCount() == 0 || coverPage.current_model("pict") == undefined) ? Config.iconspath + "/" + Config.iconset + "/49.png" : Config.iconspath + "/" + Config.iconset + "/" + coverPage.current_model("pict") 
-        width:  Config.windcoverpage ? 0.342*screen_height : 0.267*screen_height
-        height: Config.windcoverpage ? 0.342*screen_height : 0.267*screen_height
+        width:  Config.windcoverpage ? 0.342*screen_height : 0.374*screen_height
+        height: Config.windcoverpage ? 0.342*screen_height : 0.374*screen_height
         anchors.top: Config.logocoverpage ? source_image.bottom : stationname.bottom
         anchors.topMargin: 5 
         smooth: true

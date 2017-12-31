@@ -174,9 +174,11 @@ systemctl-user start meecastd.service
 
 
 %changelog
-* Sun Oct 15 2017 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.19
+* Sun Jan 07 2018 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.19
 
   * Added string for translation
+  * Fixed the New Year bug for weather.com and foreca.mobi sources
+  * Added station Moruya Heads to bom.gov.au source
 
 * Sun Oct 15 2017 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.18
 

@@ -544,6 +544,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     xmlXPathObjectPtr xpathObj7 = NULL; 
     xmlNodeSetPtr nodes;
     char       *temp_char;
+    bool   possible_new_year = false;
 
     struct tm   tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
     struct tm   *tm;
@@ -609,6 +610,12 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
          /* set begin of day in localtime */
          tmp_tm.tm_year = tm->tm_year;
          tmp_tm.tm_hour = 0; tmp_tm.tm_min = 0; tmp_tm.tm_sec = 0;
+         if (!possible_new_year && tmp_tm.tm_mon == 11 && tmp_tm.tm_mday > 15){
+            possible_new_year = true;
+         }
+         if (possible_new_year && tmp_tm.tm_mon == 0 && tmp_tm.tm_mday < 15){
+            tmp_tm.tm_year++;
+         }
 
          t_start = mktime(&tmp_tm);
          fprintf(file_out,"    <period start=\"%li\"", t_start);

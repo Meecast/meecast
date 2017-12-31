@@ -1,7 +1,7 @@
 meecast (1.1.19) unstable; urgency=low
 
   * Added string for translation
-  * Fixed the New Year bug for weather.com source
+  * Fixed the New Year bug for weather.com and foreca.mobi sources
 
  -- Vlad Vasiliev <vlad@gas.by> Sat, 26 Aug 2017 18:02:23 +0200
 

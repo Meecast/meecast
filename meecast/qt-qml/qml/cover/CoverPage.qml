@@ -241,6 +241,7 @@ CoverBackground {
         status: coverPage.activating
         onStatusChanged: { 
             console.log(" Change status ", coverPage.activating);		
+            console.log(" screen_height ", screen_height);
             if (status){
                 if (!Config.updating){
                     Config.refreshconfig3()
@@ -441,7 +442,7 @@ CoverBackground {
         visible: (Config.lastupdatecoverpage && !isUpdate && coverPage.current_model("lastupdatetime") != undefined) ? true : false 
         anchors.horizontalCenter: parent.horizontalCenter
         text: coverPage.current_model("lastupdatetime") == undefined ? "MeeCast" : ((coverPage.current_model("lastupdatetime").length + Config.tr("Last update:").length) < 25 ?  Config.tr("Last update:") + " " + coverPage.current_model("lastupdatetime") : coverPage.current_model("lastupdatetime"))
-        font.pixelSize: 20 
+        font.pointSize: 18 
     }
 
     Image {

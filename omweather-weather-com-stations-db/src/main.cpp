@@ -49,7 +49,7 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
         return -1;
     *buffer = 0;
     snprintf(buffer, sizeof(buffer) - 1, "%s.new", station_id_with_path);
-    /* check file accessability */
+    /* check file accessibility */
     if(!access(buffer, R_OK))
         if ((lstat(buffer, &file_info) == 0) && (file_info.st_size > 0)){ 
             /* check that the file containe valid data */
@@ -90,7 +90,7 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
             }else
                 doc = NULL;
         }
-    /* check file accessability */
+    /* check file accessibility */
     if(!access(station_id_with_path, R_OK)){
         /* check that the file containe valid data */
         doc = xmlReadFile(station_id_with_path, NULL, 0);
@@ -831,6 +831,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
     struct tm time_tm1 = {0,0,0,0,0,0,0,0,0,0,0}; 
     struct tm time_tm2 = {0,0,0,0,0,0,0,0,0,0,0};
     int    localtimezone = 0;
+    bool   possible_new_year = false;
 
 
 
@@ -1145,7 +1146,12 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                         /* set begin of day in localtime */
                         tmp_tm.tm_year = tm->tm_year;
                         tmp_tm.tm_hour = 0; tmp_tm.tm_min = 0; tmp_tm.tm_sec = 0;
-
+                        if (!possible_new_year && tmp_tm.tm_mon == 11 && tmp_tm.tm_mday > 15){
+                            possible_new_year = true;
+                        }
+                        if (possible_new_year && tmp_tm.tm_mon == 0 && tmp_tm.tm_mday < 15){
+                            tmp_tm.tm_year++;
+                        }
                         t_start = mktime(&tmp_tm) + localtimezone*3600 -  timezone_my*3600;
 
                         /* for sunrise and sunset valid date */ 
@@ -1195,6 +1201,9 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     tmp_tm2.tm_year = tm->tm_year;
                                     tmp_tm2.tm_mday = tm->tm_mday; tmp_tm2.tm_mon = tm->tm_mon;  
                                     tmp_tm2.tm_isdst = 0;
+                                    if (possible_new_year && tmp_tm2.tm_mon == 0 && tmp_tm2.tm_mday < 15){
+                                        tmp_tm2.tm_year++;
+                                    }
                                     /* set begin of day in localtime */
                                     time_t result_time = timegm(&tmp_tm2);
                                     /* fprintf(stderr, "sunrise %li %li %s\n", result_time, timegm(&tmp_tm2), (const char*)temp_xml_string); */
@@ -1217,6 +1226,9 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     tmp_tm2.tm_year = tm->tm_year;
                                     tmp_tm2.tm_mday = tm->tm_mday; tmp_tm2.tm_mon = tm->tm_mon;  
                                     tmp_tm2.tm_isdst = 0;
+                                    if (possible_new_year && tmp_tm2.tm_mon == 0 && tmp_tm2.tm_mday < 15){
+                                        tmp_tm2.tm_year++;
+                                    }
                                     time_t result_time = timegm(&tmp_tm2);
                                     t_sunset = result_time - timezone_my*3600;
 //                                    t_sunset = mktime(&tmp_tm2) - timezone_my*3600 - (timezone_my*3600 + 4*3600);
@@ -1236,7 +1248,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                             /* humidity */
                                             if(!xmlStrcmp(child_node3->name, (const xmlChar *)"hmid") ){
                                                 temp_xml_string = xmlNodeGetContent(child_node3);
-				                if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A")){
+                                                if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A")){
                                                     if(!store2day)
                                                         snprintf(humidity_night, sizeof(humidity_night) - 1, "%s", (char*)temp_xml_string);
                                                     else
@@ -1420,7 +1432,6 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                         fprintf(file_out,"     <sunrise>%li</sunrise>\n", t_sunrise);
                         fprintf(file_out,"     <sunset>%li</sunset>\n", t_sunset);
                         fprintf(file_out,"    </period>\n");
-
                     }
                }
            }

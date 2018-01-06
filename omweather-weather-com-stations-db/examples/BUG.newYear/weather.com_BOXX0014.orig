@@ -1,0 +1,351 @@
+<weather ver="2.0">
+        <head>
+      <locale>en_US</locale>
+      <form>MEDIUM</form>
+      <ut>C</ut>
+      <ud>km</ud>
+      <us>km/h</us>
+      <up>mb</up>
+      <ur>mm</ur>
+    </head>
+        <loc id="BOXX0014">
+      <dnam>Vitebsk, VI, Belarus</dnam>
+      <tm>11:17 AM</tm>
+      <lat>55.17</lat>
+      <lon>30.22</lon>
+      <sunr>9:26 AM</sunr>
+      <suns>4:39 PM</suns>
+      <zone>3</zone>
+    </loc>
+        
+        
+        <cc>
+        <lsup>12/31/17 11:00 AM MSK</lsup>
+        <obst>Vitebsk, VI, BO</obst>
+        <tmp>-1</tmp>
+        <flik>-4</flik>
+        <t>Partly Cloudy</t>
+        <icon>30</icon>
+        
+        <bar>
+          <r>988.15</r>
+          <d></d>
+        </bar>
+        <wind>
+      <s>11</s>
+      <gust>N/A</gust>
+      <d>180</d>
+      <t>S</t>
+    </wind>
+        <hmid>93</hmid>
+        <vis>6.4</vis>
+        <uv>
+          <i>0</i>
+          <t>Low</t>
+        </uv>
+        <dewp>-2</dewp>
+        <moon>
+          <icon>12</icon>
+          <t>Waxing Gibbous</t>
+        </moon>
+      </cc>
+        <dayf>
+        <lsup>12/31/17 7:00 AM MSK</lsup>
+        <day d="0" t="Sunday" dt="Dec 31">
+        <hi>0</hi>
+        <low>-1</low>
+        <sunr>9:26 AM</sunr>
+        <suns>4:39 PM</suns>
+        
+        <part p="d">
+          <icon>30</icon>
+          <t>Partly Cloudy</t>
+          <wind>
+      <s>16</s>
+      <gust>N/A</gust>
+      <d>151</d>
+      <t>SSE</t>
+    </wind>
+          <bt>P Cloudy</bt>
+          <ppcp>10</ppcp>
+          <hmid>87</hmid>
+        </part>
+        <part p="n">
+          <icon>27</icon>
+          <t>Mostly Cloudy</t>
+          <wind>
+      <s>16</s>
+      <gust>N/A</gust>
+      <d>151</d>
+      <t>SSE</t>
+    </wind>
+          <bt>M Cloudy</bt>
+          <ppcp>20</ppcp>
+          <hmid>87</hmid>
+        </part>
+      </day><day d="1" t="Monday" dt="Jan 1">
+        <hi>2</hi>
+        <low>2</low>
+        <sunr>9:26 AM</sunr>
+        <suns>4:39 PM</suns>
+        
+        <part p="d">
+          <icon>5</icon>
+          <t>Rain / Snow</t>
+          <wind>
+      <s>24</s>
+      <gust>N/A</gust>
+      <d>171</d>
+      <t>S</t>
+    </wind>
+          <bt>Rain/Snow</bt>
+          <ppcp>70</ppcp>
+          <hmid>91</hmid>
+        </part>
+        <part p="n">
+          <icon>12</icon>
+          <t>Rain Late</t>
+          <wind>
+      <s>24</s>
+      <gust>N/A</gust>
+      <d>171</d>
+      <t>S</t>
+    </wind>
+          <bt>Rain Late</bt>
+          <ppcp>90</ppcp>
+          <hmid>94</hmid>
+        </part>
+      </day><day d="2" t="Tuesday" dt="Jan 2">
+        <hi>3</hi>
+        <low>1</low>
+        <sunr>9:26 AM</sunr>
+        <suns>4:39 PM</suns>
+        
+        <part p="d">
+          <icon>26</icon>
+          <t>Cloudy</t>
+          <wind>
+      <s>14</s>
+      <gust>N/A</gust>
+      <d>195</d>
+      <t>SSW</t>
+    </wind>
+          <bt>Cloudy</bt>
+          <ppcp>20</ppcp>
+          <hmid>94</hmid>
+        </part>
+        <part p="n">
+          <icon>5</icon>
+          <t>Rain / Snow Late</t>
+          <wind>
+      <s>14</s>
+      <gust>N/A</gust>
+      <d>195</d>
+      <t>SSW</t>
+    </wind>
+          <bt>Rn/Snw Late</bt>
+          <ppcp>80</ppcp>
+          <hmid>96</hmid>
+        </part>
+      </day><day d="3" t="Wednesday" dt="Jan 3">
+        <hi>2</hi>
+        <low>1</low>
+        <sunr>9:26 AM</sunr>
+        <suns>4:39 PM</suns>
+        
+        <part p="d">
+          <icon>5</icon>
+          <t>Rain / Snow</t>
+          <wind>
+      <s>20</s>
+      <gust>N/A</gust>
+      <d>158</d>
+      <t>SSE</t>
+    </wind>
+          <bt>Rain/Snow</bt>
+          <ppcp>80</ppcp>
+          <hmid>93</hmid>
+        </part>
+        <part p="n">
+          <icon>5</icon>
+          <t>Rain / Snow Showers</t>
+          <wind>
+      <s>20</s>
+      <gust>N/A</gust>
+      <d>158</d>
+      <t>SSE</t>
+    </wind>
+          <bt>R/S Showers</bt>
+          <ppcp>60</ppcp>
+          <hmid>94</hmid>
+        </part>
+      </day><day d="4" t="Thursday" dt="Jan 4">
+        <hi>3</hi>
+        <low>0</low>
+        <sunr>9:26 AM</sunr>
+        <suns>4:39 PM</suns>
+        
+        <part p="d">
+          <icon>11</icon>
+          <t>Few Showers</t>
+          <wind>
+      <s>24</s>
+      <gust>N/A</gust>
+      <d>156</d>
+      <t>SSE</t>
+    </wind>
+          <bt>Few Showers</bt>
+          <ppcp>50</ppcp>
+          <hmid>92</hmid>
+        </part>
+        <part p="n">
+          <icon>5</icon>
+          <t>Rain / Snow Showers</t>
+          <wind>
+      <s>24</s>
+      <gust>N/A</gust>
+      <d>156</d>
+      <t>SSE</t>
+    </wind>
+          <bt>R/S Showers</bt>
+          <ppcp>60</ppcp>
+          <hmid>95</hmid>
+        </part>
+      </day><day d="5" t="Friday" dt="Jan 5">
+        <hi>2</hi>
+        <low>0</low>
+        <sunr>9:26 AM</sunr>
+        <suns>4:39 PM</suns>
+        
+        <part p="d">
+          <icon>14</icon>
+          <t>Snow Shower</t>
+          <wind>
+      <s>14</s>
+      <gust>N/A</gust>
+      <d>164</d>
+      <t>SSE</t>
+    </wind>
+          <bt>Snow Showers</bt>
+          <ppcp>50</ppcp>
+          <hmid>93</hmid>
+        </part>
+        <part p="n">
+          <icon>26</icon>
+          <t>Cloudy</t>
+          <wind>
+      <s>14</s>
+      <gust>N/A</gust>
+      <d>164</d>
+      <t>SSE</t>
+    </wind>
+          <bt>Cloudy</bt>
+          <ppcp>20</ppcp>
+          <hmid>92</hmid>
+        </part>
+      </day><day d="6" t="Saturday" dt="Jan 6">
+        <hi>2</hi>
+        <low>0</low>
+        <sunr>9:26 AM</sunr>
+        <suns>4:39 PM</suns>
+        
+        <part p="d">
+          <icon>5</icon>
+          <t>Snow to Rain</t>
+          <wind>
+      <s>19</s>
+      <gust>N/A</gust>
+      <d>200</d>
+      <t>SSW</t>
+    </wind>
+          <bt>Snow to Rain</bt>
+          <ppcp>50</ppcp>
+          <hmid>90</hmid>
+        </part>
+        <part p="n">
+          <icon>5</icon>
+          <t>Rain / Snow Showers Late</t>
+          <wind>
+      <s>19</s>
+      <gust>N/A</gust>
+      <d>200</d>
+      <t>SSW</t>
+    </wind>
+          <bt>Rn/Snw Late</bt>
+          <ppcp>50</ppcp>
+          <hmid>93</hmid>
+        </part>
+      </day><day d="7" t="Sunday" dt="Jan 7">
+        <hi>1</hi>
+        <low>-2</low>
+        <sunr>9:26 AM</sunr>
+        <suns>4:39 PM</suns>
+        
+        <part p="d">
+          <icon>5</icon>
+          <t>Rain / Snow Showers</t>
+          <wind>
+      <s>16</s>
+      <gust>N/A</gust>
+      <d>261</d>
+      <t>W</t>
+    </wind>
+          <bt>R/S Showers</bt>
+          <ppcp>50</ppcp>
+          <hmid>89</hmid>
+        </part>
+        <part p="n">
+          <icon>46</icon>
+          <t>Snow Showers Early</t>
+          <wind>
+      <s>16</s>
+      <gust>N/A</gust>
+      <d>261</d>
+      <t>W</t>
+    </wind>
+          <bt>Snow Showers</bt>
+          <ppcp>30</ppcp>
+          <hmid>85</hmid>
+        </part>
+      </day><day d="8" t="Monday" dt="Jan 8">
+        <hi>0</hi>
+        <low>-3</low>
+        <sunr>9:26 AM</sunr>
+        <suns>4:39 PM</suns>
+        
+        <part p="d">
+          <icon>34</icon>
+          <t>Mostly Sunny</t>
+          <wind>
+      <s>11</s>
+      <gust>N/A</gust>
+      <d>4</d>
+      <t>N</t>
+    </wind>
+          <bt>M Sunny</bt>
+          <ppcp>20</ppcp>
+          <hmid>80</hmid>
+        </part>
+        <part p="n">
+          <icon>33</icon>
+          <t>Mostly Clear</t>
+          <wind>
+      <s>11</s>
+      <gust>N/A</gust>
+      <d>4</d>
+      <t>N</t>
+    </wind>
+          <bt>M Clear</bt>
+          <ppcp>20</ppcp>
+          <hmid>81</hmid>
+        </part>
+      </day>
+      </dayf>
+        
+        
+        
+        
+        
+        
+        
+      </weather>

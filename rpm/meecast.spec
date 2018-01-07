@@ -15,7 +15,7 @@
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
 Version:    1.1.19
-Release:    5 
+Release:    6 
 Group:      Utility
 License:    GPLv2.1
 URL:        https://github.com/Meecast/meecast 
@@ -178,7 +178,6 @@ systemctl-user start meecastd.service
 
   * Added string for translation
   * Fixed the New Year bug for weather.com and foreca.mobi sources
-  * Added station Moruya Heads to bom.gov.au source
   * Fixed char and icon too small in coverpage in XperiaX
 
 * Sun Oct 15 2017 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.18

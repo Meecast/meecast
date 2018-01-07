@@ -13,6 +13,7 @@ CoverBackground {
     property double angle: 0.0
     property int screen_height : coverPage.height
     property int screen_width : coverPage.width 
+    property double ratio: coverPage.height/374
 
 //  allowResize: true
 
@@ -114,13 +115,13 @@ CoverBackground {
     function update_data_on_page(){
         stationname.text = Config.stationname
 
-        stationname.font.pixelSize = 35 
+        stationname.font.pixelSize = 35*ratio
         if (stationname.text.length > 15)
-        	stationname.font.pixelSize = 30 
+        	stationname.font.pixelSize = 30*ratio 
         if (stationname.text.length > 18)
-        	stationname.font.pixelSize = 28 
+        	stationname.font.pixelSize = 28*ratio
         if (stationname.text.length > 20)
-        	stationname.font.pixelSize = 24 
+        	stationname.font.pixelSize = 24*ratio 
         current_temperature()
         if (coverPage.current_model("current") != undefined){
             now.visible = !coverPage.current_model("current")
@@ -134,9 +135,9 @@ CoverBackground {
             temp_text.font.bold = false
         }
         if (temp_text.text.length < 5)
-            temp_text.font.pointSize = 44 
+            temp_text.font.pointSize = 44*ratio 
         else
-            temp_text.font.pointSize = 40 
+            temp_text.font.pointSize = 40*ratio
         if (coverPage.current_model("pict") == undefined){
             icon.source = Config.iconspath + "/" + Config.iconset + "/49.png"
         }else{
@@ -171,14 +172,14 @@ CoverBackground {
         }
         if (description.text.length < 31)
             if (description.text.length < 10)
-                description.font.pointSize = 32
+                description.font.pointSize = 32*ratio
             else 
                 if (description.text.length < 20)
-                    description.font.pointSize = 25
+                    description.font.pointSize = 25*ratio
                 else
-                    description.font.pointSize = 20
+                    description.font.pointSize = 20*ratio
         else
-            description.font.pointSize = 16
+            description.font.pointSize = 16*ratio
         if ((Config.lastupdatecoverpage && coverPage.current_model("lastupdatetime") != undefined)){
             lastupdate.visible = true
         }else{
@@ -241,7 +242,6 @@ CoverBackground {
         status: coverPage.activating
         onStatusChanged: { 
             console.log(" Change status ", coverPage.activating);		
-            console.log(" screen_height ", screen_height);
             if (status){
                 if (!Config.updating){
                     Config.refreshconfig3()
@@ -332,7 +332,7 @@ CoverBackground {
         anchors.top: parent.top
         anchors.horizontalCenter: parent.horizontalCenter
         text: Config.stationname == "Unknown" ? "MeeCast" : Config.stationname
-        font.pixelSize: text.length > 20 ? 24 : (text.length > 18 ? 28 : (text.length > 15 ? 30 : 35))
+        font.pixelSize: text.length > 20 ? 24 : (text.length > 18 ? 28*ratio : (text.length > 15 ? 30*ratio : 35*ratio))
     }
     Text {
         id: now
@@ -344,7 +344,7 @@ CoverBackground {
         color: "white"
         visible: coverPage.current_model("current") != undefined && !coverPage.current_model("current")
         text: coverPage.current_model("current") == true ? Config.tr("Now") : Config.tr("Today")
-        font.pointSize: 10
+        font.pointSize: 10*ratio
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
     }
@@ -363,7 +363,7 @@ CoverBackground {
         color: "white"
         lineHeight: 0.7
         text: Current.temp + '°'
-        font.pointSize: 40 
+        font.pointSize: 40*ratio 
         font.bold: coverPage.current_model("current") != undefined && coverPage.current_model("current") ? true : false
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
@@ -388,7 +388,7 @@ CoverBackground {
         anchors.rightMargin: Theme.paddingLarge
         height: 30
         color: "white"
-        font.pointSize: 14
+        font.pointSize: 14*ratio
         verticalAlignment: Text.AlignVCenter
     }
     Image {
@@ -431,7 +431,7 @@ CoverBackground {
         color: "white"
         wrapMode:  TextEdit.WordWrap
         text: Config.stationname == "Unknown" ? Config.tr("No locations are set up yet.") : (Current.rowCount() == 0) ? "Looks like there's no info for this location." : coverPage.current_model("description")
-        font.pointSize: text.length < 20 ? 25 : 16
+        font.pointSize: text.length < 20 ? 25*ratio : 16*ratio
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
     }
@@ -442,7 +442,7 @@ CoverBackground {
         visible: (Config.lastupdatecoverpage && !isUpdate && coverPage.current_model("lastupdatetime") != undefined) ? true : false 
         anchors.horizontalCenter: parent.horizontalCenter
         text: coverPage.current_model("lastupdatetime") == undefined ? "MeeCast" : ((coverPage.current_model("lastupdatetime").length + Config.tr("Last update:").length) < 25 ?  Config.tr("Last update:") + " " + coverPage.current_model("lastupdatetime") : coverPage.current_model("lastupdatetime"))
-        font.pointSize: 18 
+        font.pixelSize: 20*ratio 
     }
 
     Image {

@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-openweathermap-org-source - MeeCast
  *
- * Copyright (C) 2013-2014 Vlad Vasilyeu
+ * Copyright (C) 2013-2018 Vlad Vasilyeu
  * 	for the code
  *
  * This software is free software; you can redistribute it and/or

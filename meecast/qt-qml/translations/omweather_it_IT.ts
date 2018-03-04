@@ -1926,6 +1926,10 @@ Ilir Gjika
             <translation>Prevalentemente nuvoloso / Vento</translation>
         </message>
         <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">Prevalentemente nuvoloso / Vento</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy Few Snow</source>
             <translation>Prevalentemente nuvoloso con poca neve</translation>
         </message>
@@ -2418,6 +2422,10 @@ Ilir Gjika
         <message>
             <source>PM Rain / Snow</source>
             <translation>Pioggia pom. / Neve</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">Pioggia al matt. / Rovesci Nevosi</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>

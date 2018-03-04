@@ -1931,6 +1931,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Предимно Облачно/Вятър</translation>
         </message>
         <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">Предимно Облачно/Вятър</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy Few Snow</source>
             <translation>Предимно Облачно Лек Сняг</translation>
         </message>
@@ -2423,6 +2427,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>РМ Дъжд/Сняг</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">АМ Дъжд/Превалявания от Сняг</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>

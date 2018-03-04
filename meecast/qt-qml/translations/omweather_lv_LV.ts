@@ -2236,6 +2236,11 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Mostly Cloudy Few Snow</source>
             <translation type="unfinished">
             </translation>
@@ -2843,6 +2848,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>PM Rain / Snow</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
             <translation type="unfinished">
             </translation>
         </message>

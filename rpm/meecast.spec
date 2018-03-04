@@ -14,8 +14,8 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    1.1.19
-Release:    7 
+Version:    1.1.20
+Release:    1 
 Group:      Utility
 License:    GPLv2.1
 URL:        https://github.com/Meecast/meecast 
@@ -174,6 +174,14 @@ systemctl-user start meecastd.service
 
 
 %changelog
+
+* Sun Jan 07 2018 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.20
+  * Added station Nonoai in Brazilia to openweathermap.org
+  * Added icon for openweathermap.org source
+  * Added string for translation
+  * Updated Russian, Dutch, Slovenian, Swedish translations
+
+
 * Sun Jan 07 2018 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.19
 
   * Added string for translation

@@ -1905,6 +1905,10 @@ Slovak - Roman Moravčík</source>
             <translation>Többnyire felhős / szeles</translation>
         </message>
         <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">Többnyire felhős / szeles</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy Few Snow</source>
             <translation>Többnyire felhős, kevés havazás</translation>
         </message>
@@ -2398,6 +2402,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>PM Rain / Snow</source>
             <translation>du. eső / havazás</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">de. eső / hózápor</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>

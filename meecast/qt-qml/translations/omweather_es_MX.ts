@@ -1939,6 +1939,10 @@ Precipitación: </translation>
             <translation>Bastante nuboso / Ventoso</translation>
         </message>
         <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">Bastante nuboso / Ventoso</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy Few Snow</source>
             <translation>Bastante nuboso con algo de nieve</translation>
         </message>
@@ -2431,6 +2435,10 @@ Precipitación: </translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>Lluvia / Nieve por la noche</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">Chaparrones de lluvia o nieve por la mañana</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>

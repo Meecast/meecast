@@ -1931,6 +1931,10 @@ Català - Agustí Clara</translation>
             <translation>Força núvol / Vent</translation>
         </message>
         <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">Força núvol / Vent</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy Few Snow</source>
             <translation>Força núvol amb una mica de neu</translation>
         </message>
@@ -2423,6 +2427,10 @@ Català - Agustí Clara</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>p.m.: Pluja / Neu</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">a.m.: Pluja / Ruixats de neu</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>

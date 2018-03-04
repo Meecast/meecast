@@ -1931,6 +1931,10 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Überwiegend bewölkt / Wind</translation>
         </message>
         <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">Überwiegend bewölkt / Wind</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy Few Snow</source>
             <translation>Überwiegend bewölkt / Leichter Schneefall</translation>
         </message>
@@ -2423,6 +2427,10 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>Nachmittags Regen / Schnee</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">Vormittags Regen / Schneeschauer</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>

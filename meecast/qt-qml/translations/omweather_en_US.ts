@@ -1927,6 +1927,10 @@ Precipitation: </translation>
             <translation>Mostly Cloudy / Wind</translation>
         </message>
         <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">Mostly Cloudy / Wind</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy Few Snow</source>
             <translation>Mostly Cloudy Few Snow</translation>
         </message>
@@ -2419,6 +2423,10 @@ Precipitation: </translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>PM Rain / Snow</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">AM Rain / Snow Showers</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>

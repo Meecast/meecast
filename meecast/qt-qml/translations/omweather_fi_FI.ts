@@ -1931,6 +1931,10 @@ Slovakia - Roman Moravčík</translation>
             <translation>Enimmäkseen pilvistä / Tuulista</translation>
         </message>
         <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">Enimmäkseen pilvistä / Tuulista</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy Few Snow</source>
             <translation>Enimmäkseen pilvistä ja ajoittaista lumisadetta</translation>
         </message>
@@ -2423,6 +2427,10 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>ip: Vesisadetta / Lumisadetta</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">ap: Vesisadetta / Lumikuuroja</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>

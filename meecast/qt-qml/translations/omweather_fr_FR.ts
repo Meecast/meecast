@@ -1917,6 +1917,10 @@ Slovaque - Roman Moravčík</translation>
             <translation>Plutôt nuageux / vent</translation>
         </message>
         <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">Plutôt nuageux / vent</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy Few Snow</source>
             <translation>Plutôt nuageux, neigeux</translation>
         </message>
@@ -2409,6 +2413,10 @@ Slovaque - Roman Moravčík</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>Pluie et neige l'après-midi</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">Matin : pluie / averses de neige</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>

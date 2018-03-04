@@ -1916,6 +1916,10 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Çoğunlukla Bulutlu / Rüzgar</translation>
         </message>
         <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">Çoğunlukla Bulutlu / Rüzgar</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy Few Snow</source>
             <translation>Çoğunlukla Bulutlu , Hafif Kar</translation>
         </message>
@@ -2408,6 +2412,10 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>PM Yağmur /  Kar</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">AM Yağmur / Sağnak Kar</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>

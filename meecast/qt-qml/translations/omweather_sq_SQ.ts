@@ -1930,6 +1930,10 @@ Rreshjet: </translation>
             <translation>Kryesisht me re / Erë</translation>
         </message>
         <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">Kryesisht me re / Erë</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy Few Snow</source>
             <translation>Kryesisht me re me disa rreshje dëbore</translation>
         </message>
@@ -2422,6 +2426,10 @@ Rreshjet: </translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>Pasidite Shi / Dëborë</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">Në mëngjes Shi/Rreshje dëbore</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>

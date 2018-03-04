@@ -1919,6 +1919,10 @@ Slovak - Roman Moravčík</source>
             <translation>Переважно хмарно / Вітер</translation>
         </message>
         <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">Переважно хмарно / Вітер</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy Few Snow</source>
             <translation>Переважно хмарно Часом сніг</translation>
         </message>
@@ -2414,6 +2418,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>PM Rain / Snow</source>
             <translation>Після полудня Дощ/ Сніг</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">До полудня дощ / Снігопади</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>

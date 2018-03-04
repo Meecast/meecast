@@ -1931,6 +1931,10 @@ Mưa:</translation>
             <translation>Nhiều mây, không mưa có gió</translation>
         </message>
         <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">Nhiều mây, không mưa có gió</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy Few Snow</source>
             <translation>Có mây, ko mưa, tuyết rơi rải rác</translation>
         </message>
@@ -2431,6 +2435,10 @@ Mưa:</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>PM Mưa / Tuyết</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">AM Mưa/Mưa tuyết</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>

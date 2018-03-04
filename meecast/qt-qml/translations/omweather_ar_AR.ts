@@ -1926,6 +1926,10 @@ Slovak - Roman Moravčík</source>
             <translation>غائم كلياً / رياح</translation>
         </message>
         <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">غائم كلياً / رياح</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy Few Snow</source>
             <translation>ثلوج قليلة غائمة كلياً</translation>
         </message>
@@ -2418,6 +2422,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>PM Rain / Snow</source>
             <translation>أمطار مساءً / ثلوج</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">مطر صباحاً / زخات ثلج</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>

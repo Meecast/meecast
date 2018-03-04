@@ -1925,6 +1925,10 @@ Precipitação:</translation>
             <translation>Geralmente Nublado / Ventoso</translation>
         </message>
         <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">Geralmente Nublado / Ventoso</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy Few Snow</source>
             <translation>Geralmente Nublado alguma Neve</translation>
         </message>
@@ -2417,6 +2421,10 @@ Precipitação:</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>PM Chuva / Neve</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">AM Chuva / Aguaceiros Neve Molhada</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>

@@ -1979,6 +1979,10 @@ słowacki - Roman Moravčík</translation>
             <translation>Głównie pochmurnie / wietrznie</translation>
         </message>
         <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">Głównie pochmurnie / wietrznie</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy Few Snow</source>
             <translation>Głównie pochmurnie, lekki śnieg</translation>
         </message>
@@ -2481,6 +2485,10 @@ słowacki - Roman Moravčík</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>Po południu deszcz / śnieg</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">Rano deszcz / przelotny śnieg</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>

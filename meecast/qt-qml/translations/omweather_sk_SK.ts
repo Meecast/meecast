@@ -1932,6 +1932,10 @@ Zrážky: </translation>
             <translation>Prevažne zamračené / Vietor</translation>
         </message>
         <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">Prevažne zamračené / Vietor</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy Few Snow</source>
             <translation>Prevažne zamračené s ojedinelým snežením</translation>
         </message>
@@ -2424,6 +2428,10 @@ Zrážky: </translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>Popoludní dážď / Sneženie</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">Dopoludnia dážď / Snehové prehánky</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>

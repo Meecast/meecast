@@ -1928,6 +1928,10 @@ Luca Onnis
             <translation>大部分多云夹风</translation>
         </message>
         <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">大部分多云夹风</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy Few Snow</source>
             <translation>大部多云短时有雪</translation>
         </message>
@@ -2420,6 +2424,10 @@ Luca Onnis
         <message>
             <source>PM Rain / Snow</source>
             <translation>下午下雨/下雪</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">上午下雨时有阵雪</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>

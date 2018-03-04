@@ -679,7 +679,7 @@ Ontwerp UI voor Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Clouds Early / Clearing Late</source>
-            <translation>Bewolkt / later opklarend</translation>
+            <translation>Vroeg bewolkt / later opklaring</translation>
         </message>
         <message>
             <source>Cloudy</source>
@@ -1521,7 +1521,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Ice Early</source>
-            <translation type="unfinished">Vroege motregen</translation>
+            <translation>Vroeg ijs</translation>
         </message>
         <message>
             <source>Ice Pellets</source>
@@ -1928,6 +1928,10 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>Mostly Cloudy / Wind</source>
             <translation>Overwegend bewolkt / wind</translation>
+        </message>
+        <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">Overwegend bewolkt / wind</translation>
         </message>
         <message>
             <source>Mostly Cloudy Few Snow</source>
@@ -2424,6 +2428,10 @@ Slowaaks - Roman Moravčík</translation>
             <translation>PM regen / sneeuw</translation>
         </message>
         <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">AM regen-/sneeuwbuien</translation>
+        </message>
+        <message>
             <source>PM Rain / Wind</source>
             <translation>PM regen / wind</translation>
         </message>
@@ -2721,7 +2729,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain / Ice Early</source>
-            <translation type="unfinished">Regen / eerder sneeuw</translation>
+            <translation>Regen / eerder ijs</translation>
         </message>
         <message>
             <source>Rain / Snow</source>
@@ -2813,7 +2821,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Refresh</source>
-            <translation>Verversen</translation>
+            <translation>Vernieuwen</translation>
         </message>
         <message>
             <source>Region</source>

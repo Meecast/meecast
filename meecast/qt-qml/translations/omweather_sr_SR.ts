@@ -1933,6 +1933,10 @@ Slovački - Roman Moravčík</translation>
             <translation>Pretežno oblačno / Vetar</translation>
         </message>
         <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">Pretežno oblačno / Vetar</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy Few Snow</source>
             <translation>Pretežno oblačno sa malo snega</translation>
         </message>
@@ -2425,6 +2429,10 @@ Slovački - Roman Moravčík</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>Popodne kiša / Sneg</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">Prepodne Kiša / Snežne mećave</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>

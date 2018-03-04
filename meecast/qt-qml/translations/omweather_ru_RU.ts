@@ -1496,7 +1496,8 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Ice Early</source>
-            <translation type="unfinished">Утром изморось</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Ice Pellets</source>
@@ -1679,8 +1680,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Light Rain / Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Небольшой дождь / Ветренно</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -1696,8 +1696,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Light Rain Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Небольшие ливневые дожди</translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
@@ -1908,6 +1907,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Mostly Cloudy / Wind</source>
             <translation>В основном облачно / Ветер</translation>
+        </message>
+        <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">В основном облачно / Ветер</translation>
         </message>
         <message>
             <source>Mostly Cloudy Few Snow</source>
@@ -2404,6 +2407,10 @@ Slovak - Roman Moravčík</source>
             <translation>После обеда дождь / Снег</translation>
         </message>
         <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">До полудня дождь / Снегопады</translation>
+        </message>
+        <message>
             <source>PM Rain / Wind</source>
             <translation>После полудня дождь / Ветер</translation>
         </message>
@@ -2709,7 +2716,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rain / Ice Early</source>
-            <translation type="unfinished">Дождь / С утра снег</translation>
+            <translation>Дождь / С утра ледяной</translation>
         </message>
         <message>
             <source>Rain / Snow</source>
@@ -2721,8 +2728,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rain / Snow / Wind Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Дождь / Снег / С утра ветер</translation>
         </message>
         <message>
             <source>Rain / Snow Early</source>
@@ -3211,8 +3217,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Snow Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Позже снег</translation>
         </message>
         <message>
             <source>Snow Shower</source>
@@ -3549,8 +3554,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Thundershowers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Грозовые ливни</translation>
         </message>
         <message>
             <source>Today</source>

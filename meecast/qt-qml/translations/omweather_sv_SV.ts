@@ -1521,7 +1521,7 @@ Slovakiska - Roman Moravčík</translation>
         </message>
         <message>
             <source>Ice Early</source>
-            <translation type="unfinished">Duggregn tidigt</translation>
+            <translation>Is tidigt</translation>
         </message>
         <message>
             <source>Ice Pellets</source>
@@ -1928,6 +1928,10 @@ Slovakiska - Roman Moravčík</translation>
         <message>
             <source>Mostly Cloudy / Wind</source>
             <translation>Mestadels molnigt / Vind</translation>
+        </message>
+        <message>
+            <source>Mostly Cloudy / Windy</source>
+            <translation type="unfinished">Mestadels molnigt / Vind</translation>
         </message>
         <message>
             <source>Mostly Cloudy Few Snow</source>
@@ -2424,6 +2428,10 @@ Slovakiska - Roman Moravčík</translation>
             <translation>FM Regn / Snö</translation>
         </message>
         <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">FM Regn / Snöbyar</translation>
+        </message>
+        <message>
             <source>PM Rain / Wind</source>
             <translation>FM Regn / Vind</translation>
         </message>
@@ -2721,7 +2729,7 @@ Slovakiska - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain / Ice Early</source>
-            <translation type="unfinished">Regn / Tidigt snö</translation>
+            <translation>Regn / Is tidigt</translation>
         </message>
         <message>
             <source>Rain / Snow</source>

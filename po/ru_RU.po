@@ -1,34 +1,29 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012
-# Vlad Vas <vasvlad@gmail.com>, 2013-2017
+# Vlad Vas <vasvlad@gmail.com>, 2013-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-23 20:51+0300\n"
-"PO-Revision-Date: 2017-02-19 17:47+0000\n"
+"POT-Creation-Date: 2017-09-18 18:18+0300\n"
+"PO-Revision-Date: 2018-01-27 16:30+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
-"Language-Team: Russian (http://www.transifex.com/vasvlad/meecast/language/"
-"ru/)\n"
-"Language: ru\n"
+"Language-Team: Russian (http://www.transifex.com/vasvlad/meecast/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
-"%100>=11 && n%100<=14)? 2 : 3);\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: omweather/src/weather-home.c:1567
 msgid ""
 "\n"
 "H: "
-msgstr ""
-"\n"
-"В: "
+msgstr "\nВ: "
 
 #: omweather/src/weather-help.c:80
 #, c-format
@@ -55,50 +50,38 @@ msgstr ""
 msgid ""
 "\n"
 "Humidity: "
-msgstr ""
-"\n"
-"Влажность: "
+msgstr "\nВлажность: "
 
 #: omweather/src/weather-home.c:1608
 msgid ""
 "\n"
 "P: "
-msgstr ""
-"\n"
-"Д: "
+msgstr "\nД: "
 
 #: omweather/src/weather-popup.c:954 omweather/src/weather-popup.c:959
 #: omweather/src/weather-popup.c:1087 omweather/src/weather-popup.c:1092
 msgid ""
 "\n"
 "Precipitation: "
-msgstr ""
-"\n"
-"Атмосферные осадки: "
+msgstr "\nАтмосферные осадки: "
 
 #: omweather/src/weather-popup.c:976 omweather/src/weather-popup.c:1108
 msgid ""
 "\n"
 "Pressure: "
-msgstr ""
-"\n"
-"Давление: "
+msgstr "\nДавление: "
 
 #: omweather/src/weather-home.c:1577
 msgid ""
 "\n"
 "V: "
-msgstr ""
-"\n"
-"В: "
+msgstr "\nВ: "
 
 #: omweather/src/weather-home.c:1614
 msgid ""
 "\n"
 "W: "
-msgstr ""
-"\n"
-"В: "
+msgstr "\nВ: "
 
 #: meecast/qt-qml/dataitem.cpp:569 meecast/qt-qml/dataitem.cpp:570
 msgid "(Low)"
@@ -339,14 +322,7 @@ msgid ""
 "for installing package 'MeeCast applet'.\n"
 "You should uninstall AccuWeather \n"
 "before installing this package"
-msgstr ""
-"Сейчас будет запущена программа\n"
-"'Управление Приложениями' для\n"
-"того чтобы установить пакет\n"
-"'MeeCast applet'.\n"
-"Вы должны деинсталировать\n"
-"пакет AccuWeather до\n"
-"установки этой программы"
+msgstr "Сейчас будет запущена программа\n'Управление Приложениями' для\nтого чтобы установить пакет\n'MeeCast applet'.\nВы должны деинсталировать\nпакет AccuWeather до\nустановки этой программы"
 
 #: meecast/qt-qml/qml/AboutPage.qml:257
 msgid "Arabic - Tarad Alfandi\n"
@@ -456,9 +432,7 @@ msgstr "Цельсий"
 msgid ""
 "Chinese - Wong Man Kong, Michael,\n"
 " \tgwmgdemj\n"
-msgstr ""
-"Китайский - Wong Man Kong, Michael,\n"
-"gwmgdemj\n"
+msgstr "Китайский - Wong Man Kong, Michael,\ngwmgdemj\n"
 
 #: meecast/qt-qml/qml/AboutPage.qml:264
 msgid "Chinese(Taiwan) - osk2, \n"
@@ -639,9 +613,7 @@ msgstr "Copyright(c) 2010-2011 by Таня Макова\n"
 msgid ""
 "Could not connecting to Internet.\n"
 "Connection timeout is expired."
-msgstr ""
-"Не могу подключиться к Интернету.\n"
-"Время соединения истекло."
+msgstr "Не могу подключиться к Интернету.\nВремя соединения истекло."
 
 #: omweather/src/weather-config.c:401
 #, c-format
@@ -708,11 +680,9 @@ msgstr "Удалить местоположение?"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
-"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
-"zhilin@ovi.com>\n"
-msgstr ""
-"Дизайн интерфейса и наборa иконок по-умолчанию: Copyright 2006-2011  Андрей "
-"Жилин, <andrew.zhilin@ovi.com>\n"
+"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, "
+"<andrew.zhilin@ovi.com>\n"
+msgstr "Дизайн интерфейса и наборa иконок по-умолчанию: Copyright 2006-2011  Андрей Жилин, <andrew.zhilin@ovi.com>\n"
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
 msgid "Detailed"
@@ -741,9 +711,7 @@ msgstr "Единицы расстояния:"
 msgid ""
 "Does not to add station, because no one\n"
 "of 'omweather-*-stations-db' packages was installed."
-msgstr ""
-"Не возможно добавить станцию, потому что ни один\n"
-"из 'omweather-*-stations-db пакетоа не установлен."
+msgstr "Не возможно добавить станцию, потому что ни один\nиз 'omweather-*-stations-db пакетоа не установлен."
 
 #: omweather/src/weather-simple-popup.c:1171
 #: omweather/src/weather-simple-popup.c:1220
@@ -825,16 +793,7 @@ msgid ""
 "Brian Knight - for idea of iconset, criticism and donation ;-)\n"
 "Andrew aka Tabster - for testing and ideas\n"
 "Brad Jones aka kazrak - for testing\n"
-msgstr ""
-"Эдуард Бартош - за множество предложенных улучшений, поддержку и критику\n"
-"Евгений Калюта ака tren - за новые идеи и поддержку\n"
-"Максим Калинкевич ака spark за тестирование\n"
-"Юрий Комяков - за Nokia 770 \n"
-"Greg Thompson - за предоставленный файл stations.txt\n"
-"Frank Persian - за идею об изменении расположения иконок\n"
-"Brian Knight - за идею о наборе иконок, критику и финансовую поддержку. ;-)\n"
-"Andrew aka Tabster - за идеи и тестирование\n"
-"Brad Jones aka kazrak - за тестирование\n"
+msgstr "Эдуард Бартош - за множество предложенных улучшений, поддержку и критику\nЕвгений Калюта ака tren - за новые идеи и поддержку\nМаксим Калинкевич ака spark за тестирование\nЮрий Комяков - за Nokia 770 \nGreg Thompson - за предоставленный файл stations.txt\nFrank Persian - за идею об изменении расположения иконок\nBrian Knight - за идею о наборе иконок, критику и финансовую поддержку. ;-)\nAndrew aka Tabster - за идеи и тестирование\nBrad Jones aka kazrak - за тестирование\n"
 
 #: omweather/src/weather-simple-settings.c:330
 #: omweather/src/weather-simple-settings.c:421
@@ -1010,18 +969,14 @@ msgid ""
 "you should uninstall package\n"
 "'Activating MeeCast Applet'\n"
 "using Application manager"
-msgstr ""
-"Для отключения виджета MeeCast\n"
-"Вы должны деинсталировать пакет\n"
-"'Activating MeeCast Applet'\n"
-"используя прогамму\n"
-"'Управление Приложениями'"
+msgstr "Для отключения виджета MeeCast\nВы должны деинсталировать пакет\n'Activating MeeCast Applet'\nиспользуя прогамму\n'Управление Приложениями'"
 
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
 msgstr "Прогноз"
 
-#: omweather/src/weather-popup.c:1433 omweather/src/weather-simple-popup.c:1028
+#: omweather/src/weather-popup.c:1433
+#: omweather/src/weather-simple-popup.c:1028
 msgid "Forecast at: "
 msgstr "Прогноз на: "
 
@@ -1056,16 +1011,7 @@ msgid ""
 "Spanish - Alejandro Lopez\n"
 "Polish - Tomasz Dominikowski\n"
 "Slovak - Roman Moravčík"
-msgstr ""
-"Французский - Nicolas Granziano, Philippe, Benot Knecht\n"
-"Русский - Павел Фиалко, Владислав Васильев, Эдуард Бартош\n"
-"Финнский - Marko Vertainen\n"
-"Немецкий - Claudius Henrichs\n"
-"Итальянский - Павел Фиалко, Alessandro Pasotti, \n"
-"\tSalvatore Fiorenzo, Luca Onnis\n"
-"Испанский - Alejandro Lopez\n"
-"Польский - Tomasz Dominikowski\n"
-"Словацкий - Roman Moravčík"
+msgstr "Французский - Nicolas Granziano, Philippe, Benot Knecht\nРусский - Павел Фиалко, Владислав Васильев, Эдуард Бартош\nФиннский - Marko Vertainen\nНемецкий - Claudius Henrichs\nИтальянский - Павел Фиалко, Alessandro Pasotti, \n\tSalvatore Fiorenzo, Luca Onnis\nИспанский - Alejandro Lopez\nПольский - Tomasz Dominikowski\nСловацкий - Roman Moravčík"
 
 #: omweather/src/hash.data:93
 msgid "Full"
@@ -1223,9 +1169,8 @@ msgid "Hungarian - Salmi, László Kara\n"
 msgstr ""
 
 #: omweather/src/hash.data:112
-#, fuzzy
 msgid "Ice Early"
-msgstr "Утром изморось"
+msgstr ""
 
 #: omweather/src/hash.data:111
 msgid "Ice Pellets"
@@ -1251,7 +1196,8 @@ msgstr "Набор иконок"
 msgid "Iconsets"
 msgstr "Наборы иконок:"
 
-#: meecast/qt-qml/qml/VisualsPage.qml:64 meecast/qt-qml/qml/VisualsPage.qml:136
+#: meecast/qt-qml/qml/VisualsPage.qml:64
+#: meecast/qt-qml/qml/VisualsPage.qml:136
 #: meecast/qt-qml/qml/VisualsPage.qml:163
 #: meecast/qt-qml/qml/VisualsPage.qml:226
 msgid "Information"
@@ -1360,7 +1306,7 @@ msgstr "Небольшой дождь / Позже ветер"
 
 #: omweather/src/hash.data:127
 msgid "Light Rain / Windy"
-msgstr ""
+msgstr "Небольшой дождь / Ветренно"
 
 #: omweather/src/hash.data:128
 msgid "Light Rain Early"
@@ -1376,7 +1322,7 @@ msgstr "Небольшой ливень"
 
 #: omweather/src/hash.data:385
 msgid "Light Rain Showers"
-msgstr ""
+msgstr "Небольшие ливневые дожди"
 
 #: omweather/src/hash.data:131
 msgid "Light Rain and Freezing Rain"
@@ -1496,8 +1442,8 @@ msgstr "Пасмурно, ливень"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
-"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
-"com>\n"
+"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
+"<tanyshk@gmail.com>\n"
 msgstr ""
 
 #: omweather/src/hash.data:149 meecast/qt-qml/qml/StationsPage.qml:158
@@ -2173,9 +2119,8 @@ msgid "Rain / Freezing Rain"
 msgstr "Дождь / Холодный дождь"
 
 #: omweather/src/hash.data:260
-#, fuzzy
 msgid "Rain / Ice Early"
-msgstr "Дождь / С утра снег"
+msgstr "Дождь / С утра ледяной"
 
 #: omweather/src/hash.data:269
 msgid "Rain / Snow"
@@ -2187,7 +2132,7 @@ msgstr "Дождь / Снег / Ветер"
 
 #: omweather/src/hash.data:263
 msgid "Rain / Snow / Wind Early"
-msgstr ""
+msgstr "Дождь / Снег / С утра ветер"
 
 #: omweather/src/hash.data:264
 msgid "Rain / Snow Early"
@@ -2595,7 +2540,7 @@ msgstr "С утра снег"
 
 #: omweather/src/hash.data:312
 msgid "Snow Late"
-msgstr ""
+msgstr "Позже снег"
 
 #: omweather/src/hash.data:316
 msgid "Snow Shower"
@@ -2810,8 +2755,7 @@ msgstr "Нет никаких станций, чтобы показать их �
 
 #: omweather/src/hash.data:406
 msgid "This is experimental feature. Only English is supported."
-msgstr ""
-"Это экспериментальная возможность. Поддерживается только английский язык."
+msgstr "Это экспериментальная возможность. Поддерживается только английский язык."
 
 #: meecast/qt-qml/qml/AboutPage.qml:321
 msgid ""
@@ -2840,7 +2784,7 @@ msgstr "Местами грозы"
 
 #: omweather/src/hash.data:339
 msgid "Thundershowers"
-msgstr ""
+msgstr "Грозовые ливни"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
@@ -2941,18 +2885,13 @@ msgstr "Идет обновление данных о погоде."
 msgid ""
 "Use Edit layout \n"
 "for tuning images of applet"
-msgstr ""
-"Используйте\n"
-"'Редактировать компоновку' \n"
-"для настройки изображения апплета."
+msgstr "Используйте\n'Редактировать компоновку' \nдля настройки изображения апплета."
 
 #: omweather/src/weather-simple-settings.c:1835
 msgid ""
 "Use GSM and/or WLAN for periodic updating\n"
 " the weather information.\n"
-msgstr ""
-"Использовать GSM и/или WLAN для переодического\n"
-"обновления информации о погоде.\n"
+msgstr "Использовать GSM и/или WLAN для переодического\nобновления информации о погоде.\n"
 
 #: omweather/src/weather-sensor.c:65
 msgid "Use device temperature sensor"
@@ -3162,9 +3101,7 @@ msgstr "Поземка переходящая в снег"
 msgid ""
 "Wrong station code \n"
 "or ZIP code!!!"
-msgstr ""
-"Неправильный код станции\n"
-"или индекс!!!"
+msgstr "Неправильный код станции\nили индекс!!!"
 
 #: omweather/src/weather-settings.c:824 meecast/qt-qml/qml/StationsPage.qml:77
 msgid "Yes"
@@ -3179,32 +3116,20 @@ msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using LockScreen widget"
-msgstr ""
-"Для использования \n"
-"LockScreen виджета\n"
-"Вы должны активировать \n"
-"опцию 'Виджет на экране \n"
-"событий'  "
+msgstr "Для использования \nLockScreen виджета\nВы должны активировать \nопцию 'Виджет на экране \nсобытий'  "
 
 #: meecast/qt-qml/qml/VisualsPage.qml:256
 msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using StandbyScreen widget"
-msgstr ""
-"Для использования \n"
-"StandbyScreen виджета\n"
-"Вы должны активировать \n"
-"опцию 'Виджет на экране \n"
-"событий'  "
+msgstr "Для использования \nStandbyScreen виджета\nВы должны активировать \nопцию 'Виджет на экране \nсобытий'  "
 
 #: meecast/qt-qml/qml/UpdatePage.qml:73
 msgid ""
-"You should activate 'Widget in the events view' option in MeeCast appearance "
-"settings for auto update."
-msgstr ""
-"Для автообновления Вы должны активировать опцию 'Виджет на экране событий' в "
-"настройках внешнего вида MeeCast."
+"You should activate 'Widget in the events view' option in MeeCast appearance"
+" settings for auto update."
+msgstr "Для автообновления Вы должны активировать опцию 'Виджет на экране событий' в настройках внешнего вида MeeCast."
 
 #: omweather/src/weather-simple-settings.c:2758
 msgid "Zoom in popup window "

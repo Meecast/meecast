@@ -180,7 +180,7 @@ systemctl-user start meecastd.service
   * Added icon for openweathermap.org source
   * Added string for translation
   * Updated Russian, Dutch, Slovenian, Swedish translations
-
+  * Changed desktop icon
 
 * Sun Jan 07 2018 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.19
 

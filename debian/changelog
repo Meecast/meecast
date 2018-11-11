@@ -4,8 +4,9 @@ meecast (1.1.20) unstable; urgency=low
   * Added icon for openweathermap.org source
   * Added string for translation
   * Updated Russian, Dutch, Slovenian, Swedish translations
+  * Fixed source gismeteo.ru
 
- -- Vlad Vasiliev <vlad@gas.by> Fri, 23 Mar 2018 18:02:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by> Sun, 11 Nov 2018 23:02:23 +0200
 
 meecast (1.1.19) unstable; urgency=low
 

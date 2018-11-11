@@ -175,12 +175,13 @@ systemctl-user start meecastd.service
 
 %changelog
 
-* Fri Mar 23 2018 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.20
+* Sun Nov 11 2018 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.20
   * Added station Nonoai in Brazilia to openweathermap.org
   * Added icon for openweathermap.org source
   * Added string for translation
   * Updated Russian, Dutch, Slovenian, Swedish translations
   * Changed desktop icon
+  * Fixed source gismteo.ru
 
 * Sun Jan 07 2018 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.19
 

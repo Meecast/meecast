@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2016 Vlad Vasilyeu
+ * Copyright (C) 2006-2018 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -594,8 +594,7 @@ Config::LoadConfig(){
                 std::cerr<<"New Gismeteo ForecastURl new "<< forecastURL.toStdString()<<std::endl;
                 if (detailURL.indexOf("weather",0) == -1){
                     detailURL.replace("gismeteo.by", "gismeteo.ua");
-                    detailURL.replace(station_id, new_url);
-                   std::cerr<<"New Gismeteo DetailURl new "<< detailURL.toStdString()<<std::endl;
+                    std::cerr<<"New Gismeteo DetailURl new "<< detailURL.toStdString()<<std::endl;
                 }
             }
 

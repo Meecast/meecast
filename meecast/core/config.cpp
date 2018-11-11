@@ -566,18 +566,11 @@ Config::LoadConfig(){
 
                 n = n.nextSibling();
             }
-/* Hack for yr.no */
+            /* Hack for yr.no */
             if  (source_name=="yr.no")
                 forecastURL.replace("#","/");
             if  (source_name=="yr.no")
                 viewURL.replace("#","/");
-/* Temporary hack for gismeteo.ru  remove it after version 1.2 */
-            if  (source_name=="gismeteo.ru" && (forecastURL.compare("http://www.gismeteo.by/weather-saint-petersburg-4079/14-days/", Qt::CaseInsensitive) == 0)){
-                forecastURL="http://www.gismeteo.by/weather-sankt-peterburg-4079/14-days/";
-                viewURL="http://www.gismeteo.by/weather-sankt-peterburg-4079/";
-                detailURL="http://www.gismeteo.by/weather-sankt-peterburg-4079/hourly/";
-                std::cerr<<"Replaced Gismeteo.ru URL  for SanktPeterburg "<< forecastURL.toStdString()<<std::endl;
-            }
             if  (source_name=="gismeteo.ru" && (forecastURL.indexOf("weather",0) == -1)){
                 QString new_url;
                 new_url = "weather-" + station_name.toLower() + "-" + station_id;
@@ -593,6 +586,17 @@ Config::LoadConfig(){
                    std::cerr<<"New Gismeteo DetailURl new "<< detailURL.toStdString()<<std::endl;
                 }
                 cookie="old=1";
+            }
+            /* Hack for gismeteo.ru */
+            if  (source_name=="gismeteo.ru" && (forecastURL.indexOf("gismeteo.by",0) == -1)){
+                std::cerr<<"Replaced Gismeteo.bt URL "<< forecastURL.toStdString()<<std::endl;
+                forecastURL.replace("gismeteo.by", "gismeteo.ua");
+                std::cerr<<"New Gismeteo ForecastURl new "<< forecastURL.toStdString()<<std::endl;
+                if (detailURL.indexOf("weather",0) == -1){
+                    detailURL.replace("gismeteo.by", "gismeteo.ua");
+                    detailURL.replace(station_id, new_url);
+                   std::cerr<<"New Gismeteo DetailURl new "<< detailURL.toStdString()<<std::endl;
+                }
             }
 
             std::cerr<<"SOurce name "<<source_name.toStdString()<<std::endl;

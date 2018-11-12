@@ -588,7 +588,7 @@ Config::LoadConfig(){
                 cookie="old=1";
             }
             /* Hack for gismeteo.ru */
-            if  (source_name=="gismeteo.ru" && (forecastURL.indexOf("gismeteo.by",0) == -1)){
+            if  (source_name=="gismeteo.ru" && (forecastURL.indexOf("gismeteo.by",0) != -1)){
                 std::cerr<<"Replaced Gismeteo.bt URL "<< forecastURL.toStdString()<<std::endl;
                 forecastURL.replace("gismeteo.by", "gismeteo.ua");
                 std::cerr<<"New Gismeteo ForecastURl new "<< forecastURL.toStdString()<<std::endl;

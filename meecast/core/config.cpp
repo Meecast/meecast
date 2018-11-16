@@ -537,7 +537,7 @@ Config::LoadConfig(){
                 std::cerr<<"Replaced Gismeteo.bt URL "<< forecastURL.toStdString()<<std::endl;
                 forecastURL.replace("gismeteo.by", "gismeteo.ua");
                 std::cerr<<"New Gismeteo ForecastURl new "<< forecastURL.toStdString()<<std::endl;
-                if (detailURL.indexOf("weather",0) == -1){
+                if (detailURL.indexOf("gismeteo.by",0) == -1){
                     detailURL.replace("gismeteo.by", "gismeteo.ua");
                     std::cerr<<"New Gismeteo DetailURl new "<< detailURL.toStdString()<<std::endl;
                 }

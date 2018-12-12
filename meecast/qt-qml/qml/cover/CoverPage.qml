@@ -341,7 +341,7 @@ CoverBackground {
         anchors.top: stationname.bottom 
         anchors.topMargin: -9 
         anchors.right: parent.right
-        color: "white"
+    //    color: "white"
         visible: coverPage.current_model("current") != undefined && !coverPage.current_model("current")
         text: coverPage.current_model("current") == true ? Config.tr("Now") : Config.tr("Today")
         font.pointSize: 10*ratio
@@ -360,7 +360,7 @@ CoverBackground {
         anchors.left: icon.right
         wrapMode: TextEdit.WordWrap
         height: 0.289*screen_height 
-        color: "white"
+      //  color: "white"
         lineHeight: 0.7
         text: Current.temp + '°'
         font.pointSize: 40*ratio 
@@ -387,7 +387,7 @@ CoverBackground {
         anchors.right: parent.right
         anchors.rightMargin: Theme.paddingLarge
         height: 30
-        color: "white"
+      //  color: "white"
         font.pointSize: 14*ratio
         verticalAlignment: Text.AlignVCenter
     }
@@ -428,7 +428,7 @@ CoverBackground {
         width: parent.width
         // height: 0.36*screen_height
         elide : Text.ElideRight
-        color: "white"
+        // color: "white"
         wrapMode:  TextEdit.WordWrap
         text: Config.stationname == "Unknown" ? Config.tr("No locations are set up yet.") : (Current.rowCount() == 0) ? "Looks like there's no info for this location." : coverPage.current_model("description")
         font.pointSize: text.length < 20 ? 25*ratio : 16*ratio

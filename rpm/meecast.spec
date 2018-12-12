@@ -175,8 +175,8 @@ systemctl-user start meecastd.service
 
 %changelog
 
-* Sun Nov 11 2018 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.21
-  *
+* Wed Dec 12 2018 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.21
+  * Fixed text color on cover page for white theme
 
 * Sun Nov 11 2018 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.20
   * Added station Nonoai in Brazilia to openweathermap.org

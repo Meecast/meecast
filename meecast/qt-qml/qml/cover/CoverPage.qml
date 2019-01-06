@@ -326,7 +326,7 @@ CoverBackground {
         width: parent.width
         height: sourceSize.height * width / sourceSize.width
     }
-    Text {
+    Label {
         id: stationname
         visible: isUpdate ? false : true
         anchors.top: parent.top
@@ -436,7 +436,7 @@ CoverBackground {
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
     }
-    Text {
+    Label {
         id: lastupdate 
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 0
@@ -458,7 +458,7 @@ CoverBackground {
         anchors.horizontalCenter: icon.horizontalCenter
       //  scale: 0.8
     }
-    Text {
+    Label {
         id: title
         visible: isUpdate ? true : false
         anchors.top: parent.top

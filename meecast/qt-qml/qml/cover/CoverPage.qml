@@ -326,22 +326,23 @@ CoverBackground {
         width: parent.width
         height: sourceSize.height * width / sourceSize.width
     }
-    Label {
+    Text {
         id: stationname
         visible: isUpdate ? false : true
         anchors.top: parent.top
+        color: Theme.primaryColor
         anchors.horizontalCenter: parent.horizontalCenter
         text: Config.stationname == "Unknown" ? "MeeCast" : Config.stationname
         font.pixelSize: text.length > 20 ? 24 : (text.length > 18 ? 28*ratio : (text.length > 15 ? 30*ratio : 35*ratio))
     }
-    Label {
+    Text {
         id: now
         width: parent.width/2  
         height: 30
         anchors.top: stationname.bottom 
         anchors.topMargin: -9 
         anchors.right: parent.right
-    //    color: "white"
+        color: Theme.primaryColor
         visible: coverPage.current_model("current") != undefined && !coverPage.current_model("current")
         text: coverPage.current_model("current") == true ? Config.tr("Now") : Config.tr("Today")
         font.pointSize: 10*ratio
@@ -349,7 +350,7 @@ CoverBackground {
         horizontalAlignment: Text.AlignHCenter
     }
 
-    Label {
+    Text {
         id: temp_text
         visible: Config.stationname == "Unknown" || isUpdate  ? false : true
         anchors.top: stationname.bottom
@@ -360,7 +361,7 @@ CoverBackground {
         anchors.left: icon.right
         wrapMode: TextEdit.WordWrap
         height: 0.289*screen_height 
-      //  color: "white"
+        color: Theme.primaryColor
         lineHeight: 0.7
         text: Current.temp + '°'
         font.pointSize: 40*ratio 
@@ -379,7 +380,7 @@ CoverBackground {
         anchors.topMargin: 5 
         smooth: true
     }
-    Label {
+    Text {
         id: wind_speed_text
         text: (Config.windspeedunit == "Beaufort scale") ? coverPage.current_model("wind_speed") : coverPage.current_model("wind_speed") + ' ' + Config.tr(Config.windspeedunit)
         visible: Config.windcoverpage && !isUpdate && coverPage.current_model("wind_speed") != undefined && coverPage.current_model("wind_speed") != "N/A"
@@ -387,7 +388,7 @@ CoverBackground {
         anchors.right: parent.right
         anchors.rightMargin: Theme.paddingLarge
         height: 30
-      //  color: "white"
+        color: Theme.primaryColor
         font.pointSize: 14*ratio
         verticalAlignment: Text.AlignVCenter
     }
@@ -419,7 +420,7 @@ CoverBackground {
             angle: coverPage.angle
         }
     }
-    Label {
+    Text {
         id: description
         visible: isUpdate ? false : true
 //        anchors.top: Config.windcoverpage && coverPage.current_model("wind_speed") != "N/A" ? wind_direction.bottom : icon.bottom
@@ -428,14 +429,14 @@ CoverBackground {
         width: parent.width
         // height: 0.36*screen_height
         elide : Text.ElideRight
-        // color: "white"
+        color: Theme.primaryColor
         wrapMode:  TextEdit.WordWrap
         text: Config.stationname == "Unknown" ? Config.tr("No locations are set up yet.") : (Current.rowCount() == 0) ? "Looks like there's no info for this location." : coverPage.current_model("description")
         font.pointSize: text.length < 20 ? 25*ratio : 16*ratio
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
     }
-    Label {
+    Text {
         id: lastupdate 
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 0
@@ -443,6 +444,7 @@ CoverBackground {
         anchors.horizontalCenter: parent.horizontalCenter
         text: coverPage.current_model("lastupdatetime") == undefined ? "MeeCast" : ((coverPage.current_model("lastupdatetime").length + Config.tr("Last update:").length) < 25 ?  Config.tr("Last update:") + " " + coverPage.current_model("lastupdatetime") : coverPage.current_model("lastupdatetime"))
         font.pixelSize: 20*ratio 
+        color: Theme.primaryColor
     }
 
     Image {
@@ -456,10 +458,11 @@ CoverBackground {
         anchors.horizontalCenter: icon.horizontalCenter
       //  scale: 0.8
     }
-    Label {
+    Text {
         id: title
         visible: isUpdate ? true : false
         anchors.top: parent.top
+        color: Theme.primaryColor
         anchors.topMargin: Theme.paddingMedium
         anchors.horizontalCenter: parent.horizontalCenter
         text: "MeeCast" 
@@ -488,6 +491,7 @@ CoverBackground {
         horizontalAlignment: Text.AlignHLeft; 
         anchors.top: parent.top 
         anchors.topMargin: 190 
+        color: Theme.primaryColor
         //anchors.centerIn: parent
         visible: isUpdate ? true : false
         font.pointSize: 20; 

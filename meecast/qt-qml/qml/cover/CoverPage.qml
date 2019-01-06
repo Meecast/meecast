@@ -334,7 +334,7 @@ CoverBackground {
         text: Config.stationname == "Unknown" ? "MeeCast" : Config.stationname
         font.pixelSize: text.length > 20 ? 24 : (text.length > 18 ? 28*ratio : (text.length > 15 ? 30*ratio : 35*ratio))
     }
-    Text {
+    Label {
         id: now
         width: parent.width/2  
         height: 30
@@ -349,7 +349,7 @@ CoverBackground {
         horizontalAlignment: Text.AlignHCenter
     }
 
-    Text {
+    Label {
         id: temp_text
         visible: Config.stationname == "Unknown" || isUpdate  ? false : true
         anchors.top: stationname.bottom
@@ -379,7 +379,7 @@ CoverBackground {
         anchors.topMargin: 5 
         smooth: true
     }
-    Text {
+    Label {
         id: wind_speed_text
         text: (Config.windspeedunit == "Beaufort scale") ? coverPage.current_model("wind_speed") : coverPage.current_model("wind_speed") + ' ' + Config.tr(Config.windspeedunit)
         visible: Config.windcoverpage && !isUpdate && coverPage.current_model("wind_speed") != undefined && coverPage.current_model("wind_speed") != "N/A"
@@ -419,7 +419,7 @@ CoverBackground {
             angle: coverPage.angle
         }
     }
-    Text {
+    Label {
         id: description
         visible: isUpdate ? false : true
 //        anchors.top: Config.windcoverpage && coverPage.current_model("wind_speed") != "N/A" ? wind_direction.bottom : icon.bottom

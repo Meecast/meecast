@@ -527,12 +527,14 @@ Page {
                         spacing: 3
                         Text {
                             text: model.cond_name
-                            color: "#999999"
+                            color: Theme.secondaryColor
+//                            color: "#999999"
                             font.pointSize: medium_FontPointSize 
                         }
                         Text {
                             text: model.value
-                            color: "white"
+                            color: Theme.primaryColor
+//                            color: "white"
                             font.pointSize: medium_FontPointSize
                         }
                     }

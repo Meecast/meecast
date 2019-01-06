@@ -116,7 +116,7 @@ Component {
                     anchors.top: parent.top
                     width: parent.width
                     height: 72
-                    color: "white"
+                    color: Theme.primaryColor
                     font.pointSize: 28
                     text: Config.tr("MeeCast")
                     horizontalAlignment: Text.AlignHCenter
@@ -141,7 +141,7 @@ Component {
                     horizontalAlignment: Text.AlignHCenter
                     text: Config.tr("No locations are set up yet.")
                     font.pixelSize: huge_PixelSize 
-                    color: "#999999"
+                    color: Theme.secondaryColor
                     wrapMode: Text.Wrap
                     width: parent.width - 2*margin
                     //anchors.verticalCenter: parent.verticalCenter
@@ -226,7 +226,7 @@ Component {
                         horizontalAlignment: Text.AlignHCenter
                         text: Config.tr("Looks like there's no info for this location.")
                         font.pixelSize: huge_PixelSize 
-                        color: "#999999"
+                        color: Theme.secondaryColor
                         wrapMode: Text.Wrap
                         width: parent.width - 2*margin
                         //anchors.verticalCenter: parent.verticalCenter
@@ -276,7 +276,7 @@ Component {
                                 height: current_text_rect_height 
                                 anchors.top: parent.top
                                 anchors.left: parent.left
-                                color: "white"
+                                color: Theme.primaryColor
                                 text: main.current_model("current", main_index) == true ? Config.tr("Now") : Config.tr("Today")
                                 font.pointSize: large_FontPointSize 
                                 verticalAlignment: Text.AlignVCenter
@@ -289,7 +289,7 @@ Component {
                                 id: temp_text
                                 width: main.screen_width/2 - icon_size/2
                                 height: current_text_rect_height 
-                                color: "white"
+                                color: Theme.primaryColor
                                 text: model.temp + '°'
                                 font.pointSize: large_FontPointSize
                                 verticalAlignment: Text.AlignVCenter
@@ -333,7 +333,7 @@ Component {
                                width: current_rect.width 
                                anchors.left: parent.left
                                anchors.top: now.bottom
-                               property color textColor: "white"
+                               property color textColor: Theme.primaryColor
                                Row {  
                                    id: desc_row
                                    width: parent.width 
@@ -393,7 +393,7 @@ Component {
                                 anchors.top: desc.bottom
                                 anchors.topMargin: small_box_rect_top_margin 
                                 height: small_box_rect_height 
-                                color: "white"
+                                color: Theme.primaryColor
                                 font.pointSize: medium_FontPointSize 
                                 verticalAlignment: Text.AlignVCenter
                             }
@@ -431,7 +431,7 @@ Component {
                                 anchors.top: desc.bottom
                                 anchors.topMargin: small_box_rect_top_margin
                                 height: small_box_rect_height 
-                                color: "white"
+                                color: Theme.primaryColor
                                 font.pointSize: medium_FontPointSize 
                                 verticalAlignment: Text.AlignVCenter
                             }
@@ -453,7 +453,7 @@ Component {
                                 anchors.top: humidity.bottom
                                 anchors.topMargin: small_box_rect_top_margin2 
                                 height: small_box_rect_height 
-                                color: "white"
+                                color: Theme.primaryColor
                                 font.pointSize: medium_FontPointSize 
                                 verticalAlignment: Text.AlignVCenter
                             }
@@ -475,7 +475,7 @@ Component {
                                 anchors.top: humidity.bottom
                                 anchors.topMargin: small_box_rect_top_margin2 
                                 height: small_box_rect_height 
-                                color: "white"
+                                color: Theme.primaryColor
                                 font.pointSize: medium_FontPointSize 
                                 verticalAlignment: Text.AlignVCenter
                             }
@@ -535,7 +535,7 @@ Component {
                             Text {
                                 id: txt_date
                                 text: main.forecast_model(index, "fulldate", main_index) == undefined ? "" : main.forecast_model(index, "fulldate", main_index)
-                                color: "#889397"
+                                color: Theme.secondaryColor
                                 font.pointSize: medium_FontPointSize 
                                 anchors.left: parent.left
                                 anchors.leftMargin: margin
@@ -544,7 +544,7 @@ Component {
                             }
                             Text {
                                 text: main.forecast_model(index, "shortdate", main_index) == undefined ? "" : main.forecast_model(index, "shortdate", main_index) 
-                                color: "white"
+                                color: Theme.primaryColor
                                 font.pointSize: medium_FontPointSize 
                                 anchors.left: parent.left
                                 anchors.leftMargin: (margin + txt_date.width + small_box_rect_left_margin)
@@ -562,7 +562,7 @@ Component {
                             Text {
                                 id: txt_temphi
                                 font.pointSize: medium_FontPointSize 
-                                color: main.forecast_model(index, "temp_high", main_index) != undefined ? getColor(main.forecast_model(index, "temp_high", main_index)) : getColor(0)
+                                color: (Theme.primaryColor == "#ffffff") ? (main.forecast_model(index, "temp_high", main_index) != undefined ? getColor(main.forecast_model(index, "temp_high", main_index)) : getColor(0)) : Theme.primaryColor
                                 text: main.forecast_model(index, "temp_high", main_index) + '°'
                                 anchors.right: parent.right
                                 anchors.rightMargin: margin + 70*ratio
@@ -572,7 +572,7 @@ Component {
                             Text {
                                 id: txt_templo
                                 font.pointSize: medium_FontPointSize 
-                                color: "#889397"
+                                color: Theme.secondaryColor
                                 text: main.forecast_model(index, "temp_low", main_index) + '°'
                                 anchors.right: parent.right
                                 anchors.rightMargin: margin

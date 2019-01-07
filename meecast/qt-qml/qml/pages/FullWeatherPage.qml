@@ -435,7 +435,7 @@ Page {
                     anchors.top: parent.top
                     anchors.left: parent.left
                     anchors.leftMargin: margin
-                    color: "white"
+                    color: Theme.primaryColor
                     text: day_period_name;
                     font.pointSize: large_FontPointSize
                     verticalAlignment: Text.AlignVCenter
@@ -458,7 +458,7 @@ Page {
                     anchors.rightMargin: margin
                     width: screen_width/2 - icon_size/2 
                     height: current_text_rect_height 
-                    color: "white"
+                    color: Theme.primaryColor
                     font.pointSize: large_FontPointSize
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
@@ -470,7 +470,8 @@ Page {
                    width: parent.width 
                    anchors.left: parent.left
                    anchors.top: now.bottom
-                   property color textColor: "white"
+                   property color textColor: Theme.primaryColor
+
                    Row {  
                         id: desc_row
                         width: parent.width 
@@ -568,12 +569,12 @@ Page {
                         spacing: 3
                         Text {
                             text: model.cond_name
-                            color: "#999999"
+                            color: Theme.secondaryColor
                             font.pointSize: medium_FontPointSize 
                         }
                         Text {
                             text: model.value
-                            color: "white"
+                            color: Theme.primaryColor
                             font.pointSize: medium_FontPointSize
                         }
                     }
@@ -591,7 +592,7 @@ Page {
                         id: map_text
                         anchors.fill: parent
                         text:  Config.tr("Show on Map") 
-                        color: "white"
+                        color: Theme.primaryColor
                         visible: false
                         font.pointSize: large_FontPointSize 
                         width: parent.width 
@@ -638,7 +639,7 @@ Page {
                             Text {
                                 id: txt_date
                                 text: model.fulldate
-                                color: "#889397"
+                                color: Theme.secondaryColor
                                 font.pointSize: medium_FontPointSize 
                                 anchors.left: parent.left
                                 anchors.leftMargin: margin
@@ -647,7 +648,7 @@ Page {
                             }
                             Text {
                                 text: model.hourdate
-                                color: "white"
+                                color: Theme.primaryColor
                                 font.pointSize: medium_FontPointSize 
                                 anchors.left: parent.left
                                 anchors.leftMargin: (margin + txt_date.width + 8*ratio)
@@ -667,7 +668,7 @@ Page {
                                 id: txt_precipitation
                                 visible: (model.precipitation == "N/A") ? false : true
                                 font.pointSize: small_FontPointSize 
-                                color: (model.precipitation == "0.0") ? "#889397" : "white" 
+                                color: (model.precipitation == "0.0") ? "#889397" : Theme.primaryColor
                                 text: model.precipitation + Config.tr("mm")
                                 anchors.left: parent.left 
                                 anchors.leftMargin: screen_width/2 + icon_size/4 + 30 
@@ -677,7 +678,7 @@ Page {
                             Text {
                                 id: txt_temp
                                 font.pointSize: medium_FontPointSize 
-                                color: getColor(model.temp_high)
+                                color: (Theme.primaryColor == "#ffffff") ? getColor(model.temp_high) : Theme.primaryColor
                                 text: model.temp + '°'
                                 anchors.right: parent.right
                                 anchors.rightMargin: (model.precipitation == "N/A") ? margin + 70*ratio : margin + 30*ratio

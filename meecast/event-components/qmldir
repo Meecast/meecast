@@ -1,5 +1,5 @@
 module Sailfish.Weather
 WeatherBanner 1.0 WeatherBanner.qml
 WeatherModel 1.0 WeatherModel.qml
-
+WeatherIndicator 1.0 WeatherIndicator.qml
 

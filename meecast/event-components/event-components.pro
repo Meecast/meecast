@@ -18,6 +18,7 @@ HEADERS += \
 OTHER_FILES = qmldir
 
 qml.files += WeatherBanner.qml
+qml.files += WeatherIndicator.qml
 qml.path = /usr/lib/qt5/qml/Sailfish/Weather
 
 

@@ -7,11 +7,18 @@ Row {
     property bool autoRefresh: false
     property bool active: true 
     property QtObject meecastData
+    property alias temperatureFont: temperatureLabel.font
 
     anchors.horizontalCenter: parent.horizontalCenter
     height: icon.height
     spacing: Theme.paddingMedium
     visible: !!weather
+    enabled: enabled 
+
+
+    Component.onCompleted: {
+        meecastData = Qt.createQmlObject('import QtQuick 2.0; import org.meecast.data 1.0 as Meecast; Meecast.Data {}', root)
+    }
 
     Image {
         id: icon
@@ -22,7 +29,7 @@ Row {
     }
 
     Label {
-        id: temperature
+        id: temperatureLabel 
         anchors.verticalCenter: icon.verticalCenter
         text: {
             if (root.meecastData.forecastdata["item1_temperature"] && root.meecastData.forecastdata["item1_temperature"] != "N/A"){

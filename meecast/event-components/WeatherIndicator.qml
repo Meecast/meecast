@@ -19,6 +19,15 @@ Row {
     Component.onCompleted: {
         meecastData = Qt.createQmlObject('import QtQuick 2.0; import org.meecast.data 1.0 as Meecast; Meecast.Data {}', root)
     }
+    function refresh(){
+
+        icon.source = weatherData.meecastData.forecastdata["item1_icon"]
+        if (weatherData.meecastData.forecastdata["item1_temperature"] && weatherData.meecastData.forecastdata["item1_temperature"] != "N/A"){
+            temperature.text = weatherData.meecastData.forecastdata["item1_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+        }else{
+             temperature.text = weatherData.meecastData.forecastdata["item1_temperature_low"] +  '°' + weatherData.meecastData.forecastdata["temperatureunit"] + "/"+  weatherData.meecastData.forecastdata["item1_temperature_high"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+        }
+    }
 
     Image {
         id: icon
@@ -45,6 +54,13 @@ Row {
         font {
             pixelSize: Theme.fontSizeExtraLarge
             family: Theme.fontFamilyHeading
+        }
+    }
+    Connections {
+        target: weatherData.meecastData 
+        onRefreshWidget: {            
+            console.log("Refresh MeeCast widget !!!!!!!!!!!!!!")
+            weatherData.refresh();
         }
     }
 

@@ -72,7 +72,7 @@ MeeCast Lockscreen widget for multiplatform highly customizable open source weat
 
 %package event
 Version: 1.0
-Release: 1 
+Release: 4 
 Summary: Event Widget for Weather forecast application MeeCast on SailfishOS
 Group:      Utility
 License:    GPLv2.1

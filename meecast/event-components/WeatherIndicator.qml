@@ -21,11 +21,11 @@ Row {
     }
     function refresh(){
 
-        icon.source = weatherData.meecastData.forecastdata["item1_icon"]
-        if (weatherData.meecastData.forecastdata["item1_temperature"] && weatherData.meecastData.forecastdata["item1_temperature"] != "N/A"){
-            temperature.text = weatherData.meecastData.forecastdata["item1_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+        icon.source = root.meecastData.forecastdata["item1_icon"]
+        if (root.meecastData.forecastdata["item1_temperature"] && root.meecastData.forecastdata["item1_temperature"] != "N/A"){
+            temperatureLabel.text = root.meecastData.forecastdata["item1_temperature"] + '°' + root.meecastData.forecastdata["temperatureunit"]
         }else{
-             temperature.text = weatherData.meecastData.forecastdata["item1_temperature_low"] +  '°' + weatherData.meecastData.forecastdata["temperatureunit"] + "/"+  weatherData.meecastData.forecastdata["item1_temperature_high"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
+             temperatureLabel.text = root.meecastData.forecastdata["item1_temperature_low"] +  '°' + root.meecastData.forecastdata["temperatureunit"] + "/"+  root.meecastData.forecastdata["item1_temperature_high"] + '°' + root.meecastData.forecastdata["temperatureunit"]
         }
     }
 
@@ -57,10 +57,10 @@ Row {
         }
     }
     Connections {
-        target: weatherData.meecastData 
+        target: root.meecastData 
         onRefreshWidget: {            
-            console.log("Refresh MeeCast widget !!!!!!!!!!!!!!")
-            weatherData.refresh();
+            console.log("Refresh MeeCast widget in Indicator 1!!!!!!!!!!!!!!")
+            root.refresh();
         }
     }
 

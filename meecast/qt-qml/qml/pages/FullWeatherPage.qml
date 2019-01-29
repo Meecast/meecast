@@ -20,7 +20,7 @@ Page {
     property int medium_FontPointSize: 18*ratio
     property int small_FontPointSize: 14*ratio
     property int row_rect_height: 80*ratio
-    property int toolbar_height: 100*ratio
+    property int toolbar_height: 120*ratio
     property int margin: 16*ratio
     property int day: 0
     property bool current: false

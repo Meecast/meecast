@@ -288,7 +288,7 @@ Page {
                 anchors.top: parent.top
                 width: parent.width
                 height: column_rect_height 
-                color: "white"
+                color: Theme.primaryColor
                 font.pointSize: large_FontPointSize 
                 text: Config.tr("MeeCast")
                 horizontalAlignment: Text.AlignHCenter
@@ -320,7 +320,7 @@ Page {
                 horizontalAlignment: Text.AlignHCenter
                 text: Config.tr("No locations are set up yet.")
                 font.pixelSize: huge_PixelSize 
-                color: "#999999"
+                color: Theme.secondaryColor
                 wrapMode: Text.Wrap
                 width: parent.width - 2*margin*ratio
                 anchors.top: parent.top

@@ -56,7 +56,7 @@ Page {
         }
         Label {
             id: aboutfulltext
-            text: Config.tr("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016")
+            text: Config.tr("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2019")
             anchors.leftMargin: 20
             anchors.left: parent.left
             anchors.top: abouttext.bottom

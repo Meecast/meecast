@@ -224,6 +224,7 @@
     g_hash_table_insert(hash, (void*)"PM Snow Showers / Wind", _("PM Snow Showers / Wind"));
     g_hash_table_insert(hash, (void*)"PM Snow Showers", _("PM Snow Showers"));
     g_hash_table_insert(hash, (void*)"PM Snow", _("PM Snow"));
+    g_hash_table_insert(hash, (void*)"PM Snow / Wind", _("PM Snow / Wind"));
     g_hash_table_insert(hash, (void*)"PM T-Showers", _("PM T-Showers"));
     g_hash_table_insert(hash, (void*)"PM T-Storms", _("PM T-Storms"));
     g_hash_table_insert(hash, (void*)"Partly cloudy, possible thunderstorms with rain", _("Partly cloudy, possible thunderstorms with rain"));

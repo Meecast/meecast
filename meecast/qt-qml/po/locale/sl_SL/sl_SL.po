@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-04 23:25+0300\n"
+"POT-Creation-Date: 2019-02-10 09:11+0300\n"
 "PO-Revision-Date: 2018-01-29 10:29+0000\n"
 "Last-Translator: Boštjan Štrumbelj <sponka@gmail.com>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/vasvlad/"
@@ -406,7 +406,7 @@ msgstr "Avtorji"
 msgid "Automatically update data when connecting to the Internet"
 msgstr "Ob povezavi na internet samodejno posodobi podatke"
 
-#: omweather/src/hash.data:379
+#: omweather/src/hash.data:380
 msgid "Back"
 msgstr "Nazaj"
 
@@ -428,11 +428,11 @@ msgstr "Beaufortova lestvica"
 msgid "Blowing Snow"
 msgstr "Snežni metež"
 
-#: omweather/src/hash.data:381
+#: omweather/src/hash.data:382
 msgid "Broken Clouds"
 msgstr "Pretrgani oblaki"
 
-#: omweather/src/hash.data:382
+#: omweather/src/hash.data:383
 msgid "Broken clouds"
 msgstr "Pretrgani oblaki"
 
@@ -592,7 +592,7 @@ msgstr "Oblačno s snežnimi plohami"
 msgid "Cloudy and wet snow showers"
 msgstr "Oblačno in plohe mokrega snega"
 
-#: omweather/src/hash.data:403
+#: omweather/src/hash.data:404
 msgid "Cloudy with occasional rain."
 msgstr "Oblačno z občasnim dežjem"
 
@@ -690,7 +690,7 @@ msgstr "Država"
 msgid "Country:"
 msgstr "Država:"
 
-#: omweather/src/hash.data:415
+#: omweather/src/hash.data:416
 msgid "Cover Page"
 msgstr "Naslovnica"
 
@@ -939,7 +939,7 @@ msgstr "Neuspešen zagon GConf. Nastavitve niso shranjene.\n"
 msgid "Fair"
 msgstr "Jasno"
 
-#: omweather/src/hash.data:377
+#: omweather/src/hash.data:378
 msgid "Feels like"
 msgstr "Občutek"
 
@@ -947,7 +947,7 @@ msgstr "Občutek"
 msgid "Feels like:"
 msgstr "Občutek:"
 
-#: omweather/src/hash.data:384
+#: omweather/src/hash.data:385
 msgid "Few Clouds"
 msgstr "Nekaj oblakov"
 
@@ -971,7 +971,7 @@ msgstr "Nekaj snežnih ploh"
 msgid "Few Snow Showers / Wind"
 msgstr "Nekaj snežnih ploh / veter"
 
-#: omweather/src/hash.data:383
+#: omweather/src/hash.data:384
 msgid "Few clouds"
 msgstr "Nekaj oblakov"
 
@@ -1233,7 +1233,7 @@ msgstr "Močno sneženje"
 msgid "Heavy Thunder"
 msgstr "Močna nevihta"
 
-#: omweather/src/hash.data:404
+#: omweather/src/hash.data:405
 msgid "Heavy intensity rain"
 msgstr "Močno intenziven dež"
 
@@ -1241,7 +1241,7 @@ msgstr "Močno intenziven dež"
 msgid "High"
 msgstr "Visok"
 
-#: omweather/src/hash.data:378
+#: omweather/src/hash.data:379
 msgid "Hourly"
 msgstr "Vsako uro"
 
@@ -1335,7 +1335,7 @@ msgstr "Kilometri"
 msgid "Knots"
 msgstr "Vozli"
 
-#: omweather/src/hash.data:380
+#: omweather/src/hash.data:381
 msgid "Language"
 msgstr "Jezik"
 
@@ -1390,7 +1390,7 @@ msgstr "Rahlo pomrznjen pršec"
 msgid "Light Freezing Rain"
 msgstr "Rahel pomrznjen dež"
 
-#: omweather/src/hash.data:123 omweather/src/hash.data:386
+#: omweather/src/hash.data:123 omweather/src/hash.data:387
 msgid "Light Rain"
 msgstr "Rahel dež"
 
@@ -1422,7 +1422,7 @@ msgstr "Rahel dež popoldan"
 msgid "Light Rain Shower"
 msgstr "Rahla dežna ploha"
 
-#: omweather/src/hash.data:387
+#: omweather/src/hash.data:388
 msgid "Light Rain Showers"
 msgstr "Rahle dežne plohe"
 
@@ -1482,11 +1482,11 @@ msgstr "Rahle snežne plohe"
 msgid "Light Snowfall"
 msgstr "Rahlo sneženje"
 
-#: omweather/src/hash.data:389
+#: omweather/src/hash.data:390
 msgid "Light intensity drizzle"
 msgstr "Rahel intenziven pršec"
 
-#: omweather/src/hash.data:405
+#: omweather/src/hash.data:406
 msgid "Light intensity shower rain"
 msgstr "Rahlo intenzivna dežna ploha"
 
@@ -1494,11 +1494,11 @@ msgstr "Rahlo intenzivna dežna ploha"
 msgid "Light or Moderate Precipitation"
 msgstr "Rahle ali zmerne padavine"
 
-#: omweather/src/hash.data:385
+#: omweather/src/hash.data:386
 msgid "Light rain"
 msgstr "Rahel dež"
 
-#: omweather/src/hash.data:388
+#: omweather/src/hash.data:389
 msgid "Light snow"
 msgstr "Rahlo sneženje"
 
@@ -1526,11 +1526,11 @@ msgstr "Za to lokacijo ni informacij."
 msgid "Low"
 msgstr "Nizek"
 
-#: omweather/src/hash.data:401
+#: omweather/src/hash.data:402
 msgid "Mainly cloudy with occasional rain."
 msgstr "Pretežno oblačno z občasnim dežjem"
 
-#: omweather/src/hash.data:402
+#: omweather/src/hash.data:403
 msgid "Mainly cloudy, Slight shower of rain"
 msgstr "Pretežno oblačno z občasnimi plohami"
 
@@ -1594,11 +1594,11 @@ msgstr "Meglica"
 msgid "Moderate Freezing Rain"
 msgstr "Zmeren pomrznjen dež"
 
-#: omweather/src/hash.data:391
+#: omweather/src/hash.data:392
 msgid "Moderate Rain"
 msgstr "Zmeren dež"
 
-#: omweather/src/hash.data:392
+#: omweather/src/hash.data:393
 msgid "Moderate Rain Showers"
 msgstr "Rahle dežne plohe"
 
@@ -1610,7 +1610,7 @@ msgstr "Zmerna sodra"
 msgid "Moderate Snow Showers"
 msgstr "Zmerne snežne plohe"
 
-#: omweather/src/hash.data:390
+#: omweather/src/hash.data:391
 msgid "Moderate rain"
 msgstr "Zmeren dež"
 
@@ -1914,7 +1914,7 @@ msgstr "Ostale Maemo Weather informacije"
 msgid "Overcast"
 msgstr "Oblačno"
 
-#: omweather/src/hash.data:394
+#: omweather/src/hash.data:395
 msgid "Overcast Clouds"
 msgstr "Visoka oblačnost"
 
@@ -1954,7 +1954,7 @@ msgstr "Oblačno in sneg"
 msgid "Overcast and wet snow showers"
 msgstr "Oblačno s snežnimi plohami"
 
-#: omweather/src/hash.data:393
+#: omweather/src/hash.data:394
 msgid "Overcast clouds"
 msgstr "Visoka oblačnost"
 
@@ -2311,14 +2311,19 @@ msgid "Rain and snow"
 msgstr "Dež in sneg"
 
 #: omweather/src/hash.data:282
+#, fuzzy
+msgid "Rain to Snow"
+msgstr "Dež / sneg"
+
+#: omweather/src/hash.data:283
 msgid "Rain to Snow / Wind"
 msgstr "Dež s snegom / veter"
 
-#: omweather/src/hash.data:284
+#: omweather/src/hash.data:285
 msgid "Rain to Wintry Mix"
 msgstr "Sneg z dežjem"
 
-#: omweather/src/hash.data:283
+#: omweather/src/hash.data:284
 msgid "Rain to Wintry Mix / Wind"
 msgstr "Sneg z dežjem / veter"
 
@@ -2326,7 +2331,7 @@ msgstr "Sneg z dežjem / veter"
 msgid "Read sensor every:"
 msgstr "Preeri senzor vsakih:"
 
-#: omweather/src/hash.data:413
+#: omweather/src/hash.data:414
 msgid "Refresh"
 msgstr "Osveži"
 
@@ -2336,7 +2341,7 @@ msgstr "Osveži"
 msgid "Region"
 msgstr "Regija"
 
-#: omweather/src/hash.data:285
+#: omweather/src/hash.data:286
 msgid "Rush Hour Traffic"
 msgstr "Promet v konici"
 
@@ -2348,43 +2353,43 @@ msgstr ""
 "Rusko - Pavel Fialko, Vlad Vasilyeu, \n"
 " \tEd Bartosh\n"
 
-#: omweather/src/hash.data:286
+#: omweather/src/hash.data:287
 msgid "S"
 msgstr "J"
 
-#: omweather/src/hash.data:287
+#: omweather/src/hash.data:288
 msgid "SE"
 msgstr "JV"
 
-#: omweather/src/hash.data:288
+#: omweather/src/hash.data:289
 msgid "SE_short"
 msgstr "JV_kratko"
 
-#: omweather/src/hash.data:289
+#: omweather/src/hash.data:290
 msgid "SSE"
 msgstr "JJV"
 
-#: omweather/src/hash.data:290
+#: omweather/src/hash.data:291
 msgid "SSE_short"
 msgstr "JJV_kratko"
 
-#: omweather/src/hash.data:291
+#: omweather/src/hash.data:292
 msgid "SSW"
 msgstr "JJZ"
 
-#: omweather/src/hash.data:292
+#: omweather/src/hash.data:293
 msgid "SSW_short"
 msgstr "JJZ_kratko"
 
-#: omweather/src/hash.data:293
+#: omweather/src/hash.data:294
 msgid "SW"
 msgstr "JZ"
 
-#: omweather/src/hash.data:294
+#: omweather/src/hash.data:295
 msgid "SW_short"
 msgstr "JZ_kratko"
 
-#: omweather/src/hash.data:295
+#: omweather/src/hash.data:296
 msgid "S_short"
 msgstr "J_kratko"
 
@@ -2398,27 +2403,27 @@ msgstr "J_kratko"
 msgid "Save"
 msgstr "Shrani"
 
-#: omweather/src/hash.data:396
+#: omweather/src/hash.data:397
 msgid "Scattered Clouds"
 msgstr "Razpršeni oblaki"
 
-#: omweather/src/hash.data:296
+#: omweather/src/hash.data:297
 msgid "Scattered Showers"
 msgstr "Posamezne plohe"
 
-#: omweather/src/hash.data:298
+#: omweather/src/hash.data:299
 msgid "Scattered Snow"
 msgstr "Posamezno sneženje"
 
-#: omweather/src/hash.data:297
+#: omweather/src/hash.data:298
 msgid "Scattered Snow Showers"
 msgstr "Posamezne snežne plohe"
 
-#: omweather/src/hash.data:299
+#: omweather/src/hash.data:300
 msgid "Scattered T-Storms"
 msgstr "Posamezne nevihte z grmenjem"
 
-#: omweather/src/hash.data:395
+#: omweather/src/hash.data:396
 msgid "Scattered clouds"
 msgstr "Razpršeni oblaki"
 
@@ -2522,7 +2527,7 @@ msgstr "Srbsko - Aleksandar Zaric\n"
 msgid "Set"
 msgstr "Nastavi"
 
-#: omweather/src/hash.data:300 meecast/qt-qml/qml/WeatherPage.qml:327
+#: omweather/src/hash.data:301 meecast/qt-qml/qml/WeatherPage.qml:327
 msgid "Set locations"
 msgstr "Nastavi lokacije"
 
@@ -2548,7 +2553,7 @@ msgstr "Nastavitve za \"LockScreen\""
 msgid "Settings of StandbyScreen"
 msgstr "Nastavitve StandbyScreen"
 
-#: omweather/src/hash.data:301
+#: omweather/src/hash.data:302
 msgid "Shallow Fog"
 msgstr "Redka megla"
 
@@ -2560,7 +2565,7 @@ msgstr "Kratko"
 msgid "Show arrows"
 msgstr "Kratke puščice"
 
-#: omweather/src/hash.data:412
+#: omweather/src/hash.data:413
 msgid "Show last update time"
 msgstr "Prikaži čas zadnje posodobitve"
 
@@ -2572,7 +2577,7 @@ msgstr "Pokaži na karti"
 msgid "Show only current weather on first icon"
 msgstr "Na prvi ikoni pokaži le trenutno vreme"
 
-#: omweather/src/hash.data:411
+#: omweather/src/hash.data:412
 msgid "Show source logo"
 msgstr "Prikaži logotip vira"
 
@@ -2588,47 +2593,47 @@ msgstr "Prikaži trenutno temperaturo v:"
 msgid "Show wind"
 msgstr "Prikaži veter"
 
-#: omweather/src/hash.data:302
+#: omweather/src/hash.data:303
 msgid "Showers"
 msgstr "Plohe"
 
-#: omweather/src/hash.data:304
+#: omweather/src/hash.data:305
 msgid "Showers / Wind"
 msgstr "Plohe / veter"
 
-#: omweather/src/hash.data:303
+#: omweather/src/hash.data:304
 msgid "Showers / Wind Early"
 msgstr "Plohe / v zgodnjih urah veter"
 
-#: omweather/src/hash.data:305
+#: omweather/src/hash.data:306
 msgid "Showers Early"
 msgstr "Zgodnje plohe"
 
-#: omweather/src/hash.data:306
+#: omweather/src/hash.data:307
 msgid "Showers Late"
 msgstr "Pozne plohe"
 
-#: omweather/src/hash.data:307
+#: omweather/src/hash.data:308
 msgid "Showers in the Vicinity"
 msgstr "Plohe v okolici"
 
-#: omweather/src/hash.data:308
+#: omweather/src/hash.data:309
 msgid "Showers or Intermittent Precipitation"
 msgstr "Plohe ali občasne padavine"
 
-#: omweather/src/hash.data:398
+#: omweather/src/hash.data:399
 msgid "Sky is Clear"
 msgstr "Jasno nebo"
 
-#: omweather/src/hash.data:397
+#: omweather/src/hash.data:398
 msgid "Sky is clear"
 msgstr "Nebo je jasno"
 
-#: omweather/src/hash.data:309
+#: omweather/src/hash.data:310
 msgid "Sleet"
 msgstr "Sodra"
 
-#: omweather/src/hash.data:310
+#: omweather/src/hash.data:311
 msgid "Sleet Showers"
 msgstr "Ploha s sodro"
 
@@ -2640,67 +2645,67 @@ msgstr "Slovaško - Roman Moravčík\n"
 msgid "Slovenian - Boštjan Štrumbelj\n"
 msgstr "Slovensko -  Boštjan Štrumbelj\n"
 
-#: omweather/src/hash.data:311
+#: omweather/src/hash.data:312
 msgid "Smoke"
 msgstr "Megleno"
 
-#: omweather/src/hash.data:312
+#: omweather/src/hash.data:313
 msgid "Snow"
 msgstr "Sneg"
 
-#: omweather/src/hash.data:316
+#: omweather/src/hash.data:317
 msgid "Snow / Wind"
 msgstr "Sneg / veter"
 
-#: omweather/src/hash.data:313
+#: omweather/src/hash.data:314
 msgid "Snow Early"
 msgstr "Zgodnje sneženje"
 
-#: omweather/src/hash.data:314
+#: omweather/src/hash.data:315
 msgid "Snow Late"
 msgstr "V poznejših urah sneženje"
 
-#: omweather/src/hash.data:318
+#: omweather/src/hash.data:319
 msgid "Snow Shower"
 msgstr "Snežna ploha"
 
-#: omweather/src/hash.data:317
+#: omweather/src/hash.data:318
 msgid "Snow Shower / Wind"
 msgstr "Snežna ploha / veter"
 
-#: omweather/src/hash.data:319
+#: omweather/src/hash.data:320
 msgid "Snow Showers"
 msgstr "Snežne plohe"
 
-#: omweather/src/hash.data:320
+#: omweather/src/hash.data:321
 msgid "Snow Showers / Wind Early"
 msgstr "Snežne plohe / v zgodnjih urah vetrovno"
 
-#: omweather/src/hash.data:321
+#: omweather/src/hash.data:322
 msgid "Snow Showers Early"
 msgstr "Snežne plohe v zgodnjih urah"
 
-#: omweather/src/hash.data:322
+#: omweather/src/hash.data:323
 msgid "Snow Showers Late"
 msgstr "Snežne plohe v poznih urah"
 
-#: omweather/src/hash.data:323
+#: omweather/src/hash.data:324
 msgid "Snow and Freezing Rain"
 msgstr "Sneg s pomrznjenim dežjem"
 
-#: omweather/src/hash.data:324
+#: omweather/src/hash.data:325
 msgid "Snow to Rain"
 msgstr "Dež s snegom"
 
-#: omweather/src/hash.data:326
+#: omweather/src/hash.data:327
 msgid "Snow to Wintry Mix"
 msgstr "Sneg z dežjem"
 
-#: omweather/src/hash.data:325
+#: omweather/src/hash.data:326
 msgid "Snow to Wintry Mix / Wind"
 msgstr "Sneg z dežjem / veter"
 
-#: omweather/src/hash.data:315
+#: omweather/src/hash.data:316
 msgid "Snowfall"
 msgstr "Sneženje"
 
@@ -2751,11 +2756,11 @@ msgstr "Postaja %i"
 msgid "Stations"
 msgstr "Postaje"
 
-#: omweather/src/hash.data:327 omweather/src/weather-alerts.c:154
+#: omweather/src/hash.data:328 omweather/src/weather-alerts.c:154
 msgid "Storm"
 msgstr "Nevihta"
 
-#: omweather/src/hash.data:328
+#: omweather/src/hash.data:329
 msgid "Strong Thundershowers"
 msgstr "Močne plohe z grmenjem"
 
@@ -2763,19 +2768,19 @@ msgstr "Močne plohe z grmenjem"
 msgid "Successfully loaded"
 msgstr "Uspešno naloženo"
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:331
 msgid "Sunny"
 msgstr "Sončno"
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:330
 msgid "Sunny / Wind"
 msgstr "Sončno / vetrovno"
 
-#: omweather/src/hash.data:399 omweather/src/hash.data:400
+#: omweather/src/hash.data:400 omweather/src/hash.data:401
 msgid "Sunny periods and a few showers."
 msgstr "Sončna obdobja in nekaj ploh"
 
-#: omweather/src/hash.data:331 meecast/qt-qml/qml/FullWeatherPage.qml:335
+#: omweather/src/hash.data:332 meecast/qt-qml/qml/FullWeatherPage.qml:335
 msgid "Sunrise:"
 msgstr "Sončni vzhod:"
 
@@ -2783,7 +2788,7 @@ msgstr "Sončni vzhod:"
 msgid "Sunrise: "
 msgstr "Sončni vzhod:"
 
-#: omweather/src/hash.data:332 meecast/qt-qml/qml/FullWeatherPage.qml:338
+#: omweather/src/hash.data:333 meecast/qt-qml/qml/FullWeatherPage.qml:338
 msgid "Sunset:"
 msgstr "Sončni zahod:"
 
@@ -2815,27 +2820,27 @@ msgstr ""
 msgid "Switch to the next station after:"
 msgstr "Preklopi na naslenjo postajo po:"
 
-#: omweather/src/hash.data:334
+#: omweather/src/hash.data:335
 msgid "T-Showers"
 msgstr "Plohe z grmenjem"
 
-#: omweather/src/hash.data:333
+#: omweather/src/hash.data:334
 msgid "T-Showers Early"
 msgstr "V zgodnjih urah plohe z grmenjem"
 
-#: omweather/src/hash.data:335
+#: omweather/src/hash.data:336
 msgid "T-Storm"
 msgstr "Nevihta z grmenjem"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:339
 msgid "T-Storms"
 msgstr "Nevihte z grmenjem"
 
-#: omweather/src/hash.data:336
+#: omweather/src/hash.data:337
 msgid "T-Storms Early"
 msgstr "V zgodnjih urah nevihte z grmenjem"
 
-#: omweather/src/hash.data:337
+#: omweather/src/hash.data:338
 msgid "T-Storms Late"
 msgstr "V poznih urah nevihte z grmenjem"
 
@@ -2845,7 +2850,7 @@ msgstr "V poznih urah nevihte z grmenjem"
 msgid "Temperature"
 msgstr "Temperatura"
 
-#: omweather/src/hash.data:339 meecast/qt-qml/qml/UnitsPage.qml:30
+#: omweather/src/hash.data:340 meecast/qt-qml/qml/UnitsPage.qml:30
 #: meecast/qt-qml/qml/UnitsPage.qml:102
 msgid "Temperature units"
 msgstr "Enota temperature"
@@ -2871,11 +2876,11 @@ msgstr "Hvala"
 msgid "The weather has been updated."
 msgstr "Vremenska napoved je posodobljena"
 
-#: omweather/src/hash.data:406
+#: omweather/src/hash.data:407
 msgid "There are no stations to show in this view of the list"
 msgstr "Na spisku ni postaj za prikaz"
 
-#: omweather/src/hash.data:408
+#: omweather/src/hash.data:409
 msgid "This is experimental feature. Only English is supported."
 msgstr "Eksperimentalna možnost. Podprt je le angleški jezik."
 
@@ -2905,15 +2910,15 @@ msgstr ""
 "Ta program je brezplačen; lahko ga posredujete in/ali spreminjate pod pogoji "
 "splošnega dovoljenja GNU\n"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:341
 msgid "Thunder"
 msgstr "Grmenje"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:343
 msgid "Thunder in the Vicinity"
 msgstr "Grmenje v okolici"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:342
 msgid "Thundershowers"
 msgstr "Plohe z grmenjem"
 
@@ -2936,7 +2941,7 @@ msgstr ""
 "Prevajalci: Francosko - Nicolas Granziano, Philippe, Benot Knecht; Rusko - "
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 
-#: omweather/src/hash.data:414
+#: omweather/src/hash.data:415
 msgid "Transparency"
 msgstr "Prosojnost"
 
@@ -2945,7 +2950,7 @@ msgstr "Prosojnost"
 msgid "Transparency:"
 msgstr "Prosojnost:"
 
-#: omweather/src/hash.data:343 meecast/qt-qml/qml/WeatherPage.qml:501
+#: omweather/src/hash.data:344 meecast/qt-qml/qml/WeatherPage.qml:501
 msgid "Try to update"
 msgstr "Poskusi posodobiti"
 
@@ -2987,7 +2992,7 @@ msgstr "Enote"
 msgid "Unknown"
 msgstr "Neznano"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:345
 msgid "Unlimited"
 msgstr "Neomejeno"
 
@@ -3004,7 +3009,7 @@ msgstr "Posodabljanje že poteka"
 msgid "Update interval"
 msgstr "Interval posodabljanja"
 
-#: omweather/src/hash.data:345 meecast/qt-qml/qml/WeatherPage.qml:360
+#: omweather/src/hash.data:346 meecast/qt-qml/qml/WeatherPage.qml:360
 msgid "Updating forecast"
 msgstr "Posodabljam napoved"
 
@@ -3036,7 +3041,7 @@ msgstr ""
 msgid "Use device temperature sensor"
 msgstr "Uporabi temperaturni senzor naprave"
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:347
 msgid "VAR"
 msgstr "Različno"
 
@@ -3044,7 +3049,7 @@ msgstr "Različno"
 msgid "Valid time for current weather:"
 msgstr "Veljaven čas za trenutno vremensko napoved"
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:348
 msgid "Very High"
 msgstr "Zelo visoko"
 
@@ -3056,7 +3061,7 @@ msgstr ""
 "Vietnamsko - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
 
-#: omweather/src/hash.data:409
+#: omweather/src/hash.data:410
 msgid "Violent Rain Showers"
 msgstr "Močan naliv"
 
@@ -3078,15 +3083,15 @@ msgstr "Vidnost:"
 msgid "Visuals"
 msgstr "Vizualizacija"
 
-#: omweather/src/hash.data:407
+#: omweather/src/hash.data:408
 msgid "Voice forecast button on a widget"
 msgstr "Gumb za glasovno napoved na gradniku"
 
-#: omweather/src/hash.data:410
+#: omweather/src/hash.data:411
 msgid "Voice weather forecast"
 msgstr "Glasovna vremenska napoved"
 
-#: omweather/src/hash.data:348
+#: omweather/src/hash.data:349
 msgid "W"
 msgstr "Z"
 
@@ -3096,31 +3101,31 @@ msgstr "Z"
 msgid "WLAN"
 msgstr "WLAN"
 
-#: omweather/src/hash.data:349
+#: omweather/src/hash.data:350
 msgid "WNW"
 msgstr "WNW"
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:351
 msgid "WNW_short"
 msgstr "ZSZ_kratko"
 
-#: omweather/src/hash.data:351
+#: omweather/src/hash.data:352
 msgid "WSW"
 msgstr "ZJZ"
 
-#: omweather/src/hash.data:352
+#: omweather/src/hash.data:353
 msgid "WSW_short"
 msgstr "ZJZ_kratko"
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:354
 msgid "W_short"
 msgstr "Z_kratko"
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:355
 msgid "Waning Crescent"
 msgstr "Zadnja četrtina"
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:356
 msgid "Waning Gibbous"
 msgstr "Tretja četrtina"
 
@@ -3128,11 +3133,11 @@ msgstr "Tretja četrtina"
 msgid "Warning"
 msgstr "Opozorilo"
 
-#: omweather/src/hash.data:356
+#: omweather/src/hash.data:357
 msgid "Waxing Crescent"
 msgstr "Prva četrtina"
 
-#: omweather/src/hash.data:357
+#: omweather/src/hash.data:358
 msgid "Waxing Gibbous"
 msgstr "Druga četrtina"
 
@@ -3169,7 +3174,7 @@ msgstr "Stil gradnika"
 msgid "Widget style and Iconset"
 msgstr "Stil gradnika in nabor ikon"
 
-#: omweather/src/hash.data:361
+#: omweather/src/hash.data:362
 msgid "Wind"
 msgstr "Veter"
 
@@ -3179,7 +3184,7 @@ msgstr "Veter"
 msgid "Wind direction"
 msgstr "Smer vetra"
 
-#: omweather/src/hash.data:358
+#: omweather/src/hash.data:359
 msgid "Wind direction:"
 msgstr "Smer vetra:"
 
@@ -3189,7 +3194,7 @@ msgstr "Smer vetra:"
 msgid "Wind gust:"
 msgstr "Udarci vetra:"
 
-#: omweather/src/hash.data:360 meecast/qt-qml/qml/FullWeatherPage.qml:147
+#: omweather/src/hash.data:361 meecast/qt-qml/qml/FullWeatherPage.qml:147
 #: meecast/qt-qml/qml/FullWeatherPage.qml:150
 #: meecast/qt-qml/qml/FullWeatherPage.qml:220
 #: meecast/qt-qml/qml/FullWeatherPage.qml:223
@@ -3198,7 +3203,7 @@ msgstr "Udarci vetra:"
 msgid "Wind speed"
 msgstr "Hitrost vetra:"
 
-#: omweather/src/hash.data:359 meecast/qt-qml/qml/UnitsPage.qml:39
+#: omweather/src/hash.data:360 meecast/qt-qml/qml/UnitsPage.qml:39
 #: meecast/qt-qml/qml/UnitsPage.qml:141
 msgid "Wind speed units"
 msgstr "Enota hitrosti vetra:"
@@ -3218,23 +3223,23 @@ msgstr "Veter:"
 msgid "Wind: "
 msgstr "Veter:"
 
-#: omweather/src/hash.data:366
+#: omweather/src/hash.data:367
 msgid "Wintry Mix"
 msgstr "Sneg z dežjem"
 
-#: omweather/src/hash.data:363
+#: omweather/src/hash.data:364
 msgid "Wintry Mix / Wind"
 msgstr "Sneg z dežjem / veter"
 
-#: omweather/src/hash.data:362
+#: omweather/src/hash.data:363
 msgid "Wintry Mix / Wind Early"
 msgstr "Sneg z dežjem / v zgodnjih urah veter"
 
-#: omweather/src/hash.data:364
+#: omweather/src/hash.data:365
 msgid "Wintry Mix / Windy"
 msgstr "Sneg z dežjem / Vetrovno"
 
-#: omweather/src/hash.data:365
+#: omweather/src/hash.data:366
 msgid "Wintry Mix to Snow"
 msgstr "Sneg z dežjem"
 
@@ -3346,7 +3351,7 @@ msgstr "vsako uro"
 msgid "every minute (Debug)"
 msgstr "vsako minuto (debug)"
 
-#: omweather/src/hash.data:367
+#: omweather/src/hash.data:368
 msgid "falling"
 msgstr "pada"
 
@@ -3389,18 +3394,18 @@ msgstr "kPa"
 msgid "km"
 msgstr "km"
 
-#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:368
+#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:369
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
 #: meecast/qt-qml/qml/UnitsPage.qml:159
 msgid "km/h"
 msgstr "km/h"
 
-#: omweather/src/hash.data:369
+#: omweather/src/hash.data:370
 msgid "km/s"
 msgstr "km/s"
 
-#: omweather/src/hash.data:370
+#: omweather/src/hash.data:371
 msgid "kn"
 msgstr "kn"
 
@@ -3411,11 +3416,11 @@ msgstr "kn"
 msgid "m"
 msgstr "m"
 
-#: omweather/src/hash.data:371
+#: omweather/src/hash.data:372
 msgid "m/h"
 msgstr "m/h"
 
-#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:372
+#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:373
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
 #: meecast/qt-qml/qml/UnitsPage.qml:152
@@ -3443,13 +3448,13 @@ msgstr "mbar"
 msgid "mi"
 msgstr "mi"
 
-#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:373
+#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:374
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
 msgid "mi/h"
 msgstr "mi/h"
 
-#: omweather/src/hash.data:374
+#: omweather/src/hash.data:375
 msgid "mi/s"
 msgstr "mi/s"
 
@@ -3510,7 +3515,7 @@ msgstr "naprej"
 msgid "nmi"
 msgstr "nmi"
 
-#: omweather/src/hash.data:375
+#: omweather/src/hash.data:376
 msgid "rising"
 msgstr "raste"
 
@@ -3526,38 +3531,38 @@ msgstr "lokalni čas postaje"
 msgid "station name"
 msgstr "ime postaje"
 
-#: omweather/src/hash.data:376
+#: omweather/src/hash.data:377
 msgid "steady"
 msgstr "stalno"
 
-#: omweather/src/hash.data:416
+#: omweather/src/hash.data:417
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:417
+#: omweather/src/hash.data:418
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:418
+#: omweather/src/hash.data:419
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:419
+#: omweather/src/hash.data:420
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:420
+#: omweather/src/hash.data:421
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:421
+#: omweather/src/hash.data:422
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:422
+#: omweather/src/hash.data:423
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:423
+#: omweather/src/hash.data:424
 msgid "Ю-З"
 msgstr "Ю-З"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-10 09:11+0300\n"
+"POT-Creation-Date: 2019-02-10 20:53+0300\n"
 "PO-Revision-Date: 2014-07-28 05:20+0000\n"
 "Last-Translator: Macilaci457 <laci.kara@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/meecast/"
@@ -364,7 +364,7 @@ msgstr "Készítők"
 msgid "Automatically update data when connecting to the Internet"
 msgstr "Adatok automatikus frissítése amikor csatlakozik az internethez"
 
-#: omweather/src/hash.data:380
+#: omweather/src/hash.data:381
 msgid "Back"
 msgstr "Vissza"
 
@@ -386,11 +386,11 @@ msgstr "Beauford skála"
 msgid "Blowing Snow"
 msgstr "Hóvihar"
 
-#: omweather/src/hash.data:382
+#: omweather/src/hash.data:383
 msgid "Broken Clouds"
 msgstr "Felszakadozó felhőzet"
 
-#: omweather/src/hash.data:383
+#: omweather/src/hash.data:384
 msgid "Broken clouds"
 msgstr "Felszakadozó felhőzet"
 
@@ -549,7 +549,7 @@ msgstr "Felhős és havas esők"
 msgid "Cloudy and wet snow showers"
 msgstr "Felhős, havas eső záporok"
 
-#: omweather/src/hash.data:404
+#: omweather/src/hash.data:405
 msgid "Cloudy with occasional rain."
 msgstr "Felhős, néhol esővel"
 
@@ -647,7 +647,7 @@ msgstr "Ország"
 msgid "Country:"
 msgstr "Ország:"
 
-#: omweather/src/hash.data:416
+#: omweather/src/hash.data:417
 msgid "Cover Page"
 msgstr ""
 
@@ -880,7 +880,7 @@ msgstr "A GConf sikertelen indítása. A beállítások nem lettek elmentve.\n"
 msgid "Fair"
 msgstr "Változékony"
 
-#: omweather/src/hash.data:378
+#: omweather/src/hash.data:379
 msgid "Feels like"
 msgstr "Hőérzet"
 
@@ -888,7 +888,7 @@ msgstr "Hőérzet"
 msgid "Feels like:"
 msgstr "Hőérzet:"
 
-#: omweather/src/hash.data:385
+#: omweather/src/hash.data:386
 msgid "Few Clouds"
 msgstr "Kissé felhős"
 
@@ -912,7 +912,7 @@ msgstr "Elszórtan hózáporok"
 msgid "Few Snow Showers / Wind"
 msgstr "Elszórtan hózáporok / szél"
 
-#: omweather/src/hash.data:384
+#: omweather/src/hash.data:385
 msgid "Few clouds"
 msgstr "Néhány felhő"
 
@@ -1154,7 +1154,7 @@ msgstr ""
 msgid "Heavy Thunder"
 msgstr ""
 
-#: omweather/src/hash.data:405
+#: omweather/src/hash.data:406
 msgid "Heavy intensity rain"
 msgstr "Felhőszakadás"
 
@@ -1162,7 +1162,7 @@ msgstr "Felhőszakadás"
 msgid "High"
 msgstr "Magas"
 
-#: omweather/src/hash.data:379
+#: omweather/src/hash.data:380
 msgid "Hourly"
 msgstr "Óránként"
 
@@ -1256,7 +1256,7 @@ msgstr "Kilóméter"
 msgid "Knots"
 msgstr "Csomó"
 
-#: omweather/src/hash.data:381
+#: omweather/src/hash.data:382
 msgid "Language"
 msgstr "Nyelv"
 
@@ -1311,7 +1311,7 @@ msgstr "Könnyű fagyos szitálás"
 msgid "Light Freezing Rain"
 msgstr "Könnyű jégeső"
 
-#: omweather/src/hash.data:123 omweather/src/hash.data:387
+#: omweather/src/hash.data:123 omweather/src/hash.data:388
 msgid "Light Rain"
 msgstr "Könnyű eső"
 
@@ -1344,7 +1344,7 @@ msgstr "Kisebb esőzés délután"
 msgid "Light Rain Shower"
 msgstr "Könnyű zápor"
 
-#: omweather/src/hash.data:388
+#: omweather/src/hash.data:389
 msgid "Light Rain Showers"
 msgstr ""
 
@@ -1404,11 +1404,11 @@ msgstr ""
 msgid "Light Snowfall"
 msgstr ""
 
-#: omweather/src/hash.data:390
+#: omweather/src/hash.data:391
 msgid "Light intensity drizzle"
 msgstr "Enyhe szitálás"
 
-#: omweather/src/hash.data:406
+#: omweather/src/hash.data:407
 msgid "Light intensity shower rain"
 msgstr "Enyhe zápor"
 
@@ -1416,11 +1416,11 @@ msgstr "Enyhe zápor"
 msgid "Light or Moderate Precipitation"
 msgstr ""
 
-#: omweather/src/hash.data:386
+#: omweather/src/hash.data:387
 msgid "Light rain"
 msgstr "Könnyű eső"
 
-#: omweather/src/hash.data:389
+#: omweather/src/hash.data:390
 msgid "Light snow"
 msgstr "Hószállingózás"
 
@@ -1448,11 +1448,11 @@ msgstr "Úgy tűnik nincs információ az állomáshoz."
 msgid "Low"
 msgstr "Alacsony"
 
-#: omweather/src/hash.data:402
+#: omweather/src/hash.data:403
 msgid "Mainly cloudy with occasional rain."
 msgstr "Túlnyomóan borult ég, elszórtan esőzés"
 
-#: omweather/src/hash.data:403
+#: omweather/src/hash.data:404
 #, fuzzy
 msgid "Mainly cloudy, Slight shower of rain"
 msgstr "Túlnyomóan borult ég, elszórtan esőzés"
@@ -1520,11 +1520,11 @@ msgstr "Köd"
 msgid "Moderate Freezing Rain"
 msgstr ""
 
-#: omweather/src/hash.data:392
+#: omweather/src/hash.data:393
 msgid "Moderate Rain"
 msgstr "Közepesen erős esőzés"
 
-#: omweather/src/hash.data:393
+#: omweather/src/hash.data:394
 msgid "Moderate Rain Showers"
 msgstr ""
 
@@ -1536,7 +1536,7 @@ msgstr ""
 msgid "Moderate Snow Showers"
 msgstr ""
 
-#: omweather/src/hash.data:391
+#: omweather/src/hash.data:392
 msgid "Moderate rain"
 msgstr "Közepesen erős esőzés"
 
@@ -1840,7 +1840,7 @@ msgstr "Egyéb Maemo időjárásinfó"
 msgid "Overcast"
 msgstr "Borús"
 
-#: omweather/src/hash.data:395
+#: omweather/src/hash.data:396
 msgid "Overcast Clouds"
 msgstr "Borús"
 
@@ -1880,7 +1880,7 @@ msgstr "Borús és havas eső"
 msgid "Overcast and wet snow showers"
 msgstr "Borús és havas eső záporok"
 
-#: omweather/src/hash.data:394
+#: omweather/src/hash.data:395
 msgid "Overcast clouds"
 msgstr "Borús"
 
@@ -1937,6 +1937,11 @@ msgstr "du. záporok / szél"
 msgid "PM Snow"
 msgstr "du. havazás"
 
+#: omweather/src/hash.data:227
+#, fuzzy
+msgid "PM Snow / Wind"
+msgstr "Hó / szél"
+
 #: omweather/src/hash.data:225
 msgid "PM Snow Showers"
 msgstr "du. hózáporok"
@@ -1945,123 +1950,123 @@ msgstr "du. hózáporok"
 msgid "PM Snow Showers / Wind"
 msgstr "du. hózáporok / szél"
 
-#: omweather/src/hash.data:227
+#: omweather/src/hash.data:228
 msgid "PM T-Showers"
 msgstr "du. zivatarok"
 
-#: omweather/src/hash.data:228
+#: omweather/src/hash.data:229
 msgid "PM T-Storms"
 msgstr "du. viharok"
 
-#: omweather/src/hash.data:230
+#: omweather/src/hash.data:231
 msgid "Partly Cloudy"
 msgstr "Helyenként felhős"
 
-#: omweather/src/hash.data:231
+#: omweather/src/hash.data:232
 msgid "Partly Cloudy / Wind"
 msgstr "Helyenként felhős / szél"
 
-#: omweather/src/hash.data:232
+#: omweather/src/hash.data:233
 msgid "Partly Cloudy / Windy"
 msgstr "Helyenként felhős / szél"
 
-#: omweather/src/hash.data:233
+#: omweather/src/hash.data:234
 msgid "Partly Cloudy Few Snow"
 msgstr "Helyenként felhős, kevés hóval"
 
-#: omweather/src/hash.data:234
+#: omweather/src/hash.data:235
 msgid "Partly Cloudy Light Rain"
 msgstr "Helyenként felhős, enyhe esővel"
 
-#: omweather/src/hash.data:235
+#: omweather/src/hash.data:236
 msgid "Partly Cloudy T-Storm"
 msgstr "Helyenként felhős, viharos"
 
-#: omweather/src/hash.data:236
+#: omweather/src/hash.data:237
 msgid "Partly Cloudy and Windly"
 msgstr "Helyenként felhős és szeles"
 
-#: omweather/src/hash.data:237 omweather/src/hash.data:238
+#: omweather/src/hash.data:238 omweather/src/hash.data:239
 msgid "Partly Cloudy and Windy"
 msgstr "Helyenként felhős és szeles"
 
-#: omweather/src/hash.data:239
+#: omweather/src/hash.data:240
 msgid "Partly Cloudy, Few Snow"
 msgstr "Helyenként felhős, kevés hóval"
 
-#: omweather/src/hash.data:240
+#: omweather/src/hash.data:241
 msgid "Partly Cloudy, Haze"
 msgstr "Helyenként felhős, párás"
 
-#: omweather/src/hash.data:241
+#: omweather/src/hash.data:242
 msgid "Partly Cloudy, Heavy Rain"
 msgstr "Helyenként felhős, felhőszakadással"
 
-#: omweather/src/hash.data:242
+#: omweather/src/hash.data:243
 msgid "Partly Cloudy, Heavy Rain, T-Storm"
 msgstr "Helyenként felhős, kiadós esők, viharok"
 
-#: omweather/src/hash.data:243
+#: omweather/src/hash.data:244
 msgid "Partly Cloudy, Heavy Snow"
 msgstr "Helyenként felhős, kiadós havazás"
 
-#: omweather/src/hash.data:244
+#: omweather/src/hash.data:245
 msgid "Partly Cloudy, Light Rain"
 msgstr "Helyenként felhős, könnyű esővel"
 
-#: omweather/src/hash.data:245
+#: omweather/src/hash.data:246
 msgid "Partly Cloudy, Light Rain, T-Storm"
 msgstr "Helyenként felhős, könnyű eső, záporok"
 
-#: omweather/src/hash.data:246
+#: omweather/src/hash.data:247
 msgid "Partly Cloudy, Rain"
 msgstr "Helyenként felhős, esős"
 
-#: omweather/src/hash.data:247
+#: omweather/src/hash.data:248
 msgid "Partly Cloudy, Rain, T-Storm"
 msgstr "Helyenként felhős, esős, záporos"
 
-#: omweather/src/hash.data:248
+#: omweather/src/hash.data:249
 msgid "Partly Cloudy, Smoke"
 msgstr "Helyenként felhős, füst"
 
-#: omweather/src/hash.data:249
+#: omweather/src/hash.data:250
 msgid "Partly Cloudy, Snow"
 msgstr "Helyenként felhős, havazás"
 
-#: omweather/src/hash.data:250
+#: omweather/src/hash.data:251
 msgid "Partly Cloudy, T-Storm"
 msgstr "Helyenként felhős, zivatarok"
 
-#: omweather/src/hash.data:258
+#: omweather/src/hash.data:259
 msgid "Partly cloudy"
 msgstr "Helyenként felhős"
 
-#: omweather/src/hash.data:251
+#: omweather/src/hash.data:252
 msgid "Partly cloudy and light rain"
 msgstr "Helyenként felhős, kevés esővel"
 
-#: omweather/src/hash.data:252
+#: omweather/src/hash.data:253
 msgid "Partly cloudy and light snow"
 msgstr "Helyenként felhős, kevés havazással"
 
-#: omweather/src/hash.data:253
+#: omweather/src/hash.data:254
 msgid "Partly cloudy and light wet snow"
 msgstr "Helyenként felhős, kevés havas esővel"
 
-#: omweather/src/hash.data:254
+#: omweather/src/hash.data:255
 msgid "Partly cloudy and showers"
 msgstr "Helyenként felhős, záporokkal"
 
-#: omweather/src/hash.data:255
+#: omweather/src/hash.data:256
 msgid "Partly cloudy and snow showers"
 msgstr "Helyenként felhős, hózáporokkal"
 
-#: omweather/src/hash.data:256
+#: omweather/src/hash.data:257
 msgid "Partly cloudy and wet snow showers"
 msgstr "Helyenként felhős, havas eső záporokkal"
 
-#: omweather/src/hash.data:229 omweather/src/hash.data:257
+#: omweather/src/hash.data:230 omweather/src/hash.data:258
 msgid "Partly cloudy, possible thunderstorms with rain"
 msgstr "Elszórtan felhős, néhol záporokkal"
 
@@ -2087,7 +2092,7 @@ msgstr "Pozíció:"
 msgid "Ppcp:"
 msgstr "Csapadék esélye:"
 
-#: omweather/src/hash.data:259
+#: omweather/src/hash.data:260
 msgid "Precipitation"
 msgstr ""
 
@@ -2154,111 +2159,111 @@ msgstr "Projektmenedzser"
 msgid "Provided by"
 msgstr "Elérhetővé tette:"
 
-#: omweather/src/hash.data:260
+#: omweather/src/hash.data:261
 msgid "Proximity shower rain"
 msgstr "Futó zápor"
 
-#: omweather/src/hash.data:261
+#: omweather/src/hash.data:262
 msgid "Rain"
 msgstr "Eső"
 
-#: omweather/src/hash.data:263
+#: omweather/src/hash.data:264
 msgid "Rain / Freezing Rain"
 msgstr "Eső / jégeső"
 
-#: omweather/src/hash.data:262
+#: omweather/src/hash.data:263
 #, fuzzy
 msgid "Rain / Ice Early"
 msgstr "Eső / délelőtti havazás"
 
-#: omweather/src/hash.data:271
+#: omweather/src/hash.data:272
 msgid "Rain / Snow"
 msgstr "Eső / hó"
 
-#: omweather/src/hash.data:264
+#: omweather/src/hash.data:265
 msgid "Rain / Snow / Wind"
 msgstr "Eső / hó / szél"
 
-#: omweather/src/hash.data:265
+#: omweather/src/hash.data:266
 #, fuzzy
 msgid "Rain / Snow / Wind Early"
 msgstr "Eső / hó / szél"
 
-#: omweather/src/hash.data:266
+#: omweather/src/hash.data:267
 msgid "Rain / Snow Early"
 msgstr "Eső / délelőtti havazás"
 
-#: omweather/src/hash.data:267
+#: omweather/src/hash.data:268
 msgid "Rain / Snow Late"
 msgstr "Eső / délutáni havazás"
 
-#: omweather/src/hash.data:270
+#: omweather/src/hash.data:271
 msgid "Rain / Snow Showers"
 msgstr "Eső / hózáporok"
 
-#: omweather/src/hash.data:268
+#: omweather/src/hash.data:269
 msgid "Rain / Snow Showers / Wind"
 msgstr "Eső / hózáporok / szél"
 
-#: omweather/src/hash.data:269
+#: omweather/src/hash.data:270
 msgid "Rain / Snow Showers Late"
 msgstr "Eső / délutáni hózáporok"
 
-#: omweather/src/hash.data:272
+#: omweather/src/hash.data:273
 msgid "Rain / Thunder"
 msgstr "Eső / mennydörgés"
 
-#: omweather/src/hash.data:274
+#: omweather/src/hash.data:275
 msgid "Rain / Wind"
 msgstr "Eső / szél"
 
-#: omweather/src/hash.data:273
+#: omweather/src/hash.data:274
 msgid "Rain / Wind Early"
 msgstr "Eső / délelőtt szeles"
 
-#: omweather/src/hash.data:275
+#: omweather/src/hash.data:276
 msgid "Rain Early"
 msgstr "Délelőtti esők"
 
-#: omweather/src/hash.data:276
+#: omweather/src/hash.data:277
 msgid "Rain Late"
 msgstr "Délutáni esők"
 
-#: omweather/src/hash.data:278
+#: omweather/src/hash.data:279
 msgid "Rain Shower"
 msgstr "Zápor"
 
-#: omweather/src/hash.data:277
+#: omweather/src/hash.data:278
 msgid "Rain Shower and Windy"
 msgstr "Zápor és szél"
 
-#: omweather/src/hash.data:279
+#: omweather/src/hash.data:280
 msgid "Rain Showers"
 msgstr "Záporok"
 
-#: omweather/src/hash.data:280
-msgid "Rain and Snow"
-msgstr "Eső és hó"
-
 #: omweather/src/hash.data:281
-#, fuzzy
-msgid "Rain and snow"
+msgid "Rain and Snow"
 msgstr "Eső és hó"
 
 #: omweather/src/hash.data:282
 #, fuzzy
+msgid "Rain and snow"
+msgstr "Eső és hó"
+
+#: omweather/src/hash.data:283
+#, fuzzy
 msgid "Rain to Snow"
 msgstr "Eső / hó"
 
-#: omweather/src/hash.data:283
+#: omweather/src/hash.data:284
 msgid "Rain to Snow / Wind"
 msgstr "Eső, havas eső / szél"
 
-#: omweather/src/hash.data:285
+#: omweather/src/hash.data:286
 msgid "Rain to Wintry Mix"
 msgstr "Eső, havas eső"
 
-#: omweather/src/hash.data:284
+#: omweather/src/hash.data:285
 msgid "Rain to Wintry Mix / Wind"
 msgstr "Eső, havas eső / szél"
 
@@ -2266,7 +2271,7 @@ msgstr "Eső, havas eső / szél"
 msgid "Read sensor every:"
 msgstr "Érzékelő olvasása minden:"
 
-#: omweather/src/hash.data:414
+#: omweather/src/hash.data:415
 msgid "Refresh"
 msgstr "Frissít"
 
@@ -2276,7 +2281,7 @@ msgstr "Frissít"
 msgid "Region"
 msgstr "Régió"
 
-#: omweather/src/hash.data:286
+#: omweather/src/hash.data:287
 msgid "Rush Hour Traffic"
 msgstr "Csúcsidő forgalom"
 
@@ -2286,43 +2291,43 @@ msgid ""
 " \tEd Bartosh\n"
 msgstr ""
 
-#: omweather/src/hash.data:287
+#: omweather/src/hash.data:288
 msgid "S"
 msgstr "D"
 
-#: omweather/src/hash.data:288
+#: omweather/src/hash.data:289
 msgid "SE"
 msgstr "DK"
 
-#: omweather/src/hash.data:289
+#: omweather/src/hash.data:290
 msgid "SE_short"
 msgstr "DK"
 
-#: omweather/src/hash.data:290
+#: omweather/src/hash.data:291
 msgid "SSE"
 msgstr "D-DK"
 
-#: omweather/src/hash.data:291
+#: omweather/src/hash.data:292
 msgid "SSE_short"
 msgstr "D-DK"
 
-#: omweather/src/hash.data:292
+#: omweather/src/hash.data:293
 msgid "SSW"
 msgstr "D-DNY"
 
-#: omweather/src/hash.data:293
+#: omweather/src/hash.data:294
 msgid "SSW_short"
 msgstr "D-DNY"
 
-#: omweather/src/hash.data:294
+#: omweather/src/hash.data:295
 msgid "SW"
 msgstr "DNY"
 
-#: omweather/src/hash.data:295
+#: omweather/src/hash.data:296
 msgid "SW_short"
 msgstr "DNY"
 
-#: omweather/src/hash.data:296
+#: omweather/src/hash.data:297
 msgid "S_short"
 msgstr "D"
 
@@ -2336,27 +2341,27 @@ msgstr "D"
 msgid "Save"
 msgstr "Mentés"
 
-#: omweather/src/hash.data:397
+#: omweather/src/hash.data:398
 msgid "Scattered Clouds"
 msgstr "Felszakadozó felhőzet"
 
-#: omweather/src/hash.data:297
+#: omweather/src/hash.data:298
 msgid "Scattered Showers"
 msgstr "Szórványos záporok"
 
-#: omweather/src/hash.data:299
+#: omweather/src/hash.data:300
 msgid "Scattered Snow"
 msgstr "Szórványos havazás"
 
-#: omweather/src/hash.data:298
+#: omweather/src/hash.data:299
 msgid "Scattered Snow Showers"
 msgstr "Szorványos hózáporok"
 
-#: omweather/src/hash.data:300
+#: omweather/src/hash.data:301
 msgid "Scattered T-Storms"
 msgstr "Szórványos zivatarok"
 
-#: omweather/src/hash.data:396
+#: omweather/src/hash.data:397
 msgid "Scattered clouds"
 msgstr "Felszakadozó felhőzet"
 
@@ -2460,7 +2465,7 @@ msgstr ""
 msgid "Set"
 msgstr "Beállít"
 
-#: omweather/src/hash.data:301 meecast/qt-qml/qml/WeatherPage.qml:327
+#: omweather/src/hash.data:302 meecast/qt-qml/qml/WeatherPage.qml:327
 msgid "Set locations"
 msgstr "Helyek beállítása"
 
@@ -2486,7 +2491,7 @@ msgstr "A nyitó képernyő beállítása"
 msgid "Settings of StandbyScreen"
 msgstr "A készenléti képernyő beállítása"
 
-#: omweather/src/hash.data:302
+#: omweather/src/hash.data:303
 msgid "Shallow Fog"
 msgstr "Ködfátyol"
 
@@ -2498,7 +2503,7 @@ msgstr "Rövid"
 msgid "Show arrows"
 msgstr "Nyilak mutatása"
 
-#: omweather/src/hash.data:413
+#: omweather/src/hash.data:414
 msgid "Show last update time"
 msgstr "Mutasd az utolsó frissítés idejét."
 
@@ -2510,7 +2515,7 @@ msgstr "Mutasd a térképen"
 msgid "Show only current weather on first icon"
 msgstr "Csak jelenlegi időjárás az első ikonon"
 
-#: omweather/src/hash.data:412
+#: omweather/src/hash.data:413
 msgid "Show source logo"
 msgstr "Mutasd a forrás logóját"
 
@@ -2526,47 +2531,47 @@ msgstr "Mutasd a hőmérsékletet ha:"
 msgid "Show wind"
 msgstr "Mutasd a szelet"
 
-#: omweather/src/hash.data:303
+#: omweather/src/hash.data:304
 msgid "Showers"
 msgstr "Záporok"
 
-#: omweather/src/hash.data:305
+#: omweather/src/hash.data:306
 msgid "Showers / Wind"
 msgstr "Záporok / szél"
 
-#: omweather/src/hash.data:304
+#: omweather/src/hash.data:305
 msgid "Showers / Wind Early"
 msgstr "Záporok / délelőtt szeles"
 
-#: omweather/src/hash.data:306
+#: omweather/src/hash.data:307
 msgid "Showers Early"
 msgstr "Délelőtti záporok"
 
-#: omweather/src/hash.data:307
+#: omweather/src/hash.data:308
 msgid "Showers Late"
 msgstr "Délutáni záporok"
 
-#: omweather/src/hash.data:308
+#: omweather/src/hash.data:309
 msgid "Showers in the Vicinity"
 msgstr "Záporok a környéken"
 
-#: omweather/src/hash.data:309
+#: omweather/src/hash.data:310
 msgid "Showers or Intermittent Precipitation"
 msgstr ""
 
-#: omweather/src/hash.data:399
+#: omweather/src/hash.data:400
 msgid "Sky is Clear"
 msgstr "Az ég tisza"
 
-#: omweather/src/hash.data:398
+#: omweather/src/hash.data:399
 msgid "Sky is clear"
 msgstr "Az ég tiszta"
 
-#: omweather/src/hash.data:310
+#: omweather/src/hash.data:311
 msgid "Sleet"
 msgstr "Ólmos eső, dara"
 
-#: omweather/src/hash.data:311
+#: omweather/src/hash.data:312
 msgid "Sleet Showers"
 msgstr ""
 
@@ -2578,69 +2583,69 @@ msgstr ""
 msgid "Slovenian - Boštjan Štrumbelj\n"
 msgstr ""
 
-#: omweather/src/hash.data:312
+#: omweather/src/hash.data:313
 msgid "Smoke"
 msgstr "Füst"
 
-#: omweather/src/hash.data:313
+#: omweather/src/hash.data:314
 msgid "Snow"
 msgstr "Hó"
 
-#: omweather/src/hash.data:317
+#: omweather/src/hash.data:318
 msgid "Snow / Wind"
 msgstr "Hó / szél"
 
-#: omweather/src/hash.data:314
+#: omweather/src/hash.data:315
 #, fuzzy
 msgid "Snow Early"
 msgstr "Délelőtti záporok"
 
-#: omweather/src/hash.data:315
+#: omweather/src/hash.data:316
 #, fuzzy
 msgid "Snow Late"
 msgstr "Délutáni záporok"
 
-#: omweather/src/hash.data:319
+#: omweather/src/hash.data:320
 msgid "Snow Shower"
 msgstr "Tartós havazás"
 
-#: omweather/src/hash.data:318
+#: omweather/src/hash.data:319
 msgid "Snow Shower / Wind"
 msgstr "Tartós havazás / szél"
 
-#: omweather/src/hash.data:320
+#: omweather/src/hash.data:321
 msgid "Snow Showers"
 msgstr ""
 
-#: omweather/src/hash.data:321
+#: omweather/src/hash.data:322
 msgid "Snow Showers / Wind Early"
 msgstr "Tartós havazás / délelőtt szeles"
 
-#: omweather/src/hash.data:322
+#: omweather/src/hash.data:323
 msgid "Snow Showers Early"
 msgstr "Délelőtt tartós havazás"
 
-#: omweather/src/hash.data:323
+#: omweather/src/hash.data:324
 msgid "Snow Showers Late"
 msgstr "Délután tartós havazás"
 
-#: omweather/src/hash.data:324
+#: omweather/src/hash.data:325
 msgid "Snow and Freezing Rain"
 msgstr "Hó és jégeső"
 
-#: omweather/src/hash.data:325
+#: omweather/src/hash.data:326
 msgid "Snow to Rain"
 msgstr "Hó és eső"
 
-#: omweather/src/hash.data:327
+#: omweather/src/hash.data:328
 msgid "Snow to Wintry Mix"
 msgstr "Hó és havas eső"
 
-#: omweather/src/hash.data:326
+#: omweather/src/hash.data:327
 msgid "Snow to Wintry Mix / Wind"
 msgstr "Hó és havas eső / szél"
 
-#: omweather/src/hash.data:316
+#: omweather/src/hash.data:317
 msgid "Snowfall"
 msgstr ""
 
@@ -2691,11 +2696,11 @@ msgstr "Állomás: %i"
 msgid "Stations"
 msgstr "Állomások"
 
-#: omweather/src/hash.data:328 omweather/src/weather-alerts.c:154
+#: omweather/src/hash.data:329 omweather/src/weather-alerts.c:154
 msgid "Storm"
 msgstr "Vihar"
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:330
 msgid "Strong Thundershowers"
 msgstr ""
 
@@ -2703,19 +2708,19 @@ msgstr ""
 msgid "Successfully loaded"
 msgstr "Sikeresen betöltve"
 
-#: omweather/src/hash.data:331
+#: omweather/src/hash.data:332
 msgid "Sunny"
 msgstr "Napos"
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:331
 msgid "Sunny / Wind"
 msgstr "Napos / szeles"
 
-#: omweather/src/hash.data:400 omweather/src/hash.data:401
+#: omweather/src/hash.data:401 omweather/src/hash.data:402
 msgid "Sunny periods and a few showers."
 msgstr "Napos, néhány záporral"
 
-#: omweather/src/hash.data:332 meecast/qt-qml/qml/FullWeatherPage.qml:335
+#: omweather/src/hash.data:333 meecast/qt-qml/qml/FullWeatherPage.qml:335
 msgid "Sunrise:"
 msgstr "Napfelkelte:"
 
@@ -2723,7 +2728,7 @@ msgstr "Napfelkelte:"
 msgid "Sunrise: "
 msgstr "Napfelkelte:"
 
-#: omweather/src/hash.data:333 meecast/qt-qml/qml/FullWeatherPage.qml:338
+#: omweather/src/hash.data:334 meecast/qt-qml/qml/FullWeatherPage.qml:338
 msgid "Sunset:"
 msgstr "Napnyugta:"
 
@@ -2751,27 +2756,27 @@ msgstr ""
 msgid "Switch to the next station after:"
 msgstr "Válts a következő állomásra, ha:"
 
-#: omweather/src/hash.data:335
+#: omweather/src/hash.data:336
 msgid "T-Showers"
 msgstr "Záporok"
 
-#: omweather/src/hash.data:334
+#: omweather/src/hash.data:335
 msgid "T-Showers Early"
 msgstr "Délelőtt záporok"
 
-#: omweather/src/hash.data:336
+#: omweather/src/hash.data:337
 msgid "T-Storm"
 msgstr "Zivatar"
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:340
 msgid "T-Storms"
 msgstr "Zivatarok"
 
-#: omweather/src/hash.data:337
+#: omweather/src/hash.data:338
 msgid "T-Storms Early"
 msgstr "Délelőtt zivatarok"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:339
 msgid "T-Storms Late"
 msgstr "Délután zivatarok"
 
@@ -2781,7 +2786,7 @@ msgstr "Délután zivatarok"
 msgid "Temperature"
 msgstr "Hőmérséklet"
 
-#: omweather/src/hash.data:340 meecast/qt-qml/qml/UnitsPage.qml:30
+#: omweather/src/hash.data:341 meecast/qt-qml/qml/UnitsPage.qml:30
 #: meecast/qt-qml/qml/UnitsPage.qml:102
 msgid "Temperature units"
 msgstr "Hőmérséklet"
@@ -2807,11 +2812,11 @@ msgstr "Köszönjük"
 msgid "The weather has been updated."
 msgstr "Az előrejelzés sikeresen frissítve."
 
-#: omweather/src/hash.data:407
+#: omweather/src/hash.data:408
 msgid "There are no stations to show in this view of the list"
 msgstr "Ebben a nézetben nem láthatók állomások"
 
-#: omweather/src/hash.data:409
+#: omweather/src/hash.data:410
 msgid "This is experimental feature. Only English is supported."
 msgstr "Ez egy kísérleti funkció. Csak az angol nyelv támogatott."
 
@@ -2832,15 +2837,15 @@ msgid ""
 "under the terms of the GNU General Public License\n"
 msgstr ""
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:342
 msgid "Thunder"
 msgstr "Mennydörgés"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:344
 msgid "Thunder in the Vicinity"
 msgstr "Zivatar a közelven"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:343
 msgid "Thundershowers"
 msgstr ""
 
@@ -2861,7 +2866,7 @@ msgid ""
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 msgstr ""
 
-#: omweather/src/hash.data:415
+#: omweather/src/hash.data:416
 msgid "Transparency"
 msgstr "Átlátszóság"
 
@@ -2870,7 +2875,7 @@ msgstr "Átlátszóság"
 msgid "Transparency:"
 msgstr "Áttetszőség:"
 
-#: omweather/src/hash.data:344 meecast/qt-qml/qml/WeatherPage.qml:501
+#: omweather/src/hash.data:345 meecast/qt-qml/qml/WeatherPage.qml:501
 msgid "Try to update"
 msgstr "Kísérlet a frissítésre"
 
@@ -2910,7 +2915,7 @@ msgstr "Mértékegység"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:346
 msgid "Unlimited"
 msgstr "Korlátlan"
 
@@ -2927,7 +2932,7 @@ msgstr "Frissítés folyamatban"
 msgid "Update interval"
 msgstr "Frissítési intervallum"
 
-#: omweather/src/hash.data:346 meecast/qt-qml/qml/WeatherPage.qml:360
+#: omweather/src/hash.data:347 meecast/qt-qml/qml/WeatherPage.qml:360
 msgid "Updating forecast"
 msgstr "Előrejelzés frissítése"
 
@@ -2959,7 +2964,7 @@ msgstr ""
 msgid "Use device temperature sensor"
 msgstr "Készülék hőmérséklet-érzékelőjének használata"
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:348
 msgid "VAR"
 msgstr ""
 
@@ -2967,7 +2972,7 @@ msgstr ""
 msgid "Valid time for current weather:"
 msgstr "Pontos idő a jelenlegi időjáráshoz:"
 
-#: omweather/src/hash.data:348
+#: omweather/src/hash.data:349
 msgid "Very High"
 msgstr "Nagyon magas"
 
@@ -2977,7 +2982,7 @@ msgid ""
 " \tAnh Dương and truongnx, \n"
 msgstr ""
 
-#: omweather/src/hash.data:410
+#: omweather/src/hash.data:411
 msgid "Violent Rain Showers"
 msgstr ""
 
@@ -2999,15 +3004,15 @@ msgstr "Látható:"
 msgid "Visuals"
 msgstr "Megjelenés"
 
-#: omweather/src/hash.data:408
+#: omweather/src/hash.data:409
 msgid "Voice forecast button on a widget"
 msgstr "Hangos előrejelzés gomb a widgeten"
 
-#: omweather/src/hash.data:411
+#: omweather/src/hash.data:412
 msgid "Voice weather forecast"
 msgstr "Hangos időjárás-előrejelzés"
 
-#: omweather/src/hash.data:349
+#: omweather/src/hash.data:350
 msgid "W"
 msgstr "NY"
 
@@ -3017,31 +3022,31 @@ msgstr "NY"
 msgid "WLAN"
 msgstr "WLAN"
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:351
 msgid "WNW"
 msgstr "NY-ÉNY"
 
-#: omweather/src/hash.data:351
+#: omweather/src/hash.data:352
 msgid "WNW_short"
 msgstr "NY-ÉNY"
 
-#: omweather/src/hash.data:352
+#: omweather/src/hash.data:353
 msgid "WSW"
 msgstr "NY-DNY"
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:354
 msgid "WSW_short"
 msgstr "NY-DNY"
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:355
 msgid "W_short"
 msgstr "NY"
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:356
 msgid "Waning Crescent"
 msgstr "Fogyó holdsarló"
 
-#: omweather/src/hash.data:356
+#: omweather/src/hash.data:357
 msgid "Waning Gibbous"
 msgstr "Fogyó hold"
 
@@ -3049,11 +3054,11 @@ msgstr "Fogyó hold"
 msgid "Warning"
 msgstr "Figyelem"
 
-#: omweather/src/hash.data:357
+#: omweather/src/hash.data:358
 msgid "Waxing Crescent"
 msgstr "Csökkenő holdsarló"
 
-#: omweather/src/hash.data:358
+#: omweather/src/hash.data:359
 msgid "Waxing Gibbous"
 msgstr "Csökkenő hold"
 
@@ -3090,7 +3095,7 @@ msgstr "Widget stílusa"
 msgid "Widget style and Iconset"
 msgstr "Widget stílusa és ikoncsomag"
 
-#: omweather/src/hash.data:362
+#: omweather/src/hash.data:363
 msgid "Wind"
 msgstr "Szél"
 
@@ -3100,7 +3105,7 @@ msgstr "Szél"
 msgid "Wind direction"
 msgstr "Szélirány"
 
-#: omweather/src/hash.data:359
+#: omweather/src/hash.data:360
 msgid "Wind direction:"
 msgstr "Szélirány:"
 
@@ -3110,7 +3115,7 @@ msgstr "Szélirány:"
 msgid "Wind gust:"
 msgstr "Szélroham:"
 
-#: omweather/src/hash.data:361 meecast/qt-qml/qml/FullWeatherPage.qml:147
+#: omweather/src/hash.data:362 meecast/qt-qml/qml/FullWeatherPage.qml:147
 #: meecast/qt-qml/qml/FullWeatherPage.qml:150
 #: meecast/qt-qml/qml/FullWeatherPage.qml:220
 #: meecast/qt-qml/qml/FullWeatherPage.qml:223
@@ -3119,7 +3124,7 @@ msgstr "Szélroham:"
 msgid "Wind speed"
 msgstr "Szélsebesség"
 
-#: omweather/src/hash.data:360 meecast/qt-qml/qml/UnitsPage.qml:39
+#: omweather/src/hash.data:361 meecast/qt-qml/qml/UnitsPage.qml:39
 #: meecast/qt-qml/qml/UnitsPage.qml:141
 msgid "Wind speed units"
 msgstr "Szélsebesség"
@@ -3139,24 +3144,24 @@ msgstr "Szél:"
 msgid "Wind: "
 msgstr "Szél:"
 
-#: omweather/src/hash.data:367
+#: omweather/src/hash.data:368
 msgid "Wintry Mix"
 msgstr "Havas eső"
 
-#: omweather/src/hash.data:364
+#: omweather/src/hash.data:365
 msgid "Wintry Mix / Wind"
 msgstr "Havas eső / szél"
 
-#: omweather/src/hash.data:363
+#: omweather/src/hash.data:364
 msgid "Wintry Mix / Wind Early"
 msgstr "Havas eső / délelőtti szél"
 
-#: omweather/src/hash.data:365
+#: omweather/src/hash.data:366
 #, fuzzy
 msgid "Wintry Mix / Windy"
 msgstr "Havas eső / szél"
 
-#: omweather/src/hash.data:366
+#: omweather/src/hash.data:367
 msgid "Wintry Mix to Snow"
 msgstr "Havas eső - hó"
 
@@ -3260,7 +3265,7 @@ msgstr "minden órában"
 msgid "every minute (Debug)"
 msgstr "minden perc"
 
-#: omweather/src/hash.data:368
+#: omweather/src/hash.data:369
 msgid "falling"
 msgstr "csökkenő"
 
@@ -3304,18 +3309,18 @@ msgstr "Pa"
 msgid "km"
 msgstr "km"
 
-#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:369
+#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:370
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
 #: meecast/qt-qml/qml/UnitsPage.qml:159
 msgid "km/h"
 msgstr "km/h"
 
-#: omweather/src/hash.data:370
+#: omweather/src/hash.data:371
 msgid "km/s"
 msgstr "km/s"
 
-#: omweather/src/hash.data:371
+#: omweather/src/hash.data:372
 msgid "kn"
 msgstr ""
 
@@ -3326,11 +3331,11 @@ msgstr ""
 msgid "m"
 msgstr "m"
 
-#: omweather/src/hash.data:372
+#: omweather/src/hash.data:373
 msgid "m/h"
 msgstr "m/h"
 
-#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:373
+#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:374
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
 #: meecast/qt-qml/qml/UnitsPage.qml:152
@@ -3358,13 +3363,13 @@ msgstr "mbar"
 msgid "mi"
 msgstr "mérföld"
 
-#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:374
+#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:375
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
 msgid "mi/h"
 msgstr "mph"
 
-#: omweather/src/hash.data:375
+#: omweather/src/hash.data:376
 msgid "mi/s"
 msgstr "mérföld/s"
 
@@ -3426,7 +3431,7 @@ msgstr "következő"
 msgid "nmi"
 msgstr ""
 
-#: omweather/src/hash.data:376
+#: omweather/src/hash.data:377
 msgid "rising"
 msgstr "növekvő"
 
@@ -3442,39 +3447,39 @@ msgstr "állomás helyi idő"
 msgid "station name"
 msgstr "állomás neve"
 
-#: omweather/src/hash.data:377
+#: omweather/src/hash.data:378
 msgid "steady"
 msgstr "állandó"
 
-#: omweather/src/hash.data:417
+#: omweather/src/hash.data:418
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:418
+#: omweather/src/hash.data:419
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:419
+#: omweather/src/hash.data:420
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:420
+#: omweather/src/hash.data:421
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:421
+#: omweather/src/hash.data:422
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:422
+#: omweather/src/hash.data:423
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:423
+#: omweather/src/hash.data:424
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:424
+#: omweather/src/hash.data:425
 msgid "Ю-З"
 msgstr ""
 

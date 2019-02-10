@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-04 23:25+0300\n"
+"POT-Creation-Date: 2019-02-10 09:11+0300\n"
 "PO-Revision-Date: 2015-11-10 09:08+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/vasvlad/meecast/"
@@ -411,7 +411,7 @@ msgstr "Tekijät"
 msgid "Automatically update data when connecting to the Internet"
 msgstr "Päivitä säätiedot automaattisesti yhdistettäessä Internettiin"
 
-#: omweather/src/hash.data:379
+#: omweather/src/hash.data:380
 msgid "Back"
 msgstr "Takaisin"
 
@@ -433,11 +433,11 @@ msgstr "Boforiasteikko"
 msgid "Blowing Snow"
 msgstr "Lumituiskua"
 
-#: omweather/src/hash.data:381
+#: omweather/src/hash.data:382
 msgid "Broken Clouds"
 msgstr "Hajanaisia pilviä"
 
-#: omweather/src/hash.data:382
+#: omweather/src/hash.data:383
 msgid "Broken clouds"
 msgstr "Hajanaisia pilviä"
 
@@ -598,7 +598,7 @@ msgstr "Pilvistä ja lumikuuroja"
 msgid "Cloudy and wet snow showers"
 msgstr "Pilvistä ja räntäkuuroja"
 
-#: omweather/src/hash.data:403
+#: omweather/src/hash.data:404
 msgid "Cloudy with occasional rain."
 msgstr "Pilvistä ja ajoittaista vesisadetta."
 
@@ -696,7 +696,7 @@ msgstr "Maa"
 msgid "Country:"
 msgstr "Maa:"
 
-#: omweather/src/hash.data:415
+#: omweather/src/hash.data:416
 msgid "Cover Page"
 msgstr "Kansilehti"
 
@@ -943,7 +943,7 @@ msgstr "GConfin asetus epäonnistui. Asetuksia ei tallennettu.\n"
 msgid "Fair"
 msgstr "Poutaa"
 
-#: omweather/src/hash.data:377
+#: omweather/src/hash.data:378
 msgid "Feels like"
 msgstr "Tuntuu kuin"
 
@@ -951,7 +951,7 @@ msgstr "Tuntuu kuin"
 msgid "Feels like:"
 msgstr "Tuntuu kuin:"
 
-#: omweather/src/hash.data:384
+#: omweather/src/hash.data:385
 msgid "Few Clouds"
 msgstr "Hajanaisia pilviä"
 
@@ -975,7 +975,7 @@ msgstr "Ajoittain lumikuuroja"
 msgid "Few Snow Showers / Wind"
 msgstr "Ajoittain lumikuuroja / Tuulista"
 
-#: omweather/src/hash.data:383
+#: omweather/src/hash.data:384
 msgid "Few clouds"
 msgstr "Hajanaisia pilviä"
 
@@ -1242,7 +1242,7 @@ msgstr "Kovaa lumisadetta"
 msgid "Heavy Thunder"
 msgstr "Kovaa ukkosta"
 
-#: omweather/src/hash.data:404
+#: omweather/src/hash.data:405
 msgid "Heavy intensity rain"
 msgstr "Rankkaa vesisadetta"
 
@@ -1250,7 +1250,7 @@ msgstr "Rankkaa vesisadetta"
 msgid "High"
 msgstr "Korkea"
 
-#: omweather/src/hash.data:378
+#: omweather/src/hash.data:379
 msgid "Hourly"
 msgstr "Tunneittain"
 
@@ -1345,7 +1345,7 @@ msgstr "Kilometrejä"
 msgid "Knots"
 msgstr "Solmua"
 
-#: omweather/src/hash.data:380
+#: omweather/src/hash.data:381
 msgid "Language"
 msgstr "Kieli"
 
@@ -1400,7 +1400,7 @@ msgstr "Kevyttä jäätävää tihkusadetta"
 msgid "Light Freezing Rain"
 msgstr "Kevyttä jäätävää sadetta"
 
-#: omweather/src/hash.data:123 omweather/src/hash.data:386
+#: omweather/src/hash.data:123 omweather/src/hash.data:387
 msgid "Light Rain"
 msgstr "Kevyttä vesisadetta"
 
@@ -1433,7 +1433,7 @@ msgstr "Myöhemmin kevyttä sadetta"
 msgid "Light Rain Shower"
 msgstr "Kevyitä sadekuuroja"
 
-#: omweather/src/hash.data:387
+#: omweather/src/hash.data:388
 msgid "Light Rain Showers"
 msgstr "Kevyitä sadekuuroja"
 
@@ -1493,11 +1493,11 @@ msgstr "Kevyitä lumikuuroja"
 msgid "Light Snowfall"
 msgstr "Kevyttä lumisadetta"
 
-#: omweather/src/hash.data:389
+#: omweather/src/hash.data:390
 msgid "Light intensity drizzle"
 msgstr "Kevyttä tihkusadetta"
 
-#: omweather/src/hash.data:405
+#: omweather/src/hash.data:406
 msgid "Light intensity shower rain"
 msgstr "Kevyitä sadekuuroja"
 
@@ -1505,11 +1505,11 @@ msgstr "Kevyitä sadekuuroja"
 msgid "Light or Moderate Precipitation"
 msgstr "Kevyttä tai kohtalaista sadetta"
 
-#: omweather/src/hash.data:385
+#: omweather/src/hash.data:386
 msgid "Light rain"
 msgstr "Kevyttä vesisadetta"
 
-#: omweather/src/hash.data:388
+#: omweather/src/hash.data:389
 msgid "Light snow"
 msgstr "Kevyttä lumisadetta"
 
@@ -1537,11 +1537,11 @@ msgstr "Tälle sijainnille ei näytä olevan säätietoja."
 msgid "Low"
 msgstr "Matala"
 
-#: omweather/src/hash.data:401
+#: omweather/src/hash.data:402
 msgid "Mainly cloudy with occasional rain."
 msgstr "Melko pilvistä ja satunnaista vesisadetta."
 
-#: omweather/src/hash.data:402
+#: omweather/src/hash.data:403
 msgid "Mainly cloudy, Slight shower of rain"
 msgstr "Melko pilvistä, kevyitä sadekuuroja"
 
@@ -1606,11 +1606,11 @@ msgstr "Utua"
 msgid "Moderate Freezing Rain"
 msgstr "Kohtalaista jäätävääsadetta"
 
-#: omweather/src/hash.data:391
+#: omweather/src/hash.data:392
 msgid "Moderate Rain"
 msgstr "Kohtalaista vesisadetta"
 
-#: omweather/src/hash.data:392
+#: omweather/src/hash.data:393
 msgid "Moderate Rain Showers"
 msgstr "Kohtalaisia sadekuuroja"
 
@@ -1622,7 +1622,7 @@ msgstr "Kohtalaista räntäsadetta"
 msgid "Moderate Snow Showers"
 msgstr "Kohtalaisia lumikuuroja"
 
-#: omweather/src/hash.data:390
+#: omweather/src/hash.data:391
 msgid "Moderate rain"
 msgstr "Kohtalaista vesisadetta"
 
@@ -1926,7 +1926,7 @@ msgstr "Other Maemo Weather Tietoja"
 msgid "Overcast"
 msgstr "Pilvistä"
 
-#: omweather/src/hash.data:394
+#: omweather/src/hash.data:395
 msgid "Overcast Clouds"
 msgstr "Pilvistä"
 
@@ -1966,7 +1966,7 @@ msgstr "Pilvistä ja räntäsadetta"
 msgid "Overcast and wet snow showers"
 msgstr "Pilvistä ja räntäkuuroja"
 
-#: omweather/src/hash.data:393
+#: omweather/src/hash.data:394
 msgid "Overcast clouds"
 msgstr "Pilvistä"
 
@@ -2325,14 +2325,19 @@ msgid "Rain and snow"
 msgstr "Vesi- ja lumisadetta"
 
 #: omweather/src/hash.data:282
+#, fuzzy
+msgid "Rain to Snow"
+msgstr "Vesisadetta / Lumisadetta"
+
+#: omweather/src/hash.data:283
 msgid "Rain to Snow / Wind"
 msgstr "Vesi- ja lumisadetta / Tuulista"
 
-#: omweather/src/hash.data:284
+#: omweather/src/hash.data:285
 msgid "Rain to Wintry Mix"
 msgstr "Vesi- ja räntäsadetta"
 
-#: omweather/src/hash.data:283
+#: omweather/src/hash.data:284
 msgid "Rain to Wintry Mix / Wind"
 msgstr "Vesi- ja räntäsadetta / Tuulista"
 
@@ -2340,7 +2345,7 @@ msgstr "Vesi- ja räntäsadetta / Tuulista"
 msgid "Read sensor every:"
 msgstr "Lue anturi joka:"
 
-#: omweather/src/hash.data:413
+#: omweather/src/hash.data:414
 msgid "Refresh"
 msgstr "Päivitä"
 
@@ -2350,7 +2355,7 @@ msgstr "Päivitä"
 msgid "Region"
 msgstr "Alue"
 
-#: omweather/src/hash.data:285
+#: omweather/src/hash.data:286
 msgid "Rush Hour Traffic"
 msgstr "Ruuhka-ajan liikenne"
 
@@ -2362,43 +2367,43 @@ msgstr ""
 "Venäjä - Pavel Fialko, Vlad Vasilyeu, \n"
 " \tEd Bartosh\n"
 
-#: omweather/src/hash.data:286
+#: omweather/src/hash.data:287
 msgid "S"
 msgstr "Etelästä"
 
-#: omweather/src/hash.data:287
+#: omweather/src/hash.data:288
 msgid "SE"
 msgstr "Kaakosta"
 
-#: omweather/src/hash.data:288
+#: omweather/src/hash.data:289
 msgid "SE_short"
 msgstr "SE"
 
-#: omweather/src/hash.data:289
+#: omweather/src/hash.data:290
 msgid "SSE"
 msgstr "Eteläkaakosta"
 
-#: omweather/src/hash.data:290
+#: omweather/src/hash.data:291
 msgid "SSE_short"
 msgstr "SSE"
 
-#: omweather/src/hash.data:291
+#: omweather/src/hash.data:292
 msgid "SSW"
 msgstr "Etelälounaasta"
 
-#: omweather/src/hash.data:292
+#: omweather/src/hash.data:293
 msgid "SSW_short"
 msgstr "SSW"
 
-#: omweather/src/hash.data:293
+#: omweather/src/hash.data:294
 msgid "SW"
 msgstr "Lounaasta"
 
-#: omweather/src/hash.data:294
+#: omweather/src/hash.data:295
 msgid "SW_short"
 msgstr "SW"
 
-#: omweather/src/hash.data:295
+#: omweather/src/hash.data:296
 msgid "S_short"
 msgstr "S"
 
@@ -2412,27 +2417,27 @@ msgstr "S"
 msgid "Save"
 msgstr "Tallenna"
 
-#: omweather/src/hash.data:396
+#: omweather/src/hash.data:397
 msgid "Scattered Clouds"
 msgstr "Hajanaisia pilviä"
 
-#: omweather/src/hash.data:296
+#: omweather/src/hash.data:297
 msgid "Scattered Showers"
 msgstr "Hajanaisia sadekuuroja"
 
-#: omweather/src/hash.data:298
+#: omweather/src/hash.data:299
 msgid "Scattered Snow"
 msgstr "Hajanaisia lumisateita"
 
-#: omweather/src/hash.data:297
+#: omweather/src/hash.data:298
 msgid "Scattered Snow Showers"
 msgstr "Hajanaisia lumikuuroja"
 
-#: omweather/src/hash.data:299
+#: omweather/src/hash.data:300
 msgid "Scattered T-Storms"
 msgstr "Hajanaisia ukkoskuuroja"
 
-#: omweather/src/hash.data:395
+#: omweather/src/hash.data:396
 msgid "Scattered clouds"
 msgstr "Hajanaisia pilviä"
 
@@ -2536,7 +2541,7 @@ msgstr "Serbia - Aleksandar Zaric\n"
 msgid "Set"
 msgstr "Aseta"
 
-#: omweather/src/hash.data:300 meecast/qt-qml/qml/WeatherPage.qml:327
+#: omweather/src/hash.data:301 meecast/qt-qml/qml/WeatherPage.qml:327
 msgid "Set locations"
 msgstr "Aseta sijainnit"
 
@@ -2562,7 +2567,7 @@ msgstr "Lukitusnäytön asetukset"
 msgid "Settings of StandbyScreen"
 msgstr "Valmiusnäytön asetukset"
 
-#: omweather/src/hash.data:301
+#: omweather/src/hash.data:302
 msgid "Shallow Fog"
 msgstr "Matalaa sumua"
 
@@ -2574,7 +2579,7 @@ msgstr "Lyhyt"
 msgid "Show arrows"
 msgstr "Näytä nuolet"
 
-#: omweather/src/hash.data:412
+#: omweather/src/hash.data:413
 msgid "Show last update time"
 msgstr "Näytä päivityksen ajankohta"
 
@@ -2586,7 +2591,7 @@ msgstr "Näytä kartalla"
 msgid "Show only current weather on first icon"
 msgstr "Nykyinen säätieto ensimmäisessä kuvakkeessa"
 
-#: omweather/src/hash.data:411
+#: omweather/src/hash.data:412
 msgid "Show source logo"
 msgstr "Näytä sääpalvelun logo"
 
@@ -2602,47 +2607,47 @@ msgstr "Näytä lämpötila:"
 msgid "Show wind"
 msgstr "Näytä tuuli"
 
-#: omweather/src/hash.data:302
+#: omweather/src/hash.data:303
 msgid "Showers"
 msgstr "Sadekuuroja"
 
-#: omweather/src/hash.data:304
+#: omweather/src/hash.data:305
 msgid "Showers / Wind"
 msgstr "Sadekuuroja / Tuulista"
 
-#: omweather/src/hash.data:303
+#: omweather/src/hash.data:304
 msgid "Showers / Wind Early"
 msgstr "Sadekuuroja / Ensin tuulista"
 
-#: omweather/src/hash.data:305
+#: omweather/src/hash.data:306
 msgid "Showers Early"
 msgstr "Jakson alussa sadekuuroja"
 
-#: omweather/src/hash.data:306
+#: omweather/src/hash.data:307
 msgid "Showers Late"
 msgstr "Myöhemmin sadekuuroja"
 
-#: omweather/src/hash.data:307
+#: omweather/src/hash.data:308
 msgid "Showers in the Vicinity"
 msgstr "Sadekuuroja lähistöllä"
 
-#: omweather/src/hash.data:308
+#: omweather/src/hash.data:309
 msgid "Showers or Intermittent Precipitation"
 msgstr "Sadekuuroja tai ajoittaisia sateita"
 
-#: omweather/src/hash.data:398
+#: omweather/src/hash.data:399
 msgid "Sky is Clear"
 msgstr "Selkeää"
 
-#: omweather/src/hash.data:397
+#: omweather/src/hash.data:398
 msgid "Sky is clear"
 msgstr "Selkeää"
 
-#: omweather/src/hash.data:309
+#: omweather/src/hash.data:310
 msgid "Sleet"
 msgstr "Räntäsade"
 
-#: omweather/src/hash.data:310
+#: omweather/src/hash.data:311
 msgid "Sleet Showers"
 msgstr "Räntäkuuroja"
 
@@ -2654,69 +2659,69 @@ msgstr "Slovakia - Roman Moravčík\n"
 msgid "Slovenian - Boštjan Štrumbelj\n"
 msgstr "Slovenia - Boštjan Štrumbelj\n"
 
-#: omweather/src/hash.data:311
+#: omweather/src/hash.data:312
 msgid "Smoke"
 msgstr "Savusumua"
 
-#: omweather/src/hash.data:312
+#: omweather/src/hash.data:313
 msgid "Snow"
 msgstr "Lumisadetta"
 
-#: omweather/src/hash.data:316
+#: omweather/src/hash.data:317
 msgid "Snow / Wind"
 msgstr "Lumisadetta / Tuulista"
 
-#: omweather/src/hash.data:313
+#: omweather/src/hash.data:314
 #, fuzzy
 msgid "Snow Early"
 msgstr "Jakson alussa sadekuuroja"
 
-#: omweather/src/hash.data:314
+#: omweather/src/hash.data:315
 #, fuzzy
 msgid "Snow Late"
 msgstr "Myöhemmin sadekuuroja"
 
-#: omweather/src/hash.data:318
+#: omweather/src/hash.data:319
 msgid "Snow Shower"
 msgstr "Lumikuuroja"
 
-#: omweather/src/hash.data:317
+#: omweather/src/hash.data:318
 msgid "Snow Shower / Wind"
 msgstr "Lumikuuroja / Tuulista"
 
-#: omweather/src/hash.data:319
+#: omweather/src/hash.data:320
 msgid "Snow Showers"
 msgstr "Lumikuuroja"
 
-#: omweather/src/hash.data:320
+#: omweather/src/hash.data:321
 msgid "Snow Showers / Wind Early"
 msgstr "Lumikuuroja / Ensin tuulista"
 
-#: omweather/src/hash.data:321
+#: omweather/src/hash.data:322
 msgid "Snow Showers Early"
 msgstr "Jakson alussa lumikuuroja"
 
-#: omweather/src/hash.data:322
+#: omweather/src/hash.data:323
 msgid "Snow Showers Late"
 msgstr "Myöhemmin lumikuuroja"
 
-#: omweather/src/hash.data:323
+#: omweather/src/hash.data:324
 msgid "Snow and Freezing Rain"
 msgstr "Lumisadetta ja jäätävää sadetta"
 
-#: omweather/src/hash.data:324
+#: omweather/src/hash.data:325
 msgid "Snow to Rain"
 msgstr "Lumi- ja vesisadetta"
 
-#: omweather/src/hash.data:326
+#: omweather/src/hash.data:327
 msgid "Snow to Wintry Mix"
 msgstr "Lumi- ja räntäsadetta"
 
-#: omweather/src/hash.data:325
+#: omweather/src/hash.data:326
 msgid "Snow to Wintry Mix / Wind"
 msgstr "Lumi- ja räntäsadetta / Tuulista"
 
-#: omweather/src/hash.data:315
+#: omweather/src/hash.data:316
 msgid "Snowfall"
 msgstr "Lumisadetta"
 
@@ -2767,11 +2772,11 @@ msgstr "Asema %i"
 msgid "Stations"
 msgstr "Asemat"
 
-#: omweather/src/hash.data:327 omweather/src/weather-alerts.c:154
+#: omweather/src/hash.data:328 omweather/src/weather-alerts.c:154
 msgid "Storm"
 msgstr "Myrsky"
 
-#: omweather/src/hash.data:328
+#: omweather/src/hash.data:329
 msgid "Strong Thundershowers"
 msgstr "Voimakkaita ukkoskuuroja"
 
@@ -2779,19 +2784,19 @@ msgstr "Voimakkaita ukkoskuuroja"
 msgid "Successfully loaded"
 msgstr "Ladattiin onnistuneesti"
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:331
 msgid "Sunny"
 msgstr "Aurinkoista"
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:330
 msgid "Sunny / Wind"
 msgstr "Aurinkoista / Tuulista"
 
-#: omweather/src/hash.data:399 omweather/src/hash.data:400
+#: omweather/src/hash.data:400 omweather/src/hash.data:401
 msgid "Sunny periods and a few showers."
 msgstr "Aurinkoista ja ajoittaisia sadekuuroja."
 
-#: omweather/src/hash.data:331 meecast/qt-qml/qml/FullWeatherPage.qml:335
+#: omweather/src/hash.data:332 meecast/qt-qml/qml/FullWeatherPage.qml:335
 msgid "Sunrise:"
 msgstr "Auringonnousu:"
 
@@ -2799,7 +2804,7 @@ msgstr "Auringonnousu:"
 msgid "Sunrise: "
 msgstr "Auringonnousu: "
 
-#: omweather/src/hash.data:332 meecast/qt-qml/qml/FullWeatherPage.qml:338
+#: omweather/src/hash.data:333 meecast/qt-qml/qml/FullWeatherPage.qml:338
 msgid "Sunset:"
 msgstr "Auringonlasku:"
 
@@ -2831,27 +2836,27 @@ msgstr ""
 msgid "Switch to the next station after:"
 msgstr "Aika seuraavan aseman vaihtoon:"
 
-#: omweather/src/hash.data:334
+#: omweather/src/hash.data:335
 msgid "T-Showers"
 msgstr "Ukkoskuuroja"
 
-#: omweather/src/hash.data:333
+#: omweather/src/hash.data:334
 msgid "T-Showers Early"
 msgstr "Jakson alussa ukkoskuuroja"
 
-#: omweather/src/hash.data:335
+#: omweather/src/hash.data:336
 msgid "T-Storm"
 msgstr "Ukkosta"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:339
 msgid "T-Storms"
 msgstr "Ukkosta"
 
-#: omweather/src/hash.data:336
+#: omweather/src/hash.data:337
 msgid "T-Storms Early"
 msgstr "Jakson alussa ukkosta"
 
-#: omweather/src/hash.data:337
+#: omweather/src/hash.data:338
 msgid "T-Storms Late"
 msgstr "Myöhemmin ukkosta"
 
@@ -2861,7 +2866,7 @@ msgstr "Myöhemmin ukkosta"
 msgid "Temperature"
 msgstr "Lämpötila"
 
-#: omweather/src/hash.data:339 meecast/qt-qml/qml/UnitsPage.qml:30
+#: omweather/src/hash.data:340 meecast/qt-qml/qml/UnitsPage.qml:30
 #: meecast/qt-qml/qml/UnitsPage.qml:102
 msgid "Temperature units"
 msgstr "Lämpötilan yksikkö"
@@ -2887,11 +2892,11 @@ msgstr "Kiitokset"
 msgid "The weather has been updated."
 msgstr "Säätiedot päivitetty."
 
-#: omweather/src/hash.data:406
+#: omweather/src/hash.data:407
 msgid "There are no stations to show in this view of the list"
 msgstr "Ei sääasemia tässä näkymässä"
 
-#: omweather/src/hash.data:408
+#: omweather/src/hash.data:409
 msgid "This is experimental feature. Only English is supported."
 msgstr ""
 "Tämä on kokeellinen toiminto ja tukee toistaiseksi vain englannin kieltä."
@@ -2923,15 +2928,15 @@ msgstr ""
 "Tämä on vapaa ohjelma; tätä ohjelmaa saa levittää edelleen ja muuttaa GNU "
 "General Public Licensen (GPL-lisenssi) ehtojen mukaisesti\n"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:341
 msgid "Thunder"
 msgstr "Ukkosta"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:343
 msgid "Thunder in the Vicinity"
 msgstr "Ukkosta lähistöllä"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:342
 msgid "Thundershowers"
 msgstr "Ukkoskuuroja"
 
@@ -2954,7 +2959,7 @@ msgstr ""
 "Kääntäjät: Ranska - Nicolas Granziano, Philippe, Benot Knecht; Venäjä - "
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 
-#: omweather/src/hash.data:414
+#: omweather/src/hash.data:415
 msgid "Transparency"
 msgstr "Läpinäkyvä tausta"
 
@@ -2963,7 +2968,7 @@ msgstr "Läpinäkyvä tausta"
 msgid "Transparency:"
 msgstr "Läpinäkyvyys:"
 
-#: omweather/src/hash.data:343 meecast/qt-qml/qml/WeatherPage.qml:501
+#: omweather/src/hash.data:344 meecast/qt-qml/qml/WeatherPage.qml:501
 msgid "Try to update"
 msgstr "Hae säätiedot"
 
@@ -3005,7 +3010,7 @@ msgstr "Yksiköt"
 msgid "Unknown"
 msgstr "Tuntematon"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:345
 msgid "Unlimited"
 msgstr "Rajatonta"
 
@@ -3022,7 +3027,7 @@ msgstr "Päivitys on jo käynnissä."
 msgid "Update interval"
 msgstr "Päivitysväli"
 
-#: omweather/src/hash.data:345 meecast/qt-qml/qml/WeatherPage.qml:360
+#: omweather/src/hash.data:346 meecast/qt-qml/qml/WeatherPage.qml:360
 msgid "Updating forecast"
 msgstr "Päivitetään säätietoja"
 
@@ -3055,7 +3060,7 @@ msgstr ""
 msgid "Use device temperature sensor"
 msgstr "Käytä laitteen lämpötila-anturia"
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:347
 msgid "VAR"
 msgstr "Vaihteleva"
 
@@ -3063,7 +3068,7 @@ msgstr "Vaihteleva"
 msgid "Valid time for current weather:"
 msgstr "Nykyisen sään voimassaolo:"
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:348
 msgid "Very High"
 msgstr "Erittäin korkea"
 
@@ -3075,7 +3080,7 @@ msgstr ""
 "Vietnam - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
 
-#: omweather/src/hash.data:409
+#: omweather/src/hash.data:410
 msgid "Violent Rain Showers"
 msgstr "Voimakkaita sadekuuroja"
 
@@ -3097,15 +3102,15 @@ msgstr "Näkyvyys:"
 msgid "Visuals"
 msgstr "Ulkoasu"
 
-#: omweather/src/hash.data:407
+#: omweather/src/hash.data:408
 msgid "Voice forecast button on a widget"
 msgstr "Nappi ääniennusteelle sovelmassa"
 
-#: omweather/src/hash.data:410
+#: omweather/src/hash.data:411
 msgid "Voice weather forecast"
 msgstr "Ääniennuste"
 
-#: omweather/src/hash.data:348
+#: omweather/src/hash.data:349
 msgid "W"
 msgstr "Lännestä"
 
@@ -3115,31 +3120,31 @@ msgstr "Lännestä"
 msgid "WLAN"
 msgstr "WLAN"
 
-#: omweather/src/hash.data:349
+#: omweather/src/hash.data:350
 msgid "WNW"
 msgstr "Länsiluoteesta"
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:351
 msgid "WNW_short"
 msgstr "WNW"
 
-#: omweather/src/hash.data:351
+#: omweather/src/hash.data:352
 msgid "WSW"
 msgstr "Länsilounaasta"
 
-#: omweather/src/hash.data:352
+#: omweather/src/hash.data:353
 msgid "WSW_short"
 msgstr "WSW"
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:354
 msgid "W_short"
 msgstr "W"
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:355
 msgid "Waning Crescent"
 msgstr "Vähenevä sirppi"
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:356
 msgid "Waning Gibbous"
 msgstr "Vähenevä kuperakuu"
 
@@ -3147,11 +3152,11 @@ msgstr "Vähenevä kuperakuu"
 msgid "Warning"
 msgstr "Varoitus"
 
-#: omweather/src/hash.data:356
+#: omweather/src/hash.data:357
 msgid "Waxing Crescent"
 msgstr "Kasvava sirppi"
 
-#: omweather/src/hash.data:357
+#: omweather/src/hash.data:358
 msgid "Waxing Gibbous"
 msgstr "Kasvava kuperakuu"
 
@@ -3188,7 +3193,7 @@ msgstr "Sovelman tyyli"
 msgid "Widget style and Iconset"
 msgstr "Sovelman tyyli ja kuvakkeet"
 
-#: omweather/src/hash.data:361
+#: omweather/src/hash.data:362
 msgid "Wind"
 msgstr "Tuulista"
 
@@ -3198,7 +3203,7 @@ msgstr "Tuulista"
 msgid "Wind direction"
 msgstr "Tuulen suunta"
 
-#: omweather/src/hash.data:358
+#: omweather/src/hash.data:359
 msgid "Wind direction:"
 msgstr "Tuulen suunta:"
 
@@ -3208,7 +3213,7 @@ msgstr "Tuulen suunta:"
 msgid "Wind gust:"
 msgstr "Tuulenpuuskat:"
 
-#: omweather/src/hash.data:360 meecast/qt-qml/qml/FullWeatherPage.qml:147
+#: omweather/src/hash.data:361 meecast/qt-qml/qml/FullWeatherPage.qml:147
 #: meecast/qt-qml/qml/FullWeatherPage.qml:150
 #: meecast/qt-qml/qml/FullWeatherPage.qml:220
 #: meecast/qt-qml/qml/FullWeatherPage.qml:223
@@ -3217,7 +3222,7 @@ msgstr "Tuulenpuuskat:"
 msgid "Wind speed"
 msgstr "Tuulen nopeus"
 
-#: omweather/src/hash.data:359 meecast/qt-qml/qml/UnitsPage.qml:39
+#: omweather/src/hash.data:360 meecast/qt-qml/qml/UnitsPage.qml:39
 #: meecast/qt-qml/qml/UnitsPage.qml:141
 msgid "Wind speed units"
 msgstr "Tuulen nopeuden yksikkö"
@@ -3237,24 +3242,24 @@ msgstr "Tuuli:"
 msgid "Wind: "
 msgstr "Tuuli: "
 
-#: omweather/src/hash.data:366
+#: omweather/src/hash.data:367
 msgid "Wintry Mix"
 msgstr "Räntäsadetta"
 
-#: omweather/src/hash.data:363
+#: omweather/src/hash.data:364
 msgid "Wintry Mix / Wind"
 msgstr "Räntäsadetta / Tuulista"
 
-#: omweather/src/hash.data:362
+#: omweather/src/hash.data:363
 msgid "Wintry Mix / Wind Early"
 msgstr "Räntäsadetta / Ensin tuulista"
 
-#: omweather/src/hash.data:364
+#: omweather/src/hash.data:365
 #, fuzzy
 msgid "Wintry Mix / Windy"
 msgstr "Räntäsadetta / Tuulista"
 
-#: omweather/src/hash.data:365
+#: omweather/src/hash.data:366
 msgid "Wintry Mix to Snow"
 msgstr "Räntä- ja lumisadetta"
 
@@ -3368,7 +3373,7 @@ msgstr "kerran tunnissa"
 msgid "every minute (Debug)"
 msgstr "kerran minuutissa (Debug)"
 
-#: omweather/src/hash.data:367
+#: omweather/src/hash.data:368
 msgid "falling"
 msgstr "laskeva"
 
@@ -3411,18 +3416,18 @@ msgstr "kPa"
 msgid "km"
 msgstr "km"
 
-#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:368
+#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:369
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
 #: meecast/qt-qml/qml/UnitsPage.qml:159
 msgid "km/h"
 msgstr "km/h"
 
-#: omweather/src/hash.data:369
+#: omweather/src/hash.data:370
 msgid "km/s"
 msgstr "km/s"
 
-#: omweather/src/hash.data:370
+#: omweather/src/hash.data:371
 msgid "kn"
 msgstr "kn"
 
@@ -3433,11 +3438,11 @@ msgstr "kn"
 msgid "m"
 msgstr "m"
 
-#: omweather/src/hash.data:371
+#: omweather/src/hash.data:372
 msgid "m/h"
 msgstr "m/h"
 
-#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:372
+#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:373
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
 #: meecast/qt-qml/qml/UnitsPage.qml:152
@@ -3465,13 +3470,13 @@ msgstr "mbar"
 msgid "mi"
 msgstr "mi"
 
-#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:373
+#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:374
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
 msgid "mi/h"
 msgstr "mi/h"
 
-#: omweather/src/hash.data:374
+#: omweather/src/hash.data:375
 msgid "mi/s"
 msgstr "mi/s"
 
@@ -3532,7 +3537,7 @@ msgstr "Seuraava"
 msgid "nmi"
 msgstr "nmi"
 
-#: omweather/src/hash.data:375
+#: omweather/src/hash.data:376
 msgid "rising"
 msgstr "nousussa"
 
@@ -3548,38 +3553,38 @@ msgstr "aseman paikallisaika"
 msgid "station name"
 msgstr "aseman nimessä"
 
-#: omweather/src/hash.data:376
+#: omweather/src/hash.data:377
 msgid "steady"
 msgstr "tasainen"
 
-#: omweather/src/hash.data:416
+#: omweather/src/hash.data:417
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:417
+#: omweather/src/hash.data:418
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:418
+#: omweather/src/hash.data:419
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:419
+#: omweather/src/hash.data:420
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:420
+#: omweather/src/hash.data:421
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:421
+#: omweather/src/hash.data:422
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:422
+#: omweather/src/hash.data:423
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:423
+#: omweather/src/hash.data:424
 msgid "Ю-З"
 msgstr "Ю-З"

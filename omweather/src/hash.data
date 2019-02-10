@@ -281,6 +281,7 @@
     g_hash_table_insert(hash, (void*)"Rain Showers", _("Rain Showers"));
     g_hash_table_insert(hash, (void*)"Rain and Snow", _("Rain and Snow"));
     g_hash_table_insert(hash, (void*)"Rain and snow", _("Rain and snow"));
+    g_hash_table_insert(hash, (void*)"Rain to Snow", _("Rain to Snow"));
     g_hash_table_insert(hash, (void*)"Rain to Snow / Wind", _("Rain to Snow / Wind"));
     g_hash_table_insert(hash, (void*)"Rain to Wintry Mix / Wind", _("Rain to Wintry Mix / Wind"));
     g_hash_table_insert(hash, (void*)"Rain to Wintry Mix", _("Rain to Wintry Mix"));

@@ -461,15 +461,28 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
                     if (xpathObj2->nodesetval->nodeTab[j]->content){
                         snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj2->nodesetval->nodeTab[j]->content);
                         memset(temp_buffer, 0, sizeof(temp_buffer));
+                        memset(temp_buffer2, 0, sizeof(temp_buffer2));
                         for (l = 0 ; (l<(strlen(buffer)) && l < buff_size); l++ ){
                             if (buffer[l] == '&')
                                break;
                             if ((uint)buffer[l] == 226 ||  buffer[l] == '-' || 
-                                (buffer[l]>='0' && buffer[l]<='9')){
-                                if ((uint)buffer[l] == 226)
-                                   sprintf(temp_buffer,"%s-",temp_buffer);
-                                else
-                                   sprintf(temp_buffer,"%s%c",temp_buffer, buffer[l]);
+                                         (buffer[l]>='0' && buffer[l]<='9')){
+                                    if ((uint)buffer[l] == 226){
+                                        if (temp_buffer[0] != 0){
+                                            sprintf(temp_buffer2,"%s",temp_buffer);
+                                            sprintf(temp_buffer,"%s-",temp_buffer2);
+                                        }else{
+                                            sprintf(temp_buffer,"%s-",temp_buffer);
+                                        }
+                                    }else{
+                                        if (temp_buffer[0] != 0){
+                                            sprintf(temp_buffer2,"%s",temp_buffer);
+                                            sprintf(temp_buffer,"%s%c",temp_buffer2, buffer[l]);
+                                        }else{
+                                            sprintf(temp_buffer,"%c", buffer[l]);
+                                        }
+                                    }
+                                }
                             }
                         }
                         fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer); 

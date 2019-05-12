@@ -58,6 +58,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     char       buff[256];
     char       buffer[buff_size];
     char       temp_buffer[buff_size];
+    char       temp_buffer2[buff_size];
     int        j, k, l;
 
     xmlXPathContextPtr xpathCtx; 
@@ -171,15 +172,27 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
         /* fprintf (stderr, "temperature %s\n", xpathObj->nodesetval->nodeTab[0]->content); */
         snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj->nodesetval->nodeTab[0]->content);
         memset(temp_buffer, 0, sizeof(temp_buffer));
+        memset(temp_buffer2, 0, sizeof(temp_buffer2));
         for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
             if (buffer[j] == '&')
                break;
             if ((uint)buffer[j] == 226 ||  buffer[j] == '-' || 
-                (buffer[j]>='0' && buffer[j]<='9')){
-                if ((uint)buffer[j] == 226)
-                   sprintf(temp_buffer,"%s-",temp_buffer);
-                else
-                   sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+                     (buffer[j]>='0' && buffer[j]<='9')){
+                if ((uint)buffer[j] == 226){
+                    if (temp_buffer[0] != 0){
+                        sprintf(temp_buffer2,"%s",temp_buffer);
+                        sprintf(temp_buffer,"%s-",temp_buffer2);
+                    }else{
+                        sprintf(temp_buffer,"%s-",temp_buffer);
+                    }
+                }else{
+                    if (temp_buffer[0] != 0){
+                        sprintf(temp_buffer2,"%s",temp_buffer);
+                        sprintf(temp_buffer,"%s%c",temp_buffer2, buffer[j]);
+                    }else{
+                        sprintf(temp_buffer,"%c", buffer[j]);
+                    }
+                }
             }
         }
         /* fprintf(stderr, "     <temperature>%s</temperature>\n", temp_buffer); */
@@ -532,6 +545,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     char        buff[256],
                 buffer[buff_size];
     char        temp_buffer[buff_size];
+    char        temp_buffer2[buff_size];
     int         size;
     int         i,j;
     xmlXPathContextPtr xpathCtx; 
@@ -629,18 +643,23 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
              /* fprintf (stderr, "temperature %s\n", xpathObj2->nodesetval->nodeTab[i]->content); */
              snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj2->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
+             memset(temp_buffer2, 0, sizeof(temp_buffer2));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
                  if (buffer[j] == '&')
                     break;
                  if ((uint)buffer[j] == 226 ||  buffer[j] == '-' || 
                      (buffer[j]>='0' && buffer[j]<='9')){
-                     if ((uint)buffer[j] == 226)
-                        sprintf(temp_buffer,"%s-",temp_buffer);
-                     else
-                        sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+
+                     if ((uint)buffer[j] == 226){
+                        sprintf(temp_buffer2,"%s",temp_buffer);
+                        sprintf(temp_buffer,"%s-",temp_buffer2);
+                     }else{
+                        sprintf(temp_buffer2,"%s",temp_buffer);
+                        sprintf(temp_buffer,"%s%c",temp_buffer2, buffer[j]);
+                     }
                  }
              }
-             /* fprintf(stderr, "     <temperature>%s</temperature>\n", temp_buffer); */
+             /* fprintf(stderr, "     <temperature>%s</temperature>\n", temp_buffer); */ 
              fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", temp_buffer); 
          }
          /* added lo temperature */
@@ -649,18 +668,22 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
              /* fprintf (stderr, "temperature %s\n", xpathObj3->nodesetval->nodeTab[i]->content); */
              snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj3->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
+             memset(temp_buffer2, 0, sizeof(temp_buffer2));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
                  if (buffer[j] == '&')
                     break;
                  if ((uint)buffer[j] == 226 ||  buffer[j] == '-' ||
                      (buffer[j]>='0' && buffer[j]<='9')){
-                     if ((uint)buffer[j] == 226)
-                        sprintf(temp_buffer,"%s-",temp_buffer);
-                     else
-                        sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+                     if ((uint)buffer[j] == 226){
+                        sprintf(temp_buffer2,"%s",temp_buffer);
+                        sprintf(temp_buffer,"%s-",temp_buffer2);
+                     }else{
+                        sprintf(temp_buffer2,"%s",temp_buffer);
+                        sprintf(temp_buffer,"%s%c",temp_buffer2, buffer[j]);
+                     }
                  }
              }
-             /* fprintf(stderr, "     <temperature>%s</temperature>\n", temp_buffer); */
+             fprintf(stderr, "     <temperature>%s</temperature>\n", temp_buffer);
              fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_buffer); 
          }
          /* added wind direction */
@@ -738,10 +761,13 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
              xpathObj7->nodesetval->nodeTab[i] && xpathObj7->nodesetval->nodeTab[i]->children->content){
             snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj7->nodesetval->nodeTab[i]->children->content);
             memset(temp_buffer, 0, sizeof(temp_buffer));
+            memset(temp_buffer2, 0, sizeof(temp_buffer2));
             for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
                if (buffer[j] == 13 || buffer[j] == 10)
                     continue;
-               sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+               sprintf(temp_buffer2,"%s",temp_buffer);
+               sprintf(temp_buffer,"%s%c",temp_buffer2, buffer[j]);
+
             }
             fprintf(file_out,"     <description>%s</description>\n", temp_buffer);
          }

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-10 09:11+0300\n"
+"POT-Creation-Date: 2019-02-10 20:53+0300\n"
 "PO-Revision-Date: 2015-03-10 14:46+0000\n"
 "Last-Translator: Mehmet Ç. <mehmetfnldstntn@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/meecast/language/"
@@ -400,7 +400,7 @@ msgstr "Yapımcılar"
 msgid "Automatically update data when connecting to the Internet"
 msgstr "Internete bağlanıldıgında otomatik olarak güncelle"
 
-#: omweather/src/hash.data:380
+#: omweather/src/hash.data:381
 msgid "Back"
 msgstr "Geri"
 
@@ -422,11 +422,11 @@ msgstr "Beaufort cizelgesi"
 msgid "Blowing Snow"
 msgstr "Ufleyen Kar"
 
-#: omweather/src/hash.data:382
+#: omweather/src/hash.data:383
 msgid "Broken Clouds"
 msgstr "Parçalı Bulutlu"
 
-#: omweather/src/hash.data:383
+#: omweather/src/hash.data:384
 msgid "Broken clouds"
 msgstr "Parçalı bulutlu"
 
@@ -589,7 +589,7 @@ msgstr "Bulutlu ve kar yagışlı"
 msgid "Cloudy and wet snow showers"
 msgstr "Bulutlu ve ıslak sağnak kar yağışı"
 
-#: omweather/src/hash.data:404
+#: omweather/src/hash.data:405
 msgid "Cloudy with occasional rain."
 msgstr "Zaman zaman yağmur ile bulutlu."
 
@@ -687,7 +687,7 @@ msgstr "Ülke"
 msgid "Country:"
 msgstr "Ülke:"
 
-#: omweather/src/hash.data:416
+#: omweather/src/hash.data:417
 msgid "Cover Page"
 msgstr "Kapak Sayfası"
 
@@ -932,7 +932,7 @@ msgstr "GConf yüklenemedi.Ayarlar kaydedilmedi. \n"
 msgid "Fair"
 msgstr "Açık"
 
-#: omweather/src/hash.data:378
+#: omweather/src/hash.data:379
 msgid "Feels like"
 msgstr "Hissediliş Benzerlikleri"
 
@@ -940,7 +940,7 @@ msgstr "Hissediliş Benzerlikleri"
 msgid "Feels like:"
 msgstr "Hissediliş Benzerlikleri:"
 
-#: omweather/src/hash.data:385
+#: omweather/src/hash.data:386
 msgid "Few Clouds"
 msgstr "Az Bulutlu"
 
@@ -964,7 +964,7 @@ msgstr "Karla Karışık Yağmur"
 msgid "Few Snow Showers / Wind"
 msgstr "Karla Karışık Yağmur / Rüzgar"
 
-#: omweather/src/hash.data:384
+#: omweather/src/hash.data:385
 msgid "Few clouds"
 msgstr "Az bulutlu"
 
@@ -1229,7 +1229,7 @@ msgstr "Şiddetli Kar Yağışı"
 msgid "Heavy Thunder"
 msgstr "Şiddetli Gök Gürültüsü"
 
-#: omweather/src/hash.data:405
+#: omweather/src/hash.data:406
 msgid "Heavy intensity rain"
 msgstr "Ağır şiddetli yağmur"
 
@@ -1237,7 +1237,7 @@ msgstr "Ağır şiddetli yağmur"
 msgid "High"
 msgstr "Yüksek"
 
-#: omweather/src/hash.data:379
+#: omweather/src/hash.data:380
 msgid "Hourly"
 msgstr "Saatlik"
 
@@ -1333,7 +1333,7 @@ msgstr "Kilometre"
 msgid "Knots"
 msgstr "Knots"
 
-#: omweather/src/hash.data:381
+#: omweather/src/hash.data:382
 msgid "Language"
 msgstr "Dil"
 
@@ -1388,7 +1388,7 @@ msgstr "Hafif dondurucu çiseleme"
 msgid "Light Freezing Rain"
 msgstr "Hafif Dondurucu Yağmur"
 
-#: omweather/src/hash.data:123 omweather/src/hash.data:387
+#: omweather/src/hash.data:123 omweather/src/hash.data:388
 msgid "Light Rain"
 msgstr "Hafif Yağmur"
 
@@ -1421,7 +1421,7 @@ msgstr "Akşama Doğru Hafif Yağmur"
 msgid "Light Rain Shower"
 msgstr "Hafif Sağnak Yağmur"
 
-#: omweather/src/hash.data:388
+#: omweather/src/hash.data:389
 msgid "Light Rain Showers"
 msgstr "Hafif Sağanak Yağmur"
 
@@ -1481,11 +1481,11 @@ msgstr "Hafif Sağanak Karla Karışık Yağmur"
 msgid "Light Snowfall"
 msgstr "Hafif Kar Yağışı"
 
-#: omweather/src/hash.data:390
+#: omweather/src/hash.data:391
 msgid "Light intensity drizzle"
 msgstr "Hafif aralıklı çiseleme"
 
-#: omweather/src/hash.data:406
+#: omweather/src/hash.data:407
 msgid "Light intensity shower rain"
 msgstr "Hafif aralıklı sağnak yağmur"
 
@@ -1493,11 +1493,11 @@ msgstr "Hafif aralıklı sağnak yağmur"
 msgid "Light or Moderate Precipitation"
 msgstr "Hafif veya Orta Yağış"
 
-#: omweather/src/hash.data:386
+#: omweather/src/hash.data:387
 msgid "Light rain"
 msgstr "Hafif yağmur"
 
-#: omweather/src/hash.data:389
+#: omweather/src/hash.data:390
 msgid "Light snow"
 msgstr "Hafif kar"
 
@@ -1525,11 +1525,11 @@ msgstr "Gorünüşe göre bu konum için tahmin bilgisi yok."
 msgid "Low"
 msgstr "Düşük"
 
-#: omweather/src/hash.data:402
+#: omweather/src/hash.data:403
 msgid "Mainly cloudy with occasional rain."
 msgstr "Zaman zaman yağmur ile bulutlu."
 
-#: omweather/src/hash.data:403
+#: omweather/src/hash.data:404
 msgid "Mainly cloudy, Slight shower of rain"
 msgstr "Genelde bulutlu, ara ara yağmurlu"
 
@@ -1597,11 +1597,11 @@ msgstr "Pus"
 msgid "Moderate Freezing Rain"
 msgstr "Orta Dondurucu Yağmur"
 
-#: omweather/src/hash.data:392
+#: omweather/src/hash.data:393
 msgid "Moderate Rain"
 msgstr "Orta Şiddetli Yağmur"
 
-#: omweather/src/hash.data:393
+#: omweather/src/hash.data:394
 msgid "Moderate Rain Showers"
 msgstr "Orta Sağanak Yağmur"
 
@@ -1613,7 +1613,7 @@ msgstr "Orta Karla Karışık Yağmur"
 msgid "Moderate Snow Showers"
 msgstr "Orta Sağanak Kar"
 
-#: omweather/src/hash.data:391
+#: omweather/src/hash.data:392
 msgid "Moderate rain"
 msgstr "Orta şiddetli yağmur"
 
@@ -1917,7 +1917,7 @@ msgstr "Diğer Maemo Havadurumu Bilgisi"
 msgid "Overcast"
 msgstr "Kapalı"
 
-#: omweather/src/hash.data:395
+#: omweather/src/hash.data:396
 msgid "Overcast Clouds"
 msgstr "Kapalı Bulutlu"
 
@@ -1957,7 +1957,7 @@ msgstr "Kapali ve sulu kar"
 msgid "Overcast and wet snow showers"
 msgstr "Kapalı ve sulu sağnak kar"
 
-#: omweather/src/hash.data:394
+#: omweather/src/hash.data:395
 msgid "Overcast clouds"
 msgstr "Kapalı bulutlu"
 
@@ -2014,6 +2014,11 @@ msgstr "PM Sağnak / Rüzgar"
 msgid "PM Snow"
 msgstr "PM Kar"
 
+#: omweather/src/hash.data:227
+#, fuzzy
+msgid "PM Snow / Wind"
+msgstr "Kar / Rüzgar"
+
 #: omweather/src/hash.data:225
 msgid "PM Snow Showers"
 msgstr "PM Sağnak Kar"
@@ -2022,123 +2027,123 @@ msgstr "PM Sağnak Kar"
 msgid "PM Snow Showers / Wind"
 msgstr "PM Sağnak Kar / Rüzgar"
 
-#: omweather/src/hash.data:227
+#: omweather/src/hash.data:228
 msgid "PM T-Showers"
 msgstr "PM Şiddetli Sağnak"
 
-#: omweather/src/hash.data:228
+#: omweather/src/hash.data:229
 msgid "PM T-Storms"
 msgstr "PM Şiddetli Fırtına"
 
-#: omweather/src/hash.data:230
+#: omweather/src/hash.data:231
 msgid "Partly Cloudy"
 msgstr "Parçali Bulutlu"
 
-#: omweather/src/hash.data:231
+#: omweather/src/hash.data:232
 msgid "Partly Cloudy / Wind"
 msgstr "Parçali Bulutlu / Rüzgar"
 
-#: omweather/src/hash.data:232
+#: omweather/src/hash.data:233
 msgid "Partly Cloudy / Windy"
 msgstr "Parçalı Bulutlu / Rüzgarlı"
 
-#: omweather/src/hash.data:233
+#: omweather/src/hash.data:234
 msgid "Partly Cloudy Few Snow"
 msgstr "Parçali Bulutlu / Hafif Kar"
 
-#: omweather/src/hash.data:234
+#: omweather/src/hash.data:235
 msgid "Partly Cloudy Light Rain"
 msgstr "Parçali Bulutlu , Hafif Yağmur"
 
-#: omweather/src/hash.data:235
+#: omweather/src/hash.data:236
 msgid "Partly Cloudy T-Storm"
 msgstr "Parçali Bulutlu ve Fırtına"
 
-#: omweather/src/hash.data:236
+#: omweather/src/hash.data:237
 msgid "Partly Cloudy and Windly"
 msgstr "Parçali Bulutlu ve Rüzgarlı"
 
-#: omweather/src/hash.data:237 omweather/src/hash.data:238
+#: omweather/src/hash.data:238 omweather/src/hash.data:239
 msgid "Partly Cloudy and Windy"
 msgstr "Parçali Bulutlu ve Rüzgarlı"
 
-#: omweather/src/hash.data:239
+#: omweather/src/hash.data:240
 msgid "Partly Cloudy, Few Snow"
 msgstr "Paröalı Bulutlu , Hafif Kar"
 
-#: omweather/src/hash.data:240
+#: omweather/src/hash.data:241
 msgid "Partly Cloudy, Haze"
 msgstr "Parçali Bulutlu , Sis"
 
-#: omweather/src/hash.data:241
+#: omweather/src/hash.data:242
 msgid "Partly Cloudy, Heavy Rain"
 msgstr "Parçali Bulutlu , Şiddetli Yağmur"
 
-#: omweather/src/hash.data:242
+#: omweather/src/hash.data:243
 msgid "Partly Cloudy, Heavy Rain, T-Storm"
 msgstr "Parçali Bulutlu , Şiddetli Yağmur , Fırtına"
 
-#: omweather/src/hash.data:243
+#: omweather/src/hash.data:244
 msgid "Partly Cloudy, Heavy Snow"
 msgstr "Parçali Bulutlu , Siddetli Kar"
 
-#: omweather/src/hash.data:244
+#: omweather/src/hash.data:245
 msgid "Partly Cloudy, Light Rain"
 msgstr "Parçali Bulutlu , Hafif Yağmur"
 
-#: omweather/src/hash.data:245
+#: omweather/src/hash.data:246
 msgid "Partly Cloudy, Light Rain, T-Storm"
 msgstr "Parçali Bulutlu , Hafif Yağmur , Şiddetli Fırtına"
 
-#: omweather/src/hash.data:246
+#: omweather/src/hash.data:247
 msgid "Partly Cloudy, Rain"
 msgstr "Parçali Bulutlu , Yağmur"
 
-#: omweather/src/hash.data:247
+#: omweather/src/hash.data:248
 msgid "Partly Cloudy, Rain, T-Storm"
 msgstr "Parçali Bulutlu , Yağmur , Fırtına"
 
-#: omweather/src/hash.data:248
+#: omweather/src/hash.data:249
 msgid "Partly Cloudy, Smoke"
 msgstr "Parçali Bulutlu , Duman"
 
-#: omweather/src/hash.data:249
+#: omweather/src/hash.data:250
 msgid "Partly Cloudy, Snow"
 msgstr "Parçali Bulutlu , Kar"
 
-#: omweather/src/hash.data:250
+#: omweather/src/hash.data:251
 msgid "Partly Cloudy, T-Storm"
 msgstr "Parçali Bulutlu , Fırtına"
 
-#: omweather/src/hash.data:258
+#: omweather/src/hash.data:259
 msgid "Partly cloudy"
 msgstr "Parçali bulutlu "
 
-#: omweather/src/hash.data:251
+#: omweather/src/hash.data:252
 msgid "Partly cloudy and light rain"
 msgstr "Parçali bulutlu ve hafif yağmur"
 
-#: omweather/src/hash.data:252
+#: omweather/src/hash.data:253
 msgid "Partly cloudy and light snow"
 msgstr "Parçali bulutlu ve hafif kar"
 
-#: omweather/src/hash.data:253
+#: omweather/src/hash.data:254
 msgid "Partly cloudy and light wet snow"
 msgstr "Parçali bulutlu ve hafif sulu kar"
 
-#: omweather/src/hash.data:254
+#: omweather/src/hash.data:255
 msgid "Partly cloudy and showers"
 msgstr "Parçali bulutlu ve sağnak"
 
-#: omweather/src/hash.data:255
+#: omweather/src/hash.data:256
 msgid "Partly cloudy and snow showers"
 msgstr "Parçali bulutlu ve sağnak kar"
 
-#: omweather/src/hash.data:256
+#: omweather/src/hash.data:257
 msgid "Partly cloudy and wet snow showers"
 msgstr "Parçali bulutlu ve islak sağnak kar"
 
-#: omweather/src/hash.data:229 omweather/src/hash.data:257
+#: omweather/src/hash.data:230 omweather/src/hash.data:258
 msgid "Partly cloudy, possible thunderstorms with rain"
 msgstr "Parçalı bulutlu , yağmurla beraber fırtına ihtimali var."
 
@@ -2164,7 +2169,7 @@ msgstr "Pozisyon:"
 msgid "Ppcp:"
 msgstr "Ppcp:"
 
-#: omweather/src/hash.data:259
+#: omweather/src/hash.data:260
 msgid "Precipitation"
 msgstr "Yağış"
 
@@ -2225,110 +2230,110 @@ msgstr "Proje yöneticisi"
 msgid "Provided by"
 msgstr "Sağlayıcı :"
 
-#: omweather/src/hash.data:260
+#: omweather/src/hash.data:261
 msgid "Proximity shower rain"
 msgstr "Proximity shower rain"
 
-#: omweather/src/hash.data:261
+#: omweather/src/hash.data:262
 msgid "Rain"
 msgstr "Yağmur"
 
-#: omweather/src/hash.data:263
+#: omweather/src/hash.data:264
 msgid "Rain / Freezing Rain"
 msgstr "Yağmur / Dondurucu Yağmur"
 
-#: omweather/src/hash.data:262
+#: omweather/src/hash.data:263
 #, fuzzy
 msgid "Rain / Ice Early"
 msgstr "Yağmur / Sabahtan Kar"
 
-#: omweather/src/hash.data:271
+#: omweather/src/hash.data:272
 msgid "Rain / Snow"
 msgstr "Yağmur / Kar"
 
-#: omweather/src/hash.data:264
+#: omweather/src/hash.data:265
 msgid "Rain / Snow / Wind"
 msgstr "Yağmur / Kar / Rüzgar"
 
-#: omweather/src/hash.data:265
+#: omweather/src/hash.data:266
 #, fuzzy
 msgid "Rain / Snow / Wind Early"
 msgstr "Yağmur / Kar / Rüzgar"
 
-#: omweather/src/hash.data:266
+#: omweather/src/hash.data:267
 msgid "Rain / Snow Early"
 msgstr "Yağmur / Sabahtan Kar"
 
-#: omweather/src/hash.data:267
+#: omweather/src/hash.data:268
 msgid "Rain / Snow Late"
 msgstr "Yağmur / Akşama Doğru Kar"
 
-#: omweather/src/hash.data:270
+#: omweather/src/hash.data:271
 msgid "Rain / Snow Showers"
 msgstr "Yağmur / Sağnak Kar"
 
-#: omweather/src/hash.data:268
+#: omweather/src/hash.data:269
 msgid "Rain / Snow Showers / Wind"
 msgstr "Yağmur / Sağnak Kar / Rüzgar"
 
-#: omweather/src/hash.data:269
+#: omweather/src/hash.data:270
 msgid "Rain / Snow Showers Late"
 msgstr "Yağmur / Akşama Doğru Karla Karışık Yağmur"
 
-#: omweather/src/hash.data:272
+#: omweather/src/hash.data:273
 msgid "Rain / Thunder"
 msgstr "Yağmur / Fırtına"
 
-#: omweather/src/hash.data:274
+#: omweather/src/hash.data:275
 msgid "Rain / Wind"
 msgstr "Yağmur / Rüzgar"
 
-#: omweather/src/hash.data:273
+#: omweather/src/hash.data:274
 msgid "Rain / Wind Early"
 msgstr "Yağmur / Sabahtam Rüzgar"
 
-#: omweather/src/hash.data:275
+#: omweather/src/hash.data:276
 msgid "Rain Early"
 msgstr "Sabahtan Yağmur"
 
-#: omweather/src/hash.data:276
+#: omweather/src/hash.data:277
 msgid "Rain Late"
 msgstr "Akşama Doğru Yağmur"
 
-#: omweather/src/hash.data:278
+#: omweather/src/hash.data:279
 msgid "Rain Shower"
 msgstr "Sağnak Yağmur"
 
-#: omweather/src/hash.data:277
+#: omweather/src/hash.data:278
 msgid "Rain Shower and Windy"
 msgstr "Sağnak Yağmur ve Rüzgar"
 
-#: omweather/src/hash.data:279
+#: omweather/src/hash.data:280
 msgid "Rain Showers"
 msgstr "Sağnak Yağmur"
 
-#: omweather/src/hash.data:280
+#: omweather/src/hash.data:281
 msgid "Rain and Snow"
 msgstr "Yağmur ve Kar"
 
-#: omweather/src/hash.data:281
+#: omweather/src/hash.data:282
 msgid "Rain and snow"
 msgstr "Yağmur ve kar"
 
-#: omweather/src/hash.data:282
+#: omweather/src/hash.data:283
 #, fuzzy
 msgid "Rain to Snow"
 msgstr "Yağmur / Kar"
 
-#: omweather/src/hash.data:283
+#: omweather/src/hash.data:284
 msgid "Rain to Snow / Wind"
 msgstr "Karla Karışık Yağmur / Rüzgar"
 
-#: omweather/src/hash.data:285
+#: omweather/src/hash.data:286
 msgid "Rain to Wintry Mix"
 msgstr "Yağmurdan Karişik Soğuğa"
 
-#: omweather/src/hash.data:284
+#: omweather/src/hash.data:285
 msgid "Rain to Wintry Mix / Wind"
 msgstr "Yağmurdan Karışık Soğuğa / Rüzgarlı"
 
@@ -2336,7 +2341,7 @@ msgstr "Yağmurdan Karışık Soğuğa / Rüzgarlı"
 msgid "Read sensor every:"
 msgstr "Sensörü oku her:"
 
-#: omweather/src/hash.data:414
+#: omweather/src/hash.data:415
 msgid "Refresh"
 msgstr "Yenile"
 
@@ -2346,7 +2351,7 @@ msgstr "Yenile"
 msgid "Region"
 msgstr "Bölge"
 
-#: omweather/src/hash.data:286
+#: omweather/src/hash.data:287
 msgid "Rush Hour Traffic"
 msgstr "Trafik Yoğunlugu"
 
@@ -2358,43 +2363,43 @@ msgstr ""
 "Rusça - Pavel Fialko, Vlad Vasilyeu, \n"
 " \tEd Bartosh\n"
 
-#: omweather/src/hash.data:287
+#: omweather/src/hash.data:288
 msgid "S"
 msgstr "S"
 
-#: omweather/src/hash.data:288
+#: omweather/src/hash.data:289
 msgid "SE"
 msgstr "SE"
 
-#: omweather/src/hash.data:289
+#: omweather/src/hash.data:290
 msgid "SE_short"
 msgstr "SE_short"
 
-#: omweather/src/hash.data:290
+#: omweather/src/hash.data:291
 msgid "SSE"
 msgstr "SSE"
 
-#: omweather/src/hash.data:291
+#: omweather/src/hash.data:292
 msgid "SSE_short"
 msgstr "SSE_short"
 
-#: omweather/src/hash.data:292
+#: omweather/src/hash.data:293
 msgid "SSW"
 msgstr "SSW"
 
-#: omweather/src/hash.data:293
+#: omweather/src/hash.data:294
 msgid "SSW_short"
 msgstr "SSW_short"
 
-#: omweather/src/hash.data:294
+#: omweather/src/hash.data:295
 msgid "SW"
 msgstr "SW"
 
-#: omweather/src/hash.data:295
+#: omweather/src/hash.data:296
 msgid "SW_short"
 msgstr "SW_short"
 
-#: omweather/src/hash.data:296
+#: omweather/src/hash.data:297
 msgid "S_short"
 msgstr "S_short"
 
@@ -2408,27 +2413,27 @@ msgstr "S_short"
 msgid "Save"
 msgstr "Kaydet"
 
-#: omweather/src/hash.data:397
+#: omweather/src/hash.data:398
 msgid "Scattered Clouds"
 msgstr "Dağınık Bulutlu"
 
-#: omweather/src/hash.data:297
+#: omweather/src/hash.data:298
 msgid "Scattered Showers"
 msgstr "Seyrek Yağmur"
 
-#: omweather/src/hash.data:299
+#: omweather/src/hash.data:300
 msgid "Scattered Snow"
 msgstr "Seyrek Kar"
 
-#: omweather/src/hash.data:298
+#: omweather/src/hash.data:299
 msgid "Scattered Snow Showers"
 msgstr "Seyrek Sağnak Yağmur"
 
-#: omweather/src/hash.data:300
+#: omweather/src/hash.data:301
 msgid "Scattered T-Storms"
 msgstr "Dağınık Fırtınalar"
 
-#: omweather/src/hash.data:396
+#: omweather/src/hash.data:397
 msgid "Scattered clouds"
 msgstr "Dağınık bulutlu"
 
@@ -2532,7 +2537,7 @@ msgstr "Sırbça - Aleksandar Zaric\n"
 msgid "Set"
 msgstr "Ayarla"
 
-#: omweather/src/hash.data:301 meecast/qt-qml/qml/WeatherPage.qml:327
+#: omweather/src/hash.data:302 meecast/qt-qml/qml/WeatherPage.qml:327
 msgid "Set locations"
 msgstr "Konumları ayarla"
 
@@ -2558,7 +2563,7 @@ msgstr "Kilit Ekranı Ayarları"
 msgid "Settings of StandbyScreen"
 msgstr "Bekleme Ekranı Ayarları"
 
-#: omweather/src/hash.data:302
+#: omweather/src/hash.data:303
 msgid "Shallow Fog"
 msgstr "Hafif Duman"
 
@@ -2570,7 +2575,7 @@ msgstr "Kısa"
 msgid "Show arrows"
 msgstr "Okları göster"
 
-#: omweather/src/hash.data:413
+#: omweather/src/hash.data:414
 msgid "Show last update time"
 msgstr "Son güncelleme zamanını göster"
 
@@ -2582,7 +2587,7 @@ msgstr "Haritada Göster"
 msgid "Show only current weather on first icon"
 msgstr "Ilk ikonda sadece şimdiki havadurumunu göster"
 
-#: omweather/src/hash.data:412
+#: omweather/src/hash.data:413
 msgid "Show source logo"
 msgstr "Kaynak logosunu göster"
 
@@ -2598,47 +2603,47 @@ msgstr "Burada sicakligi göster"
 msgid "Show wind"
 msgstr "Rüzgarı göster"
 
-#: omweather/src/hash.data:303
+#: omweather/src/hash.data:304
 msgid "Showers"
 msgstr "Sağanak"
 
-#: omweather/src/hash.data:305
+#: omweather/src/hash.data:306
 msgid "Showers / Wind"
 msgstr "Sağanak / Rüzgar"
 
-#: omweather/src/hash.data:304
+#: omweather/src/hash.data:305
 msgid "Showers / Wind Early"
 msgstr "Sağanak / Sabahtan Rüzgar"
 
-#: omweather/src/hash.data:306
+#: omweather/src/hash.data:307
 msgid "Showers Early"
 msgstr "Sabahtan Sağanak"
 
-#: omweather/src/hash.data:307
+#: omweather/src/hash.data:308
 msgid "Showers Late"
 msgstr "Akşama Doğru Sağanak"
 
-#: omweather/src/hash.data:308
+#: omweather/src/hash.data:309
 msgid "Showers in the Vicinity"
 msgstr "Çevredeki Sağanaklar"
 
-#: omweather/src/hash.data:309
+#: omweather/src/hash.data:310
 msgid "Showers or Intermittent Precipitation"
 msgstr "Sağanak veya Aralıklı Yağış"
 
-#: omweather/src/hash.data:399
+#: omweather/src/hash.data:400
 msgid "Sky is Clear"
 msgstr "Gökyüzü Temiz"
 
-#: omweather/src/hash.data:398
+#: omweather/src/hash.data:399
 msgid "Sky is clear"
 msgstr "Gökyüzü temiz"
 
-#: omweather/src/hash.data:310
+#: omweather/src/hash.data:311
 msgid "Sleet"
 msgstr "Sulu Kar"
 
-#: omweather/src/hash.data:311
+#: omweather/src/hash.data:312
 msgid "Sleet Showers"
 msgstr "Sağanak Karla Karığık Yağmur"
 
@@ -2650,69 +2655,69 @@ msgstr "Slovakça - Roman Moravčík\n"
 msgid "Slovenian - Boštjan Štrumbelj\n"
 msgstr "Slovence - Boštjan Štrumbelj\n"
 
-#: omweather/src/hash.data:312
+#: omweather/src/hash.data:313
 msgid "Smoke"
 msgstr "Duman"
 
-#: omweather/src/hash.data:313
+#: omweather/src/hash.data:314
 msgid "Snow"
 msgstr "Kar"
 
-#: omweather/src/hash.data:317
+#: omweather/src/hash.data:318
 msgid "Snow / Wind"
 msgstr "Kar / Rüzgar"
 
-#: omweather/src/hash.data:314
+#: omweather/src/hash.data:315
 #, fuzzy
 msgid "Snow Early"
 msgstr "Sabahtan Sağanak"
 
-#: omweather/src/hash.data:315
+#: omweather/src/hash.data:316
 #, fuzzy
 msgid "Snow Late"
 msgstr "Akşama Doğru Sağanak"
 
-#: omweather/src/hash.data:319
+#: omweather/src/hash.data:320
 msgid "Snow Shower"
 msgstr "Sağnak Kar"
 
-#: omweather/src/hash.data:318
+#: omweather/src/hash.data:319
 msgid "Snow Shower / Wind"
 msgstr "Sağnak Kar / Rüzgar"
 
-#: omweather/src/hash.data:320
+#: omweather/src/hash.data:321
 msgid "Snow Showers"
 msgstr "Sağanak Kar"
 
-#: omweather/src/hash.data:321
+#: omweather/src/hash.data:322
 msgid "Snow Showers / Wind Early"
 msgstr "Sağanak Kar / Sabahtan Rüzgar"
 
-#: omweather/src/hash.data:322
+#: omweather/src/hash.data:323
 msgid "Snow Showers Early"
 msgstr "Sabahtan Sağanak Kar"
 
-#: omweather/src/hash.data:323
+#: omweather/src/hash.data:324
 msgid "Snow Showers Late"
 msgstr "Akşama Doğru Sağanak Kar"
 
-#: omweather/src/hash.data:324
+#: omweather/src/hash.data:325
 msgid "Snow and Freezing Rain"
 msgstr "Kar ve Dondurucu Yağmur"
 
-#: omweather/src/hash.data:325
+#: omweather/src/hash.data:326
 msgid "Snow to Rain"
 msgstr "Kardan Yağmura"
 
-#: omweather/src/hash.data:327
+#: omweather/src/hash.data:328
 msgid "Snow to Wintry Mix"
 msgstr "Kardan Karışık Soğuk Havaya"
 
-#: omweather/src/hash.data:326
+#: omweather/src/hash.data:327
 msgid "Snow to Wintry Mix / Wind"
 msgstr "Kardan Karışık Soğuk Havaya / Rüzgar"
 
-#: omweather/src/hash.data:316
+#: omweather/src/hash.data:317
 msgid "Snowfall"
 msgstr "Kar Yağışı"
 
@@ -2763,11 +2768,11 @@ msgstr "Istasyon %i"
 msgid "Stations"
 msgstr "Istasyonlar"
 
-#: omweather/src/hash.data:328 omweather/src/weather-alerts.c:154
+#: omweather/src/hash.data:329 omweather/src/weather-alerts.c:154
 msgid "Storm"
 msgstr "Fırtına"
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:330
 msgid "Strong Thundershowers"
 msgstr "Kuvvetli Gök Gürültülü Sağanak"
 
@@ -2775,19 +2780,19 @@ msgstr "Kuvvetli Gök Gürültülü Sağanak"
 msgid "Successfully loaded"
 msgstr "Başarıyla yüklendi"
 
-#: omweather/src/hash.data:331
+#: omweather/src/hash.data:332
 msgid "Sunny"
 msgstr "Güneşli"
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:331
 msgid "Sunny / Wind"
 msgstr "Gğneşli / Rüzgarlı"
 
-#: omweather/src/hash.data:400 omweather/src/hash.data:401
+#: omweather/src/hash.data:401 omweather/src/hash.data:402
 msgid "Sunny periods and a few showers."
 msgstr "Güneşli havada az yağmurlu."
 
-#: omweather/src/hash.data:332 meecast/qt-qml/qml/FullWeatherPage.qml:335
+#: omweather/src/hash.data:333 meecast/qt-qml/qml/FullWeatherPage.qml:335
 msgid "Sunrise:"
 msgstr "Gündoğumu:"
 
@@ -2795,7 +2800,7 @@ msgstr "Gündoğumu:"
 msgid "Sunrise: "
 msgstr "Gündoğumu:"
 
-#: omweather/src/hash.data:333 meecast/qt-qml/qml/FullWeatherPage.qml:338
+#: omweather/src/hash.data:334 meecast/qt-qml/qml/FullWeatherPage.qml:338
 msgid "Sunset:"
 msgstr "Günbatımı:"
 
@@ -2827,27 +2832,27 @@ msgstr ""
 msgid "Switch to the next station after:"
 msgstr "Bundan sonra ileriki istasyona değiştir:"
 
-#: omweather/src/hash.data:335
+#: omweather/src/hash.data:336
 msgid "T-Showers"
 msgstr "Şiddetli Sağnak"
 
-#: omweather/src/hash.data:334
+#: omweather/src/hash.data:335
 msgid "T-Showers Early"
 msgstr "Sabahtan Şiddetli Sağnak"
 
-#: omweather/src/hash.data:336
+#: omweather/src/hash.data:337
 msgid "T-Storm"
 msgstr "Fırtna"
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:340
 msgid "T-Storms"
 msgstr "Fırtnalar"
 
-#: omweather/src/hash.data:337
+#: omweather/src/hash.data:338
 msgid "T-Storms Early"
 msgstr "Sabahtan Fırtna"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:339
 msgid "T-Storms Late"
 msgstr "Akşama Doğru Fırtna"
 
@@ -2857,7 +2862,7 @@ msgstr "Akşama Doğru Fırtna"
 msgid "Temperature"
 msgstr "Sıcaklık"
 
-#: omweather/src/hash.data:340 meecast/qt-qml/qml/UnitsPage.qml:30
+#: omweather/src/hash.data:341 meecast/qt-qml/qml/UnitsPage.qml:30
 #: meecast/qt-qml/qml/UnitsPage.qml:102
 msgid "Temperature units"
 msgstr "Sıcaklık üniteleri"
@@ -2883,11 +2888,11 @@ msgstr "Teşekkürler"
 msgid "The weather has been updated."
 msgstr "Havadurumu güncellendi."
 
-#: omweather/src/hash.data:407
+#: omweather/src/hash.data:408
 msgid "There are no stations to show in this view of the list"
 msgstr "Listenin bu görünümünde göstermek için hiçbir istasyonu bulunmaktadır"
 
-#: omweather/src/hash.data:409
+#: omweather/src/hash.data:410
 msgid "This is experimental feature. Only English is supported."
 msgstr "This is experimental feature. Only English is supported."
 
@@ -2916,15 +2921,15 @@ msgstr ""
 "Bu yazılım ücretsiz bir yazılımdır ; GNU General Public lisansı altındaki "
 "haklara göre tekrar yayınlayabilir veya modifiye edebilirsiniz. \n"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:342
 msgid "Thunder"
 msgstr "Gök gurültüsü"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:344
 msgid "Thunder in the Vicinity"
 msgstr "Çevredeki Fırtına"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:343
 msgid "Thundershowers"
 msgstr "Gök Gürültülü Sağanak"
 
@@ -2947,7 +2952,7 @@ msgstr ""
 "Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - "
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose\n"
 
-#: omweather/src/hash.data:415
+#: omweather/src/hash.data:416
 msgid "Transparency"
 msgstr "Şeffaflık"
 
@@ -2956,7 +2961,7 @@ msgstr "Şeffaflık"
 msgid "Transparency:"
 msgstr "Transparanlık:"
 
-#: omweather/src/hash.data:344 meecast/qt-qml/qml/WeatherPage.qml:501
+#: omweather/src/hash.data:345 meecast/qt-qml/qml/WeatherPage.qml:501
 msgid "Try to update"
 msgstr "Güncelle"
 
@@ -2998,7 +3003,7 @@ msgstr "Üniteler"
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:346
 msgid "Unlimited"
 msgstr "Limitsiz"
 
@@ -3015,7 +3020,7 @@ msgstr "Güncelleme zaten çalışıyor."
 msgid "Update interval"
 msgstr "Gğncelleme aralığı"
 
-#: omweather/src/hash.data:346 meecast/qt-qml/qml/WeatherPage.qml:360
+#: omweather/src/hash.data:347 meecast/qt-qml/qml/WeatherPage.qml:360
 msgid "Updating forecast"
 msgstr "Havatahmini güncelleniyor"
 
@@ -3045,7 +3050,7 @@ msgstr ""
 msgid "Use device temperature sensor"
 msgstr "Cihazin sıcaklık sensörünü kullan"
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:348
 msgid "VAR"
 msgstr "VAR"
 
@@ -3053,7 +3058,7 @@ msgstr "VAR"
 msgid "Valid time for current weather:"
 msgstr "Şimdiki hava durumu için uygun zaman:"
 
-#: omweather/src/hash.data:348
+#: omweather/src/hash.data:349
 msgid "Very High"
 msgstr "Çok Yüksek"
 
@@ -3065,7 +3070,7 @@ msgstr ""
 "Vietnamca - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
 
-#: omweather/src/hash.data:410
+#: omweather/src/hash.data:411
 msgid "Violent Rain Showers"
 msgstr "Şiddetli Sağanak Yağmur"
 
@@ -3087,15 +3092,15 @@ msgstr "Gorünebilme:"
 msgid "Visuals"
 msgstr "Gorüntüler"
 
-#: omweather/src/hash.data:408
+#: omweather/src/hash.data:409
 msgid "Voice forecast button on a widget"
 msgstr "Widgat'a sesli tahmin butonu"
 
-#: omweather/src/hash.data:411
+#: omweather/src/hash.data:412
 msgid "Voice weather forecast"
 msgstr "Sesli hava tahmini"
 
-#: omweather/src/hash.data:349
+#: omweather/src/hash.data:350
 msgid "W"
 msgstr "W"
 
@@ -3105,31 +3110,31 @@ msgstr "W"
 msgid "WLAN"
 msgstr "WLAN"
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:351
 msgid "WNW"
 msgstr "WNW"
 
-#: omweather/src/hash.data:351
+#: omweather/src/hash.data:352
 msgid "WNW_short"
 msgstr "WNW_short"
 
-#: omweather/src/hash.data:352
+#: omweather/src/hash.data:353
 msgid "WSW"
 msgstr "WSW"
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:354
 msgid "WSW_short"
 msgstr "WSW_short"
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:355
 msgid "W_short"
 msgstr "W_short"
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:356
 msgid "Waning Crescent"
 msgstr "Hilal Ay"
 
-#: omweather/src/hash.data:356
+#: omweather/src/hash.data:357
 msgid "Waning Gibbous"
 msgstr "Dolunay"
 
@@ -3137,11 +3142,11 @@ msgstr "Dolunay"
 msgid "Warning"
 msgstr "Dikkat"
 
-#: omweather/src/hash.data:357
+#: omweather/src/hash.data:358
 msgid "Waxing Crescent"
 msgstr "Hilal Ay"
 
-#: omweather/src/hash.data:358
+#: omweather/src/hash.data:359
 msgid "Waxing Gibbous"
 msgstr "Dolunay"
 
@@ -3178,7 +3183,7 @@ msgstr "Eklenti stili"
 msgid "Widget style and Iconset"
 msgstr "Eklenti stili ve Ikonseti"
 
-#: omweather/src/hash.data:362
+#: omweather/src/hash.data:363
 msgid "Wind"
 msgstr "Rüzgar"
 
@@ -3188,7 +3193,7 @@ msgstr "Rüzgar"
 msgid "Wind direction"
 msgstr "Rüzgar yönü"
 
-#: omweather/src/hash.data:359
+#: omweather/src/hash.data:360
 msgid "Wind direction:"
 msgstr "Rüzgar yönü:"
 
@@ -3198,7 +3203,7 @@ msgstr "Rüzgar yönü:"
 msgid "Wind gust:"
 msgstr "Ani Rüzgar:"
 
-#: omweather/src/hash.data:361 meecast/qt-qml/qml/FullWeatherPage.qml:147
+#: omweather/src/hash.data:362 meecast/qt-qml/qml/FullWeatherPage.qml:147
 #: meecast/qt-qml/qml/FullWeatherPage.qml:150
 #: meecast/qt-qml/qml/FullWeatherPage.qml:220
 #: meecast/qt-qml/qml/FullWeatherPage.qml:223
@@ -3207,7 +3212,7 @@ msgstr "Ani Rüzgar:"
 msgid "Wind speed"
 msgstr "Rüzgar hızı"
 
-#: omweather/src/hash.data:360 meecast/qt-qml/qml/UnitsPage.qml:39
+#: omweather/src/hash.data:361 meecast/qt-qml/qml/UnitsPage.qml:39
 #: meecast/qt-qml/qml/UnitsPage.qml:141
 msgid "Wind speed units"
 msgstr "Rüzgar hızı üniteleri"
@@ -3227,24 +3232,24 @@ msgstr "Rüzgar:"
 msgid "Wind: "
 msgstr "Rüzgar:"
 
-#: omweather/src/hash.data:367
+#: omweather/src/hash.data:368
 msgid "Wintry Mix"
 msgstr "Karışık Soğuk"
 
-#: omweather/src/hash.data:364
+#: omweather/src/hash.data:365
 msgid "Wintry Mix / Wind"
 msgstr "Karışık Soğuk / Rüzgar"
 
-#: omweather/src/hash.data:363
+#: omweather/src/hash.data:364
 msgid "Wintry Mix / Wind Early"
 msgstr "Karisik Soğuk / Sabahtan Rüzgarlı"
 
-#: omweather/src/hash.data:365
+#: omweather/src/hash.data:366
 #, fuzzy
 msgid "Wintry Mix / Windy"
 msgstr "Karışık Soğuk / Rüzgar"
 
-#: omweather/src/hash.data:366
+#: omweather/src/hash.data:367
 msgid "Wintry Mix to Snow"
 msgstr "Karışık Soguktan Kar Yağışına"
 
@@ -3356,7 +3361,7 @@ msgstr "her saatte bir"
 msgid "every minute (Debug)"
 msgstr "her dakika (Debug)"
 
-#: omweather/src/hash.data:368
+#: omweather/src/hash.data:369
 msgid "falling"
 msgstr "dokülme"
 
@@ -3399,18 +3404,18 @@ msgstr "kPa"
 msgid "km"
 msgstr "km"
 
-#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:369
+#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:370
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
 #: meecast/qt-qml/qml/UnitsPage.qml:159
 msgid "km/h"
 msgstr "km/saat"
 
-#: omweather/src/hash.data:370
+#: omweather/src/hash.data:371
 msgid "km/s"
 msgstr "km/saniye"
 
-#: omweather/src/hash.data:371
+#: omweather/src/hash.data:372
 msgid "kn"
 msgstr "kn"
 
@@ -3421,11 +3426,11 @@ msgstr "kn"
 msgid "m"
 msgstr "m"
 
-#: omweather/src/hash.data:372
+#: omweather/src/hash.data:373
 msgid "m/h"
 msgstr "m/saat"
 
-#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:373
+#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:374
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
 #: meecast/qt-qml/qml/UnitsPage.qml:152
@@ -3453,13 +3458,13 @@ msgstr "mbar"
 msgid "mi"
 msgstr "mi"
 
-#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:374
+#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:375
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
 msgid "mi/h"
 msgstr "mi/saat"
 
-#: omweather/src/hash.data:375
+#: omweather/src/hash.data:376
 msgid "mi/s"
 msgstr "mi/saniye"
 
@@ -3520,7 +3525,7 @@ msgstr "ileri"
 msgid "nmi"
 msgstr "nmi"
 
-#: omweather/src/hash.data:376
+#: omweather/src/hash.data:377
 msgid "rising"
 msgstr "yukselen"
 
@@ -3536,38 +3541,38 @@ msgstr "istasyon yerel saati"
 msgid "station name"
 msgstr "istasyon adı"
 
-#: omweather/src/hash.data:377
+#: omweather/src/hash.data:378
 msgid "steady"
 msgstr "sağlam"
 
-#: omweather/src/hash.data:417
+#: omweather/src/hash.data:418
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:418
+#: omweather/src/hash.data:419
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:419
+#: omweather/src/hash.data:420
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:420
+#: omweather/src/hash.data:421
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:421
+#: omweather/src/hash.data:422
 msgid "С-З"
 msgstr "C-3"
 
-#: omweather/src/hash.data:422
+#: omweather/src/hash.data:423
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:423
+#: omweather/src/hash.data:424
 msgid "Ю-В"
 msgstr "Ю-B"
 
-#: omweather/src/hash.data:424
+#: omweather/src/hash.data:425
 msgid "Ю-З"
 msgstr "Ю-3"

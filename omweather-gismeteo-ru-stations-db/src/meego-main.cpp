@@ -124,7 +124,7 @@ struct tm
 get_date_for_current_weather(char *temp_string){
     char buffer[512];
     char temp_buffer[256];
-    char temp_buffer2[buff_size];
+    char temp_buffer2[256];
     struct tm   tmp_tm = {0};
     char *temp_point;
     char *temp_char;
@@ -229,6 +229,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
                 current_wind_direction[15],
                 current_wind_speed[15];
     char        temp_buffer[buff_size];
+    char        temp_buffer2[buff_size];
 #ifdef GLIB
     GSList      *forecast = NULL;
     GSList      *tmp = NULL;
@@ -323,12 +324,16 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
   if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
         snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj->nodesetval->nodeTab[0]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
+             memset(temp_buffer2, 0, sizeof(temp_buffer2));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
                  if ((char)buffer[j] == -30 || (uint)buffer[j] == 226 ||  buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9')) {
-                     if ((char)buffer[j] == -30 || (uint)buffer[j] == 226)
-                        sprintf(temp_buffer,"%s-",temp_buffer);
-                     else
-                        sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+                     if ((char)buffer[j] == -30 || (uint)buffer[j] == 226){
+                        sprintf(temp_buffer2,"%s",temp_buffer);
+                        sprintf(temp_buffer,"%s-",temp_buffer2);
+                     }else{
+                        sprintf(temp_buffer2,"%s",temp_buffer);
+                        sprintf(temp_buffer,"%s%c",temp_buffer2, buffer[j]);
+                     }
                  }
              }
         snprintf(current_temperature, sizeof(current_temperature)-1,"%s", temp_buffer);
@@ -350,8 +355,10 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
 #endif
            i = 0;
            memset(temp_buffer, 0, sizeof(temp_buffer));
+           memset(temp_buffer2, 0, sizeof(temp_buffer2));
            while((image[i] != ')') && (i < strlen(image))){
-             sprintf(temp_buffer,"%s%c",temp_buffer, image[i]);
+             sprintf(temp_buffer2,"%s",temp_buffer);
+             sprintf(temp_buffer,"%s%c",temp_buffer2, image[i]);
              i++;
             }
         }
@@ -551,13 +558,17 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
              /* fprintf (stderr, "temperature %s\n", xpathObj3->nodesetval->nodeTab[i]->content); */
              snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj3->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
+             memset(temp_buffer2, 0, sizeof(temp_buffer2));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
                  if ((char)buffer[j] == -30 || (uint)buffer[j] == 226 || buffer[j] == '-' || buffer[j] == '&' || (buffer[j]>='0' && buffer[j]<='9')){
                      if ((char)buffer[j] == -30 || buffer[j] == '&' || (uint)buffer[j] == 226){
-                        sprintf(temp_buffer,"%s-",temp_buffer);
+                        sprintf(temp_buffer2,"%s",temp_buffer);
+                        sprintf(temp_buffer,"%s-",temp_buffer2);
                      }
-                     else
-                        sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+                     else{
+                        sprintf(temp_buffer2,"%s",temp_buffer);
+                        sprintf(temp_buffer,"%s%c",temp_buffer2, buffer[j]);
+                     }
                  }
              }
 			 fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer); 
@@ -650,13 +661,17 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
              xpathObj10->nodesetval->nodeTab[i] && xpathObj10->nodesetval->nodeTab[i]->content){
              snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj10->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
+             memset(temp_buffer2, 0, sizeof(temp_buffer2));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
                  if ((char)buffer[j] == -30 || (uint)buffer[j] == 226 ||  buffer[j] == '-' || buffer[j] == '&' || (buffer[j]>='0' && buffer[j]<='9')){
                      if ((char)buffer[j] == -30 || buffer[j] == '&' || (uint)buffer[j] == 226){
-                        sprintf(temp_buffer,"%s-",temp_buffer);
+                        sprintf(temp_buffer2,"%s",temp_buffer);
+                        sprintf(temp_buffer,"%s-",temp_buffer2);
                      }
-                     else
-                        sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+                     else{
+                        sprintf(temp_buffer2,"%s",temp_buffer);
+                        sprintf(temp_buffer,"%s%c",temp_buffer2, buffer[j]);
+                     }
                  }
              }
 		     fprintf(file_out,"     <flike>%s</flike>\n", temp_buffer); 
@@ -782,6 +797,7 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
     char       buffer[buff_size];
     char       buff[buff_size];
     char       temp_buffer[buff_size];
+    char       temp_buffer2[buff_size];
     char       tmp[buff_size];
     char       *temp_char;
     int        speed;
@@ -871,8 +887,10 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
 #endif
            i = 0;
            memset(temp_buffer, 0, sizeof(temp_buffer));
+           memset(temp_buffer2, 0, sizeof(temp_buffer2));
            while((image[i] != ')') && (i < strlen(image))){
-             sprintf(temp_buffer,"%s%c",temp_buffer, image[i]);
+             sprintf(temp_buffer2,"%s",temp_buffer);
+             sprintf(temp_buffer,"%s%c",temp_buffer2, image[i]);
              i++;
             }
         }
@@ -1029,12 +1047,15 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
       
        snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj4->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
+             memset(temp_buffer2, 0, sizeof(temp_buffer));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
                  if ((char)buffer[j] == -30  || (uint)buffer[j] == 226 || buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9')){
+
+                     sprintf(temp_buffer2,"%s",temp_buffer);
                      if ((char)buffer[j] == -30 || (uint)buffer[j] == 226)
-                        sprintf(temp_buffer,"%s-",temp_buffer);
+                        sprintf(temp_buffer,"%s-",temp_buffer2);
                      else
-                        sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+                        sprintf(temp_buffer,"%s%c",temp_buffer2, buffer[j]);
                  }
              }
         fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer); 
@@ -1093,12 +1114,14 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
   if (xpathObj9 && !xmlXPathNodeSetIsEmpty(xpathObj9->nodesetval) && xpathObj9->nodesetval->nodeTab[i]->content){
              snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj9->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
+             memset(temp_buffer2, 0, sizeof(temp_buffer2));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
                  if ((char)buffer[j] == -30 || (uint)buffer[j] == 226 ||  buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9')){
+                     sprintf(temp_buffer2,"%s",temp_buffer);
                      if ((char)buffer[j] == -30 || buffer[j] == '&' || (uint)buffer[j] == 226)
-                        sprintf(temp_buffer,"%s-",temp_buffer);
+                        sprintf(temp_buffer,"%s-",temp_buffer2);
                      else
-                        sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+                        sprintf(temp_buffer,"%s%c",temp_buffer2, buffer[j]);
                  }
              }
 

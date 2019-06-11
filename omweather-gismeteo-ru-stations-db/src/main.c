@@ -336,6 +336,7 @@ parse_xml_data(const gchar *station_id, htmlDocPtr doc, GHashTable *data){
                 current_wind_direction[15],
                 current_wind_speed[15];
     gchar       temp_buffer[buff_size];
+    gchar       temp_buffer2[buff_size];
     GSList      *forecast = NULL;
     GSList      *tmp = NULL;
     GHashTable  *day = NULL;
@@ -408,12 +409,17 @@ parse_xml_data(const gchar *station_id, htmlDocPtr doc, GHashTable *data){
   if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
         snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj->nodesetval->nodeTab[0]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
+             memset(temp_buffer2, 0, sizeof(temp_buffer2));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
                  if ((char)buffer[j] == -30 || buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9')) {
-                     if ((char)buffer[j] == -30)
-                        sprintf(temp_buffer,"%s-",temp_buffer);
-                     else
-                        sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+                     if ((char)buffer[j] == -30){
+                        sprintf(temp_buffer2,"%s",temp_buffer);
+                        sprintf(temp_buffer,"%s-",temp_buffer2);
+                     }
+                     else{
+                        sprintf(temp_buffer2,"%s",temp_buffer);
+                        sprintf(temp_buffer,"%s%c",temp_buffer2, buffer[j]);
+                     }
                  }
              }
         snprintf(current_temperature, sizeof(current_temperature)-1,"%s", temp_buffer);
@@ -629,13 +635,17 @@ parse_xml_data(const gchar *station_id, htmlDocPtr doc, GHashTable *data){
              /* fprintf (stderr, "temperature %s\n", xpathObj3->nodesetval->nodeTab[i]->content); */
              snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj3->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
+             memset(temp_buffer2, 0, sizeof(temp_buffer2));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
                  if ((char)buffer[j] == -30 ||  buffer[j] == '-' || buffer[j] == '&' || (buffer[j]>='0' && buffer[j]<='9')){
                      if ((char)buffer[j] == -30 || buffer[j] == '&'){
-                        sprintf(temp_buffer,"%s-",temp_buffer);
+                        sprintf(temp_buffer2,"%s",temp_buffer);
+                        sprintf(temp_buffer,"%s-",temp_buffer2);
                      }
-                     else
-                        sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+                     else{
+                        sprintf(temp_buffer2,"%s",temp_buffer);
+                        sprintf(temp_buffer,"%s%c",temp_buffer2, buffer[j]);
+                     }
                  }
              }
 

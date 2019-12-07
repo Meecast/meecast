@@ -2451,6 +2451,10 @@ Slovački - Roman Moravčík</translation>
             <translation>Popodne sneg</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">Sneg / Vetar</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>Popodne naleti snega</translation>
         </message>
@@ -2805,6 +2809,10 @@ Slovački - Roman Moravčík</translation>
         <message>
             <source>Rain and snow</source>
             <translation>Kiša ili sneg</translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
+            <translation type="unfinished">Kiša / Sneg</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

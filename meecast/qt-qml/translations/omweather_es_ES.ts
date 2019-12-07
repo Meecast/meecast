@@ -2447,6 +2447,10 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Nieve por la noche</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">Nieve / Viento</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>Chubascos de nieve por la noche</translation>
         </message>
@@ -2801,6 +2805,10 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Rain and snow</source>
             <translation>Lluvia y nieve</translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
+            <translation type="unfinished">Lluvia / Nieve</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

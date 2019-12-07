@@ -2443,6 +2443,10 @@ Precipitação:</translation>
             <translation>PM Neve</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">Neve / Vento</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>PM Aguaceiros de Neve</translation>
         </message>
@@ -2804,6 +2808,10 @@ Precipitação:</translation>
         <message>
             <source>Rain and snow</source>
             <translation type="unfinished">Chuva e Neve</translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
+            <translation type="unfinished">Chuva / Neve</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

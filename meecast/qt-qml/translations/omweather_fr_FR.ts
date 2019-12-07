@@ -2435,6 +2435,10 @@ Slovaque - Roman Moravčík</translation>
             <translation>Neige l'après-midi</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">Neige / vent</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>Averses de neige l'après-midi</translation>
         </message>
@@ -2789,6 +2793,10 @@ Slovaque - Roman Moravčík</translation>
         <message>
             <source>Rain and snow</source>
             <translation>Pluie et neige</translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
+            <translation type="unfinished">Pluie / neige</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

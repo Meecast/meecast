@@ -2877,6 +2877,11 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation type="unfinished">
             </translation>
@@ -3315,6 +3320,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rain and snow</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
             <translation type="unfinished">
             </translation>
         </message>

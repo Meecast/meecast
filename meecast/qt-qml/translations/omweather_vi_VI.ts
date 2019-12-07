@@ -2457,6 +2457,10 @@ Mưa:</translation>
             <translation>PM Tuyết</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">Có tuyết và gió</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>PM Tuyết mau</translation>
         </message>
@@ -2818,6 +2822,10 @@ Mưa:</translation>
         <message>
             <source>Rain and snow</source>
             <translation type="unfinished"> Mưa và tuyết</translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
+            <translation type="unfinished">Có mưa nhẹ, tuyết rơi</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

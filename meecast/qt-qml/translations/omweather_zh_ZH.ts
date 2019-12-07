@@ -2446,6 +2446,10 @@ Luca Onnis
             <translation>下午 下雪</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">下雪夹风</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>下午 阵雪</translation>
         </message>
@@ -2800,6 +2804,10 @@ Luca Onnis
         <message>
             <source>Rain and snow</source>
             <translation>下雨下雪</translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
+            <translation type="unfinished">下雨/下雪</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

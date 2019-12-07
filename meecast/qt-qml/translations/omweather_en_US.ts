@@ -2445,6 +2445,10 @@ Precipitation: </translation>
             <translation>PM Snow</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">Snow / Wind</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>PM Snow Showers</translation>
         </message>
@@ -2806,6 +2810,10 @@ Precipitation: </translation>
         <message>
             <source>Rain and snow</source>
             <translation type="unfinished">Rain and Snow</translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
+            <translation type="unfinished">Rain / Snow</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

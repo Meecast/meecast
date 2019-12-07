@@ -2448,6 +2448,10 @@ Slowaaks - Roman Moravčík</translation>
             <translation>PM sneeuw</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">Sneeuw / wind</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>PM sneeuwbuien</translation>
         </message>
@@ -2802,6 +2806,10 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>Rain and snow</source>
             <translation>Regen en sneeuw</translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
+            <translation type="unfinished">Regen / sneeuw</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

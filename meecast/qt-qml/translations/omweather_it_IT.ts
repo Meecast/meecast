@@ -2444,6 +2444,10 @@ Ilir Gjika
             <translation>Neve al pom.</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">Neve / Vento</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>Nevicate e rovesci pom.</translation>
         </message>
@@ -2798,6 +2802,10 @@ Ilir Gjika
         <message>
             <source>Rain and snow</source>
             <translation>Pioggia e neve</translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
+            <translation type="unfinished">Pioggia / Neve</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

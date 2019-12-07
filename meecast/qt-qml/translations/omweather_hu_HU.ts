@@ -2424,6 +2424,10 @@ Slovak - Roman Moravčík</source>
             <translation>du. havazás</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">Hó / szél</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>du. hózáporok</translation>
         </message>
@@ -2785,6 +2789,10 @@ Előrejelzés:</translation>
         <message>
             <source>Rain and snow</source>
             <translation type="unfinished">Eső és hó</translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
+            <translation type="unfinished">Eső / hó</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

@@ -2448,6 +2448,10 @@ Rreshjet: </translation>
             <translation>Pasdite Dëborë</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">Dëborë / Erë</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>Pasdite rreshje të shkurtëra dëbore</translation>
         </message>
@@ -2809,6 +2813,10 @@ Rreshjet: </translation>
         <message>
             <source>Rain and snow</source>
             <translation type="unfinished">Shi dhe dëbore</translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
+            <translation type="unfinished">Shi / Dëborë</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

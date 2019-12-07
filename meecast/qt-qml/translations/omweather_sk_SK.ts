@@ -2450,6 +2450,10 @@ Zrážky: </translation>
             <translation>Popoludní sneženie</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">Sneženie / Vietor</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>Popoludní snehové prehánky</translation>
         </message>
@@ -2811,6 +2815,10 @@ Zrážky: </translation>
         <message>
             <source>Rain and snow</source>
             <translation type="unfinished">Dážď a sneženie</translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
+            <translation type="unfinished">Dážď / Sneženie</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

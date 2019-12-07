@@ -2434,6 +2434,10 @@ Turkish - Burak Kaan Kose</translation>
             <translation>PM Kar</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">Kar / Rüzgar</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>PM Sağnak Kar</translation>
         </message>
@@ -2788,6 +2792,10 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Rain and snow</source>
             <translation>Yağmur ve kar</translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
+            <translation type="unfinished">Yağmur / Kar</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

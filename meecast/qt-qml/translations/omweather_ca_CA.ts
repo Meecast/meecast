@@ -2449,6 +2449,10 @@ Català - Agustí Clara</translation>
             <translation>p.m.: Neu</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">Neu / Vent</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>p.m.: Ruixats de neu</translation>
         </message>
@@ -2803,6 +2807,10 @@ Català - Agustí Clara</translation>
         <message>
             <source>Rain and snow</source>
             <translation>Pluja i neu</translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
+            <translation type="unfinished">Pluja / Neu</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

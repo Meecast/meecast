@@ -2449,6 +2449,10 @@ Slovakia - Roman Moravčík</translation>
             <translation>ip: Lumisadetta</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">Lumisadetta / Tuulista</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>ip: Lumikuuroja</translation>
         </message>
@@ -2803,6 +2807,10 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Rain and snow</source>
             <translation>Vesi- ja lumisadetta</translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
+            <translation type="unfinished">Vesisadetta / Lumisadetta</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

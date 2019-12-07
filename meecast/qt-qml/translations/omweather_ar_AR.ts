@@ -2444,6 +2444,10 @@ Slovak - Roman Moravčík</source>
             <translation>ثلوج مساءً</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">ثلج / رياح</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>زخات ثلج مساءً</translation>
         </message>
@@ -2806,6 +2810,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Rain and snow</source>
             <translation type="unfinished">أمطار وثلوج</translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
+            <translation type="unfinished">أمطار / ثلج</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

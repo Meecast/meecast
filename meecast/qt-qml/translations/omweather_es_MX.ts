@@ -2457,6 +2457,10 @@ Precipitación: </translation>
             <translation>Nieve por la noche</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">Nieve / Viento</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>chaparrones de nieve por la noche</translation>
         </message>
@@ -2819,6 +2823,10 @@ Precipitación: </translation>
         </message>
         <message>
             <source>Rain and snow</source>
+            <translation type="unfinished">Lluvia / Nieve</translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
             <translation type="unfinished">Lluvia / Nieve</translation>
         </message>
         <message>

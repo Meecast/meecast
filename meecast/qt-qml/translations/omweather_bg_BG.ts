@@ -2449,6 +2449,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>РМ Сняг</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">Сняг/Вятър</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>РМ Преалявания от Сняг</translation>
         </message>
@@ -2810,6 +2814,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <message>
             <source>Rain and snow</source>
             <translation type="unfinished">Дъжд и Сняг</translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
+            <translation type="unfinished">Дъжд/Сняг</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

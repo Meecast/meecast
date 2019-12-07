@@ -2440,6 +2440,10 @@ Slovak - Roman Moravčík</source>
             <translation>Після полудня Сніг</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">Сніг / Вітер</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>Після полудня Снігопад</translation>
         </message>
@@ -2805,6 +2809,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Rain and snow</source>
             <translation type="unfinished">Дощ та Сніг</translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
+            <translation type="unfinished">Дощ / Сніг</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

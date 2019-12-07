@@ -2449,6 +2449,10 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Nachmittags Schnee</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">Schnee / Wind</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>Nachmittags Schneeschauer</translation>
         </message>
@@ -2803,6 +2807,10 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Rain and snow</source>
             <translation>Regen und Schnee</translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
+            <translation type="unfinished">Regen / Schnee</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

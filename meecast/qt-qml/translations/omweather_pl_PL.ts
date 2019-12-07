@@ -2507,6 +2507,10 @@ słowacki - Roman Moravčík</translation>
             <translation>Po południu śnieg</translation>
         </message>
         <message>
+            <source>PM Snow / Wind</source>
+            <translation type="unfinished">Śnieg / wiatr</translation>
+        </message>
+        <message>
             <source>PM Snow Showers</source>
             <translation>Po południu przelotny śnieg</translation>
         </message>
@@ -2876,6 +2880,10 @@ słowacki - Roman Moravčík</translation>
             <source>Rain and snow</source>
             <translation type="unfinished">
             </translation>
+        </message>
+        <message>
+            <source>Rain to Snow</source>
+            <translation type="unfinished">Deszcz / śnieg</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

@@ -5,6 +5,7 @@
     g_hash_table_insert(hash, (void*)"AM Drizzle / Wind", _("AM Drizzle / Wind"));
     g_hash_table_insert(hash, (void*)"AM Drizzle", _("AM Drizzle"));    
     g_hash_table_insert(hash, (void*)"AM Fog / PM Clouds", _("AM Fog / PM Clouds"));
+    g_hash_table_insert(hash, (void*)"AM Ice", _("AM Ice"));
     g_hash_table_insert(hash, (void*)"AM Fog / PM Sun", _("AM Fog / PM Sun"));
     g_hash_table_insert(hash, (void*)"AM Light Rain / Wind", _("AM Light Rain / Wind"));
     g_hash_table_insert(hash, (void*)"AM Light Rain", _("AM Light Rain"));

@@ -257,8 +257,7 @@ W: </source>
         </message>
         <message>
             <source>AM Ice</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>До полудня лед</translation>
         </message>
         <message>
             <source>AM Light Rain</source>
@@ -266,7 +265,7 @@ W: </source>
         </message>
         <message>
             <source>AM Light Rain / Ice</source>
-            <translation type="unfinished">До полудня небольшой дождь / Ветер</translation>
+            <translation>До полудня небольшой дождь / Лёд </translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -294,7 +293,7 @@ W: </source>
         </message>
         <message>
             <source>AM Rain / Snow / Wind</source>
-            <translation type="unfinished">Дождь / Снег / Ветер</translation>
+            <translation> До полудня дождь / Снег / Ветер </translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -641,8 +640,7 @@ gwmgdemj
         </message>
         <message>
             <source>Clear sky</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Чистое небо</translation>
         </message>
         <message>
             <source>Clear, Drifting Snow</source>
@@ -1224,8 +1222,7 @@ Brad Jones aka kazrak - за тестирование
         </message>
         <message>
             <source>Fog / Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Туман / Ветренно</translation>
         </message>
         <message>
             <source>Fog Early / Clouds Late</source>
@@ -1290,8 +1287,7 @@ using Application manager</source>
         </message>
         <message>
             <source>Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ледяной дождь</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
@@ -1509,8 +1505,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Ice Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Рано Лёд</translation>
         </message>
         <message>
             <source>Ice Pellets</source>
@@ -1733,8 +1728,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Light Sleet Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation> Лёгкий мокрый дождь со снегом </translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1778,8 +1772,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Light or Moderate Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Легкие или умеренные осадки</translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1923,7 +1916,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Mostly Cloudy / Windy</source>
-            <translation type="unfinished">В основном облачно / Ветер</translation>
+            <translation>В основном облачно / Ветренно</translation>
         </message>
         <message>
             <source>Mostly Cloudy Few Snow</source>
@@ -2421,11 +2414,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>
-            <translation type="unfinished">До полудня дождь / Снегопады</translation>
+            <translation>После полудня Снег / Снегопады </translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>
-            <translation type="unfinished">До полудня дождь / Снегопады</translation>
+            <translation>После полудня Снег / Снегопады </translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>
@@ -2445,7 +2438,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>PM Snow / Wind</source>
-            <translation type="unfinished">Снег / Ветер</translation>
+            <translation>После полудня Снег / Ветер</translation>
         </message>
         <message>
             <source>PM Snow Showers</source>
@@ -2813,7 +2806,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rain to Snow</source>
-            <translation type="unfinished">Дождь / Снег</translation>
+            <translation>Дождь переходящий в снег</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>
@@ -3385,8 +3378,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Strong Thundershowers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Сильные грозовые ливни</translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3806,8 +3798,7 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Violent Rain Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Интенсивные ливневые дожди</translation>
         </message>
         <message>
             <source>Visible items:</source>

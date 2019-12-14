@@ -270,8 +270,17 @@ W: </translation>
             <translation>上午有雾/下午后晴</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>上午 小雨</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">上午微风时有小雨</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -296,6 +305,10 @@ W: </translation>
         <message>
             <source>AM Rain / Snow</source>
             <translation>上午下雨时有下雪</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">下雨/雪夹/刮风</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2424,6 +2437,10 @@ Luca Onnis
         <message>
             <source>PM Rain / Snow</source>
             <translation>下午下雨/下雪</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">上午下雨时有阵雪</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

@@ -270,8 +270,17 @@ O:</translation>
             <translation>AM Nevoeiro / PM Sol</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>AM Aguaceiros</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">AM Aguaceiros / Vento</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -296,6 +305,10 @@ O:</translation>
         <message>
             <source>AM Rain / Snow</source>
             <translation>AM Chuva / Neve</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">Chuva / Neve / Vento</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2421,6 +2434,10 @@ Precipitação:</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>PM Chuva / Neve</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">AM Chuva / Aguaceiros Neve Molhada</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

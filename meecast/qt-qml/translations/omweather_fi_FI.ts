@@ -270,8 +270,17 @@ T: </translation>
             <translation>ap: Sumua / ip: Selkeää</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>ap: Kevyttä vesisadetta</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">ap: Kevyttä vesisadetta / Tuulista</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -296,6 +305,10 @@ T: </translation>
         <message>
             <source>AM Rain / Snow</source>
             <translation>ap: Vesisadetta / Lumisadetta</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">Vesisadetta / Lumisadetta / Tuulista</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2427,6 +2440,10 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>ip: Vesisadetta / Lumisadetta</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">ap: Vesisadetta / Lumikuuroja</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

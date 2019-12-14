@@ -269,8 +269,17 @@ P: </translation>
             <translation>Në mëngjes Mjegull / Pasdite Diell</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>Në mëngjes Shi i dobët</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">Në mëngjes Shi i dobët/Erë</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -295,6 +304,10 @@ P: </translation>
         <message>
             <source>AM Rain / Snow</source>
             <translation>Në mëngjes Shi/Dëborë</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">Shi / Dëborë / Erë</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2426,6 +2439,10 @@ Rreshjet: </translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>Pasidite Shi / Dëborë</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">Në mëngjes Shi/Rreshje dëbore</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

@@ -270,8 +270,17 @@ W:</translation>
             <translation>AM mist / PM zon</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>AM lichte regen</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">AM lichte regen / wind</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -296,6 +305,10 @@ W:</translation>
         <message>
             <source>AM Rain / Snow</source>
             <translation>AM regen / sneeuw</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">Regen / sneeuw / wind</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2426,6 +2439,10 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>PM regen / sneeuw</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">AM regen-/sneeuwbuien</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

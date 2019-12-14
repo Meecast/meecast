@@ -270,8 +270,17 @@ W:</translation>
             <translation>FM Dimma / EM Sol</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>FM Lätt regn</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">FM Lätt regn / Vind</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -296,6 +305,10 @@ W:</translation>
         <message>
             <source>AM Rain / Snow</source>
             <translation>FM Regn / Snö</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">Regn / Snö / Vind</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2426,6 +2439,10 @@ Slovakiska - Roman Moravčík</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>FM Regn / Snö</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">FM Regn / Snöbyar</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

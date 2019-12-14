@@ -256,8 +256,17 @@ W: </source>
             <translation>de. ködös / du. napos</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>de. könnyű eső</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">de. könnyű eső / szeles</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -282,6 +291,10 @@ W: </source>
         <message>
             <source>AM Rain / Snow</source>
             <translation>de. eső / havazás</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">Eső / hó / szél</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2402,6 +2415,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>PM Rain / Snow</source>
             <translation>du. eső / havazás</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">de. eső / hózápor</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

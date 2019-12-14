@@ -268,8 +268,17 @@ W:</translation>
             <translation>AM Sis / PM Güneş</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>AM Hafif Yağmur</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">AM Hafif Yağmur / Rüzgar</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -294,6 +303,10 @@ W:</translation>
         <message>
             <source>AM Rain / Snow</source>
             <translation>AM Yağmur / Kar</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">Yağmur / Kar / Rüzgar</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2412,6 +2425,10 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>PM Yağmur /  Kar</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">AM Yağmur / Sağnak Kar</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

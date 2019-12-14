@@ -270,8 +270,17 @@ Vietor: </translation>
             <translation>Dopoludnia hmla / Popoludní slnečno</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>Dopoludnia slabý dážď</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">Dopoludnia slabý dážď / Vietor</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -296,6 +305,10 @@ Vietor: </translation>
         <message>
             <source>AM Rain / Snow</source>
             <translation>Dopoludnia dážď / Sneženie</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">Dážď / Sneženie / Vietor</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2428,6 +2441,10 @@ Zrážky: </translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>Popoludní dážď / Sneženie</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">Dopoludnia dážď / Snehové prehánky</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

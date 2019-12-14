@@ -271,8 +271,17 @@ W:</translation>
             <translation>АМ Мъгла/РМ Слъчево</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>АМ Слаб Дъжд</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">М Слаб Дъжд/Вятър</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -297,6 +306,10 @@ W:</translation>
         <message>
             <source>AM Rain / Snow</source>
             <translation>АМ Дъжд/Сняг</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">Дъжд/Сняг/Вятър</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2427,6 +2440,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>РМ Дъжд/Сняг</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">АМ Дъжд/Превалявания от Сняг</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

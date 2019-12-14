@@ -256,8 +256,17 @@ W: </source>
             <translation>До полудня туман, после полудня солнечно</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>До полудня небольшой дождь</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">До полудня небольшой дождь / Ветер</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -282,6 +291,10 @@ W: </source>
         <message>
             <source>AM Rain / Snow</source>
             <translation>До обеда дождь / Снег</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">Дождь / Снег / Ветер</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2405,6 +2418,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>PM Rain / Snow</source>
             <translation>После обеда дождь / Снег</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">До полудня дождь / Снегопады</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

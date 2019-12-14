@@ -270,8 +270,17 @@ W: </translation>
             <translation>ضباب صباحاً / مشمس مساءً</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>أمطار جزئية صباحاً</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">رياح / أمطار جزئية صباحاً</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -296,6 +305,10 @@ W: </translation>
         <message>
             <source>AM Rain / Snow</source>
             <translation>مطر صباحاً / ثلج</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">أمطار / ثلج / رياح</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2422,6 +2435,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>PM Rain / Snow</source>
             <translation>أمطار مساءً / ثلوج</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">مطر صباحاً / زخات ثلج</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

@@ -270,8 +270,17 @@ W: </translation>
             <translation>Prepodne Magla / Popodne Sunce</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>Prepodne Sitna kiša</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">Prepodne Sitna kiša / Vetar</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -296,6 +305,10 @@ W: </translation>
         <message>
             <source>AM Rain / Snow</source>
             <translation>Prepodne Kiša / Sneg</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">Kiša / Sneg / Vetar</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2429,6 +2442,10 @@ Slovački - Roman Moravčík</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>Popodne kiša / Sneg</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">Prepodne Kiša / Snežne mećave</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

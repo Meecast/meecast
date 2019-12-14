@@ -270,8 +270,17 @@ W: </translation>
             <translation>Vormittags Nebel / Nachmittags Sonne</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>Vormittags leichter Regen</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">Vormittags leichter Regen / Wind</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -296,6 +305,10 @@ W: </translation>
         <message>
             <source>AM Rain / Snow</source>
             <translation>Vormittags Regen / Schnee</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">Regen / Schnee / Wind</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2427,6 +2440,10 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>Nachmittags Regen / Schnee</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">Vormittags Regen / Schneeschauer</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

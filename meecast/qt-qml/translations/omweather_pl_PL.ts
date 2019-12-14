@@ -270,8 +270,17 @@ W: </translation>
             <translation>Rano mgła / po południu słońce</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>Rano lekki deszcz</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">Rano lekki deszcz / wiatr</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -296,6 +305,10 @@ W: </translation>
         <message>
             <source>AM Rain / Snow</source>
             <translation>Rano deszcz / śnieg</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">Deszcz / śnieg / wiatr</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2485,6 +2498,10 @@ słowacki - Roman Moravčík</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>Po południu deszcz / śnieg</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">Rano deszcz / przelotny śnieg</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

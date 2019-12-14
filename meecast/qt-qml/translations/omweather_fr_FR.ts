@@ -270,8 +270,17 @@ W : </translation>
             <translation>Brouillard le matin / après-midi ensoleillé</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>Pluie légère le matin</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">Matin : pluie légère / vent</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -296,6 +305,10 @@ W : </translation>
         <message>
             <source>AM Rain / Snow</source>
             <translation>Matin : pluie / neige</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">Pluie / neige / vent</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2413,6 +2426,10 @@ Slovaque - Roman Moravčík</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>Pluie et neige l'après-midi</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">Matin : pluie / averses de neige</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

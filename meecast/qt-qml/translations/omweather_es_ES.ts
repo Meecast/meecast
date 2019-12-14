@@ -270,8 +270,17 @@ Vie: </translation>
             <translation>M: Niebla / T: Soleado</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>Lluvia ligera por la mañana</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">Lluvia ligera / Viento por la mañana</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -296,6 +305,10 @@ Vie: </translation>
         <message>
             <source>AM Rain / Snow</source>
             <translation>Lluvia / Nieve por la mañana</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">Lluvia / Nieve / Viento</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2425,6 +2438,10 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>Lluvia / Nieve por la noche</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">Chubascos de lluvia o nieve por la mañana</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

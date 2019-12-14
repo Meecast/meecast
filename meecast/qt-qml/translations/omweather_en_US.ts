@@ -270,8 +270,17 @@ W: </translation>
             <translation>AM Fog / PM Sun</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>AM Light Rain</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">AM Light Rain / Wind</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -296,6 +305,10 @@ W: </translation>
         <message>
             <source>AM Rain / Snow</source>
             <translation>AM Rain / Snow</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">Rain / Snow / Wind</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2423,6 +2436,10 @@ Precipitation: </translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>PM Rain / Snow</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">AM Rain / Snow Showers</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

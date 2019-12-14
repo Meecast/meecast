@@ -270,8 +270,17 @@ W: </translation>
             <translation>Nebbia al matt. / Sole al pom.</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>Deboli Piogge al matt.</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">Deboli Piogge al matt. / Vento</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -296,6 +305,10 @@ W: </translation>
         <message>
             <source>AM Rain / Snow</source>
             <translation>Pioggia al matt. / Neve</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">Pioggia / Neve / Vento</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2422,6 +2435,10 @@ Ilir Gjika
         <message>
             <source>PM Rain / Snow</source>
             <translation>Pioggia pom. / Neve</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">Pioggia al matt. / Rovesci Nevosi</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

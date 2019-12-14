@@ -274,8 +274,17 @@ W:</translation>
             <translation>AM Sương/PM Nắng</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>AM Mưa nhẹ</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">AM Mưa nhẹ/Gió</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -300,6 +309,10 @@ W:</translation>
         <message>
             <source>AM Rain / Snow</source>
             <translation>AM Mưa/Tuyết</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">Mưa/ Tuyết/ Gió</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2435,6 +2448,10 @@ Mưa:</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>PM Mưa / Tuyết</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">AM Mưa/Mưa tuyết</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

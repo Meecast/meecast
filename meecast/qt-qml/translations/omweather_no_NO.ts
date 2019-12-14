@@ -272,8 +272,17 @@ W:</translation>
             <translation>Formiddag Tåke / Ettermiddag Sol</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>Formiddag Lett Regn</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">Formiddag Lett Regn / Vind</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -298,6 +307,10 @@ W:</translation>
         <message>
             <source>AM Rain / Snow</source>
             <translation>Formiddag Regn / Snø</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">Regn / Snø / Vind</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2428,6 +2441,10 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>Ettermiddag Regn / Snø</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">Formiddag Regn / Snøbyger</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

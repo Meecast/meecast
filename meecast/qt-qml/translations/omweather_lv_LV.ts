@@ -293,7 +293,17 @@ W: </source>
             </translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
             <translation type="unfinished">
             </translation>
         </message>
@@ -324,6 +334,11 @@ W: </source>
         </message>
         <message>
             <source>AM Rain / Snow</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
             <translation type="unfinished">
             </translation>
         </message>
@@ -2848,6 +2863,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>PM Rain / Snow</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
             <translation type="unfinished">
             </translation>
         </message>

@@ -270,8 +270,17 @@ W: </translation>
             <translation>a.m.: Boira / p.m.: Sol</translation>
         </message>
         <message>
+            <source>AM Ice</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>AM Light Rain</source>
             <translation>a.m.: Pluja suau</translation>
+        </message>
+        <message>
+            <source>AM Light Rain / Ice</source>
+            <translation type="unfinished">a.m.: Pluja suau / Vent</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -296,6 +305,10 @@ W: </translation>
         <message>
             <source>AM Rain / Snow</source>
             <translation>a.m.: Pluja / Neu</translation>
+        </message>
+        <message>
+            <source>AM Rain / Snow / Wind</source>
+            <translation type="unfinished">Pluja / Neu / Vent</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -2427,6 +2440,10 @@ Català - Agustí Clara</translation>
         <message>
             <source>PM Rain / Snow</source>
             <translation>p.m.: Pluja / Neu</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow Showers</source>
+            <translation type="unfinished">a.m.: Pluja / Ruixats de neu</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>

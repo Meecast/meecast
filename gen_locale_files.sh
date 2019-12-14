@@ -22,7 +22,7 @@ cp -r po/*.po omweather/po
 cp -r po/*.pot omweather/po
 
 cd meecast/qt-qml/translations/
-lrelease -nounfinished omweather_*.ts
+/usr/lib/x86_64-linux-gnu/qt5/bin/lrelease -nounfinished omweather_*.ts
 cd -
 
 exit 0

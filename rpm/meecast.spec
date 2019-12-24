@@ -175,8 +175,8 @@ systemctl-user start meecastd.service
 
 %changelog
 
-* Sat Dec 14 2019 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.24
-  * Updated Russian translations
+* Tue Dec 24 2019 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.24
+  * Updated Russian, Slovenian and Swedish translations
   * Fixed the New Year bug for weather.com source 
 
 * Tue Jun 11 2019 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.23

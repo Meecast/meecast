@@ -271,8 +271,7 @@ W:</translation>
         </message>
         <message>
             <source>AM Ice</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FM Is</translation>
         </message>
         <message>
             <source>AM Light Rain</source>
@@ -280,7 +279,7 @@ W:</translation>
         </message>
         <message>
             <source>AM Light Rain / Ice</source>
-            <translation type="unfinished">FM Lätt regn / Vind</translation>
+            <translation>FM Lätt regn / Is</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -308,7 +307,7 @@ W:</translation>
         </message>
         <message>
             <source>AM Rain / Snow / Wind</source>
-            <translation type="unfinished">Regn / Snö / Vind</translation>
+            <translation>FM Regn / Snö / Vind</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -1944,7 +1943,7 @@ Slovakiska - Roman Moravčík</translation>
         </message>
         <message>
             <source>Mostly Cloudy / Windy</source>
-            <translation type="unfinished">Mestadels molnigt / Vind</translation>
+            <translation>Mest molnigt / Blåsigt</translation>
         </message>
         <message>
             <source>Mostly Cloudy Few Snow</source>
@@ -2442,11 +2441,11 @@ Slovakiska - Roman Moravčík</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>
-            <translation type="unfinished">FM Regn / Snöbyar</translation>
+            <translation>Eftermiddagsregn / Snöbyar</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>
-            <translation type="unfinished">FM Regn / Snöbyar</translation>
+            <translation>Eftermiddagsregn / Snöbyar</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>
@@ -2466,7 +2465,7 @@ Slovakiska - Roman Moravčík</translation>
         </message>
         <message>
             <source>PM Snow / Wind</source>
-            <translation type="unfinished">Snö / Vind</translation>
+            <translation>Eftermiddag snö/blåst</translation>
         </message>
         <message>
             <source>PM Snow Showers</source>
@@ -2826,7 +2825,7 @@ Slovakiska - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain to Snow</source>
-            <translation type="unfinished">Regn / Snö</translation>
+            <translation>Regn övergående till snö</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

@@ -4,7 +4,7 @@
 #
 # Translators:
 # Åke Engelbrektson, 2014
-# Åke Engelbrektson, 2015-2018
+# Åke Engelbrektson, 2015-2019
 #  Angela Nennebrandt <EMAIL@ADDRESS>, 2012
 # Nathan Follens, 2015
 # Niklas Åkerström, 2012-2014
@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-14 09:49+0300\n"
-"PO-Revision-Date: 2018-01-27 19:42+0000\n"
+"POT-Creation-Date: 2019-12-24 20:41+0300\n"
+"PO-Revision-Date: 2019-12-14 16:09+0000\n"
 "Last-Translator: Åke Engelbrektson\n"
 "Language-Team: Swedish (http://www.transifex.com/vasvlad/meecast/language/"
 "sv/)\n"
@@ -226,16 +226,15 @@ msgstr "FM Dimma / EM Sol"
 
 #: omweather/src/hash.data:8
 msgid "AM Ice"
-msgstr ""
+msgstr "FM Is"
 
 #: omweather/src/hash.data:11
 msgid "AM Light Rain"
 msgstr "FM Lätt regn"
 
 #: omweather/src/hash.data:12
-#, fuzzy
 msgid "AM Light Rain / Ice"
-msgstr "FM Lätt regn / Vind"
+msgstr "FM Lätt regn / Is"
 
 #: omweather/src/hash.data:10
 msgid "AM Light Rain / Wind"
@@ -262,9 +261,8 @@ msgid "AM Rain / Snow"
 msgstr "FM Regn / Snö"
 
 #: omweather/src/hash.data:19
-#, fuzzy
 msgid "AM Rain / Snow / Wind"
-msgstr "Regn / Snö / Vind"
+msgstr "FM Regn / Snö / Vind"
 
 #: omweather/src/hash.data:17
 msgid "AM Rain / Snow Showers"
@@ -1647,9 +1645,8 @@ msgid "Mostly Cloudy / Wind"
 msgstr "Mestadels molnigt / Vind"
 
 #: omweather/src/hash.data:162
-#, fuzzy
 msgid "Mostly Cloudy / Windy"
-msgstr "Mestadels molnigt / Vind"
+msgstr "Mest molnigt / Blåsigt"
 
 #: omweather/src/hash.data:163
 msgid "Mostly Cloudy Few Snow"
@@ -2007,9 +2004,8 @@ msgid "PM Rain / Snow"
 msgstr "FM Regn / Snö"
 
 #: omweather/src/hash.data:222 omweather/src/hash.data:225
-#, fuzzy
 msgid "PM Rain / Snow Showers"
-msgstr "FM Regn / Snöbyar"
+msgstr "Eftermiddagsregn / Snöbyar"
 
 #: omweather/src/hash.data:223
 msgid "PM Rain / Wind"
@@ -2028,9 +2024,8 @@ msgid "PM Snow"
 msgstr "FM Snö"
 
 #: omweather/src/hash.data:231
-#, fuzzy
 msgid "PM Snow / Wind"
-msgstr "Snö / Vind"
+msgstr "Eftermiddag snö/blåst"
 
 #: omweather/src/hash.data:229
 msgid "PM Snow Showers"
@@ -2332,9 +2327,8 @@ msgid "Rain and snow"
 msgstr "Regn och snö"
 
 #: omweather/src/hash.data:287
-#, fuzzy
 msgid "Rain to Snow"
-msgstr "Regn / Snö"
+msgstr "Regn övergående till snö"
 
 #: omweather/src/hash.data:288
 msgid "Rain to Snow / Wind"

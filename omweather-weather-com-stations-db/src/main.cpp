@@ -1202,9 +1202,6 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     tmp_tm2.tm_year = tm->tm_year;
                                     tmp_tm2.tm_mday = tm->tm_mday; tmp_tm2.tm_mon = tm->tm_mon;  
                                     tmp_tm2.tm_isdst = 0;
-                                    if (possible_new_year && tmp_tm2.tm_mon == 0 && tmp_tm2.tm_mday < 15){
-                                        tmp_tm2.tm_year++;
-                                    }
                                     /* set begin of day in localtime */
                                     time_t result_time = timegm(&tmp_tm2);
                                     /* fprintf(stderr, "sunrise %li %li %s\n", result_time, timegm(&tmp_tm2), (const char*)temp_xml_string); */
@@ -1225,9 +1222,6 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     tmp_tm2.tm_year = tm->tm_year;
                                     tmp_tm2.tm_mday = tm->tm_mday; tmp_tm2.tm_mon = tm->tm_mon;  
                                     tmp_tm2.tm_isdst = 0;
-                                    if (possible_new_year && tmp_tm2.tm_mon == 0 && tmp_tm2.tm_mday < 15){
-                                        tmp_tm2.tm_year++;
-                                    }
                                     time_t result_time = timegm(&tmp_tm2);
                                     t_sunset = result_time - timezone_my*3600;
 

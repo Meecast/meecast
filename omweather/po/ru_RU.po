@@ -4,13 +4,13 @@
 #
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012
-# Vlad Vas <vasvlad@gmail.com>, 2013-2018
+# Vlad Vas <vasvlad@gmail.com>, 2013-2019
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-14 09:49+0300\n"
-"PO-Revision-Date: 2018-01-27 16:30+0000\n"
+"POT-Creation-Date: 2019-12-24 20:41+0300\n"
+"PO-Revision-Date: 2019-12-14 06:56+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/vasvlad/meecast/language/"
 "ru/)\n"
@@ -209,16 +209,15 @@ msgstr "До полудня туман, после полудня солнечн
 
 #: omweather/src/hash.data:8
 msgid "AM Ice"
-msgstr ""
+msgstr "До полудня лед"
 
 #: omweather/src/hash.data:11
 msgid "AM Light Rain"
 msgstr "До полудня небольшой дождь"
 
 #: omweather/src/hash.data:12
-#, fuzzy
 msgid "AM Light Rain / Ice"
-msgstr "До полудня небольшой дождь / Ветер"
+msgstr "До полудня небольшой дождь / Лёд "
 
 #: omweather/src/hash.data:10
 msgid "AM Light Rain / Wind"
@@ -245,9 +244,8 @@ msgid "AM Rain / Snow"
 msgstr "До обеда дождь / Снег"
 
 #: omweather/src/hash.data:19
-#, fuzzy
 msgid "AM Rain / Snow / Wind"
-msgstr "Дождь / Снег / Ветер"
+msgstr " До полудня дождь / Снег / Ветер "
 
 #: omweather/src/hash.data:17
 msgid "AM Rain / Snow Showers"
@@ -503,7 +501,7 @@ msgstr "Ясное небо"
 
 #: omweather/src/hash.data:33
 msgid "Clear sky"
-msgstr ""
+msgstr "Чистое небо"
 
 #: omweather/src/hash.data:34
 msgid "Clear, Drifting Snow"
@@ -992,7 +990,7 @@ msgstr "Туман"
 
 #: omweather/src/hash.data:92
 msgid "Fog / Windy"
-msgstr ""
+msgstr "Туман / Ветренно"
 
 #: omweather/src/hash.data:88
 msgid "Fog Early / Clouds Late"
@@ -1049,7 +1047,7 @@ msgstr "Изморось с градом"
 
 #: omweather/src/hash.data:95
 msgid "Freezing Rain"
-msgstr ""
+msgstr "Ледяной дождь"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
 msgid ""
@@ -1238,7 +1236,7 @@ msgstr ""
 
 #: omweather/src/hash.data:115
 msgid "Ice Early"
-msgstr ""
+msgstr "Рано Лёд"
 
 #: omweather/src/hash.data:114
 msgid "Ice Pellets"
@@ -1413,7 +1411,7 @@ msgstr "Легкий мокрый снег"
 
 #: omweather/src/hash.data:139
 msgid "Light Sleet Showers"
-msgstr ""
+msgstr " Лёгкий мокрый дождь со снегом "
 
 #: omweather/src/hash.data:140
 msgid "Light Snow"
@@ -1457,7 +1455,7 @@ msgstr "Кратковременный легкий дождь"
 
 #: omweather/src/hash.data:148
 msgid "Light or Moderate Precipitation"
-msgstr ""
+msgstr "Легкие или умеренные осадки"
 
 #: omweather/src/hash.data:391
 msgid "Light rain"
@@ -1592,9 +1590,8 @@ msgid "Mostly Cloudy / Wind"
 msgstr "В основном облачно / Ветер"
 
 #: omweather/src/hash.data:162
-#, fuzzy
 msgid "Mostly Cloudy / Windy"
-msgstr "В основном облачно / Ветер"
+msgstr "В основном облачно / Ветренно"
 
 #: omweather/src/hash.data:163
 msgid "Mostly Cloudy Few Snow"
@@ -1952,9 +1949,8 @@ msgid "PM Rain / Snow"
 msgstr "После обеда дождь / Снег"
 
 #: omweather/src/hash.data:222 omweather/src/hash.data:225
-#, fuzzy
 msgid "PM Rain / Snow Showers"
-msgstr "До полудня дождь / Снегопады"
+msgstr "После полудня Снег / Снегопады "
 
 #: omweather/src/hash.data:223
 msgid "PM Rain / Wind"
@@ -1973,9 +1969,8 @@ msgid "PM Snow"
 msgstr "После полудня снег"
 
 #: omweather/src/hash.data:231
-#, fuzzy
 msgid "PM Snow / Wind"
-msgstr "Снег / Ветер"
+msgstr "После полудня Снег / Ветер"
 
 #: omweather/src/hash.data:229
 msgid "PM Snow Showers"
@@ -2277,9 +2272,8 @@ msgid "Rain and snow"
 msgstr "Дождь и снег"
 
 #: omweather/src/hash.data:287
-#, fuzzy
 msgid "Rain to Snow"
-msgstr "Дождь / Снег"
+msgstr "Дождь переходящий в снег"
 
 #: omweather/src/hash.data:288
 msgid "Rain to Snow / Wind"
@@ -2726,7 +2720,7 @@ msgstr "Шторм"
 
 #: omweather/src/hash.data:334
 msgid "Strong Thundershowers"
-msgstr ""
+msgstr "Сильные грозовые ливни"
 
 #: omweather/src/weather-download.c:392
 msgid "Successfully loaded"
@@ -3010,7 +3004,7 @@ msgstr ""
 
 #: omweather/src/hash.data:415
 msgid "Violent Rain Showers"
-msgstr ""
+msgstr "Интенсивные ливневые дожди"
 
 #: omweather/src/weather-settings.c:3517 omweather/src/weather-settings.c:3522
 msgid "Visible items:"

@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Boštjan Štrumbelj <sponka@gmail.com>, 2014-2018
+# Boštjan Štrumbelj <sponka@gmail.com>, 2014-2019
 # Boštjan Štrumbelj <sponka@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-14 09:49+0300\n"
-"PO-Revision-Date: 2018-01-29 10:29+0000\n"
+"POT-Creation-Date: 2019-12-24 20:41+0300\n"
+"PO-Revision-Date: 2019-12-21 19:19+0000\n"
 "Last-Translator: Boštjan Štrumbelj <sponka@gmail.com>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/vasvlad/"
 "meecast/language/sl_SI/)\n"
@@ -223,16 +223,15 @@ msgstr "Dopoldan megleno / popoldan sončno"
 
 #: omweather/src/hash.data:8
 msgid "AM Ice"
-msgstr ""
+msgstr "Žled dopoldan"
 
 #: omweather/src/hash.data:11
 msgid "AM Light Rain"
 msgstr "Dopoldan rahel dež"
 
 #: omweather/src/hash.data:12
-#, fuzzy
 msgid "AM Light Rain / Ice"
-msgstr "Dopoldan rahel dež / veter"
+msgstr "Dopoldan rahel dež / žled"
 
 #: omweather/src/hash.data:10
 msgid "AM Light Rain / Wind"
@@ -259,9 +258,8 @@ msgid "AM Rain / Snow"
 msgstr "Dopoldan dež / sneg"
 
 #: omweather/src/hash.data:19
-#, fuzzy
 msgid "AM Rain / Snow / Wind"
-msgstr "Dež / sneg / veter"
+msgstr "Dopoldan rahel dež / sneg / veter "
 
 #: omweather/src/hash.data:17
 msgid "AM Rain / Snow Showers"
@@ -1645,7 +1643,6 @@ msgid "Mostly Cloudy / Wind"
 msgstr "Pretežno oblačno / vetrovno"
 
 #: omweather/src/hash.data:162
-#, fuzzy
 msgid "Mostly Cloudy / Windy"
 msgstr "Pretežno oblačno / vetrovno"
 
@@ -2005,9 +2002,8 @@ msgid "PM Rain / Snow"
 msgstr "Popoldan dež / sneg"
 
 #: omweather/src/hash.data:222 omweather/src/hash.data:225
-#, fuzzy
 msgid "PM Rain / Snow Showers"
-msgstr "Dopoldan dež / snežne plohe"
+msgstr "Popoldan dež / Snežne plohe"
 
 #: omweather/src/hash.data:223
 msgid "PM Rain / Wind"
@@ -2026,9 +2022,8 @@ msgid "PM Snow"
 msgstr "Popoldan sneg"
 
 #: omweather/src/hash.data:231
-#, fuzzy
 msgid "PM Snow / Wind"
-msgstr "Sneg / veter"
+msgstr "Popoldan sneg / veter"
 
 #: omweather/src/hash.data:229
 msgid "PM Snow Showers"
@@ -2330,9 +2325,8 @@ msgid "Rain and snow"
 msgstr "Dež in sneg"
 
 #: omweather/src/hash.data:287
-#, fuzzy
 msgid "Rain to Snow"
-msgstr "Dež / sneg"
+msgstr "Dež s snegom"
 
 #: omweather/src/hash.data:288
 msgid "Rain to Snow / Wind"

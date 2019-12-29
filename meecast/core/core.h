@@ -51,7 +51,7 @@
 #include "databaseabstract.h"
 #include "downloader.h"
 
-#define MEECAST_VERSION "1.1.22"
+#define MEECAST_VERSION "1.1.25"
 
 namespace Core{
     class Connection;

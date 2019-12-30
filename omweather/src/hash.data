@@ -25,6 +25,7 @@
     g_hash_table_insert(hash, (void*)"AM Snow Showers / Wind", _("AM Snow Showers / Wind"));
     g_hash_table_insert(hash, (void*)"AM Snow Showers", _("AM Snow Showers"));
     g_hash_table_insert(hash, (void*)"AM Snow", _("AM Snow"));
+    g_hash_table_insert(hash, (void*)"AM Wintry Mix", _("AM Wintry Mix"));
     g_hash_table_insert(hash, (void*)"AM Wintry Mix / Wind", _("AM Wintry Mix / Wind"));
     g_hash_table_insert(hash, (void*)"Blowing Snow", _("Blowing Snow"));    
     g_hash_table_insert(hash, (void*)"CALM", _("CALM"));

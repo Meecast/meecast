@@ -41,6 +41,7 @@
     g_hash_table_insert(hash, (void*)"Clouds Early / Clearing Late", _("Clouds Early / Clearing Late"));
     g_hash_table_insert(hash, (void*)"Cloudy", _("Cloudy"));
     g_hash_table_insert(hash, (void*)"Cloudy / Wind", _("Cloudy / Wind"));
+    g_hash_table_insert(hash, (void*)"Cloudy / Windy", _("Cloudy / Windy"));
     g_hash_table_insert(hash, (void*)"Cloudy Few Snow", _("Cloudy Few Snow"));
     g_hash_table_insert(hash, (void*)"Cloudy Light Rain", _("Cloudy Light Rain"));
     g_hash_table_insert(hash, (void*)"Cloudy T-Storm", _("Cloudy T-Storm"));

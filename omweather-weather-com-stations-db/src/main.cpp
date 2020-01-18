@@ -880,6 +880,10 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
         std::string wind_direct_night_string;
         std::string wind_speed_day_string;
         std::string wind_speed_night_string;
+        std::string humidity_day_string;
+        std::string humidity_night_string;
+        std::string ppcp_day_string;
+        std::string ppcp_night_string;
         time_t utc_time = 0;
         time_t sunrise_time = 0;
         time_t sunset_time = 0;
@@ -900,6 +904,10 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
         wind_direct_night_string = val[i]["night"]["windDirCompass"].asString();
         wind_speed_day_string = val[i]["day"]["windSpeed"].asString();
         wind_speed_night_string = val[i]["night"]["windSpeed"].asString();
+        humidity_day_string = val[i]["day"]["humidityPct"].asString();
+        humidity_night_string = val[i]["night"]["humidityPct"].asString();
+        ppcp_day_string = val[i]["day"]["precipPct"].asString();
+        ppcp_night_string = val[i]["night"]["precipPct"].asString();
 
         if (utc_time_string != "" && utc_time_string.length()>22 &&
             sunrise_time_string != "" && sunrise_time_string.length()>22 &&
@@ -941,7 +949,9 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
                 fprintf(file_out,"      <icon>%s</icon>\n", icon_night_string.c_str());
                 fprintf(file_out,"      <description>%s</description>\n", desc_night_string.c_str());
                 fprintf(file_out,"      <wind_direction>%s</wind_direction>\n", wind_direct_night_string.c_str());
-                fprintf(file_out,"      <wind_speed>%s</wind_speed>\n", wind_speed_night_string.c_str());
+                fprintf(file_out,"      <wind_speed>%1.f</wind_speed>\n", (double)(atoi( wind_speed_night_string.c_str())) * 1000/3600);
+                fprintf(file_out,"      <humidity>%s</humidity>\n", humidity_night_string.c_str());
+                fprintf(file_out,"      <ppcp>%s</ppcp>\n", ppcp_night_string.c_str());
                 fprintf(file_out,"    </period>\n");
             }
             if (desc_day_string != "" && icon_day_string != ""){
@@ -952,7 +962,9 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
                 fprintf(file_out,"      <icon>%s</icon>\n", icon_day_string.c_str());
                 fprintf(file_out,"      <description>%s</description>\n", desc_day_string.c_str());
                 fprintf(file_out,"      <wind_direction>%s</wind_direction>\n", wind_direct_day_string.c_str());
-                fprintf(file_out,"      <wind_speed>%s</wind_speed>\n", wind_speed_day_string.c_str());
+                fprintf(file_out,"      <wind_speed>%1.f</wind_speed>\n", (double)(atoi( wind_speed_day_string.c_str())) * 1000/3600);
+                fprintf(file_out,"      <humidity>%s</humidity>\n", humidity_day_string.c_str());
+                fprintf(file_out,"      <ppcp>%s</ppcp>\n", ppcp_day_string.c_str());
                 fprintf(file_out,"    </period>\n");
             }
             if (desc_night_string != "" && icon_night_string != ""){
@@ -967,7 +979,9 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
                 fprintf(file_out,"      <icon>%s</icon>\n", icon_night_string.c_str());
                 fprintf(file_out,"      <description>%s</description>\n", desc_night_string.c_str());
                 fprintf(file_out,"      <wind_direction>%s</wind_direction>\n", wind_direct_night_string.c_str());
-                fprintf(file_out,"      <wind_speed>%s</wind_speed>\n", wind_speed_night_string.c_str());
+                fprintf(file_out,"      <wind_speed>%1.f</wind_speed>\n", (double)(atoi( wind_speed_night_string.c_str())) * 1000/3600);
+                fprintf(file_out,"      <humidity>%s</humidity>\n", humidity_night_string.c_str());
+                fprintf(file_out,"      <ppcp>%s</ppcp>\n", ppcp_night_string.c_str());
                 fprintf(file_out,"    </period>\n");
             }
 

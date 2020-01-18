@@ -884,6 +884,8 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
         std::string humidity_night_string;
         std::string ppcp_day_string;
         std::string ppcp_night_string;
+        std::string uv_index_day_string;
+        std::string uv_index_night_string;
         time_t utc_time = 0;
         time_t sunrise_time = 0;
         time_t sunset_time = 0;
@@ -908,6 +910,8 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
         humidity_night_string = val[i]["night"]["humidityPct"].asString();
         ppcp_day_string = val[i]["day"]["precipPct"].asString();
         ppcp_night_string = val[i]["night"]["precipPct"].asString();
+        uv_index_day_string = val[i]["day"]["uvIndex"].asString();
+        uv_index_night_string = val[i]["night"]["uvIndex"].asString();
 
         if (utc_time_string != "" && utc_time_string.length()>22 &&
             sunrise_time_string != "" && sunrise_time_string.length()>22 &&
@@ -952,6 +956,7 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
                 fprintf(file_out,"      <wind_speed>%1.f</wind_speed>\n", (double)(atoi( wind_speed_night_string.c_str())) * 1000/3600);
                 fprintf(file_out,"      <humidity>%s</humidity>\n", humidity_night_string.c_str());
                 fprintf(file_out,"      <ppcp>%s</ppcp>\n", ppcp_night_string.c_str());
+                fprintf(file_out,"      <uv_index>%s</uv_index>\n", uv_index_night_string.c_str());
                 fprintf(file_out,"    </period>\n");
             }
             if (desc_day_string != "" && icon_day_string != ""){
@@ -965,6 +970,7 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
                 fprintf(file_out,"      <wind_speed>%1.f</wind_speed>\n", (double)(atoi( wind_speed_day_string.c_str())) * 1000/3600);
                 fprintf(file_out,"      <humidity>%s</humidity>\n", humidity_day_string.c_str());
                 fprintf(file_out,"      <ppcp>%s</ppcp>\n", ppcp_day_string.c_str());
+                fprintf(file_out,"      <uv_index>%s</uv_index>\n", uv_index_day_string.c_str());
                 fprintf(file_out,"    </period>\n");
             }
             if (desc_night_string != "" && icon_night_string != ""){
@@ -982,9 +988,15 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
                 fprintf(file_out,"      <wind_speed>%1.f</wind_speed>\n", (double)(atoi( wind_speed_night_string.c_str())) * 1000/3600);
                 fprintf(file_out,"      <humidity>%s</humidity>\n", humidity_night_string.c_str());
                 fprintf(file_out,"      <ppcp>%s</ppcp>\n", ppcp_night_string.c_str());
+                fprintf(file_out,"      <uv_index>%s</uv_index>\n", uv_index_night_string.c_str());
                 fprintf(file_out,"    </period>\n");
             }
+            fprintf(file_out,"    <period start=\"%li\"", utc_time);
+            fprintf(file_out," end=\"%li\">\n", utc_time +  24*3600); 
 
+            fprintf(file_out,"      <sunrise>%li</sunrise>\n", sunrise_time);
+            fprintf(file_out,"      <sunset>%li</sunset>\n", sunset_time);
+            fprintf(file_out,"    </period>\n");
         }
     }
 

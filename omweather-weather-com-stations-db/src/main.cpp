@@ -485,7 +485,7 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
 
 /*******************************************************************************/
 int
-parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *result_file){
+parse_and_write_html_data(const gchar *station_id, htmlDocPtr doc, const gchar *result_file){
 
     xmlXPathContextPtr xpathCtx; 
     xmlXPathObjectPtr xpathObj = NULL; 
@@ -849,7 +849,7 @@ convert_station_weather_data(const char *station_id_with_path, const char *resul
                     return -1;
                 }
                 *delimiter = 0;
-                days_number = parse_and_write_xml_data(buffer, doc, result_file);
+                days_number = parse_and_write_html_data(buffer, doc, result_file);
 
                 xmlFreeDoc(doc);
                 xmlCleanupParser();

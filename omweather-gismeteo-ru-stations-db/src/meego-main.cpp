@@ -472,7 +472,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
 
   nodes   = xpathObj->nodesetval;
   size = (nodes) ? nodes->nodeNr : 0;
-  /* fprintf(stderr, "SIZE!!!!!!!!!!!!!!: %i\n", size); */
+   fprintf(stderr, "SIZE!!!!!!!!!!!!!!: %i\n", size); 
   xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody/tr/th[@title]/text()", xpathCtx);
   xpathObj3 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody//*/td[@class='temp']/span[@class='value m_temp c']/text()", xpathCtx);
  

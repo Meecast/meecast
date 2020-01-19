@@ -11,10 +11,11 @@ TARGET = weathercom
 
 TEMPLATE = lib
 
-HEADERS += src/main.h
+HEADERS += src/main.h \
+	       src/json/json.h
 
-SOURCES += src/main.cpp
-
+SOURCES += src/main.cpp \
+           src/jsoncpp.cpp
 
 FORMS    +=
 

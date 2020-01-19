@@ -10,10 +10,18 @@
  </units>
     <period start="1579377600" end="1579392000"  current="true">
       <temperature>0</temperature>
+      <flike>-2</flike>
       <icon>26</icon>
       <description>Cloudy</description>
       <wind_direction>SW</wind_direction>
-      <wind_speed>6</wind_speed>
+      <wind_speed>2</wind_speed>
+      <humidity>94</humidity>
+      <pressure>1029</pressure>
+      <pressure_direction>Rising</pressure_direction>
+      <dewpoint>-1</dewpoint>
+      <wind_gust>0</wind_gust>
+      <uv_index>0</uv_index>
+      <visibility>6440</visibility>
     </period>
   <timezone>3</timezone>
     <period start="1579381200" end="1579414260">

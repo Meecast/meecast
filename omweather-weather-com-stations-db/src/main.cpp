@@ -956,10 +956,18 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
             fprintf(file_out," end=\"%li\"  current=\"true\">\n", utc_time + 3*3600); 
 
             fprintf(file_out,"      <temperature>%i</temperature>\n", val.get("temperature","").asInt());
+            fprintf(file_out,"      <flike>%i</flike>\n", val.get("feelsLike","").asInt());
             fprintf(file_out,"      <icon>%i</icon>\n", val.get("icon","").asInt());
             fprintf(file_out,"      <description>%s</description>\n", val.get("phrase","").asCString());
             fprintf(file_out,"      <wind_direction>%s</wind_direction>\n", val.get("windDirCompass","").asCString());
-            fprintf(file_out,"      <wind_speed>%i</wind_speed>\n", val.get("windSpeed","").asInt());
+            fprintf(file_out,"      <wind_speed>%1.f</wind_speed>\n", (double)(val.get("windSpeed","").asInt()) * 1000/3600); 
+            fprintf(file_out,"      <humidity>%i</humidity>\n", val.get("humidity","").asInt());
+            fprintf(file_out,"      <pressure>%1.f</pressure>\n", val.get("altimeter","").asFloat());
+            fprintf(file_out,"      <pressure_direction>%s</pressure_direction>\n", val.get("barometerTrend","").asCString());
+            fprintf(file_out,"      <dewpoint>%i</dewpoint>\n", val.get("dewPoint","").asInt());
+            fprintf(file_out,"      <wind_gust>%1.f</wind_gust>\n", (double)(val.get("gust","0").asInt()) * 1000/3600);
+            fprintf(file_out,"      <uv_index>%i</uv_index>\n", val.get("uvIndex","").asInt() );
+            fprintf(file_out,"      <visibility>%i</visibility>\n",(int)(val.get("visibility","").asDouble()*1000) );
             fprintf(file_out,"    </period>\n");
         }
     }

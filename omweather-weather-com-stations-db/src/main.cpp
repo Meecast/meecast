@@ -613,7 +613,80 @@ parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *d
 }
 /*******************************************************************************/
 int
-parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, const gchar *result_file){
+parse_and_write_detail_xml_data(const gchar *station_id,  htmlDocPtr doc, const gchar *result_file){
+
+
+    xmlXPathContextPtr xpathCtx; 
+    xmlXPathObjectPtr xpathObj = NULL; 
+    xmlNodeSetPtr nodes;
+    struct tm   current_tm = {0};
+    time_t      current_time = 0;
+    FILE        *file_out;
+    struct tm time_tm1;
+    struct tm time_tm2;
+
+    char buffer[128000];
+    Json::Value root;   // will contains the root value after parsing.
+    Json::Reader reader;
+    Json::Value val;
+    Json::Value valday;
+    Json::Value valnight;
+    Json::Value nullval ;
+
+    int check_timezone = false;
+    int timezone = 0;
+    int localtimezone = 0;
+    int first_day = false;
+    int afternoon = false;
+    int dark = false;
+
+    struct tm tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
+    time_t local_time = 0;
+
+
+    file_out = fopen(result_file, "a");
+    if (!file_out)
+        return -1;
+
+    /* Set localtimezone */
+    current_time = time(NULL);
+    gmtime_r(&current_time, &time_tm1);
+    localtime_r(&current_time, &time_tm2);
+    localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
+
+    /* Create xpath evaluation context */
+    xpathCtx = xmlXPathNewContext(doc);
+    if(xpathCtx == NULL) {
+        fprintf(stderr,"Error: unable to create new XPath context\n");
+         return(-1);
+    }
+    /* Register namespaces from list (if any) */
+    xmlXPathRegisterNs(xpathCtx, (const xmlChar*)"html",
+                                (const xmlChar*)"http://www.w3.org/1999/xhtml");
+
+
+   /* Today weather forecast */
+   /* Evaluate xpath expression */
+
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/script[contains(text(),'window.__data')]/text()", xpathCtx);
+   //xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody/tr/th/@title", xpathCtx);
+    if(xpathObj == NULL) {
+        fprintf(stderr,"Error: unable to evaluate xpath expression \"%s\"\n", "/html/body/script[contains(text(),'window.__data')]/text()");
+        xmlXPathFreeContext(xpathCtx); 
+        return(-1);
+    }
+
+    snprintf(buffer, xmlStrlen(xpathObj->nodesetval->nodeTab[0]->content) - 65 - 14 -1,"%s", xpathObj->nodesetval->nodeTab[0]->content + 14);
+    fprintf(stderr, "%s\n", buffer);
+    bool parsingSuccessful = reader.parse(buffer, root, false);
+
+    if (!parsingSuccessful)
+        return -1;
+    fprintf(stderr,"eeeeeeeeee\n");
+    std::cerr<<root["dal"]["Observation"][root["dal"]["Observation"].getMemberNames()[0]]["data"]["vt1observation"]<<std::endl;
+
+    fprintf(stderr,"Success!!!!!!!!!!!\n");
+#if 0
     xmlNode     *cur_node = NULL,
                 *child_node = NULL,
                 *child_node2 = NULL,
@@ -783,6 +856,7 @@ parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, con
     fclose(file_out);
     return count_hour;
 
+#endif
 }
 
 /*******************************************************************************/
@@ -860,6 +934,35 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
 
     if (!parsingSuccessful)
         return -1;
+
+    std::cerr<<root["dal"]["Observation"][root["dal"]["Observation"].getMemberNames()[0]]["data"]["vt1observation"]<<std::endl;
+
+    if (root["dal"]["Observation"][root["dal"]["Observation"].getMemberNames()[0]]["data"]["vt1observation"].isObject()){
+
+        val = root["dal"]["Observation"][root["dal"]["Observation"].getMemberNames()[0]]["data"]["vt1observation"];
+        std::string current_time_string;
+        time_t utc_time = 0;
+        current_time_string = val.get("observationTime","").asString();
+        fprintf(stderr,"eeeeeeeeee %s\n", current_time_string.c_str());
+
+        if (current_time_string != "" && current_time_string.length()>22){
+            tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
+            tmp_tm.tm_isdst = time_tm2.tm_isdst;
+            setlocale(LC_TIME, "POSIX");
+            strptime((const char*)current_time_string.c_str(), "%Y-%m-%dT", &tmp_tm);
+            utc_time = mktime(&tmp_tm); 
+            setlocale(LC_TIME, "");
+            fprintf(file_out,"    <period start=\"%li\"", utc_time - 3600);
+            fprintf(file_out," end=\"%li\"  current=\"true\">\n", utc_time + 3*3600); 
+
+            fprintf(file_out,"      <temperature>%i</temperature>\n", val.get("temperature","").asInt());
+            fprintf(file_out,"      <icon>%i</icon>\n", val.get("icon","").asInt());
+            fprintf(file_out,"      <description>%s</description>\n", val.get("phrase","").asCString());
+            fprintf(file_out,"      <wind_direction>%s</wind_direction>\n", val.get("windDirCompass","").asCString());
+            fprintf(file_out,"      <wind_speed>%i</wind_speed>\n", val.get("windSpeed","").asInt());
+            fprintf(file_out,"    </period>\n");
+        }
+    }
 
     std::cerr<<root["dal"]["DailyForecast"][root["dal"]["DailyForecast"].getMemberNames()[0]]["data"]["vt1dailyForecast"]<<std::endl;
     if (!root["dal"]["DailyForecast"][root["dal"]["DailyForecast"].getMemberNames()[0]]["data"]["vt1dailyForecast"].isArray())
@@ -972,6 +1075,26 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
                 fprintf(file_out,"      <ppcp>%s</ppcp>\n", ppcp_day_string.c_str());
                 fprintf(file_out,"      <uv_index>%s</uv_index>\n", uv_index_day_string.c_str());
                 fprintf(file_out,"    </period>\n");
+            }else{
+                if (desc_night_string != "" && icon_night_string != ""){
+                    fprintf(file_out,"    <period start=\"%li\"", utc_time);
+                    fprintf(file_out," end=\"%li\">\n", utc_time +  24*3600); 
+                    if (temp_hi_string != ""){
+                        fprintf(file_out,"      <temperature_hi>%s</temperature_hi>\n", temp_hi_string.c_str());
+                    }else{
+                        fprintf(file_out,"      <temperature_hi>%s</temperature_hi>\n", temp_low_string.c_str());
+                    }
+                    fprintf(file_out,"      <temperature_low>%s</temperature_low>\n", temp_low_string.c_str());
+                    fprintf(file_out,"      <icon>%s</icon>\n", icon_night_string.c_str());
+                    fprintf(file_out,"      <description>%s</description>\n", desc_night_string.c_str());
+                    fprintf(file_out,"      <wind_direction>%s</wind_direction>\n", wind_direct_night_string.c_str());
+                    fprintf(file_out,"      <wind_speed>%1.f</wind_speed>\n", (double)(atoi( wind_speed_night_string.c_str())) * 1000/3600);
+                    fprintf(file_out,"      <humidity>%s</humidity>\n", humidity_night_string.c_str());
+                    fprintf(file_out,"      <ppcp>%s</ppcp>\n", ppcp_night_string.c_str());
+                    fprintf(file_out,"      <uv_index>%s</uv_index>\n", uv_index_night_string.c_str());
+                    fprintf(file_out,"    </period>\n");
+                }
+
             }
             if (desc_night_string != "" && icon_night_string != ""){
                 fprintf(file_out,"    <period start=\"%li\"", sunset_time);
@@ -1702,14 +1825,15 @@ convert_station_weather_data(const char *station_id_with_path, const char *resul
                 }
                 *delimiter = 0;
                 days_number = parse_and_write_xml_data(buffer, doc, result_file);
+                fprintf(stderr,"Detail %s\n",station_detail_id_with_path);
+
                 if (strcmp(station_detail_id_with_path, "")){
                     xmlFreeDoc(doc);
                     xmlCleanupParser();
-                    /* check that the file containe valid data */
-                    doc = xmlReadFile(station_detail_id_with_path, NULL, 0);
+                    fprintf(stderr,"Detail %s\n",station_detail_id_with_path);
+                    doc = htmlReadFile(station_detail_id_with_path, "UTF-8", HTML_PARSE_NOWARNING);
                     if(doc){
-                        root_node = xmlDocGetRootElement(doc);
-                        parse_and_write_detail_xml_data(buffer, root_node, result_file);
+                        parse_and_write_detail_xml_data(buffer, doc, result_file);
                     }
 
                 }else{

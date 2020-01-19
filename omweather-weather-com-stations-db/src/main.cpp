@@ -482,7 +482,6 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
     }
     return count_day;
 }
-<<<<<<< HEAD
 /*******************************************************************************/
 int
 parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){

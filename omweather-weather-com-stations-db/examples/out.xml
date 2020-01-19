@@ -10,24 +10,24 @@
  </units>
   <timezone>3</timezone>
     <period start="1579294800" end="1579327920">
-      <temperature_hi>-1</temperature_hi>
-      <temperature_low>-1</temperature_low>
+      <temperature_hi>-2</temperature_hi>
+      <temperature_low>-2</temperature_low>
       <icon>26</icon>
       <description>Cloudy</description>
       <wind_direction>SSW</wind_direction>
-      <wind_speed>4</wind_speed>
-      <humidity>87</humidity>
+      <wind_speed>3</wind_speed>
+      <humidity>94</humidity>
       <ppcp>10</ppcp>
       <uv_index>0</uv_index>
     </period>
     <period start="1579356360" end="1579381200">
-      <temperature_hi>-1</temperature_hi>
-      <temperature_low>-1</temperature_low>
+      <temperature_hi>-2</temperature_hi>
+      <temperature_low>-2</temperature_low>
       <icon>26</icon>
       <description>Cloudy</description>
       <wind_direction>SSW</wind_direction>
-      <wind_speed>4</wind_speed>
-      <humidity>87</humidity>
+      <wind_speed>3</wind_speed>
+      <humidity>94</humidity>
       <ppcp>10</ppcp>
       <uv_index>0</uv_index>
     </period>
@@ -42,8 +42,8 @@
       <description>Cloudy</description>
       <wind_direction>W</wind_direction>
       <wind_speed>4</wind_speed>
-      <humidity>92</humidity>
-      <ppcp>10</ppcp>
+      <humidity>93</humidity>
+      <ppcp>20</ppcp>
       <uv_index>0</uv_index>
     </period>
     <period start="1579414260" end="1579442820">
@@ -64,8 +64,8 @@
       <description>Cloudy</description>
       <wind_direction>W</wind_direction>
       <wind_speed>4</wind_speed>
-      <humidity>92</humidity>
-      <ppcp>10</ppcp>
+      <humidity>93</humidity>
+      <ppcp>20</ppcp>
       <uv_index>0</uv_index>
     </period>
     <period start="1579381200" end="1579467600">
@@ -73,35 +73,35 @@
       <sunset>1579442820</sunset>
     </period>
     <period start="1579467600" end="1579500600">
-      <temperature_hi>2</temperature_hi>
+      <temperature_hi>1</temperature_hi>
       <temperature_low>0</temperature_low>
       <icon>26</icon>
       <description>Cloudy</description>
       <wind_direction>W</wind_direction>
       <wind_speed>6</wind_speed>
-      <humidity>86</humidity>
+      <humidity>87</humidity>
       <ppcp>20</ppcp>
       <uv_index>0</uv_index>
     </period>
     <period start="1579500600" end="1579529340">
-      <temperature_hi>2</temperature_hi>
+      <temperature_hi>1</temperature_hi>
       <temperature_low>0</temperature_low>
       <icon>26</icon>
       <description>Cloudy</description>
       <wind_direction>W</wind_direction>
       <wind_speed>5</wind_speed>
-      <humidity>89</humidity>
-      <ppcp>10</ppcp>
+      <humidity>91</humidity>
+      <ppcp>20</ppcp>
       <uv_index>0</uv_index>
     </period>
     <period start="1579529340" end="1579554000">
-      <temperature_hi>2</temperature_hi>
+      <temperature_hi>1</temperature_hi>
       <temperature_low>0</temperature_low>
       <icon>26</icon>
       <description>Cloudy</description>
       <wind_direction>W</wind_direction>
       <wind_speed>6</wind_speed>
-      <humidity>86</humidity>
+      <humidity>87</humidity>
       <ppcp>20</ppcp>
       <uv_index>0</uv_index>
     </period>
@@ -127,7 +127,7 @@
       <description>Cloudy</description>
       <wind_direction>W</wind_direction>
       <wind_speed>7</wind_speed>
-      <humidity>91</humidity>
+      <humidity>92</humidity>
       <ppcp>20</ppcp>
       <uv_index>0</uv_index>
     </period>
@@ -149,12 +149,12 @@
     <period start="1579640400" end="1579673220">
       <temperature_hi>2</temperature_hi>
       <temperature_low>-3</temperature_low>
-      <icon>46</icon>
-      <description>Snow Showers Early</description>
+      <icon>27</icon>
+      <description>Mostly Cloudy</description>
       <wind_direction>NNW</wind_direction>
       <wind_speed>6</wind_speed>
-      <humidity>77</humidity>
-      <ppcp>30</ppcp>
+      <humidity>76</humidity>
+      <ppcp>20</ppcp>
       <uv_index>0</uv_index>
     </period>
     <period start="1579673220" end="1579702380">
@@ -171,12 +171,12 @@
     <period start="1579702380" end="1579726800">
       <temperature_hi>2</temperature_hi>
       <temperature_low>-3</temperature_low>
-      <icon>46</icon>
-      <description>Snow Showers Early</description>
+      <icon>27</icon>
+      <description>Mostly Cloudy</description>
       <wind_direction>NNW</wind_direction>
       <wind_speed>6</wind_speed>
-      <humidity>77</humidity>
-      <ppcp>30</ppcp>
+      <humidity>76</humidity>
+      <ppcp>20</ppcp>
       <uv_index>0</uv_index>
     </period>
     <period start="1579640400" end="1579726800">
@@ -186,12 +186,12 @@
     <period start="1579726800" end="1579759560">
       <temperature_hi>0</temperature_hi>
       <temperature_low>-2</temperature_low>
-      <icon>46</icon>
-      <description>Snow Showers Late</description>
+      <icon>27</icon>
+      <description>Mostly Cloudy</description>
       <wind_direction>W</wind_direction>
       <wind_speed>5</wind_speed>
-      <humidity>82</humidity>
-      <ppcp>30</ppcp>
+      <humidity>80</humidity>
+      <ppcp>20</ppcp>
       <uv_index>0</uv_index>
     </period>
     <period start="1579759560" end="1579788900">
@@ -201,19 +201,19 @@
       <description>Partly Cloudy</description>
       <wind_direction>NW</wind_direction>
       <wind_speed>6</wind_speed>
-      <humidity>68</humidity>
+      <humidity>67</humidity>
       <ppcp>10</ppcp>
       <uv_index>0</uv_index>
     </period>
     <period start="1579788900" end="1579813200">
       <temperature_hi>0</temperature_hi>
       <temperature_low>-2</temperature_low>
-      <icon>46</icon>
-      <description>Snow Showers Late</description>
+      <icon>27</icon>
+      <description>Mostly Cloudy</description>
       <wind_direction>W</wind_direction>
       <wind_speed>5</wind_speed>
-      <humidity>82</humidity>
-      <ppcp>30</ppcp>
+      <humidity>80</humidity>
+      <ppcp>20</ppcp>
       <uv_index>0</uv_index>
     </period>
     <period start="1579726800" end="1579813200">
@@ -234,12 +234,12 @@
     <period start="1579845840" end="1579875420">
       <temperature_hi>3</temperature_hi>
       <temperature_low>1</temperature_low>
-      <icon>14</icon>
-      <description>AM Snow Showers</description>
+      <icon>26</icon>
+      <description>Cloudy</description>
       <wind_direction>W</wind_direction>
-      <wind_speed>6</wind_speed>
+      <wind_speed>5</wind_speed>
       <humidity>90</humidity>
-      <ppcp>30</ppcp>
+      <ppcp>20</ppcp>
       <uv_index>0</uv_index>
     </period>
     <period start="1579875420" end="1579899600">
@@ -258,35 +258,35 @@
       <sunset>1579875420</sunset>
     </period>
     <period start="1579899600" end="1579932180">
-      <temperature_hi>3</temperature_hi>
-      <temperature_low>0</temperature_low>
+      <temperature_hi>2</temperature_hi>
+      <temperature_low>-1</temperature_low>
       <icon>27</icon>
       <description>Mostly Cloudy</description>
       <wind_direction>WSW</wind_direction>
       <wind_speed>4</wind_speed>
-      <humidity>84</humidity>
+      <humidity>85</humidity>
       <ppcp>20</ppcp>
       <uv_index>0</uv_index>
     </period>
     <period start="1579932180" end="1579961940">
-      <temperature_hi>3</temperature_hi>
-      <temperature_low>0</temperature_low>
+      <temperature_hi>2</temperature_hi>
+      <temperature_low>-1</temperature_low>
       <icon>28</icon>
       <description>Mostly Cloudy</description>
       <wind_direction>WSW</wind_direction>
-      <wind_speed>5</wind_speed>
+      <wind_speed>4</wind_speed>
       <humidity>84</humidity>
       <ppcp>20</ppcp>
       <uv_index>0</uv_index>
     </period>
     <period start="1579961940" end="1579986000">
-      <temperature_hi>3</temperature_hi>
-      <temperature_low>0</temperature_low>
+      <temperature_hi>2</temperature_hi>
+      <temperature_low>-1</temperature_low>
       <icon>27</icon>
       <description>Mostly Cloudy</description>
       <wind_direction>WSW</wind_direction>
       <wind_speed>4</wind_speed>
-      <humidity>84</humidity>
+      <humidity>85</humidity>
       <ppcp>20</ppcp>
       <uv_index>0</uv_index>
     </period>
@@ -297,11 +297,11 @@
     <period start="1579986000" end="1580018460">
       <temperature_hi>3</temperature_hi>
       <temperature_low>1</temperature_low>
-      <icon>46</icon>
-      <description>Snow Showers Late</description>
+      <icon>14</icon>
+      <description>Snow Shower</description>
       <wind_direction>SW</wind_direction>
-      <wind_speed>6</wind_speed>
-      <humidity>88</humidity>
+      <wind_speed>5</wind_speed>
+      <humidity>89</humidity>
       <ppcp>40</ppcp>
       <uv_index>0</uv_index>
     </period>
@@ -311,19 +311,19 @@
       <icon>26</icon>
       <description>Cloudy</description>
       <wind_direction>SW</wind_direction>
-      <wind_speed>5</wind_speed>
-      <humidity>86</humidity>
+      <wind_speed>4</wind_speed>
+      <humidity>87</humidity>
       <ppcp>20</ppcp>
       <uv_index>0</uv_index>
     </period>
     <period start="1580048460" end="1580072400">
       <temperature_hi>3</temperature_hi>
       <temperature_low>1</temperature_low>
-      <icon>46</icon>
-      <description>Snow Showers Late</description>
+      <icon>14</icon>
+      <description>Snow Shower</description>
       <wind_direction>SW</wind_direction>
-      <wind_speed>6</wind_speed>
-      <humidity>88</humidity>
+      <wind_speed>5</wind_speed>
+      <humidity>89</humidity>
       <ppcp>40</ppcp>
       <uv_index>0</uv_index>
     </period>
@@ -338,7 +338,7 @@
       <description>Rain / Snow</description>
       <wind_direction>WSW</wind_direction>
       <wind_speed>6</wind_speed>
-      <humidity>86</humidity>
+      <humidity>88</humidity>
       <ppcp>40</ppcp>
       <uv_index>0</uv_index>
     </period>
@@ -347,9 +347,9 @@
       <temperature_low>1</temperature_low>
       <icon>5</icon>
       <description>Rain / Snow Showers</description>
-      <wind_direction>SW</wind_direction>
-      <wind_speed>7</wind_speed>
-      <humidity>86</humidity>
+      <wind_direction>WSW</wind_direction>
+      <wind_speed>6</wind_speed>
+      <humidity>87</humidity>
       <ppcp>40</ppcp>
       <uv_index>0</uv_index>
     </period>
@@ -360,7 +360,7 @@
       <description>Rain / Snow</description>
       <wind_direction>WSW</wind_direction>
       <wind_speed>6</wind_speed>
-      <humidity>86</humidity>
+      <humidity>88</humidity>
       <ppcp>40</ppcp>
       <uv_index>0</uv_index>
     </period>
@@ -373,9 +373,9 @@
       <temperature_low>1</temperature_low>
       <icon>14</icon>
       <description>Snow Shower</description>
-      <wind_direction>WSW</wind_direction>
+      <wind_direction>SW</wind_direction>
       <wind_speed>6</wind_speed>
-      <humidity>86</humidity>
+      <humidity>85</humidity>
       <ppcp>50</ppcp>
       <uv_index>0</uv_index>
     </period>
@@ -384,7 +384,7 @@
       <temperature_low>1</temperature_low>
       <icon>5</icon>
       <description>Rain / Snow</description>
-      <wind_direction>WSW</wind_direction>
+      <wind_direction>SW</wind_direction>
       <wind_speed>6</wind_speed>
       <humidity>86</humidity>
       <ppcp>50</ppcp>
@@ -395,9 +395,9 @@
       <temperature_low>1</temperature_low>
       <icon>14</icon>
       <description>Snow Shower</description>
-      <wind_direction>WSW</wind_direction>
+      <wind_direction>SW</wind_direction>
       <wind_speed>6</wind_speed>
-      <humidity>86</humidity>
+      <humidity>85</humidity>
       <ppcp>50</ppcp>
       <uv_index>0</uv_index>
     </period>
@@ -449,7 +449,7 @@
       <description>Snow Shower</description>
       <wind_direction>SW</wind_direction>
       <wind_speed>6</wind_speed>
-      <humidity>83</humidity>
+      <humidity>85</humidity>
       <ppcp>40</ppcp>
       <uv_index>0</uv_index>
     </period>
@@ -458,7 +458,7 @@
       <temperature_low>1</temperature_low>
       <icon>14</icon>
       <description>Snow Shower</description>
-      <wind_direction>WSW</wind_direction>
+      <wind_direction>SW</wind_direction>
       <wind_speed>6</wind_speed>
       <humidity>83</humidity>
       <ppcp>40</ppcp>
@@ -471,7 +471,7 @@
       <description>Snow Shower</description>
       <wind_direction>SW</wind_direction>
       <wind_speed>6</wind_speed>
-      <humidity>83</humidity>
+      <humidity>85</humidity>
       <ppcp>40</ppcp>
       <uv_index>0</uv_index>
     </period>
@@ -484,7 +484,7 @@
       <temperature_low>0</temperature_low>
       <icon>14</icon>
       <description>Snow Shower</description>
-      <wind_direction>WSW</wind_direction>
+      <wind_direction>SW</wind_direction>
       <wind_speed>5</wind_speed>
       <humidity>86</humidity>
       <ppcp>40</ppcp>
@@ -506,7 +506,7 @@
       <temperature_low>0</temperature_low>
       <icon>14</icon>
       <description>Snow Shower</description>
-      <wind_direction>WSW</wind_direction>
+      <wind_direction>SW</wind_direction>
       <wind_speed>5</wind_speed>
       <humidity>86</humidity>
       <ppcp>40</ppcp>
@@ -517,40 +517,40 @@
       <sunset>1580481060</sunset>
     </period>
     <period start="1580504400" end="1580536260">
-      <temperature_hi>3</temperature_hi>
+      <temperature_hi>2</temperature_hi>
       <temperature_low>-1</temperature_low>
       <icon>14</icon>
       <description>Snow Shower</description>
       <wind_direction>WSW</wind_direction>
-      <wind_speed>5</wind_speed>
-      <humidity>86</humidity>
-      <ppcp>40</ppcp>
-      <uv_index>0</uv_index>
-    </period>
-    <period start="1580536260" end="1580567580">
-      <temperature_hi>3</temperature_hi>
-      <temperature_low>-1</temperature_low>
-      <icon>14</icon>
-      <description>Snow Shower</description>
-      <wind_direction>WSW</wind_direction>
-      <wind_speed>5</wind_speed>
+      <wind_speed>4</wind_speed>
       <humidity>85</humidity>
       <ppcp>40</ppcp>
       <uv_index>0</uv_index>
     </period>
-    <period start="1580567580" end="1580590800">
-      <temperature_hi>3</temperature_hi>
+    <period start="1580536260" end="1580567640">
+      <temperature_hi>2</temperature_hi>
       <temperature_low>-1</temperature_low>
       <icon>14</icon>
       <description>Snow Shower</description>
       <wind_direction>WSW</wind_direction>
       <wind_speed>5</wind_speed>
-      <humidity>86</humidity>
+      <humidity>83</humidity>
+      <ppcp>40</ppcp>
+      <uv_index>0</uv_index>
+    </period>
+    <period start="1580567640" end="1580590800">
+      <temperature_hi>2</temperature_hi>
+      <temperature_low>-1</temperature_low>
+      <icon>14</icon>
+      <description>Snow Shower</description>
+      <wind_direction>WSW</wind_direction>
+      <wind_speed>4</wind_speed>
+      <humidity>85</humidity>
       <ppcp>40</ppcp>
       <uv_index>0</uv_index>
     </period>
     <period start="1580504400" end="1580590800">
       <sunrise>1580536260</sunrise>
-      <sunset>1580567580</sunset>
+      <sunset>1580567640</sunset>
     </period>
 </station>

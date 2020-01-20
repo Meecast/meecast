@@ -215,7 +215,7 @@ Config::saveConfig()
 
         /* Temporary hack for weather.com Adapted for new URL. Remove after version 1.1.30 */
         if (QString::fromStdString((*i)->sourceName()) == "weather.com" &&
-                QString::fromStdString((*i)->forecastURL()).contains("wxdata.weather.com"){
+                QString::fromStdString((*i)->forecastURL()).contains("wxdata.weather.com")){
                 std::cerr<<"I'm here !!!!!!";
         }
         t = doc.createTextNode(QString::fromStdString((*i)->forecastURL()));

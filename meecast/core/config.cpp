@@ -251,15 +251,19 @@ Config::saveConfig()
 
         /* Temporary hack for weather.com Adapted for new URL. Remove after version 1.1.30 */
         if (QString::fromStdString((*i)->sourceName()) == "weather.com" &&
-                QString::fromStdString((*i)->forecastURL()).contains("wxdata.weather.com")){
-                QString temp = QString::fromStdString((*i)->forecastURL());
-                temp.replace("http://wxdata.weather.com/wxdata/weather/local/", "");
-                temp.replace("?cm_ven=1CW&site=wx.com-bar&cm_ite=wx-cc&par=1CWFFv1.1.9&cm_pla=wx.com-bar&cm_cat=FFv1.1.9&unit=m&dayf=9&cc=*","");
-                std::cerr<<"I'm here !!!!!!"<< temp.toStdString();
+            QString::fromStdString((*i)->forecastURL()).contains("wxdata.weather.com")){
+            QString temp = QString::fromStdString((*i)->forecastURL());
+            temp.replace("http://wxdata.weather.com/wxdata/weather/local/", "");
+            temp.replace("?cm_ven=1CW&site=wx.com-bar&cm_ite=wx-cc&par=1CWFFv1.1.9&cm_pla=wx.com-bar&cm_cat=FFv1.1.9&unit=m&dayf=9&cc=*","");
+            std::cerr<<"I'm here !!!!!!"<< temp.toStdString();
+            char forecast_url[4096];
+            snprintf(forecast_url, sizeof(forecast_url)-1, "https://weather.com/en-GB/weather/today/l/%s", temp.toStdString().c_str());
+            t = doc.createTextNode(forecast_url);
+        }else{
+            t = doc.createTextNode(QString::fromStdString((*i)->forecastURL()));
         }
-        t = doc.createTextNode(QString::fromStdString((*i)->forecastURL()));
-        el.appendChild(t);
-        st.appendChild(el);
+            el.appendChild(t);
+            st.appendChild(el);
 
         el = doc.createElement("cookie");
         t = doc.createTextNode(QString::fromStdString((*i)->cookie()));

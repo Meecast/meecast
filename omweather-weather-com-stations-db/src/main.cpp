@@ -753,7 +753,7 @@ parse_and_write_html_data(const gchar *station_id, htmlDocPtr doc, const gchar *
         }
     }
 
-    std::cerr<<root["dal"]["HourlyForecast"][root["dal"]["HourlyForecast"].getMemberNames()[0]]["data"]["vt1hourlyForecast"]<<std::endl;
+    //std::cerr<<root["dal"]["HourlyForecast"][root["dal"]["HourlyForecast"].getMemberNames()[0]]["data"]["vt1hourlyForecast"]<<std::endl;
     if (root["dal"]["HourlyForecast"][root["dal"]["HourlyForecast"].getMemberNames()[0]]["data"]["vt1hourlyForecast"].isArray()){
         val2 = root["dal"]["HourlyForecast"][root["dal"]["HourlyForecast"].getMemberNames()[0]]["data"]["vt1hourlyForecast"];
         //fprintf(stderr,"Size in val2 %i\n", val2.size());

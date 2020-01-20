@@ -831,6 +831,17 @@ parse_and_write_html_data(const gchar *station_id, htmlDocPtr doc, const gchar *
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
 
+    /* Create xpath evaluation context */
+    xpathCtx = xmlXPathNewContext(doc);
+    if(xpathCtx == NULL) {
+        fprintf(stderr,"Error: unable to create new XPath context\n");
+         return(-1);
+    }
+    /* Register namespaces from list (if any) */
+    xmlXPathRegisterNs(xpathCtx, (const xmlChar*)"html",
+                                (const xmlChar*)"http://www.w3.org/1999/xhtml");
+
+
    /* Day weather forecast */
    /* Evaluate xpath expression */
     xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/script[contains(text(),'window.__data')]/text()", xpathCtx);
@@ -847,7 +858,7 @@ parse_and_write_html_data(const gchar *station_id, htmlDocPtr doc, const gchar *
     if (!parsingSuccessful)
         return -1;
 
-    //std::cerr<<root["dal"]["Observation"][root["dal"]["Observation"].getMemberNames()[0]]["data"]["vt1observation"]<<std::endl;
+//    std::cerr<<root["dal"]["Observation"][root["dal"]["Observation"].getMemberNames()[0]]["data"]["vt1observation"]<<std::endl;
 
     if (root["dal"]["Observation"][root["dal"]["Observation"].getMemberNames()[0]]["data"]["vt1observation"].isObject()){
 

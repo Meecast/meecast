@@ -219,7 +219,7 @@ Config::saveConfig()
                 QString temp = QString::fromStdString((*i)->forecastURL());
                 temp.replace("http://wxdata.weather.com/wxdata/weather/local/", "");
                 temp.replace("?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=9&amp;cc=*","");
-                std::cerr<<"I'm here !!!!!!"<< temp;
+                std::cerr<<"I'm here !!!!!!"<< temp.toString();
         }
         t = doc.createTextNode(QString::fromStdString((*i)->forecastURL()));
         el.appendChild(t);

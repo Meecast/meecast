@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2018 Vlad Vasilyeu
+ * Copyright (C) 2006-2019 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -212,6 +212,12 @@ Config::saveConfig()
         st.appendChild(el);
 
         el = doc.createElement("forecast_url");
+
+        /* Temporary hack for weather.com Adapted for new URL. Remove after version 1.1.30 */
+        if (QString::fromStdString((*i)->sourceName()) == "weather.com" &&
+                QString::fromStdString((*i)->forecastURL()).contains("wxdata.weather.com"){
+                std::cerr<<"I'm here !!!!!!";
+        }
         t = doc.createTextNode(QString::fromStdString((*i)->forecastURL()));
         el.appendChild(t);
         st.appendChild(el);

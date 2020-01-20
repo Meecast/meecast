@@ -218,7 +218,7 @@ Config::saveConfig()
                 QString::fromStdString((*i)->forecastURL()).contains("wxdata.weather.com")){
                 QString temp = QString::fromStdString((*i)->forecastURL());
                 temp.replace("http://wxdata.weather.com/wxdata/weather/local/", "");
-                temp.replace("?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=9&amp;cc=*","");
+                temp.replace("?cm_ven=1CW&site=wx.com-bar&cm_ite=wx-cc&par=1CWFFv1.1.9&cm_pla=wx.com-bar&cm_cat=FFv1.1.9&unit=m&dayf=9&cc=*","");
                 std::cerr<<"I'm here !!!!!!"<< temp.toStdString();
         }
         t = doc.createTextNode(QString::fromStdString((*i)->forecastURL()));

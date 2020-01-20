@@ -216,7 +216,10 @@ Config::saveConfig()
         /* Temporary hack for weather.com Adapted for new URL. Remove after version 1.1.30 */
         if (QString::fromStdString((*i)->sourceName()) == "weather.com" &&
                 QString::fromStdString((*i)->forecastURL()).contains("wxdata.weather.com")){
-                std::cerr<<"I'm here !!!!!!";
+                QString temp = QString::fromStdString((*i)->forecastURL());
+                temp.replace("http://wxdata.weather.com/wxdata/weather/local/", "");
+                temp.replace("?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=9&amp;cc=*","");
+                std::cerr<<"I'm here !!!!!!"<< temp;
         }
         t = doc.createTextNode(QString::fromStdString((*i)->forecastURL()));
         el.appendChild(t);

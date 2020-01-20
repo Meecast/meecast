@@ -347,6 +347,14 @@ W: </translation>
             <translation>زخات ثلج صباحاً / رياح متأخره</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">مزيج شتوي</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">مزيج شتوي/ رياح</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>عن</translation>
         </message>
@@ -700,6 +708,10 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
         <message>
             <source>Cloudy / Wind</source>
             <translation>غائم / رياح</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">غائم / رياح</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1167,6 +1179,10 @@ Brad Jones aka kazrak - للتجربة
         <message>
             <source>Fair</source>
             <translation>معتدل</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">ثلج / رياح</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2783,6 +2799,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>مطر / زخات ثلج / رياح</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">مطر / زخات ثلج</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

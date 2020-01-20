@@ -347,6 +347,14 @@ W: </translation>
             <translation>AM Snow Showers / Wind Late</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">Wintry Mix</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">Wintry Mix / Wind</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>About</translation>
         </message>
@@ -700,6 +708,10 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Cloudy / Wind</source>
             <translation>Cloudy / Wind</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">Cloudy / Wind</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1167,6 +1179,10 @@ Brad Jones aka kazrak - for testing
         <message>
             <source>Fair</source>
             <translation>Fair</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">Snow / Wind</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2783,6 +2799,10 @@ Precipitation: </translation>
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>Rain / Snow Showers / Wind</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">Rain / Snow Showers</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

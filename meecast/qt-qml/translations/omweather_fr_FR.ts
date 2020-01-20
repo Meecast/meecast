@@ -347,6 +347,14 @@ W : </translation>
             <translation>Matin : averses de neige / vent en soirée</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">Précipitations hivernales</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">Précipitations hivernales / vent</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>À propos</translation>
         </message>
@@ -700,6 +708,10 @@ Design de l'interface pour Fremantle : Krebber Jan Niemelä Ulla
         <message>
             <source>Cloudy / Wind</source>
             <translation>Nuageux / vent</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">Nuageux / vent</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1163,6 +1175,10 @@ Brad Jones dit kazrak - pour les tests
         <message>
             <source>Fair</source>
             <translation>Beau temps</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">Neige / vent</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2766,6 +2782,10 @@ Slovaque - Roman Moravčík</translation>
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>Pluie / averses de neige / vent</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">Pluie / averses de neige</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

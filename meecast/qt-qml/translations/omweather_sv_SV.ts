@@ -346,6 +346,14 @@ W:</translation>
             <translation>FM Snöbyar / Senare vind</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">Snöblandat/underkylt regn eller hagel</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">Snöblandat/underkylt regn eller hagel / Vind</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>Om</translation>
         </message>
@@ -700,6 +708,10 @@ Design UI för Fremantle: Krebber Jan Niemela Ulla
         <message>
             <source>Cloudy / Wind</source>
             <translation>Molnigt / Vind</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">Molnigt / Vind</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1164,6 +1176,10 @@ Brad Jones aka kazrak - för testning
         <message>
             <source>Fair</source>
             <translation>Ganska bra</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">Dimma / Blåsigt</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2778,6 +2794,10 @@ Slovakiska - Roman Moravčík</translation>
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>Regn / Snöbyar / Vind</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">Regn / Snöbyar</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

@@ -271,8 +271,7 @@ W: </translation>
         </message>
         <message>
             <source>AM Ice</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vormittags Eis</translation>
         </message>
         <message>
             <source>AM Light Rain</source>
@@ -280,7 +279,7 @@ W: </translation>
         </message>
         <message>
             <source>AM Light Rain / Ice</source>
-            <translation type="unfinished">Vormittags leichter Regen / Wind</translation>
+            <translation>Vormittags leichter Regen / Eis</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -308,7 +307,7 @@ W: </translation>
         </message>
         <message>
             <source>AM Rain / Snow / Wind</source>
-            <translation type="unfinished">Regen / Schnee / Wind</translation>
+            <translation>Vormittags Regen / Schnee / Wind</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -345,6 +344,14 @@ W: </translation>
         <message>
             <source>AM Snow Showers / Wind Late</source>
             <translation>Vormittags Schneeschauer / Wind</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">Winterlich</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">Winterlich / Wind</translation>
         </message>
         <message>
             <source>About</source>
@@ -702,6 +709,10 @@ Design der Oberfläche für Freemante: Krebber Jan Niemela Ulla
         <message>
             <source>Cloudy / Wind</source>
             <translation>Bewölkt und windig</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">Bewölkt und windig</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1168,6 +1179,10 @@ Brad Jones aka kazrak - fürs Testen
             <translation>Heiter</translation>
         </message>
         <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">Nebel / Windig</translation>
+        </message>
+        <message>
             <source>Feels like</source>
             <translation>Gefühlt</translation>
         </message>
@@ -1535,7 +1550,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Ice Early</source>
-            <translation type="unfinished">Nieselregen früh</translation>
+            <translation>Eis früh</translation>
         </message>
         <message>
             <source>Ice Pellets</source>
@@ -1945,7 +1960,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Mostly Cloudy / Windy</source>
-            <translation type="unfinished">Überwiegend bewölkt / Wind</translation>
+            <translation>Überwiegend bewölkt / windig</translation>
         </message>
         <message>
             <source>Mostly Cloudy Few Snow</source>
@@ -2443,11 +2458,11 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>
-            <translation type="unfinished">Vormittags Regen / Schneeschauer</translation>
+            <translation>Nachmittags Regen / Schneeschauer</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>
-            <translation type="unfinished">Vormittags Regen / Schneeschauer</translation>
+            <translation>Nachmittags Regen / Schneeschauer</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>
@@ -2467,7 +2482,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>PM Snow / Wind</source>
-            <translation type="unfinished">Schnee / Wind</translation>
+            <translation>Nachmittags Schnee / Wind</translation>
         </message>
         <message>
             <source>PM Snow Showers</source>
@@ -2751,7 +2766,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Rain / Ice Early</source>
-            <translation type="unfinished">Regen / Schnee früh</translation>
+            <translation>Regen / Eis früh</translation>
         </message>
         <message>
             <source>Rain / Snow</source>
@@ -2780,6 +2795,10 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>Regen / Schneeschauer / Wind</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">Regen / Schneeschauer</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>
@@ -2827,7 +2846,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Rain to Snow</source>
-            <translation type="unfinished">Regen / Schnee</translation>
+            <translation>Regen bis Schnee</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>

@@ -347,6 +347,14 @@ T: </translation>
             <translation>ap: Lumikuuroja / Myöhemmin tuulista</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">Räntäsadetta</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">Räntäsadetta / Tuulista</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>Tietoja</translation>
         </message>
@@ -701,6 +709,10 @@ Fremantle käyttöliittymä: Krebber Jan ja Niemelä Ulla
         <message>
             <source>Cloudy / Wind</source>
             <translation>Pilvistä / tuulista</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">Pilvistä / tuulista</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1165,6 +1177,10 @@ Brad Jones aka kazrak - testauksesta
         <message>
             <source>Fair</source>
             <translation>Poutaa</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">Lumisadetta / Tuulista</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2780,6 +2796,10 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>Vesisadetta / Lumikuuroja / Tuulista</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">Vesisadetta / Lumikuuroja</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

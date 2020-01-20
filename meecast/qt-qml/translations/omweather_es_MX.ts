@@ -351,6 +351,14 @@ Vie: </translation>
             <translation>Por la mañana chaparrones de nieve / viento luego</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">Agua nieve</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">Agua nieve / Viento</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>Acerca de</translation>
         </message>
@@ -707,6 +715,10 @@ Diseño de la IU para Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Cloudy / Wind</source>
             <translation>Nublado / Viento</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">Nublado / Viento</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1177,6 +1189,10 @@ Brad &quot;kazrak&quot; Jones - por testear
         <message>
             <source>Fair</source>
             <translation>Despejado</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">Nieve / Viento</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2797,6 +2813,10 @@ Precipitación: </translation>
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>Lluvia / Chaparrones de nieve / Viento</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">Lluvia / Chaparrones de nieve</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

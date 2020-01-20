@@ -347,6 +347,14 @@ W: </translation>
             <translation>Rano przelotny śnieg / później wiatr</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">Deszcz ze śniegiem</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">Deszcz ze śniegiem / wiatr</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>O programie</translation>
         </message>
@@ -704,6 +712,10 @@ Projekt UI dla Fremantle: Krebber Jan Niemela Ulla
         <message>
             <source>Cloudy / Wind</source>
             <translation>Pochmurnie / wiatr</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">Pochmurnie / wiatr</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1179,6 +1191,10 @@ Brad Jones aka kazrak - za testowanie
         <message>
             <source>Fair</source>
             <translation>Dobra</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">Śnieg / wiatr</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2852,6 +2868,10 @@ słowacki - Roman Moravčík</translation>
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>Deszcz / przelotny śnieg / wiatr</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">Deszcz / przelotny śnieg</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

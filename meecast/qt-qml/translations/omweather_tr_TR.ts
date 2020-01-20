@@ -345,6 +345,14 @@ W:</translation>
             <translation>AM Sağnak Kar / Akşama Doğru Rüzgar</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">Karışık Soğuk</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">Karışık Soğuk / Rüzgar</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>Hakkında</translation>
         </message>
@@ -691,6 +699,10 @@ Frementle için Dizayn : Krebber Jan Niemelä Ulla
         <message>
             <source>Cloudy / Wind</source>
             <translation>Bulutlu / Rüzgar</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">Bulutlu / Rüzgar</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1152,6 +1164,10 @@ fikir ve testleri için Andrew aka Tabster'a ve testleri için Brad Jones'a
         <message>
             <source>Fair</source>
             <translation>Açık</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">Kar / Rüzgar</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2765,6 +2781,10 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>Yağmur / Sağnak Kar / Rüzgar</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">Yağmur / Sağnak Kar</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

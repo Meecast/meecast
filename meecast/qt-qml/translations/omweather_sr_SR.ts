@@ -347,6 +347,14 @@ W: </translation>
             <translation>Prepodne Snežne mećave / Vetar u kasnijim satima</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">Zimski miks</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">Zimski miks / Vetar</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>Više o aplikaciji</translation>
         </message>
@@ -704,6 +712,10 @@ Dizajn za Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Cloudy / Wind</source>
             <translation>Oblačno / Vetar</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">Oblačno / Vetar</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1168,6 +1180,10 @@ Brad Jones aka kazrak - za testiranje
         <message>
             <source>Fair</source>
             <translation>Vedro</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">Sneg / Vetar</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2782,6 +2798,10 @@ Slovački - Roman Moravčík</translation>
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>Kiša / Naleti snega / Vetar</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">Kiša / Naleti snega</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

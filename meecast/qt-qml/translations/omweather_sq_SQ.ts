@@ -346,6 +346,14 @@ P: </translation>
             <translation>Në mëngjes Rreshje të dëndura dëbore/Më vonë erë</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">Shi i përzjerë me akull dhe borë</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">Shi i përzjerë me akull dhe borë / Erë</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>Rreth</translation>
         </message>
@@ -701,6 +709,10 @@ Krijimi i ndërfaqes për Fremantle-in: Krebber Jan Niemelä Ulla
         <message>
             <source>Cloudy / Wind</source>
             <translation>Me re/Erë</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">Me re/Erë</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1168,6 +1180,10 @@ Brad Jones aka kazrak - for testing
         <message>
             <source>Fair</source>
             <translation>Fair</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">Dëborë / Erë</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2786,6 +2802,10 @@ Rreshjet: </translation>
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>Shi / Rreshje dëbore / Rrë</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">Shi / rreshje dëbore</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

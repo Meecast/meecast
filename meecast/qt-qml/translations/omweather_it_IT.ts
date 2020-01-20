@@ -347,6 +347,14 @@ W: </translation>
             <translation>Rovesci Nevosi al matt. / Vento sul tardi</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">Nevischio</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">Nevischio / Vento</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>Crediti</translation>
         </message>
@@ -701,6 +709,10 @@ gwmgdemj
         <message>
             <source>Cloudy / Wind</source>
             <translation>Nuvoloso / Vento</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">Nuvoloso / Vento</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1168,6 +1180,10 @@ Brad Jones alias kazrak - per il testing
         <message>
             <source>Fair</source>
             <translation>Bello</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">Neve / Vento</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2775,6 +2791,10 @@ Ilir Gjika
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>Pioggia / Rovesci di neve / Vento</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">Pioggia / Rovesci di neve</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

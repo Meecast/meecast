@@ -347,6 +347,14 @@ W: </translation>
             <translation>a.m.: Ruixats de neu / Vent més tard</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">Aiguaneu</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">Aiguaneu / Vent</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>Quant a</translation>
         </message>
@@ -701,6 +709,10 @@ Disseny IU per a Fremantle: Krebber Jan Niemela Ulla
         <message>
             <source>Cloudy / Wind</source>
             <translation>Núvol / Vent</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">Núvol / Vent</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1165,6 +1177,10 @@ Brad Jones aka kazrak - per les proves
         <message>
             <source>Fair</source>
             <translation>Bo</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">Neu / Vent</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2780,6 +2796,10 @@ Català - Agustí Clara</translation>
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>Pluja / Ruixats de neu / Vent</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">Pluja / Ruixats de neu</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

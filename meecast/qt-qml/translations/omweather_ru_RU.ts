@@ -332,6 +332,14 @@ W: </source>
             <translation>До полудня снегопады / Позже ветер</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">Поземка</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">Поземка / Ветер</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>О программе</translation>
         </message>
@@ -677,6 +685,10 @@ gwmgdemj
         <message>
             <source>Cloudy / Wind</source>
             <translation>Облачно / Ветер</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">Облачно / Ветер</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1141,6 +1153,10 @@ Brad Jones aka kazrak - за тестирование
         <message>
             <source>Fair</source>
             <translation>Ясная погода</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">Туман / Ветренно</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2759,6 +2775,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>Дождь / Снегопады / Ветер</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">Дождь / Снегопады</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

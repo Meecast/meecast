@@ -271,8 +271,7 @@ W: </translation>
         </message>
         <message>
             <source>AM Ice</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>早上结冰</translation>
         </message>
         <message>
             <source>AM Light Rain</source>
@@ -280,7 +279,7 @@ W: </translation>
         </message>
         <message>
             <source>AM Light Rain / Ice</source>
-            <translation type="unfinished">上午微风时有小雨</translation>
+            <translation>早上小雨/结冰</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -308,7 +307,7 @@ W: </translation>
         </message>
         <message>
             <source>AM Rain / Snow / Wind</source>
-            <translation type="unfinished">下雨/雪夹/刮风</translation>
+            <translation>早上下雨/雪夹/刮风</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -347,6 +346,14 @@ W: </translation>
             <translation>上午阵雪转微风</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">雨雪混合</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">雨雪混合/刮风</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>关于</translation>
         </message>
@@ -376,7 +383,7 @@ W: </translation>
         </message>
         <message>
             <source>Access denied to the given URL.</source>
-            <translation>拒绝访问到指定网址.</translation>
+            <translation>拒绝访问到指定网址</translation>
         </message>
         <message>
             <source>Action|Update</source>
@@ -436,7 +443,7 @@ Eric Link - 功能请求和捐赠
         </message>
         <message>
             <source>An unknown error has occurred.</source>
-            <translation>发生未知错误.</translation>
+            <translation>发生未知错误</translation>
         </message>
         <message>
             <source>Animation</source>
@@ -468,7 +475,7 @@ before installing this package</source>
         </message>
         <message>
             <source>Are you sure?</source>
-            <translation>确定?</translation>
+            <translation>是否确定?</translation>
         </message>
         <message>
             <source>Author and maintenance: Vlad Vasiliev, &lt;vlad@gas.by&gt;
@@ -477,11 +484,11 @@ Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
 Design UI for Fremantle: Krebber Jan Niemela Ulla
 </source>
-            <translation type="unfinished">作者&amp;维护: Vlad Vasiliev, &lt;vlad@gas.by&gt;
-维护: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
-文件: Marko Vertainen
-UI设计和预设图标集: Andrew Zhilin
-Fremantle UI设计: Krebber Jan Niemelä Ulla
+            <translation>作者和开发人员: Vlad Vasiliev, &lt;vlad@gas.by&gt;
+开发人员: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
+参考资料提供者: Marko Vertainen
+用户界面设计和图标绘制者: Andrew Zhilin
+为Fremantle设计用户界面: Krebber Jan Niemela Ulla
 </translation>
         </message>
         <message>
@@ -512,7 +519,7 @@ Fremantle UI设计: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Beauf.</source>
-            <translation>Beauf.</translation>
+            <translation>蒲福氏</translation>
         </message>
         <message>
             <source>Beaufort scale</source>
@@ -664,7 +671,7 @@ gwmgdemj
         </message>
         <message>
             <source>Clear sky</source>
-            <translation type="unfinished">晴天</translation>
+            <translation>晴天</translation>
         </message>
         <message>
             <source>Clear, Drifting Snow</source>
@@ -701,6 +708,10 @@ gwmgdemj
         <message>
             <source>Cloudy / Wind</source>
             <translation>微风多云</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">微风多云</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -815,13 +826,13 @@ gwmgdemj
         <message>
             <source>Could not connecting to Internet.
 Connection timeout is expired.</source>
-            <translation>无法连接到互联网.
-连接超时.</translation>
+            <translation>无法连接到互联网
+连接超时</translation>
         </message>
         <message>
             <source>Could not create weather cache directory.
 </source>
-            <translation>无法创建天气缓存目录.
+            <translation>无法创建天气缓存目录
 </translation>
         </message>
         <message>
@@ -966,7 +977,7 @@ of 'omweather-*-stations-db' packages was installed.</source>
         </message>
         <message>
             <source>Download timed out.</source>
-            <translation>下载超时.</translation>
+            <translation>下载超时</translation>
         </message>
         <message>
             <source>Drifting Snow</source>
@@ -1153,18 +1164,22 @@ Brad Jones aka kazrak - 测试
         <message>
             <source>Failed to initialize GConf. Quitting.
 </source>
-            <translation>初始化GConf失败.正在退出.
+            <translation>初始化GConf失败.正在退出
 </translation>
         </message>
         <message>
             <source>Failed to initialize GConf. Settings were not saved.
 </source>
-            <translation>初始化GConf失败. 设置不保存.
+            <translation>初始化GConf失败. 设置不保存
 </translation>
         </message>
         <message>
             <source>Fair</source>
             <translation>晴</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">雾/有风</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -1248,7 +1263,7 @@ jarliim
         </message>
         <message>
             <source>Fog / Windy</source>
-            <translation type="unfinished">下雪夹风</translation>
+            <translation>雾/有风</translation>
         </message>
         <message>
             <source>Fog Early / Clouds Late</source>
@@ -1311,7 +1326,7 @@ using Application manager</source>
         </message>
         <message>
             <source>Freezing Rain</source>
-            <translation type="unfinished">大冰雨</translation>
+            <translation>冻雨</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
@@ -1388,8 +1403,8 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Galician - pakoR
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>加利西亚语 - pakoR
+</translation>
         </message>
         <message>
             <source>German -  Claudius Henrichs,
@@ -1414,7 +1429,7 @@ DeadHorseRiding</translation>
         </message>
         <message>
             <source>HTTP error.</source>
-            <translation>HTTP错误.</translation>
+            <translation>HTTP错误</translation>
         </message>
         <message>
             <source>Haze</source>
@@ -1422,15 +1437,15 @@ DeadHorseRiding</translation>
         </message>
         <message>
             <source>Haze, Smoke or Dust</source>
-            <translation>薄雾,烟灰或尘土</translation>
+            <translation>薄雾,灰烟或尘土</translation>
         </message>
         <message>
             <source>Heavy Freezing Rain</source>
-            <translation>大冰雨</translation>
+            <translation>强冰雨</translation>
         </message>
         <message>
             <source>Heavy Precipitation</source>
-            <translation>大雨</translation>
+            <translation>强降雨</translation>
         </message>
         <message>
             <source>Heavy Rain</source>
@@ -1442,7 +1457,7 @@ DeadHorseRiding</translation>
         </message>
         <message>
             <source>Heavy Rain Shower</source>
-            <translation>大阵雨</translation>
+            <translation>强阵雨</translation>
         </message>
         <message>
             <source>Heavy Rain Showers</source>
@@ -1450,11 +1465,11 @@ DeadHorseRiding</translation>
         </message>
         <message>
             <source>Heavy Sleet</source>
-            <translation>大冻雨</translation>
+            <translation>强冻雨</translation>
         </message>
         <message>
             <source>Heavy Sleet Showers</source>
-            <translation>短时大冻雨</translation>
+            <translation>短时强冻雨</translation>
         </message>
         <message>
             <source>Heavy Snow</source>
@@ -1466,7 +1481,7 @@ DeadHorseRiding</translation>
         </message>
         <message>
             <source>Heavy Snow Shower</source>
-            <translation type="unfinished">短时大雪</translation>
+            <translation>短时大雪</translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
@@ -1532,7 +1547,7 @@ DeadHorseRiding</translation>
         </message>
         <message>
             <source>Ice Early</source>
-            <translation type="unfinished">早时细雨</translation>
+            <translation>早间有结冰</translation>
         </message>
         <message>
             <source>Ice Pellets</source>
@@ -1716,7 +1731,7 @@ Luca Onnis
         </message>
         <message>
             <source>Light Rain / Windy</source>
-            <translation type="unfinished">小雨/微风</translation>
+            <translation>小雨/有风</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -1848,11 +1863,11 @@ Luca Onnis
         </message>
         <message>
             <source>Mainly cloudy, drizzle</source>
-            <translation type="unfinished">局部多云有阵雨</translation>
+            <translation>大部多云，毛毛雨</translation>
         </message>
         <message>
             <source>Mainly cloudy, showers</source>
-            <translation type="unfinished">局部多云有阵雨</translation>
+            <translation>大部多云，阵雨</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -1882,7 +1897,7 @@ Luca Onnis
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
-            <translation type="unfinished">MeeCast - 基于开源的OMWeather源码开发的一款跨平台，高定制性天气预报软件。Copyright (C) 2006-2015</translation>
+            <translation>MeeCast - 一个基于OMweather编码的多平台高度定制化开源天气预报客户端 。Copyright (C) 2006-2016</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -1942,7 +1957,7 @@ Luca Onnis
         </message>
         <message>
             <source>Mostly Cloudy / Windy</source>
-            <translation type="unfinished">大部分多云夹风</translation>
+            <translation>大部多云/有风</translation>
         </message>
         <message>
             <source>Mostly Cloudy Few Snow</source>
@@ -2440,11 +2455,11 @@ Luca Onnis
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>
-            <translation type="unfinished">上午下雨时有阵雪</translation>
+            <translation>下午有雨 / 雪</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>
-            <translation type="unfinished">上午下雨时有阵雪</translation>
+            <translation>下午有雨 / 雪</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>
@@ -2464,7 +2479,7 @@ Luca Onnis
         </message>
         <message>
             <source>PM Snow / Wind</source>
-            <translation type="unfinished">下雪夹风</translation>
+            <translation>下午下雪夹风</translation>
         </message>
         <message>
             <source>PM Snow Showers</source>
@@ -2748,7 +2763,7 @@ Luca Onnis
         </message>
         <message>
             <source>Rain / Ice Early</source>
-            <translation type="unfinished">早有雨/雪</translation>
+            <translation>早间有雨/结冰</translation>
         </message>
         <message>
             <source>Rain / Snow</source>
@@ -2760,7 +2775,7 @@ Luca Onnis
         </message>
         <message>
             <source>Rain / Snow / Wind Early</source>
-            <translation type="unfinished">下雨/雪夹/刮风</translation>
+            <translation>早间有雨/雪/风</translation>
         </message>
         <message>
             <source>Rain / Snow Early</source>
@@ -2777,6 +2792,10 @@ Luca Onnis
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>下雨/阵雪夹/刮风</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">下阵雨/雪</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>
@@ -2824,7 +2843,7 @@ Luca Onnis
         </message>
         <message>
             <source>Rain to Snow</source>
-            <translation type="unfinished">下雨/下雪</translation>
+            <translation>雨转雪</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>
@@ -3246,11 +3265,11 @@ Ed Bartosh
         </message>
         <message>
             <source>Snow Early</source>
-            <translation type="unfinished">早间阵雨</translation>
+            <translation>早间有雪</translation>
         </message>
         <message>
             <source>Snow Late</source>
-            <translation type="unfinished">晚间阵雨</translation>
+            <translation>晚间有雪</translation>
         </message>
         <message>
             <source>Snow Shower</source>
@@ -4080,7 +4099,7 @@ Anh Dương and truongnx
         </message>
         <message>
             <source>Wintry Mix / Windy</source>
-            <translation type="unfinished">雨雪混合/刮风</translation>
+            <translation>雨雪交加/有风</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

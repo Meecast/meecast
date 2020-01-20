@@ -347,6 +347,14 @@ W:</translation>
             <translation>AM laat: sneeuwbuien / wind</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">Winterse bui</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">Winterse bui / wind</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>Over</translation>
         </message>
@@ -701,6 +709,10 @@ Ontwerp UI voor Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Cloudy / Wind</source>
             <translation>Bewolkt / wind</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">Bewolkt / wind</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1165,6 +1177,10 @@ Brad Jones aka kazrak - voor het testen
         <message>
             <source>Fair</source>
             <translation>Mooi</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">Mist / wind</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2779,6 +2795,10 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>Regen / sneeuwbuien / wind</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">Regen / sneeuwbuien</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

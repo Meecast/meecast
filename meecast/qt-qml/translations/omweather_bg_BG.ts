@@ -348,6 +348,14 @@ W:</translation>
             <translation>АМ Сняг/Вятър</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">Лапавица</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">Лапавица/Вятър</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>Относно</translation>
         </message>
@@ -704,6 +712,10 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Cloudy / Wind</source>
             <translation>Облачно/Вятър</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">Облачно/Вятър</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1170,6 +1182,10 @@ Brad Jones aka kazrak - for testing
         <message>
             <source>Fair</source>
             <translation>Хубаво</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">Сняг/Вятър</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2787,6 +2803,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>Дъжд/Слаб Сняг/Вятър</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">Дъжд/Слаб Сняг</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

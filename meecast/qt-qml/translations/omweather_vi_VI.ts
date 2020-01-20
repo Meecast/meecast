@@ -351,6 +351,14 @@ W:</translation>
             <translation>AM Mưa tuyết/Gió nhẹ</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">Lạnh giá</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">Lạnh giá và có gió</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>Giới thiệu</translation>
         </message>
@@ -701,6 +709,10 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
         <message>
             <source>Cloudy / Wind</source>
             <translation>Có mây và gió nhẹ</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">Có mây và gió nhẹ</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1167,6 +1179,10 @@ Brad Jones aka kazrak - for testing
         <message>
             <source>Fair</source>
             <translation>Trời đẹp</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">Có tuyết và gió</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2795,6 +2811,10 @@ Mưa:</translation>
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>Mưa/ Mưa tuyết/ Gió</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">Có mưa và Mưa tuyết</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

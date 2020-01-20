@@ -333,6 +333,14 @@ W: </source>
             <translation>de. hózáporok / szeles délután</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">Havas eső</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">Havas eső / szél</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>A programról</translation>
         </message>
@@ -678,6 +686,10 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
         <message>
             <source>Cloudy / Wind</source>
             <translation>Felhős / szeles</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">Felhős / szeles</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1140,6 +1152,10 @@ Brad Jones aka kazrak - for testing
         <message>
             <source>Fair</source>
             <translation>Változékony</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">Hó / szél</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2762,6 +2778,10 @@ Előrejelzés:</translation>
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>Eső / hózáporok / szél</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">Eső / hózáporok</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

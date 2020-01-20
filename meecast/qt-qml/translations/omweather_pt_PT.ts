@@ -347,6 +347,14 @@ O:</translation>
             <translation>AM Aguaceiros Neve / Vento Final Dia</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">Tempo Instável</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">Tempo Instável / Vento</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>Acerca de</translation>
         </message>
@@ -700,6 +708,10 @@ UI Design para Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Cloudy / Wind</source>
             <translation>Nublado / Vento</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">Nublado / Vento</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1166,6 +1178,10 @@ Brad Jones aka kazrak - para testes
         <message>
             <source>Fair</source>
             <translation>Bom Tempo</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">Neve / Vento</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2781,6 +2797,10 @@ Precipitação:</translation>
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>Chuva / Aguaceiros com neve / vento</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">Chuva / Aguaceiros com neve</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

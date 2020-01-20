@@ -333,6 +333,14 @@ W: </source>
             <translation>До полудня снігопади / Пізніше вітер</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">Сніг з дощем</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">Сніг з дощем / Вітер</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>Про програму</translation>
         </message>
@@ -681,6 +689,10 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
         <message>
             <source>Cloudy / Wind</source>
             <translation>Хмарно / Вітер</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">Хмарно / Вітер</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1149,6 +1161,10 @@ Brad Jones aka kazrak - за тестування
         <message>
             <source>Fair</source>
             <translation>Ясна погода</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">Сніг / Вітер</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2782,6 +2798,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>Дощ / Снігопад / Вітер</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">Дощ / Снігопад</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

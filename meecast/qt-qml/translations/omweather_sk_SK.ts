@@ -347,6 +347,14 @@ Vietor: </translation>
             <translation>Dopoludnia snehové prehánky / Neskôr vietor</translation>
         </message>
         <message>
+            <source>AM Wintry Mix</source>
+            <translation type="unfinished">Chladno a sychravo</translation>
+        </message>
+        <message>
+            <source>AM Wintry Mix / Wind</source>
+            <translation type="unfinished">Chladno a sychravo / Vietor</translation>
+        </message>
+        <message>
             <source>About</source>
             <translation>O aplikácií</translation>
         </message>
@@ -703,6 +711,10 @@ Návrh UI pre Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Cloudy / Wind</source>
             <translation>Zamračené / Vietor</translation>
+        </message>
+        <message>
+            <source>Cloudy / Windy</source>
+            <translation type="unfinished">Zamračené / Vietor</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1170,6 +1182,10 @@ Brad Jones aka kazrak - za testovanie
         <message>
             <source>Fair</source>
             <translation>Pekne</translation>
+        </message>
+        <message>
+            <source>Fair / Windy</source>
+            <translation type="unfinished">Sneženie / Vietor</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2788,6 +2804,10 @@ Zrážky: </translation>
         <message>
             <source>Rain / Snow Showers / Wind</source>
             <translation>Dážď / Snehové prehánky / Vietor</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Early</source>
+            <translation type="unfinished">Dážď / Snehové prehánky</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

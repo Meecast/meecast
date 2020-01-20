@@ -871,7 +871,7 @@ parse_and_write_html_data(const gchar *station_id, htmlDocPtr doc, const gchar *
             tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
             tmp_tm.tm_isdst = time_tm2.tm_isdst;
             setlocale(LC_TIME, "POSIX");
-            strptime((const char*)current_time_string.c_str(), "%Y-%m-%dT", &tmp_tm);
+            strptime((const char*)current_time_string.c_str(), "%Y-%m-%dT%H:%M", &tmp_tm);
             utc_time = mktime(&tmp_tm); 
             setlocale(LC_TIME, "");
             fprintf(file_out,"    <period start=\"%li\"", utc_time - 3600);

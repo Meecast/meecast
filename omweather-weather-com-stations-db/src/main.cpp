@@ -584,7 +584,7 @@ parse_and_write_html_data(const gchar *station_id, htmlDocPtr doc, const gchar *
             fprintf(file_out,"      <dewpoint>%i</dewpoint>\n", val.get("temperatureDewPoint","").asInt());
             fprintf(file_out,"      <wind_gust>%1.f</wind_gust>\n", (double)(val.get("windGust","0").asInt()) * 1000/3600);
             fprintf(file_out,"      <uv_index>%i</uv_index>\n", val.get("uvIndex","").asInt() );
-            fprintf(file_out,"      <visibility>%i</visibility>\n",(int)(val.get("visibility","").asDouble()*1000) );
+            fprintf(file_out,"      <visible>%i</visible>\n",(int)(val.get("visibility","").asDouble()*1000) );
             fprintf(file_out,"    </period>\n");
     }
     if (!root["dal"]["getSunV3DailyForecastUrlConfig"][root["dal"]["getSunV3DailyForecastUrlConfig"].getMemberNames()[0]]["data"]["validTimeUtc"].isArray())

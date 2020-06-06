@@ -176,7 +176,7 @@ systemctl-user start meecastd.service
 %changelog
 
 * Mon Jan 20 2020 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.26
-  *
+  * Fixed problem with weather.com source
 
 * Mon Jan 20 2020 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.25
   * Fixed problem with weather.com source

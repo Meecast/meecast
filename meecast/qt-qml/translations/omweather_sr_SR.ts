@@ -28,7 +28,7 @@ and coloured backgrounds
 </source>
             <translation>
 Hildon desktop aplet
-za Nokie N800/N810/N900
+za Nokiu N800/N810/N900
 za prikaz vremenske prognoze.
 Vezija %s Nadogradnja: %s
 Copyright(c) 2006-2011
@@ -131,11 +131,11 @@ W: </translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation>(Umereno)</translation>
+            <translation>(Umeren)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation>(Umereno)</translation>
+            <translation>(Umeren)</translation>
         </message>
         <message>
             <source>1 day</source>
@@ -255,11 +255,11 @@ W: </translation>
         </message>
         <message>
             <source>AM Drizzle</source>
-            <translation>Prepodne Rominjanje kiše</translation>
+            <translation>Prepodne Sitna kiša</translation>
         </message>
         <message>
             <source>AM Drizzle / Wind</source>
-            <translation>Prepodne Rominjanje kiše / Vetar</translation>
+            <translation>Prepodne Sitna kiša / Vetar</translation>
         </message>
         <message>
             <source>AM Fog / PM Clouds</source>
@@ -271,16 +271,15 @@ W: </translation>
         </message>
         <message>
             <source>AM Ice</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Prepodne Led</translation>
         </message>
         <message>
             <source>AM Light Rain</source>
-            <translation>Prepodne Sitna kiša</translation>
+            <translation>Prepodne Slaba kiša</translation>
         </message>
         <message>
             <source>AM Light Rain / Ice</source>
-            <translation type="unfinished">Prepodne Sitna kiša / Vetar</translation>
+            <translation>Prepodne Slaba kiša/Led</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -296,7 +295,7 @@ W: </translation>
         </message>
         <message>
             <source>AM Light Wintry Mix</source>
-            <translation>Prepodne Promenljivo zimsko</translation>
+            <translation>Prepodne Promenjljivo zimsko</translation>
         </message>
         <message>
             <source>AM Rain</source>
@@ -308,7 +307,7 @@ W: </translation>
         </message>
         <message>
             <source>AM Rain / Snow / Wind</source>
-            <translation type="unfinished">Kiša / Sneg / Vetar</translation>
+            <translation>Prepodne Kiša / Sneg / Vetar</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -348,11 +347,11 @@ W: </translation>
         </message>
         <message>
             <source>AM Wintry Mix</source>
-            <translation type="unfinished">Zimski miks</translation>
+            <translation>Prepodne promenjljivo zimsko</translation>
         </message>
         <message>
             <source>AM Wintry Mix / Wind</source>
-            <translation type="unfinished">Zimski miks / Vetar</translation>
+            <translation>Prepodne promenjljivo zimsko/Vetar</translation>
         </message>
         <message>
             <source>About</source>
@@ -488,11 +487,11 @@ Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
 Design UI for Fremantle: Krebber Jan Niemela Ulla
 </source>
-            <translation type="unfinished">Autor i održavanje: Vlad Vasiliev, &lt;vlad@gas.by&gt;
+            <translation>Autor i održavanje: Vlad Vasiliev, &lt;vlad@gas.by&gt;
 Održavanje: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Dokumentacija: Marko Vertainen
-Dizajn i standardni set ikona: Andrew Zhilin
-Dizajn za Fremantle: Krebber Jan Niemelä Ulla
+Dizajn korisničkog prikaza i podrazumevani set ikona: Andrew Zhilin
+Dizajn korisničkog prikaza za Fremantle: Krebber Jan Niemela Ulla
 </translation>
         </message>
         <message>
@@ -675,7 +674,7 @@ Dizajn za Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Clear sky</source>
-            <translation type="unfinished">Vedro nebo</translation>
+            <translation>Vedro nebo</translation>
         </message>
         <message>
             <source>Clear, Drifting Snow</source>
@@ -715,7 +714,7 @@ Dizajn za Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy / Windy</source>
-            <translation type="unfinished">Oblačno / Vetar</translation>
+            <translation>Oblačno / Vetrovito</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1183,7 +1182,7 @@ Brad Jones aka kazrak - za testiranje
         </message>
         <message>
             <source>Fair / Windy</source>
-            <translation type="unfinished">Sneg / Vetar</translation>
+            <translation>Vedro / Vetrovito</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -1267,7 +1266,7 @@ Brad Jones aka kazrak - za testiranje
         </message>
         <message>
             <source>Fog / Windy</source>
-            <translation type="unfinished">Sneg / Vetar</translation>
+            <translation>Magla / Vetrovito</translation>
         </message>
         <message>
             <source>Fog Early / Clouds Late</source>
@@ -1331,7 +1330,7 @@ koristeći Menadžer aplikacija</translation>
         </message>
         <message>
             <source>Freezing Rain</source>
-            <translation type="unfinished">Jaka ledena kiša</translation>
+            <translation>Ledena kiša</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
@@ -1553,7 +1552,7 @@ Slovački - Roman Moravčík</translation>
         </message>
         <message>
             <source>Ice Early</source>
-            <translation type="unfinished">U ranijim satima rominjanje kiše</translation>
+            <translation>U ranijim satima led</translation>
         </message>
         <message>
             <source>Ice Pellets</source>
@@ -1737,7 +1736,7 @@ Slovački - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light Rain / Windy</source>
-            <translation type="unfinished">Blaga kiša / Vetar</translation>
+            <translation>Blaga kiša / Vetrovito</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -1903,7 +1902,7 @@ Slovački - Roman Moravčík</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
-            <translation type="unfinished">MeeCast - višeplatformni visoko prilagodljivi klijent vremenske prognoze otvorenog koda baziran na OMWeather kodu. Copyright (C) 2006-2015</translation>
+            <translation>MeeCast - višeplatformni visoko prilagodljiv klijent vremenske prognoze otvorenog koda baziran na OMWeather kodu. Copyright (C) 2006-2016</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -1963,7 +1962,7 @@ Slovački - Roman Moravčík</translation>
         </message>
         <message>
             <source>Mostly Cloudy / Windy</source>
-            <translation type="unfinished">Pretežno oblačno / Vetar</translation>
+            <translation>Pretežno oblačno / Vetrovito</translation>
         </message>
         <message>
             <source>Mostly Cloudy Few Snow</source>
@@ -2461,11 +2460,11 @@ Slovački - Roman Moravčík</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>
-            <translation type="unfinished">Prepodne Kiša / Snežne mećave</translation>
+            <translation>Popodne Kiša / Snežni naleti</translation>
         </message>
         <message>
             <source>PM Rain / Snow Showers</source>
-            <translation type="unfinished">Prepodne Kiša / Snežne mećave</translation>
+            <translation>Popodne Kiša / Snežni naleti</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>
@@ -2485,7 +2484,7 @@ Slovački - Roman Moravčík</translation>
         </message>
         <message>
             <source>PM Snow / Wind</source>
-            <translation type="unfinished">Sneg / Vetar</translation>
+            <translation>Popodne Sneg / Vetar</translation>
         </message>
         <message>
             <source>PM Snow Showers</source>
@@ -2769,7 +2768,7 @@ Slovački - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain / Ice Early</source>
-            <translation type="unfinished">Kiša / U ranijim satima sneg</translation>
+            <translation>Kiša / U ranijim satima led</translation>
         </message>
         <message>
             <source>Rain / Snow</source>
@@ -2781,7 +2780,7 @@ Slovački - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain / Snow / Wind Early</source>
-            <translation type="unfinished">Kiša / Sneg / Vetar</translation>
+            <translation>Kiša / Sneg / U ranijim satima vetar</translation>
         </message>
         <message>
             <source>Rain / Snow Early</source>
@@ -2801,7 +2800,7 @@ Slovački - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Early</source>
-            <translation type="unfinished">Kiša / Naleti snega</translation>
+            <translation>Kiša / U ranijim satima naleti snega</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>
@@ -2849,7 +2848,7 @@ Slovački - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain to Snow</source>
-            <translation type="unfinished">Kiša / Sneg</translation>
+            <translation>Iz kiše u sneg</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>
@@ -2857,11 +2856,11 @@ Slovački - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain to Wintry Mix</source>
-            <translation>Iz kiše u zimski miks</translation>
+            <translation>Iz kiše u promenjljivo zimsko</translation>
         </message>
         <message>
             <source>Rain to Wintry Mix / Wind</source>
-            <translation>Iz kiše u zimski miks / Vetar</translation>
+            <translation>Iz kiše u promenjljivo zimsko / Vetar</translation>
         </message>
         <message>
             <source>Read sensor every:</source>
@@ -3275,7 +3274,7 @@ Slovački - Roman Moravčík</translation>
         </message>
         <message>
             <source>Snow Late</source>
-            <translation type="unfinished">U kasnijim satima pljuskovi</translation>
+            <translation>U kasnim satima sneg</translation>
         </message>
         <message>
             <source>Snow Shower</source>
@@ -3311,11 +3310,11 @@ Slovački - Roman Moravčík</translation>
         </message>
         <message>
             <source>Snow to Wintry Mix</source>
-            <translation>Iz snega u zimski miks</translation>
+            <translation>Iz snega u promenjljivo zimsko</translation>
         </message>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
-            <translation>Iz snega u zimski miks / Vetar</translation>
+            <translation>Iz snega u promenjljivo zimsko / Vetar</translation>
         </message>
         <message>
             <source>Snowfall</source>
@@ -4093,23 +4092,23 @@ za korigovanje slika applet-a</translation>
         </message>
         <message>
             <source>Wintry Mix</source>
-            <translation>Zimski miks</translation>
+            <translation>Promenjljivo zimsko</translation>
         </message>
         <message>
             <source>Wintry Mix / Wind</source>
-            <translation>Zimski miks / Vetar</translation>
+            <translation>Promenjljivo zimsko / Vetar</translation>
         </message>
         <message>
             <source>Wintry Mix / Wind Early</source>
-            <translation>Zimski miks / U ranijim satima vetar</translation>
+            <translation>Promenljivo zimsko / U ranijim satima vetar</translation>
         </message>
         <message>
             <source>Wintry Mix / Windy</source>
-            <translation type="unfinished">Zimski miks / Vetar</translation>
+            <translation>Promenjljivo zimsko / Vetrovito</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>
-            <translation>Iz zimskog miksa u sneg</translation>
+            <translation>Iz promenljivog zimskog u sneg</translation>
         </message>
         <message>
             <source>Wrong station code 

@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Åke Engelbrektson, 2014
-# Åke Engelbrektson, 2015-2019
+# Åke Engelbrektson, 2015-2020
 #  Angela Nennebrandt <EMAIL@ADDRESS>, 2012
 # Nathan Follens, 2015
 # Niklas Åkerström, 2012-2014
@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-20 15:21+0300\n"
-"PO-Revision-Date: 2019-12-14 16:09+0000\n"
+"PO-Revision-Date: 2020-01-21 07:01+0000\n"
 "Last-Translator: Åke Engelbrektson\n"
 "Language-Team: Swedish (http://www.transifex.com/vasvlad/meecast/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -271,14 +271,12 @@ msgid "AM Snow Showers / Wind Late"
 msgstr "FM Snöbyar / Senare vind"
 
 #: omweather/src/hash.data:28
-#, fuzzy
 msgid "AM Wintry Mix"
-msgstr "Snöblandat/underkylt regn eller hagel"
+msgstr "Snöblandat regn på förmiddagen"
 
 #: omweather/src/hash.data:29
-#, fuzzy
 msgid "AM Wintry Mix / Wind"
-msgstr "Snöblandat/underkylt regn eller hagel / Vind"
+msgstr "Snöblandat regn på förmiddagen / Blåst"
 
 #: omweather/src/weather-home.c:1286 omweather/src/weather-help.c:100
 #: omweather/src/weather-simple-popup.c:1164
@@ -528,9 +526,8 @@ msgid "Cloudy / Wind"
 msgstr "Molnigt / Vind"
 
 #: omweather/src/hash.data:44
-#, fuzzy
 msgid "Cloudy / Windy"
-msgstr "Molnigt / Vind"
+msgstr "Molnigt och blåsigt"
 
 #: omweather/src/hash.data:45
 msgid "Cloudy Few Snow"
@@ -900,9 +897,8 @@ msgid "Fair"
 msgstr "Ganska bra"
 
 #: omweather/src/hash.data:85
-#, fuzzy
 msgid "Fair / Windy"
-msgstr "Dimma / Blåsigt"
+msgstr "Ganska blåsigt"
 
 #: omweather/src/hash.data:388
 msgid "Feels like"
@@ -2199,9 +2195,8 @@ msgid "Rain / Snow Showers / Wind"
 msgstr "Regn / Snöbyar / Vind"
 
 #: omweather/src/hash.data:278
-#, fuzzy
 msgid "Rain / Snow Showers Early"
-msgstr "Regn / Snöbyar"
+msgstr "Regn / Snöbyar tidigt"
 
 #: omweather/src/hash.data:279
 msgid "Rain / Snow Showers Late"

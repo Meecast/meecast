@@ -333,11 +333,13 @@ W: </source>
         </message>
         <message>
             <source>AM Wintry Mix</source>
-            <translation type="unfinished">Поземка</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>AM Wintry Mix / Wind</source>
-            <translation type="unfinished">Поземка / Ветер</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>About</source>
@@ -688,7 +690,7 @@ gwmgdemj
         </message>
         <message>
             <source>Cloudy / Windy</source>
-            <translation type="unfinished">Облачно / Ветер</translation>
+            <translation>Облачно / Ветрено</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1156,7 +1158,8 @@ Brad Jones aka kazrak - за тестирование
         </message>
         <message>
             <source>Fair / Windy</source>
-            <translation type="unfinished">Туман / Ветренно</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -1238,7 +1241,7 @@ Brad Jones aka kazrak - за тестирование
         </message>
         <message>
             <source>Fog / Windy</source>
-            <translation>Туман / Ветренно</translation>
+            <translation>Туман / Ветрено</translation>
         </message>
         <message>
             <source>Fog Early / Clouds Late</source>
@@ -1704,7 +1707,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Light Rain / Windy</source>
-            <translation>Небольшой дождь / Ветренно</translation>
+            <translation>Небольшой дождь / Ветрено</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
@@ -1932,7 +1935,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Mostly Cloudy / Windy</source>
-            <translation>В основном облачно / Ветренно</translation>
+            <translation>В основном облачно / Ветрено</translation>
         </message>
         <message>
             <source>Mostly Cloudy Few Snow</source>
@@ -2482,7 +2485,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Partly Cloudy / Windy</source>
-            <translation>Переменная облачность / Ветренно</translation>
+            <translation>Переменная облачность / Ветрено</translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
@@ -2778,7 +2781,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rain / Snow Showers Early</source>
-            <translation type="unfinished">Дождь / Снегопады</translation>
+            <translation>Дождь / С утра снегопады</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>
@@ -4078,7 +4081,7 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Wintry Mix / Windy</source>
-            <translation>Поземка / Ветренно</translation>
+            <translation>Поземка / Ветрено</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>

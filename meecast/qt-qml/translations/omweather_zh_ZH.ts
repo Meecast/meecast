@@ -271,7 +271,7 @@ W: </translation>
         </message>
         <message>
             <source>AM Ice</source>
-            <translation>早上结冰</translation>
+            <translation>上午结冰</translation>
         </message>
         <message>
             <source>AM Light Rain</source>
@@ -279,7 +279,7 @@ W: </translation>
         </message>
         <message>
             <source>AM Light Rain / Ice</source>
-            <translation>早上小雨/结冰</translation>
+            <translation>上午小雨/结冰</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -307,7 +307,7 @@ W: </translation>
         </message>
         <message>
             <source>AM Rain / Snow / Wind</source>
-            <translation>早上下雨/雪夹/刮风</translation>
+            <translation>上午下雨/雪夹/刮风</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -347,11 +347,11 @@ W: </translation>
         </message>
         <message>
             <source>AM Wintry Mix</source>
-            <translation type="unfinished">雨雪混合</translation>
+            <translation>上午雨雪混合</translation>
         </message>
         <message>
             <source>AM Wintry Mix / Wind</source>
-            <translation type="unfinished">雨雪混合/刮风</translation>
+            <translation>上午雨雪混合/刮风</translation>
         </message>
         <message>
             <source>About</source>
@@ -494,7 +494,7 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
         <message>
             <source>Author and maintenance: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
 </source>
-            <translation>作者&amp;维护:Vlad Vasilyeu, &lt;vlad@gas.by&gt;
+            <translation>作者及维护:Vlad Vasilyeu, &lt;vlad@gas.by&gt;
 </translation>
         </message>
         <message>
@@ -628,7 +628,7 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
  	gwmgdemj
 </source>
             <translation>简体中文 - Wong Man Kong,Michael,
-gwmgdemj
+gwmgdemj，Luchy Kon
 </translation>
         </message>
         <message>
@@ -711,7 +711,7 @@ gwmgdemj
         </message>
         <message>
             <source>Cloudy / Windy</source>
-            <translation type="unfinished">微风多云</translation>
+            <translation>微风多云</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
@@ -1179,7 +1179,7 @@ Brad Jones aka kazrak - 测试
         </message>
         <message>
             <source>Fair / Windy</source>
-            <translation type="unfinished">雾/有风</translation>
+            <translation>晴朗/有风</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -2795,7 +2795,7 @@ Luca Onnis
         </message>
         <message>
             <source>Rain / Snow Showers Early</source>
-            <translation type="unfinished">下阵雨/雪</translation>
+            <translation>有雨/早间阵雪</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>

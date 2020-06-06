@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Boštjan Štrumbelj <sponka@gmail.com>, 2014-2019
+# Boštjan Štrumbelj <sponka@gmail.com>, 2014-2020
 # Boštjan Štrumbelj <sponka@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-20 15:21+0300\n"
-"PO-Revision-Date: 2019-12-21 19:19+0000\n"
+"PO-Revision-Date: 2020-01-20 21:08+0000\n"
 "Last-Translator: Boštjan Štrumbelj <sponka@gmail.com>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/vasvlad/meecast/language/sl_SI/)\n"
 "MIME-Version: 1.0\n"
@@ -267,14 +267,12 @@ msgid "AM Snow Showers / Wind Late"
 msgstr "Dopoldanske snežne plohe / v poznih urah veter"
 
 #: omweather/src/hash.data:28
-#, fuzzy
 msgid "AM Wintry Mix"
-msgstr "Sneg z dežjem"
+msgstr "Dopoldan sneg z dežjem"
 
 #: omweather/src/hash.data:29
-#, fuzzy
 msgid "AM Wintry Mix / Wind"
-msgstr "Sneg z dežjem / veter"
+msgstr "Dopoldan sneg z dežjem / veter"
 
 #: omweather/src/weather-home.c:1286 omweather/src/weather-help.c:100
 #: omweather/src/weather-simple-popup.c:1164
@@ -521,10 +519,9 @@ msgstr "Oblačno"
 
 #: omweather/src/hash.data:43
 msgid "Cloudy / Wind"
-msgstr "Oblačno / vetrovno"
+msgstr "Oblačno / veter"
 
 #: omweather/src/hash.data:44
-#, fuzzy
 msgid "Cloudy / Windy"
 msgstr "Oblačno / vetrovno"
 
@@ -896,9 +893,8 @@ msgid "Fair"
 msgstr "Jasno"
 
 #: omweather/src/hash.data:85
-#, fuzzy
 msgid "Fair / Windy"
-msgstr "Megleno / Vetrovno"
+msgstr "Jasno / vetrovno"
 
 #: omweather/src/hash.data:388
 msgid "Feels like"
@@ -2195,9 +2191,8 @@ msgid "Rain / Snow Showers / Wind"
 msgstr "Dež / snežne plohe / veter"
 
 #: omweather/src/hash.data:278
-#, fuzzy
 msgid "Rain / Snow Showers Early"
-msgstr "Dež / snežne plohe"
+msgstr "Dež / v zgodnjih urah snežne plohe"
 
 #: omweather/src/hash.data:279
 msgid "Rain / Snow Showers Late"

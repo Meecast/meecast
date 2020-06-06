@@ -347,6 +347,10 @@ W: </translation>
             <translation>Rovesci Nevosi al matt. / Vento sul tardi</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">Piogge intense pomeridiane</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">Nevischio</translation>
         </message>

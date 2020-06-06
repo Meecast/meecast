@@ -349,6 +349,10 @@ W:</translation>
             <translation>Formiddag Snøbyger / Senere Vind</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">Ettermiddag Tordenbyger</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">Glatt Føre</translation>
         </message>

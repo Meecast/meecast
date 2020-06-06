@@ -345,6 +345,10 @@ W:</translation>
             <translation>AM Sağnak Kar / Akşama Doğru Rüzgar</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">PM Şiddetli Sağnak</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">Karışık Soğuk</translation>
         </message>

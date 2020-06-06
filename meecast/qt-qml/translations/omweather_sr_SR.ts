@@ -346,6 +346,10 @@ W: </translation>
             <translation>Prepodne Snežne mećave / Vetar u kasnijim satima</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">Popodne pljuskovi sa grmljavinom</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation>Prepodne promenjljivo zimsko</translation>
         </message>

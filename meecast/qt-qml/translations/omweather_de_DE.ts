@@ -346,6 +346,10 @@ W: </translation>
             <translation>Vormittags Schneeschauer / Wind</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">Nachmittags Gewitter</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">Winterlich</translation>
         </message>

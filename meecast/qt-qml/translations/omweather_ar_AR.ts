@@ -347,6 +347,10 @@ W: </translation>
             <translation>زخات ثلج صباحاً / رياح متأخره</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">عواصف ثلجيه مساءً</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">مزيج شتوي</translation>
         </message>

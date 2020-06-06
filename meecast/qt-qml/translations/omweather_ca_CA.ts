@@ -347,6 +347,10 @@ W: </translation>
             <translation>a.m.: Ruixats de neu / Vent més tard</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">p.m.: Ruixats tempestuosos</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">Aiguaneu</translation>
         </message>

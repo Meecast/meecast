@@ -386,6 +386,10 @@ W: </source>
             </translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">S</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">S</translation>
         </message>

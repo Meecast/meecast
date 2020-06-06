@@ -13,11 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-<<<<<<< HEAD
-"POT-Creation-Date: 2020-01-20 15:21+0300\n"
-=======
 "POT-Creation-Date: 2020-06-06 20:20+0300\n"
->>>>>>> master
 "PO-Revision-Date: 2020-01-21 07:01+0000\n"
 "Last-Translator: Åke Engelbrektson\n"
 "Language-Team: Swedish (http://www.transifex.com/vasvlad/meecast/language/sv/)\n"
@@ -275,12 +271,6 @@ msgid "AM Snow Showers / Wind Late"
 msgstr "FM Snöbyar / Senare vind"
 
 #: omweather/src/hash.data:28
-<<<<<<< HEAD
-msgid "AM Wintry Mix"
-msgstr "Snöblandat regn på förmiddagen"
-
-#: omweather/src/hash.data:29
-=======
 #, fuzzy
 msgid "AM T-Showers"
 msgstr "EM Åskskurar"
@@ -290,7 +280,6 @@ msgid "AM Wintry Mix"
 msgstr "Snöblandat regn på förmiddagen"
 
 #: omweather/src/hash.data:30
->>>>>>> master
 msgid "AM Wintry Mix / Wind"
 msgstr "Snöblandat regn på förmiddagen / Blåst"
 
@@ -541,11 +530,7 @@ msgstr "Molnigt"
 msgid "Cloudy / Wind"
 msgstr "Molnigt / Vind"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:44
-=======
 #: omweather/src/hash.data:45
->>>>>>> master
 msgid "Cloudy / Windy"
 msgstr "Molnigt och blåsigt"
 
@@ -916,11 +901,7 @@ msgstr "Kunde inte starta GConf. Inställningarna sparades inte.\n"
 msgid "Fair"
 msgstr "Ganska bra"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:85
-=======
 #: omweather/src/hash.data:86
->>>>>>> master
 msgid "Fair / Windy"
 msgstr "Ganska blåsigt"
 
@@ -2218,11 +2199,7 @@ msgstr "Regn / Snöbyar"
 msgid "Rain / Snow Showers / Wind"
 msgstr "Regn / Snöbyar / Vind"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:278
-=======
 #: omweather/src/hash.data:279
->>>>>>> master
 msgid "Rain / Snow Showers Early"
 msgstr "Regn / Snöbyar tidigt"
 

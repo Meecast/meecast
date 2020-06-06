@@ -346,6 +346,10 @@ P: </translation>
             <translation>Në mëngjes Rreshje të dëndura dëbore/Më vonë erë</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">Pasdite Rrebeshe të shkurtëra</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">Shi i përzjerë me akull dhe borë</translation>
         </message>

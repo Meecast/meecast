@@ -347,6 +347,10 @@ T: </translation>
             <translation>ap: Lumikuuroja / Myöhemmin tuulista</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">ip: Ukkoskuuroja</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">Räntäsadetta</translation>
         </message>

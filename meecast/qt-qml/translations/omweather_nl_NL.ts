@@ -347,6 +347,10 @@ W:</translation>
             <translation>AM laat: sneeuwbuien / wind</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">PM onweersbuien</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">Winterse bui</translation>
         </message>

@@ -346,6 +346,10 @@ W: </translation>
             <translation>上午阵雪转微风</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">下午 雷阵雨</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation>上午雨雪混合</translation>
         </message>

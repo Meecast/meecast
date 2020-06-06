@@ -351,6 +351,10 @@ W:</translation>
             <translation>AM Mưa tuyết/Gió nhẹ</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">PM Giông bão</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">Lạnh giá</translation>
         </message>

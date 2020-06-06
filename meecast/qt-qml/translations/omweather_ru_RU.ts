@@ -332,6 +332,10 @@ W: </source>
             <translation>До полудня снегопады / Позже ветер</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">После грозовые ливни</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">
             </translation>

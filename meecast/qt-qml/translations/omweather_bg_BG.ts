@@ -348,6 +348,10 @@ W:</translation>
             <translation>АМ Сняг/Вятър</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">РМ Валежи</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">Лапавица</translation>
         </message>

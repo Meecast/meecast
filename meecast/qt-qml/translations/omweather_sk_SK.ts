@@ -347,6 +347,10 @@ Vietor: </translation>
             <translation>Dopoludnia snehové prehánky / Neskôr vietor</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">Popoludní prehánky</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">Chladno a sychravo</translation>
         </message>

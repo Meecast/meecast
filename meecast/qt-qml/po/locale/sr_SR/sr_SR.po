@@ -11,11 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-<<<<<<< HEAD
-"POT-Creation-Date: 2020-01-20 15:21+0300\n"
-=======
 "POT-Creation-Date: 2020-06-06 20:20+0300\n"
->>>>>>> master
 "PO-Revision-Date: 2020-05-06 20:47+0000\n"
 "Last-Translator: Aleksandar Zarić <alexandarzaric@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/vasvlad/meecast/language/sr/)\n"
@@ -49,9 +45,6 @@ msgid ""
 "Andrew Olmsted\n"
 "for Semi-transparency\n"
 "and coloured backgrounds\n"
-<<<<<<< HEAD
-msgstr "\nHildon desktop aplet\nza Nokiu N800/N810/N900\nza prikaz vremenske prognoze.\nVezija %s Nadogradnja: %s\nCopyright(c) 2006-2011\nVlad Vasiliev, Pavel Fialko\nCopyright(c) 2008\nza standardni set ikona (izgled)\ni dizajn prikaza\nAndrew Zhilin\nCopyright(c) 2008\nAndrew Olmsted\nza polu-providnost\ni obojene pozadine\n"
-=======
 msgstr ""
 "\n"
 "Hildon desktop aplet\n"
@@ -68,7 +61,6 @@ msgstr ""
 "Andrew Olmsted\n"
 "za polu-providnost\n"
 "i obojene pozadine\n"
->>>>>>> master
 
 #: omweather/src/weather-home.c:1383 omweather/src/weather-home.c:1439
 #: omweather/src/weather-popup.c:965 omweather/src/weather-popup.c:1098
@@ -292,12 +284,6 @@ msgid "AM Snow Showers / Wind Late"
 msgstr "Prepodne Snežne mećave / Vetar u kasnijim satima"
 
 #: omweather/src/hash.data:28
-<<<<<<< HEAD
-msgid "AM Wintry Mix"
-msgstr "Prepodne promenjljivo zimsko"
-
-#: omweather/src/hash.data:29
-=======
 #, fuzzy
 msgid "AM T-Showers"
 msgstr "Popodne pljuskovi sa grmljavinom"
@@ -307,7 +293,6 @@ msgid "AM Wintry Mix"
 msgstr "Prepodne promenjljivo zimsko"
 
 #: omweather/src/hash.data:30
->>>>>>> master
 msgid "AM Wintry Mix / Wind"
 msgstr "Prepodne promenjljivo zimsko/Vetar"
 
@@ -400,16 +385,12 @@ msgid ""
 "Documentation: Marko Vertainen\n"
 "Design UI and default iconset: Andrew Zhilin\n"
 "Design UI for Fremantle: Krebber Jan Niemela Ulla\n"
-<<<<<<< HEAD
-msgstr "Autor i održavanje: Vlad Vasiliev, <vlad@gas.by>\nOdržavanje: Pavel Fialko, <pavelnf@gmail.com>\nDokumentacija: Marko Vertainen\nDizajn korisničkog prikaza i podrazumevani set ikona: Andrew Zhilin\nDizajn korisničkog prikaza za Fremantle: Krebber Jan Niemela Ulla\n"
-=======
 msgstr ""
 "Autor i održavanje: Vlad Vasiliev, <vlad@gas.by>\n"
 "Održavanje: Pavel Fialko, <pavelnf@gmail.com>\n"
 "Dokumentacija: Marko Vertainen\n"
 "Dizajn korisničkog prikaza i podrazumevani set ikona: Andrew Zhilin\n"
 "Dizajn korisničkog prikaza za Fremantle: Krebber Jan Niemela Ulla\n"
->>>>>>> master
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:415
 msgid "Author and maintenance: Vlad Vasilyeu, <vlad@gas.by>\n"
@@ -527,11 +508,7 @@ msgstr "Vedro / Vetar"
 msgid "Clear Sky"
 msgstr "Vedro nebo"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:35
-=======
 #: omweather/src/hash.data:36
->>>>>>> master
 msgid "Clear sky"
 msgstr "Vedro nebo"
 
@@ -571,11 +548,7 @@ msgstr "Oblačno"
 msgid "Cloudy / Wind"
 msgstr "Oblačno / Vetar"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:44
-=======
 #: omweather/src/hash.data:45
->>>>>>> master
 msgid "Cloudy / Windy"
 msgstr "Oblačno / Vetrovito"
 
@@ -946,11 +919,7 @@ msgstr "Nije uspelo pokretanje GConf. Podešavanja nisu sačuvana.\n"
 msgid "Fair"
 msgstr "Vedro"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:85
-=======
 #: omweather/src/hash.data:86
->>>>>>> master
 msgid "Fair / Windy"
 msgstr "Vedro / Vetrovito"
 
@@ -1021,11 +990,7 @@ msgstr "Subjektivni osećaj"
 msgid "Fog"
 msgstr "Magla"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:96
-=======
 #: omweather/src/hash.data:97
->>>>>>> master
 msgid "Fog / Windy"
 msgstr "Magla / Vetrovito"
 
@@ -1078,11 +1043,7 @@ msgstr "Prognoza: \n"
 msgid "Freezing Drizzle"
 msgstr "Ledena kiša"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:99
-=======
 #: omweather/src/hash.data:100
->>>>>>> master
 msgid "Freezing Rain"
 msgstr "Ledena kiša"
 
@@ -1262,11 +1223,7 @@ msgstr "Vlažnost:"
 msgid "Hungarian - Salmi, László Kara\n"
 msgstr "Mađarski - Salmi, László Kara\n"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:119
-=======
 #: omweather/src/hash.data:120
->>>>>>> master
 msgid "Ice Early"
 msgstr "U ranijim satima led"
 
@@ -1402,11 +1359,7 @@ msgstr "Blaga kiša / Vetar"
 msgid "Light Rain / Wind Late"
 msgstr "Blaga kiša / Kasnije vetar"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:134
-=======
 #: omweather/src/hash.data:135
->>>>>>> master
 msgid "Light Rain / Windy"
 msgstr "Blaga kiša / Vetrovito"
 
@@ -1568,13 +1521,9 @@ msgstr "MeeCast"
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2016"
-<<<<<<< HEAD
-msgstr "MeeCast - višeplatformni visoko prilagodljiv klijent vremenske prognoze otvorenog koda baziran na OMWeather kodu. Copyright (C) 2006-2016"
-=======
 msgstr ""
 "MeeCast - višeplatformni visoko prilagodljiv klijent vremenske prognoze "
 "otvorenog koda baziran na OMWeather kodu. Copyright (C) 2006-2016"
->>>>>>> master
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -1632,11 +1581,7 @@ msgstr "Pretežno oblačno"
 msgid "Mostly Cloudy / Wind"
 msgstr "Pretežno oblačno / Vetar"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:166
-=======
 #: omweather/src/hash.data:167
->>>>>>> master
 msgid "Mostly Cloudy / Windy"
 msgstr "Pretežno oblačno / Vetrovito"
 
@@ -1995,11 +1940,7 @@ msgstr "Popodne kiša"
 msgid "PM Rain / Snow"
 msgstr "Popodne kiša / Sneg"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:226 omweather/src/hash.data:229
-=======
 #: omweather/src/hash.data:227 omweather/src/hash.data:230
->>>>>>> master
 msgid "PM Rain / Snow Showers"
 msgstr "Popodne Kiša / Snežni naleti"
 
@@ -2019,11 +1960,7 @@ msgstr "Popodne pljuskovi / Vetar"
 msgid "PM Snow"
 msgstr "Popodne sneg"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:235
-=======
 #: omweather/src/hash.data:236
->>>>>>> master
 msgid "PM Snow / Wind"
 msgstr "Popodne Sneg / Vetar"
 
@@ -2250,11 +2187,7 @@ msgstr "Kiša"
 msgid "Rain / Freezing Rain"
 msgstr "Kiša / Ledena kiša"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:271
-=======
 #: omweather/src/hash.data:272
->>>>>>> master
 msgid "Rain / Ice Early"
 msgstr "Kiša / U ranijim satima led"
 
@@ -2266,11 +2199,7 @@ msgstr "Kiša / Sneg"
 msgid "Rain / Snow / Wind"
 msgstr "Kiša / Sneg / Vetar"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:274
-=======
 #: omweather/src/hash.data:275
->>>>>>> master
 msgid "Rain / Snow / Wind Early"
 msgstr "Kiša / Sneg / U ranijim satima vetar"
 
@@ -2290,11 +2219,7 @@ msgstr "Kiša / Naleti snega"
 msgid "Rain / Snow Showers / Wind"
 msgstr "Kiša / Naleti snega / Vetar"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:278
-=======
 #: omweather/src/hash.data:279
->>>>>>> master
 msgid "Rain / Snow Showers Early"
 msgstr "Kiša / U ranijim satima naleti snega"
 
@@ -2342,11 +2267,7 @@ msgstr "Kiša i sneg"
 msgid "Rain and snow"
 msgstr "Kiša ili sneg"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:292
-=======
 #: omweather/src/hash.data:293
->>>>>>> master
 msgid "Rain to Snow"
 msgstr "Iz kiše u sneg"
 
@@ -2694,11 +2615,7 @@ msgstr "Sneg / Vetar"
 msgid "Snow Early"
 msgstr "U ranijim satima sneg"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:325
-=======
 #: omweather/src/hash.data:326
->>>>>>> master
 msgid "Snow Late"
 msgstr "U kasnim satima sneg"
 
@@ -3249,11 +3166,7 @@ msgstr "Promenjljivo zimsko / Vetar"
 msgid "Wintry Mix / Wind Early"
 msgstr "Promenljivo zimsko / U ranijim satima vetar"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:375
-=======
 #: omweather/src/hash.data:376
->>>>>>> master
 msgid "Wintry Mix / Windy"
 msgstr "Promenjljivo zimsko / Vetrovito"
 

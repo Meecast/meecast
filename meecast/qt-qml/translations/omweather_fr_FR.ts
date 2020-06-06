@@ -347,6 +347,10 @@ W : </translation>
             <translation>Matin : averses de neige / vent en soirée</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">Averses orageuses l'après-midi</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">Précipitations hivernales</translation>
         </message>

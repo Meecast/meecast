@@ -346,6 +346,10 @@ W:</translation>
             <translation>FM Snöbyar / Senare vind</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">EM Åskskurar</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation>Snöblandat regn på förmiddagen</translation>
         </message>

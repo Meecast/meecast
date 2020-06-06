@@ -347,6 +347,10 @@ O:</translation>
             <translation>AM Aguaceiros Neve / Vento Final Dia</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">PM Aguaceiros</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">Tempo Instável</translation>
         </message>

@@ -347,6 +347,10 @@ W: </translation>
             <translation>Rano przelotny śnieg / później wiatr</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">Rano przelotne deszcze</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">Deszcz ze śniegiem</translation>
         </message>

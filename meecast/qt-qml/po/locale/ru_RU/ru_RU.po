@@ -9,11 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-<<<<<<< HEAD
-"POT-Creation-Date: 2020-01-20 15:21+0300\n"
-=======
 "POT-Creation-Date: 2020-06-06 20:20+0300\n"
->>>>>>> master
 "PO-Revision-Date: 2020-06-06 17:17+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/vasvlad/meecast/language/ru/)\n"
@@ -271,12 +267,6 @@ msgid "AM Snow Showers / Wind Late"
 msgstr "До полудня снегопады / Позже ветер"
 
 #: omweather/src/hash.data:28
-<<<<<<< HEAD
-msgid "AM Wintry Mix"
-msgstr ""
-
-#: omweather/src/hash.data:29
-=======
 #, fuzzy
 msgid "AM T-Showers"
 msgstr "После грозовые ливни"
@@ -286,7 +276,6 @@ msgid "AM Wintry Mix"
 msgstr ""
 
 #: omweather/src/hash.data:30
->>>>>>> master
 msgid "AM Wintry Mix / Wind"
 msgstr ""
 
@@ -537,11 +526,7 @@ msgstr "Облачно"
 msgid "Cloudy / Wind"
 msgstr "Облачно / Ветер"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:44
-=======
 #: omweather/src/hash.data:45
->>>>>>> master
 msgid "Cloudy / Windy"
 msgstr "Облачно / Ветрено"
 
@@ -912,11 +897,7 @@ msgstr "Не возможно инициализировать GConf. Настр
 msgid "Fair"
 msgstr "Ясная погода"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:85
-=======
 #: omweather/src/hash.data:86
->>>>>>> master
 msgid "Fair / Windy"
 msgstr ""
 
@@ -2214,11 +2195,7 @@ msgstr "Дождь / Снегопады"
 msgid "Rain / Snow Showers / Wind"
 msgstr "Дождь / Снегопады / Ветер"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:278
-=======
 #: omweather/src/hash.data:279
->>>>>>> master
 msgid "Rain / Snow Showers Early"
 msgstr "Дождь / С утра снегопады"
 

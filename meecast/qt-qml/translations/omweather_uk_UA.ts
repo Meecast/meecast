@@ -333,6 +333,10 @@ W: </source>
             <translation>До полудня снігопади / Пізніше вітер</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">Після полудня грозові зливи</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">Сніг з дощем</translation>
         </message>

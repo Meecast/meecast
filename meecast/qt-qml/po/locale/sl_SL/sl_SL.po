@@ -9,11 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-<<<<<<< HEAD
-"POT-Creation-Date: 2020-01-20 15:21+0300\n"
-=======
 "POT-Creation-Date: 2020-06-06 20:20+0300\n"
->>>>>>> master
 "PO-Revision-Date: 2020-01-20 21:08+0000\n"
 "Last-Translator: Boštjan Štrumbelj <sponka@gmail.com>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/vasvlad/meecast/language/sl_SI/)\n"
@@ -271,12 +267,6 @@ msgid "AM Snow Showers / Wind Late"
 msgstr "Dopoldanske snežne plohe / v poznih urah veter"
 
 #: omweather/src/hash.data:28
-<<<<<<< HEAD
-msgid "AM Wintry Mix"
-msgstr "Dopoldan sneg z dežjem"
-
-#: omweather/src/hash.data:29
-=======
 #, fuzzy
 msgid "AM T-Showers"
 msgstr "Popoldanske nevihte z grmenjem in bliskanjem"
@@ -286,7 +276,6 @@ msgid "AM Wintry Mix"
 msgstr "Dopoldan sneg z dežjem"
 
 #: omweather/src/hash.data:30
->>>>>>> master
 msgid "AM Wintry Mix / Wind"
 msgstr "Dopoldan sneg z dežjem / veter"
 
@@ -537,11 +526,7 @@ msgstr "Oblačno"
 msgid "Cloudy / Wind"
 msgstr "Oblačno / veter"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:44
-=======
 #: omweather/src/hash.data:45
->>>>>>> master
 msgid "Cloudy / Windy"
 msgstr "Oblačno / vetrovno"
 
@@ -912,11 +897,7 @@ msgstr "Neuspešen zagon GConf. Nastavitve niso shranjene.\n"
 msgid "Fair"
 msgstr "Jasno"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:85
-=======
 #: omweather/src/hash.data:86
->>>>>>> master
 msgid "Fair / Windy"
 msgstr "Jasno / vetrovno"
 
@@ -2214,11 +2195,7 @@ msgstr "Dež / snežne plohe"
 msgid "Rain / Snow Showers / Wind"
 msgstr "Dež / snežne plohe / veter"
 
-<<<<<<< HEAD
-#: omweather/src/hash.data:278
-=======
 #: omweather/src/hash.data:279
->>>>>>> master
 msgid "Rain / Snow Showers Early"
 msgstr "Dež / v zgodnjih urah snežne plohe"
 

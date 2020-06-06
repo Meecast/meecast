@@ -347,6 +347,10 @@ W: </translation>
             <translation>AM Snow Showers / Wind Late</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">PM T-Showers</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">Wintry Mix</translation>
         </message>

@@ -347,6 +347,10 @@ Vie: </translation>
             <translation>Por la mañana chubascos de nieve / viento luego</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">Chubascos tormentosos por la noche</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">Agua nieve</translation>
         </message>

@@ -333,6 +333,10 @@ W: </source>
             <translation>de. hózáporok / szeles délután</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">du. zivatarok</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">Havas eső</translation>
         </message>

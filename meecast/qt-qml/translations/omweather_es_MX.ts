@@ -351,6 +351,10 @@ Vie: </translation>
             <translation>Por la mañana chaparrones de nieve / viento luego</translation>
         </message>
         <message>
+            <source>AM T-Showers</source>
+            <translation type="unfinished">Chaparrones por la noche</translation>
+        </message>
+        <message>
             <source>AM Wintry Mix</source>
             <translation type="unfinished">Agua nieve</translation>
         </message>

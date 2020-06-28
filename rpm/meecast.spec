@@ -49,7 +49,7 @@ BuildRequires: qt5-qtpositioning-devel
 MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code
 
 %package daemon
-Version: 1.4
+Version: 1.5
 Release: 1 
 Summary: Daemon for Weather forecast application MeeCast on SailfishOS
 Group:      Utility

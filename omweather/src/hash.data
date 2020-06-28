@@ -115,6 +115,7 @@
     g_hash_table_insert(hash, (void*)"Heavy Snow Shower", _("Heavy Snow Shower"));
     g_hash_table_insert(hash, (void*)"Heavy Snow / Wind", _("Heavy Snow / Wind"));
     g_hash_table_insert(hash, (void*)"Heavy Thunder", _("Heavy Thunder"));
+    g_hash_table_insert(hash, (void*)"Heavy T-Storms", _("Heavy T-Storms"));
     g_hash_table_insert(hash, (void*)"High", _("High"));
     g_hash_table_insert(hash, (void*)"Ice Pellets", _("Ice Pellets"));
     g_hash_table_insert(hash, (void*)"Ice Early", _("Ice Early"));

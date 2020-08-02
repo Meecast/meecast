@@ -793,7 +793,8 @@ parse_and_write_html_data(const gchar *station_id, htmlDocPtr doc, const gchar *
     struct tm time_tm1;
     struct tm time_tm2;
 
-    char buffer[512000];
+    #define MAX_BUFF_SIZE 512000
+    char buffer[MAX_BUFF_SIZE];
     Json::Value root;   // will contains the root value after parsing.
     Json::Reader reader;
     Json::Value val;
@@ -854,9 +855,33 @@ parse_and_write_html_data(const gchar *station_id, htmlDocPtr doc, const gchar *
 
     //fprintf(stderr, "length %s\n", xpathObj->nodesetval->nodeTab[0]->content  + 14);
     
-    snprintf(buffer, xmlStrlen(xpathObj->nodesetval->nodeTab[0]->content) - 14, "%s", xpathObj->nodesetval->nodeTab[0]->content + 14);
-    //fprintf(stderr, "%s\n", buffer);
-    bool parsingSuccessful = reader.parse(buffer, root, false);
+    snprintf(buffer, xmlStrlen(xpathObj->nodesetval->nodeTab[0]->content) - 14 - 12, "%s", xpathObj->nodesetval->nodeTab[0]->content + 14 + 12);
+
+    // normalization for json
+    char buffer_additional[MAX_BUFF_SIZE];
+
+    auto d = strlen(buffer);
+    auto j = 0;
+    for (auto i=0; i<d; i++)
+        if (i<d-1){
+            if ((buffer[i]=='\\')&&(buffer[i+1]=='\\'&&(buffer[i+2]=='"'))){
+                buffer_additional[j++] = '"';
+                i++;
+                i++;
+                continue;
+            }
+            if ((buffer[i]=='\\')&&(buffer[i+1]=='"')){
+                buffer_additional[j++] = '"';
+                i++;
+            }else{
+                buffer_additional[j++] = buffer[i];
+            }
+        }else{
+            buffer_additional[j++] = buffer[i];
+        }
+    buffer_additional[j] = '\0';
+    //fprintf(stderr, "%s\n", buffer_additional);
+    bool parsingSuccessful = reader.parse(buffer_additional, root, false);
 
     if (!parsingSuccessful)
         return -1;

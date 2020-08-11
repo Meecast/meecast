@@ -560,9 +560,9 @@ parse_and_write_html_data(const gchar *station_id, htmlDocPtr doc, const gchar *
     // normalization for json
     char buffer_additional[MAX_BUFF_SIZE];
 
-    auto d = strlen(buffer);
-    auto j = 0;
-    for (auto i=0; i<d; i++)
+    long d = strlen(buffer);
+    long j = 0;
+    for (long i=0; i<d; i++)
         if (i<d-1){
             if ((buffer[i]=='\\')&&(buffer[i+1]=='\\'&&(buffer[i+2]=='"'))){
                 buffer_additional[j++] = '"';

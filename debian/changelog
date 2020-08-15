@@ -1,9 +1,15 @@
+meecast (1.1.28) unstable; urgency=low
+
+  * Fixed problem with weather.com source
+
+ -- Vlad Vasiliev <vlad@gas.by> Tue, 11 Aug 2020 21:02:23 +0300
+
 meecast (1.1.26) unstable; urgency=low
 
   * Updated translations
   * Fixed problem with weather.com source
 
- -- Vlad Vasiliev <vlad@gas.by> Sun, 07 Jun 2020 18:02:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by> Sun, 07 Jun 2020 18:02:23 +0300
 
 meecast (1.1.25) unstable; urgency=low
 

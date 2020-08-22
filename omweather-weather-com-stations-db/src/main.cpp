@@ -612,104 +612,126 @@ parse_and_write_html_data(const gchar *station_id, htmlDocPtr doc, const gchar *
             fprintf(file_out,"      <visible>%i</visible>\n",(int)(val.get("visibility","").asDouble()*1000) );
             fprintf(file_out,"    </period>\n");
     }
-    if (!root["dal"]["getSunV3DailyForecastUrlConfig"][root["dal"]["getSunV3DailyForecastUrlConfig"].getMemberNames()[0]]["data"]["validTimeUtc"].isArray())
-        return -1;
-    val = root["dal"]["getSunV3DailyForecastUrlConfig"][root["dal"]["getSunV3DailyForecastUrlConfig"].getMemberNames()[0]]["data"]["validTimeUtc"];
-    node = root["dal"]["getSunV3DailyForecastUrlConfig"][root["dal"]["getSunV3DailyForecastUrlConfig"].getMemberNames()[0]]["data"];
-    for (uint i = 0; i < val.size(); i++){
-        std::string utc_time_string;
-        std::string sunrise_time_string;
-        std::string sunset_time_string;
-        std::string temp_hi_string;
-        std::string temp_low_string;
-        std::string icon_day_string;
-        std::string icon_night_string;
-        std::string desc_day_string;
-        std::string desc_night_string;
-        std::string wind_direct_day_string;
-        std::string wind_direct_night_string;
-        std::string wind_speed_day_string;
-        std::string wind_speed_night_string;
-        std::string humidity_day_string;
-        std::string humidity_night_string;
-        std::string ppcp_day_string;
-        std::string ppcp_night_string;
-        std::string uv_index_day_string;
-        std::string uv_index_night_string;
-        time_t utc_time = 0;
-        time_t sunrise_time = 0;
-        time_t sunset_time = 0;
-        time_t offset_time = 0;
 
-        utc_time = node["validTimeUtc"][i].asInt();
-        sunrise_time = node["sunriseTimeUtc"][i].asInt();
-        sunset_time = node["sunsetTimeUtc"][i].asInt();
-        temp_hi_string = node["temperatureMax"][i].asString();
-        temp_low_string = node["temperatureMin"][i].asString();
-        icon_day_string = node["daypart"][0]["iconCode"][i*2].asString();
-        icon_night_string = node["daypart"][0]["iconCode"][i*2 + 1].asString();
-        desc_day_string = node["daypart"][0]["wxPhraseLong"][i*2].asString();
-        desc_night_string = node["daypart"][0]["wxPhraseLong"][i*2 + 1].asString();
-        wind_direct_day_string = node["daypart"][0]["windDirectionCardinal"][i*2].asString();
-        wind_direct_night_string = node["daypart"][0]["windDirectionCardinal"][i*2 + 1].asString();
-        wind_speed_day_string = node["daypart"][0]["windSpeed"][i*2].asString();
-        wind_speed_night_string = node["daypart"][0]["windSpeed"][i*2 + 1].asString();
-        humidity_day_string = node["daypart"][0]["relativeHumidity"][i*2].asString();
-        humidity_night_string = node["daypart"][0]["relativeHumidity"][i*2 + 1].asString();
-        ppcp_day_string = node["daypart"][0]["precipChance"][i*2].asString();
-        ppcp_night_string = node["daypart"][0]["precipChance"][i*2 + 1].asString();;
-        uv_index_day_string = node["daypart"][0]["uvIndex"][i*2].asString();
-        uv_index_night_string = node["daypart"][0]["uvIndex"][i*2 + 1].asString();
-        
-        setlocale(LC_TIME, "");
-        /* get timezone */
-        if (!check_timezone){
-            char buffer_zone[4];
+    if (!root["dal"]["getSunV3DailyForecastWithHeadersUrlConfig"].empty() &&
+        root["dal"]["getSunV3DailyForecastWithHeadersUrlConfig"][root["dal"]["getSunV3DailyForecastWithHeadersUrlConfig"].getMemberNames()[0]]["data"]["validTimeUtc"].isArray()){
+       
+        val = root["dal"]["getSunV3DailyForecastWithHeadersUrlConfig"][root["dal"]["getSunV3DailyForecastWithHeadersUrlConfig"].getMemberNames()[0]]["data"]["validTimeUtc"];
+        node = root["dal"]["getSunV3DailyForecastWithHeadersUrlConfig"][root["dal"]["getSunV3DailyForecastWithHeadersUrlConfig"].getMemberNames()[0]]["data"];
+        for (uint i = 0; i < val.size(); i++){
+            std::string utc_time_string;
+            std::string sunrise_time_string;
+            std::string sunset_time_string;
+            std::string temp_hi_string;
+            std::string temp_low_string;
+            std::string icon_day_string;
+            std::string icon_night_string;
+            std::string desc_day_string;
+            std::string desc_night_string;
+            std::string wind_direct_day_string;
+            std::string wind_direct_night_string;
+            std::string wind_speed_day_string;
+            std::string wind_speed_night_string;
+            std::string humidity_day_string;
+            std::string humidity_night_string;
+            std::string ppcp_day_string;
+            std::string ppcp_night_string;
+            std::string uv_index_day_string;
+            std::string uv_index_night_string;
+            time_t utc_time = 0;
+            time_t sunrise_time = 0;
+            time_t sunset_time = 0;
+            time_t offset_time = 0;
 
-            utc_time_string = node["validTimeLocal"][i].asString();
-            memset(buffer_zone, 0, sizeof(buffer_zone));
-            snprintf(buffer_zone, sizeof(buffer_zone), "%s", utc_time_string.c_str() + 19);
-            timezone = atoi(buffer_zone);
-            fprintf(file_out,"  <timezone>%i</timezone>\n", timezone);
-            check_timezone = true;
-            first_day = true;
+            utc_time = node["validTimeUtc"][i].asInt();
+            sunrise_time = node["sunriseTimeUtc"][i].asInt();
+            sunset_time = node["sunsetTimeUtc"][i].asInt();
+            temp_hi_string = node["temperatureMax"][i].asString();
+            temp_low_string = node["temperatureMin"][i].asString();
+            icon_day_string = node["daypart"][0]["iconCode"][i*2].asString();
+            icon_night_string = node["daypart"][0]["iconCode"][i*2 + 1].asString();
+            desc_day_string = node["daypart"][0]["wxPhraseLong"][i*2].asString();
+            desc_night_string = node["daypart"][0]["wxPhraseLong"][i*2 + 1].asString();
+            wind_direct_day_string = node["daypart"][0]["windDirectionCardinal"][i*2].asString();
+            wind_direct_night_string = node["daypart"][0]["windDirectionCardinal"][i*2 + 1].asString();
+            wind_speed_day_string = node["daypart"][0]["windSpeed"][i*2].asString();
+            wind_speed_night_string = node["daypart"][0]["windSpeed"][i*2 + 1].asString();
+            humidity_day_string = node["daypart"][0]["relativeHumidity"][i*2].asString();
+            humidity_night_string = node["daypart"][0]["relativeHumidity"][i*2 + 1].asString();
+            ppcp_day_string = node["daypart"][0]["precipChance"][i*2].asString();
+            ppcp_night_string = node["daypart"][0]["precipChance"][i*2 + 1].asString();;
+            uv_index_day_string = node["daypart"][0]["uvIndex"][i*2].asString();
+            uv_index_night_string = node["daypart"][0]["uvIndex"][i*2 + 1].asString();
             
-        }    
+            setlocale(LC_TIME, "");
+            /* get timezone */
+            if (!check_timezone){
+                char buffer_zone[4];
 
-        if (desc_night_string != "" && icon_night_string != ""){
-            fprintf(file_out,"    <period start=\"%li\"", utc_time);
-            fprintf(file_out," end=\"%li\">\n", sunrise_time); 
-            if (temp_hi_string != ""){
-                fprintf(file_out,"      <temperature_hi>%s</temperature_hi>\n", temp_hi_string.c_str());
-            }else{
-                fprintf(file_out,"      <temperature_hi>%s</temperature_hi>\n", temp_low_string.c_str());
-            }
-            fprintf(file_out,"      <temperature_low>%s</temperature_low>\n", temp_low_string.c_str());
-            fprintf(file_out,"      <icon>%s</icon>\n", icon_night_string.c_str());
-            fprintf(file_out,"      <description>%s</description>\n", desc_night_string.c_str());
-            fprintf(file_out,"      <wind_direction>%s</wind_direction>\n", wind_direct_night_string.c_str());
-            fprintf(file_out,"      <wind_speed>%1.f</wind_speed>\n", (double)(atoi( wind_speed_night_string.c_str())) * 1000/3600);
-            fprintf(file_out,"      <humidity>%s</humidity>\n", humidity_night_string.c_str());
-            fprintf(file_out,"      <ppcp>%s</ppcp>\n", ppcp_night_string.c_str());
-            fprintf(file_out,"      <uv_index>%s</uv_index>\n", uv_index_night_string.c_str());
-            fprintf(file_out,"    </period>\n");
-        }
-        if (desc_day_string != "" && icon_day_string != ""){
-            fprintf(file_out,"    <period start=\"%li\"", sunrise_time);
-            fprintf(file_out," end=\"%li\">\n", sunset_time); 
-            fprintf(file_out,"      <temperature_hi>%s</temperature_hi>\n", temp_hi_string.c_str());
-            fprintf(file_out,"      <temperature_low>%s</temperature_low>\n", temp_low_string.c_str());
-            fprintf(file_out,"      <icon>%s</icon>\n", icon_day_string.c_str());
-            fprintf(file_out,"      <description>%s</description>\n", desc_day_string.c_str());
-            fprintf(file_out,"      <wind_direction>%s</wind_direction>\n", wind_direct_day_string.c_str());
-            fprintf(file_out,"      <wind_speed>%1.f</wind_speed>\n", (double)(atoi( wind_speed_day_string.c_str())) * 1000/3600);
-            fprintf(file_out,"      <humidity>%s</humidity>\n", humidity_day_string.c_str());
-            fprintf(file_out,"      <ppcp>%s</ppcp>\n", ppcp_day_string.c_str());
-            fprintf(file_out,"      <uv_index>%s</uv_index>\n", uv_index_day_string.c_str());
-            fprintf(file_out,"    </period>\n");
-        }else{
+                utc_time_string = node["validTimeLocal"][i].asString();
+                memset(buffer_zone, 0, sizeof(buffer_zone));
+                snprintf(buffer_zone, sizeof(buffer_zone), "%s", utc_time_string.c_str() + 19);
+                timezone = atoi(buffer_zone);
+                fprintf(file_out,"  <timezone>%i</timezone>\n", timezone);
+                check_timezone = true;
+                first_day = true;
+                
+            }    
+
             if (desc_night_string != "" && icon_night_string != ""){
                 fprintf(file_out,"    <period start=\"%li\"", utc_time);
+                fprintf(file_out," end=\"%li\">\n", sunrise_time); 
+                if (temp_hi_string != ""){
+                    fprintf(file_out,"      <temperature_hi>%s</temperature_hi>\n", temp_hi_string.c_str());
+                }else{
+                    fprintf(file_out,"      <temperature_hi>%s</temperature_hi>\n", temp_low_string.c_str());
+                }
+                fprintf(file_out,"      <temperature_low>%s</temperature_low>\n", temp_low_string.c_str());
+                fprintf(file_out,"      <icon>%s</icon>\n", icon_night_string.c_str());
+                fprintf(file_out,"      <description>%s</description>\n", desc_night_string.c_str());
+                fprintf(file_out,"      <wind_direction>%s</wind_direction>\n", wind_direct_night_string.c_str());
+                fprintf(file_out,"      <wind_speed>%1.f</wind_speed>\n", (double)(atoi( wind_speed_night_string.c_str())) * 1000/3600);
+                fprintf(file_out,"      <humidity>%s</humidity>\n", humidity_night_string.c_str());
+                fprintf(file_out,"      <ppcp>%s</ppcp>\n", ppcp_night_string.c_str());
+                fprintf(file_out,"      <uv_index>%s</uv_index>\n", uv_index_night_string.c_str());
+                fprintf(file_out,"    </period>\n");
+            }
+            if (desc_day_string != "" && icon_day_string != ""){
+                fprintf(file_out,"    <period start=\"%li\"", sunrise_time);
+                fprintf(file_out," end=\"%li\">\n", sunset_time); 
+                fprintf(file_out,"      <temperature_hi>%s</temperature_hi>\n", temp_hi_string.c_str());
+                fprintf(file_out,"      <temperature_low>%s</temperature_low>\n", temp_low_string.c_str());
+                fprintf(file_out,"      <icon>%s</icon>\n", icon_day_string.c_str());
+                fprintf(file_out,"      <description>%s</description>\n", desc_day_string.c_str());
+                fprintf(file_out,"      <wind_direction>%s</wind_direction>\n", wind_direct_day_string.c_str());
+                fprintf(file_out,"      <wind_speed>%1.f</wind_speed>\n", (double)(atoi( wind_speed_day_string.c_str())) * 1000/3600);
+                fprintf(file_out,"      <humidity>%s</humidity>\n", humidity_day_string.c_str());
+                fprintf(file_out,"      <ppcp>%s</ppcp>\n", ppcp_day_string.c_str());
+                fprintf(file_out,"      <uv_index>%s</uv_index>\n", uv_index_day_string.c_str());
+                fprintf(file_out,"    </period>\n");
+            }else{
+                if (desc_night_string != "" && icon_night_string != ""){
+                    fprintf(file_out,"    <period start=\"%li\"", utc_time);
+                    fprintf(file_out," end=\"%li\">\n", utc_time +  24*3600); 
+                    if (temp_hi_string != ""){
+                        fprintf(file_out,"      <temperature_hi>%s</temperature_hi>\n", temp_hi_string.c_str());
+                    }else{
+                        fprintf(file_out,"      <temperature_hi>%s</temperature_hi>\n", temp_low_string.c_str());
+                    }
+                    fprintf(file_out,"      <temperature_low>%s</temperature_low>\n", temp_low_string.c_str());
+                    fprintf(file_out,"      <icon>%s</icon>\n", icon_night_string.c_str());
+                    fprintf(file_out,"      <description>%s</description>\n", desc_night_string.c_str());
+                    fprintf(file_out,"      <wind_direction>%s</wind_direction>\n", wind_direct_night_string.c_str());
+                    fprintf(file_out,"      <wind_speed>%1.f</wind_speed>\n", (double)(atoi( wind_speed_night_string.c_str())) * 1000/3600);
+                    fprintf(file_out,"      <humidity>%s</humidity>\n", humidity_night_string.c_str());
+                    fprintf(file_out,"      <ppcp>%s</ppcp>\n", ppcp_night_string.c_str());
+                    fprintf(file_out,"      <uv_index>%s</uv_index>\n", uv_index_night_string.c_str());
+                    fprintf(file_out,"    </period>\n");
+                }
+
+            }
+            if (desc_night_string != "" && icon_night_string != ""){
+                fprintf(file_out,"    <period start=\"%li\"", sunset_time);
                 fprintf(file_out," end=\"%li\">\n", utc_time +  24*3600); 
                 if (temp_hi_string != ""){
                     fprintf(file_out,"      <temperature_hi>%s</temperature_hi>\n", temp_hi_string.c_str());
@@ -726,31 +748,12 @@ parse_and_write_html_data(const gchar *station_id, htmlDocPtr doc, const gchar *
                 fprintf(file_out,"      <uv_index>%s</uv_index>\n", uv_index_night_string.c_str());
                 fprintf(file_out,"    </period>\n");
             }
-
-        }
-        if (desc_night_string != "" && icon_night_string != ""){
-            fprintf(file_out,"    <period start=\"%li\"", sunset_time);
+            fprintf(file_out,"    <period start=\"%li\"", utc_time);
             fprintf(file_out," end=\"%li\">\n", utc_time +  24*3600); 
-            if (temp_hi_string != ""){
-                fprintf(file_out,"      <temperature_hi>%s</temperature_hi>\n", temp_hi_string.c_str());
-            }else{
-                fprintf(file_out,"      <temperature_hi>%s</temperature_hi>\n", temp_low_string.c_str());
-            }
-            fprintf(file_out,"      <temperature_low>%s</temperature_low>\n", temp_low_string.c_str());
-            fprintf(file_out,"      <icon>%s</icon>\n", icon_night_string.c_str());
-            fprintf(file_out,"      <description>%s</description>\n", desc_night_string.c_str());
-            fprintf(file_out,"      <wind_direction>%s</wind_direction>\n", wind_direct_night_string.c_str());
-            fprintf(file_out,"      <wind_speed>%1.f</wind_speed>\n", (double)(atoi( wind_speed_night_string.c_str())) * 1000/3600);
-            fprintf(file_out,"      <humidity>%s</humidity>\n", humidity_night_string.c_str());
-            fprintf(file_out,"      <ppcp>%s</ppcp>\n", ppcp_night_string.c_str());
-            fprintf(file_out,"      <uv_index>%s</uv_index>\n", uv_index_night_string.c_str());
+            fprintf(file_out,"      <sunrise>%li</sunrise>\n", sunrise_time);
+            fprintf(file_out,"      <sunset>%li</sunset>\n", sunset_time);
             fprintf(file_out,"    </period>\n");
         }
-        fprintf(file_out,"    <period start=\"%li\"", utc_time);
-        fprintf(file_out," end=\"%li\">\n", utc_time +  24*3600); 
-        fprintf(file_out,"      <sunrise>%li</sunrise>\n", sunrise_time);
-        fprintf(file_out,"      <sunset>%li</sunset>\n", sunset_time);
-        fprintf(file_out,"    </period>\n");
     }
 
     for (uint j = 0; j < 2; j++){

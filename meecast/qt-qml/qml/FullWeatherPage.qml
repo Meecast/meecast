@@ -633,6 +633,7 @@ Page {
                     }
                 }
             }
+            /*
 	        Rectangle {
                id: map_rect  
                visible: (count_of_maps > 0) ? true : false
@@ -662,7 +663,8 @@ Page {
                                          )
                     }
                }
-	        }
+           }
+           */
         }
         ListView {
                 id: hours_list

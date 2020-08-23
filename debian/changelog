@@ -1,6 +1,7 @@
 meecast (1.1.29) unstable; urgency=low
 
   * Fixed problem with weather.com source again
+  * Disabled 'Show on maps" and support email
 
  -- Vlad Vasiliev <vlad@gas.by> Sat, 22 Aug 2020 11:02:23 +0300
 

@@ -14,7 +14,7 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    1.1.29
+Version:    1.1.30
 Release:    1 
 Group:      Utility
 License:    GPLv2.1
@@ -49,7 +49,7 @@ BuildRequires: qt5-qtpositioning-devel
 MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code
 
 %package daemon
-Version: 1.7
+Version: 1.8
 Release: 1 
 Summary: Daemon for Weather forecast application MeeCast on SailfishOS
 Group:      Utility
@@ -174,6 +174,9 @@ systemctl-user start meecastd.service
 
 
 %changelog
+
+* Tue Aug 25 2020 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.30
+  * Small fixes
 
 * Sun Aug 22 2020 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.29
   * Fixed problem with weather.com source (again) 

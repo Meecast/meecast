@@ -586,7 +586,8 @@ parse_and_write_html_data(const gchar *station_id, htmlDocPtr doc, const gchar *
     if (!parsingSuccessful)
         return -1;
 
-    if (root["dal"]["getSunV3CurrentObservationsUrlConfig"][root["dal"]["getSunV3CurrentObservationsUrlConfig"].getMemberNames()[0]]["data"].isObject()){
+    if (!root["dal"]["getSunV3CurrentObservationsUrlConfig"].empty() &&
+        root["dal"]["getSunV3CurrentObservationsUrlConfig"][root["dal"]["getSunV3CurrentObservationsUrlConfig"].getMemberNames()[0]]["data"].isObject()){
 
         val = root["dal"]["getSunV3CurrentObservationsUrlConfig"][root["dal"]["getSunV3CurrentObservationsUrlConfig"].getMemberNames()[0]]["data"];
         std::string current_time_string;
@@ -757,7 +758,8 @@ parse_and_write_html_data(const gchar *station_id, htmlDocPtr doc, const gchar *
     }
 
     for (uint j = 0; j < 2; j++){
-        if (root["dal"]["getSunV3HourlyForecastUrlConfig"][root["dal"]["getSunV3HourlyForecastUrlConfig"].getMemberNames()[j]]["data"]["validTimeUtc"].isArray()){
+        if (!root["dal"]["getSunV3HourlyForecastUrlConfig"].empty() &&
+            root["dal"]["getSunV3HourlyForecastUrlConfig"][root["dal"]["getSunV3HourlyForecastUrlConfig"].getMemberNames()[j]]["data"]["validTimeUtc"].isArray()){
             val = root["dal"]["getSunV3HourlyForecastUrlConfig"][root["dal"]["getSunV3HourlyForecastUrlConfig"].getMemberNames()[j]]["data"]["validTimeUtc"];
             node = root["dal"]["getSunV3HourlyForecastUrlConfig"][root["dal"]["getSunV3HourlyForecastUrlConfig"].getMemberNames()[j]]["data"];
             for (uint i = 0; i < val.size(); i++){

@@ -112,8 +112,7 @@ anchors.right: parent.right
             id: splitter
             color: "#999999"
             x: 20; width: parent.width - 40; height: 2
-    //        anchors.top: projectfulltext.bottom
-            anchors.top: projectsitetext.bottom
+            anchors.top: aboutfulltext.bottom
             anchors.leftMargin: 20
             anchors.topMargin: 50
         }

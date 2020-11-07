@@ -39,6 +39,16 @@ unix {
     installPath = $$[QT_INSTALL_QML]/$$replace(uri, \\., /)
     qmldir.path = $$installPath
     target.path = $$installPath
+    exists("/usr/lib/qt5/qml/Sailfish/Silica/SilicaGridView.qml"): {
+        qmldir.path = /usr/lib/qt5/qml/Sailfish/Weather
+        target.path = /usr/lib/qt5/qml/Sailfish/Weather
+    }
+
+    exists("/usr/lib64/qt5/qml/Sailfish/Silica/SilicaGridView.qml"): {
+        qmldir.path = /usr/lib64/qt5/qml/Sailfish/Weather
+        target.path = /usr/lib64/qt5/qml/Sailfish/Weather
+    }
+
     INSTALLS += target qmldir qml 
 }
 

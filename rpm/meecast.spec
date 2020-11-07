@@ -9,7 +9,7 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    1.1.32
+Version:    1.1.33
 Release:    1 
 Group:      Utility
 License:    GPLv2.1
@@ -85,12 +85,10 @@ MeeCast event widget for multiplatform highly customizable open source weather f
 
 %build
 # >> build pre
-#export PATH=/usr/lib/qt4/bin:$PATH
-%qtc_qmake5
-%qtc_make %{?_smp_mflags}
-#make
-# << build pre
 
+%qtc_qmake5 meecast.pro
+# << build pre
+%qtc_make %{?_smp_mflags}
 
 # >> build post
 # << build post

@@ -19,8 +19,11 @@ OTHER_FILES = qmldir
 
 qml.files += WeatherBanner.qml
 qml.files += WeatherIndicator.qml
-qml.path = /usr/lib/qt5/qml/Sailfish/Weather
-
+contains(QT_ARCH, i386) {
+    qml.path = /usr/lib/qt5/qml/Sailfish/Weather
+} else {
+    qml.path = /usr/lib64/qt5/qml/Sailfish/Weather
+}
 
 
 !equals(_PRO_FILE_PWD_, $$OUT_PWD) {

@@ -20,6 +20,11 @@ exists($$QMAKE_INCDIR_QT"/../qmsystem2/qmkeys.h"):contains(MEEGO_EDITION,harmatt
 exists("/usr/lib/qt5/qml/Sailfish/Silica/SilicaGridView.qml"): {
     DEFINES += SAILFISHOS 
 }
+
+exists("/usr/lib64/qt5/qml/Sailfish/Silica/SilicaGridView.qml"): {
+    DEFINES += SAILFISHOS
+}
+
 SOURCES += main.cpp \
     dataqml.cpp \
     configqml.cpp \

@@ -100,6 +100,7 @@ Page {
                     }
                 }
             }
+            /*
             Row {
                 width: parent.width
                 TextSwitch {
@@ -138,6 +139,7 @@ Page {
                     }
         	    }
             }
+            */
 
             SectionHeader {
                 text: "Cover Page"

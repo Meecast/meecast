@@ -84,6 +84,8 @@ MeeCast event widget for multiplatform highly customizable open source weather f
 # << setup
 
 %build
+pwd
+ls
 # >> build pre
 #export PATH=/usr/lib/qt4/bin:$PATH
 %qtc_qmake5

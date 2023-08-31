@@ -303,7 +303,7 @@ main (int argc, char *argv[]){
                                    config->Standbyscreen(), 
                                    t.toString("dd MMM h:mm")); 
         */
-        QFile current_file("/home/nemo/.cache/harbour-meecast/current.xml");
+        QFile current_file(QDir::homePath() + "/.cache/harbour-meecast/current.xml");
 
         if (current_file.open(QIODevice::WriteOnly)){
             QXmlStreamWriter* xmlWriter = new QXmlStreamWriter();

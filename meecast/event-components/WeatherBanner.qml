@@ -165,7 +165,7 @@ BackgroundItem {
             }
 
             Column {
-                width:  parent.width - temperature.width - icon.width 
+                width:  parent.width - temperature.width - icon.width
                 Label {
                     id: stationname
                     width: parent.width
@@ -526,6 +526,8 @@ BackgroundItem {
             opacity: 0.0
             id: lastupdate_row
             width: parent.width
+            anchors.right: parent.right
+            anchors.rightMargin: Theme.horizontalPageMargin
             states: State {
                 name: "expanded"
                 when: weatherData.expanded
@@ -539,7 +541,7 @@ BackgroundItem {
             Label {
                 id: last_update
                 width: parent.width
-                font.pixelSize: Theme.fontSizeSmall 
+                font.pixelSize: Theme.fontSizeExtraSmall
                 color: Theme.secondaryColor
                 horizontalAlignment: Text.AlignRight
                 text: "Last update: " + weatherData.meecastData.forecastdata["last_update"]

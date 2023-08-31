@@ -14,6 +14,10 @@ exists("/usr/lib/qt5/qml/Sailfish/Silica/SilicaGridView.qml"): {
     DEFINES += SAILFISHOS 
 }
 
+exists("/usr/lib64/qt5/qml/Sailfish/Silica/SilicaGridView.qml"): {
+    DEFINES += SAILFISHOS
+}
+
 system(pkg-config --exists libxml++-2.6) {
     CONFIG += -qt
     PKGCONFIG += libxml++-2.6

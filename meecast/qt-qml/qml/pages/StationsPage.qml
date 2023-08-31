@@ -119,7 +119,7 @@ Page {
                         anchors.verticalCenter: parent.verticalCenter
                     }
                     IconButton {
-                        icon.source: "image://theme/icon-l-delete"
+                        icon.source: "image://theme/icon-m-delete"
                         anchors.right: parent.right
                         anchors.rightMargin: margin
                         anchors.verticalCenter: parent.verticalCenter

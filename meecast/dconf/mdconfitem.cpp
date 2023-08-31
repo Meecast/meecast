@@ -17,9 +17,9 @@
 ****************************************************************************/
 
 // This has to be the first include otherwise gdbusintrospection.h causes an error.
-extern "C" {
+//extern "C" {
 #include <dconf/dconf.h>
-};
+//};
 
 #include <QString>
 #include <QStringList>

@@ -88,7 +88,8 @@ pwd
 ls
 # >> build pre
 #export PATH=/usr/lib/qt4/bin:$PATH
-%qtc_qmake5
+#%qtc_qmake5
+%qtc_qmake5 meecast.pro
 %qtc_make %{?_smp_mflags}
 #make
 # << build pre

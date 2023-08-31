@@ -4,6 +4,14 @@ meecast (1.1.33) unstable; urgency=low
 
  -- Vlad Vasiliev <vlad@gas.by> Thu, 31 Aug 2023 13:02:23 +0300
 
+
+meecast (1.1.32) unstable; urgency=low
+
+  * Added station to weather.com
+
+ -- Vlad Vasiliev <vlad@gas.by> Sat, 07 Nov 2020 21:02:23 +0300
+
+
 meecast (1.1.31) unstable; urgency=low
 
   * Nothing 

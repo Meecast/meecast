@@ -1,13 +1,11 @@
 name: Github CI build
 
-on:
-  push:
-    tags:
-      - '*'
+on: push
+
   pull_request:
     branches:
-    
       - sailfishos
+
 env:
   RELEASE: 4.4.0.68
 

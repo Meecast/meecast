@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
     
-      - master
+      - sailfishos
 env:
   RELEASE: 4.4.0.68
 
@@ -23,21 +23,21 @@ jobs:
       
     - name: Build armv7hl
       id: build_armv7hl
-      uses: vasvlad/github-sfos-build@master
+      uses: vasvlad/github-sfos-build@sailfishos
       with:
         release: ${{ env.RELEASE }}
         arch: armv7hl
 
     - name: Build aarch64
       id: build_aarch64
-      uses: vasvlad/github-sfos-build@master
+      uses: vasvlad/github-sfos-build@sailfishos
       with:
         release: ${{ env.RELEASE }}
         arch: aarch64
 
     - name: Build i486
       id: build_i486
-      uses: vasvlad/github-sfos-build@master
+      uses: vasvlad/github-sfos-build@sailfishos
       with:
         release: ${{ env.RELEASE }}
         arch: i486

@@ -12,7 +12,6 @@ TEMPLATE = app
 
 
 
-
 exists($$QMAKE_INCDIR_QT"/../qmsystem2/qmkeys.h"):contains(MEEGO_EDITION,harmattan): {
     DEFINES += MEEGO_EDITION_HARMATTAN
 }

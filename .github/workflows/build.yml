@@ -6,8 +6,7 @@ on:
       - '*'
   pull_request:
     branches:
-    
-      - master
+      - sailfishos
 env:
   RELEASE: 4.4.0.68
 

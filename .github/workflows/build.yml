@@ -1,6 +1,8 @@
 name: Github CI build
 
 on: push
+  branches:
+    - sailfishos
 
 env:
   RELEASE: 4.4.0.68

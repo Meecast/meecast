@@ -88,8 +88,8 @@ ls
 # >> build pre
 #export PATH=/usr/lib/qt4/bin:$PATH
 #%qtc_qmake5
-qmake
-%qtc_make %{?_smp_mflags}
+/usr/lib/qt5/bin/qmake
+#%qtc_make %{?_smp_mflags}
 #make
 # << build pre
 

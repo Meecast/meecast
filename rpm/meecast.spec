@@ -9,7 +9,7 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    1.1.32
+Version:    1.1.33
 Release:    1 
 Group:      Utility
 License:    GPLv2.1

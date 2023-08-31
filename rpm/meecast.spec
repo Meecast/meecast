@@ -170,6 +170,8 @@ systemctl-user start meecastd.service
 
 
 %changelog
+* Thu Aug 31 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.33
+  * Fixed for SailfishOS 4. Many thanks for @carmenfdezb
 
 * Sat Nov 07 2020 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.32
   * Added sattion Manqutay (Iran) to weather.com source

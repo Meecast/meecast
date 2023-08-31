@@ -1,3 +1,9 @@
+meecast (1.1.32) unstable; urgency=low
+
+  * Fixed for SailfishOS 4. Many thanks for @carmenfdezb
+
+ -- Vlad Vasiliev <vlad@gas.by> Thu, 31 Aug 2023 13:02:23 +0300
+
 meecast (1.1.31) unstable; urgency=low
 
   * Nothing 

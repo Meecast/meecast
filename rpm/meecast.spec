@@ -88,6 +88,7 @@ ls
 echo "Test1"
 /usr/lib/qt5/bin/qmake *.pro
 echo "Test2"
+make
 
 %install
 rm -rf %{buildroot}

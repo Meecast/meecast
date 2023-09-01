@@ -86,6 +86,7 @@ MeeCast event widget for multiplatform highly customizable open source weather f
 %build
 ls
 echo "Test1"
+%qtc_qmake5
 echo "Test2"
 
 %install

@@ -93,7 +93,7 @@ echo "Test2"
 echo "Test3"
 
 %install
-rm -rf %{buildroot}
+# rm -rf %{buildroot}
 # >> install pre
 # << install pre
 

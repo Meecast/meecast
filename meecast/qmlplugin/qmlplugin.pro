@@ -33,9 +33,21 @@ patch.path = /usr/share/patchmanager/patches/sailfishos-lockscreen-meecast-patch
 }
 
 qmldir.files = qmldir
-unix {
-    qmldir.path = $$[QT_INSTALL_QML]/$$$$PLUGIN_IMPORT_PATH
-    target.path = $$[QT_INSTALL_QML]/$$PLUGIN_IMPORT_PATH
-    INSTALLS += target qmldir patch
+qmldir.path = $$[QT_INSTALL_QML]/$$$$PLUGIN_IMPORT_PATH
+target.path = $$[QT_INSTALL_QML]/$$PLUGIN_IMPORT_PATH
+
+exists("/usr/lib/qt5/qml/Sailfish/Silica/SilicaGridView.qml"): {
+    qmldir.path = /usr/lib/qt5/qml/$$$$PLUGIN_IMPORT_PATH
+    target.path = /usr/lib/qt5/qml/$$PLUGIN_IMPORT_PATH
 }
+
+exists("/usr/lib64/qt5/qml/Sailfish/Silica/SilicaGridView.qml"): {
+    qmldir.path = /usr/lib64/qt5/qml/$$$$PLUGIN_IMPORT_PATH
+    target.path = /usr/lib64/qt5/qml/$$PLUGIN_IMPORT_PATH
+}
+
+
+
+
+INSTALLS += target qmldir patch
 

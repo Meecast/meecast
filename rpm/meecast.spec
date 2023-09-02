@@ -84,24 +84,21 @@ MeeCast event widget for multiplatform highly customizable open source weather f
 # << setup
 
 %build
-ls
-echo "Test1"
-/usr/lib/qt5/bin/qmake meecast.pro
-echo "Test2"
-#make
-%qtc_make %{?_smp_mflags}
-echo "Test3"
+# >> build pre
 
+%qtc_qmake5 meecast.pro
+# << build pre
+%qtc_make %{?_smp_mflags}
+
+# >> build post
+# << build post
 %install
 rm -rf %{buildroot}
 # >> install pre
 # << install pre
 
 # >> install post
-echo "Test4"
-# ls -la /home/mersdk/build/installroot/usr/
 %qmake5_install
-ls -la /home/mersdk/build/installroot
 #make INSTALL_ROOT=%{buildroot} install
 #rm %{buildroot}/opt/com.meecast.omweather/lib/libomweather-core.a
 # << install post

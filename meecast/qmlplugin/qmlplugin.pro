@@ -1,5 +1,6 @@
 TEMPLATE = lib
 TARGET = meecastdata 
+PLUGIN_IMPORT_PATH = org/meecast/data
 QT += qml quick dbus
 CONFIG += qt plugin dbus link_pkgconfig
 PKGCONFIG += contentaction5
@@ -33,9 +34,8 @@ patch.path = /usr/share/patchmanager/patches/sailfishos-lockscreen-meecast-patch
 
 qmldir.files = qmldir
 unix {
-    installPath = $$[QT_INSTALL_QML]/$$replace(uri, \\., /)
-    qmldir.path = $$installPath
-    target.path = $$installPath
+    qmldir.path = $$[QT_INSTALL_QML]/$$$$PLUGIN_IMPORT_PATH
+    target.path = $$[QT_INSTALL_QML]/$$PLUGIN_IMPORT_PATH
     INSTALLS += target qmldir patch
 }
 

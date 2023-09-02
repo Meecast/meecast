@@ -101,7 +101,7 @@ rm -rf %{buildroot}
 echo "Test4"
 # ls -la /home/mersdk/build/installroot/usr/
 %qmake5_install
-ls -la /home/mersdk/build/installroot
+ls -la /home/mersdk/build/installroot/usr/
 #make INSTALL_ROOT=%{buildroot} install
 #rm %{buildroot}/opt/com.meecast.omweather/lib/libomweather-core.a
 # << install post

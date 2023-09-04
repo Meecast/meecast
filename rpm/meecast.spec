@@ -67,7 +67,7 @@ MeeCast Lockscreen widget for multiplatform highly customizable open source weat
 
 %package event
 Version: 1.1
-Release: 4 
+Release: 1 
 Summary: Event Widget for Weather forecast application MeeCast on SailfishOS
 Group:      Utility
 License:    GPLv2.1
@@ -186,7 +186,7 @@ systemctl-user start meecastd.service
 * Sat Aug 22 2020 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.29
   * Fixed problem with weather.com source (again) 
 
-* Sat Aug 11 2020 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.28
+* Tue Aug 11 2020 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.28
   * Fixed problem hours forecast
 
 * Sun Aug 02 2020 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.27
@@ -421,7 +421,7 @@ systemctl-user start meecastd.service
   * Updated Slovenian, Italian, Swedish translations
   * Fixed issue with auto update 
 
-* Thu Aug 26 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.9
+* Tue Aug 26 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.9
   * Fixed problem with USA like style time for last update, sunrise, sunset
     and hourly information 
   * Added stations Lignano Pineta, Lignano Riviera, Lignano Sabbiadoro (Italy) to
@@ -461,7 +461,7 @@ systemctl-user start meecastd.service
   * Fixed problem with null wind direction on main form
   * Added the new source fmi.fi
 
-* Sun Jul 03 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.5
+* Wed Jul 03 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.5
   * Fixed problem with Now/Today waether data for Main Page 
   * Fixed problem with null data for day forecast in weather.com source
   * Updated Catalan, Finnish, Norwegian, Slovenian, Danish,
@@ -505,7 +505,7 @@ systemctl-user start meecastd.service
   * Updated Catalan, Serbian, Slovenian, Spanish, Russian translations
   * Fixed problems with transparency
 
-* Fri Apr 08 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.17.1
+* Tue Apr 08 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.17.1
   * Added transparency
   * Fixed problem with Units view in Menu Settings 
   * Fixed problem with current weather in foreca.com source
@@ -546,7 +546,7 @@ systemctl-user start meecastd.service
   * Polished Cover page
   * Disable unused configuration files 
 
-* Wed Feb 18 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.10.1
+* Tue Feb 18 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.10.1
   * Adapted for Harbour (Jolla store)
   * Disabled GPS-station
 
@@ -564,11 +564,11 @@ systemctl-user start meecastd.service
   * Redesigned wind information on Cover Page 
   * Updated Norwegian, Arabic, Serbian, Turkish, Dutch, Hungarian translations
   * Added Slovenian and Czech translations
-* Tue Jan 26 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.7.1
+* Sun Jan 26 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.7.1
   * Added Wind speed and Wind direction to Cover Page
   * Added text 'Now' to Cover Page
   * Polished Cover Page
-* Tue Jan 23 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.6.1
+* Thu Jan 23 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.6.1
   * Removed button refresh from main form and add Item menu 'Update' to pulley menu 
   * Redesigned form for delete location
   * Fixed problem with transparency Cover window and font size on Cover Window

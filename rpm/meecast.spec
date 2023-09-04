@@ -9,7 +9,7 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    1.1.33
+Version:    1.1.34
 Release:    1 
 Group:      Utility
 License:    GPLv2.1
@@ -44,7 +44,7 @@ BuildRequires: qt5-qtpositioning-devel
 MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code
 
 %package daemon
-Version: 1.8
+Version: 1.9
 Release: 1 
 Summary: Daemon for Weather forecast application MeeCast on SailfishOS
 Group:      Utility
@@ -55,7 +55,7 @@ BuildRequires:  pkgconfig(contentaction5)
 MeeCast daemon for multiplatform highly customizable open source weather forecast client based on OMWeather code
 
 %package lockscreen
-Version: 0.4
+Version: 0.5
 Summary: Lockscreen Widget for Weather forecast application MeeCast on SailfishOS
 Group:      Utility
 License:    GPLv2.1
@@ -66,7 +66,7 @@ Requires: patchmanager
 MeeCast Lockscreen widget for multiplatform highly customizable open source weather forecast client based on OMWeather code
 
 %package event
-Version: 1.0
+Version: 1.1
 Release: 4 
 Summary: Event Widget for Weather forecast application MeeCast on SailfishOS
 Group:      Utility
@@ -168,6 +168,9 @@ systemctl-user start meecastd.service
 
 
 %changelog
+* Mon Sep 04 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.34
+  * The new version of packages: daemon, lockscreen, event
+
 * Thu Aug 31 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.33
   * Fixed for SailfishOS 4. Many thanks for @carmenfdezb
 
@@ -180,10 +183,10 @@ systemctl-user start meecastd.service
 * Tue Aug 25 2020 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.30
   * Small fixes
 
-* Sun Aug 22 2020 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.29
+* Sat Aug 22 2020 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.29
   * Fixed problem with weather.com source (again) 
 
-* Sun Aug 11 2020 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.28
+* Sat Aug 11 2020 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.28
   * Fixed problem hours forecast
 
 * Sun Aug 02 2020 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.27
@@ -247,7 +250,7 @@ systemctl-user start meecastd.service
   * Updated Russian, Danish, Dutch, Polish, Swedish, Slovenian, Galician,
     Spanish, Catalan translations
 
-* Sat Aug 28 2016 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.15
+* Sun Aug 28 2016 Vlad Vasilyeu <vasvlad@gmail.com> 1.1.15
 
   * Fixed problem with landscape orientation 
 

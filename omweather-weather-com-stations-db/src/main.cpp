@@ -847,7 +847,7 @@ parse_and_write_html_data(const gchar *station_id, htmlDocPtr doc, const gchar *
    /* Day weather forecast */
    /* Evaluate xpath expression */
     xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/script[contains(text(),'window.__data')]/text()", xpathCtx);
-    if(xpathObj == NULL) {
+    if(xpathObj == NULL || xpathObj->nodesetval == NULL ||  xpathObj->nodesetval->nodeTab == NULL) {
         fprintf(stderr,"Error: unable to evaluate xpath expression \"%s\"\n", "/html/body/script[contains(text(),'window.__data')]/text()");
         xmlXPathFreeContext(xpathCtx); 
         return(-1);

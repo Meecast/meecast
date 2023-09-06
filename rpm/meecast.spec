@@ -168,8 +168,10 @@ systemctl-user start meecastd.service
 
 
 %changelog
-* Mon Sep 04 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.34
+* Wed Sep 06 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.34
   * The new version of packages: daemon, lockscreen, event
+  * Trying to fix segmentation fault in openweathermap.org source
+  * Trying to fix segmentation fault in weather.com source
 
 * Thu Aug 31 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.33
   * Fixed for SailfishOS 4. Many thanks for @carmenfdezb

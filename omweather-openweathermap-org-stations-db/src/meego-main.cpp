@@ -461,7 +461,7 @@ parse_and_write_timezone_data(htmlDocPtr doc, const char *result_file){
 
   
     for(child_node = root_node->children; child_node; child_node = child_node->next){
-       /* fprintf(stderr," first name %s", child_node->name); */
+       /* fprintf(stderr," first name %s\n", child_node->name); */
        if (child_node->type == XML_ELEMENT_NODE ){
            if(!xmlStrcmp(child_node->name, (const xmlChar *) "timezone")){
                for (child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
@@ -470,8 +470,10 @@ parse_and_write_timezone_data(htmlDocPtr doc, const char *result_file){
                         if(!xmlStrcmp(child_node2->name, (const xmlChar *) "rawOffset")){
                             xmlChar     *temp_xml_string = NULL;
                             temp_xml_string = xmlNodeGetContent(child_node2);
-                            station_timezone = atoi((char *)temp_xml_string);
-                            xmlFree(temp_xml_string);
+                            if (temp_xml_string != NULL){
+                                station_timezone = atoi((char *)temp_xml_string);
+                                xmlFree(temp_xml_string);
+                            }
                         }
                     }
                }   
@@ -480,6 +482,7 @@ parse_and_write_timezone_data(htmlDocPtr doc, const char *result_file){
     }
     fprintf(file_out,"    <timezone>%i</timezone>\n", station_timezone);
     fclose(file_out);
+    return 0;
 }
 
 /*******************************************************************************/

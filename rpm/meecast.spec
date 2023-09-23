@@ -168,6 +168,9 @@ systemctl-user start meecastd.service
 
 
 %changelog
+* Wed Sep 06 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.35
+  * Updated Slovak translation. Thanks Ladislav Hodas aka holasl
+
 * Wed Sep 06 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.34
   * The new version of packages: daemon, lockscreen, event
   * Trying to fix segmentation fault in openweathermap.org source

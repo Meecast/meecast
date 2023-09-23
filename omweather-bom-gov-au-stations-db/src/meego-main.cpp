@@ -417,6 +417,7 @@ convert_station_bomgovau_data(const char *station_id_with_path, const char *resu
                 if(!delimiter){
                     xmlFreeDoc(doc);
                     xmlCleanupParser();
+                    fprintf(stderr, "Not found delimeter '_' in file name\n");
                     return -1;
                 }
                 *delimiter = 0;

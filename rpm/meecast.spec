@@ -168,6 +168,9 @@ systemctl-user start meecastd.service
 
 
 %changelog
+* Sat Sep 23 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.36
+  * Fixed problem with drawing wind direction
+
 * Sat Sep 23 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.35
   * Updated Slovak translation. Thanks Ladislav Hodas aka holasl
   * Fixed - Bom.gov.au as weather source shows the previous day. #41 (@vasvlad)

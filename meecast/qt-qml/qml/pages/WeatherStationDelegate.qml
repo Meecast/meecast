@@ -419,8 +419,8 @@ Component {
                                 height: small_box_rect_height 
                                 smooth: true
                                 transform: Rotation {
-                                    origin.x: 15
-                                    origin.y: 15
+                                    origin.x: 15*ratio 
+                                    origin.y: 15*ratio
                                     angle: main.current_model("current", main_index) == true ?  (main.current_model("wind_direction", main_index) == "N/A" ? 0 : main.getAngle(main.current_model("wind_direction", main_index))) : (main.forecast_model(index, "wind_direction", main_index) == "N/A" ? 0 : main.getAngle(main.forecast_model(index, "wind_direction", main_index)))
                                 }
                             }

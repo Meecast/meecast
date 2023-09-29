@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-bom-gov-au-stations-db
  *
- * Copyright (C) 2012-2013 Vlad Vasilyeu
+ * Copyright (C) 2012-2023 Vlad Vasilyeu
  * 	for the code
  *
  * This software is free software; you can redistribute it and/or
@@ -42,6 +42,7 @@ static xmlHashTablePtr hash_for_icons;
 static xmlHashTablePtr hash_for_stations;
 int au_timezone = 0;
 char current_icon[256];
+volatile int current_icon_buffer_size = sizeof(current_icon);
 char current_title[1024];
 /*******************************************************************************/
 #ifdef QT
@@ -264,11 +265,18 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
                                                 memset(buffer, 0, sizeof(buffer));
                                                 snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
                                                                       xmlGetProp(child_node, (const xmlChar*)"start-time-local"));
-                                                for (i=strlen(temp_buffer) - 6; i < strlen(temp_buffer) -3; i++){
-                                                    sprintf(buffer,"%s%c", buffer, temp_buffer[i]);
+                                                if (strlen(temp_buffer) > 6){
+                                                    /* create string for timezone */
+                                                    for (i=strlen(temp_buffer) - 6; i < strlen(temp_buffer) -3; i++){
+                                                        buffer[i - strlen(temp_buffer) + 6] = temp_buffer[i]; 
+                                                    }
+                                                    fprintf(file_out,"  <timezone>%s</timezone>\n", buffer);
+                                                    au_timezone = atoi(buffer);
+                                                }else{
+                                                    /* Set default timezone +10 for Australia */
+                                                    fprintf(file_out,"  <timezone>+10</timezone>\n");
+                                                    au_timezone = 10;
                                                 }
-                                                fprintf(file_out,"  <timezone>%s</timezone>\n", buffer);
-                                                au_timezone = atoi(buffer);
                                                 check_timezone = true;
                                             }
                                             /* get start time for period */
@@ -341,7 +349,7 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
                                         if (strlen(icon)>0){
                                             fprintf(file_out, "     <icon>%s</icon>\n", icon);
                                             if (index==0)
-                                                snprintf(current_icon, sizeof(current_icon)-1,"%s", icon);
+                                                snprintf(current_icon, current_icon_buffer_size, "%s", icon);
                                         }
                                         if (strlen (short_text)>0){
                                             fprintf(file_out, "     <description>%s</description>\n", short_text);
@@ -417,6 +425,7 @@ convert_station_bomgovau_data(const char *station_id_with_path, const char *resu
                 if(!delimiter){
                     xmlFreeDoc(doc);
                     xmlCleanupParser();
+                    fprintf(stderr, "Not found delimeter '_' in file name\n");
                     return -1;
                 }
                 *delimiter = 0;

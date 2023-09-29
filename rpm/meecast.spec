@@ -9,7 +9,7 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    1.1.34
+Version:    1.1.35
 Release:    1 
 Group:      Utility
 License:    GPLv2.1
@@ -168,8 +168,12 @@ systemctl-user start meecastd.service
 
 
 %changelog
-* Wed Sep 06 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.35
+* Sat Sep 23 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.36
+  * Fixed problem with drawing wind direction
+
+* Sat Sep 23 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.35
   * Updated Slovak translation. Thanks Ladislav Hodas aka holasl
+  * Fixed - Bom.gov.au as weather source shows the previous day. #41 (@vasvlad)
 
 * Wed Sep 06 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.34
   * The new version of packages: daemon, lockscreen, event
@@ -591,5 +595,6 @@ systemctl-user start meecastd.service
 * Fri Jan 17 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.4.1
   * First release SailfishOS
 # << files
+
 
 

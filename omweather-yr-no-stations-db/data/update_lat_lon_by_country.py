@@ -175,8 +175,11 @@ from urllib.request import urlretrieve
 #country = "Belgium"
 #country_code = "BE"
 #replacing_dict = {}
-country = "Hungary"
-country_code = "HU"
+#country = "Hungary"
+#country_code = "HU"
+#replacing_dict = {}
+country = "Slovenia"
+country_code = "SI"
 replacing_dict = {}
 
 
@@ -247,7 +250,7 @@ cur = cu.execute("select id, name, code, longititude, latitude FROM stations whe
 data = cu.fetchall()
 for row in data:
     if row[3] is None and row[4] is None:
-        station_name = row[1]
+        station_name = row[1].replace('Občina ',"")
         station_id = row[0]
         print(station_name)
         url = yrnourl + "/api/v0/locations/suggest?language=en&q=" + station_name

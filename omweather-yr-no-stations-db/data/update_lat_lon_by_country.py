@@ -42,16 +42,16 @@ from urllib.request import urlretrieve
 #                  "Trentino-Alto_Adige":"Trentino and South-Tirol"} 
 #replacing_dict_after_region_filling = {  } 
 
-country = "Finland"
-country_code = "FI"
-replacing_dict = { "Eastern_Finland_Province":"Eastern Finland", "Lapin_Laeaeni":"Laponia",
-                           "Province_of_Western_Finland":"Western Finland", 
-                           "Province_of_Southern_Finland": "Southern Finland", "Itae-Suomen_Laeaeni": "Eastern Finland",
-                           "Southern_Finland_Province": "Southern Finland"} 
-#country = "Sweden"
-#country_code = "SE"
-#replacing_dict = { "Vaestra_Goetalands_Laen":"Västra Götaland"} 
-#replacing_dict_after_region_filling = {  } 
+#country = "Finland"
+#country_code = "FI"
+#replacing_dict = { "Eastern_Finland_Province":"Eastern Finland", "Lapin_Laeaeni":"Laponia",
+#                           "Province_of_Western_Finland":"Western Finland", 
+#                           "Province_of_Southern_Finland": "Southern Finland", "Itae-Suomen_Laeaeni": "Eastern Finland",
+#                           "Southern_Finland_Province": "Southern Finland"} 
+country = "Sweden"
+country_code = "SE"
+replacing_dict = { "Vaestra_Goetalands_Laen":"Västra Götaland"} 
+replacing_dict_after_region_filling = {  } 
 #country = "Germany"
 #country_code = "DE"
 #replacing_dict = { "Land_Niedersachsen": "Lower Saxony", "Land_Nordrhein-Westfalen":"North Rhine-Westphalia" } 
@@ -227,6 +227,7 @@ for row in data:
             if location["name"] != station_name:
                 continue
             
+            print("sssssssss", location["name"])
             code = row[2].replace("#","/")
             if "urlPath" in location and code == urllib.parse.quote(normalizing(location["urlPath"])):
                 flag = True
@@ -248,9 +249,11 @@ for row in data:
         if flag == True:
             cur1 = cu.execute("update stations set longititude='%s', latitude='%s' where id ='%i'" %(lon, lat, station_id))
         else:
-            if json_result["_embedded"]["location"][0]["country"]["name"] == country and \
-               json_result["_embedded"]["location"][0]["name"] == station_name:
-                cur1 = cu.execute("update stations set longititude='%s', latitude='%s' where id ='%i'" %(lon, lat, station_id))
+
+            for location in json_result["_embedded"]["location"]:
+                if location["country"]["name"] == country and \
+                   location["name"] == station_name:
+                    cur1 = cu.execute("update stations set longititude='%s', latitude='%s' where id ='%i'" %(lon, lat, station_id))
 
         c.commit()
         print (location["country"]["name"], flag)

@@ -169,9 +169,13 @@ from urllib.request import urlretrieve
 #country_code = "AL"
 #replacing_dict = {}
 
-country = "Denmark"
-country_code = "DK"
+#country = "Denmark"
+#country_code = "DK"
+#replacing_dict = {}
+country = "Belgium"
+country_code = "BE"
 replacing_dict = {}
+
 
 
 replacing_dict_after_region_filling = { } 

@@ -16,6 +16,7 @@ from urllib.request import urlretrieve
 
 # for memory
 # SELECT name, count(name) as 'count' from stations where code like "%norway%" group by name having count >1;
+# delete from stations where id in (select id FROM stations where latitude is NULL and region_id in (select id from regions WHERE country_id=(select id from countries WHERE name='Norway' limit 1)))
 
 #Country name and code
 
@@ -68,12 +69,12 @@ from urllib.request import urlretrieve
 #replacing_dict = {"Opstina Gjorce Petrov":"Ðorce Petrov", "Opstina Mavrovo i Rostusa":"Rostuša",
 #		"Opstina Caska":"Caška", "Opstina Cesinovo":"Cešinovo", "Opstina Vrapciste":"Vraneštica"} 
 #replacing_dict_after_region_filling = { } 
-country = "France"
-country_code = "FR"
-replacing_dict = {"Region_Bourgogne":"Burgundy", "Region_Centre":"Centre", "Region_Haute-Normandie":"Upper Normandy",
-		"Region_Basse-Normandie":"Lower Normandy", 
-		"Region_Provence-Alpes-Cote_dAzur":"Provence-Alpes-Côte d’Azur",
-		"Region_Pays_de_la_Loire":"Loire", "Region_Picardie":"Picardy"} 
+#country = "France"
+#country_code = "FR"
+#replacing_dict = {"Region_Bourgogne":"Burgundy", "Region_Centre":"Centre", "Region_Haute-Normandie":"Upper Normandy",
+#		"Region_Basse-Normandie":"Lower Normandy", 
+#		"Region_Provence-Alpes-Cote_dAzur":"Provence-Alpes-Côte d’Azur",
+#		"Region_Pays_de_la_Loire":"Loire", "Region_Picardie":"Picardy"} 
 #replacing_dict_after_region_filling = { } 
 #country = "United kingdom"
 #country_code = "gb"
@@ -143,6 +144,9 @@ replacing_dict = {"Region_Bourgogne":"Burgundy", "Region_Centre":"Centre", "Regi
 #country_code = "RS"
 #replacing_dict = {"Central_Serbia": "Central Serbia"}
                 
+country = "Russia"
+country_code = "RU"
+replacing_dict = {}
 
 replacing_dict_after_region_filling = { } 
 

@@ -184,12 +184,12 @@ from urllib.request import urlretrieve
 #country = "Croatia"
 #country_code = "HR"
 #replacing_dict = {}
-country = "Egypt"
-country_code = "EG"
+#country = "Egypt"
+#country_code = "EG"
+#replacing_dict = {}
+country = "Austria"
+country_code = "AT"
 replacing_dict = {}
-
-
-
 
 replacing_dict_after_region_filling = { } 
 

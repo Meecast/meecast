@@ -19,22 +19,22 @@ from urllib.request import urlretrieve
 
 #Country name and code
 
-country = "Norway"
-country_code = "NO"
-replacing_dict = {"Akershus":"Viken",
-                  "Buskerud":"Viken",
-                  "Vest-Agder":"Agder",
-                  "Aust-Agder":"Agder",
-                  "Finnmark":"Troms_og_Finnmark",
-                  "Hedmark":"Innlandet",
-                  "Oppland":"Innlandet",
-                  "Hordaland":"Vestland",
-                  "%C3%98stfold":"Viken",
-                  "Nord-Tr%C3%B8ndelag":"Tr%C3%B8ndelag",
-                  "Troms":"Troms_og_Finnmark",
-                  "Vestfold":"Vestfold_og_Telemark"
-                  } 
-replacing_dict_after_region_filling = {  } 
+#country = "Norway"
+#country_code = "NO"
+#replacing_dict = {"Akershus":"Viken",
+#                  "Buskerud":"Viken",
+#                  "Vest-Agder":"Agder",
+#                  "Aust-Agder":"Agder",
+#                  "Finnmark":"Troms_og_Finnmark",
+#                  "Hedmark":"Innlandet",
+#                  "Oppland":"Innlandet",
+#                  "Hordaland":"Vestland",
+#                  "%C3%98stfold":"Viken",
+#                  "Nord-Tr%C3%B8ndelag":"Tr%C3%B8ndelag",
+#                  "Troms":"Troms_og_Finnmark",
+#                  "Vestfold":"Vestfold_og_Telemark"
+#                  } 
+#replacing_dict_after_region_filling = {  } 
 
 #country = "Italy"
 #country_code = "IT"
@@ -42,12 +42,12 @@ replacing_dict_after_region_filling = {  }
 #                  "Trentino-Alto_Adige":"Trentino and South-Tirol"} 
 #replacing_dict_after_region_filling = {  } 
 
-#country = "Finland"
-#country_code = "FI"
-#replacing_dict = { "Eastern_Finland_Province":"Eastern Finland", "Lapin_Laeaeni":"Laponia",
-#                           "Province_of_Western_Finland":"Western Finland", 
-#                           "Province_of_Southern_Finland": "Southern Finland", "Itae-Suomen_Laeaeni": "Eastern Finland",
-#                           "Southern_Finland_Province": "Southern Finland"} 
+country = "Finland"
+country_code = "FI"
+replacing_dict = { "Eastern_Finland_Province":"Eastern Finland", "Lapin_Laeaeni":"Laponia",
+                           "Province_of_Western_Finland":"Western Finland", 
+                           "Province_of_Southern_Finland": "Southern Finland", "Itae-Suomen_Laeaeni": "Eastern Finland",
+                           "Southern_Finland_Province": "Southern Finland"} 
 #country = "Sweden"
 #country_code = "SE"
 #replacing_dict = { "Vaestra_Goetalands_Laen":"Västra Götaland"} 
@@ -194,16 +194,16 @@ for row in cur:
 myzipfile = country_code + ".zip"
 #downloading the dump file
 url = baseurl + myzipfile
-# urlretrieve (url, myzipfile)
+urlretrieve (url, myzipfile)
 
 
 #unzip file
-#fh = open(myzipfile, 'rb')
-#z = zipfile.ZipFile(fh)
-#outfile = open(country_code + ".txt", 'wb')
-#outfile.write(z.read(country_code + ".txt"))
-#outfile.close()
-#fh.close()
+fh = open(myzipfile, 'rb')
+z = zipfile.ZipFile(fh)
+outfile = open(country_code + ".txt", 'wb')
+outfile.write(z.read(country_code + ".txt"))
+outfile.close()
+fh.close()
 
 # fill station coordintes
 cur = cu.execute("select id, name, code, longititude, latitude FROM stations where region_id in (select id from regions WHERE country_id=(select id from countries WHERE name='%s' limit 1))" %(country))

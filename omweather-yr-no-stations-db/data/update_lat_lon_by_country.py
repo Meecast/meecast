@@ -160,11 +160,18 @@ from urllib.request import urlretrieve
 #country_code = "TR"
 #replacing_dict = {}
 
-country = "Afghanistan"
-country_code = "AF"
+#country = "Afghanistan"
+#country_code = "AF"
+#replacing_dict = {}
+#
+
+#country = "Albania"
+#country_code = "AL"
+#replacing_dict = {}
+
+country = "Denmark"
+country_code = "DK"
 replacing_dict = {}
-
-
 
 
 replacing_dict_after_region_filling = { } 

@@ -84,14 +84,14 @@ from urllib.request import urlretrieve
 #replacing_dict = {"Kanton_Basel-Stadt":"Basel-Stadt", "Kanton_Appenzell_Innerrhoden": "Appenzell Innerrhoden",
 #		"Kanton_St._Gallen":"Sankt Gallen", "Kanton_Appenzell_Ausserrhoden":"Appenzell Ausserrhoden"} 
 #replacing_dict_after_region_filling = { } 
-#country = "Poland"
-#country_code = "PL"
-#replacing_dict = {"Wojewodztwo_Wielkopolskie":"Greater Poland","Wojewodztwo_Malopolskie":"Lesser Poland",
-#        "Wojewodztwo_Kujawsko-Pomorskie":"Kuyavian-Pomerania","Wojewodztwo_Dolnoslaskie":"Lower Silesia",
-#        "Wojewodztwo_Podkarpackie":"Subcarpathia","Wojewodztwo_Podlaskie":"Podlachia",
-#        "Wojewodztwo_Warminsko-Mazurskie":"Warmia-Masuria","Wojewodztwo_Zachodniopomorskie":"West Pomerania",
-#        "Wojewodztwo_Swietokrzyskie":"Swiety Krzyz"
-#        }
+country = "Poland"
+country_code = "PL"
+replacing_dict = {"Wojewodztwo_Wielkopolskie":"Greater Poland","Wojewodztwo_Malopolskie":"Lesser Poland",
+        "Wojewodztwo_Kujawsko-Pomorskie":"Kuyavian-Pomerania","Wojewodztwo_Dolnoslaskie":"Lower Silesia",
+        "Wojewodztwo_Podkarpackie":"Subcarpathia","Wojewodztwo_Podlaskie":"Podlachia",
+        "Wojewodztwo_Warminsko-Mazurskie":"Warmia-Masuria","Wojewodztwo_Zachodniopomorskie":"West Pomerania",
+        "Wojewodztwo_Swietokrzyskie":"Swiety Krzyz"
+        }
 #country = "Australia"
 #country_code = "AU"
 #replacing_dict = {"State_of_New_South_Wales":"New South Wales", "Northern_Territory": "Northern Territory",
@@ -118,12 +118,12 @@ from urllib.request import urlretrieve
 #
 #replacing_dict_after_region_filling = { } 
 #
-
-country = "Netherlands"
-country_code = "NL"
-replacing_dict = {"Provincie_Zuid-Holland":"South Holland","Provincie_Zeeland":"Zealand",
-                  "Provincie_Noord-Holland":"North Holland", "Provincie_Noord-Brabant": "North Brabant"}
-
+#
+#country = "Netherlands"
+#country_code = "NL"
+#replacing_dict = {"Provincie_Zuid-Holland":"South Holland","Provincie_Zeeland":"Zealand",
+#                  "Provincie_Noord-Holland":"North Holland", "Provincie_Noord-Brabant": "North Brabant"}
+#
 #replacing_dict_after_region_filling = { } 
 
 #country = "Argentina"

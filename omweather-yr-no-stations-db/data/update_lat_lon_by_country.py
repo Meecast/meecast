@@ -172,8 +172,11 @@ from urllib.request import urlretrieve
 #country = "Denmark"
 #country_code = "DK"
 #replacing_dict = {}
-country = "Belgium"
-country_code = "BE"
+#country = "Belgium"
+#country_code = "BE"
+#replacing_dict = {}
+country = "Hungary"
+country_code = "HU"
 replacing_dict = {}
 
 

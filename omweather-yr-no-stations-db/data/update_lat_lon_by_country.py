@@ -156,9 +156,14 @@ from urllib.request import urlretrieve
 #country_code = "BG"
 #replacing_dict = {}
 
-country = "Turkey"
-country_code = "TR"
+#country = "Turkey"
+#country_code = "TR"
+#replacing_dict = {}
+
+country = "Afghanistan"
+country_code = "AF"
 replacing_dict = {}
+
 
 
 

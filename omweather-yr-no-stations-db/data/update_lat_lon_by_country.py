@@ -48,14 +48,14 @@ from urllib.request import urlretrieve
 #                           "Province_of_Western_Finland":"Western Finland", 
 #                           "Province_of_Southern_Finland": "Southern Finland", "Itae-Suomen_Laeaeni": "Eastern Finland",
 #                           "Southern_Finland_Province": "Southern Finland"} 
-country = "Sweden"
-country_code = "SE"
-replacing_dict = { "Vaestra_Goetalands_Laen":"Västra Götaland"} 
-replacing_dict_after_region_filling = {  } 
-#country = "Germany"
-#country_code = "DE"
-#replacing_dict = { "Land_Niedersachsen": "Lower Saxony", "Land_Nordrhein-Westfalen":"North Rhine-Westphalia" } 
+#country = "Sweden"
+#country_code = "SE"
+#replacing_dict = { "Vaestra_Goetalands_Laen":"Västra Götaland"} 
 #replacing_dict_after_region_filling = {  } 
+country = "Germany"
+country_code = "DE"
+replacing_dict = { "Land_Niedersachsen": "Lower Saxony", "Land_Nordrhein-Westfalen":"North Rhine-Westphalia" } 
+replacing_dict_after_region_filling = {  } 
 #country = "Greece"
 #country_code = "GR"
 #replacing_dict = { "North_Aegean":"North_Aegean", "South_Aegean": "South Aegean", "Ionian_Islands":"Ionian Islands",
@@ -220,6 +220,8 @@ for row in data:
         json_result = json.loads(resp.data)
         total_result = json_result["totalResults"]
         print(total_result)
+        if total_result == 0:
+            continue
         flag = False
         for location in json_result["_embedded"]["location"]:
             if location["country"]["name"] != country:

@@ -144,9 +144,18 @@ from urllib.request import urlretrieve
 #country_code = "RS"
 #replacing_dict = {"Central_Serbia": "Central Serbia"}
                 
-country = "Russia"
-country_code = "RU"
+#country = "Russia"
+#country_code = "RU"
+#replacing_dict = {}
+
+#country = "Belarus"
+#country_code = "BY"
+#replacing_dict = {}
+
+country = "Bulgaria"
+country_code = "BG"
 replacing_dict = {}
+
 
 replacing_dict_after_region_filling = { } 
 

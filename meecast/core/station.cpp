@@ -178,7 +178,7 @@ Station::Station(const std::string& source_name, const std::string& id,
             filename += "_" + name;
          }
          _cookie = new std::string(cookie);
-         _user_agent = new std::string(_user_agent);
+         _user_agent = new std::string(user_agent);
          _viewURL = new std::string(view_url);
 
          /* Hack for yr.no */
@@ -205,6 +205,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         delete _detailURL;
         delete _hoursURL;
         delete _cookie;
+        delete _user_agent;
         delete _viewURL;
         delete _mapURL;
         delete _basemapURL;
@@ -226,6 +227,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         _detailURL = new std::string(*(station._detailURL));
         _hoursURL = new std::string(*(station._hoursURL));
         _cookie = new std::string(*(station._cookie));
+        _user_agent = new std::string(*(station._user_agent));
         _viewURL = new std::string(*(station._viewURL));
         _mapURL = new std::string(*(station._mapURL));
         _basemapURL = new std::string(*(station._basemapURL));
@@ -256,6 +258,8 @@ Station::Station(const std::string& source_name, const std::string& id,
             _hoursURL = new std::string(*(station._hoursURL));
             delete _cookie;
             _cookie = new std::string(*(station._cookie));
+            delete _user_agent;
+            _user_agent = new std::string(*(station._user_agent));
             delete _viewURL;
             _viewURL = new std::string(*(station._viewURL));
             delete _fileName;

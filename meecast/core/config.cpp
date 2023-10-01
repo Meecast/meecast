@@ -270,6 +270,11 @@ Config::saveConfig()
         el.appendChild(t);
         st.appendChild(el);
         
+        el = doc.createElement("user-agent");
+        t = doc.createTextNode(QString::fromStdString((*i)->user_agent()));
+        el.appendChild(t);
+        st.appendChild(el);
+ 
         el = doc.createElement("latitude");
         t = doc.createTextNode(QString::number((*i)->latitude()));
         el.appendChild(t);
@@ -531,7 +536,7 @@ Config::LoadConfig(){
 
         nodelist = root.elementsByTagName("station");
         for (int i=0; i<nodelist.count(); i++){
-            QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, hoursURL, basemapURL,  mapURL, cookie, latitude, longitude;
+            QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, hoursURL, basemapURL,  mapURL, cookie, latitude, longitude, user_agent;
             bool gps = false;
             bool splash = true;
             QDomElement e = nodelist.at(i).toElement();
@@ -556,6 +561,8 @@ Config::LoadConfig(){
                     forecastURL = el.text();
                 else if (tag == "cookie")
                     cookie = el.text();
+                else if (tag == "user_agent")
+                    user_agent = el.text();
                 else if (tag == "detail_url")
                     detailURL = el.text();
                 else if (tag == "hours_url")
@@ -626,7 +633,9 @@ Config::LoadConfig(){
                                       cookie.toStdString(),
                                       gps, 
                                       latitude.toDouble(),
-                                      longitude.toDouble());
+                                      longitude.toDouble(),
+                                      user_agent.toStdString()
+                                      );
             st->fileName(fileName.toStdString());
             st->converter(converter.toStdString());
             _stations->push_back(st);

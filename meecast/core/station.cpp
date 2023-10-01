@@ -44,7 +44,7 @@ Station::Station(const std::string& source_name, const std::string& id,
                  const std::string& viewURL, const std::string& mapURL, 
                  const std::string& basemapURL, 
                  const std::string&  cookie, const bool gps, 
-                 double latitude, double longitude ){
+                 double latitude, double longitude, const std::string& user_agent){
         _sourceName = new std::string(source_name);
         _id = new std::string(id);
         _name = new std::string(name);
@@ -54,6 +54,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         _detailURL = new std::string(detailURL);
         _hoursURL = new std::string(hoursURL);
         _cookie = new std::string(cookie);
+        _user_agent = new std::string(user_agent);
         _viewURL = new std::string(viewURL);
         _mapURL = new std::string(mapURL);
         _basemapURL = new std::string(basemapURL);
@@ -95,6 +96,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         std::string url_for_map = sourcelist->at(source_id)->url_for_map();
         std::string base_map_url = sourcelist->at(source_id)->url_for_basemap();
         std::string cookie = sourcelist->at(source_id)->cookie();
+        std::string user_agent = sourcelist->at(source_id)->user_agent();
 
         char forecast_url[4096];
         /* From 2023 Yr.no using lat lon in URL */
@@ -167,6 +169,7 @@ Station::Station(const std::string& source_name, const std::string& id,
             filename += "_" + name;
          }
          _cookie = new std::string(cookie);
+         _user_agent = new std::string(_user_agent);
          _viewURL = new std::string(view_url);
 
          /* Hack for yr.no */
@@ -327,6 +330,10 @@ Station::Station(const std::string& source_name, const std::string& id,
         return *_cookie;
     }
     ////////////////////////////////////////////////////////////////////////////////
+    std::string& Station::user_agent() const{
+        return *_user_agent;
+    }
+    ////////////////////////////////////////////////////////////////////////////////
     std::string& Station::viewURL() const{
         return *_viewURL;
     }
@@ -461,7 +468,7 @@ Station::Station(const std::string& source_name, const std::string& id,
             snprintf(lon, 32, "%g", this->longitude());
             TZUrl = "http://api.geonames.org/timezone?lat=" + std::string(lat)  + "&lng=" + std::string(lon) + "&username=omweather";
             /* std::cerr<<"URL "<<TZUrl<<std::endl; */
-            if (Downloader::downloadData(this->fileName()+".timezone", TZUrl, this->cookie())) {
+            if (Downloader::downloadData(this->fileName()+".timezone", TZUrl, this->cookie(), this->user_agent())) {
                 result = true;
             }else{
                 std::cerr<<"ERROR downloading of TimeZone  "<< TZUrl <<std::endl;
@@ -477,14 +484,14 @@ Station::Station(const std::string& source_name, const std::string& id,
 
         }
         /* Weather Forecast */
-        if (Downloader::downloadData(this->fileName()+".orig", *forecastURL, this->cookie())) {
+        if (Downloader::downloadData(this->fileName()+".orig", *forecastURL, this->cookie(), this->user_agent())) {
             result = true;
         }else{
             std::cerr<<"ERROR downloading  "<<this->forecastURL()<<std::endl;
             result = false;
         }
-        if ((result) && (this->detailURL() != "") && (Downloader::downloadData(this->fileName()+".detail.orig", *detailURL, this->cookie()))){
-            if ((this->hoursURL()!="") && (Downloader::downloadData(this->fileName()+".hours.orig", *hoursURL, this->cookie()))){
+        if ((result) && (this->detailURL() != "") && (Downloader::downloadData(this->fileName()+".detail.orig", *detailURL, this->cookie(), this->user_agent()))){
+            if ((this->hoursURL()!="") && (Downloader::downloadData(this->fileName()+".hours.orig", *hoursURL, this->cookie(), this->user_agent()))){
                 command = this->converter()+ " " + this->fileName() + ".orig " + this->fileName()+" " + this->fileName()+".detail.orig" + " " + this->fileName()+ ".hours.orig";
                 std::cerr<<" EXEC "<<command<<std::endl;
                 if (system(command.c_str()) == 0)

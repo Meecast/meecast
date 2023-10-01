@@ -81,7 +81,9 @@ namespace Core{
 		            const std::string& mapURL = 0, 
 		            const std::string& basemapURL = 0, 
                     const std::string& cookie = 0,
-                    const bool gps = false, double latitude = 0.0, double longitude = 0.0);
+                    const bool gps = false, double latitude = 0.0, double longitude = 0.0,
+                    const std::string& user_agent = 0,
+                    );
             Station(const std::string& source_name, const std::string& id, 
                     const std::string& name,
                     const std::string& country = 0, const std::string& region = 0, 
@@ -103,7 +105,9 @@ namespace Core{
             void forecastURL(const std::string& ForeastURL);
             std::string& forecastURL() const;
             void cookie(const std::string& Cookie);
+            void user_agent(const std::string& UserAgent);
             std::string& cookie() const;
+            std::string& user_agent() const;
             void detailURL(const std::string& region);
             void hoursURL(const std::string& hours);
             std::string& mapURL() const;

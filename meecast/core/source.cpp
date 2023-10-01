@@ -45,6 +45,7 @@ namespace Core {
         _url_for_map = new std::string;
         _url_for_basemap = new std::string;
         _cookie = new std::string;
+        _user_agent = new std::string;
         _hasForecast = false;
         _hasDetail = false;
         _hasHours = false;
@@ -114,6 +115,8 @@ namespace Core {
 
                     }else if (tag =="cookie"){
                         _cookie->assign(el.text().toStdString());
+                    }else if (tag =="user_agent"){
+                        _user_agent->assign(el.text().toStdString());
                     }
                     n = n.nextSibling();
                 }
@@ -178,6 +181,7 @@ namespace Core {
         delete _name;
         delete _logo;
         delete _cookie;
+        delete _user_agent;
         if (_library)
             delete _library;
         if (_binary)
@@ -203,6 +207,7 @@ Source::Source(const Source& source){
     _url_for_map = new std::string(*(source._url_for_map));
     _url_for_basemap = new std::string(*(source._url_for_basemap));
     _cookie = new std::string(*(source._cookie));
+    _user_agent = new std::string(*(source._user_agent));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -230,6 +235,8 @@ Source::Source(const Source& source){
             _url_for_basemap = new std::string(*(source._url_for_basemap));
             delete _cookie;
             _cookie = new std::string(*(source._cookie));
+            delete _user_agent;
+            _user_agent = new std::string(*(source._user_agent));
 
         }
         return *this;
@@ -357,6 +364,14 @@ Source::Source(const Source& source){
             _cookie->assign(nodeText->get_content());
             return;
         }
+        // user_agent tag
+        if(nodeName == "user_agnet"){
+            xmlpp::Node::NodeList list = node->get_children();
+            xmlpp::Node::NodeList::iterator iter = list.begin();
+            const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+            _user_agent->assign(nodeText->get_content());
+            return;
+        }
 
     }
 #endif
@@ -403,6 +418,10 @@ Source::Source(const Source& source){
 /////////////////////////////////////////////////////////////////////////////////
     std::string& Source::cookie() const{
         return *_cookie;
+    }
+/////////////////////////////////////////////////////////////////////////////////
+    std::string& Source::user_agent() const{
+        return *_user_agent;
     }
 ///////////////////////////////////////////////////////////////////////////////
     std::string& Source::binary() const{

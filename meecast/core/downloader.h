@@ -43,7 +43,7 @@ class Downloader
 public:
     Downloader();
     static size_t writedata(void *ptr, size_t size, size_t nmemb, FILE *stream);
-    static bool downloadData(const std::string &filename, const std::string &url, const std::string &cookie);
+    static bool downloadData(const std::string &filename, const std::string &url, const std::string &cookie, const std::string &user_agent);
 };
 }
 #endif // DOWNLOADER_H

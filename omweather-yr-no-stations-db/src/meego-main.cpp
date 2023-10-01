@@ -403,7 +403,7 @@ convert_station_yrno_data(const char *station_id_with_path, const char *result_f
                 xmlNode  *cur_node = NULL;
                 for(cur_node = root_node->children; cur_node; cur_node = cur_node->next){
                     if( cur_node->type == XML_ELEMENT_NODE && !xmlStrcmp(cur_node->name, (const xmlChar *) "product")){
-                        days_number = parse_and_write_xml_data(buffer, cur_node, result_file);
+                        days_number = parse_and_write_yrno_xml_data(buffer, cur_node, result_file);
                         xmlFreeDoc(doc);
                         xmlCleanupParser();
                         if(!access(detail_path_data, R_OK)){
@@ -417,7 +417,7 @@ convert_station_yrno_data(const char *station_id_with_path, const char *result_f
                                     xmlCleanupParser();
                                 }
                                 else{
-                                    parse_and_write_detail_data(buffer, root_node, result_file);
+                                    parse_and_write_yrno_detail_data(buffer, root_node, result_file);
                                     xmlFreeDoc(doc);
                                     xmlCleanupParser();
                                 }

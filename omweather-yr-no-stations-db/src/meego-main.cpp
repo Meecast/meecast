@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-yr-no-stations-db - MeeCast
  *
- * Copyright (C) 2006-2014 Vlad Vasilyeu
+ * Copyright (C) 2006-2023 Vlad Vasilyeu
  * 	for the code
  *
  * This software is free software; you can redistribute it and/or
@@ -25,7 +25,10 @@
 #include <config.h>
 #endif
 #include "meego-main.h"
+#include "json/json.h"
 #include <unistd.h>
+#include <fstream>
+#include <iostream> 
 #include <string.h>
 #include <time.h>
 #include <locale.h>
@@ -350,7 +353,66 @@ parse_and_write_detail_data(const char *station_id,  xmlNode *root_node, const c
 
     return 1;
 }
+int
+parse_and_write_days_json_yrno_data(const char *days_data_path, const char *result_file){
 
+    FILE   *file_out;
+    Json::Value root;   // will contains the root value after parsing.
+    Json::Reader reader;
+    Json::Value val;
+    Json::Value nullval;
+
+    char buffer  [4096],
+         buffer2 [4096],
+         *delimiter = NULL;
+
+    time_t current_time = 0;
+    int localtimezone = 0;
+    struct tm time_tm1 = {0,0,0,0,0,0,0,0,0,0,0};
+    struct tm time_tm2 = {0,0,0,0,0,0,0,0,0,0,0};
+    struct tm tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
+
+    std::ifstream jsonfile(days_data_path, std::ifstream::binary);
+    bool parsingSuccessful = reader.parse(jsonfile, root, false);
+    if (!parsingSuccessful){
+
+        fprintf(stderr,"Problem ");
+        return -1;
+    }
+    file_out = fopen(result_file, "w");
+    if (!file_out)
+        return -1;
+    /* prepare station id */
+    *buffer = 0;
+    *buffer2 = 0;
+    snprintf(buffer2, sizeof(buffer2) - 1, "%s", days_data_path);
+    delimiter = strrchr(buffer2, '/');
+    if(delimiter){
+        delimiter++; /* delete '/' */
+        snprintf(buffer, sizeof(buffer) - 1, "%s", delimiter);
+    }
+    /* Set localtimezone */
+    current_time = time(NULL);
+    gmtime_r(&current_time, &time_tm1);
+    localtime_r(&current_time, &time_tm2);
+    tmp_tm.tm_isdst = time_tm2.tm_isdst;
+    localtimezone = time_tm2.tm_gmtoff/3600; 
+    setlocale(LC_NUMERIC, "POSIX");
+    fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", buffer);
+    fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
+    fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
+    val = root["properties"].get("timeseries", nullval);
+
+    double min_distance = 32000;
+    uint max_count_of_parameters = 0;
+
+    fprintf(stderr,"size %i\n", val.size());
+    for (uint i = 0; i < val.size(); i++){
+    }
+
+    return val.size();
+
+}
 /*******************************************************************************/
 int
 convert_station_yrno_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data){
@@ -372,6 +434,9 @@ convert_station_yrno_data(const char *station_id_with_path, const char *result_f
         rename(buffer, station_id_with_path);
     /* check file accessability */
     if(!access(station_id_with_path, R_OK)){
+        parse_and_write_days_json_yrno_data(station_id_with_path, result_file);
+
+#if 0
         /* check that the file containe valid data */
         doc = xmlReadFile(station_id_with_path, NULL, 0);
         if(!doc)
@@ -434,6 +499,7 @@ convert_station_yrno_data(const char *station_id_with_path, const char *result_f
 		        }
             }
         }
+#endif        
     }
     else
         return -1;/* file isn't accessability */

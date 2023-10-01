@@ -9,4 +9,5 @@
 <library>libomweather-yr-no-source.so</library>
 <binary>yrno</binary>
 <showurl url="http://www.yr.no/sted/%s/" />
+<user_agent>MeeCast github.com/Meecast/meecast</user_agent>
 </source>

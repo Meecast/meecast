@@ -62,6 +62,7 @@ namespace Core {
         std::string *_url_for_map;
         std::string *_url_for_basemap;
         std::string *_cookie;
+        std::string *_user_agent;
         int  _map_type; 
         void *_libraryHandler;
         bool _hasForecast;
@@ -87,6 +88,7 @@ namespace Core {
             std::string& logo() const;
             std::string& url_template() const;
             std::string& cookie() const;
+            std::string& user_agent() const;
             std::string& url_detail_template() const;
             std::string& url_hours_template() const;
             std::string& url_for_view() const;

@@ -106,7 +106,12 @@ Station::Station(const std::string& source_name, const std::string& id,
         std::string cookie = sourcelist->at(source_id)->cookie();
 
         char forecast_url[4096];
-        snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), id.c_str());
+        /* From 2023 Yr.no using lat lon in URL */
+        if (source_name=="yr.no"){
+            snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), std::to_string(latitude), std::to_string(longitude));
+        }else{
+            snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), id.c_str());
+        }
         char forecast_detail_url[4096];
         snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, url_detail_template.c_str(), id.c_str());
         char forecast_hours_url[4096];
@@ -172,7 +177,7 @@ Station::Station(const std::string& source_name, const std::string& id,
          _viewURL = new std::string(view_url);
 
          /* Hack for yr.no */
-         if  (source_name=="yr.no"){
+         if (source_name=="yr.no"){
              std::replace(_forecastURL->begin(), _forecastURL->end(),'#', '/');
              std::replace(_viewURL->begin(), _viewURL->end(),'#', '/');
              std::replace(_detailURL->begin(), _detailURL->end(),'#', '/');

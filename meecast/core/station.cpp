@@ -505,7 +505,7 @@ Station::Station(const std::string& source_name, const std::string& id,
             std::cerr<<"ERROR downloading  "<<this->forecastURL()<<std::endl;
             result = false;
         }
-        if ((result) && (this->detailURL() != "") && (Downloader::downloadData(this->fileName()+".detail.orig", *detailURL, this->cookie()))){
+        if ((result) && (this->detailURL() != "") && (Downloader::downloadData(this->fileName()+".detail.orig", *detailURL, this->cookie(), this->user_agent()))){
             if ((this->hoursURL() != "") && (Downloader::downloadData(this->fileName()+".hours.orig", *hoursURL, this->cookie(), this->user_agent()))){
                 /*
                 command = this->converter()+ " " + this->fileName() + ".orig " + this->fileName()+" " + this->fileName()+".detail.orig" + " " + this->fileName()+ ".hours.orig";

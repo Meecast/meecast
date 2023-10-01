@@ -65,7 +65,7 @@ Downloader::downloadData(const std::string &filename, const std::string &url, co
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
         curl_easy_setopt(curl, CURLOPT_COOKIE, cookie.c_str()); 
         curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, true); 
-        if (user_agent != 0){
+        if (user_agent != ""){
             curl_easy_setopt(curl, CURLOPT_USERAGENT, user_agent.c_str());
         }
         res = curl_easy_perform(curl);

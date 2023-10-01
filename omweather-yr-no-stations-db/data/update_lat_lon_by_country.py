@@ -80,10 +80,10 @@ from urllib.request import urlretrieve
 #country_code = "gb"
 #replacing_dict = {"northern_ireland": "northern ireland"} 
 #replacing_dict_after_region_filling = { } 
-country = "Switzerland"
-country_code = "CH"
-replacing_dict = {"Kanton_Basel-Stadt":"Basel-Stadt", "Kanton_Appenzell_Innerrhoden": "Appenzell Innerrhoden",
-		"Kanton_St._Gallen":"Sankt Gallen", "Kanton_Appenzell_Ausserrhoden":"Appenzell Ausserrhoden"} 
+#country = "Switzerland"
+#country_code = "CH"
+#replacing_dict = {"Kanton_Basel-Stadt":"Basel-Stadt", "Kanton_Appenzell_Innerrhoden": "Appenzell Innerrhoden",
+#		"Kanton_St._Gallen":"Sankt Gallen", "Kanton_Appenzell_Ausserrhoden":"Appenzell Ausserrhoden"} 
 #replacing_dict_after_region_filling = { } 
 #country = "Poland"
 #country_code = "PL"
@@ -197,6 +197,10 @@ replacing_dict = {"Kanton_Basel-Stadt":"Basel-Stadt", "Kanton_Appenzell_Innerrho
 #country = "Latvia"
 #country_code = "LV"
 #replacing_dict = {}
+
+country = "Republic of Lithuania"
+country_code = "LT"
+replacing_dict = {"Republic of Lithuania":"Lithuania"}
 
 replacing_dict_after_region_filling = { } 
 

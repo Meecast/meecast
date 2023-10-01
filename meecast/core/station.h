@@ -82,7 +82,7 @@ namespace Core{
 		            const std::string& basemapURL = 0, 
                     const std::string& cookie = 0,
                     const bool gps = false, double latitude = 0.0, double longitude = 0.0,
-                    const std::string& user_agent = 0,
+                    const std::string& user_agent = 0
                     );
             Station(const std::string& source_name, const std::string& id, 
                     const std::string& name,

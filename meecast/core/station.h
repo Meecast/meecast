@@ -58,6 +58,7 @@ namespace Core{
         std::string *_detailURL;
         std::string *_hoursURL;
         std::string *_cookie;
+        std::string *_user_agent;
         std::string *_viewURL;
         std::string *_mapURL;
         std::string *_basemapURL;

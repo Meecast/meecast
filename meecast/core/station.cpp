@@ -110,7 +110,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         if (source_name=="yr.no"){
             std::string part_of_url;
             part_of_url = "lat=" + std::to_string(latitude) + "&" + "lon=" + std::to_string(longitude);
-            snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), part_of_url.c_str);
+            snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), part_of_url.c_str());
         }else{
             snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), id.c_str());
         }

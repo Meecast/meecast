@@ -885,7 +885,7 @@ ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QStr
 
     (void)source_id;
 
-    if (latitude == 0 && longitude == 0 && (source == "weather.com" || source == "openweathermap.org")){
+    if (latitude == 0 && longitude == 0 && (source == "weather.com" || source == "openweathermap.org" || source == "yr.no")){
         Core::DatabaseSqlite *db_w = new Core::DatabaseSqlite("");
         std::string path(Core::AbstractConfig::prefix);
         path += Core::AbstractConfig::sharePath;
@@ -895,6 +895,8 @@ ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QStr
             filename = "weather.com";
         if (source == "openweathermap.org")
             filename = "openweathermap.org";
+        if (source == "yr.no")
+            filename = "yr.no";
         filename.append(".db");
         filename.prepend(path.c_str());
         db_w->set_databasename(filename.toStdString());

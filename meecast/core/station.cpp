@@ -99,7 +99,9 @@ Station::Station(const std::string& source_name, const std::string& id,
         char forecast_url[4096];
         /* From 2023 Yr.no using lat lon in URL */
         if (source_name=="yr.no"){
-            snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), std::to_string(latitude), std::to_string(longitude));
+            std::string part_of_url;
+            part_of_url = "lat=" + std::to_string(latitude) + "&" + "lon=" + std::to_string(longitude)
+            snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), part_of_url.c_str);
         }else{
             snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), id.c_str());
         }

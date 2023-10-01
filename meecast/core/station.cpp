@@ -488,7 +488,7 @@ Station::Station(const std::string& source_name, const std::string& id,
 
         }
         /* Weather Forecast */
-        if (Downloader::downloadData(this->fileName()+".orig", *forecastURL, this->cookie(), this->user_agent(), this->user_agent())) {
+        if (Downloader::downloadData(this->fileName()+".orig", *forecastURL, this->cookie(), this->user_agent())) {
             result = true;
         }else{
             std::cerr<<"ERROR downloading  "<<this->forecastURL()<<std::endl;

@@ -234,7 +234,7 @@ Config::saveConfig()
         el.appendChild(t);
         st.appendChild(el);
         
-        el = doc.createElement("user-agent");
+        el = doc.createElement("user_agent");
         t = doc.createTextNode(QString::fromStdString((*i)->user_agent()));
         el.appendChild(t);
         st.appendChild(el);

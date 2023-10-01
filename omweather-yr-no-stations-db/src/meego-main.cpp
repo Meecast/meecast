@@ -399,23 +399,29 @@ convert_station_yrno_data(const char *station_id_with_path, const char *result_f
                     return -1;
                 }
                 *delimiter = 0;
-                days_number = parse_and_write_xml_data(buffer, root_node, result_file);
-                xmlFreeDoc(doc);
-                xmlCleanupParser();
-                if(!access(detail_path_data, R_OK)){
-                    doc =  xmlReadFile(detail_path_data, NULL, 0);
-                    if(doc){
-                        root_node = NULL;
-                        root_node = xmlDocGetRootElement(doc);
-                        if(!root_node || ( root_node->type == XML_ELEMENT_NODE &&
-                                strstr((char*)root_node->name, "err"))){
-                            xmlFreeDoc(doc);
-                            xmlCleanupParser();
-                        }
-                        else{
-                            parse_and_write_detail_data(buffer, root_node, result_file);
-                            xmlFreeDoc(doc);
-                            xmlCleanupParser();
+                 
+                xmlNode  *cur_node = NULL;
+                for(cur_node = root_node->children; cur_node; cur_node = cur_node->next){
+                    if( cur_node->type == XML_ELEMENT_NODE && !xmlStrcmp(cur_node->name, (const xmlChar *) "product")){
+                        days_number = parse_and_write_xml_data(buffer, cur_node, result_file);
+                        xmlFreeDoc(doc);
+                        xmlCleanupParser();
+                        if(!access(detail_path_data, R_OK)){
+                            doc =  xmlReadFile(detail_path_data, NULL, 0);
+                            if(doc){
+                                root_node = NULL;
+                                root_node = xmlDocGetRootElement(doc);
+                                if(!root_node || ( root_node->type == XML_ELEMENT_NODE &&
+                                        strstr((char*)root_node->name, "err"))){
+                                    xmlFreeDoc(doc);
+                                    xmlCleanupParser();
+                                }
+                                else{
+                                    parse_and_write_detail_data(buffer, root_node, result_file);
+                                    xmlFreeDoc(doc);
+                                    xmlCleanupParser();
+                                }
+                            }
                         }
                     }
                 }
@@ -439,7 +445,8 @@ parse_and_write_xml_data(const char *station_id, xmlNode *root_node, const char 
     xmlNode     *cur_node = NULL,
                 *child_node = NULL,
                 *child_node1 = NULL,
-                *child_node2 = NULL;
+                *child_node2 = NULL,
+                *child_node3 = NULL;
     xmlChar     *temp_xml_string = NULL;
     int         count_day = 0;
     char        id_station[10],
@@ -459,6 +466,8 @@ parse_and_write_xml_data(const char *station_id, xmlNode *root_node, const char 
 #endif
     int speed;
     time_t      utc_time;
+    time_t      begin_utc_time;
+    time_t      end_utc_time;
     time_t      current_time;
     time_t      end_of_first_day;
     FILE        *file_out;
@@ -501,6 +510,7 @@ parse_and_write_xml_data(const char *station_id, xmlNode *root_node, const char 
 
     for(cur_node = root_node->children; cur_node; cur_node = cur_node->next){
         if( cur_node->type == XML_ELEMENT_NODE ){
+            fprintf(stderr,"sssss %s\n", cur_node->name);
             /* get weather station data */
             if(!xmlStrcmp(cur_node->name, (const xmlChar *) "location" ) ){
                 if ((temp_xml_string = xmlGetProp(cur_node, (const xmlChar*)"id")) != NULL){
@@ -571,215 +581,216 @@ parse_and_write_xml_data(const char *station_id, xmlNode *root_node, const char 
             }
 
             /* Fill other days */
-            if(!xmlStrcmp(cur_node->name, (const xmlChar *) "forecast" ) ){
-                for(child_node = cur_node->children; child_node; child_node = child_node->next){
-                   if (!xmlStrcmp(child_node->name, (const xmlChar *) "tabular" )){
-                    for(child_node1 = child_node->children; child_node1; child_node1 = child_node1->next){
-                        if(child_node1->type == XML_ELEMENT_NODE  &&
-                                ( !xmlStrcmp(child_node1->name, (const xmlChar *)"time") ) ){
-                            if ((temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"period")) != NULL){
-                                if (!xmlStrcmp(temp_xml_string, (const xmlChar *)"0")){
-                                    period = 0;
-                                    count_day++;
-                                }else if (!xmlStrcmp(temp_xml_string, (const xmlChar *)"1"))
-                                         period = 1;
-                                     else if (!xmlStrcmp(temp_xml_string, (const xmlChar *)"2"))
-                                              period = 2;
-                                          else if (!xmlStrcmp(temp_xml_string, (const xmlChar *)"3"))
-                                                   period = 3;
-                                               else
-                                                   period = INT_MAX;
-                                xmlFree(temp_xml_string);
-                                temp_xml_string = NULL;
-                            }
 
-                            /* add day */
-                            if ((temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"from")) != NULL){
-                                setlocale(LC_TIME, "POSIX");
-                                strptime((const char*)temp_xml_string, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
-                                setlocale(LC_TIME, "");
-                                memset(buff, 0, sizeof(buff));
-                                strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);
-                                utc_time = mktime(&tmp_tm) - timezone * 3600 + localtimezone*3600;
-                                /* increase past time for first forecast data */ 
-                                if (first_day){
-                                    first_day = false;
-                                    utc_time = utc_time - 12*3600;
-                                }
-                                fprintf(file_out,"    <period start=\"%li\"", utc_time);
-                                xmlFree(temp_xml_string);
-                                temp_xml_string = NULL;
-                                if ((temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"to")) != NULL){
-                                    setlocale(LC_TIME, "POSIX");
-                                    strptime((const char*)temp_xml_string, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
-                                    setlocale(LC_TIME, "");
-                                    memset(buff, 0, sizeof(buff));
-                                    strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);
-                                    utc_time = mktime(&tmp_tm) - timezone * 3600 + localtimezone*3600;
-                                    fprintf(file_out," end=\"%li\">\n", utc_time); 
+            if(!xmlStrcmp(cur_node->name, (const xmlChar *) "time" ) ){
+                child_node1 = cur_node;
+                if ((temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"period")) != NULL){
+                    if (!xmlStrcmp(temp_xml_string, (const xmlChar *)"0")){
+                        period = 0;
+                        count_day++;
+                    }else if (!xmlStrcmp(temp_xml_string, (const xmlChar *)"1"))
+                             period = 1;
+                         else if (!xmlStrcmp(temp_xml_string, (const xmlChar *)"2"))
+                                  period = 2;
+                              else if (!xmlStrcmp(temp_xml_string, (const xmlChar *)"3"))
+                                       period = 3;
+                                   else
+                                       period = INT_MAX;
+                    xmlFree(temp_xml_string);
+                    temp_xml_string = NULL;
+                }
+
+                /* add day */
+                if ((temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"from")) != NULL){
+                    setlocale(LC_TIME, "POSIX");
+                    strptime((const char*)temp_xml_string, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
+                    setlocale(LC_TIME, "");
+                    memset(buff, 0, sizeof(buff));
+                    strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);
+                    begin_utc_time = mktime(&tmp_tm) - timezone * 3600 + localtimezone*3600;
+                    /* increase past time for first forecast data */ 
+                    /*
+                    if (first_day){
+                        first_day = false;
+                        utc_time = utc_time - 12*3600;
+                    }
+                    */
+                    fprintf(file_out,"    <period start=\"%li\"", begin_utc_time);
+                    xmlFree(temp_xml_string);
+                    temp_xml_string = NULL;
+                    if ((temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"to")) != NULL){
+                        setlocale(LC_TIME, "POSIX");
+                        strptime((const char*)temp_xml_string, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
+                        setlocale(LC_TIME, "");
+                        memset(buff, 0, sizeof(buff));
+                        strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);
+                        end_utc_time = mktime(&tmp_tm) - timezone * 3600 + localtimezone*3600;
+                        fprintf(file_out," end=\"%li\">\n", end_utc_time); 
+                        xmlFree(temp_xml_string);
+                        temp_xml_string = NULL;
+                    }
+                }
+                for(child_node3 = child_node1->children; child_node3; child_node3 = child_node3->next){
+                    if( child_node3->type == XML_ELEMENT_NODE){
+                        fprintf(stderr,"aaaa %s\n", child_node3->name);
+                        if (!xmlStrcmp(child_node3->name, (const xmlChar *) "location" )){
+                        for(child_node2 = child_node3->children; child_node2; child_node2 = child_node2->next){
+                            fprintf(stderr,"bbb %s\n", child_node2->name);
+                            /* 24h hi temperature */
+                            if(!xmlStrcmp(child_node2->name, (const xmlChar *)"temperature")){
+                                if ((temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"value")) != NULL){
+                                    fprintf(file_out,"     <temperature>%s</temperature>\n", (char*)temp_xml_string); 
                                     xmlFree(temp_xml_string);
                                     temp_xml_string = NULL;
                                 }
-                            }
-                            for(child_node2 = child_node1->children; child_node2; child_node2 = child_node2->next){
-                                if( child_node2->type == XML_ELEMENT_NODE){
-                                    /* 24h hi temperature */
-                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"temperature")){
-                                        if ((temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"value")) != NULL){
-			                                fprintf(file_out,"     <temperature>%s</temperature>\n", (char*)temp_xml_string); 
-                                            xmlFree(temp_xml_string);
-                                            temp_xml_string = NULL;
-                                        }
-                                        continue;
-                                    }  /* 24h icon */
-                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"symbol")){
-                                        temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"number");
-                                        memset(buff, 0, sizeof(buff));
-                                        if (period == 0){
-                                            snprintf(buff, sizeof(buff)-1, "night%s",(char*)temp_xml_string);
-                                            #ifdef GLIB
-			                                    fprintf(file_out,"     <icon>%s</icon>\n", (char *)hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
-                                            #endif
-                                            #ifdef QT
-			                                    fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_icon_table_find(hash_for_icons, buff).toStdString().c_str()); 
-                                            #endif
-                                            if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff)){
-                                                fprintf(file_out,"     <icon>%s</icon>\n",  
-                                                    (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff));
-                                            }else 
-                                                fprintf(file_out,"     <icon>49</icon>\n");  
-                                        }
-                                        if (period == 1){
-                                            snprintf(buff, sizeof(buff)-1, "night%s",(char*)temp_xml_string);
-                                            #ifdef GLIB
-			                                    fprintf(file_out,"     <icon>%s</icon>\n", (char*)hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
-                                            #endif
-                                            #ifdef QT
-			                                    fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_icon_table_find(hash_for_icons, buff).toStdString().c_str()); 
-                                            #endif
-                                             if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff)){
-                                                fprintf(file_out,"     <icon>%s</icon>\n",  
-                                                    (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff));
-                                            }else 
-                                                fprintf(file_out,"     <icon>49</icon>\n");  
-
-                                        }
-                                        if (period == 2){
-                                            snprintf(buff, sizeof(buff)-1, "day%s",(char*)temp_xml_string);
-                                            #ifdef GLIB
-			                                    fprintf(file_out,"     <icon>%s</icon>\n", (char*)hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
-                                            #endif
-                                            #ifdef QT
-			                                    fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_icon_table_find(hash_for_icons, buff).toStdString().c_str()); 
-                                            #endif
-                                             if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff)){
-                                                fprintf(file_out,"     <icon>%s</icon>\n",  
-                                                    (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff));
-                                            }else 
-                                                fprintf(file_out,"     <icon>49</icon>\n");  
-
-                                        }
-                                        if (period == 3){
-                                            snprintf(buff, sizeof(buff)-1, "day%s",(char*)temp_xml_string);
-                                            #ifdef GLIB
-			                                    fprintf(file_out,"     <icon>%s</icon>\n", (char*)hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
-                                            #endif
-                                            #ifdef QT
-			                                    fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_icon_table_find(hash_for_icons, buff).toStdString().c_str()); 
-                                            #endif
-                                             if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff)){
-                                                fprintf(file_out,"     <icon>%s</icon>\n",  
-                                                    (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff));
-                                            }else 
-                                                fprintf(file_out,"     <icon>49</icon>\n");  
-
-                                        }
-                                        xmlFree(temp_xml_string);
-                                        temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"name");
-                                        #ifdef GLIB
-			                                fprintf(file_out,"     <description>%s</description>\n",
-                                                         hash_yrno_table_find(hash_for_translate, 
-                                                         (char*)temp_xml_string, FALSE));
-                                        #endif
-                                        #ifdef QT
-			                                fprintf(file_out,"     <description>%s</description>\n", hash_yrno_description_table_find(hash_for_translate,  (char*)temp_xml_string).toStdString().c_str()); 
-                                        #endif
-                                        if ((char*)xmlHashLookup(hash_for_translate, (const xmlChar*)temp_xml_string)){
-			                                fprintf(file_out,"     <description>%s</description>\n",
-                                                    (char*)xmlHashLookup(hash_for_translate, (const xmlChar*)temp_xml_string));
-                                        }
-                                        xmlFree(temp_xml_string);
-                                        temp_xml_string = NULL;
-                                        continue;
-                                    }
-                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"pressure") ){
-                                        if ((temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"value")) != NULL){
-                                            fprintf(file_out,"     <pressure>%s</pressure>\n",
-                                                                       (char*)temp_xml_string);
-                                            xmlFree(temp_xml_string);
-                                            temp_xml_string = NULL;
-                                        }
-                                        continue;
-                                    }
-                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"precipitation") ){
-                                        if ((temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"value")) != NULL){
-                                            fprintf(file_out,"     <precipitation>%s</precipitation>\n",
-                                                                   (char*)temp_xml_string);
-                                            xmlFree(temp_xml_string);
-                                            temp_xml_string = NULL;
-                                        }
-                                        continue;
-                                    }
-                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"windSpeed") ){
-                                        if ((temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"mps")) != NULL){
-                                            /* Normalize speed to km/h from m/s */
-                                            /* fprintf(stderr, "Wind  speed    %s\n", temp_buffer); */
-                                            speed = atoi((char*)temp_xml_string);
-                                            /* speed = speed * 3600/1000; why??? */
-                                            memset(buff, 0, sizeof(buff));
-                                            snprintf(buff, sizeof(buff)-1, "%i", speed);
-                                            fprintf(file_out,"     <wind_speed>%s</wind_speed>\n",  buff);
-                                            xmlFree(temp_xml_string);
-                                            temp_xml_string = NULL;
-                                        }
-                                        continue;
-                                    }
-                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"windDirection") ){
-                                        if ((temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"code")) != NULL){
-                                            fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",
-                                                                                     (char*)temp_xml_string);
-                                            xmlFree(temp_xml_string);
-                                            temp_xml_string = NULL;
-                                        }
-                                        continue;
-                                    }
-
-
-                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"sunr")){
-                                        temp_xml_string = xmlNodeGetContent(child_node2);
-
-                                        #ifdef GLIB
-                                            g_hash_table_insert(day, (gpointer)"day_sunrise", (gpointer)g_strdup((char *)temp_xml_string));
-                                        #endif
-                                        xmlFree(temp_xml_string);
-                                        continue;
-                                    }
-                                    /* 24h sunset */
-                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"suns")){
-                                        temp_xml_string = xmlNodeGetContent(child_node2);
-                                        #ifdef GLIB
-                                            g_hash_table_insert(day, (gpointer)"day_sunset", (void *)g_strdup((char*)temp_xml_string));
-                                        #endif
-                                        xmlFree(temp_xml_string);
-                                        continue;
-                                    }
+                                continue;
+                            }  /* 24h icon */
+                            if(!xmlStrcmp(child_node2->name, (const xmlChar *)"symbol")){
+                                temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"number");
+                                memset(buff, 0, sizeof(buff));
+                                if (period == 0){
+                                    snprintf(buff, sizeof(buff)-1, "night%s",(char*)temp_xml_string);
+                                    #ifdef GLIB
+                                        fprintf(file_out,"     <icon>%s</icon>\n", (char *)hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
+                                    #endif
+                                    #ifdef QT
+                                        fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_icon_table_find(hash_for_icons, buff).toStdString().c_str()); 
+                                    #endif
+                                    if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff)){
+                                        fprintf(file_out,"     <icon>%s</icon>\n",  
+                                            (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff));
+                                    }else 
+                                        fprintf(file_out,"     <icon>49</icon>\n");  
                                 }
+                                if (period == 1){
+                                    snprintf(buff, sizeof(buff)-1, "night%s",(char*)temp_xml_string);
+                                    #ifdef GLIB
+                                        fprintf(file_out,"     <icon>%s</icon>\n", (char*)hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
+                                    #endif
+                                    #ifdef QT
+                                        fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_icon_table_find(hash_for_icons, buff).toStdString().c_str()); 
+                                    #endif
+                                     if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff)){
+                                        fprintf(file_out,"     <icon>%s</icon>\n",  
+                                            (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff));
+                                    }else 
+                                        fprintf(file_out,"     <icon>49</icon>\n");  
+
+                                }
+                                if (period == 2){
+                                    snprintf(buff, sizeof(buff)-1, "day%s",(char*)temp_xml_string);
+                                    #ifdef GLIB
+                                        fprintf(file_out,"     <icon>%s</icon>\n", (char*)hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
+                                    #endif
+                                    #ifdef QT
+                                        fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_icon_table_find(hash_for_icons, buff).toStdString().c_str()); 
+                                    #endif
+                                     if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff)){
+                                        fprintf(file_out,"     <icon>%s</icon>\n",  
+                                            (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff));
+                                    }else 
+                                        fprintf(file_out,"     <icon>49</icon>\n");  
+
+                                }
+                                if (period == 3){
+                                    snprintf(buff, sizeof(buff)-1, "day%s",(char*)temp_xml_string);
+                                    #ifdef GLIB
+                                        fprintf(file_out,"     <icon>%s</icon>\n", (char*)hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
+                                    #endif
+                                    #ifdef QT
+                                        fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_icon_table_find(hash_for_icons, buff).toStdString().c_str()); 
+                                    #endif
+                                     if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff)){
+                                        fprintf(file_out,"     <icon>%s</icon>\n",  
+                                            (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff));
+                                    }else 
+                                        fprintf(file_out,"     <icon>49</icon>\n");  
+
+                                }
+                                xmlFree(temp_xml_string);
+                                temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"name");
+                                #ifdef GLIB
+                                    fprintf(file_out,"     <description>%s</description>\n",
+                                                 hash_yrno_table_find(hash_for_translate, 
+                                                 (char*)temp_xml_string, FALSE));
+                                #endif
+                                #ifdef QT
+                                    fprintf(file_out,"     <description>%s</description>\n", hash_yrno_description_table_find(hash_for_translate,  (char*)temp_xml_string).toStdString().c_str()); 
+                                #endif
+                                if ((char*)xmlHashLookup(hash_for_translate, (const xmlChar*)temp_xml_string)){
+                                    fprintf(file_out,"     <description>%s</description>\n",
+                                            (char*)xmlHashLookup(hash_for_translate, (const xmlChar*)temp_xml_string));
+                                }
+                                xmlFree(temp_xml_string);
+                                temp_xml_string = NULL;
+                                continue;
                             }
-                            fprintf(file_out,"    </period>\n");
+                            if(!xmlStrcmp(child_node2->name, (const xmlChar *)"pressure") ){
+                                if ((temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"value")) != NULL){
+                                    fprintf(file_out,"     <pressure>%s</pressure>\n",
+                                                               (char*)temp_xml_string);
+                                    xmlFree(temp_xml_string);
+                                    temp_xml_string = NULL;
+                                }
+                                continue;
+                            }
+                            if(!xmlStrcmp(child_node2->name, (const xmlChar *)"precipitation") ){
+                                if ((temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"value")) != NULL){
+                                    fprintf(file_out,"     <precipitation>%s</precipitation>\n",
+                                                           (char*)temp_xml_string);
+                                    xmlFree(temp_xml_string);
+                                    temp_xml_string = NULL;
+                                }
+                                continue;
+                            }
+                            if(!xmlStrcmp(child_node2->name, (const xmlChar *)"windSpeed") ){
+                                if ((temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"mps")) != NULL){
+                                    /* Normalize speed to km/h from m/s */
+                                    /* fprintf(stderr, "Wind  speed    %s\n", temp_buffer); */
+                                    speed = atoi((char*)temp_xml_string);
+                                    /* speed = speed * 3600/1000; why??? */
+                                    memset(buff, 0, sizeof(buff));
+                                    snprintf(buff, sizeof(buff)-1, "%i", speed);
+                                    fprintf(file_out,"     <wind_speed>%s</wind_speed>\n",  buff);
+                                    xmlFree(temp_xml_string);
+                                    temp_xml_string = NULL;
+                                }
+                                continue;
+                            }
+                            if(!xmlStrcmp(child_node2->name, (const xmlChar *)"windDirection") ){
+                                if ((temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"code")) != NULL){
+                                    fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",
+                                                                             (char*)temp_xml_string);
+                                    xmlFree(temp_xml_string);
+                                    temp_xml_string = NULL;
+                                }
+                                continue;
+                            }
+
+
+                            if(!xmlStrcmp(child_node2->name, (const xmlChar *)"sunr")){
+                                temp_xml_string = xmlNodeGetContent(child_node2);
+
+                                #ifdef GLIB
+                                    g_hash_table_insert(day, (gpointer)"day_sunrise", (gpointer)g_strdup((char *)temp_xml_string));
+                                #endif
+                                xmlFree(temp_xml_string);
+                                continue;
+                            }
+                            /* 24h sunset */
+                            if(!xmlStrcmp(child_node2->name, (const xmlChar *)"suns")){
+                                temp_xml_string = xmlNodeGetContent(child_node2);
+                                #ifdef GLIB
+                                    g_hash_table_insert(day, (gpointer)"day_sunset", (void *)g_strdup((char*)temp_xml_string));
+                                #endif
+                                xmlFree(temp_xml_string);
+                                continue;
+                            }
                         }
-                     }    
-                   }
+                    }
+                    fprintf(file_out,"    </period>\n");
                 }
+            }
             }
         }
     }

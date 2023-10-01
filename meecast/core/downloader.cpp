@@ -43,7 +43,7 @@ Downloader::writedata(void *ptr, size_t size, size_t nmemb, FILE *stream)
     return fwrite(ptr, size, nmemb, stream);
 }
 bool
-Downloader::downloadData(const std::string &filename, const std::string &url, const std::string &cookie)
+Downloader::downloadData(const std::string &filename, const std::string &url, const std::string &cookie, const std::string &user_agent)
 {
     CURL *curl;
     CURLcode res;
@@ -61,7 +61,9 @@ Downloader::downloadData(const std::string &filename, const std::string &url, co
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
         curl_easy_setopt(curl, CURLOPT_COOKIE, cookie.c_str()); 
         curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, true); 
-        curl_easy_setopt(curl, CURLOPT_USERAGENT, true);
+        if (user_agent != 0){
+            curl_easy_setopt(curl, CURLOPT_USERAGENT, user_agent.c_str());
+        }
         res = curl_easy_perform(curl);
         std::cerr << "curl result = " << res << std::endl;
         curl_easy_cleanup(curl);

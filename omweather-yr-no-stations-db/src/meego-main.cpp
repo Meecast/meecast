@@ -360,13 +360,19 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
     Json::Value root;   // will contains the root value after parsing.
     Json::Reader reader;
     Json::Value val;
+    Json::Value data;
+    Json::Value next_1_hours;
+    Json::Value next_6_hours;
+    Json::Value next_12_hours;
     Json::Value nullval;
 
     char buffer  [4096],
          buffer2 [4096],
          *delimiter = NULL;
 
+    int first_day = true;
     time_t current_time = 0;
+    time_t begin_utc_time;
     int localtimezone = 0;
     struct tm time_tm1 = {0,0,0,0,0,0,0,0,0,0,0};
     struct tm time_tm2 = {0,0,0,0,0,0,0,0,0,0,0};
@@ -408,6 +414,50 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
 
     fprintf(stderr,"size %i\n", val.size());
     for (uint i = 0; i < val.size(); i++){
+
+        data = val[i].get("data", nullval);
+        if (data == nullval){
+            continue;
+        }
+        next_12_hours = data.get("next_12_hours", nullval);
+        next_6_hours = data.get("next_6_hours", nullval);
+        next_1_hours = data.get("next_1_hours", nullval);
+
+        if (val[i].get("time","").asString() != ""){
+            fprintf(stderr,"Time %s\n",val[i].get("time","").asString().c_str()); 
+            tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
+            setlocale(LC_TIME, "POSIX");
+            strptime((const char*)val[i].get("time","").asString().c_str(), "%Y-%m-%dT%H:%M:00Z", &tmp_tm);
+            begin_utc_time = mktime(&tmp_tm); 
+
+        }else{
+            continue;
+        }
+        if (first_day){
+            fprintf(file_out,"    <period start=\"%li\" \"current=\"true\" end=\"%li\">", begin_utc_time, begin_utc_time + 3*3600);
+            first_day = false;
+            fprintf(file_out,"    </period>\n");
+        }
+        if (next_12_hours != nullval){
+            fprintf(file_out,"    <period start=\"%li\" \"current=\"true\" end=\"%li\">", begin_utc_time, begin_utc_time + 12*3600);
+            fprintf(file_out,"   12\n");
+            fprintf(file_out,"    </period>\n");
+        }
+        if (next_6_hours != nullval){
+            fprintf(file_out,"    <period start=\"%li\" \"current=\"true\" end=\"%li\">", begin_utc_time, begin_utc_time + 6*3600);
+            fprintf(file_out,"   6\n");
+            fprintf(file_out,"    </period>\n");
+        }
+        if (next_1_hours != nullval){
+            fprintf(file_out,"    <period start=\"%li\" \"current=\"true\" end=\"%li\">", begin_utc_time, begin_utc_time + 6*3600);
+            fprintf(file_out,"   1\n");
+            fprintf(file_out,"    </period>\n");
+        }
+
+
+        data = nullval;
+        next_12_hours = nullval;
+        next_6_hours = nullval;
     }
 
     return val.size();

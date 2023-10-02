@@ -367,6 +367,7 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
     Json::Value next_12_hours;
     Json::Value nullval;
     int pressure = INT_MAX;
+    int temperature = INT_MAX;
 
     char buffer  [4096],
          buffer2 [4096],
@@ -425,9 +426,12 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             details = data.get("instant", nullval).get("details", nullval);
             if (details != nullval){
                 if (details.get("air_pressure_at_sea_level", nullval) != nullval){
-                    fprintf(stderr,"sssssssssssssssssss\n");
-                    pressure = details.get("air_pressure_at_sea_level","-1").asInt();
+                    pressure = details.get("air_pressure_at_sea_level", INT_MAX).asInt();
                 }
+                if (details.get("air_temperature", nullval) != nullval){
+                    temperature = details.get("air_temperature", INT_MAX).asDouble();
+                }
+
             }
         }
         next_12_hours = data.get("next_12_hours", nullval);
@@ -450,6 +454,10 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             if (pressure != INT_MAX){
                 fprintf(file_out,"     <pressure>%i</pressure>\n", pressure);
             }
+            if (temperature != INT_MAX){
+                fprintf(file_out,"     <temperature>%i</temperature>\n", temperature);
+            }
+
             fprintf(file_out,"    </period>\n");
         }
         if (next_12_hours != nullval){
@@ -457,6 +465,10 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             if (pressure != INT_MAX){
                 fprintf(file_out,"     <pressure>%i</pressure>\n", pressure);
             }
+            if (temperature != INT_MAX){
+                fprintf(file_out,"     <temperature>%i</temperature>\n", temperature);
+            }
+
             fprintf(file_out,"    </period>\n");
         }
         if (next_6_hours != nullval){
@@ -464,6 +476,10 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             if (pressure != INT_MAX){
                 fprintf(file_out,"     <pressure>%i</pressure>\n", pressure);
             }
+            if (temperature != INT_MAX){
+                fprintf(file_out,"     <temperature>%i</temperature>\n", temperature);
+            }
+
             fprintf(file_out,"    </period>\n");
         }
         if (next_1_hours != nullval){
@@ -471,6 +487,10 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             if (pressure != INT_MAX){
                 fprintf(file_out,"     <pressure>%i</pressure>\n", pressure);
             }
+            if (temperature != INT_MAX){
+                fprintf(file_out,"     <temperature>%i</temperature>\n", temperature);
+            }
+
             fprintf(file_out,"    </period>\n");
         }
 
@@ -481,6 +501,7 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
         next_6_hours = nullval;
         next_12_hours = nullval;
         pressure = INT_MAX;
+        temperature = INT_MAX;
     }
 
     return val.size();

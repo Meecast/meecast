@@ -368,6 +368,8 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
     Json::Value nullval;
     int pressure = INT_MAX;
     int temperature = INT_MAX;
+    int dew_point = INT_MAX;
+    int humidity = INT_MAX;
 
     char buffer  [4096],
          buffer2 [4096],
@@ -431,6 +433,12 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                 if (details.get("air_temperature", nullval) != nullval){
                     temperature = details.get("air_temperature", INT_MAX).asDouble();
                 }
+                if (details.get("dew_point_temperature", nullval) != nullval){
+                    dew_point = details.get("dew_point_temperature", INT_MAX).asDouble();
+                }
+                if (details.get("relative_humidity", nullval) != nullval){
+                    humidity = details.get("relative_humidity", INT_MAX).asDouble();
+                }
 
             }
         }
@@ -457,7 +465,13 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             if (temperature != INT_MAX){
                 fprintf(file_out,"     <temperature>%i</temperature>\n", temperature);
             }
-
+            if (dew_point != INT_MAX){
+                fprintf(file_out,"     <dewpoint>%i</dewpoint>\n", dew_point);
+            }
+            if (humidity != INT_MAX){
+                fprintf(file_out,"     <humidity>%i</humidity>\n", humidity);
+            }
+ 
             fprintf(file_out,"    </period>\n");
         }
         if (next_12_hours != nullval){
@@ -468,7 +482,13 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             if (temperature != INT_MAX){
                 fprintf(file_out,"     <temperature>%i</temperature>\n", temperature);
             }
-
+            if (dew_point != INT_MAX){
+                fprintf(file_out,"     <dewpoint>%i</dewpoint>\n", dew_point);
+            }
+            if (humidity != INT_MAX){
+                fprintf(file_out,"     <humidity>%i</humidity>\n", humidity);
+            }
+ 
             fprintf(file_out,"    </period>\n");
         }
         if (next_6_hours != nullval){
@@ -479,7 +499,13 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             if (temperature != INT_MAX){
                 fprintf(file_out,"     <temperature>%i</temperature>\n", temperature);
             }
-
+            if (dew_point != INT_MAX){
+                fprintf(file_out,"     <dewpoint>%i</dewpoint>\n", dew_point);
+            }
+            if (humidity != INT_MAX){
+                fprintf(file_out,"     <humidity>%i</humidity>\n", humidity);
+            }
+ 
             fprintf(file_out,"    </period>\n");
         }
         if (next_1_hours != nullval){
@@ -490,7 +516,13 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             if (temperature != INT_MAX){
                 fprintf(file_out,"     <temperature>%i</temperature>\n", temperature);
             }
-
+            if (dew_point != INT_MAX){
+                fprintf(file_out,"     <dewpoint>%i</dewpoint>\n", dew_point);
+            }
+            if (humidity != INT_MAX){
+                fprintf(file_out,"     <humidity>%i</humidity>\n", humidity);
+            }
+ 
             fprintf(file_out,"    </period>\n");
         }
 
@@ -502,6 +534,7 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
         next_12_hours = nullval;
         pressure = INT_MAX;
         temperature = INT_MAX;
+        dew_point = INT_MAX;
     }
 
     return val.size();

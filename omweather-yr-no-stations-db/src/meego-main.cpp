@@ -372,6 +372,7 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
     int dew_point = INT_MAX;
     int humidity = INT_MAX;
     int uv_index = INT_MAX;
+    int wind_speed = INT_MAX;
     float _wind_direction = INT_MAX;
     int wind_index;
 
@@ -451,6 +452,10 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                     _wind_direction = details.get("wind_from_direction", INT_MAX).asFloat();
                     wind_index = (int)round(_wind_direction/22.5) + 1;
                 }
+                if (details.get("wind_speed", nullval) != nullval){
+                    wind_speed = (int)round(details.get("wind_speed", INT_MAX).asFloat());
+                }
+
             }
         }
         next_12_hours = data.get("next_12_hours", nullval);
@@ -488,6 +493,9 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             if (_wind_direction != INT_MAX){
                 fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_directions[wind_index].c_str());
             }
+            if (wind_speed != INT_MAX){
+                fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", wind_speed);
+            }
 
             fprintf(file_out,"    </period>\n");
         }
@@ -511,6 +519,9 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             if (_wind_direction != INT_MAX){
                 fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_directions[wind_index].c_str());
             }
+            if (wind_speed != INT_MAX){
+                fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", wind_speed);
+            }
             fprintf(file_out,"    </period>\n");
         }
         if (next_6_hours != nullval){
@@ -533,7 +544,9 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             if (_wind_direction != INT_MAX){
                 fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_directions[wind_index].c_str());
             }
-
+            if (wind_speed != INT_MAX){
+                fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", wind_speed);
+            }
             fprintf(file_out,"    </period>\n");
         }
         if (next_1_hours != nullval){
@@ -556,6 +569,9 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             if (_wind_direction != INT_MAX){
                 fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_directions[wind_index].c_str());
             }
+            if (wind_speed != INT_MAX){
+                fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", wind_speed);
+            }
 
             fprintf(file_out,"    </period>\n");
         }
@@ -570,8 +586,11 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
         temperature = INT_MAX;
         dew_point = INT_MAX;
         uv_index = INT_MAX;
+        wind_speed = INT_MAX;
+        _wind_direction = INT_MAX;
     }
 
+    fclose(file_out);
     return val.size();
 
 }
@@ -596,7 +615,7 @@ convert_station_yrno_data(const char *station_id_with_path, const char *result_f
         rename(buffer, station_id_with_path);
     /* check file accessability */
     if(!access(station_id_with_path, R_OK)){
-        parse_and_write_days_json_yrno_data(station_id_with_path, result_file);
+       days_number =  parse_and_write_days_json_yrno_data(station_id_with_path, result_file);
 
 #if 0
         /* check that the file containe valid data */
@@ -662,6 +681,15 @@ convert_station_yrno_data(const char *station_id_with_path, const char *result_f
             }
         }
 #endif        
+        fprintf(stderr,"days_number %i\n", days_number);
+        if (days_number > 0){
+            file_out = fopen(result_file, "a");
+            if (file_out){
+                fprintf(file_out,"</station>");
+                fclose(file_out);
+            }
+        }
+
     }
     else
         return -1;/* file isn't accessability */

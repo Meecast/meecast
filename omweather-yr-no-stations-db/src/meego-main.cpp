@@ -32,6 +32,7 @@
 #include <string.h>
 #include <time.h>
 #include <locale.h>
+#include <math.h> 
 
 static xmlHashTablePtr hash_for_icons;
 static xmlHashTablePtr hash_for_translate;
@@ -371,7 +372,10 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
     int dew_point = INT_MAX;
     int humidity = INT_MAX;
     int uv_index = INT_MAX;
+    float _wind_direction = INT_MAX;
+    int wind_index;
 
+    std::string wind_directions[17] = {"N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW","N"};
     char buffer  [4096],
          buffer2 [4096],
          *delimiter = NULL;
@@ -443,8 +447,10 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                 if (details.get("ultraviolet_index_clear_sky", nullval) != nullval){
                     uv_index = details.get("ultraviolet_index_clear_sky", INT_MAX).asInt();
                 }
-
-
+                if (details.get("wind_from_direction", nullval) != nullval){
+                    _wind_direction = details.get("wind_from_direction", INT_MAX).asFloat();
+                    wind_index = (int)round(_wind_direction/22.5) + 1;
+                }
             }
         }
         next_12_hours = data.get("next_12_hours", nullval);
@@ -479,6 +485,10 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             if (uv_index != INT_MAX){
                 fprintf(file_out,"     <uv_index>%i</uv_index>\n", uv_index);
             }
+            if (_wind_direction != INT_MAX){
+                fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_directions[wind_index].c_str());
+            }
+
             fprintf(file_out,"    </period>\n");
         }
         if (next_12_hours != nullval){
@@ -496,9 +506,11 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                 fprintf(file_out,"     <humidity>%i</humidity>\n", humidity);
             }
             if (uv_index != INT_MAX){
-                fprintf(file_out,"      <uv_index>%i</uv_index>\n", uv_index);
+                fprintf(file_out,"     <uv_index>%i</uv_index>\n", uv_index);
             }
-
+            if (_wind_direction != INT_MAX){
+                fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_directions[wind_index].c_str());
+            }
             fprintf(file_out,"    </period>\n");
         }
         if (next_6_hours != nullval){
@@ -517,6 +529,9 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             }
             if (uv_index != INT_MAX){
                 fprintf(file_out,"     <uv_index>%i</uv_index>\n", uv_index);
+            }
+            if (_wind_direction != INT_MAX){
+                fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_directions[wind_index].c_str());
             }
 
             fprintf(file_out,"    </period>\n");
@@ -537,6 +552,9 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             }
             if (uv_index != INT_MAX){
                 fprintf(file_out,"     <uv_index>%i</uv_index>\n", uv_index);
+            }
+            if (_wind_direction != INT_MAX){
+                fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_directions[wind_index].c_str());
             }
 
             fprintf(file_out,"    </period>\n");

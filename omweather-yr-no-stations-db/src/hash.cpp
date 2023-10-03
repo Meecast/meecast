@@ -65,6 +65,7 @@ hash_description_yrno_table_create(void) {
 
 QString
 hash_yrno_icon_table_find(QHash<QString, QString> *hash_for_icons, char* key) {
+    fprintf(stderr, "qqqqqqqqqqqqqqqa\n");
     QString result;
     if (hash_for_icons->contains(QString(key)))
         return hash_for_icons->value(QString(key));

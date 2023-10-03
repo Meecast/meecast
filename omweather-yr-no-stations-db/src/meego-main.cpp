@@ -396,6 +396,12 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
         fprintf(stderr,"Problem ");
         return -1;
     }
+
+    hash_for_icons = hash_icons_yrno_table_create();
+    hash_for_translate = hash_description_yrno_table_create();
+
+
+
     file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
@@ -463,7 +469,7 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
         next_1_hours = data.get("next_1_hours", nullval);
 
         if (val[i].get("time","").asString() != ""){
-            fprintf(stderr,"Time %s\n",val[i].get("time","").asString().c_str()); 
+            //fprintf(stderr,"Time %s\n",val[i].get("time","").asString().c_str()); 
             tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
             setlocale(LC_TIME, "POSIX");
             strptime((const char*)val[i].get("time","").asString().c_str(), "%Y-%m-%dT%H:%M:00Z", &tmp_tm);
@@ -572,6 +578,19 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             if (wind_speed != INT_MAX){
                 fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", wind_speed);
             }
+            if (next_1_hours.get("summary", nullval) != nullval){
+                Json::Value summary = next_1_hours.get("summary", nullval);
+                if (summary.get("symbol_code", nullval) != nullval){
+                   std::string symbol_code = summary.get("symbol_code", "").asString();
+                    fprintf(stderr,"ssssssssssssssssssssssssssssssssss %s\n", symbol_code.c_str());
+                    if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_code.c_str())){
+                        fprintf(file_out,"     <icon>%s</icon>\n",  
+                            (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_code.c_str()));
+                    }else 
+                        fprintf(file_out,"     <icon>49</icon>\n");  
+                }
+            }
+
 
             fprintf(file_out,"    </period>\n");
         }
@@ -589,6 +608,9 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
         wind_speed = INT_MAX;
         _wind_direction = INT_MAX;
     }
+
+    xmlHashFree(hash_for_icons, NULL);
+    xmlHashFree(hash_for_translate, NULL);
 
     fclose(file_out);
     return val.size();

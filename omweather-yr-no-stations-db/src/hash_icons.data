@@ -7,7 +7,33 @@
 #endif
 
     #define hash_insert(hash, s2, s3) xmlHashAddEntry(hash, (const xmlChar *)s2, (void *)(s3)); 
-    hash_insert(hash, "clearsky_day", "32");       //1 
+    hash_insert(hash, "clearsky_day", "32");                 //1 
+    hash_insert(hash, "clearsky_night", "31");               //1 
+    hash_insert(hash, "fair_day", "34");                     //2
+    hash_insert(hash, "fair_night", "31");                   //2 
+    hash_insert(hash, "partlycloudy_day", "44");             //3
+    hash_insert(hash, "partlycloudy_night", "29");           //3 
+    hash_insert(hash, "cloudy_day", "26");                   //4
+    hash_insert(hash, "cloudy_night", "26");                 //4 
+    hash_insert(hash, "rainshowers_day", "39");              //5
+    hash_insert(hash, "rainshowers_night", "45");            //5 
+    hash_insert(hash, "rainshowersandthunder_day", "37");    //6
+    hash_insert(hash, "rainshowersandthunder_night", "47");  //6 
+    hash_insert(hash, "sleetshowers_day", "5");              //7
+    hash_insert(hash, "sleetshowers_night", "5");            //7 
+    hash_insert(hash, "snowshowers_day", "49");              //8
+    hash_insert(hash, "snowshowers_night", "46");            //8 
+    hash_insert(hash, "rain", "11");                         //9
+    hash_insert(hash, "heavyrain", "40");                    //10
+    hash_insert(hash, "heavyrainandthunder", "17");          //11
+    hash_insert(hash, "lightrain", "11");                    //46
+
+
+
+
+
+
+
     hash_insert(hash, "cloudy", "26");
     hash_insert(hash, "partlycloudy_night", "29");
 

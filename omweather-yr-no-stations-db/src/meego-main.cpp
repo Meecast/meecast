@@ -510,6 +510,7 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                         fprintf(file_out,"     <icon>%s</icon>\n",  
                             (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_icon_code.c_str()));
                     }else{
+                        fprintf(stderr,"\n%s\n", symbol_icon_code.c_str());
                         fprintf(file_out,"     <icon>49</icon>\n");  
                     }
                 }
@@ -548,6 +549,7 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                     fprintf(file_out,"     <icon>%s</icon>\n",  
                             (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_icon_code.c_str()));
                 }else{
+                    fprintf(stderr,"\n%s\n", symbol_icon_code.c_str());
                     fprintf(file_out,"     <icon>49</icon>\n");  
                 }
 
@@ -585,8 +587,10 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                     if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_code.c_str())){
                         fprintf(file_out,"     <icon>%s</icon>\n",  
                             (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_code.c_str()));
-                    }else 
+                    }else{
+                        fprintf(stderr,"\n%s\n", symbol_icon_code.c_str());
                         fprintf(file_out,"     <icon>49</icon>\n");  
+                    }
                 }
             }
 
@@ -623,8 +627,10 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                     if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_code.c_str())){
                         fprintf(file_out,"     <icon>%s</icon>\n",  
                             (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_code.c_str()));
-                    }else 
+                    }else{
+                        fprintf(stderr,"\n%s\n", symbol_icon_code.c_str());
                         fprintf(file_out,"     <icon>49</icon>\n");  
+                    }
                 }
             }
 
@@ -661,8 +667,10 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                     if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_code.c_str())){
                         fprintf(file_out,"     <icon>%s</icon>\n",  
                             (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_code.c_str()));
-                    }else 
+                    }else{
+                        fprintf(stderr,"\n%s\n", symbol_icon_code.c_str());
                         fprintf(file_out,"     <icon>49</icon>\n");  
+                    }
                 }
             }
 

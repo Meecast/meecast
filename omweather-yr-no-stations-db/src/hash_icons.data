@@ -73,11 +73,3 @@
 
 
 
-
-
-
-
-    hash_insert(hash, "cloudy", "26");
-    hash_insert(hash, "partlycloudy_night", "29");
-
-

@@ -46,9 +46,30 @@
     hash_insert(hash, "heavysleetshowersandthunder_night", "17");      //27
     hash_insert(hash, "lightssnowshowersandthunder_day", "17");        //28
     hash_insert(hash, "lightssnowshowersandthunder_night", "17");      //28
+    hash_insert(hash, "heavysnowshowersandthunder_day", "17");         //29
+    hash_insert(hash, "heavysnowshowersandthunder_night", "17");       //29
+    hash_insert(hash, "lightrainandthunder", "17");                    //30
+    hash_insert(hash, "lightsleetandthunder", "17");                   //31
+    hash_insert(hash, "heavysleetandthunder", "17");                   //32
+    hash_insert(hash, "lightsnowandthunder", "17");                    //33
+    hash_insert(hash, "heavysnowandthunder", "17");                    //34
     hash_insert(hash, "lightrainshowers_day", "39");                   //40
     hash_insert(hash, "lightrainshowers_night", "11");                 //40
+    hash_insert(hash, "heavyrainshowers_day", "12");                   //41
+    hash_insert(hash, "heavyrainshowers_night", "12");                 //41
+    hash_insert(hash, "lightsleetshowers_day", "6");                   //42
+    hash_insert(hash, "lightsleetshowers_night", "6");                 //42
+    hash_insert(hash, "heavysleetshowers_day", "6");                   //43
+    hash_insert(hash, "heavysleetshowers_night", "6");                 //43
+    hash_insert(hash, "lightsnowshowers_day", "14");                   //44
+    hash_insert(hash, "lightsnowshowers_night", "14");                 //44
+    hash_insert(hash, "heavysnowshowers_day", "16");                   //45
+    hash_insert(hash, "heavysnowshowers_night", "16");                 //45
     hash_insert(hash, "lightrain", "11");                              //46
+    hash_insert(hash, "lightsleet", "6");                              //47
+    hash_insert(hash, "heavysleet", "6");                              //48
+    hash_insert(hash, "lightsnow", "14");                              //49
+    hash_insert(hash, "heavysnow", "16");                              //50
 
 
 

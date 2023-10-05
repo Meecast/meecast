@@ -7,26 +7,42 @@
 #endif
 
     #define hash_insert(hash, s2, s3) xmlHashAddEntry(hash, (const xmlChar *)s2, (void *)(s3)); 
-    hash_insert(hash, "clearsky_day", "32");                 //1 
-    hash_insert(hash, "clearsky_night", "31");               //1 
-    hash_insert(hash, "fair_day", "34");                     //2
-    hash_insert(hash, "fair_night", "31");                   //2 
-    hash_insert(hash, "partlycloudy_day", "44");             //3
-    hash_insert(hash, "partlycloudy_night", "29");           //3 
-    hash_insert(hash, "cloudy_day", "26");                   //4
-    hash_insert(hash, "cloudy_night", "26");                 //4 
-    hash_insert(hash, "rainshowers_day", "39");              //5
-    hash_insert(hash, "rainshowers_night", "45");            //5 
-    hash_insert(hash, "rainshowersandthunder_day", "37");    //6
-    hash_insert(hash, "rainshowersandthunder_night", "47");  //6 
-    hash_insert(hash, "sleetshowers_day", "5");              //7
-    hash_insert(hash, "sleetshowers_night", "5");            //7 
-    hash_insert(hash, "snowshowers_day", "49");              //8
-    hash_insert(hash, "snowshowers_night", "46");            //8 
-    hash_insert(hash, "rain", "11");                         //9
-    hash_insert(hash, "heavyrain", "40");                    //10
-    hash_insert(hash, "heavyrainandthunder", "17");          //11
-    hash_insert(hash, "lightrain", "11");                    //46
+    hash_insert(hash, "clearsky_day", "32");                         //1 
+    hash_insert(hash, "clearsky_night", "31");                       //1 
+    hash_insert(hash, "fair_day", "34");                             //2
+    hash_insert(hash, "fair_night", "31");                           //2 
+    hash_insert(hash, "partlycloudy_day", "44");                     //3
+    hash_insert(hash, "partlycloudy_night", "29");                   //3 
+    hash_insert(hash, "cloudy_day", "26");                           //4
+    hash_insert(hash, "cloudy_night", "26");                         //4 
+    hash_insert(hash, "rainshowers_day", "39");                      //5
+    hash_insert(hash, "rainshowers_night", "45");                    //5 
+    hash_insert(hash, "rainshowersandthunder_day", "37");            //6
+    hash_insert(hash, "rainshowersandthunder_night", "47");          //6 
+    hash_insert(hash, "sleetshowers_day", "5");                      //7
+    hash_insert(hash, "sleetshowers_night", "5");                    //7 
+    hash_insert(hash, "snowshowers_day", "49");                      //8
+    hash_insert(hash, "snowshowers_night", "46");                    //8 
+    hash_insert(hash, "rain", "11");                                 //9
+    hash_insert(hash, "heavyrain", "40");                            //10
+    hash_insert(hash, "heavyrainandthunder", "17");                  //11
+    hash_insert(hash, "sleet", "6");                                 //12
+    hash_insert(hash, "snow", "42");                                 //13
+    hash_insert(hash, "snowandthunder", "42");                       //14
+    hash_insert(hash, "fog", "20");                                  //15
+    hash_insert(hash, "sleetshowersandthunder_day", "38");           //20
+    hash_insert(hash, "sleetshowersandthunder_night", "47");         //20
+    hash_insert(hash, "snowshowersandthunder_day", "17");            //21
+    hash_insert(hash, "snowshowersandthunder_night", "17");          //21
+    hash_insert(hash, "rainandthunder", "17");                       //22
+    hash_insert(hash, "sleetandthunder", "17");                      //23
+    hash_insert(hash, "lightrainshowersandthunder_day", "38");       //24
+    hash_insert(hash, "lightrainshowersandthunder_night", "47");     //24    
+    hash_insert(hash, "heavyrainshowersandthunder_day", "17");       //25
+    hash_insert(hash, "heavyrainshowersandthunder_night", "17");     //25
+    hash_insert(hash, "lightrainshowers_day", "39");                 //40
+    hash_insert(hash, "lightrainshowers_night", "11");               //40
+    hash_insert(hash, "lightrain", "11");                            //46
 
 
 

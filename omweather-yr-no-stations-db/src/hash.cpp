@@ -35,7 +35,7 @@
 xmlHashTablePtr 
 hash_icons_yrno_table_create(){
     xmlHashTablePtr hash;
-    hash = xmlHashCreate(6);
+    hash = xmlHashCreate(49);
 #include "hash_icons.data"
     return hash;
 }
@@ -43,7 +43,7 @@ hash_icons_yrno_table_create(){
 xmlHashTablePtr
 hash_description_yrno_table_create(){
     xmlHashTablePtr hash;
-    hash = xmlHashCreate(6);
+    hash = xmlHashCreate(49);
 #include "hash_description.data"
     return hash;
 }

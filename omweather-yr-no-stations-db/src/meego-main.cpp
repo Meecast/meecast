@@ -513,6 +513,11 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                         fprintf(stderr,"\n%s\n", symbol_icon_code.c_str());
                         fprintf(file_out,"     <icon>49</icon>\n");  
                     }
+                    if ((char*)xmlHashLookup(hash_for_translate, (const xmlChar*)symbol_icon_code.c_str())){
+                        fprintf(file_out,"     <description>%s</description>\n",
+                                (char*)xmlHashLookup(hash_for_translate, (const xmlChar*)symbol_icon_code.c_str()));
+                    }
+
                 }
             }
 
@@ -548,9 +553,14 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                 if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_icon_code.c_str())){
                     fprintf(file_out,"     <icon>%s</icon>\n",  
                             (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_icon_code.c_str()));
+
                 }else{
                     fprintf(stderr,"\n%s\n", symbol_icon_code.c_str());
                     fprintf(file_out,"     <icon>49</icon>\n");  
+                }
+                if ((char*)xmlHashLookup(hash_for_translate, (const xmlChar*)symbol_icon_code.c_str())){
+                    fprintf(file_out,"     <description>%s</description>\n",
+                            (char*)xmlHashLookup(hash_for_translate, (const xmlChar*)symbol_icon_code.c_str()));
                 }
 
             }
@@ -590,6 +600,10 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                     }else{
                         fprintf(stderr,"\n%s\n", symbol_icon_code.c_str());
                         fprintf(file_out,"     <icon>49</icon>\n");  
+                    }
+                    if ((char*)xmlHashLookup(hash_for_translate, (const xmlChar*)symbol_icon_code.c_str())){
+                        fprintf(file_out,"     <description>%s</description>\n",
+                                (char*)xmlHashLookup(hash_for_translate, (const xmlChar*)symbol_icon_code.c_str()));
                     }
                 }
             }
@@ -631,6 +645,11 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                         fprintf(stderr,"\n%s\n", symbol_icon_code.c_str());
                         fprintf(file_out,"     <icon>49</icon>\n");  
                     }
+                    if ((char*)xmlHashLookup(hash_for_translate, (const xmlChar*)symbol_icon_code.c_str())){
+                        fprintf(file_out,"     <description>%s</description>\n",
+                                (char*)xmlHashLookup(hash_for_translate, (const xmlChar*)symbol_icon_code.c_str()));
+                    }
+
                 }
             }
 
@@ -664,13 +683,17 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                 Json::Value summary = next_1_hours.get("summary", nullval);
                 if (summary.get("symbol_code", nullval) != nullval){
                    std::string symbol_code = summary.get("symbol_code", "").asString();
-                    if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_code.c_str())){
-                        fprintf(file_out,"     <icon>%s</icon>\n",  
-                            (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_code.c_str()));
-                    }else{
-                        fprintf(stderr,"\n%s\n", symbol_icon_code.c_str());
-                        fprintf(file_out,"     <icon>49</icon>\n");  
-                    }
+                   if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_code.c_str())){
+                       fprintf(file_out,"     <icon>%s</icon>\n",  
+                           (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_code.c_str()));
+                   }else{
+                       fprintf(stderr,"\n%s\n", symbol_icon_code.c_str());
+                       fprintf(file_out,"     <icon>49</icon>\n");  
+                   }
+                   if ((char*)xmlHashLookup(hash_for_translate, (const xmlChar*)symbol_icon_code.c_str())){
+                       fprintf(file_out,"     <description>%s</description>\n",
+                               (char*)xmlHashLookup(hash_for_translate, (const xmlChar*)symbol_icon_code.c_str()));
+                   }
                 }
             }
 

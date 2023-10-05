@@ -8,18 +8,17 @@
 
 
     #define hash_insert(hash, s2, s3) xmlHashAddEntry(hash, (const xmlChar *)s2, (void *)(s3)); 
-    hash_insert(hash, "clearsky_day", "Clear sky");                           //1 
-    hash_insert(hash, "clearsky_night", "Clear sky");                         //1 
-    hash_insert(hash, "fair_day", "Fair");                               //2
-    hash_insert(hash, "fair_night", "Fair");                             //2 
-    hash_insert(hash, "partlycloudy_day", "Partly cloudy");                       //3
-    hash_insert(hash, "partlycloudy_night", "Partly cloudy");                     //3 
-    hash_insert(hash, "cloudy_day", "Cloudy");                             //4
-    hash_insert(hash, "cloudy_night", "Cloudy");                           //4 
-    hash_insert(hash, "rainshowers_day", "Rain showers");                        //5
-    hash_insert(hash, "rainshowers_night", "Rain showers");                      //5 
-    hash_insert(hash, "rainshowersandthunder_day", "Rain showers and thunder");              //6
-    hash_insert(hash, "rainshowersandthunder_night", "Rain showers and thunder");            //6 
+    hash_insert(hash, "clearsky_day", "Clear sky");                                         //1 
+    hash_insert(hash, "clearsky_night", "Clear sky");                                       //1 
+    hash_insert(hash, "fair_day", "Fair");                                                  //2
+    hash_insert(hash, "fair_night", "Fair");                                                //2 
+    hash_insert(hash, "partlycloudy_day", "Partly cloudy");                                 //3
+    hash_insert(hash, "partlycloudy_night", "Partly cloudy");                               //3 
+    hash_insert(hash, "cloudy", "Cloudy");                                                  //4
+    hash_insert(hash, "rainshowers_day", "Rain showers");                                   //5
+    hash_insert(hash, "rainshowers_night", "Rain showers");                                 //5 
+    hash_insert(hash, "rainshowersandthunder_day", "Rain showers and thunder");             //6
+    hash_insert(hash, "rainshowersandthunder_night", "Rain showers and thunder");           //6 
     hash_insert(hash, "sleetshowers_day", "Sleet showers");                        //7
     hash_insert(hash, "sleetshowers_night", "Sleet showers");                      //7 
     hash_insert(hash, "snowshowers_day", "Snow showers");                        //8

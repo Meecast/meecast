@@ -13,8 +13,7 @@
     hash_insert(hash, "fair_night", "31");                             //2 
     hash_insert(hash, "partlycloudy_day", "44");                       //3
     hash_insert(hash, "partlycloudy_night", "29");                     //3 
-    hash_insert(hash, "cloudy_day", "26");                             //4
-    hash_insert(hash, "cloudy_night", "26");                           //4 
+    hash_insert(hash, "cloudy", "26");                                 //4
     hash_insert(hash, "rainshowers_day", "39");                        //5
     hash_insert(hash, "rainshowers_night", "45");                      //5 
     hash_insert(hash, "rainshowersandthunder_day", "37");              //6

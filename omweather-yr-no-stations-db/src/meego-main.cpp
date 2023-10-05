@@ -367,6 +367,7 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
     Json::Value next_6_hours;
     Json::Value next_12_hours;
     Json::Value nullval;
+    float precipitation = INT_MAX; 
     int pressure = INT_MAX;
     int temperature = INT_MAX;
     int dew_point = INT_MAX;
@@ -462,7 +463,6 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                 if (details.get("wind_speed", nullval) != nullval){
                     wind_speed = (int)round(details.get("wind_speed", INT_MAX).asFloat());
                 }
-
             }
         }
         next_12_hours = data.get("next_12_hours", nullval);
@@ -480,7 +480,7 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             continue;
         }
         if (next_1_hours != nullval){
-            fprintf(file_out,"    <period start=\"%li\" hour=\"true\" end=\"%li\">\n", begin_utc_time, begin_utc_time + 6*3600);
+            fprintf(file_out,"    <period start=\"%li\" hour=\"true\" end=\"%li\">\n", begin_utc_time, begin_utc_time + 1*3600);
             if (pressure != INT_MAX){
                 fprintf(file_out,"     <pressure>%i</pressure>\n", pressure);
             }
@@ -518,6 +518,13 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                                 (char*)xmlHashLookup(hash_for_translate, (const xmlChar*)symbol_icon_code.c_str()));
                     }
 
+                }
+            }
+            if (next_1_hours.get("details", nullval) != nullval){
+                Json::Value details = next_1_hours.get("details", nullval);
+                if (details.get("precipitation_amount", nullval) != nullval){
+                   precipitation = details.get("precipitation_amount", nullval).asFloat();
+                   fprintf(file_out,"     <precipitation>%.1f</precipitation>\n", precipitation);
                 }
             }
 
@@ -564,6 +571,10 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                 }
 
             }
+            if (precipitation != INT_MAX){
+               fprintf(file_out,"     <precipitation>%.1f</precipitation>\n", precipitation);
+            }
+
 
             fprintf(file_out,"    </period>\n");
         }
@@ -590,8 +601,8 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             if (wind_speed != INT_MAX){
                 fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", wind_speed);
             }
-            if (next_1_hours.get("summary", nullval) != nullval){
-                Json::Value summary = next_1_hours.get("summary", nullval);
+            if (next_12_hours.get("summary", nullval) != nullval){
+                Json::Value summary = next_12_hours.get("summary", nullval);
                 if (summary.get("symbol_code", nullval) != nullval){
                    std::string symbol_code = summary.get("symbol_code", "").asString();
                     if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_code.c_str())){
@@ -634,8 +645,8 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             if (wind_speed != INT_MAX){
                 fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", wind_speed);
             }
-            if (next_1_hours.get("summary", nullval) != nullval){
-                Json::Value summary = next_1_hours.get("summary", nullval);
+            if (next_6_hours.get("summary", nullval) != nullval){
+                Json::Value summary = next_6_hours.get("summary", nullval);
                 if (summary.get("symbol_code", nullval) != nullval){
                    std::string symbol_code = summary.get("symbol_code", "").asString();
                     if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_code.c_str())){
@@ -652,50 +663,14 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
 
                 }
             }
-
-
-            fprintf(file_out,"    </period>\n");
-        }
-        if (next_1_hours != nullval){
-            fprintf(file_out,"    <period start=\"%li\" hour=\"true\" end=\"%li\">\n", begin_utc_time, begin_utc_time + 6*3600);
-            if (pressure != INT_MAX){
-                fprintf(file_out,"     <pressure>%i</pressure>\n", pressure);
-            }
-            if (temperature != INT_MAX){
-                fprintf(file_out,"     <temperature>%i</temperature>\n", temperature);
-            }
-            if (dew_point != INT_MAX){
-                fprintf(file_out,"     <dewpoint>%i</dewpoint>\n", dew_point);
-            }
-            if (humidity != INT_MAX){
-                fprintf(file_out,"     <humidity>%i</humidity>\n", humidity);
-            }
-            if (uv_index != INT_MAX){
-                fprintf(file_out,"     <uv_index>%i</uv_index>\n", uv_index);
-            }
-            if (_wind_direction != INT_MAX){
-                fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_directions[wind_index].c_str());
-            }
-            if (wind_speed != INT_MAX){
-                fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", wind_speed);
-            }
-            if (next_1_hours.get("summary", nullval) != nullval){
-                Json::Value summary = next_1_hours.get("summary", nullval);
-                if (summary.get("symbol_code", nullval) != nullval){
-                   std::string symbol_code = summary.get("symbol_code", "").asString();
-                   if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_code.c_str())){
-                       fprintf(file_out,"     <icon>%s</icon>\n",  
-                           (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_code.c_str()));
-                   }else{
-                       fprintf(stderr,"\n%s\n", symbol_icon_code.c_str());
-                       fprintf(file_out,"     <icon>49</icon>\n");  
-                   }
-                   if ((char*)xmlHashLookup(hash_for_translate, (const xmlChar*)symbol_icon_code.c_str())){
-                       fprintf(file_out,"     <description>%s</description>\n",
-                               (char*)xmlHashLookup(hash_for_translate, (const xmlChar*)symbol_icon_code.c_str()));
-                   }
+            if (next_6_hours.get("details", nullval) != nullval){
+                Json::Value details = next_6_hours.get("details", nullval);
+                if (details.get("precipitation_amount", nullval) != nullval){
+                   precipitation = details.get("precipitation_amount", nullval).asFloat();
+                   fprintf(file_out,"     <precipitation>%.1f</precipitation>\n", precipitation);
                 }
             }
+
 
 
             fprintf(file_out,"    </period>\n");
@@ -713,6 +688,7 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
         uv_index = INT_MAX;
         wind_speed = INT_MAX;
         _wind_direction = INT_MAX;
+        precipitation = INT_MAX;
         symbol_icon_code = "";
     }
 

@@ -201,9 +201,13 @@ from urllib.request import urlretrieve
 #country = "Republic of Lithuania"
 #country_code = "LT"
 #replacing_dict = {"Republic of Lithuania":"Lithuania"}
-country = "United States"
-country_code = "US"
+#country = "United States"
+#country_code = "US"
+#replacing_dict = {}
+country = "Algeria"
+country_code = "DZ"
 replacing_dict = {}
+
 
 
 replacing_dict_after_region_filling = { } 

@@ -184,7 +184,7 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
     double min_distance = 32000;
     uint max_count_of_parameters = 0;
 
-    fprintf(stderr,"size %i\n", val.size());
+    //fprintf(stderr,"size %i\n", val.size());
     for (uint i = 0; i < val.size(); i++){
 
         data = val[i].get("data", nullval);
@@ -539,7 +539,7 @@ convert_station_yrno_data(const char *station_id_with_path, const char *result_f
             }
         }
 #endif        
-        fprintf(stderr,"days_number %i\n", days_number);
+        // fprintf(stderr,"days_number %i\n", days_number);
         if (days_number > 0){
             file_out = fopen(result_file, "a");
             if (file_out){

@@ -204,9 +204,21 @@ from urllib.request import urlretrieve
 #country = "United States"
 #country_code = "US"
 #replacing_dict = {}
-country = "Algeria"
-country_code = "DZ"
+#country = "Algeria"
+#country_code = "DZ"
+#replacing_dict = {}
+#country = "American Samoa"
+#country_code = "AS"
+#replacing_dict = {}
+#country = "Andorra"
+#country_code = "AD"
+#replacing_dict = {}
+country = "Angola"
+country_code = "AO"
 replacing_dict = {}
+
+
+
 
 
 

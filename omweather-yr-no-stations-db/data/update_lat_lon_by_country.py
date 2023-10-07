@@ -228,8 +228,8 @@ from urllib.request import urlretrieve
 #country = "Argentina"
 #country_code = "AR"
 #replacing_dict = {}
-country = "Uruguay"
-country_code = "UY"
+country = "Zimbabwe"
+country_code = "ZW"
 replacing_dict = {}
 
 

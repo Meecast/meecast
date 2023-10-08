@@ -201,9 +201,41 @@ from urllib.request import urlretrieve
 #country = "Republic of Lithuania"
 #country_code = "LT"
 #replacing_dict = {"Republic of Lithuania":"Lithuania"}
-country = "United States"
-country_code = "US"
+#country = "United States"
+#country_code = "US"
+#replacing_dict = {}
+#country = "Algeria"
+#country_code = "DZ"
+#replacing_dict = {}
+#country = "American Samoa"
+#country_code = "AS"
+#replacing_dict = {}
+#country = "Andorra"
+#country_code = "AD"
+#replacing_dict = {}
+#country = "Angola"
+#country_code = "AO"
+#replacing_dict = {}
+#country = "Anguilla"
+#country_code = "AI"
+#replacing_dict = {}
+#country = "Antarctica"
+#country_code = "AQ"
+#replacing_dict = {}
+#country = "Antigua and Barbuda"
+#country_code = "AG"
+#replacing_dict = {}
+#country = "Argentina"
+#country_code = "AR"
+#replacing_dict = {}
+country = "French Polynesia"
+country_code = "PF"
 replacing_dict = {}
+
+
+
+
+
 
 
 replacing_dict_after_region_filling = { } 
@@ -327,6 +359,9 @@ for row in data:
         #print (total_result)
         #break
     
+cur = cu.execute("delete from stations where id in (select id FROM stations where latitude is NULL and region_id in (select id from regions WHERE country_id=(select id from countries WHERE name='%s' limit 1))) " %(country))
+
+c.commit()
 
 #fill regions
 #regions = {}

@@ -35,7 +35,7 @@
 xmlHashTablePtr 
 hash_icons_yrno_table_create(){
     xmlHashTablePtr hash;
-    hash = xmlHashCreate(6);
+    hash = xmlHashCreate(49 + 21);
 #include "hash_icons.data"
     return hash;
 }
@@ -43,7 +43,7 @@ hash_icons_yrno_table_create(){
 xmlHashTablePtr
 hash_description_yrno_table_create(){
     xmlHashTablePtr hash;
-    hash = xmlHashCreate(6);
+    hash = xmlHashCreate(49 + 21);
 #include "hash_description.data"
     return hash;
 }
@@ -65,6 +65,7 @@ hash_description_yrno_table_create(void) {
 
 QString
 hash_yrno_icon_table_find(QHash<QString, QString> *hash_for_icons, char* key) {
+    fprintf(stderr, "qqqqqqqqqqqqqqqa\n");
     QString result;
     if (hash_for_icons->contains(QString(key)))
         return hash_for_icons->value(QString(key));

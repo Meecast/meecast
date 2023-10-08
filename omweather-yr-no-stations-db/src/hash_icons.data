@@ -7,49 +7,90 @@
 #endif
 
     #define hash_insert(hash, s2, s3) xmlHashAddEntry(hash, (const xmlChar *)s2, (void *)(s3)); 
-    hash_insert(hash, "day1", "32");
-    hash_insert(hash, "night1", "31");
-    hash_insert(hash, "day2", "30");
-    hash_insert(hash, "night2", "29");
-    hash_insert(hash, "day3", "28");
-    hash_insert(hash, "night3", "27");
-    hash_insert(hash, "day4", "26");
-    hash_insert(hash, "night4", "26");
-    hash_insert(hash, "day5", "39");
-    hash_insert(hash, "night5", "45");
-    hash_insert(hash, "day6", "37");
-    hash_insert(hash, "night6", "47");
-    hash_insert(hash, "day7", "5");
-    hash_insert(hash, "night7", "5");
-    hash_insert(hash, "day8", "41");
-    hash_insert(hash, "night8", "46");
-    hash_insert(hash, "day9", "11");
-    hash_insert(hash, "night9", "11");
-    hash_insert(hash, "day10", "12");
-    hash_insert(hash, "night10", "12");
-    hash_insert(hash, "day11", "0");
-    hash_insert(hash, "night11", "0");
-    hash_insert(hash, "day12", "7");
-    hash_insert(hash, "night12", "7");
-    hash_insert(hash, "day13", "14");
-    hash_insert(hash, "night13", "14");
-    hash_insert(hash, "day14", "14");
-    hash_insert(hash, "night14", "14");
-    hash_insert(hash, "day15", "20");
-    hash_insert(hash, "night15", "20");
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /* https://github.com/metno/weathericons/ */
+    hash_insert(hash, "clearsky_day", "32");                           //1 
+    hash_insert(hash, "clearsky_polartwilight", "32");                 //1 
+    hash_insert(hash, "clearsky_night", "31");                         //1 
+    hash_insert(hash, "fair_day", "34");                               //2
+    hash_insert(hash, "fair_polartwilight", "34");                     //2
+    hash_insert(hash, "fair_night", "31");                             //2 
+    hash_insert(hash, "partlycloudy_day", "44");                       //3
+    hash_insert(hash, "partlycloudy_polartwilight", "44");             //3
+    hash_insert(hash, "partlycloudy_night", "29");                     //3 
+    hash_insert(hash, "cloudy", "26");                                 //4
+    hash_insert(hash, "rainshowers_day", "39");                        //5
+    hash_insert(hash, "rainshowers_polartwilight", "39");              //5
+    hash_insert(hash, "rainshowers_night", "45");                      //5 
+    hash_insert(hash, "rainshowersandthunder_day", "37");              //6
+    hash_insert(hash, "rainshowersandthunder_polartwilight", "37");    //6
+    hash_insert(hash, "rainshowersandthunder_night", "47");            //6 
+    hash_insert(hash, "sleetshowers_day", "5");                        //7
+    hash_insert(hash, "sleetshowers_polartwilight", "5");              //7
+    hash_insert(hash, "sleetshowers_night", "5");                      //7 
+    hash_insert(hash, "snowshowers_day", "49");                        //8
+    hash_insert(hash, "snowshowers_polartwilight", "49");              //8
+    hash_insert(hash, "snowshowers_night", "46");                      //8 
+    hash_insert(hash, "rain", "11");                                   //9
+    hash_insert(hash, "heavyrain", "40");                              //10
+    hash_insert(hash, "heavyrainandthunder", "17");                    //11
+    hash_insert(hash, "sleet", "6");                                   //12
+    hash_insert(hash, "snow", "42");                                   //13
+    hash_insert(hash, "snowandthunder", "42");                         //14
+    hash_insert(hash, "fog", "20");                                    //15
+    hash_insert(hash, "sleetshowersandthunder_day", "38");             //20
+    hash_insert(hash, "sleetshowersandthunder_polartwilight", "38");   //20
+    hash_insert(hash, "sleetshowersandthunder_night", "47");           //20
+    hash_insert(hash, "snowshowersandthunder_day", "17");              //21
+    hash_insert(hash, "snowshowersandthunder_polartwilight", "17");    //21
+    hash_insert(hash, "snowshowersandthunder_night", "17");            //21
+    hash_insert(hash, "rainandthunder", "17");                         //22
+    hash_insert(hash, "sleetandthunder", "17");                        //23
+    hash_insert(hash, "lightrainshowersandthunder_day", "38");         //24
+    hash_insert(hash, "lightrainshowersandthunder_polartwilight", "38"); //24
+    hash_insert(hash, "lightrainshowersandthunder_night", "47");       //24    
+    hash_insert(hash, "heavyrainshowersandthunder_day", "17");         //25
+    hash_insert(hash, "heavyrainshowersandthunder_polartwilight", "17");   //25
+    hash_insert(hash, "heavyrainshowersandthunder_night", "17");       //25
+    hash_insert(hash, "lightssleetshowersandthunder_day", "17");       //26
+    hash_insert(hash, "lightssleetshowersandthunder_polartwilight", "17");       //26
+    hash_insert(hash, "lightssleetshowersandthunder_night", "17");     //26
+    hash_insert(hash, "heavysleetshowersandthunder_day", "17");        //27
+    hash_insert(hash, "heavysleetshowersandthunder_polartwilight", "17");        //27
+    hash_insert(hash, "heavysleetshowersandthunder_night", "17");      //27
+    hash_insert(hash, "lightssnowshowersandthunder_day", "17");        //28
+    hash_insert(hash, "lightssnowshowersandthunder_polartwilight", "17");        //28
+    hash_insert(hash, "lightssnowshowersandthunder_night", "17");      //28
+    hash_insert(hash, "heavysnowshowersandthunder_day", "17");         //29
+    hash_insert(hash, "heavysnowshowersandthunder_polartwilight", "17");         //29
+    hash_insert(hash, "heavysnowshowersandthunder_night", "17");       //29
+    hash_insert(hash, "lightrainandthunder", "17");                    //30
+    hash_insert(hash, "lightsleetandthunder", "17");                   //31
+    hash_insert(hash, "heavysleetandthunder", "17");                   //32
+    hash_insert(hash, "lightsnowandthunder", "17");                    //33
+    hash_insert(hash, "heavysnowandthunder", "17");                    //34
+    hash_insert(hash, "lightrainshowers_day", "39");                   //40
+    hash_insert(hash, "lightrainshowers_polartwilight", "39");                   //40
+    hash_insert(hash, "lightrainshowers_night", "11");                 //40
+    hash_insert(hash, "heavyrainshowers_day", "12");                   //41
+    hash_insert(hash, "heavyrainshowers_polartwilight", "12");                   //41
+    hash_insert(hash, "heavyrainshowers_night", "12");                 //41
+    hash_insert(hash, "lightsleetshowers_day", "6");                   //42
+    hash_insert(hash, "lightsleetshowers_polartwilight", "6");                   //42
+    hash_insert(hash, "lightsleetshowers_night", "6");                 //42
+    hash_insert(hash, "heavysleetshowers_day", "6");                   //43
+    hash_insert(hash, "heavysleetshowers_polartwilight", "6");                   //43
+    hash_insert(hash, "heavysleetshowers_night", "6");                 //43
+    hash_insert(hash, "lightsnowshowers_day", "14");                   //44
+    hash_insert(hash, "lightsnowshowers_polartwilight", "14");                   //44
+    hash_insert(hash, "lightsnowshowers_night", "14");                 //44
+    hash_insert(hash, "heavysnowshowers_day", "16");                   //45
+    hash_insert(hash, "heavysnowshowers_polartwilight", "16");                   //45
+    hash_insert(hash, "heavysnowshowers_night", "16");                 //45
+    hash_insert(hash, "lightrain", "11");                              //46
+    hash_insert(hash, "lightsleet", "6");                              //47
+    hash_insert(hash, "heavysleet", "6");                              //48
+    hash_insert(hash, "lightsnow", "14");                              //49
+    hash_insert(hash, "heavysnow", "16");                              //50
 
 
 

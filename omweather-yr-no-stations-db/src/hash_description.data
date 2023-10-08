@@ -9,19 +9,26 @@
 
     #define hash_insert(hash, s2, s3) xmlHashAddEntry(hash, (const xmlChar *)s2, (void *)(s3)); 
     hash_insert(hash, "clearsky_day", "Clear sky");                                         //1 
+    hash_insert(hash, "clearsky_polartwilight", "Clear sky");                               //1 
     hash_insert(hash, "clearsky_night", "Clear sky");                                       //1 
     hash_insert(hash, "fair_day", "Fair");                                                  //2
+    hash_insert(hash, "fair_polartwilight", "Fair");                                        //2
     hash_insert(hash, "fair_night", "Fair");                                                //2 
     hash_insert(hash, "partlycloudy_day", "Partly cloudy");                                 //3
+    hash_insert(hash, "partlycloudy_polartwilight", "Partly cloudy");                       //3
     hash_insert(hash, "partlycloudy_night", "Partly cloudy");                               //3 
     hash_insert(hash, "cloudy", "Cloudy");                                                  //4
     hash_insert(hash, "rainshowers_day", "Rain showers");                                   //5
+    hash_insert(hash, "rainshowers_polartwilight", "Rain showers");                         //5
     hash_insert(hash, "rainshowers_night", "Rain showers");                                 //5 
     hash_insert(hash, "rainshowersandthunder_day", "Rain showers and thunder");             //6
+    hash_insert(hash, "rainshowersandthunder_polartwilight", "Rain showers and thunder");             //6
     hash_insert(hash, "rainshowersandthunder_night", "Rain showers and thunder");           //6 
     hash_insert(hash, "sleetshowers_day", "Sleet showers");                        //7
+    hash_insert(hash, "sleetshowers_polartwilight", "Sleet showers");                        //7
     hash_insert(hash, "sleetshowers_night", "Sleet showers");                      //7 
     hash_insert(hash, "snowshowers_day", "Snow showers");                        //8
+    hash_insert(hash, "snowshowers_polartwilight", "Snow showers");                        //8
     hash_insert(hash, "snowshowers_night", "Snow showers");                      //8 
     hash_insert(hash, "rain", "Rain");                                   //9
     hash_insert(hash, "heavyrain", "Heavy rain");                              //10
@@ -31,22 +38,30 @@
     hash_insert(hash, "snowandthunder", "Snow and thunder");                         //14
     hash_insert(hash, "fog", "Fog");                                    //15
     hash_insert(hash, "sleetshowersandthunder_day", "Sleet showers and thunder");             //20
+    hash_insert(hash, "sleetshowersandthunder_polartwilight", "Sleet showers and thunder");             //20
     hash_insert(hash, "sleetshowersandthunder_night", "Sleet showers and thunder");           //20
     hash_insert(hash, "snowshowersandthunder_day", "Snow showers and thunder");              //21
+    hash_insert(hash, "snowshowersandthunder_polartwilight", "Snow showers and thunder");              //21
     hash_insert(hash, "snowshowersandthunder_night", "Snow showers and thunder");            //21
     hash_insert(hash, "rainandthunder", "Rain and thunder");                         //22
     hash_insert(hash, "sleetandthunder", "Sleet and thunder");                        //23
     hash_insert(hash, "lightrainshowersandthunder_day", "Light rain showers and thunder");         //24
+    hash_insert(hash, "lightrainshowersandthunder_polartwilight", "Light rain showers and thunder");         //24
     hash_insert(hash, "lightrainshowersandthunder_night", "Light rain showers and thunder");       //24    
     hash_insert(hash, "heavyrainshowersandthunder_day", "Heavy rain showers and thunder");         //25
+    hash_insert(hash, "heavyrainshowersandthunder_polartwilight", "Heavy rain showers and thunder");         //25
     hash_insert(hash, "heavyrainshowersandthunder_night", "Heavy rain showers and thunder");       //25
     hash_insert(hash, "lightssleetshowersandthunder_day", "Light sleet showers and thunder");       //26
+    hash_insert(hash, "lightssleetshowersandthunder_polartwilight", "Light sleet showers and thunder");       //26
     hash_insert(hash, "lightssleetshowersandthunder_night", "Light sleet showers and thunder");     //26
     hash_insert(hash, "heavysleetshowersandthunder_day", "Heavy sleet showers and thunder");        //27
+    hash_insert(hash, "heavysleetshowersandthunder_polartwilight", "Heavy sleet showers and thunder");        //27
     hash_insert(hash, "heavysleetshowersandthunder_night", "Heavy sleet showers and thunder");      //27
     hash_insert(hash, "lightssnowshowersandthunder_day", "Light snow showers and thunder");        //28
+    hash_insert(hash, "lightssnowshowersandthunder_polartwilight", "Light snow showers and thunder");        //28
     hash_insert(hash, "lightssnowshowersandthunder_night", "Light snow showers and thunder");      //28
     hash_insert(hash, "heavysnowshowersandthunder_day", "Heavy snow showers and thunder");         //29
+    hash_insert(hash, "heavysnowshowersandthunder_polartwilight", "Heavy snow showers and thunder");         //29
     hash_insert(hash, "heavysnowshowersandthunder_night", "Heavy snow showers and thunder");       //29
     hash_insert(hash, "lightrainandthunder", "Light rain and thunder");                    //30
     hash_insert(hash, "lightsleetandthunder", "Light sleet and thunder");                   //31
@@ -54,8 +69,10 @@
     hash_insert(hash, "lightsnowandthunder", "Light snow and thunder");                    //33
     hash_insert(hash, "heavysnowandthunder", "Heavy snow and thunder");                    //34
     hash_insert(hash, "lightrainshowers_day", "Light rain showers");                   //40
+    hash_insert(hash, "lightrainshowers_polartwilight", "Light rain showers");                   //40
     hash_insert(hash, "lightrainshowers_night", "Light rain showers");                 //40
     hash_insert(hash, "heavyrainshowers_day", "Heavy rain showers");                   //41
+    hash_insert(hash, "heavyrainshowers_polartwilight", "Heavy rain showers");                   //41
     hash_insert(hash, "heavyrainshowers_night", "Heavy rain showers");                 //41
 
 /* http://www.yr.no/om_yrno/1.1940495 */ 

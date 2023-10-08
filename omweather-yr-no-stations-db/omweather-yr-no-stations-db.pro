@@ -12,7 +12,7 @@ TEMPLATE = app
 
 HEADERS += src/meego-main.h \
            src/json/json.h \
-           src/json-forwards.h \
+           src/json/forwards.h \
            src/hash.h
 
 SOURCES += src/meego-main.cpp \

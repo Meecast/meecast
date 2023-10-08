@@ -33,6 +33,7 @@
 #include <time.h>
 #include <locale.h>
 #include <math.h> 
+#define UNUSED(x) (void)(x)
 
 static xmlHashTablePtr hash_for_icons;
 static xmlHashTablePtr hash_for_translate;
@@ -128,7 +129,7 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
     int uv_index = INT_MAX;
     int wind_speed = INT_MAX;
     float _wind_direction = INT_MAX;
-    int wind_index;
+    int wind_index = INT_MAX;
     std::string symbol_icon_code = "";
 
     std::string wind_directions[17] = {"N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW","N"};
@@ -182,9 +183,6 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
     fprintf(file_out,"  <timezone>%i</timezone>\n", localtimezone);
 
     val = root["properties"].get("timeseries", nullval);
-
-    double min_distance = 32000;
-    uint max_count_of_parameters = 0;
 
     //fprintf(stderr,"size %i\n", val.size());
     for (uint i = 0; i < val.size(); i++){
@@ -452,6 +450,7 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
         dew_point = INT_MAX;
         uv_index = INT_MAX;
         wind_speed = INT_MAX;
+        wind_index = INT_MAX;
         _wind_direction = INT_MAX;
         precipitation = INT_MAX;
         symbol_icon_code = "";
@@ -468,14 +467,12 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
 int
 convert_station_yrno_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data){
  
-    xmlDoc  *doc = NULL;
-    xmlNode *root_node = NULL;
     int     days_number = -1;
-    char    buffer[1024],
-            buffer2[1024],
-            *delimiter = NULL;
+    char    buffer[1024];
     FILE    *file_out;
     
+    UNUSED(detail_path_data);
+
     if(!station_id_with_path)
         return -1;
 /* check for new file, if it exist, than rename it */
@@ -486,80 +483,14 @@ convert_station_yrno_data(const char *station_id_with_path, const char *result_f
     /* check file accessability */
     if(!access(station_id_with_path, R_OK)){
        days_number =  parse_and_write_days_json_yrno_data(station_id_with_path, result_file);
-
-#if 0
-        /* check that the file containe valid data */
-        doc = xmlReadFile(station_id_with_path, NULL, 0);
-        if(!doc)
-            return -1;
-        root_node = xmlDocGetRootElement(doc);
-        if(root_node->type == XML_ELEMENT_NODE &&
-                strstr((char*)root_node->name, "err")){
-            xmlFreeDoc(doc);
-            xmlCleanupParser();
-            return -2;
-        }
-        else{
-            /* prepare station id */
-            *buffer = 0;
-            *buffer2 = 0;
-            snprintf(buffer2, sizeof(buffer2) - 1, "%s", station_id_with_path);
-            delimiter = strrchr(buffer2, '/');
-            if(delimiter){
-                delimiter++; /* delete '/' */
-                snprintf(buffer, sizeof(buffer) - 1, "%s", delimiter);
-                delimiter = strrchr(buffer, '.');
-                if(!delimiter){
-                    xmlFreeDoc(doc);
-                    xmlCleanupParser();
-                    return -1;
-                }
-                *delimiter = 0;
-                 
-                xmlNode  *cur_node = NULL;
-                for(cur_node = root_node->children; cur_node; cur_node = cur_node->next){
-                    if( cur_node->type == XML_ELEMENT_NODE && !xmlStrcmp(cur_node->name, (const xmlChar *) "product")){
-                        days_number = parse_and_write_xml_data(buffer, cur_node, result_file);
-                        xmlFreeDoc(doc);
-                        xmlCleanupParser();
-                        if(!access(detail_path_data, R_OK)){
-                            doc =  xmlReadFile(detail_path_data, NULL, 0);
-                            if(doc){
-                                root_node = NULL;
-                                root_node = xmlDocGetRootElement(doc);
-                                if(!root_node || ( root_node->type == XML_ELEMENT_NODE &&
-                                        strstr((char*)root_node->name, "err"))){
-                                    xmlFreeDoc(doc);
-                                    xmlCleanupParser();
-                                }
-                                else{
-                                    parse_and_write_detail_data(buffer, root_node, result_file);
-                                    xmlFreeDoc(doc);
-                                    xmlCleanupParser();
-                                }
-                            }
-                        }
-                    }
-                }
-                if (days_number > 0){
-                    file_out = fopen(result_file, "a");
-    			    if (file_out){
-                        fprintf(file_out,"</station>");
-                        fclose(file_out);
-                    }
-		        }
-            }
-        }
-#endif        
-        // fprintf(stderr,"days_number %i\n", days_number);
-        if (days_number > 0){
+       // fprintf(stderr,"days_number %i\n", days_number);
+       if (days_number > 0){
             file_out = fopen(result_file, "a");
             if (file_out){
                 fprintf(file_out,"</station>");
                 fclose(file_out);
             }
         }
-
     }
     else
         return -1;/* file isn't accessability */

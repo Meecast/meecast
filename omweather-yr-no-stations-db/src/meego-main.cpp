@@ -179,7 +179,7 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", buffer);
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
-    fprintf(file_out,"  <timezone>3</timezone>\n");
+    fprintf(file_out,"  <timezone>%i</timezone>\n", localtimezone);
 
     val = root["properties"].get("timeseries", nullval);
 
@@ -229,7 +229,7 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
             tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
             setlocale(LC_TIME, "POSIX");
             strptime((const char*)val[i].get("time","").asString().c_str(), "%Y-%m-%dT%H:%M:00Z", &tmp_tm);
-            begin_utc_time = mktime(&tmp_tm); 
+            begin_utc_time = mktime(&tmp_tm) + localtimezone*3600; 
 
         }else{
             continue;

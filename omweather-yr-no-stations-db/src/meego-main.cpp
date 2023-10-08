@@ -179,6 +179,8 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", buffer);
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
+    fprintf(file_out,"  <timezone>3</timezone>\n");
+
     val = root["properties"].get("timeseries", nullval);
 
     double min_distance = 32000;
@@ -198,13 +200,13 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                     pressure = details.get("air_pressure_at_sea_level", INT_MAX).asInt();
                 }
                 if (details.get("air_temperature", nullval) != nullval){
-                    temperature = details.get("air_temperature", INT_MAX).asDouble();
+                    temperature = details.get("air_temperature", INT_MAX).asFloat();
                 }
                 if (details.get("dew_point_temperature", nullval) != nullval){
-                    dew_point = details.get("dew_point_temperature", INT_MAX).asDouble();
+                    dew_point = details.get("dew_point_temperature", INT_MAX).asFloat();
                 }
                 if (details.get("relative_humidity", nullval) != nullval){
-                    humidity = details.get("relative_humidity", INT_MAX).asDouble();
+                    humidity = details.get("relative_humidity", INT_MAX).asFloat();
                 }
                 if (details.get("ultraviolet_index_clear_sky", nullval) != nullval){
                     uv_index = details.get("ultraviolet_index_clear_sky", INT_MAX).asInt();
@@ -238,13 +240,13 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                 fprintf(file_out,"     <pressure>%i</pressure>\n", pressure);
             }
             if (temperature != INT_MAX){
-                fprintf(file_out,"     <temperature>%i</temperature>\n", temperature);
+                fprintf(file_out,"     <temperature>%.0f</temperature>\n", round(temperature));
             }
             if (dew_point != INT_MAX){
-                fprintf(file_out,"     <dewpoint>%i</dewpoint>\n", dew_point);
+                fprintf(file_out,"     <dewpoint>%.0f</dewpoint>\n", round(dew_point));
             }
             if (humidity != INT_MAX){
-                fprintf(file_out,"     <humidity>%i</humidity>\n", humidity);
+                fprintf(file_out,"     <humidity>%.0f</humidity>\n", round(humidity));
             }
             if (uv_index != INT_MAX){
                 fprintf(file_out,"     <uv_index>%i</uv_index>\n", uv_index);
@@ -292,13 +294,13 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                 fprintf(file_out,"     <pressure>%i</pressure>\n", pressure);
             }
             if (temperature != INT_MAX){
-                fprintf(file_out,"     <temperature>%i</temperature>\n", temperature);
+                fprintf(file_out,"     <temperature>%.0f</temperature>\n", round(temperature));
             }
             if (dew_point != INT_MAX){
-                fprintf(file_out,"     <dewpoint>%i</dewpoint>\n", dew_point);
+                fprintf(file_out,"     <dewpoint>%.0f</dewpoint>\n", round(dew_point));
             }
             if (humidity != INT_MAX){
-                fprintf(file_out,"     <humidity>%i</humidity>\n", humidity);
+                fprintf(file_out,"     <humidity>%.0f</humidity>\n", round(humidity));
             }
             if (uv_index != INT_MAX){
                 fprintf(file_out,"     <uv_index>%i</uv_index>\n", uv_index);
@@ -383,13 +385,13 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                 fprintf(file_out,"     <pressure>%i</pressure>\n", pressure);
             }
             if (temperature != INT_MAX){
-                fprintf(file_out,"     <temperature>%i</temperature>\n", temperature);
+                fprintf(file_out,"     <temperature>%.0f</temperature>\n", round(temperature));
             }
             if (dew_point != INT_MAX){
-                fprintf(file_out,"     <dewpoint>%i</dewpoint>\n", dew_point);
+                fprintf(file_out,"     <dewpoint>%.0f</dewpoint>\n", round(dew_point));
             }
             if (humidity != INT_MAX){
-                fprintf(file_out,"     <humidity>%i</humidity>\n", humidity);
+                fprintf(file_out,"     <humidity>%.0f</humidity>\n", round(humidity));
             }
             if (uv_index != INT_MAX){
                 fprintf(file_out,"     <uv_index>%i</uv_index>\n", uv_index);

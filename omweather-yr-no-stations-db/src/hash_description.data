@@ -74,5 +74,24 @@
     hash_insert(hash, "heavyrainshowers_day", "Heavy rain showers");                   //41
     hash_insert(hash, "heavyrainshowers_polartwilight", "Heavy rain showers");                   //41
     hash_insert(hash, "heavyrainshowers_night", "Heavy rain showers");                 //41
+    hash_insert(hash, "lightsleetshowers_day", "Light sleet showers");                   //42
+    hash_insert(hash, "lightsleetshowers_polartwilight", "Light sleet showers");                   //42
+
+    hash_insert(hash, "lightsleetshowers_night", "Light sleet showers");                 //42
+    hash_insert(hash, "heavysleetshowers_day", "Heavy sleet showers");                   //43
+    hash_insert(hash, "heavysleetshowers_polartwilight", "Heavy sleet showers");                   //43
+    hash_insert(hash, "heavysleetshowers_night", "Heavy sleet showers");                 //43
+    hash_insert(hash, "lightsnowshowers_day", "Light snow showers");                   //44
+    hash_insert(hash, "lightsnowshowers_polartwilight", "Light snow showers");                   //44
+    hash_insert(hash, "lightsnowshowers_night", "Light snow showers");                 //44
+    hash_insert(hash, "heavysnowshowers_day", "Heavy snow showers");                   //45
+    hash_insert(hash, "heavysnowshowers_polartwilight", "Heavy snow showers");                   //45
+    hash_insert(hash, "heavysnowshowers_night", "Heavy snow showers");                 //45
+    hash_insert(hash, "lightrain", "Light rain");                              //46
+    hash_insert(hash, "lightsleet", "Light sleet");                              //47
+    hash_insert(hash, "heavysleet", "Heavy sleet");                              //48
+    hash_insert(hash, "lightsnow", "Light snow");                              //49
+    hash_insert(hash, "heavysnow", "Heavy snow");                              //50
+
 
 /* http://www.yr.no/om_yrno/1.1940495 */ 

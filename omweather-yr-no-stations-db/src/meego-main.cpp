@@ -287,7 +287,7 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
 
         if (first_day){
             first_day = false;
-            fprintf(file_out,"    <period start=\"%li\" \"current=\"true\" end=\"%li\">\n", begin_utc_time, begin_utc_time + 3*3600);
+            fprintf(file_out,"    <period start=\"%li\" current=\"true\" end=\"%li\">\n", begin_utc_time, begin_utc_time + 3*3600);
             if (pressure != INT_MAX){
                 fprintf(file_out,"     <pressure>%i</pressure>\n", pressure);
             }
@@ -331,6 +331,7 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
 
             fprintf(file_out,"    </period>\n");
         }
+        /*
         if (next_12_hours != nullval){
             fprintf(file_out,"    <period start=\"%li\" end=\"%li\">\n", begin_utc_time, begin_utc_time + 12*3600);
             if (pressure != INT_MAX){
@@ -375,6 +376,7 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
 
             fprintf(file_out,"    </period>\n");
         }
+        */
         if (next_6_hours != nullval){
             fprintf(file_out,"    <period start=\"%li\" end=\"%li\">\n", begin_utc_time, begin_utc_time + 6*3600);
             if (pressure != INT_MAX){
@@ -406,12 +408,12 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                         fprintf(file_out,"     <icon>%s</icon>\n",  
                             (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)symbol_code.c_str()));
                     }else{
-                        fprintf(stderr,"\n%s\n", symbol_icon_code.c_str());
+                        fprintf(stderr,"\n%s\n", symbol_code.c_str());
                         fprintf(file_out,"     <icon>49</icon>\n");  
                     }
-                    if ((char*)xmlHashLookup(hash_for_translate, (const xmlChar*)symbol_icon_code.c_str())){
+                    if ((char*)xmlHashLookup(hash_for_translate, (const xmlChar*)symbol_code.c_str())){
                         fprintf(file_out,"     <description>%s</description>\n",
-                                (char*)xmlHashLookup(hash_for_translate, (const xmlChar*)symbol_icon_code.c_str()));
+                                (char*)xmlHashLookup(hash_for_translate, (const xmlChar*)symbol_code.c_str()));
                     }
 
                 }
@@ -421,6 +423,14 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
                 if (details.get("precipitation_amount", nullval) != nullval){
                    precipitation = details.get("precipitation_amount", nullval).asFloat();
                    fprintf(file_out,"     <precipitation>%.1f</precipitation>\n", precipitation);
+                }
+                if (details.get("air_temperature_max", nullval) != nullval){
+                   float temp_hi = details.get("air_temperature_max", nullval).asFloat();
+                   fprintf(file_out,"     <temperature_hi>%.0f</temperature_hi>\n", round(temp_hi));
+                }
+                if (details.get("air_temperature_min", nullval) != nullval){
+                   float temp_low = details.get("air_temperature_min", nullval).asFloat();
+                   fprintf(file_out,"     <temperature_low>%.0f</temperature_low>\n", round(temp_low));
                 }
             }
 

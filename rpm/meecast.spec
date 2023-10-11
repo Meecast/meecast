@@ -29,6 +29,7 @@ BuildRequires:  pkgconfig(sqlite3)
 #BuildRequires:  pkgconfig(gconf-2.0)
 BuildRequires:  pkgconfig(dbus-glib-1)
 BuildRequires:  pkgconfig(libxml-2.0)
+BuildRequires:  pkgconfig(Qt5Xml)
 #BuildRequires:  libxml2-devel
 BuildRequires:  gettext
 BuildRequires:  pkgconfig(dconf) 

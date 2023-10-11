@@ -36,6 +36,7 @@ BuildRequires:  gettext
 BuildRequires:  pkgconfig(dconf) 
 BuildRequires:  libkeepalive-devel
 BuildRequires:  mlite-qt5-devel
+BuildRequires:  pkgconfig(Qt5Concurrent)
 #BuildRequires:  libqt-devel
 BuildRequires: qt5-qtpositioning-devel
 #Requires:      qt5-qtpositioning 

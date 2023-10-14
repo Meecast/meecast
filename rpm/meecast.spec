@@ -39,6 +39,7 @@ BuildRequires:  mlite-qt5-devel
 BuildRequires:  pkgconfig(Qt5Concurrent)
 #BuildRequires:  libqt-devel
 BuildRequires: qt5-qtpositioning-devel
+BuildRequires: qml(Sailfish.Silica)
 #Requires:      qt5-qtpositioning 
 #Requires:      sailfishsilica-qt5
 #Requires:      qt5-qtdeclarative-import-models2 

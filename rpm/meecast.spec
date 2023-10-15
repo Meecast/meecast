@@ -9,7 +9,7 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    1.1.36
+Version:    1.1.37
 Release:    1 
 Group:      Utility
 License:    GPLv2.1
@@ -186,6 +186,9 @@ systemctl-user start meecastd.service
 
 
 %changelog
+* Sun Oct 15 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.37
+  * Fixed problem with yr.no stations. The reason is incorrect work with locales #44
+
 * Sun Oct 08 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.36
   * Fixed problem with drawing wind direction
   * Restored source yr.no

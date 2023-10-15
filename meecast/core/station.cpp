@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2013 Vlad Vasilyeu
+ * Copyright (C) 2006-2023 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -111,8 +111,10 @@ Station::Station(const std::string& source_name, const std::string& id,
         /* From 2023 Yr.no using lat lon in URL */
         if (source_name=="yr.no"){
             std::string part_of_url;
+            setlocale(LC_NUMERIC, "POSIX");
             part_of_url = "lat=" + std::to_string(latitude) + "&" + "lon=" + std::to_string(longitude);
             snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), part_of_url.c_str());
+            setlocale(LC_NUMERIC, "");
         }else{
             snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), id.c_str());
         }

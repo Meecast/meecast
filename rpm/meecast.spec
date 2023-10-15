@@ -29,12 +29,17 @@ BuildRequires:  pkgconfig(sqlite3)
 #BuildRequires:  pkgconfig(gconf-2.0)
 BuildRequires:  pkgconfig(dbus-glib-1)
 BuildRequires:  pkgconfig(libxml-2.0)
+BuildRequires:  pkgconfig(Qt5Xml)
+BuildRequires:  pkgconfig(Qt5XmlPatterns)
 #BuildRequires:  libxml2-devel
 BuildRequires:  gettext
 BuildRequires:  pkgconfig(dconf) 
 BuildRequires:  libkeepalive-devel
+BuildRequires:  mlite-qt5-devel
+BuildRequires:  pkgconfig(Qt5Concurrent)
 #BuildRequires:  libqt-devel
 BuildRequires: qt5-qtpositioning-devel
+BuildRequires: qml(Sailfish.Silica)
 #Requires:      qt5-qtpositioning 
 #Requires:      sailfishsilica-qt5
 #Requires:      qt5-qtdeclarative-import-models2 
@@ -42,6 +47,19 @@ BuildRequires: qt5-qtpositioning-devel
 
 %description
 MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code
+
+%if "%{?vendor}" == "chum"                                                                    
+PackageName: Meecast                                                                         
+Type: desktop-application                                                                     
+Categories:                                                                                   
+ - Science                                                                                     
+ - News                                                                                   
+DeveloperName: Uladzislau Vasilyeu and Omweather team                                                                  
+Custom:                                                                                       
+ - Repo: https://github.com/meecast/meecast
+Icon: https://github.com/Meecast/meecast/blob/master/meecast/core/data/desktop/Icon/128/meecast.png?raw=true 
+%endif                                                                                        
+
 
 %package daemon
 Version: 1.9

@@ -1,3 +1,6 @@
+meecast (1.1.38) unstable; urgency=low
+ -- Vlad Vasiliev <vlad@gas.by> Wen, 11 Nov 2020 11:02:23 +0300
+
 meecast (1.1.37) unstable; urgency=low
   * Fixed problem with yr.no stations. The reason is incorrect work with locales #44
 

@@ -157,7 +157,6 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
     hash_for_translate = hash_description_yrno_table_create();
 
 
-
     file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
@@ -181,6 +180,10 @@ parse_and_write_days_json_yrno_data(const char *days_data_path, const char *resu
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
     fprintf(file_out,"  <timezone>%i</timezone>\n", localtimezone);
+
+    if (root.type() != Json::objectValue){
+        return -5;
+    }
 
     val = root["properties"].get("timeseries", nullval);
 

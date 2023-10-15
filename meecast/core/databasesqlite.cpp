@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2013 Vlad Vasilyeu
+ * Copyright (C) 2006-2023 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -520,10 +520,14 @@ void DatabaseSqlite::get_station_coordinate(std::string code, double &latitude, 
         return;
     }
 
+
+
+    setlocale(LC_NUMERIC, "POSIX");
     latitude = atof(result[ncol+0]);
     longitude = atof(result[ncol+1]);
+    setlocale(LC_NUMERIC, "");
 
-/*    std::cerr<<"Latitude "<< latitude << " longitude"<<longitude<<std::endl; */
+    /* std::cerr<<"Latitude "<< latitude << " longitude "<<longitude<<std::endl;  */
     sqlite3_free_table(result);
 
 #ifdef DEBUGFUNCTIONCALL

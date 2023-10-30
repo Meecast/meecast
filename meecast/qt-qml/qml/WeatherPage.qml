@@ -37,7 +37,6 @@ Page {
             anchors.right: parent == undefined ? undefined : parent.right
         }
     }
-    orientationLock: PageOrientation.LockPortrait
     function openFile(file)
     {
         var component = Qt.createComponent(file);

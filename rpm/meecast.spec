@@ -9,7 +9,7 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    1.1.37
+Version:    1.1.38
 Release:    1 
 Group:      Utility
 License:    GPLv2.1
@@ -186,6 +186,9 @@ systemctl-user start meecastd.service
 
 
 %changelog
+* Sun Nov 12 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.38
+  * Added station Giulianova in Italy to weather.com, yr.no. Fixed Teramo gps-coordinates
+
 * Sun Oct 15 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.37
   * Fixed problem with yr.no stations. The reason is incorrect work with locales #44
 

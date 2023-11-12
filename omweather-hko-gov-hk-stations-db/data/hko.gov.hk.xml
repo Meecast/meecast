@@ -3,8 +3,8 @@
 <name>hko.gov.hk</name>
 <logo>foreca.com.png</logo>
 <base>hko.gov.hk.db</base>
-<forecast url="http://203.129.68.17/textonly/forecast/nday.htm" />
-<detail url="http://203.129.68.17/textonly/forecast/englishwx2.htm" />
+<forecast url="https://www.hko.gov.hk/textonly/v2/forecast/nday_v2.htm" />
+<detail url="https://www.hko.gov.hk/textonly/v2/forecast/englishwx2.htm" />
 <search url="http://xoap.weather.com/search/search?where=%s" />
 <library>libomweather-hko-gov-hk-source.so</library>
 <binary>hkogovhk</binary>

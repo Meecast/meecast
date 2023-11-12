@@ -9,7 +9,7 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    1.1.38
+Version:    1.1.39
 Release:    1 
 Group:      Utility
 License:    GPLv2.1
@@ -62,7 +62,7 @@ Icon: https://github.com/Meecast/meecast/blob/master/meecast/core/data/desktop/I
 
 
 %package daemon
-Version: 1.9
+Version: 1.10
 Release: 1 
 Summary: Daemon for Weather forecast application MeeCast on SailfishOS
 Group:      Utility
@@ -186,6 +186,9 @@ systemctl-user start meecastd.service
 
 
 %changelog
+* Sun Nov 12 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.39
+  * Fixed deamon for updating yr.no
+
 * Sun Nov 12 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.38
   * Added station Giulianova in Italy to weather.com, yr.no. Fixed Teramo gps-coordinates #45
   * Fixed problem hko.gov.hk source

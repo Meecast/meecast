@@ -95,7 +95,7 @@ parse_forecast_weather(const char *detail_path_data, const char *result_file){
 
     file_in2 = fopen(detail_path_data, "r");
     while(fgets(buffer, sizeof(buffer), file_in2)){
-        if (strstr(buffer,"Weather Cartoons for 7-day weather forecast"))
+        if (strstr(buffer,"Weather Cartoons for 9-day weather forecast"))
             break;
     }
     hash_for_icons = hash_icons_hko_table_create();

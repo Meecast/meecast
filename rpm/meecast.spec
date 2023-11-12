@@ -187,7 +187,7 @@ systemctl-user start meecastd.service
 
 %changelog
 * Sun Nov 12 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.38
-  * Added station Giulianova in Italy to weather.com, yr.no. Fixed Teramo gps-coordinates
+  * Added station Giulianova in Italy to weather.com, yr.no. Fixed Teramo gps-coordinates #45
   * Fixed problem hko.gov.hk source
 
 * Sun Oct 15 2023 Vlad Vasilyeu <vasvlad@gmail.com>  1.1.37

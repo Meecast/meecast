@@ -15,7 +15,6 @@ Page {
         }
 
     }
-    orientationLock: PageOrientation.LockPortrait
 
 
  

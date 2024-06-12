@@ -32,9 +32,9 @@ Well I couldn't see why I wouldn't want to let you use then.. :) The more exposu
 ----------
 vasvlad said the following:
 
-Hello.
-I am Vlad Vasiliev. I am maintainer and developer the OMWeather [link]
-This is program under GPL license and it works in linux based platform Maemo (maemo.org)
+Hello,
+I am Vlad Vasiliev. I am the maintainer and developer of OMWeather (Other Maemo Weather) [link]
+This program is licensed under the LGPL-2.1-only and it works on the Linux based platform Maemo (maemo.org)
 Can I take your weather icons for my program?
 What license for your weather icons?
 

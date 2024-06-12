@@ -13,11 +13,11 @@
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 
 Name:       meecast
-Summary:    Weather for Meego
+Summary:    MeeCast: Weather for Meego
 Version:    0.4.1
 Release:    1
 Group:      Utility
-License:    GPLv2.1
+License:    LGPL-2.1-only
 URL:        https://garage.maemo.org/projects/omweather/
 Source0:    %{name}-%{version}.tar.bz2
 #Temporary
@@ -38,8 +38,7 @@ BuildRequires:  pkgconfig(libxml-2.0)
 
 
 %description
-Weather Forecast on Meego.
-
+MeeCast provides a weather forecast for Meego.
 
 
 %prep

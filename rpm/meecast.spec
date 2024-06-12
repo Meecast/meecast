@@ -6,7 +6,7 @@
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
 Version:    1.1.39
-Release:    1
+Release:    2
 Group:      Utility
 License:    LGPL-2.1-only
 URL:        https://github.com/Meecast/meecast
@@ -59,7 +59,7 @@ Icon: %{url}/raw/master/meecast/core/data/desktop/Icon/128/meecast.png
 
 %package daemon
 Version: 1.10
-Release: 1
+Release: 2
 Summary: Daemon for Weather forecast application MeeCast on SailfishOS
 Group:    Utility
 License:  LGPL-2.1-only
@@ -71,6 +71,7 @@ MeeCast daemon for multiplatform highly customizable open source weather forecas
 
 %package lockscreen
 Version: 0.5
+Release: 2
 Summary: Lockscreen Widget for Weather forecast application MeeCast on SailfishOS
 Group:    Utility
 License:  LGPL-2.1-only

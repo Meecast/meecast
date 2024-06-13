@@ -90,11 +90,13 @@ Group:    Utility
 License:  LGPL-2.1-only
 Requires: harbour-meecast
 Requires: harbour-meecast-daemon => 0.9
-# Detect missing Lipstick Weather Widget on SailfishOS > 4.6.0.0
-%if %{defined sailfishos_version} && 0%{?sailfishos_version} > 46000
+# Detect missing Lipstick Weather Widget on SailfishOS > 4.6.0
+# %%{sailfishos_version} is defined in the Sailfish-SDK and in e.g.
+# https://build.sailfishos.org/project/prjconf/sailfishos:4.6
+%if %{defined sailfishos_version} && 0%{?sailfishos_version} > 40600
 %define add_weather_widget 1
 %endif
-# Require Lipstick Weather Widget on SailfishOS > 4.6.0.0
+# Require Lipstick Weather Widget on SailfishOS > 4.6.0
 %if 0%{?add_weather_widget}
 Require: lipstick-jolla-home-qt5-weather-widget-settings
 # Require these to be able to set a dconf key of the primary user
@@ -171,7 +173,7 @@ systemctl-user start meecastd.service
 exit 0
 
 %post event
-# Activate Lipstick Weather Widget on SFOS > 4.6.0.0
+# Activate Lipstick Weather Widget on SFOS > 4.6.0
 %if 0%{?add_weather_widget}
 su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | cut -f 4 -d ' ')" --command='dconf write /desktop/lipstick-jolla-home/force_weather_loading true' || true
 %endif

@@ -326,7 +326,7 @@ su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | c
 * Sun Mar 06 2016 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.10
 - Added string for translation
 - Fixed problem with gisemteo.ru source
-- Updated Russian, Catalan, Germany, Serbian, Swedish, Spanish, Russian, Danish, Norwegian, Dutch, Slovenian, Czech tarnslations
+- Updated Russian, Catalan, Germany, Serbian, Swedish, Spanish, Russian, Danish, Norwegian, Dutch, Slovenian, Czech translations
 
 * Tue Nov 17 2015 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.9
 - Added stations in Russia to Openweathermap.org (Sverdlovskaya oblast, Krasnodarkiy Kray and Leningradskaya oblast)
@@ -371,7 +371,7 @@ su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | c
 
 * Sun Apr 12 2015 Vlad Vasilyeu <vasvlad@gmail.com> - 1.0.4
 - Fixed problem with sunrise in fmi source
-- Updated Catalan, Chinese, Czech, Dutch, Finnish, Germany, Slovenian, Spanish, Swedish, Turkish, Italian
+- Updated Catalan, Chinese, Czech, Dutch, Finnish, Germany, Slovenian, Spanish, Swedish, Turkish, Italian translations
 - Fixed problem with wind speed in gismeteo.ru source
 
 * Mon Mar 09 2015 Vlad Vasilyeu <vasvlad@gmail.com> - 1.0

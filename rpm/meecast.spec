@@ -205,6 +205,10 @@ su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | c
 
 
 %changelog
+* Thu Jun 13 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.39.2
+- Adapted to SailfishOS 4.6
+- Fixed license
+
 * Sun Nov 12 2023 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.39
 - Fixed deamon for updating yr.no
 

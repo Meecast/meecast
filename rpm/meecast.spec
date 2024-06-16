@@ -153,8 +153,9 @@ fi
 
 %postun event
 %if 0%{?add_weather_widget}
-# Removal
+# Removal:
 if [ "$1" = "0" ]
+# See https://forum.sailfishos.org/t/sfos-4-6-foreca-meecast-how-to-re-enable-the-weather-infos-in-events-view/18678/25 :
 # then su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | cut -f 4 -d ' ')" --command='dconf write /desktop/lipstick-jolla-home/force_weather_loading false' || true
 then su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | cut -f 4 -d ' ')" --command='dconf reset /desktop/lipstick-jolla-home/force_weather_loading' || true
 fi

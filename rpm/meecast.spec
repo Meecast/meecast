@@ -93,7 +93,7 @@ Requires: harbour-meecast-daemon => 0.9
 # Detect missing Lipstick Weather Widget on SailfishOS > 4.6.0
 # %%{sailfishos_version} is defined in the Sailfish-SDK and in e.g.
 # https://build.sailfishos.org/project/prjconf/sailfishos:4.6
-%if %{defined sailfishos_version} && 0%{?sailfishos_version} > 40600
+%if %{defined sailfishos_version} && 0%{?sailfishos_version} >= 40600
 %define add_weather_widget 1
 %endif
 # Require Lipstick Weather Widget on SailfishOS > 4.6.0

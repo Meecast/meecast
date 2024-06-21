@@ -84,19 +84,19 @@ MeeCast Lockscreen widget for multiplatform highly customizable open source weat
 
 %package event
 Version: 1.1
-Release: 4
+Release: 5
 Summary: Event Widget for Weather forecast application MeeCast on SailfishOS
 Group:    Utility
 License:  LGPL-2.1-only
 Requires: harbour-meecast
 Requires: harbour-meecast-daemon => 0.9
-# Detect missing Lipstick Weather Widget on SailfishOS > 4.6.0
+# Detect missing Lipstick Weather Widget on SailfishOS >= 4.6.0
 # %%{sailfishos_version} is defined in the Sailfish-SDK and in e.g.
 # https://build.sailfishos.org/project/prjconf/sailfishos:4.6
 %if %{defined sailfishos_version} && 0%{?sailfishos_version} >= 40600
 %define add_weather_widget 1
 %endif
-# Require Lipstick Weather Widget on SailfishOS > 4.6.0
+# Require Lipstick Weather Widget on SailfishOS >= 4.6.0
 %if 0%{?add_weather_widget}
 Requires: lipstick-jolla-home-qt5-weather-widget-settings
 # Require these to be able to set a dconf key of the primary user

@@ -6,7 +6,7 @@
 Name:       harbour-meecast
 Summary:    MeeCast for SailfishOS
 Version:    1.1.39
-Release:    2
+Release:    3
 Group:      Utility
 License:    LGPL-2.1-only
 URL:        https://github.com/Meecast/meecast
@@ -59,7 +59,7 @@ Icon: %{url}/raw/master/meecast/core/data/desktop/Icon/128/meecast.png
 
 %package daemon
 Version: 1.10
-Release: 2
+Release: 3
 Summary: MeeCast background daemon for SailfishOS
 Group:    Utility
 License:  LGPL-2.1-only
@@ -71,7 +71,7 @@ MeeCast daemon obtains weather data in the background.
 
 %package lockscreen
 Version: 0.5
-Release: 2
+Release: 3
 Summary: MeeCast widget for SailfishOS' lockscreen
 Group:    Utility
 License:  LGPL-2.1-only
@@ -84,7 +84,7 @@ MeeCast's lockscreen widget displays weather information on SailfishOS' lockscre
 
 %package eventview
 Version: 1.1
-Release: 5
+Release: 6
 Summary: MeeCast widget for SailfishOS' eventsview
 Group:    Utility
 License:  LGPL-2.1-only

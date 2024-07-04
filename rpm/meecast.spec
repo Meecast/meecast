@@ -4,7 +4,7 @@
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 
 Name:       harbour-meecast
-Summary:    Weather forecast application for SailfishOS
+Summary:    MeeCast for SailfishOS
 Version:    1.1.39
 Release:    2
 Group:      Utility
@@ -42,15 +42,15 @@ BuildRequires:  qml(Sailfish.Silica)
 #Requires:      zlib
 
 %description
-MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code
+MeeCast is a multiplatform, highly customizable, open source, weather forecast client based on OMWeather code.
 
-%if "%{?vendor}" == "chum"
-PackageName: Meecast
+%if 0%{?_chum}
+PackageName: MeeCast
 Type: desktop-application
 Categories:
  - Science
  - News
-DeveloperName: Uladzislau Vasilyeu and OMWeather team
+DeveloperName: Vasvlad, OMWeather team and contributors
 Custom:
  - Repo: %{url}
 Icon: %{url}/raw/master/meecast/core/data/desktop/Icon/128/meecast.png
@@ -60,19 +60,19 @@ Icon: %{url}/raw/master/meecast/core/data/desktop/Icon/128/meecast.png
 %package daemon
 Version: 1.10
 Release: 2
-Summary: Daemon for Weather forecast application MeeCast on SailfishOS
+Summary: MeeCast background daemon for SailfishOS
 Group:    Utility
 License:  LGPL-2.1-only
 Requires: harbour-meecast
 Requires: systemd
 BuildRequires:  pkgconfig(contentaction5)
 %description daemon
-MeeCast daemon for multiplatform highly customizable open source weather forecast client based on OMWeather code
+MeeCast daemon obtains weather data in the background.
 
 %package lockscreen
 Version: 0.5
 Release: 2
-Summary: Lockscreen Widget for Weather forecast application MeeCast on SailfishOS
+Summary: MeeCast widget for SailfishOS' lockscreen
 Group:    Utility
 License:  LGPL-2.1-only
 Requires: harbour-meecast
@@ -80,12 +80,12 @@ Requires: harbour-meecast-daemon => 0.3
 Requires: patchmanager
 Requires: systemd
 %description lockscreen
-MeeCast Lockscreen widget for multiplatform highly customizable open source weather forecast client based on OMWeather code
+MeeCast's lockscreen widget displays weather information on SailfishOS' lockscreen.
 
-%package event
+%package eventview
 Version: 1.1
 Release: 5
-Summary: Event Widget for Weather forecast application MeeCast on SailfishOS
+Summary: MeeCast widget for SailfishOS' eventsview
 Group:    Utility
 License:  LGPL-2.1-only
 Requires: harbour-meecast
@@ -104,8 +104,8 @@ Requires: coreutils
 Requires: systemd
 Requires: dconf
 %endif
-%description event
-MeeCast event widget for multiplatform highly customizable open source weather forecast client based on OMWeather code
+%description eventview
+MeeCast eventview widget displays weather information at the top of SailfishOS' eventsview.
 
 
 %prep
@@ -139,6 +139,16 @@ if [ "$1" = "0" ]; then
 fi
 exit 0
 
+%preun eventview
+%if 0%{?add_weather_widget}
+# Removal:
+if [ "$1" = "0" ]
+# See https://forum.sailfishos.org/t/sfos-4-6-foreca-meecast-how-to-re-enable-the-weather-infos-in-events-view/18678/25 :
+# then su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | cut -f 4 -d ' ')" --command='dconf write /desktop/lipstick-jolla-home/force_weather_loading false' || true
+then su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | cut -f 4 -d ' ')" --command='dconf reset /desktop/lipstick-jolla-home/force_weather_loading' || true
+fi
+%endif
+
 %preun lockscreen
 if [ -f %{_sbindir}/patchmanager ]; then
     %{_sbindir}/patchmanager -u sailfishos-lockscreen-meecast-patch || true
@@ -150,16 +160,6 @@ fi
 #if ps -A | grep "meecastd" ; then killall meecastd ; fi
 #systemctl-user daemon-reload
 #exit 0
-
-%postun event
-%if 0%{?add_weather_widget}
-# Removal:
-if [ "$1" = "0" ]
-# See https://forum.sailfishos.org/t/sfos-4-6-foreca-meecast-how-to-re-enable-the-weather-infos-in-events-view/18678/25 :
-# then su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | cut -f 4 -d ' ')" --command='dconf write /desktop/lipstick-jolla-home/force_weather_loading false' || true
-then su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | cut -f 4 -d ' ')" --command='dconf reset /desktop/lipstick-jolla-home/force_weather_loading' || true
-fi
-%endif
 
 %post daemon
 if ps -A | grep "meecastd" ; then killall meecastd ; fi
@@ -173,7 +173,7 @@ systemctl-user enable meecastd.service
 systemctl-user start meecastd.service
 exit 0
 
-%post event
+%post eventview
 # Activate Lipstick Weather Widget on SFOS > 4.6.0
 %if 0%{?add_weather_widget}
 su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | cut -f 4 -d ' ')" --command='dconf write /desktop/lipstick-jolla-home/force_weather_loading true' || true
@@ -184,7 +184,7 @@ su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | c
 %{_datadir}/applications/harbour-meecast.desktop
 %{_bindir}/harbour-meecast
 /usr/share/harbour-meecast
-#%{_datadir}/iconsets
+#%%{_datadir}/iconsets
 %{_datadir}/icons/hicolor
 #/opt/com.meecast.omweather/share
 
@@ -199,7 +199,7 @@ su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | c
 %defattr(-,root,root,-)
 %{_datadir}/patchmanager/patches/sailfishos-lockscreen-meecast-patch
 
-%files event
+%files eventview
 %defattr(-,root,root,-)
 #/usr/lib/qt5/qml/Sailfish/Weather
 %{_libdir}/qt5/qml/Sailfish/Weather
@@ -229,7 +229,7 @@ su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | c
 - Fixed - Bom.gov.au as weather source shows the previous day. #41 (@vasvlad)
 
 * Wed Sep 06 2023 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.34
-- The new version of packages: daemon, lockscreen, event
+- The new version of packages: daemon, lockscreen, eventview
 - Trying to fix segmentation fault in openweathermap.org source
 - Trying to fix segmentation fault in weather.com source
 
@@ -274,7 +274,7 @@ su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | c
 
 * Wed Jan 30 2019 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.21
 - Fixed text color on cover and main pages for various themes
-- Adapted eventsView for Sailfish 3.0.1.11
+- Adapted eventview for Sailfish 3.0.1.11
 - Added refreshing for Icon in lock screen
 
 * Sun Nov 11 2018 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.20
@@ -374,7 +374,7 @@ su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | c
 - Updated Germany, Danish translations
 
 * Sun Apr 12 2015 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.0
-- Added event widget
+- Added eventview widget
 
 * Sun Apr 12 2015 Vlad Vasilyeu <vasvlad@gmail.com> - 1.0.4
 - Fixed problem with sunrise in fmi source

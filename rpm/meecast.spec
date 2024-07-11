@@ -149,7 +149,7 @@ desktop-file-install --delete-original  \
 
 
 %post daemon
-pkill meecastd
+pkill -x meecastd
 systemctl-user enable meecastd.service
 systemctl-user start meecastd.service
 exit 0
@@ -160,7 +160,7 @@ if [ "$1" = "0" ]; then
     systemctl-user disable meecastd.service
     systemctl-user stop meecastd.service
 fi
-#pkill meecastd
+#pkill -x meecastd
 #systemctl-user daemon-reload
 exit 0
 
@@ -171,7 +171,7 @@ if [ -f %{_sbindir}/patchmanager ]; then
 fi
 
 %post lockscreen
-pkill meecastd
+pkill -x meecastd
 systemctl-user enable meecastd.service
 systemctl-user start meecastd.service
 exit 0

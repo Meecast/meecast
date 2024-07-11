@@ -17,9 +17,14 @@
 ****************************************************************************/
 
 // This has to be the first include otherwise gdbusintrospection.h causes an error.
-//extern "C" {
+#include <glib.h>
+#if GLIB_MINOR_VERSION > 66
 #include <dconf/dconf.h>
-//};
+#else
+extern "C" {
+    #include <dconf/dconf.h>
+};
+#endif
 
 #include <QString>
 #include <QStringList>

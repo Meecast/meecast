@@ -209,7 +209,7 @@ su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | c
 
 %changelog
 * Thu Jul 11 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.40
-- Overhauled spec file
+- Overhauled spec file, see PR #57
 - A build fix (999d41f), closes issue #56
 - Another build fix (6ae896b), closes issue #58
 

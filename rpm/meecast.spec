@@ -5,8 +5,8 @@
 
 Name:       harbour-meecast
 Summary:    MeeCast for SailfishOS
-Version:    1.1.39
-Release:    3
+Version:    1.1.40
+Release:    1
 Group:      Utility
 License:    LGPL-2.1-only
 URL:        https://github.com/Meecast/meecast
@@ -41,6 +41,15 @@ BuildRequires:  qml(Sailfish.Silica)
 #Requires:      qt5-qtdeclarative-import-models2
 #Requires:      zlib
 
+# Detect missing Lipstick Weather Widget on SailfishOS >= 4.6.0
+# %%{sailfishos_version} is defined in the Sailfish-SDK and in e.g.
+# https://build.sailfishos.org/project/prjconf/sailfishos:4.6
+%if %{defined sailfishos_version} && 0%{?sailfishos_version} >= 40600
+%global add_weather_widget 1
+%endif
+
+# This %%description section includes metadata for SailfishOS:Chum, see
+# https://github.com/sailfishos-chum/main/blob/main/Metadata.md
 %description
 MeeCast is a multiplatform, highly customizable, open source, weather forecast client based on OMWeather code.
 
@@ -58,53 +67,51 @@ Icon: %{url}/raw/master/meecast/core/data/desktop/Icon/128/meecast.png
 
 
 %package daemon
-Version: 1.10
-Release: 3
+Version: 1.10.1
+Release: 1
 Summary: MeeCast background daemon for SailfishOS
 Group:    Utility
 License:  LGPL-2.1-only
-Requires: harbour-meecast
+Requires: %{name}
 Requires: systemd
 BuildRequires:  pkgconfig(contentaction5)
 %description daemon
 MeeCast daemon obtains weather data in the background.
 
 %package lockscreen
-Version: 0.5
-Release: 3
+Version: 0.5.1
+Release: 1
 Summary: MeeCast widget for SailfishOS' lockscreen
 Group:    Utility
 License:  LGPL-2.1-only
-Requires: harbour-meecast
-Requires: harbour-meecast-daemon => 0.3
+Requires: %{name}
+Requires: %{name}-daemon >= 0.3
 Requires: patchmanager
 Requires: systemd
 %description lockscreen
 MeeCast's lockscreen widget displays weather information on SailfishOS' lockscreen.
 
-%package eventview
-Version: 1.1
-Release: 6
+%package %{?add_weather_widget:eventview}%{!?add_weather_widget:event}
+Version: 1.1.1
+Release: 1
 Summary: MeeCast widget for SailfishOS' eventsview
 Group:    Utility
 License:  LGPL-2.1-only
-Requires: harbour-meecast
-Requires: harbour-meecast-daemon => 0.9
-# Detect missing Lipstick Weather Widget on SailfishOS >= 4.6.0
-# %%{sailfishos_version} is defined in the Sailfish-SDK and in e.g.
-# https://build.sailfishos.org/project/prjconf/sailfishos:4.6
-%if %{defined sailfishos_version} && 0%{?sailfishos_version} >= 40600
-%define add_weather_widget 1
-%endif
+Requires: %{name}
+Requires: %{name}-daemon >= 0.9
 # Require Lipstick Weather Widget on SailfishOS >= 4.6.0
 %if 0%{?add_weather_widget}
+Requires: sailfish-version >= 4.6.0
 Requires: lipstick-jolla-home-qt5-weather-widget-settings
-# Require these to be able to set a dconf key of the primary user
+# Require these to be able to set a dconf key of the primary user in %%post and %%preun scriplets
 Requires: coreutils
 Requires: systemd
 Requires: dconf
+Provides: %{name}-event
+Obsoletes: %{name}-event
+Conflicts: %{name}-event
 %endif
-%description eventview
+%description %{?add_weather_widget:eventview}%{!?add_weather_widget:event}
 MeeCast eventview widget displays weather information at the top of SailfishOS' eventsview.
 
 
@@ -137,9 +144,11 @@ if [ "$1" = "0" ]; then
     systemctl-user disable meecastd.service
     systemctl-user stop meecastd.service
 fi
+#if ps -A | grep "meecastd" ; then killall meecastd ; fi
+#systemctl-user daemon-reload
 exit 0
 
-%preun eventview
+%preun %{?add_weather_widget:eventview}%{!?add_weather_widget:event}
 %if 0%{?add_weather_widget}
 # Removal:
 if [ "$1" = "0" ]
@@ -154,13 +163,6 @@ if [ -f %{_sbindir}/patchmanager ]; then
     %{_sbindir}/patchmanager -u sailfishos-lockscreen-meecast-patch || true
 fi
 
-%postun daemon
-#systemctl-user disable meecastd.service
-#systemctl-user stop meecastd.service
-#if ps -A | grep "meecastd" ; then killall meecastd ; fi
-#systemctl-user daemon-reload
-#exit 0
-
 %post daemon
 if ps -A | grep "meecastd" ; then killall meecastd ; fi
 systemctl-user enable meecastd.service
@@ -173,7 +175,7 @@ systemctl-user enable meecastd.service
 systemctl-user start meecastd.service
 exit 0
 
-%post eventview
+%post %{?add_weather_widget:eventview}%{!?add_weather_widget:event}
 # Activate Lipstick Weather Widget on SFOS > 4.6.0
 %if 0%{?add_weather_widget}
 su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | cut -f 4 -d ' ')" --command='dconf write /desktop/lipstick-jolla-home/force_weather_loading true' || true
@@ -181,9 +183,9 @@ su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | c
 
 %files
 %defattr(-,root,root,-)
-%{_datadir}/applications/harbour-meecast.desktop
-%{_bindir}/harbour-meecast
-/usr/share/harbour-meecast
+%{_datadir}/applications/%{name}.desktop
+%{_bindir}/%{name}
+/usr/share/%{name}
 #%%{_datadir}/iconsets
 %{_datadir}/icons/hicolor
 #/opt/com.meecast.omweather/share
@@ -199,13 +201,18 @@ su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | c
 %defattr(-,root,root,-)
 %{_datadir}/patchmanager/patches/sailfishos-lockscreen-meecast-patch
 
-%files eventview
+%files %{?add_weather_widget:eventview}%{!?add_weather_widget:event}
 %defattr(-,root,root,-)
 #/usr/lib/qt5/qml/Sailfish/Weather
 %{_libdir}/qt5/qml/Sailfish/Weather
 
 
 %changelog
+* Thu Jul 11 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.40
+- Overhauled spec file
+- A build fix (999d41f), closes issue #56
+- Another build fix (6ae896b), closes issue #58
+
 * Thu Jun 13 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.39-2
 - Adapted to SailfishOS 4.6
 - Fixed license

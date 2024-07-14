@@ -3,9 +3,12 @@
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 
+%define _binary_payload w2.xzdio
 
 Name:       harbour-meecast
 Summary:    MeeCast for SailfishOS
+# Versioning for all (sub-)packages adheres to Semantic Versioning 2.0.0, see https://semver.org/
+# Mind that Sailfish-OBS sets the version of all subpackages to the one of the primary package.
 Version:    1.1.40
 Release:    1
 Group:      Utility
@@ -54,8 +57,8 @@ Categories:
  - News
 DeveloperName: Vasvlad, OMWeather team and contributors
 Custom:
- - Repo: %{url}
-Icon: %{url}/raw/master/meecast/core/data/desktop/Icon/128/meecast.png
+ - Repo: %{url}/tree/sailfishos
+Icon: %{url}/raw/sailfishos/meecast/core/data/desktop/Icon/meecast.svg
 %endif
 
 
@@ -88,7 +91,7 @@ Requires: systemd
 MeeCast's lockscreen widget displays weather information on SailfishOS' lockscreen.
 
 
-# Detect building for SailfishOS >= 4.6.0 or build subpackage eventview any way
+# Detect building for SailfishOS >= 4.6.0 or build subpackage eventview any way.
 # %%{sailfishos_version} is defined in the Sailfish-SDK and in e.g.
 # https://build.sailfishos.org/project/prjconf/sailfishos:4.6
 %if %{undefined sailfishos_version} || 0%{?sailfishos_version} >= 40600
@@ -115,7 +118,7 @@ Conflicts: %{name}-event
 MeeCast eventview widget displays weather information at the top of SailfishOS' eventsview.
 %endif
 
-# Detect building for SailfishOS < 4.6.0 or build subpackage event any way
+# Detect building for SailfishOS < 4.6.0 or build subpackage event any way.
 %if 0%{?sailfishos_version} < 40600
 %package event
 Version: 1.1.1

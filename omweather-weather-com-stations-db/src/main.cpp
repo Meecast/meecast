@@ -496,7 +496,7 @@ parse_and_write_html_data(const gchar *station_id, htmlDocPtr doc, const gchar *
     struct tm time_tm1;
     struct tm time_tm2;
 
-    #define MAX_BUFF_SIZE 512000
+    #define MAX_BUFF_SIZE 1024000
     char buffer[MAX_BUFF_SIZE];
     Json::Value root;   // will contains the root value after parsing.
     Json::Reader reader;

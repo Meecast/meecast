@@ -5,8 +5,8 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    1.1.39
-Release:    3
+Version:    1.1.40
+Release:    1
 Group:      Utility
 License:    LGPL-2.1-only
 URL:        https://github.com/Meecast/meecast
@@ -206,6 +206,9 @@ su --login "$(loginctl --no-legend list-sessions | grep -F seat0 | tr -s ' ' | c
 
 
 %changelog
+* Thu Jul 18 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.40
+- Fixed segmentation fault for weather.com
+
 * Thu Jun 13 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.39-2
 - Adapted to SailfishOS 4.6
 - Fixed license

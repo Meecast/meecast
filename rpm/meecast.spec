@@ -6,7 +6,7 @@
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
 Version:    1.1.40
-Release:    1
+Release:    2
 Group:      Utility
 License:    LGPL-2.1-only
 URL:        https://github.com/Meecast/meecast

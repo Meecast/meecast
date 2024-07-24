@@ -28,6 +28,12 @@ Installed **MeeCast PACKAGES**:
 <br /><sub>Please denote, where you obtained the MeeCast packages from and how you installed them, e.g. on SailfishOS *"from OpenRepos via Storeman"*,
 *"from SailfishOS:Chum via SailfishOS:Chum GUI app"*, *"manually downloaded from XYZ and installed by `pkcon install-local`"* etc.</sub>
 
+**Weather data SOURCE(s)**: 
+<br /><sub>Denote the weather data provider(s) affected by this bug as a comma separated list, e.g *foreca.com, weather.com*.</sub>
+
+**Weather LOCATION(s)**: 
+<br /><sub>Denote the location(s) affected by this bug as a comma separated list and prepended with their provider in the format `provider:country:location`, e.g *weather.com:Germany:Berlin-Tempelhof*.</sub>
+
 #### BUG DESCRIPTION
 
 

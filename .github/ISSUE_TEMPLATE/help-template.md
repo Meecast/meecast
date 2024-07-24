@@ -28,6 +28,12 @@ Installed **MeeCast PACKAGES**:
 <br /><sub>Please denote, where you obtained the MeeCast packages from and how you installed them, e.g. on SailfishOS *"from OpenRepos via Storeman"*,
 *"from SailfishOS:Chum via SailfishOS:Chum GUI app"*, *"manually downloaded from XYZ and installed by `pkcon install-local`"* etc.</sub>
 
+**Weather data SOURCE(s)**: 
+<br /><sub>Denote the weather data provider(s) of concern as a comma separated list, e.g *foreca.com,gismeteo.ru,yr.no*.</sub>
+
+**Weather LOCATION(s)**: 
+<br /><sub>Denote the location(s) of concern as a comma separated list in the format `provider:country:[region:]location`, e.g *weather.com:Germany:Berlin-Tempelhof,openweathermap.org:Netherlands:Provincie Noord-Holland:Amsterdam*.</sub>
+
 
 #### QUESTION
 

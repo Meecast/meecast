@@ -17,7 +17,7 @@ e.g. via GUI on SailfishOS *Settings&nbsp;→ About&nbsp;product&nbsp;→ Manufa
 
 **MeeCast VERSION**: 
 <br /><sub>I.e. on MeeCast's *About* page at the very top (underneath the weather icon) in tiny font size,
-<br />e.g. on SailfishOS open *MeeCast → [Top pulley] About*</sub>
+<br />e.g. on SailfishOS open *MeeCast&nbsp;→ [Top pulley]&nbsp;About*</sub>
 
 #### DESCRIPTION
 

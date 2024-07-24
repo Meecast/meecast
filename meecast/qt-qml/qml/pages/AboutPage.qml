@@ -3,101 +3,126 @@ import Sailfish.Silica 1.0
 
 Page {
     id: about
+
+    allowedOrientations: Orientation.All
+
     property int screen_height : about.height
-    property int screen_width : about.width 
+    property int screen_width : about.width
 
     Rectangle {
         anchors.fill: parent
         color: Config.transparency ? "transparent" : "black"
     }
+
     SilicaFlickable {
         anchors.fill: parent
         flickableDirection: Flickable.VerticalFlick
-        contentHeight: 4700
+        contentWidth: parent.width;
+        contentHeight: pageHeader.height + contentColumn.height + Theme.paddingLarge
+
         PageHeader {
+            id: pageHeader
             title: Config.tr("MeeCast for SailfishOS")
         }
-        Rectangle {
-            color: "transparent"
-            x: 0; y: 0.0805*screen_height; width: parent.width; height: 274
-        }
-        Image {
-            id: backgroundmask
-            source: Config.imagespath + "/mask_background.png"
-            x: 0; y: 0.0805*screen_height; width: parent.width;
-            smooth: true
-        }
-        Image {
-            id: icon
-            source: Config.iconspath + "/" + Config.iconset + "/28.png"
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.top
-            anchors.topMargin: 100
-            height: 128
-            width: 128
-            smooth: true
-        }
-        Label {
-            id: versiontext
-            text: "Version" + " " + Config.version
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: icon.bottom
-            anchors.topMargin: 5
-            font.pixelSize: 24
-        }
-        Label {
-            id: abouttext
-            text: Config.tr("About") + ":"
-            anchors.top: versiontext.bottom
-            anchors.topMargin: 30
-            anchors.leftMargin: 20
-            anchors.left: parent.left
-            color: "#999999"
-        }
-        Label {
-            id: aboutfulltext
-            text: Config.tr("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2019")
-            anchors.leftMargin: 20
-            anchors.left: parent.left
-            anchors.top: abouttext.bottom
-            wrapMode: Text.Wrap
-            width: parent.width - 20
-        }
-        /*
-        Label {
-            id: projectsitetext
-            text: Config.tr("Support") + ":"
-            anchors.top: aboutfulltext.bottom
-            anchors.topMargin: 30
-            anchors.leftMargin: 20
-            anchors.left: parent.left
-            color: "#999999"
-        }
-        Label {
-            signal clicked
-            id: projectfulltext
-            text: "support@meecast.org"
-            anchors.leftMargin: 20
-            anchors.left: parent.left
-            anchors.top: projectsitetext.bottom
-            MouseArea {
-                id: mouseArea_web_support
-                anchors.fill: parent
-                onReleased: {
-                    Config.showwebsupport();
+
+        Column {
+            id: contentColumn
+            spacing: Theme.paddingLarge
+            anchors {
+                top: pageHeader.bottom
+                horizontalCenter: parent.horizontalCenter
+            }
+            width: parent.width
+
+            Rectangle {
+                color: "transparent"
+                width: parent.width
+                height: childrenRect.height
+                Image {
+                    id: backgroundmask
+                    source: Config.imagespath + "/mask_background.png"
+                    fillMode: Image.PreserveAspectFit
+                    smooth: true
+                    clip: true
+                    asynchronous: true
+                    width: parent.width
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+
+            Image {
+                id: icon
+                source: Config.iconspath + "/" + Config.iconset + "/28.png"
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: parent.top
+                anchors.topMargin: Theme.paddingLarge
+                height: Math.min(screen_height, screen_width) / 4
+                fillMode: Image.PreserveAspectFit
+                smooth: true
+            }
+
+            Label {
+                id: versiontext
+                text: "Version" + " " + Config.version
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: icon.bottom
+                anchors.topMargin: Theme.paddingExtraSmall
+                font.pixelSize: Theme.fontSizeSmall
+            }
+
+// ------------- First round of overhauling up to here as of 2024-07-24 -------------
+            Label {
+                id: abouttext
+                text: Config.tr("About") + ":"
+                anchors.top: versiontext.bottom
+                anchors.topMargin: 30
+                anchors.leftMargin: 20
+                anchors.left: parent.left
+                color: "#999999"
+            }
+            Label {
+                id: aboutfulltext
+                text: Config.tr("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2019")
+                anchors.leftMargin: 20
+                anchors.left: parent.left
+                anchors.top: abouttext.bottom
+                wrapMode: Text.Wrap
+                width: parent.width - 20
+            }
+            /*
+            Label {
+                id: projectsitetext
+                text: Config.tr("Support") + ":"
+                anchors.top: aboutfulltext.bottom
+                anchors.topMargin: 30
+                anchors.leftMargin: 20
+                anchors.left: parent.left
+                color: "#999999"
+            }
+            Label {
+                signal clicked
+                id: projectfulltext
+                text: "support@meecast.org"
+                anchors.leftMargin: 20
+                anchors.left: parent.left
+                anchors.top: projectsitetext.bottom
+                MouseArea {
+                    id: mouseArea_web_support
+                    anchors.fill: parent
+                    onReleased: {
+                        Config.showwebsupport();
+                    }
                 }
             }
-        }
-        */
+            */
 /*
 Image {
-        signal clicked
-        id: donate_button
+signal clicked
+id: donate_button
 source: Config.imagespath + "/btn_donate_LG.png"
 anchors.top: projectsitetext.bottom
 anchors.rightMargin: 20
 anchors.right: parent.right
-        smooth: true	
+smooth: true	
         MouseArea {
             id: mouseArea
             anchors.fill: parent
@@ -126,7 +151,7 @@ anchors.right: parent.right
             color: "#999999"
         }
         Label {
-            id: prohectadministatorfulltext
+            id: projectadministatorfulltext
             text: "Vlad Vasilyeu"
             anchors.leftMargin: 20
             anchors.left: parent.left
@@ -135,7 +160,7 @@ anchors.right: parent.right
         Label {
             id: leadprogrammertext
             text: Config.tr ("Programmer") + ":"
-            anchors.top: prohectadministatorfulltext.bottom
+            anchors.top: projectadministatorfulltext.bottom
             anchors.topMargin: 30
             anchors.leftMargin: 20
             anchors.left: parent.left

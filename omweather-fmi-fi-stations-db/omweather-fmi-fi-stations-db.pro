@@ -23,7 +23,8 @@ OTHER_FILES += \
 
 CONFIG = link_pkgconfig 
 PKGCONFIG += libxml-2.0 
-QMAKE_CXXFLAGS += -fPIC -std=c++20
+#QMAKE_CXXFLAGS += -fPIC -std=c++20
+QMAKE_CXXFLAGS += -fPIC -std=c++2a
 
 #QMAKE_CXXFLAGS += -std=c++11
 #system(pkg-config --exists glib-2.0){

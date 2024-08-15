@@ -85,12 +85,12 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     htmlfile.read(&buffer_0[0], size_0);
     //size_t index_0 = buffer_0.find("__NUXT__=(function(", 0);
     size_t index_0 = buffer_0.find("__NUXT__=(function(", 0);
-    if (index_0  == -1){
+    if (index_0  == string::npos){
         std::cerr<<"Error in index_0"<<std::endl;
         return -1;
     }
     size_t index_1 = buffer_0.find("));</script>", index_0);
-    if (index_1  == -1){
+    if (index_1  == string::npos){
         std::cerr<<"Error in index_1"<<std::endl;
         return -1;
     }
@@ -102,7 +102,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     size_t i = 0;
     std::string param = "";
     size_t index_for_begin_values = buffer_keys_and_values.find("}}(", 0) + 3;
-    if (index_for_begin_values  == -1){
+    if (index_for_begin_values  == string::npos){
         std::cerr<<"Error in index_for_begin_values"<<std::endl;
         return -1;
     }
@@ -148,14 +148,14 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     }
     //std::cout<<buffer_keys_and_values<<std::endl;
     size_t index_for_begin_forecast = buffer_keys_and_values.find("forecastValues:", 0);
-    if (index_for_begin_forecast  == -1){
+    if (index_for_begin_forecast  == string::npos){
         std::cerr<<"Error in index_for_begin_forecast"<<std::endl;
         return -1;
     }
 
     std::cout<<index_for_begin_forecast<<std::endl;
     size_t index_for_end_forecast = buffer_keys_and_values.find("}],", index_for_begin_forecast);
-    if (index_for_end_forecast  == -1){
+    if (index_for_end_forecast  == string::npos){
         std::cerr<<"Error in index_for_end_forecast"<<std::endl;
         return -1;
     }
@@ -167,13 +167,13 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
 
 
     size_t index_for_begin_symbolDescriptions = buffer_keys_and_values.find("symbolDescriptions:", 0);
-    if (index_for_begin_symbolDescriptions  == -1){
+    if (index_for_begin_symbolDescriptions  == string::npos){
         std::cerr<<"Error in index_for_begin_symbolDescriptions"<<std::endl;
         return -1;
     }
     std::cout << "index_for_begin_symbolDescriptions "<<index_for_begin_symbolDescriptions << std::endl;
     size_t index_for_end_symbolDescriptions = buffer_keys_and_values.find("}},", index_for_begin_symbolDescriptions);
-    if (index_for_end_symbolDescriptions  == -1){
+    if (index_for_end_symbolDescriptions  == string::npos){
         std::cerr<<"Error in index_for_end_symbolDescriptions"<<std::endl;
         return -1;
     }

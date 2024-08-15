@@ -205,7 +205,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     std::cerr<<descriptions_json.size()<<std::endl;
 
     /* Convert js-script data to JSON */
-    std::erase(buffer_1, '"');
+    //std::erase(buffer_1, '"');
     buffer_1.erase(std::remove(buffer_1.begin(), buffer_1.end(), '"'), buffer_1.end());
     std::cout << buffer_1 << std::endl;
 
@@ -516,7 +516,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         _local_time_string = val[i].get("isolocaltime","").asCString();
         if (dictionary.find(_local_time_string) != dictionary.end()) {
             _local_time_string = dictionary[_local_time_string];
-            std::erase(_local_time_string, '"');
+           // std::erase(_local_time_string, '"');
+    	   _local_time_string.erase(std::remove(_local_time_string.begin(), _local_time_string.end(), '"'), _local_time_string.end());
         }
             std::cout<<_local_time_string<<std::endl;
         if (_local_time_string != ""){
@@ -526,8 +527,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             strptime((const char*)_local_time_string.c_str(), "%Y-%m-%dT%H:%M:%S", &tmp_tm);
             utc_time = mktime(&tmp_tm); 
             setlocale(LC_TIME, "");
-            const std::chrono::zoned_time zt{"Europe\u002FMadrid", std::chrono::system_clock::now()};
-            std::cout <<  "Europe\u002FMadrid" << " - Zoned Time: " << zt << '\n';
+            //const std::chrono::zoned_time zt{"Europe\u002FMadrid", std::chrono::system_clock::now()};
+            //std::cout <<  "Europe\u002FMadrid" << " - Zoned Time: " << zt << '\n';
             /* get timezone */
             if (!check_timezone){
                 local_time_string = val[i].get("localtime","").asCString();
@@ -558,8 +559,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             if (dictionary.find(SmartSymbol) != dictionary.end()) {
                 std::cerr<<"00000000000000"<<SmartSymbol;
                 SmartSymbol = dictionary[SmartSymbol];
-                std::erase(SmartSymbol, '"');
-                std::cerr<<"ssssssssssssss"<<SmartSymbol;
+                //std::erase(SmartSymbol, '"');
+    	   	SmartSymbol.erase(std::remove(SmartSymbol.begin(), SmartSymbol.end(), '"'), SmartSymbol.end());
             }
 
 
@@ -807,7 +808,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 _wind_direction_ = val[i].get("WindDirection","").asCString();
                 if (dictionary.find(_wind_direction_) != dictionary.end()) {
                     _wind_direction_ = dictionary[_wind_direction_];
-                    std::erase(_wind_direction_, '"');
+                    //std::erase(_wind_direction_, '"');
+    	   	    _wind_direction_.erase(std::remove(_wind_direction_.begin(), _wind_direction_.end(), '"'), _wind_direction_.end());
                 }
 
                 std::cout<<"Wind "<<_wind_direction_<<std::endl;

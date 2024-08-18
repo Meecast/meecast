@@ -27,6 +27,7 @@
 #include "meego-main.h"
 #include <map>
 #include "json/json.h"
+#include "date/tz.h"
 #include <math.h> 
 #include <chrono>
 #include <fstream>
@@ -95,8 +96,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         return -1;
     }
 
-        std::cout<<index_0<<std::endl;
-        std::cout<<index_1<<std::endl;
+        //std::cout<<index_0<<std::endl;
+        //std::cout<<index_1<<std::endl;
     std::string buffer_keys_and_values = buffer_0.substr(index_0 + 19, index_1 - index_0 - 17);
     std::map<std::string, std::string> dictionary;
     size_t i = 0;
@@ -106,7 +107,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         std::cerr<<"Error in index_for_begin_values"<<std::endl;
         return -1;
     }
-    std::cout<<index_for_begin_values<<std::endl;
+    //std::cout<<index_for_begin_values<<std::endl;
     size_t index_next_values = index_for_begin_values;
     while (i<(buffer_keys_and_values.length() -1)){
         //std::cerr<<buffer_keys_and_values[i]<<std::endl;
@@ -142,28 +143,76 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         i++;
     }
 
-    std::cout << "Elements of Dictionary:" << std::endl;
-    for (const auto& pair : dictionary) {
-        std::cout << pair.first << ": " << pair.second << std::endl;
-    }
+    //std::cout << "Elements of Dictionary:" << std::endl;
+    //for (const auto& pair : dictionary) {
+    //    std::cout << pair.first << ": " << pair.second << std::endl;
+    //}
     //std::cout<<buffer_keys_and_values<<std::endl;
+
+    size_t index_for_begin_timezone = buffer_keys_and_values.find("foundLocation:", 0);
+    if (index_for_begin_timezone  == std::string::npos){
+        std::cerr<<"Error in index_for_begin_timezone"<<std::endl;
+        return -1;
+    }
+
+    size_t index_for_end_timezone = buffer_keys_and_values.find("},", index_for_begin_timezone);
+    if (index_for_end_timezone  == std::string::npos){
+        std::cerr<<"Error in index_for_end_timezone"<<std::endl;
+        return -1;
+    }
+    
+    std::string buffer_timezone = buffer_keys_and_values.substr(index_for_begin_timezone, index_for_end_timezone - index_for_begin_timezone + 1);
+    buffer_timezone.insert(0, "{");
+    buffer_timezone += "}";
+    buffer_timezone = std::regex_replace(buffer_timezone, std::regex("foundLocation"), "\"foundLocation\"");
+    buffer_timezone = std::regex_replace(buffer_timezone, std::regex("place"), "\"place\"");
+    buffer_timezone = std::regex_replace(buffer_timezone, std::regex("area"), "\"area\"");
+    buffer_timezone = std::regex_replace(buffer_timezone, std::regex("timezone"), "\"timezone\"");
+
+    //std::cout<<buffer_timezone<<std::endl;
+    Json::Value _timezone_json;   // will contains the root value after parsing.
+    bool parsingSuccessfulTimezone = reader.parse(buffer_timezone, _timezone_json, false);
+    if (!parsingSuccessfulTimezone){
+        std::cerr<<"Problem in parsingSuccessfulTimezone";
+        return -1;
+    }
+
+    val = _timezone_json["foundLocation"];
+    auto timezone_json = val["timezone"].asString();
+
+    auto _current_time = std::chrono::system_clock::now();
+    auto sy = date::zoned_time{timezone_json, _current_time};
+    auto offset = sy.get_info().offset;
+    std::chrono::seconds seconds = offset;
+    //std::cout<<"dddd "<<offset.count()<<std::endl;
+    timezone = offset.count()/3600;
+    //std::cout << dur<std::chrono::seconds>;
+    /*
+    //auto la = date::zoned_time{"Atlantic/Reykjavik", _current_time};
+    auto la = date::zoned_time{"Etc/UTC", _current_time};
+    auto dur = sy.get_local_time() - la.get_local_time();
+    //auto sss = dur<std::chrono::seconds>;
+    //std::cout << dur<std::chrono::seconds>;
+    std::cout << date::format("%T\n", sy.get_local_time() - la.get_local_time());
+    */
+
     size_t index_for_begin_forecast = buffer_keys_and_values.find("forecastValues:", 0);
     if (index_for_begin_forecast  == std::string::npos){
         std::cerr<<"Error in index_for_begin_forecast"<<std::endl;
         return -1;
     }
 
-    std::cout<<index_for_begin_forecast<<std::endl;
+    //std::cout<<index_for_begin_forecast<<std::endl;
     size_t index_for_end_forecast = buffer_keys_and_values.find("}],", index_for_begin_forecast);
     if (index_for_end_forecast  == std::string::npos){
         std::cerr<<"Error in index_for_end_forecast"<<std::endl;
         return -1;
     }
-    std::cout<<index_for_end_forecast<<std::endl;
+    //std::cout<<index_for_end_forecast<<std::endl;
 
     std::string buffer_1 = buffer_keys_and_values.substr(index_for_begin_forecast, index_for_end_forecast - index_for_begin_forecast + 2);
 
-    std::cout << buffer_1 << std::endl;
+    //std::cout << buffer_1 << std::endl;
 
 
     size_t index_for_begin_symbolDescriptions = buffer_keys_and_values.find("symbolDescriptions:", 0);
@@ -171,29 +220,29 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         std::cerr<<"Error in index_for_begin_symbolDescriptions"<<std::endl;
         return -1;
     }
-    std::cout << "index_for_begin_symbolDescriptions "<<index_for_begin_symbolDescriptions << std::endl;
+    //std::cout << "index_for_begin_symbolDescriptions "<<index_for_begin_symbolDescriptions << std::endl;
     size_t index_for_end_symbolDescriptions = buffer_keys_and_values.find("}},", index_for_begin_symbolDescriptions);
     if (index_for_end_symbolDescriptions  == std::string::npos){
         std::cerr<<"Error in index_for_end_symbolDescriptions"<<std::endl;
         return -1;
     }
-    std::cout << "index_for_end_symbolDescriptions "<<index_for_end_symbolDescriptions << std::endl;
+    //std::cout << "index_for_end_symbolDescriptions "<<index_for_end_symbolDescriptions << std::endl;
 
     std::string descriptions = buffer_keys_and_values.substr(index_for_begin_symbolDescriptions, index_for_end_symbolDescriptions - index_for_begin_symbolDescriptions + 2);
 
     descriptions.insert(0, "{");
     descriptions += "}";
-    std::cout << descriptions << std::endl;
+    //std::cout << descriptions << std::endl;
     /* Replace substring txt_en to "txt_en" */
     descriptions = std::regex_replace(descriptions, std::regex("symbolDescriptions"), "\"symbolDescriptions\"");
     descriptions = std::regex_replace(descriptions, std::regex("txt_en"), "\"txt_en\"");
     descriptions = std::regex_replace(descriptions, std::regex("txt_fi"), "\"txt_fi\"");
     descriptions = std::regex_replace(descriptions, std::regex("txt_sv"), "\"txt_sv\"");
-    std::cout << descriptions << std::endl;
+    //std::cout << descriptions << std::endl;
 
     Json::Value _descriptions_json;   // will contains the root value after parsing.
     bool parsingSuccessfulDesc = reader.parse(descriptions, _descriptions_json, false);
-    std::cout <<  parsingSuccessfulDesc<< std::endl;
+    //std::cout <<  parsingSuccessfulDesc<< std::endl;
     if (!parsingSuccessfulDesc){
         std::cerr<<"Problem in parsingSuccessfulDesc";
         return -1;
@@ -207,50 +256,50 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     /* Convert js-script data to JSON */
     //std::erase(buffer_1, '"');
     buffer_1.erase(std::remove(buffer_1.begin(), buffer_1.end(), '"'), buffer_1.end());
-    std::cout << buffer_1 << std::endl;
+    //std::cout << buffer_1 << std::endl;
 
     buffer_1.insert(0, "{");
 
     /* Replace substring :00:00 to *00*00 */
     buffer_1 = std::regex_replace(buffer_1, std::regex(":00:00"), "*00*00");
-    std::cout << buffer_1 << std::endl;
+    //std::cout << buffer_1 << std::endl;
 
     /* Replace substring },{ to }|{ */
     buffer_1 = std::regex_replace(buffer_1, std::regex("\\},\\{"), "}|{");
-    std::cout << buffer_1 << std::endl;
+    //std::cout << buffer_1 << std::endl;
 
     /* Replace substring , to "," */
     buffer_1 = std::regex_replace(buffer_1, std::regex(","), "\",\"");
-    std::cout << buffer_1 << std::endl;
+    //std::cout << buffer_1 << std::endl;
 
     /* Replace substring : to ":" */
     buffer_1 = std::regex_replace(buffer_1, std::regex(":"), "\":\"");
-    std::cout << buffer_1 << std::endl;
+    //std::cout << buffer_1 << std::endl;
 
     /* Replace substring { to {" */
     buffer_1 = std::regex_replace(buffer_1, std::regex("\\{"), "{\"");
-    std::cout << buffer_1 << std::endl;
+    //std::cout << buffer_1 << std::endl;
 
     /* Replace substring } to "} */
     buffer_1 = std::regex_replace(buffer_1, std::regex("\\}"), "\"}");
-    std::cout << buffer_1 << std::endl;
+    //std::cout << buffer_1 << std::endl;
 
     /* Replace substring }|{ to },{ */
     buffer_1 = std::regex_replace(buffer_1, std::regex("\\}\\|\\{"), "},{");
-    std::cout << buffer_1 << std::endl;
+    //std::cout << buffer_1 << std::endl;
 
     /* Replace substring *00*00 to :00:00 */
     buffer_1 = std::regex_replace(buffer_1, std::regex("\\*00\\*00"), ":00:00");
-    std::cout << buffer_1 << std::endl;
+    //std::cout << buffer_1 << std::endl;
 
     /* Replace substring "[ to [ */
     buffer_1 = std::regex_replace(buffer_1, std::regex("\"\\["), "[");
-    std::cout << buffer_1 << std::endl;
+    //std::cout << buffer_1 << std::endl;
 
 
 
     buffer_1 += "}";
-    std::cout << buffer_1 << std::endl;
+    //std::cout << buffer_1 << std::endl;
     //bool parsingSuccessful = reader.parse(jsonfile, root, false);
     bool parsingSuccessful = reader.parse(buffer_1, root, false);
     fprintf(stderr,"parse %i\n", parsingSuccessful);
@@ -519,7 +568,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
            // std::erase(_local_time_string, '"');
     	   _local_time_string.erase(std::remove(_local_time_string.begin(), _local_time_string.end(), '"'), _local_time_string.end());
         }
-            std::cout<<_local_time_string<<std::endl;
+            //std::cout<<_local_time_string<<std::endl;
         if (_local_time_string != ""){
             tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
             tmp_tm.tm_isdst = time_tm2.tm_isdst;
@@ -531,17 +580,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             //std::cout <<  "Europe\u002FMadrid" << " - Zoned Time: " << zt << '\n';
             /* get timezone */
             if (!check_timezone){
-                local_time_string = val[i].get("localtime","").asCString();
-                tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
-                tmp_tm.tm_isdst = time_tm2.tm_isdst;
-                setlocale(LC_TIME, "POSIX");
-                strptime((const char*)local_time_string.c_str(), "%Y-%m-%dT%H:%M:%S", &tmp_tm);
-                local_time = mktime(&tmp_tm); 
-                setlocale(LC_TIME, "");
-                timezone = (int)((local_time-utc_time)/3600);
                 fprintf(file_out,"  <timezone>%i</timezone>\n", timezone);
                 check_timezone = true;
-                
                 first_day = true;
                 /* set forecast for whole day */
                 if (tmp_tm.tm_hour >=15){
@@ -557,7 +597,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             std::string SmartSymbol = "";
             SmartSymbol = val[i].get("SmartSymbol","").asCString();
             if (dictionary.find(SmartSymbol) != dictionary.end()) {
-                std::cerr<<"00000000000000"<<SmartSymbol;
+                //std::cerr<<"00000000000000"<<SmartSymbol;
                 SmartSymbol = dictionary[SmartSymbol];
                 //std::erase(SmartSymbol, '"');
     	   	SmartSymbol.erase(std::remove(SmartSymbol.begin(), SmartSymbol.end(), '"'), SmartSymbol.end());
@@ -582,7 +622,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             }    
 
             if (val[i].get("Temperature","").asString() != "" || val[i].get("Temperature","").asString() != "nan"){
-                fprintf(file_out,"     <temperature>%i</temperature>\n", atoi(val[i].get("Temperature","").asCString()));
+                fprintf(file_out,"     <temperature>%.0f</temperature>\n", atof(val[i].get("Temperature","").asCString()));
             }    
             if (SmartSymbol != "" ){
                 int result = 0;
@@ -792,7 +832,10 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
 
 
                 }
-                std::cerr<<"icon "<<icon<<std::endl;
+		if (icon ==48){
+                	std::cerr<<"icon "<<icon<<" - ";
+			std::cerr<<SmartSymbol<<" "<< description<<std::endl;
+		}
                 fprintf(file_out,"     <icon>%i</icon>\n", icon);
                 fprintf(file_out, "     <description>%s</description>\n", description.c_str());
             }    
@@ -812,15 +855,15 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     	   	    _wind_direction_.erase(std::remove(_wind_direction_.begin(), _wind_direction_.end(), '"'), _wind_direction_.end());
                 }
 
-                std::cout<<"Wind "<<_wind_direction_<<std::endl;
+                //std::cout<<"Wind "<<_wind_direction_<<std::endl;
 
                 _wind_direction = atof(_wind_direction_.c_str());
                 wind_index = (int)round(_wind_direction/22.5) + 1;
-                std::cout<<"Wind_index "<<wind_index<<std::endl;
+                //std::cout<<"Wind_index "<<wind_index<<std::endl;
                 if (wind_index > 16){
                     wind_index = 16;
                 }
-                std::cout<<"Wind_direction "<<wind_directions[wind_index].c_str()<<std::endl;
+                //std::cout<<"Wind_direction "<<wind_directions[wind_index].c_str()<<std::endl;
  
                 fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",wind_directions[wind_index].c_str());
             }    

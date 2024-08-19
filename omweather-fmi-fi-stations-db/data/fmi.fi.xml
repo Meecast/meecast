@@ -3,7 +3,7 @@
 <name>fmi.fi</name>
 <logo>fmi.fi.png</logo>
 <base>fmi.fi.db</base>
-<forecast url="https://en.ilmatieteenlaitos.fi/local-weather/Helsinki/Old%20Church%20park" />
+<forecast url="https://en.ilmatieteenlaitos.fi/local-weather/%s" />
 <detail url="http://opendata.fmi.fi/wfs?l=en&amp;locations=%s" />
 <library>libomweather-fmi-fi-source.so</library>
 <binary>/opt/com.meecast.omweather/lib/fmifi</binary>

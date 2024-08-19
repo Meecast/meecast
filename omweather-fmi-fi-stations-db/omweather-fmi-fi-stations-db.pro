@@ -14,6 +14,7 @@ HEADERS += src/meego-main.h \
 	       src/json/json.h
 
 SOURCES += src/meego-main.cpp \
+           src/tz.cpp \
            src/jsoncpp.cpp
 
 FORMS    +=
@@ -23,6 +24,8 @@ OTHER_FILES += \
 
 CONFIG = link_pkgconfig 
 PKGCONFIG += libxml-2.0 
+PKGCONFIG += libcurl
+#QMAKE_CXXFLAGS += -fPIC -std=c++20
 QMAKE_CXXFLAGS += -fPIC -std=c++2a
 #QMAKE_CXXFLAGS += -fPIC -std=c++20
 

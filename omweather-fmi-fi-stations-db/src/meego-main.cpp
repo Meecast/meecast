@@ -921,7 +921,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out,"     <precipitation>%.1f</precipitation>\n", atof(val[i].get("Precipitation1h","").asCString()));
             }    
             if (val[i].get("FeelsLike","").asString() != ""){
-                fprintf(file_out,"     <flike>%i</flike>\n", atoi(val[i].get("FeelsLike","").asCString()));
+                fprintf(file_out,"     <flike>%.0f</flike>\n", atof(val[i].get("FeelsLike","").asCString()));
             }    
 
             fprintf(file_out,"    </period>\n");

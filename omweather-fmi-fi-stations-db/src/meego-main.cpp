@@ -181,10 +181,10 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     auto timezone_json = val["timezone"].asString();
 
     auto _current_time = std::chrono::system_clock::now();
-    auto sy = date::zoned_time{timezone_json, _current_time};
+    date::zoned_time<std::chrono::system_clock::duration> sy = date::make_zoned(date::current_zone(), std::chrono::system_clock::now());
     auto offset = sy.get_info().offset;
     std::chrono::seconds seconds = offset;
-    //std::cout<<"dddd "<<offset.count()<<std::endl;
+    std::cout<<"offset count "<<offset.count()<<std::endl;
     timezone = offset.count()/3600;
     //std::cout << dur<std::chrono::seconds>;
     /*

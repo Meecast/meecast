@@ -27,7 +27,6 @@ PKGCONFIG += libxml-2.0
 PKGCONFIG += libcurl
 #QMAKE_CXXFLAGS += -fPIC -std=c++20
 #QMAKE_CXXFLAGS += -fPIC -std=c++2a
-#QMAKE_CXXFLAGS += -fPIC -std=c++11
 
 QMAKE_CXXFLAGS += -std=c++14
 #system(pkg-config --exists glib-2.0){

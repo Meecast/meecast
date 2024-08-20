@@ -162,18 +162,38 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     }
     
     std::string buffer_timezone = buffer_keys_and_values.substr(index_for_begin_timezone, index_for_end_timezone - index_for_begin_timezone + 1);
+    buffer_timezone.erase(std::remove(buffer_timezone.begin(), buffer_timezone.end(), '"'), buffer_timezone.end());
     buffer_timezone.insert(0, "{");
+    /* Replace substring , to "," */
+    buffer_timezone = std::regex_replace(buffer_timezone, std::regex(","), "\",\"");
+    //std::cout << buffer_1 << std::endl;
+
+    /* Replace substring : to ":" */
+    buffer_timezone = std::regex_replace(buffer_timezone, std::regex(":"), "\":\"");
+    //std::cout << buffer_1 << std::endl;
+
+    /* Replace substring { to {" */
+    buffer_timezone = std::regex_replace(buffer_timezone, std::regex("\\{"), "{\"");
+    //std::cout << buffer_1 << std::endl;
+
+    /* Replace substring } to "} */
+    buffer_timezone = std::regex_replace(buffer_timezone, std::regex("\\}"), "\"}");
+
+    /* Replace substring ":"{" to ":{" */
+    buffer_timezone = std::regex_replace(buffer_timezone, std::regex("\":\"\\{\""), "\":{\"");
     buffer_timezone += "}";
+    /*
     buffer_timezone = std::regex_replace(buffer_timezone, std::regex("foundLocation"), "\"foundLocation\"");
     buffer_timezone = std::regex_replace(buffer_timezone, std::regex("place"), "\"place\"");
     buffer_timezone = std::regex_replace(buffer_timezone, std::regex("area"), "\"area\"");
     buffer_timezone = std::regex_replace(buffer_timezone, std::regex("timezone"), "\"timezone\"");
+    */
 
     //std::cout<<buffer_timezone<<std::endl;
     Json::Value _timezone_json;   // will contains the root value after parsing.
     bool parsingSuccessfulTimezone = reader.parse(buffer_timezone, _timezone_json, false);
     if (!parsingSuccessfulTimezone){
-        std::cerr<<"Problem in parsingSuccessfulTimezone";
+        std::cerr<<"Problem in parsingSuccessfulTimezone"<<std::endl;
         return -1;
     }
 

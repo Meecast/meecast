@@ -96,8 +96,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         return -1;
     }
 
-        //std::cout<<index_0<<std::endl;
-        //std::cout<<index_1<<std::endl;
     std::string buffer_keys_and_values = buffer_0.substr(index_0 + 19, index_1 - index_0 - 17);
     std::map<std::string, std::string> dictionary;
     size_t i = 0;
@@ -201,10 +199,10 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     auto timezone_json = val["timezone"].asString();
 
     auto _current_time = std::chrono::system_clock::now();
-    date::zoned_time<std::chrono::system_clock::duration> sy = date::make_zoned(date::current_zone(), std::chrono::system_clock::now());
+
+    date::zoned_time<std::chrono::system_clock::duration> sy = date::make_zoned(timezone_json, std::chrono::system_clock::now());
     auto offset = sy.get_info().offset;
-    std::chrono::seconds seconds = offset;
-    std::cout<<"offset count "<<offset.count()<<std::endl;
+    std::cerr<<"offset count "<<offset.count()<<std::endl;
     timezone = offset.count()/3600;
     //std::cout << dur<std::chrono::seconds>;
     /*

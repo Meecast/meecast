@@ -27,6 +27,6 @@ for row in cur:
     print (url_string)
     with urllib.request.urlopen(url_string) as url:
         data = json.load(url)
-        result_string = str(data[0]['region']) + '/' + data[0]['name']
+        result_string = str(data[0]['region']) + '%2F' + data[0]['name']
         cu1.execute("update stations set code='%s' where id ='%i'" %(result_string, _id))
         c.commit()

@@ -153,6 +153,13 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         return -1;
     }
 
+    size_t index_for_timezone = buffer_keys_and_values.find("timezone:", 0);
+    if (index_for_timezone  == std::string::npos){
+        std::cerr<<"Error in timezone"<<std::endl;
+        return -1;
+    }
+
+
     size_t index_for_end_timezone = buffer_keys_and_values.find("},", index_for_begin_timezone);
     if (index_for_end_timezone  == std::string::npos){
         std::cerr<<"Error in index_for_end_timezone"<<std::endl;
@@ -164,7 +171,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     buffer_timezone.insert(0, "{");
     /* Replace substring , to "," */
     buffer_timezone = std::regex_replace(buffer_timezone, std::regex(","), "\",\"");
-    //std::cout << buffer_1 << std::endl;
+    //std::cout << buffer_timezone << std::endl;
 
     /* Replace substring : to ":" */
     buffer_timezone = std::regex_replace(buffer_timezone, std::regex(":"), "\":\"");

@@ -30,3 +30,13 @@ for row in cur:
         result_string = str(data[0]['region']) + '/' + data[0]['name']
         cu1.execute("update stations set code='%s' where id ='%i'" %(result_string, _id))
         c.commit()
+
+#cur = cu.execute("select id,code from stations where code like 'Finland%'")
+#cu1 = c.cursor()
+#for row in cur:
+#    _id = row[0]
+#    new_code = row[1].split('%2F')[1]
+#    print(new_code)
+#    cu1.execute("update stations set code='%s' where id ='%i'" %(new_code, _id))
+#    c.commit()
+#

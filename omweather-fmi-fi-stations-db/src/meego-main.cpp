@@ -633,18 +633,18 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             }
             if (first_day){
                 if (afternoon){
-                    fprintf(file_out,"    <period start=\"%li\"", utc_time + 3600*localtimezone);
-                    fprintf(file_out," end=\"%li\">\n", utc_time + offset_time + 3*3600 + 3600*localtimezone); 
+                    fprintf(file_out,"    <period start=\"%li\"", utc_time + 3600*localtimezone - offset );
+                    fprintf(file_out," end=\"%li\">\n", utc_time + offset_time + 3*3600 + 3600*localtimezone - offset); 
                 }else{    
-                    fprintf(file_out,"    <period start=\"%li\"", utc_time + 3600*localtimezone) ;
-                    fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600 + offset_time);
+                    fprintf(file_out,"    <period start=\"%li\"", utc_time + 3600*localtimezone - offsert) ;
+                    fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600 + offset_time - offset);
                 }
             }else{
-                fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone);
+                fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone - offset);
                 if (i==0){
                     fprintf(file_out," current=\"true\ ");
                 }  
-                fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600); 
+                fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600 - offset); 
             }    
 
             if (val[i].get("Temperature","").asString() != "" || val[i].get("Temperature","").asString() != "nan"){
@@ -961,6 +961,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             }    
 
             fprintf(file_out,"    </period>\n");
+            /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             if (first_day && current_temperature != INT_MAX){
                 utc_time = current_time - localtimezone*3600;
                 fprintf(file_out,"    <period start=\"%li\"", utc_time - 2*3600);
@@ -992,7 +993,9 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out,"     <precipitation_rate>%.1f</precipitation_rate>\n", current_precipitation_rate);
                 fprintf(file_out,"     <visible>%i</visible>\n", current_visibility);
                 fprintf(file_out,"    </period>\n");
-            }    
+            }
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            */
             first_day = false;
             afternoon = false;
         }

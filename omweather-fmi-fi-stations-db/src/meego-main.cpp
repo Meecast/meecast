@@ -640,8 +640,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                     fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone - 3600*timezone);
                     fprintf(file_out," end=\"%li\">\n", utc_time + offset_time + 3*3600 + 3600*localtimezone - 3600*timezone); 
                 }else{    
-                    fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone - 3600*timezone) ;
-                    fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600 + 3600*timezone - 3600*timezone);
+                    fprintf(file_out,"    <period start=\"%li\"", utc_time + 3600*localtimezone - 3600*timezone) ;
+                    fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600 + offset_time - 3600*timezone);
                 }
             }else{
                 fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone - 3600*timezone);

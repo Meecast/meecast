@@ -688,8 +688,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         description = "Fog";
                         break;
                     case 11:
-                        current_icon = 9;
-                        current_description = "Drizzle";
+                        con = 9;
+                        description = "Drizzle";
                         break;
                     case 21:
                         icon = 39;

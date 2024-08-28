@@ -680,6 +680,10 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         icon = 26;
                         description = "Overcast";
                         break;
+                    case 9:
+                        icon = 20;
+                        description = "Fog";
+                        break;
                     case 21:
                         icon = 39;
                         description = "Light Rain Showers";
@@ -812,6 +816,14 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         icon = 12;
                         description = "Heavy Rain";
                         break;
+                    case 134:
+                        icon = 45;
+                        description = "Mostly Cloudy And Periods Of Light Rain";
+                        break;
+                    case 135:
+                        icon = 45;
+                        description = "Mostly Cloudy And Periods Of Moderate Rain";
+                        break;
                     case 137:
                         icon = 11;
                         description = "Light Rain";
@@ -928,6 +940,9 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             }    
             if (val[i].get("PoP","").asString() != ""){
                 fprintf(file_out,"     <ppcp>%i</ppcp>\n", atoi(val[i].get("PoP","").asCString()));
+            }    
+            if (val[i].get("HourlyMaximumGust","").asString() != ""){
+                fprintf(file_out,"     <wind_gust>%i</wind_gust>\n", atoi(val[i].get("HourlyMaximumGust","").asCString()));
             }    
             if (val[i].get("WindSpeedMS","").asString() != ""){
                 fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", atoi(val[i].get("WindSpeedMS","").asCString()));

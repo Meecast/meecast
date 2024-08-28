@@ -940,6 +940,9 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             if (val[i].get("PoP","").asString() != ""){
                 fprintf(file_out,"     <ppcp>%i</ppcp>\n", atoi(val[i].get("PoP","").asCString()));
             }    
+            if (val[i].get("HourlyMaximumGust","").asString() != ""){
+                fprintf(file_out,"     <wind_gust>%i</wind_gust>\n", atoi(val[i].get("HourlyMaximumGust","").asCString()));
+            }    
             if (val[i].get("WindSpeedMS","").asString() != ""){
                 fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", atoi(val[i].get("WindSpeedMS","").asCString()));
             }    

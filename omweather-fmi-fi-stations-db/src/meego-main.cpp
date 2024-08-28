@@ -456,6 +456,10 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         current_icon = 20;
                         current_description = "Mist";
                     }
+                    if (code==11){
+                        current_icon = 9;
+                        current_description = "Drizzle";
+                    }
                     if (code>=30 && code<=34){
                         current_icon = 20;
                         current_description = "Fog";
@@ -463,10 +467,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                     if (code==40){
                         current_icon = 12;
                         current_description = "Precipitation";
-                    }
-                    if (code==48){
-                        current_icon = 9;
-                        current_description = "Drizzle";
                     }
                     if (code>=50 && code<=53){
                         current_icon = 9;

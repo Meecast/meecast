@@ -679,6 +679,10 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         icon = 26;
                         description = "Overcast";
                         break;
+                    case 9:
+                        icon = 20;
+                        description = "Fog";
+                        break;
                     case 21:
                         icon = 39;
                         description = "Light Rain Showers";
@@ -810,6 +814,14 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                     case 133:
                         icon = 12;
                         description = "Heavy Rain";
+                        break;
+                    case 134:
+                        icon = 45;
+                        description = "Mostly Cloudy And Periods Of Light Rain";
+                        break;
+                    case 135:
+                        icon = 45;
+                        description = "Mostly Cloudy And Periods Of Moderate Rain";
                         break;
                     case 137:
                         icon = 11;

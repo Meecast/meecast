@@ -595,7 +595,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
            // std::erase(_local_time_string, '"');
     	   _local_time_string.erase(std::remove(_local_time_string.begin(), _local_time_string.end(), '"'), _local_time_string.end());
         }
-            //std::cout<<_local_time_string<<std::endl;
+            //std::cerr<<"_local_time_string"<<_local_time_string<<std::endl;
         if (_local_time_string != ""){
             tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
             tmp_tm.tm_isdst = time_tm2.tm_isdst;
@@ -613,11 +613,9 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 /* set forecast for whole day */
                 if (tmp_tm.tm_hour >=15){
                     offset_time = (tmp_tm.tm_hour - localtimezone - 1)*3600;
-                    utc_time = utc_time - offset_time; 
                     afternoon = true;
                 }else{
                     offset_time = 2*3600;
-                    utc_time = utc_time - offset_time; 
                 }    
             }    
             
@@ -638,11 +636,11 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             
             if (first_day){
                 if (afternoon){
-                    fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone - 3600*timezone);
-                    fprintf(file_out," end=\"%li\">\n", utc_time + offset_time + 3*3600 + 3600*localtimezone - 3600*timezone); 
+                    fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone - 3600*timezone - 3600);
+                    fprintf(file_out," end=\"%li\">\n", utc_time + offset_time + 3*3600 + 3600*localtimezone - 3600*timezone + 5*3600); 
                 }else{    
-                    fprintf(file_out,"    <period start=\"%li\"", utc_time + 3600*localtimezone - 3600*timezone) ;
-                    fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600 + offset_time - 3600*timezone);
+                    fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone - 3600*timezone - 3600) ;
+                    fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600 + offset_time - 3600*timezone + 5*3600);
                 }
             }else{
                 fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone - 3600*timezone);

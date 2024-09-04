@@ -4,7 +4,7 @@
 <logo>fmi.fi.png</logo>
 <base>fmi.fi.db</base>
 <forecast url="https://en.ilmatieteenlaitos.fi/local-weather/%s" />
-<detail url="https://en.ilmatieteenlaitos.fi/api/weather/observations?observations=true&fmisid=%s" />
+<detail url="https://en.ilmatieteenlaitos.fi/api/weather/observations?observations=true&amp;fmisid=%s" />
 <library>libomweather-fmi-fi-source.so</library>
 <binary>/opt/com.meecast.omweather/lib/fmifi</binary>
 <showurl url="https://en.ilmatieteenlaitos.fi/local-weather/%s" />

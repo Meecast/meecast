@@ -114,7 +114,7 @@ Station::Station(const std::string& source_name, const std::string& id,
 
         if (source_name=="fmi.fi"){
             if (_id->find("?station=") != std::string::npos){
-                snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, url_detail_template.c_str(), id.substr(_id->find("?station=") + 9, _id->size() - (_id->find("?station=") + 9).c_str()));
+                snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, url_detail_template.c_str(), id.substr(_id->find("?station=") + 9, _id->size() - (_id->find("?station=") + 9)).c_str());
             }else{
                 snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, url_detail_template.c_str(), id.c_str());
             }

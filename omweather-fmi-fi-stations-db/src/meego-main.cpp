@@ -41,7 +41,7 @@
 /*******************************************************************************/
 
 int
-parse_and_write_days_xml_data(const char *days_data_path, const char *result_file){
+parse_and_write_days_xml_data(const char *days_data_path, const char *result_file, const char *current_data_path){
     int count_day = -1;
     Json::Value root;   // will contains the root value after parsing.
     Json::Reader reader;
@@ -1071,6 +1071,14 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     }
 #endif
     fclose(file_out);
+    std::ifstream jsonfile(current_data_path, std::ifstream::binary);
+    bool parsingSuccessful = reader.parse(jsonfile, root, false);
+    if (!parsingSuccessful){
+        fprintf(stderr,"Problem in current data");
+    }else{
+        fprintf(stderr,"All is ok --- ");
+    }
+
     setlocale(LC_NUMERIC, "");
     count_day=1;
     return count_day;
@@ -1113,7 +1121,10 @@ main(int argc, char *argv[]){
         fprintf(stderr, "fmifi <input_days_file> <output_file> \n");
         return -1;
     }
-    result = convert_station_fmi_fi_data(argv[1], argv[2]);
+    if (argc == 3) 
+    	result = convert_station_fmi_fi_data(argv[1], argv[2], "");
+    if (argc == 4)
+    	result = convert_station_fmi_fi_data(argv[1], argv[2], argv[3]);
     //fprintf(stderr, "\nresult = %d\n", result);
     return result;
 }

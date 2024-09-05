@@ -1088,7 +1088,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
 
 /*******************************************************************************/
 int
-convert_station_fmi_fi_data(const char *days_data_path, const char *result_file){
+convert_station_fmi_fi_data(const char *days_data_path, const char *result_file, const char *current_data_path){
  
     int     days_number = -1;
     FILE    *file_out;
@@ -1098,7 +1098,7 @@ convert_station_fmi_fi_data(const char *days_data_path, const char *result_file)
 
     /* check file accessability */
     if(!access(days_data_path, R_OK)){
-        days_number = parse_and_write_days_xml_data(days_data_path, result_file);
+        days_number = parse_and_write_days_xml_data(days_data_path, result_file, current_data_path);
     }else{
         return -1;/* file isn't accessability */
     }

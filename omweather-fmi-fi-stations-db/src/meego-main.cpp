@@ -63,7 +63,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     int current_dewpoint = INT_MAX;
     std::string current_description = "";
     int current_icon = 48;
-    float current_precipitation_rate = INT_MAX; 
+    float current_precipitation = INT_MAX; 
     int check_timezone = false;
     int timezone = 0;
     int localtimezone = 0;
@@ -1107,19 +1107,112 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             fprintf(file_out," current=\"true\" ");
             fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 2*3600 - 3600*timezone); 
             fprintf(file_out,"     <icon>%i</icon>\n", current_icon);
-            fprintf(file_out, "    <description>%s</description>\n", current_description.c_str());
+            fprintf(file_out,"     <description>%s</description>\n", current_description.c_str());
 
             if (val[index].get("WindSpeedMS","").asString() != ""){
                 if (val[index].get("WindSpeedMS","").asString() == ""){
                     current_wind_speed = INT_MAX;
                 }else{
-                    std::cerr<<"WindSpeedMSa!!! " <<std::endl;
                     current_wind_speed =(int)round(val[index].get("WindSpeedMS","").asDouble());
                }
             }    
             if (current_wind_speed != INT_MAX){
                 fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", current_wind_speed);
             }
+            if (val[index].get("DewPoint","").asString() != ""){
+                if (val[index].get("DewPoint","").asString() == ""){
+                    current_dewpoint = INT_MAX;
+                }else{
+                    current_dewpoint =(int)round(val[index].get("DewPoint","").asDouble());
+               }
+            }    
+            if (current_dewpoint != INT_MAX){
+                fprintf(file_out,"     <dewpoint>%i</dewpoint>\n", current_dewpoint);
+            }
+            if (val[index].get("Humidity","").asString() != ""){
+                if (val[index].get("Humidity","").asString() == ""){
+                    current_humidity = INT_MAX;
+                }else{
+                    current_humidity =(int)round(val[index].get("Humidity","").asDouble());
+               }
+            }    
+            if (current_humidity != INT_MAX){
+                fprintf(file_out,"     <humidity>%i</humidity>\n", current_humidity);
+            }
+
+            if (val[index].get("Precipitation1h","").asString() != ""){
+                if (val[index].get("Precipitation1h","").asString() == ""){
+                    current_precipitation = INT_MAX;
+                }else{
+                    current_precipitation =(int)round(val[index].get("Precipitation1h","").asDouble());
+               }
+            }    
+            if (current_precipitation != INT_MAX){
+                fprintf(file_out,"     <precipitation>%.1f</precipitation>\n", current_precipitation);
+            }
+
+            if (val[index].get("Pressure","").asString() != ""){
+                if (val[index].get("Pressure","").asString() == ""){
+                    current_pressure = INT_MAX;
+                }else{
+                    current_pressure =(int)round(val[index].get("Pressure","").asDouble());
+               }
+            }    
+            if (current_pressure != INT_MAX){
+                std::cerr<<"Pressure2 "<<current_pressure<<std::endl;
+                fprintf(file_out,"     <pressure>%i</pressure>\n", current_pressure);
+            }
+
+            if (val[index].get("Visibility","").asString() != ""){
+                if (val[index].get("Visibility","").asString() == ""){
+                    current_visibility = INT_MAX;
+                }else{
+                    current_visibility =(int)round(val[index].get("Visibility","").asInt());
+               }
+            }    
+            if (current_visibility != INT_MAX){
+                fprintf(file_out,"     <visible>%i</visible>\n", current_visibility);
+            }
+
+            if (val[index].get("WindDirection","").asString() != ""){
+                if (val[index].get("WindDirection","").asString() == ""){
+                    current_wind_direction = "";
+                }else{
+
+                    int _current_wind_direction =(int)round(val[index].get("WindDirection","").asInt());
+
+                    wind_index = (int)round(_current_wind_direction/22.5) + 1;
+                    //std::cout<<"Wind_index "<<wind_index<<std::endl;
+                    if (wind_index > 16){
+                        wind_index = 16;
+                    }
+                    //std::cout<<"Wind_direction "<<wind_directions[wind_index].c_str()<<std::endl;
+     
+                    fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",wind_directions[wind_index].c_str());
+
+               }
+            }    
+            if (val[index].get("WindGust","").asString() != ""){
+                if (val[index].get("WindGust","").asString() == ""){
+                    current_wind_gust = INT_MAX;
+                }else{
+                    current_wind_gust =(int)round(val[index].get("WindGust","").asDouble());
+               }
+            }    
+            if (current_wind_gust != INT_MAX){
+                fprintf(file_out,"     <wind_gust>%i</wind_gust>\n", current_wind_gust);
+            }
+            if (val[index].get("t2m","").asString() != ""){
+                if (val[index].get("t2m","").asString() == ""){
+                    current_temperature = INT_MAX;
+                }else{
+                    current_temperature =(int)round(val[index].get("t2m","").asDouble());
+               }
+            }    
+            if (current_temperature != INT_MAX){
+                fprintf(file_out,"     <temperature>%i</temperature>\n", current_temperature);
+            }
+
 
             fprintf(file_out, "    </period>\n");
         }

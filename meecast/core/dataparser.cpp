@@ -129,6 +129,8 @@ namespace Core {
                         forecast_data->WindSpeed().value((float)0);
                     else
                         forecast_data->WindSpeed().value(el.text().toFloat());
+                }else if (tag == "wind_gust"){
+                    forecast_data->WindGust(el.text().toFloat());
                 }else if (tag == "visible"){
                     forecast_data->ViSible().value(el.text().toFloat());
                 }else if (tag == "wind_direction"){

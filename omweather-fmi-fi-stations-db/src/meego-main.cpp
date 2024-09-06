@@ -949,10 +949,14 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
 
 
                 }
-		if (icon ==48){
+                if (icon ==48){
                 	std::cerr<<"icon "<<icon<<" - ";
-			std::cerr<<SmartSymbol<<" "<< description<<std::endl;
-		}
+			        std::cerr<<SmartSymbol<<" "<< description<<std::endl;
+		        }
+                if (i==0){
+                    current_description = description;
+                    current_icon = icon;
+                }
                 fprintf(file_out,"     <icon>%i</icon>\n", icon);
                 fprintf(file_out, "     <description>%s</description>\n", description.c_str());
             }    
@@ -994,7 +998,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out,"     <flike>%.0f</flike>\n", atof(val[i].get("FeelsLike","").asCString()));
             }    
 
-            fprintf(file_out,"    </period>\n");
+            fprintf(file_out, "    </period>\n");
             /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             if (first_day && current_temperature != INT_MAX){
                 utc_time = current_time - localtimezone*3600;
@@ -1071,7 +1075,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         fprintf(file_out,"    </period>\n");
     }
 #endif
-    fclose(file_out);
     std::ifstream jsonfile(current_data_path, std::ifstream::binary);
     bool parsingCurrentSuccessful = reader.parse(jsonfile, root, false);
     if (!parsingCurrentSuccessful){
@@ -1080,7 +1083,29 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     }
 
     val = root["observations"];
-    std::cerr<<"rrrrrrrrrrrrrrrrrrrrrr "<<val.size()<<std::endl;
+    if (val.size() > 1){
+        std::cerr<<"rrrrrrrrrrrrrrrrrrrrrr "<<val[val.size() -1] <<std::endl;
+
+        _local_time_string = val[i].get("localtime","").asCString();
+        if (_local_time_string != ""){
+            tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
+            tmp_tm.tm_isdst = time_tm2.tm_isdst;
+            setlocale(LC_TIME, "POSIX");
+            strptime((const char*)_local_time_string.c_str(), "%Y%m%dT%H%M%S", &tmp_tm);
+            utc_time = mktime(&tmp_tm); 
+            setlocale(LC_TIME, "");
+
+            fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone - 3600*timezone);
+            fprintf(file_out," current=\"true\ ");
+            fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 2*3600 - 3600*timezone); 
+            fprintf(file_out,"     <icon>%i</icon>\n", current_icon);
+            fprintf(file_out, "     <description>%s</description>\n", current_description.c_str());
+            fprintf(file_out, "    </period>\n");
+        }
+
+    }
+
+    fclose(file_out);
     setlocale(LC_NUMERIC, "");
     count_day=1;
     return count_day;

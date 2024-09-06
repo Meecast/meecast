@@ -1074,11 +1074,12 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     std::ifstream jsonfile(current_data_path, std::ifstream::binary);
     bool parsingCurrentSuccessful = reader.parse(jsonfile, root, false);
     if (!parsingCurrentSuccessful){
-        fprintf(stderr,"Problem in current data");
-    }else{
-        fprintf(stderr,"All is ok --- ");
+        std::cerr<<"Problem in parsingCurrentSuccessful";
+        return -1;
     }
 
+    val = root["observations"];
+    std::cerr<<"rrrrrrrrrrrrrrrrrrrrrr "<<val.size()<<std::endl;
     setlocale(LC_NUMERIC, "");
     count_day=1;
     return count_day;

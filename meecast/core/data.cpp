@@ -79,7 +79,7 @@ namespace Core {
         //_flike = data->_flike;
         _windSpeed =  new Windspeed(data->_windSpeed->value(), data->_windSpeed->units());
         _visible = new Visible(data->_visible->value(), data->_visible->units());
-        _windGust = INT_MAX;
+        _windGust = data->_windGust;
         _humidity = data->_humidity;
         //_pressure = INT_MAX;
         _pressure = new Pressure(data->_pressure->value(), data->_pressure->units());

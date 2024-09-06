@@ -21,6 +21,7 @@ FORMS    +=
 
 OTHER_FILES += \
 
+DEFINES += "USE_OS_TZDB=1"
 
 CONFIG = link_pkgconfig 
 PKGCONFIG += libxml-2.0 

@@ -1084,10 +1084,17 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     val = root["observations"];
     if (val.size() > 1){
         size_t index = val.size() -1;
-        std::cerr<<"rrrrrrrrrrrrrrrrrrrrrr "<<val[index] <<std::endl;
+        if (val[index].get("WindSpeedMS","").asString() == "" &&
+            val[index].get("Humidity","").asString() == "" &&
+            val[index].get("Pressure","").asString() == "" &&
+            val[index].get("Precipitation1h","").asString() == ""){
+            if (index > 0){
+                std::cerr<<"Decrement index"<<std::endl;
+                index --;
+            }
+        }
         std::string _local_time_string;
         _local_time_string = val[index].get("localtime","").asCString();
-        std::cerr<<"rrrrrrrrrrrrrrrrrrrrrr "<<_local_time_string <<std::endl;
         if (_local_time_string != ""){
             tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
             tmp_tm.tm_isdst = time_tm2.tm_isdst;
@@ -1096,11 +1103,24 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             utc_time = mktime(&tmp_tm); 
             setlocale(LC_TIME, "");
 
-            fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone - 3600*timezone);
-            fprintf(file_out," current=\"true\ ");
+            fprintf(file_out,"    <period start=\"%li\"", utc_time + 3600*localtimezone - 3600*timezone);
+            fprintf(file_out," current=\"true\" ");
             fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 2*3600 - 3600*timezone); 
             fprintf(file_out,"     <icon>%i</icon>\n", current_icon);
-            fprintf(file_out, "     <description>%s</description>\n", current_description.c_str());
+            fprintf(file_out, "    <description>%s</description>\n", current_description.c_str());
+
+            if (val[index].get("WindSpeedMS","").asString() != ""){
+                if (val[index].get("WindSpeedMS","").asString() == ""){
+                    current_wind_speed = INT_MAX;
+                }else{
+                    std::cerr<<"WindSpeedMSa!!! " <<std::endl;
+                    current_wind_speed =(int)round(val[index].get("WindSpeedMS","").asDouble());
+               }
+            }    
+            if (current_wind_speed != INT_MAX){
+                fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", current_wind_speed);
+            }
+
             fprintf(file_out, "    </period>\n");
         }
 

@@ -20,6 +20,7 @@ SOURCES += src/meego-main.cpp \
 
 FORMS    +=
 
+DEFINES += "USE_OS_TZDB=1"
 OTHER_FILES += \
 
 

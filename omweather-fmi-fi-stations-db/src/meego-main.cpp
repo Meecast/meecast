@@ -1083,9 +1083,11 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
 
     val = root["observations"];
     if (val.size() > 1){
-        std::cerr<<"rrrrrrrrrrrrrrrrrrrrrr "<<val[val.size() -1] <<std::endl;
+        size_t index = val.size() -1;
+        std::cerr<<"rrrrrrrrrrrrrrrrrrrrrr "<<val[index] <<std::endl;
         std::string _local_time_string;
-        _local_time_string = val[i].get("localtime","").asCString();
+        _local_time_string = val[index].get("localtime","").asCString();
+        std::cerr<<"rrrrrrrrrrrrrrrrrrrrrr "<<_local_time_string <<std::endl;
         if (_local_time_string != ""){
             tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
             tmp_tm.tm_isdst = time_tm2.tm_isdst;

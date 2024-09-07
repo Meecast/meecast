@@ -221,6 +221,21 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     std::cout << date::format("%T\n", sy.get_local_time() - la.get_local_time());
     */
 
+    size_t index_for_begin_daylength = buffer_keys_and_values.find("dayLength:", 0);
+    if (index_for_begin_daylength  == std::string::npos){
+        std::cerr<<"Error in index_for_begin_daylength"<<std::endl;
+        return -1;
+    }
+
+    size_t index_for_end_daylength = buffer_keys_and_values.find("},", index_for_begin_daylength);
+    if (index_for_end_daylength  == std::string::npos){
+        std::cerr<<"Error in index_for_end_daylength"<<std::endl;
+        return -1;
+    }
+
+    std::string buffer_1_ = buffer_keys_and_values.substr(index_for_begin_daylength, index_for_end_daylength - index_for_begin_daylength + 2);
+    std::cout << buffer_1_ << std::endl;
+
     size_t index_for_begin_forecast = buffer_keys_and_values.find("forecastValues:", 0);
     if (index_for_begin_forecast  == std::string::npos){
         std::cerr<<"Error in index_for_begin_forecast"<<std::endl;

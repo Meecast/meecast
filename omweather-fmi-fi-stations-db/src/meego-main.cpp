@@ -233,8 +233,33 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         return -1;
     }
 
-    std::string buffer_1_ = buffer_keys_and_values.substr(index_for_begin_daylength, index_for_end_daylength - index_for_begin_daylength + 2);
+    std::string buffer_1_ = buffer_keys_and_values.substr(index_for_begin_daylength, index_for_end_daylength - index_for_begin_daylength + 1);
     std::cout << buffer_1_ << std::endl;
+    /* Convert js-script data to JSON */
+    //std::erase(buffer_1, '"');
+    buffer_1_.erase(std::remove(buffer_1_.begin(), buffer_1_.end(), '"'), buffer_1_.end());
+    buffer_1_.insert(0, "{");
+    /* Replace substring :00:00 to *00*00 */
+    buffer_1_ = std::regex_replace(buffer_1_, std::regex(":00:00"), "*00*00");
+    /* Replace substring , to "," */
+    buffer_1_ = std::regex_replace(buffer_1_, std::regex(","), "\",\"");
+    /* Replace substring : to ":" */
+    buffer_1_ = std::regex_replace(buffer_1_, std::regex(":"), "\":\"");
+    /* Replace substring { to {" */
+    buffer_1_ = std::regex_replace(buffer_1_, std::regex("\\{"), "{\"");
+    /* Replace substring } to "} */
+    buffer_1_ = std::regex_replace(buffer_1_, std::regex("\\}"), "\"}");
+    /* Replace substring *00*00 to :00:00 */
+    buffer_1_ = std::regex_replace(buffer_1_, std::regex("\\*00\\*00"), ":00:00");
+    buffer_1_ += "}";
+
+    std::cout << buffer_1_ << std::endl;
+
+
+
+
+    
+
 
     size_t index_for_begin_forecast = buffer_keys_and_values.find("forecastValues:", 0);
     if (index_for_begin_forecast  == std::string::npos){

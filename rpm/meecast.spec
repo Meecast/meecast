@@ -327,8 +327,11 @@ fi
 
 
 %changelog
-* Thu Jul 11 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.40
+* Thu Sep 11 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.40-3
 - Overhaul spec file, see PR #57
+
+* Thu Jul 18 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.40
+- Fixed segmentation fault for weather.com
 - A build fix (999d41f) closes issue #56
 - Another build fix (6ae896b) closes issue #58
 

@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2023 Vlad Vasilyeu
+ * Copyright (C) 2006-2024 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -40,7 +40,7 @@ int convert_station_hkogovhk_data(const char *station_id_with_path, const char *
 int convert_station_bomgovau_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data );
 int convert_station_yrno_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data );
 int convert_station_weather_com_data(const char *station_id_with_path, const char *result_file, const char *station_detail_id_with_path);
-int convert_station_fmi_fi_data(const char *station_id_with_path, const char *result_file);
+int convert_station_fmi_fi_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data);
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
@@ -119,7 +119,17 @@ Station::Station(const std::string& source_name, const std::string& id,
             snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), id.c_str());
         }
         char forecast_detail_url[4096];
-        snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, url_detail_template.c_str(), id.c_str());
+        /* For detail url for fmi.fi */
+
+        if (source_name=="fmi.fi"){
+            if (_id->find("?station=") != std::string::npos){
+                snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, url_detail_template.c_str(), id.substr(_id->find("?station=") + 9, _id->size() - (_id->find("?station=") + 9)).c_str());
+            }else{
+                snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, url_detail_template.c_str(), id.c_str());
+            }
+        }else{
+            snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, url_detail_template.c_str(), id.c_str());
+        }
         char forecast_hours_url[4096];
         snprintf(forecast_hours_url, sizeof(forecast_hours_url)-1, url_hours_template.c_str(), id.c_str());
         char view_url[4096];
@@ -690,7 +700,8 @@ Station::run_converter(){
     if (*_sourceName =="fmi.fi"){
         convert_station_fmi_fi_data(
             (const char *)forecast_file_string.c_str(), 
-            (const char *)result_file_string.c_str());
+            (const char *)result_file_string.c_str(),
+            (const char *)detail_file_string.c_str());
     }
 
 }

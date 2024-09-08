@@ -238,21 +238,24 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     //dayLength:{sunrise:"6:29",sunset:"20:04",lengthofday:"13 h 35 min"}
     //{"dayLength":"{"sunrise":"6":"29","sunset":"20":"04","lengthofday":"13 h 35 min"}}
     /* Convert js-script data to JSON */
+    /* Replace substring :00:00 to *00*00 */
+    buffer_1_ = std::regex_replace(buffer_1_, std::regex(":\""), "*\"");
+    buffer_1_ = std::regex_replace(buffer_1_, std::regex(":"), "|");
     //std::erase(buffer_1, '"');
     buffer_1_.erase(std::remove(buffer_1_.begin(), buffer_1_.end(), '"'), buffer_1_.end());
     buffer_1_.insert(0, "{");
-    /* Replace substring :00:00 to *00*00 */
-    buffer_1_ = std::regex_replace(buffer_1_, std::regex(":\""), "*\"");
     /* Replace substring , to "," */
     buffer_1_ = std::regex_replace(buffer_1_, std::regex(","), "\",\"");
-    /* Replace substring : to ":" */
-    buffer_1_ = std::regex_replace(buffer_1_, std::regex(":"), "\":\"");
     /* Replace substring { to {" */
     buffer_1_ = std::regex_replace(buffer_1_, std::regex("\\{"), "{\"");
     /* Replace substring } to "} */
     buffer_1_ = std::regex_replace(buffer_1_, std::regex("\\}"), "\"}");
     /* Replace substring *00*00 to :00:00 */
-    buffer_1_ = std::regex_replace(buffer_1_, std::regex("\\*\""), ":\"");
+    buffer_1_ = std::regex_replace(buffer_1_, std::regex("\\*"), "\":\"");
+    /* Replace substring : to ":" */
+    //buffer_1_ = std::regex_replace(buffer_1_, std::regex(":"), "\":\"");
+    buffer_1_ = std::regex_replace(buffer_1_, std::regex("\\|"), ":");
+    buffer_1_ = std::regex_replace(buffer_1_, std::regex("dayLength:"), "dayLength\":");
     buffer_1_ += "}";
 
     std::cout << buffer_1_ << std::endl;

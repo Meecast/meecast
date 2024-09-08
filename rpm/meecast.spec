@@ -53,12 +53,24 @@ MeeCast is a multiplatform, highly customizable, open source, weather forecast c
 PackageName: MeeCast
 Type: desktop-application
 Categories:
+ - Network
  - Science
+ - Utility
  - News
+ - DataVisualization
+ - Qt
 DeveloperName: Vasvlad, OMWeather team and contributors
 Custom:
- - Repo: %{url}/tree/sailfishos
-Icon: %{url}/raw/sailfishos/meecast/core/data/desktop/Icon/meecast.svg
+   Repo: %{url}/tree/sailfishos
+PackageIcon: %{url}/raw/sailfishos/meecast/core/data/desktop/Icon/meecast.svg
+Screenshots:
+  - https://openrepos.net/sites/default/files/packages/13090/screenshot-sailfishosemulator2.png
+  - https://openrepos.net/sites/default/files/packages/13090/screenshot-sailfishosemulator.png
+  - https://openrepos.net/sites/default/files/packages/13090/screenshot-cover.png
+Links:
+  Homepage: https://openrepos.net/content/vasvlad/meecast-sailfishos
+  Help: https://openrepos.net/content/vasvlad/meecast-sailfishos#comments
+  Bugtracker: %{url}/issues
 %endif
 
 
@@ -74,6 +86,25 @@ BuildRequires:  pkgconfig(contentaction5)
 
 %description daemon
 MeeCast daemon obtains weather data in the background.
+%if 0%{?_chum}
+PackageName: MeeCast daemon
+Type: desktop-application
+Categories:
+ - Network
+ - Science
+ - Utility
+ - News
+ - DataVisualization
+ - Qt
+DeveloperName: Vasvlad, OMWeather team and contributors
+Custom:
+   Repo: %{url}/tree/sailfishos
+PackageIcon: %{url}/raw/sailfishos/meecast/core/data/desktop/Icon/meecast.svg
+Links:
+  Homepage: https://openrepos.net/content/vasvlad/meecast-daemon
+  Help: https://openrepos.net/content/vasvlad/meecast-daemon#comments
+  Bugtracker: %{url}/issues
+%endif
 
 
 %package lockscreen
@@ -89,6 +120,26 @@ Requires: systemd
 
 %description lockscreen
 MeeCast's lockscreen widget displays weather information on SailfishOS' lockscreen.
+%if 0%{?_chum}
+PackageName: MeeCast lockscreen widget
+Type: desktop-application
+Categories:
+ - Network
+ - Science
+ - Utility
+ - News
+ - DataVisualization
+ - Qt
+ - Applet
+DeveloperName: Vasvlad, OMWeather team and contributors
+Custom:
+   Repo: %{url}/tree/sailfishos
+PackageIcon: %{url}/raw/sailfishos/meecast/core/data/desktop/Icon/meecast.svg
+Links:
+  Homepage: https://openrepos.net/content/vasvlad/meecast-lockscreen
+  Help: https://openrepos.net/content/vasvlad/meecast-lockscreen#comments
+  Bugtracker: %{url}/issues
+%endif
 
 
 # Detect building for SailfishOS >= 4.6.0 or build subpackage eventview any way.
@@ -116,6 +167,26 @@ Conflicts: %{name}-event
 
 %description eventview
 MeeCast eventview widget displays weather information at the top of SailfishOS' eventsview.
+%if 0%{?_chum}
+PackageName: MeeCast eventsview widget for SailfishOS ≥ 4.6.0
+Type: desktop-application
+Categories:
+ - Network
+ - Science
+ - Utility
+ - News
+ - DataVisualization
+ - Qt
+ - Applet
+DeveloperName: Vasvlad, OMWeather team and contributors
+Custom:
+   Repo: %{url}/tree/sailfishos
+PackageIcon: %{url}/raw/sailfishos/meecast/core/data/desktop/Icon/meecast.svg
+Links:
+  Homepage: https://openrepos.net/content/vasvlad/meecast-event-view
+  Help: https://openrepos.net/content/vasvlad/meecast-event-view#comments
+  Bugtracker: %{url}/issues
+%endif
 %endif
 
 # Detect building for SailfishOS < 4.6.0 or build subpackage event any way.
@@ -132,6 +203,26 @@ Requires: sailfish-version < 4.6.0
 
 %description event
 MeeCast eventview widget displays weather information at the top of SailfishOS' eventsview.
+%if 0%{?_chum}
+PackageName: MeeCast eventsview widget for SailfishOS < 4.6.0
+Type: desktop-application
+Categories:
+ - Network
+ - Science
+ - Utility
+ - News
+ - DataVisualization
+ - Qt
+ - Applet
+DeveloperName: Vasvlad, OMWeather team and contributors
+Custom:
+   Repo: %{url}/tree/sailfishos
+PackageIcon: %{url}/raw/sailfishos/meecast/core/data/desktop/Icon/meecast.svg
+Links:
+  Homepage: https://openrepos.net/content/vasvlad/meecast-event-view
+  Help: https://openrepos.net/content/vasvlad/meecast-event-view#comments
+  Bugtracker: %{url}/issues
+%endif
 %endif
 
 

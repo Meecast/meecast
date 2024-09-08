@@ -100,6 +100,8 @@ DeveloperName: Vasvlad, OMWeather team and contributors
 Custom:
    Repo: %{url}/tree/sailfishos
 PackageIcon: %{url}/raw/sailfishos/meecast/core/data/desktop/Icon/meecast.svg
+Screenshots:
+  - https://openrepos.net/sites/default/files/packages/13234/screenshot-20150114135243.png
 Links:
   Homepage: https://openrepos.net/content/vasvlad/meecast-daemon
   Help: https://openrepos.net/content/vasvlad/meecast-daemon#comments
@@ -135,6 +137,8 @@ DeveloperName: Vasvlad, OMWeather team and contributors
 Custom:
    Repo: %{url}/tree/sailfishos
 PackageIcon: %{url}/raw/sailfishos/meecast/core/data/desktop/Icon/meecast.svg
+Screenshots:
+  - https://openrepos.net/sites/default/files/packages/678/screenshot-20150201162807.png
 Links:
   Homepage: https://openrepos.net/content/vasvlad/meecast-lockscreen
   Help: https://openrepos.net/content/vasvlad/meecast-lockscreen#comments
@@ -182,6 +186,10 @@ DeveloperName: Vasvlad, OMWeather team and contributors
 Custom:
    Repo: %{url}/tree/sailfishos
 PackageIcon: %{url}/raw/sailfishos/meecast/core/data/desktop/Icon/meecast.svg
+Screenshots:
+  - https://openrepos.net/sites/default/files/packages/13234/screenshot-20151006090340.png
+  - https://openrepos.net/sites/default/files/packages/13234/screenshot-20151011183657.png
+  - https://openrepos.net/sites/default/files/packages/13234/screenshot-20151014084258.png
 Links:
   Homepage: https://openrepos.net/content/vasvlad/meecast-event-view
   Help: https://openrepos.net/content/vasvlad/meecast-event-view#comments
@@ -218,6 +226,10 @@ DeveloperName: Vasvlad, OMWeather team and contributors
 Custom:
    Repo: %{url}/tree/sailfishos
 PackageIcon: %{url}/raw/sailfishos/meecast/core/data/desktop/Icon/meecast.svg
+Screenshots:
+  - https://openrepos.net/sites/default/files/packages/13234/screenshot-20151006090340.png
+  - https://openrepos.net/sites/default/files/packages/13234/screenshot-20151011183657.png
+  - https://openrepos.net/sites/default/files/packages/13234/screenshot-20151014084258.png
 Links:
   Homepage: https://openrepos.net/content/vasvlad/meecast-event-view
   Help: https://openrepos.net/content/vasvlad/meecast-event-view#comments

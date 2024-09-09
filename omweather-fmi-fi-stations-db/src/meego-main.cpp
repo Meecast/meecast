@@ -267,9 +267,11 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         return -1;
     }
 
-    sunrise_time = root["dayLength"]["sunrise"];
+    sunrise_time = root["dayLength"]["sunrise"].asString();
+    sunset_time = root["dayLength"]["sunset"].asString();
 
     std::cout << sunrise_time << std::endl;
+    std::cout << sunset_time << std::endl;
 
 
 
@@ -699,9 +701,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 }
             }else{
                 fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone - 3600*timezone);
-                if (i==0){
-                    fprintf(file_out," current=\"true\ ");
-                }  
                 fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600 - 3600*timezone); 
             }    
 
@@ -1054,6 +1053,23 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             }    
 
             fprintf(file_out, "    </period>\n");
+            if (i==0){
+                time_t _current_time_ = utc_time + 3600*localtimezone - 3600*timezone - 3600;
+                struct tm *lt = localtime(&now);
+                lt->tm_hour = 0;
+                lt->tm_min = 0;
+                lt->tm_sec = 0;
+                time_t midnight = mktime(lt);
+                time_t midnight_tomorrow = midnight + 24*3600;
+                fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", midnight);
+                fprintf(file_out," end=\"%li\">\n", midnight_tomorrow); 
+
+                fprintf(file_out, "    </period>\n");
+     // <sunrise>1598064399</sunrise>
+     // <sunset>1598116557</sunset>
+
+            }  
+
             /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             if (first_day && current_temperature != INT_MAX){
                 utc_time = current_time - localtimezone*3600;

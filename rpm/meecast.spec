@@ -6,13 +6,14 @@
 %define _binary_payload w2.xzdio
 
 %define vrsn 1.10.40
+%define rels 1
 
 Name:       harbour-meecast
 Summary:    MeeCast for SailfishOS
 # Versioning for all (sub-)packages adheres to Semantic Versioning 2.0.0, see https://semver.org/
 # Mind that Sailfish-OBS sets the version of all subpackages to the one of the primary package.
 Version:    %{vrsn}
-Release:    1
+Release:    %{rlse}
 Group:      Utility
 License:    LGPL-2.1-only
 URL:        https://github.com/Meecast/meecast
@@ -78,7 +79,7 @@ Links:
 
 %package daemon
 Version: %{vrsn}
-Release: 1
+Release: %{rlse}
 Summary: MeeCast background daemon for SailfishOS
 Group:    Utility
 License:  LGPL-2.1-only
@@ -111,7 +112,7 @@ Links:
 
 %package lockscreen
 Version: %{vrsn}
-Release: 1
+Release: %{rlse}
 Summary: MeeCast widget for SailfishOS' lockscreen
 Group:    Utility
 License:  LGPL-2.1-only
@@ -150,7 +151,7 @@ Links:
 %if %{undefined sailfishos_version} || 0%{?sailfishos_version} >= 40600
 %package eventview
 Version: %{vrsn}
-Release: 1
+Release: %{rlse}
 Summary: MeeCast widget for SailfishOS' eventsview
 Group:    Utility
 License:  LGPL-2.1-only
@@ -195,7 +196,7 @@ Links:
 %if 0%{?sailfishos_version} < 40600
 %package event
 Version: %{vrsn}
-Release: 1
+Release: %{rlse}
 Summary: MeeCast widget for SailfishOS' eventsview
 Group:    Utility
 License:  LGPL-2.1-only

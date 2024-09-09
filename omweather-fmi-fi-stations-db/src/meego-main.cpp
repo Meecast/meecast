@@ -1056,7 +1056,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             fprintf(file_out, "    </period>\n");
             if (i==0){
                 time_t _current_time_ = utc_time + 3600*localtimezone - 3600*timezone - 3600;
-                struct tm *lt = localtime(&now);
+                struct tm *lt = localtime(&_current_time);
                 lt->tm_hour = 0;
                 lt->tm_min = 0;
                 lt->tm_sec = 0;

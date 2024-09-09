@@ -267,7 +267,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         return -1;
     }
 
-    sunrise_time = root["dayLength"]["sunrise"];
+    sunrise_time = root["dayLength"]["sunrise"].asString();
 
     std::cout << sunrise_time << std::endl;
 

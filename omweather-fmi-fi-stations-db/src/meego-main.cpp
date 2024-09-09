@@ -1072,9 +1072,9 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out,"    <period start=\"%li\" ", midnight);
                 fprintf(file_out," end=\"%li\">\n", midnight_tomorrow); 
 
-                fprintf(file_out,"    <sunrise>%li</sunrise>\n", sunrise); 
-                fprintf(file_out,"    <sunset>%li</sunset>\n", sunset); 
-                fprintf(file_out, "    </period>\n");
+                fprintf(file_out,"      <sunrise>%li</sunrise>\n", sunrise); 
+                fprintf(file_out,"      <sunset>%li</sunset>\n", sunset); 
+                fprintf(file_out,"    </period>\n");
      // <sunrise>1598064399</sunrise>
      // <sunset>1598116557</sunset>
 

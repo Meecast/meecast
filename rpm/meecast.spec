@@ -6,7 +6,7 @@
 %define _binary_payload w2.xzdio
 
 %define vrsn 1.10.40
-%define rels 1
+%define rlse 1
 
 Name:       harbour-meecast
 Summary:    MeeCast for SailfishOS
@@ -17,7 +17,7 @@ Release:    %{rlse}
 Group:      Utility
 License:    LGPL-2.1-only
 URL:        https://github.com/Meecast/meecast
-Source0:    %{name}-%{vrsn}.tar.bz2
+Source0:    %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 #Temporary
 #Requires:       libmeegotouch-devel
 BuildRequires:  pkgconfig(sailfishapp)

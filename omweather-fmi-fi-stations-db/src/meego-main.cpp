@@ -1061,9 +1061,16 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 lt->tm_sec = 0;
                 time_t midnight = mktime(lt);
                 time_t midnight_tomorrow = midnight + 24*3600;
-                fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", midnight);
+                std::cerr<<"<<<<"<<sunrise_time.substr(0, sunrise_time.find(":", 0));
+                std::cerr<<">>>"<<sunrise_time.substr(sunrise_time.find(":", 0), sunrise_time.size() -1);
+
+                lt->tm_hour = atoi(sunrise_time.substr(0, sunrise_time.find(":", 0)));
+                lt->tm_min = atoi(sunrise_time.substr(sunrise_time.find(":", 0), sunrise_time.size() -1));
+                time_t sunrise = mktime(lt);
+                fprintf(file_out,"    <period start=\"%li\" ", midnight);
                 fprintf(file_out," end=\"%li\">\n", midnight_tomorrow); 
 
+                fprintf(file_out," <sunrise>%li</sunrise>\n", sunrise); 
                 fprintf(file_out, "    </period>\n");
      // <sunrise>1598064399</sunrise>
      // <sunset>1598116557</sunset>

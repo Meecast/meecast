@@ -62,6 +62,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     int current_visibility = INT_MAX;
     int current_dewpoint = INT_MAX;
     std::string current_description = "";
+    std::string sunrise_time = "";
+    std::string sunset_time = "";
     int current_icon = 48;
     float current_precipitation = INT_MAX; 
     int check_timezone = false;
@@ -259,6 +261,15 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     buffer_1_ += "}";
 
     std::cout << buffer_1_ << std::endl;
+    bool parsingDayLengthSuccessful = reader.parse(buffer_1_, root, false);
+    if (!parsingDayLengthSuccessful){
+        std::cerr<<"Problem in parsingDayLengthSuccessful";
+        return -1;
+    }
+
+    sunrise_time = root["dayLength"]["sunrise"];
+
+    std::cout << sunrise_time << std::endl;
 
 
 

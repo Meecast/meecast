@@ -1060,8 +1060,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 lt->tm_hour = 0;
                 lt->tm_min = 0;
                 lt->tm_sec = 0;
-                time_t midnight = mktime(lt);
-                time_t midnight_tomorrow = midnight + 24*3600;
+                time_t midnight = mktime(lt) + 4*3600;
+                time_t midnight_tomorrow = midnight + 24*3600 + 4*3600;
 
                 lt->tm_hour = atoi(sunrise_time.substr(0, sunrise_time.find(":", 0)).c_str());
                 lt->tm_min = atoi(sunrise_time.substr(sunrise_time.find(":", 0) + 1, sunrise_time.size()).c_str());

@@ -887,7 +887,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
 
     val = root["observations"];
     if (val.size() > 1){
-        size_t index = val.size() -1;
+        int index = val.size() -1;
         if (val[index].get("WindSpeedMS","").asString() == "" &&
             val[index].get("Humidity","").asString() == "" &&
             val[index].get("Pressure","").asString() == "" &&

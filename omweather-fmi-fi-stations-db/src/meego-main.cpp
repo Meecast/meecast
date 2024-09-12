@@ -243,7 +243,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     /* Replace substring *00*00 to :00:00 */
     buffer_1_ = std::regex_replace(buffer_1_, std::regex("\\*"), "\":\"");
     /* Replace substring : to ":" */
-    //buffer_1_ = std::regex_replace(buffer_1_, std::regex(":"), "\":\"");
     buffer_1_ = std::regex_replace(buffer_1_, std::regex("\\|"), ":");
     buffer_1_ = std::regex_replace(buffer_1_, std::regex("dayLength:"), "dayLength\":");
     buffer_1_ += "}";
@@ -257,15 +256,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
 
     sunrise_time = root["dayLength"]["sunrise"].asString();
     sunset_time = root["dayLength"]["sunset"].asString();
-
-    std::cout << sunrise_time << std::endl;
-    std::cout << sunset_time << std::endl;
-
-
-
-
-    
-
 
     size_t index_for_begin_forecast = buffer_keys_and_values.find("forecastValues:", 0);
     if (index_for_begin_forecast  == std::string::npos){
@@ -406,224 +396,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     val = root["forecastValues"];
     //std::cerr<<val.size();
 
-
-#if 0
-    double min_distance = 32000;
-    uint max_count_of_parameters = 0;
-
-    for (uint i = 0; i < val.size(); i++){
-        std::cerr<<val[i].get("isolocaltime", "");
-        /* Current weather */
-        if (atof(val[i].get("distance","").asCString()) < min_distance || (val[i].size()>max_count_of_parameters && atof(val[i].get("distance","").asCString()) - min_distance < 10)){
-            std::string cur_time;
-            cur_time = val[i].get("time","").asCString();
-            if (cur_time!=""){
-                min_distance = atof(val[i].get("distance","").asCString());
-                max_count_of_parameters = val[i].size();
-                tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
-                tmp_tm.tm_isdst = time_tm2.tm_isdst;
-                setlocale(LC_TIME, "POSIX");
-                strptime((const char*)cur_time.c_str(), "%Y%m%d%H%M", &tmp_tm);
-                current_time = mktime(&tmp_tm) + 3600*localtimezone; 
-                setlocale(LC_TIME, "");
-                if (val[i].get("Temperature","").asString() != ""){
-                    if (val[i].get("Temperature","").asString() == "nan"){
-                        current_temperature = INT_MAX;
-                        max_count_of_parameters--;
-                    }else
-                        current_temperature = atoi(val[i].get("Temperature","").asCString());
-                }    
-                if (val[i].get("Humidity","").asString() != ""){
-                    if (val[i].get("Humidity","").asString() == "nan"){
-                        current_humidity = INT_MAX;
-                        max_count_of_parameters--;
-                    }else{
-                        current_humidity = atoi(val[i].get("Humidity","").asCString());
-                    }
-                }    
-                if (val[i].get("WindSpeedMS","").asString() != ""){
-                    if (val[i].get("WindSpeedMS","").asString() == "nan"){
-                        current_wind_speed = INT_MAX;
-                        max_count_of_parameters--;
-                    }else
-                        current_wind_speed = atoi(val[i].get("WindSpeedMS","").asCString());
-                }    
-                if (val[i].get("WindCompass8","").asString() != ""){
-
-                    if (val[i].get("WindCompass8","").asString() == "nan"){
-                        current_wind_direction = "N/A";
-                        max_count_of_parameters--;
-                    }else{
-                        current_wind_direction = val[i].get("WindCompass8","").asCString();
-                    }
-                }    
-                if (val[i].get("WindGust","").asString() != ""){
-                    if (val[i].get("WindGust","").asString() == "nan"){
-                        current_wind_gust = INT_MAX;
-                        max_count_of_parameters--;
-                    }else
-                        current_wind_gust = atoi(val[i].get("WindGust","").asCString());
-                }    
-                if (val[i].get("Pressure","").asString() != ""){
-                    if (val[i].get("Pressure","").asString() == "nan"){
-                        current_pressure = INT_MAX;
-                        max_count_of_parameters--;
-                    }else
-                        current_pressure = atoi(val[i].get("Pressure","").asCString());
-                }    
-                if (val[i].get("Visibility","").asString() != ""){
-                    if (val[i].get("Visibility","").asString() == "nan"){
-                        current_visibility = INT_MAX;
-                    }else
-                        current_visibility = atoi(val[i].get("Visibility","").asCString());
-                }    
-                if (val[i].get("DewPoint","").asString() != ""){
-                    if (val[i].get("DewPoint","").asString() == "nan"){
-                        current_dewpoint = INT_MAX;
-                    }else
-                        current_dewpoint = atoi(val[i].get("DewPoint","").asCString());
-                }    
-                if (val[i].get("RI_10MIN","").asString() != ""){
-                    if (val[i].get("RI_10MIN","").asString() == "nan"){
-                        current_precipitation_rate = INT_MAX;
-                    }else
-                        current_precipitation_rate = atof(val[i].get("RI_10MIN","").asCString());
-                }    
-                if (val[i].get("WW_AWS","").asString() != "" && val[i].get("WW_AWS","").asString() != "nan"){
-                    int code = atoi(val[i].get("WW_AWS","").asCString());
-                    if (code==0 || (code>=20&&code<=29)){
-                        current_icon = 32;
-                        current_description = "Clear";
-                    }
-                    if (code==4 || code==5){
-                        current_icon = 22;
-                        current_description = "Haze, Smoke or Dust";
-                    }
-                    if (code==10){
-                        current_icon = 20;
-                        current_description = "Mist";
-                    }
-                    if (code==11){
-                        current_icon = 9;
-                        current_description = "Drizzle";
-                    }
-                    if (code>=30 && code<=34){
-                        current_icon = 20;
-                        current_description = "Fog";
-                    }
-                    if (code==40){
-                        current_icon = 12;
-                        current_description = "Precipitation";
-                    }
-                    if (code>=50 && code<=53){
-                        current_icon = 9;
-                        current_description = "Drizzle";
-                    }
-                    if (code==60){
-                        current_icon = 12;
-                        current_description = "Rain";
-                    }
-                    if (code==41){
-                        current_icon = 39;
-                        current_description = "Light or Moderate Precipitation";
-                    }
-                    if (code==42){
-                        current_icon = 12;
-                        current_description = "Heavy Precipitation";
-                    }
-                    if (code>=54 && code<=56){
-                        current_icon = 8;
-                        current_description = "Freezing Drizzle";
-                    }
-                    if (code==61){
-                        current_icon = 39;
-                        current_description = "Light Rain";
-                    }
-                    if (code==62){
-                        current_icon = 12;
-                        current_description = "Moderate Rain";
-                    }
-                    if (code==63){
-                        current_icon = 12;
-                        current_description = "Heavy Rain";
-                    }
-                    if (code==64){
-                        current_icon = 10;
-                        current_description = "Light Freezing Rain";
-                    }
-                    if (code==65){
-                        current_icon = 10;
-                        current_description = "Moderate Freezing Rain";
-                    }
-                    if (code==66){
-                        current_icon = 10;
-                        current_description = "Heavy Freezing Rain";
-                    }
-                    if (code==67){
-                        current_icon = 6;
-                        current_description = "Light Sleet";
-                    }
-                    if (code==68){
-                        current_icon = 6;
-                        current_description = "Moderate Sleet";
-                    }
-                    if (code==70){
-                        current_icon = 14;
-                        current_description = "Snow";
-                    }
-                    if (code==71){
-                        current_icon = 14;
-                        current_description = "Light Snow";
-                    }
-                    if (code==72){
-                        current_icon = 14;
-                        current_description = "Light Snow";
-                    }
-                    if (code==73){
-                        current_icon = 16;
-                        current_description = "Heavy Snow";
-                    }
-                    if (code==74 || code==75 || code==76){
-                        current_icon = 7;
-                        current_description = "Ice Pellets";
-                    }
-                    if (code==80){
-                        current_icon = 39;
-                        current_description = "Showers or Intermittent Precipitation";
-                    }
-                    if (code==81){
-                        current_icon = 39;
-                        current_description = "Light Rain Showers";
-                    }
-                    if (code==82){
-                        current_icon = 39;
-                        current_description = "Moderate Rain Showers";
-                    }
-                    if (code==83){
-                        current_icon = 39;
-                        current_description = "Heavy Rain Showers";
-                    }
-                    if (code==84){
-                        current_icon = 39;
-                        current_description = "Violent Rain Showers";
-                    }
-                    if (code==85){
-                        current_icon = 41;
-                        current_description = "Light Snow Showers";
-                    }
-                    if (code==86){
-                        current_icon = 41;
-                        current_description = "Moderate Snow Showers";
-                    }
-                    if (code==87){
-                        current_icon = 41;
-                        current_description = "Heavy Snow Showers";
-                    }
-                }    
-            }
-        }
-    }
-#endif
     /* Forecasts */
     //val = root["forecasts"][0].get("forecast", nullval);
     val = root["forecastValues"];
@@ -1064,46 +836,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out,"      <sunrise>%li</sunrise>\n", sunrise); 
                 fprintf(file_out,"      <sunset>%li</sunset>\n", sunset); 
                 fprintf(file_out,"    </period>\n");
-     // <sunrise>1598064399</sunrise>
-     // <sunset>1598116557</sunset>
-
             }  
 
-            /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            if (first_day && current_temperature != INT_MAX){
-                utc_time = current_time - localtimezone*3600;
-                fprintf(file_out,"    <period start=\"%li\"", utc_time - 2*3600);
-                fprintf(file_out," end=\"%li\" current=\"true\">\n", utc_time + 6*3600); 
-
-                fprintf(file_out,"     <temperature>%i</temperature>\n", current_temperature); 
-                if (current_icon != 48){
-                    if (current_icon == 32 && dark)
-                        current_icon = 31;
-                    if (current_icon == 39 && dark)
-                        current_icon = 45;
-                    if (current_icon == 41 && dark)
-                        current_icon = 46;
-                    fprintf(file_out,"     <icon>%i</icon>\n", current_icon);
-                }else{
-
-                    fprintf(file_out,"     <icon>%i</icon>\n", icon);
-                }
-                if (current_description != "") 
-                    fprintf(file_out,"     <description>%s</description>\n", current_description.c_str());
-                else
-                    fprintf(file_out,"     <description>%s</description>\n", description.c_str());
-                fprintf(file_out,"     <pressure>%i</pressure>\n", current_pressure);
-                fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", current_wind_direction.c_str());
-                fprintf(file_out,"     <humidity>%i</humidity>\n", current_humidity);
-                fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", current_wind_speed);
-                fprintf(file_out,"     <wind_gust>%i</wind_gust>\n", current_wind_gust);
-                fprintf(file_out,"     <dewpoint>%i</dewpoint>\n", current_dewpoint);
-                fprintf(file_out,"     <precipitation_rate>%.1f</precipitation_rate>\n", current_precipitation_rate);
-                fprintf(file_out,"     <visible>%i</visible>\n", current_visibility);
-                fprintf(file_out,"    </period>\n");
-            }
-            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            */
             first_day = false;
             afternoon = false;
         }

@@ -10,7 +10,7 @@ Summary:    MeeCast for SailfishOS
 # Versioning for all (sub-)packages adheres to Semantic Versioning 2.0.0, see https://semver.org/
 # Mind that Sailfish-OBS sets the version of all subpackages to the one of the primary package.
 Version:    1.1.41
-Release:    3
+Release:    4
 Group:      Utility
 License:    LGPL-2.1-only
 URL:        https://github.com/Meecast/meecast

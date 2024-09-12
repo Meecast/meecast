@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Build ${{ matrix.arch }} on ${{ OS_VERSION }}
+    - name: Build ${{ matrix.arch }} on $OS_VERSION
       run: |
         set -x
         mkdir -p output

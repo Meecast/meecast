@@ -634,7 +634,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         int icon = 48;
         time_t offset_time = 0;
         std::string description = "";
-        dark = false;
 
         _local_time_string = val[i].get("isolocaltime","").asCString();
         if (dictionary.find(_local_time_string) != dictionary.end()) {

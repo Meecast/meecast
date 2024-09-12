@@ -53,7 +53,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
          *delimiter = NULL;
     time_t current_time = 0;
     time_t utc_time = 0;
-    time_t local_time = 0;
     int current_temperature = INT_MAX;
     int current_humidity = INT_MAX;
     int current_wind_speed = INT_MAX;
@@ -71,7 +70,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     int localtimezone = 0;
     int first_day = false;
     int afternoon = false;
-    int dark = false;
     std::string current_wind_direction = "";
     struct tm time_tm1 = {0,0,0,0,0,0,0,0,0,0,0};
     struct tm time_tm2 = {0,0,0,0,0,0,0,0,0,0,0};
@@ -207,21 +205,11 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     val = _timezone_json["foundLocation"];
     auto timezone_json = val["timezone"].asString();
 
-    auto _current_time = std::chrono::system_clock::now();
 
     date::zoned_time<std::chrono::system_clock::duration> sy = date::make_zoned(timezone_json, std::chrono::system_clock::now());
     auto offset = sy.get_info().offset;
     std::cerr<<"offset count "<<offset.count()<<std::endl;
     timezone = offset.count()/3600;
-    //std::cout << dur<std::chrono::seconds>;
-    /*
-    //auto la = date::zoned_time{"Atlantic/Reykjavik", _current_time};
-    auto la = date::zoned_time{"Etc/UTC", _current_time};
-    auto dur = sy.get_local_time() - la.get_local_time();
-    //auto sss = dur<std::chrono::seconds>;
-    //std::cout << dur<std::chrono::seconds>;
-    std::cout << date::format("%T\n", sy.get_local_time() - la.get_local_time());
-    */
 
     size_t index_for_begin_daylength = buffer_keys_and_values.find("dayLength:", 0);
     if (index_for_begin_daylength  == std::string::npos){
@@ -418,10 +406,11 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     val = root["forecastValues"];
     //std::cerr<<val.size();
 
+
+#if 0
     double min_distance = 32000;
     uint max_count_of_parameters = 0;
 
-#if 0
     for (uint i = 0; i < val.size(); i++){
         std::cerr<<val[i].get("isolocaltime", "");
         /* Current weather */
@@ -1339,7 +1328,7 @@ convert_station_fmi_fi_data(const char *days_data_path, const char *result_file,
 /*******************************************************************************/
 int
 main(int argc, char *argv[]){
-    int result; 
+    int result = -1; 
     if (argc < 2) {
         fprintf(stderr, "fmifi <input_days_file> <output_file> \n");
         return -1;

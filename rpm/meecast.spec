@@ -9,8 +9,8 @@ Name:       harbour-meecast
 Summary:    MeeCast for SailfishOS
 # Versioning for all (sub-)packages adheres to Semantic Versioning 2.0.0, see https://semver.org/
 # Mind that Sailfish-OBS sets the version of all subpackages to the one of the primary package.
-Version:    1.1.40
-Release:    3
+Version:    1.1.41
+Release:    1
 Group:      Utility
 License:    LGPL-2.1-only
 URL:        https://github.com/Meecast/meecast
@@ -339,7 +339,10 @@ fi
 
 
 %changelog
-* Thu Sep 11 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.40-3
+* Thu Sep 12 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.41
+- Fixed problem Segmentation fault while trying to load fmi.fi stations, see issue #62
+
+* Wed Sep 11 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.40-3
 - Overhaul spec file, see PR #57
 
 * Thu Jul 18 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.40

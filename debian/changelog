@@ -1,3 +1,7 @@
+meecast (1.1.41) unstable; urgency=low
+  * Fixed problem Segmentation fault while trying to load fmi.fi stations, see issue #62
+ -- Vlad Vasiliev <vlad@gas.by> Thu, 12 Sep 2024 11:02:23 +0300
+
 meecast (1.1.38) unstable; urgency=low
   * Added station Giulianova in Italy to weather.com, yr.no. Fixed Teramo
      gps-coordinates

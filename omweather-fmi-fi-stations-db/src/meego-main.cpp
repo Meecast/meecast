@@ -970,7 +970,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                }
             }    
             if (current_pressure != INT_MAX){
-                std::cerr<<"Pressure2 "<<current_pressure<<std::endl;
                 fprintf(file_out,"     <pressure>%i</pressure>\n", current_pressure);
             }
 
@@ -989,16 +988,13 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 if (val[index].get("WindDirection","").asString() == ""){
                     current_wind_direction = "";
                 }else{
-
                     int _current_wind_direction =(int)round(val[index].get("WindDirection","").asInt());
-
                     wind_index = (int)round(_current_wind_direction/22.5) + 1;
                     //std::cout<<"Wind_index "<<wind_index<<std::endl;
                     if (wind_index > 16){
                         wind_index = 16;
                     }
                     //std::cout<<"Wind_direction "<<wind_directions[wind_index].c_str()<<std::endl;
-     
                     fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",wind_directions[wind_index].c_str());
 
                }
@@ -1023,11 +1019,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             if (current_temperature != INT_MAX){
                 fprintf(file_out,"     <temperature>%i</temperature>\n", current_temperature);
             }
-
-
             fprintf(file_out, "    </period>\n");
         }
-
     }
 
     fclose(file_out);

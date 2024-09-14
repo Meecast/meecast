@@ -586,6 +586,34 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         icon = 38;
                         description = "Strong Thundershowers";
                         break;
+                    case 63:
+                        icon = 17;
+                        description = "Thunder";
+                        break;
+                    case 64:
+                        icon = 4;
+                        description = "Heavy Thunder";
+                        break;
+                    case 72:
+                        icon = 6;
+                        description = "Sleet Showers";
+                        break;
+                    case 73:
+                        icon = 6;
+                        description = "Heavy Sleet Showers";
+                        break;
+                    case 81:
+                        icon = 5;
+                        description = "Light Sleet";
+                        break;
+                    case 82:
+                        icon = 5;
+                        description = "Sleet";
+                        break;
+                    case 83:
+                        icon = 5;
+                        description = "Heavy Sleet";
+                        break;
                     case 101:
                         icon = 31;
                         description = "Clear";
@@ -609,6 +637,10 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                     case 107:
                         icon = 26;
                         description = "Overcast";
+                        break;
+                    case 109:
+                        icon = 20;
+                        description = "Fog";
                         break;
                     case 111:
                         icon = 9;
@@ -694,17 +726,9 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         icon = 47;
                         description = "Strong Thundershowers";
                         break;
-                    case 63:
-                        icon = 17;
-                        description = "Thunder";
-                        break;
                     case 163:
                         icon = 17;
                         description = "Thunder";
-                        break;
-                    case 64:
-                        icon = 4;
-                        description = "Heavy Thunder";
                         break;
                     case 164:
                         icon = 4;
@@ -718,41 +742,25 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         icon = 6;
                         description = "Light Sleet Showers";
                         break;
-                    case 72:
-                        icon = 6;
-                        description = "Sleet Showers";
-                        break;
                     case 172:
                         icon = 6;
                         description = "Sleet Showers";
-                        break;
-                    case 73:
-                        icon = 6;
-                        description = "Heavy Sleet Showers";
                         break;
                     case 173:
                         icon = 6;
                         description = "Heavy Sleet Showers";
                         break;
-                    case 81:
-                        icon = 5;
-                        description = "Light Sleet";
+                    case 177:
+                        icon = 17;
+                        description = "Thundershowers";
                         break;
                     case 181:
                         icon = 5;
                         description = "Light Sleet";
                         break;
-                    case 82:
-                        icon = 5;
-                        description = "Sleet";
-                        break;
                     case 182:
                         icon = 5;
                         description = "Sleet";
-                        break;
-                    case 83:
-                        icon = 5;
-                        description = "Heavy Sleet";
                         break;
                     case 183:
                         icon = 5;

@@ -9,8 +9,8 @@ Name:       harbour-meecast
 Summary:    MeeCast for SailfishOS
 # Versioning for all (sub-)packages adheres to Semantic Versioning 2.0.0, see https://semver.org/
 # Mind that Sailfish-OBS sets the version of all subpackages to the one of the primary package.
-Version:    1.1.41
-Release:    4
+Version:    1.11.1
+Release:    1
 Group:      Utility
 License:    LGPL-2.1-only
 URL:        https://github.com/Meecast/meecast
@@ -75,7 +75,7 @@ Links:
 
 
 %package daemon
-Version: 1.10.1
+Version: 1.11.1
 Release: 1
 Summary: MeeCast background daemon for SailfishOS
 Group:    Utility
@@ -110,7 +110,7 @@ Links:
 
 
 %package lockscreen
-Version: 0.5.1
+Version: 1.11.1
 Release: 1
 Summary: MeeCast widget for SailfishOS' lockscreen
 Group:    Utility
@@ -151,7 +151,7 @@ Links:
 # https://build.sailfishos.org/project/prjconf/sailfishos:4.6
 %if %{undefined sailfishos_version} || 0%{?sailfishos_version} >= 40600
 %package eventview
-Version: 1.1.1
+Version: 1.11.1
 Release: 1
 Summary: MeeCast widget for SailfishOS' eventsview
 Group:    Utility
@@ -200,7 +200,7 @@ Links:
 # Detect building for SailfishOS < 4.6.0 or build subpackage event any way.
 %if 0%{?sailfishos_version} < 40600
 %package event
-Version: 1.1.1
+Version: 1.11.1
 Release: 1
 Summary: MeeCast widget for SailfishOS' eventsview
 Group:    Utility

@@ -224,7 +224,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     }
 
     std::string buffer_1_ = buffer_keys_and_values.substr(index_for_begin_daylength, index_for_end_daylength - index_for_begin_daylength + 1);
-    std::cout << buffer_1_ << std::endl;
     //dayLength:{sunrise:"6:29",sunset:"20:04",lengthofday:"13 h 35 min"}
     //{"dayLength":"{"sunrise":"6":"29","sunset":"20":"04","lengthofday":"13 h 35 min"}}
     /* Convert js-script data to JSON */
@@ -247,7 +246,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     buffer_1_ = std::regex_replace(buffer_1_, std::regex("dayLength:"), "dayLength\":");
     buffer_1_ += "}";
 
-    std::cout << buffer_1_ << std::endl;
     bool parsingDayLengthSuccessful = reader.parse(buffer_1_, root, false);
     if (!parsingDayLengthSuccessful){
         std::cerr<<"Problem in parsingDayLengthSuccessful";

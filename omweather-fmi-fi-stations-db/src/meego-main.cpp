@@ -480,7 +480,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         description = "Partly Cloudy";
                         break;
                     case 6:
-                        icon = 29;
+                        icon = 28;
                         description = "Mostly Cloudy";
                         break;
                     case 2:

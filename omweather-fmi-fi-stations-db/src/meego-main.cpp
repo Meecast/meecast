@@ -452,7 +452,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             
             if (first_day){
                 if (afternoon){
-                    fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone - 3600*timezone - 3600 - 15*3600);
+                    fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone - 3600*timezone);
                     fprintf(file_out," end=\"%li\">\n", utc_time + offset_time + 3*3600 + 3600*localtimezone - 3600*timezone + 5*3600); 
                 }else{    
                     fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone - 3600*timezone - 3600) ;
@@ -472,10 +472,11 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                     }
                 }
             }    
+            std::string description = "";
             if (SmartSymbol != "" ){
                 int result = 0;
                 result = std::stoi(SmartSymbol);
-                std::string description = descriptions_json[SmartSymbol].get("txt_en","").asString();
+                description = descriptions_json[SmartSymbol].get("txt_en","").asString();
                 switch (result){
                     case 1:
                         icon = 32;
@@ -826,6 +827,28 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             }    
 
             fprintf(file_out, "    </period>\n");
+            if (first_day){
+                if (afternoon){
+                    fprintf(file_out,"    <period start=\"%li\" ", utc_time + 3600*localtimezone - 3600*timezone - 3600 - 15*3600);
+                    fprintf(file_out," end=\"%li\">\n", utc_time + offset_time + 3*3600 + 3600*localtimezone - 3600*timezone + 5*3600); 
+                }else{    
+                    fprintf(file_out,"    <period start=\"%li\" ", utc_time + 3600*localtimezone - 3600*timezone - 3600) ;
+                    fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600 + offset_time - 3600*timezone + 5*3600);
+                }
+
+                if (val[i].get("Temperature","").asString() != "" || val[i].get("Temperature","").asString() != "nan"){
+                    if (std::isdigit(val[i].get("Temperature","").asString()[0])){
+                        fprintf(file_out,"     <temperature>%.0f</temperature>\n", atof(val[i].get("Temperature","").asCString()));
+                    }else{
+                        if (dictionary.find(val[i].get("Temperature","").asString()) != dictionary.end()) {
+                            fprintf(file_out,"     <temperature>%.0f</temperature>\n", atof(dictionary[val[i].get("Temperature","").asString()].c_str()));
+                        }
+                    }
+                }    
+                fprintf(file_out,"     <icon>%i</icon>\n", icon);
+                fprintf(file_out, "     <description>%s</description>\n", description.c_str());
+                fprintf(file_out, "    </period>\n");
+            }
             if (i==0){
                 time_t _current_time_ = utc_time + 3600*localtimezone - 3600*timezone - 3600;
                 struct tm *lt = localtime(&_current_time_);

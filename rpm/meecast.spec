@@ -9,8 +9,8 @@ Name:       harbour-meecast
 Summary:    MeeCast for SailfishOS
 # Versioning for all (sub-)packages adheres to Semantic Versioning 2.0.0, see https://semver.org/
 # Mind that Sailfish-OBS sets the version of all subpackages to the one of the primary package.
-Version:    1.11.1
-Release:    2
+Version:    1.11.2
+Release:    1
 Group:      Utility
 License:    LGPL-2.1-only
 URL:        https://github.com/Meecast/meecast
@@ -339,7 +339,10 @@ fi
 
 
 %changelog
-* Thu Sep 12 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.41
+* Mon Sep 16 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.2
+- Fixed sunrise and sunset for fmi.fi source
+
+* Thu Sep 12 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.1
 - Fixed problem Segmentation fault while trying to load fmi.fi stations, see issue #62
 
 * Wed Sep 11 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.40-3
@@ -628,7 +631,7 @@ fi
 - Fixed problem with null wind direction on main form
 - Added the new source fmi.fi
 
-* Wed Jul 03 2014 Vlad Vasilyeu <vasvlad@gmail.com> - 0.9.5
+* Thu Jul 03 2014 Vlad Vasilyeu <vasvlad@gmail.com> - 0.9.5
 - Fixed problem with Now/Today waether data for Main Page
 - Fixed problem with null data for day forecast in weather.com source
 - Updated Catalan, Finnish, Norwegian, Slovenian, Danish, Spanish, Italian, Russian, Hungarian, French translations

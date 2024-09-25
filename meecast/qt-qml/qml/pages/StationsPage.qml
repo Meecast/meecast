@@ -1,10 +1,10 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 
 Page {
     id: stations
     objectName: "stationspage"
-    property int margin: 16
+    property int margin: Theme.paddingSmall
     property int removedStation: -1
     property string removedStationName: ""
     function openFile(file)
@@ -29,7 +29,7 @@ Page {
         Rectangle {
             anchors.top: parent.top
             anchors.left: parent.left
-            anchors.topMargin: 80
+            anchors.topMargin: Theme.itemSizeSmall
             width: parent.width
             height: 610
             color: "transparent"
@@ -37,7 +37,7 @@ Page {
         Loader {
             id: background
             anchors.top: parent.top
-            anchors.topMargin: 80
+            anchors.topMargin: Theme.itemSizeSmall
             anchors.left: parent.left
             width: parent.width
             height: 610
@@ -77,8 +77,7 @@ Page {
             }
             Item {
                 width: parent.width
- 
-                height: 80
+                height: Theme.itemSizeSmall
                 Label {
                     text: Config.tr("Find location via GPS")
                     anchors.left: parent.left
@@ -92,7 +91,7 @@ Page {
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
                     onCheckedChanged: {
-                        console.log("swithc checked changed");
+                        console.log("switch checked changed");
                         Config.setgps(gps.checked);
                         if (gps.checked){
                             rootWindow.menuitemgps = true
@@ -105,12 +104,12 @@ Page {
             SilicaListView {
                 id: stationslist
                 width: parent.width
-                height: parent.height - 80
+                height: parent.height - Theme.itemSizeSmall
                 model: Config.stations()
 
                 delegate: Item {
                     width: parent.width
-                    height: 80
+                    height: Theme.itemSizeSmall
  
                     Label {
                         text: modelData
@@ -139,6 +138,7 @@ Page {
     }
     Button {
         anchors.bottom: parent.bottom
+        anchors.bottomMargin: Theme.paddingMedium
         anchors.horizontalCenter: parent.horizontalCenter
         text: Config.tr("Add Station")
         onClicked: {stations.openFile("SourcePage.qml")}

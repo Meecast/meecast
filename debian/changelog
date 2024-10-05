@@ -1,3 +1,7 @@
+meecast (1.11.4) unstable; urgency=low
+  * Added icons and description to fmi.fi 
+ -- Vlad Vasiliev <vlad@gas.by> Sat, 05 Oct 2024 09:02:23 +0300
+
 meecast (1.11.3) unstable; urgency=low
   * Improved in settings UI
  -- Vlad Vasiliev <vlad@gas.by> Thu, 26 Sep 2024 06:02:23 +0300

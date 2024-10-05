@@ -573,6 +573,14 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         icon = 41;
                         description = "Heavy Snow Showers";
                         break;
+                    case 47:
+                        icon = 6;
+                        description = "Light Sleet";
+                        break;
+                    case 48:
+                        icon = 6;
+                        description = "Moderate Sleet";
+                        break;
                     case 51:
                         icon = 14;
                         description = "Light Snowfall";
@@ -582,6 +590,18 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         description = "Snowfall";
                         break;
                     case 53:
+                        icon = 42;
+                        description = "Heavy Snowfall";
+                        break;
+                    case 57:
+                        icon = 14;
+                        description = "Light Snowfall";
+                        break;
+                    case 58:
+                        icon = 14;
+                        description = "Moderate Snowfall";
+                        break;
+                    case 59:
                         icon = 42;
                         description = "Heavy Snowfall";
                         break;
@@ -726,6 +746,22 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         description = "Snowfall";
                         break;
                     case 153:
+                        icon = 42;
+                        description = "Heavy Snowfall";
+                        break;
+                    case 154:
+                        icon = 46;
+                        description = "Scattered Light Snow Showers";
+                        break;
+                    case 157:
+                        icon = 14;
+                        description = "Light Snowfall";
+                        break;
+                    case 158:
+                        icon = 14;
+                        description = "Moderate Snowfall";
+                        break;
+                    case 159:
                         icon = 42;
                         description = "Heavy Snowfall";
                         break;

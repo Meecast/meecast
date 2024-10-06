@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-06 20:20+0300\n"
+"POT-Creation-Date: 2024-10-06 20:05+0300\n"
 "PO-Revision-Date: 2014-03-31 08:24+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/meecast/language/"
@@ -64,7 +64,7 @@ msgstr ""
 "والشفافة\n"
 
 #: omweather/src/weather-home.c:1383 omweather/src/weather-home.c:1439
-#: omweather/src/weather-popup.c:965 omweather/src/weather-popup.c:1098
+#: omweather/src/weather-popup.c:964 omweather/src/weather-popup.c:1097
 msgid ""
 "\n"
 "Humidity: "
@@ -80,8 +80,8 @@ msgstr ""
 "\n"
 "P: "
 
-#: omweather/src/weather-popup.c:954 omweather/src/weather-popup.c:959
-#: omweather/src/weather-popup.c:1087 omweather/src/weather-popup.c:1092
+#: omweather/src/weather-popup.c:953 omweather/src/weather-popup.c:958
+#: omweather/src/weather-popup.c:1086 omweather/src/weather-popup.c:1091
 msgid ""
 "\n"
 "Precipitation: "
@@ -89,7 +89,7 @@ msgstr ""
 "\n"
 "الترسيب:"
 
-#: omweather/src/weather-popup.c:976 omweather/src/weather-popup.c:1108
+#: omweather/src/weather-popup.c:975 omweather/src/weather-popup.c:1107
 msgid ""
 "\n"
 "Pressure: "
@@ -341,7 +341,7 @@ msgstr "إضافة محطة"
 msgid "Adjust GPS station"
 msgstr "ضبط محطه تحديد المواقع"
 
-#: meecast/qt-qml/qml/AboutPage.qml:249
+#: meecast/qt-qml/qml/AboutPage.qml:251
 msgid "Albanian - Ilir Gjika\n"
 msgstr ""
 
@@ -396,7 +396,7 @@ msgstr ""
 "يجب حذف تطبيق AccuWeather \n"
 "قبل تثبيت هذه الحزمة"
 
-#: meecast/qt-qml/qml/AboutPage.qml:257
+#: meecast/qt-qml/qml/AboutPage.qml:259
 msgid "Arabic - Tarad Alfandi\n"
 msgstr ""
 
@@ -435,7 +435,7 @@ msgstr "الكتاب"
 msgid "Automatically update data when connecting to the Internet"
 msgstr "تحديث البيانات تلقائيا عند الاتصال بالإنترنت"
 
-#: omweather/src/hash.data:391
+#: omweather/src/hash.data:393
 msgid "Back"
 msgstr "عوده"
 
@@ -457,15 +457,15 @@ msgstr "مقياس بوفورت"
 msgid "Blowing Snow"
 msgstr "ثلوج هابة"
 
-#: omweather/src/hash.data:393
+#: omweather/src/hash.data:395
 msgid "Broken Clouds"
 msgstr "غيوم مُتفرقة"
 
-#: omweather/src/hash.data:394
+#: omweather/src/hash.data:396
 msgid "Broken clouds"
 msgstr "غيوم مُتفرقة"
 
-#: meecast/qt-qml/qml/AboutPage.qml:248
+#: meecast/qt-qml/qml/AboutPage.qml:250
 msgid "Bulgarian - Zlatko Enikov\n"
 msgstr ""
 
@@ -476,8 +476,8 @@ msgstr ""
 msgid "C"
 msgstr "C"
 
-#: omweather/src/weather-popup.c:1265 omweather/src/weather-popup.c:1275
-#: omweather/src/weather-popup.c:1446 omweather/src/weather-popup.c:1454
+#: omweather/src/weather-popup.c:1264 omweather/src/weather-popup.c:1274
+#: omweather/src/weather-popup.c:1445 omweather/src/weather-popup.c:1453
 msgid "C\n"
 msgstr "C\n"
 
@@ -494,7 +494,7 @@ msgstr "إلغاء"
 msgid "Cannot get path to the HOME directory. Quitting.\n"
 msgstr "لايمكن الوصول الى مسار الرئيسية. إنهاء.\n"
 
-#: meecast/qt-qml/qml/AboutPage.qml:255
+#: meecast/qt-qml/qml/AboutPage.qml:257
 msgid "Catalan - Agustí Clara\n"
 msgstr ""
 
@@ -506,13 +506,13 @@ msgstr "مِئوية"
 msgid "Celsius"
 msgstr "درجة مئوية"
 
-#: meecast/qt-qml/qml/AboutPage.qml:250
+#: meecast/qt-qml/qml/AboutPage.qml:252
 msgid ""
 "Chinese - Wong Man Kong, Michael,\n"
 " \tgwmgdemj\n"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:264
+#: meecast/qt-qml/qml/AboutPage.qml:266
 msgid "Chinese(Taiwan) - osk2, \n"
 msgstr ""
 
@@ -625,7 +625,7 @@ msgstr "غائم مع زخات ثلج"
 msgid "Cloudy and wet snow showers"
 msgstr "غائم مع زخات ثلج رطبه"
 
-#: omweather/src/hash.data:415
+#: omweather/src/hash.data:417
 msgid "Cloudy with occasional rain."
 msgstr "غائم مع امطار نسبيه"
 
@@ -725,7 +725,7 @@ msgstr "الدولة"
 msgid "Country:"
 msgstr "الدولة:"
 
-#: omweather/src/hash.data:427
+#: omweather/src/hash.data:429
 msgid "Cover Page"
 msgstr ""
 
@@ -733,7 +733,7 @@ msgstr ""
 msgid "Custom"
 msgstr "مخصص"
 
-#: meecast/qt-qml/qml/AboutPage.qml:263
+#: meecast/qt-qml/qml/AboutPage.qml:265
 msgid "Czech - Jakub Kožíšek, Pavel Šrubař\n"
 msgstr ""
 
@@ -741,7 +741,7 @@ msgstr ""
 msgid "Daily"
 msgstr "يومي"
 
-#: meecast/qt-qml/qml/AboutPage.qml:258
+#: meecast/qt-qml/qml/AboutPage.qml:260
 msgid "Danish - Peter Jespersen\n"
 msgstr ""
 
@@ -750,7 +750,7 @@ msgstr ""
 msgid "Day"
 msgstr "يوم"
 
-#: omweather/src/weather-popup.c:1182
+#: omweather/src/weather-popup.c:1181
 msgid "Day length"
 msgstr "مدة النهار"
 
@@ -758,7 +758,7 @@ msgstr "مدة النهار"
 msgid "Day length:"
 msgstr "مدة النهار:"
 
-#: omweather/src/weather-popup.c:913
+#: omweather/src/weather-popup.c:912
 msgid "Day:"
 msgstr "يوم:"
 
@@ -774,7 +774,7 @@ msgstr ""
 "تصميم الواجهة والأيقونات الإفتراضية: الحقوق ٢٠٠٦-٢٠١١ <Andrew Zhilin, "
 "<andrew.zhilin@ovi.com\n"
 
-#: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
+#: omweather/src/weather-popup.c:461 omweather/src/weather-popup.c:601
 msgid "Detailed"
 msgstr "مُفصل"
 
@@ -843,7 +843,7 @@ msgstr "رذار مُبكر"
 msgid "Drizzle Late"
 msgstr "رذار مُتأخر"
 
-#: meecast/qt-qml/qml/AboutPage.qml:246
+#: meecast/qt-qml/qml/AboutPage.qml:248
 msgid ""
 "Dutch - Tom Leenders, Michiel Pater\n"
 " \tHeimen Stoffels, Nathan Follens\n"
@@ -940,8 +940,8 @@ msgstr "صارم"
 msgid "F"
 msgstr "F"
 
-#: omweather/src/weather-popup.c:1266 omweather/src/weather-popup.c:1276
-#: omweather/src/weather-popup.c:1447 omweather/src/weather-popup.c:1455
+#: omweather/src/weather-popup.c:1265 omweather/src/weather-popup.c:1275
+#: omweather/src/weather-popup.c:1446 omweather/src/weather-popup.c:1454
 msgid "F\n"
 msgstr "F\n"
 
@@ -976,15 +976,15 @@ msgstr "معتدل"
 msgid "Fair / Windy"
 msgstr "ثلج / رياح"
 
-#: omweather/src/hash.data:389
+#: omweather/src/hash.data:391
 msgid "Feels like"
 msgstr "الشعور كـ:"
 
-#: omweather/src/weather-popup.c:1269 omweather/src/weather-popup.c:1449
+#: omweather/src/weather-popup.c:1268 omweather/src/weather-popup.c:1448
 msgid "Feels like:"
 msgstr "الشعور الحقيقي:"
 
-#: omweather/src/hash.data:396
+#: omweather/src/hash.data:398
 msgid "Few Clouds"
 msgstr "غيوم قليله"
 
@@ -1008,7 +1008,7 @@ msgstr "زخات ثلج قليله"
 msgid "Few Snow Showers / Wind"
 msgstr "زخات ثلج قليله / رياح"
 
-#: omweather/src/hash.data:395
+#: omweather/src/hash.data:397
 msgid "Few clouds"
 msgstr "غيوم قليله"
 
@@ -1016,7 +1016,7 @@ msgstr "غيوم قليله"
 msgid "Find location via GPS"
 msgstr "إيجاد المكان عبر نظام تحديد المواقع"
 
-#: meecast/qt-qml/qml/AboutPage.qml:233
+#: meecast/qt-qml/qml/AboutPage.qml:235
 msgid ""
 "Finnish - Marko Vertainen,\n"
 "\tdeadhead (A-P Partonen),\n"
@@ -1090,7 +1090,7 @@ msgstr ""
 msgid "Forecast"
 msgstr "التوقعات"
 
-#: omweather/src/weather-popup.c:1433 omweather/src/weather-simple-popup.c:1028
+#: omweather/src/weather-popup.c:1432 omweather/src/weather-simple-popup.c:1028
 msgid "Forecast at: "
 msgstr "توقات في:"
 
@@ -1107,7 +1107,7 @@ msgstr "رذار متجمد"
 msgid "Freezing Rain"
 msgstr "أمطار / أمطار متجمدة"
 
-#: meecast/qt-qml/qml/AboutPage.qml:227
+#: meecast/qt-qml/qml/AboutPage.qml:229
 #, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
@@ -1174,11 +1174,11 @@ msgstr "جي إس إم+شبكة WLAN"
 msgid "GUI|Clear"
 msgstr "واجهة المستخدم | مسح"
 
-#: meecast/qt-qml/qml/AboutPage.qml:256
+#: meecast/qt-qml/qml/AboutPage.qml:258
 msgid "Galician - pakoR\n"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:236
+#: meecast/qt-qml/qml/AboutPage.qml:238
 msgid ""
 "German -  Claudius Henrichs,\n"
 " \tJens Klingen,\n"
@@ -1193,7 +1193,7 @@ msgstr ""
 "مجموعة أيقونات Grzanka's: حقوق 2005 بواسطة <Wojciech Grzanka, "
 "<wojciech@grzanka.pl"
 
-#: omweather/src/weather-popup.c:1354 omweather/src/weather-popup.c:1493
+#: omweather/src/weather-popup.c:1353 omweather/src/weather-popup.c:1492
 msgid "Gust:"
 msgstr "زوبعة:"
 
@@ -1225,66 +1225,76 @@ msgstr ""
 msgid "Heavy Rain"
 msgstr "أمطار كثيفه"
 
-#: omweather/src/hash.data:107
+#: omweather/src/hash.data:108
 msgid "Heavy Rain / Wind"
 msgstr "أمطار كثيفه / رياح"
 
-#: omweather/src/hash.data:108
-msgid "Heavy Rain Shower"
-msgstr "زخات مطر كثيفه"
-
 #: omweather/src/hash.data:109
-#, fuzzy
-msgid "Heavy Rain Showers"
+msgid "Heavy Rain Shower"
 msgstr "زخات مطر كثيفه"
 
 #: omweather/src/hash.data:110
 #, fuzzy
+msgid "Heavy Rain Showers"
+msgstr "زخات مطر كثيفه"
+
+#: omweather/src/hash.data:111
+#, fuzzy
 msgid "Heavy Sleet"
 msgstr "ثلوج كثيفه"
 
-#: omweather/src/hash.data:111
+#: omweather/src/hash.data:112
 #, fuzzy
 msgid "Heavy Sleet Showers"
 msgstr "زخات مطر كثيفه"
 
-#: omweather/src/hash.data:112
+#: omweather/src/hash.data:113
 msgid "Heavy Snow"
 msgstr "ثلوج كثيفه"
 
-#: omweather/src/hash.data:116
+#: omweather/src/hash.data:117
 msgid "Heavy Snow / Wind"
 msgstr "ثلج كثيف/رياح"
 
-#: omweather/src/hash.data:115
+#: omweather/src/hash.data:116
 #, fuzzy
 msgid "Heavy Snow Shower"
 msgstr "زخات ثلج قليله"
 
-#: omweather/src/hash.data:114
+#: omweather/src/hash.data:115
 #, fuzzy
 msgid "Heavy Snow Showers"
 msgstr "زخات ثلج قليله"
 
-#: omweather/src/hash.data:113
+#: omweather/src/hash.data:114
 #, fuzzy
 msgid "Heavy Snowfall"
 msgstr "ثلوج كثيفه"
 
-#: omweather/src/hash.data:117
+#: omweather/src/hash.data:119
+#, fuzzy
+msgid "Heavy T-Storms"
+msgstr "عواصف رعديه"
+
+#: omweather/src/hash.data:118
 #, fuzzy
 msgid "Heavy Thunder"
 msgstr "رعد"
 
-#: omweather/src/hash.data:416
+#: omweather/src/hash.data:418
 msgid "Heavy intensity rain"
 msgstr "أمطار ذات كثافة عاليه"
 
-#: omweather/src/hash.data:118
+#: omweather/src/hash.data:107
+#, fuzzy
+msgid "Heavy rain"
+msgstr "أمطار كثيفه"
+
+#: omweather/src/hash.data:120
 msgid "High"
 msgstr "العظمى"
 
-#: omweather/src/hash.data:390
+#: omweather/src/hash.data:392
 msgid "Hourly"
 msgstr "كل ساعه"
 
@@ -1298,22 +1308,22 @@ msgstr "ساعات"
 msgid "Humidity"
 msgstr "الرطوبة"
 
-#: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
+#: omweather/src/weather-popup.c:1280 omweather/src/weather-popup.c:1456
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
 #: meecast/qt-qml/dataitem.cpp:196
 msgid "Humidity:"
 msgstr "الرطوبة:"
 
-#: meecast/qt-qml/qml/AboutPage.qml:261
+#: meecast/qt-qml/qml/AboutPage.qml:263
 msgid "Hungarian - Salmi, László Kara\n"
 msgstr ""
 
-#: omweather/src/hash.data:120
+#: omweather/src/hash.data:122
 #, fuzzy
 msgid "Ice Early"
 msgstr "رذار مُبكر"
 
-#: omweather/src/hash.data:119
+#: omweather/src/hash.data:121
 msgid "Ice Pellets"
 msgstr ""
 
@@ -1329,11 +1339,11 @@ msgstr "حجم الأيقونة:"
 msgid "Icons"
 msgstr "أيقونات"
 
-#: omweather/src/hash.data:121 meecast/qt-qml/qml/VisualsPage.qml:391
+#: omweather/src/hash.data:123 meecast/qt-qml/qml/VisualsPage.qml:391
 msgid "Iconset"
 msgstr "مجموعة الأيقونات"
 
-#: omweather/src/hash.data:122 meecast/qt-qml/qml/AboutPage.qml:278
+#: omweather/src/hash.data:124 meecast/qt-qml/qml/AboutPage.qml:280
 msgid "Iconsets"
 msgstr "مجموعة الأيقونات"
 
@@ -1343,15 +1353,15 @@ msgstr "مجموعة الأيقونات"
 msgid "Information"
 msgstr "معلومات"
 
-#: omweather/src/hash.data:124
+#: omweather/src/hash.data:126
 msgid "Isolated T-Storms"
 msgstr "عواصف رعدية معزولة"
 
-#: omweather/src/hash.data:123
+#: omweather/src/hash.data:125
 msgid "Isolated T-Storms / Wind"
 msgstr "عواصف رعدية معزولة / رياح"
 
-#: meecast/qt-qml/qml/AboutPage.qml:239
+#: meecast/qt-qml/qml/AboutPage.qml:241
 #, fuzzy
 msgid ""
 "Italian - Lorenzo Facca,\n"
@@ -1378,23 +1388,23 @@ msgstr "كيلومترات"
 msgid "Knots"
 msgstr "عقدة"
 
-#: omweather/src/hash.data:392
+#: omweather/src/hash.data:394
 msgid "Language"
 msgstr "اللغة"
 
-#: omweather/src/hash.data:125
+#: omweather/src/hash.data:127
 msgid "Last Quarter"
 msgstr "الربع الأخير"
 
-#: omweather/src/weather-popup.c:264
+#: omweather/src/weather-popup.c:263
 msgid "Last update at server: "
 msgstr "أخر تحديث في الخادم:"
 
-#: omweather/src/weather-popup.c:278 omweather/src/weather-popup.c:282
+#: omweather/src/weather-popup.c:277 omweather/src/weather-popup.c:281
 msgid "Last update from server: "
 msgstr "أخر تحديث من الخادم:"
 
-#: omweather/src/hash.data:126 meecast/qt-qml/qml/FullWeatherPage.qml:344
+#: omweather/src/hash.data:128 meecast/qt-qml/qml/FullWeatherPage.qml:344
 msgid "Last update:"
 msgstr "أخر تحديث:"
 
@@ -1405,7 +1415,7 @@ msgstr "أخر تحديث:"
 msgid "Last update: "
 msgstr "أخر تحديث:"
 
-#: omweather/src/hash.data:127
+#: omweather/src/hash.data:129
 msgid "Lawn and Garden Weather"
 msgstr "مناخ الحديقة"
 
@@ -1413,141 +1423,141 @@ msgstr "مناخ الحديقة"
 msgid "Layout:"
 msgstr "التصميم:"
 
-#: meecast/qt-qml/qml/AboutPage.qml:186
+#: meecast/qt-qml/qml/AboutPage.qml:188
 msgid "Lead designers"
 msgstr "إداره التصميم"
 
-#: meecast/qt-qml/qml/AboutPage.qml:312
+#: meecast/qt-qml/qml/AboutPage.qml:314
 msgid "License"
 msgstr "الرخصة"
 
-#: omweather/src/hash.data:128
+#: omweather/src/hash.data:130
 msgid "Light Drizzle"
 msgstr "رذار خفيف"
 
-#: omweather/src/hash.data:130
+#: omweather/src/hash.data:132
 msgid "Light Freezing Drizzle"
 msgstr ""
 
-#: omweather/src/hash.data:129
+#: omweather/src/hash.data:131
 msgid "Light Freezing Rain"
 msgstr "أمطار خفيفة متجمدة"
 
-#: omweather/src/hash.data:131 omweather/src/hash.data:398
+#: omweather/src/hash.data:133 omweather/src/hash.data:400
 msgid "Light Rain"
 msgstr "أمطار خفيفة"
 
-#: omweather/src/hash.data:132
+#: omweather/src/hash.data:134
 msgid "Light Rain / Fog"
 msgstr "مطر خفيف / ضباب"
 
-#: omweather/src/hash.data:134
+#: omweather/src/hash.data:136
 msgid "Light Rain / Wind"
 msgstr "مطر خفيف / رياح"
 
-#: omweather/src/hash.data:133
+#: omweather/src/hash.data:135
 msgid "Light Rain / Wind Late"
 msgstr "مطر خفيف / رياح متأخرة"
 
-#: omweather/src/hash.data:135
+#: omweather/src/hash.data:137
 #, fuzzy
 msgid "Light Rain / Windy"
 msgstr "مطر خفيف / رياح"
 
-#: omweather/src/hash.data:136
+#: omweather/src/hash.data:138
 msgid "Light Rain Early"
 msgstr "أمطار خفيفة مُبكرة"
 
-#: omweather/src/hash.data:137
+#: omweather/src/hash.data:139
 msgid "Light Rain Late"
 msgstr "أمطار خفيفة مُتأخرة"
 
-#: omweather/src/hash.data:138
+#: omweather/src/hash.data:140
 msgid "Light Rain Shower"
 msgstr "أمطار خفيفة متفرقة"
 
-#: omweather/src/hash.data:399
+#: omweather/src/hash.data:401
 #, fuzzy
 msgid "Light Rain Showers"
 msgstr "أمطار خفيفة متفرقة"
 
-#: omweather/src/hash.data:139
+#: omweather/src/hash.data:141
 msgid "Light Rain and Freezing Rain"
 msgstr "أمطار خفيفة ومتجمدة"
 
-#: omweather/src/hash.data:140
+#: omweather/src/hash.data:142
 msgid "Light Rain and Shower"
 msgstr "أمطار خفيفة ومتفرقة"
 
-#: omweather/src/hash.data:141
+#: omweather/src/hash.data:143
 msgid "Light Rain and Windy"
 msgstr "أمطار خفيفة ورياح"
 
-#: omweather/src/hash.data:142
+#: omweather/src/hash.data:144
 msgid "Light Rain with Thunder"
 msgstr "أمطار خفيفة مع رعود"
 
-#: omweather/src/hash.data:143
+#: omweather/src/hash.data:145
 #, fuzzy
 msgid "Light Sleet"
 msgstr "ثلوج خفيفة"
 
-#: omweather/src/hash.data:144
+#: omweather/src/hash.data:146
 #, fuzzy
 msgid "Light Sleet Showers"
 msgstr "ثلوج خفيفة متفرقة"
 
-#: omweather/src/hash.data:145
+#: omweather/src/hash.data:147
 msgid "Light Snow"
 msgstr "ثلوج خفيفة"
 
-#: omweather/src/hash.data:147
+#: omweather/src/hash.data:149
 msgid "Light Snow / Fog"
 msgstr "ثلوج خفيفة / ضباب"
 
-#: omweather/src/hash.data:148
+#: omweather/src/hash.data:150
 msgid "Light Snow / Wind"
 msgstr "ثلوج خفيفة / رياح"
 
-#: omweather/src/hash.data:149
+#: omweather/src/hash.data:151
 msgid "Light Snow Early"
 msgstr "ثلوج خفيفة مُبكرة"
 
-#: omweather/src/hash.data:150
+#: omweather/src/hash.data:152
 msgid "Light Snow Late"
 msgstr "ثلوج خفيفة مُتأخرة"
 
-#: omweather/src/hash.data:151
+#: omweather/src/hash.data:153
 msgid "Light Snow Shower"
 msgstr "ثلوج خفيفة متفرقة"
 
-#: omweather/src/hash.data:152
+#: omweather/src/hash.data:154
 #, fuzzy
 msgid "Light Snow Showers"
 msgstr "ثلوج خفيفة متفرقة"
 
-#: omweather/src/hash.data:146
+#: omweather/src/hash.data:148
 #, fuzzy
 msgid "Light Snowfall"
 msgstr "ثلوج خفيفة"
 
-#: omweather/src/hash.data:401
+#: omweather/src/hash.data:403
 msgid "Light intensity drizzle"
 msgstr "رذاذ ذو كثافة خفيفة"
 
-#: omweather/src/hash.data:417
+#: omweather/src/hash.data:419
 msgid "Light intensity shower rain"
 msgstr "أمطار ذات كثافة خفيفة"
 
-#: omweather/src/hash.data:153
+#: omweather/src/hash.data:155
 msgid "Light or Moderate Precipitation"
 msgstr ""
 
-#: omweather/src/hash.data:397
+#: omweather/src/hash.data:399
 msgid "Light rain"
 msgstr "أمطار خفيفة"
 
-#: omweather/src/hash.data:400
+#: omweather/src/hash.data:402
 msgid "Light snow"
 msgstr "ثلوج خفيفة"
 
@@ -1555,11 +1565,11 @@ msgstr "ثلوج خفيفة"
 msgid "Loading station list"
 msgstr "تحميل قائمة المحطات"
 
-#: omweather/src/hash.data:154
+#: omweather/src/hash.data:156
 msgid "Local Pollen Reports"
 msgstr "تقارير اللقاح المحليه"
 
-#: meecast/qt-qml/qml/AboutPage.qml:170
+#: meecast/qt-qml/qml/AboutPage.qml:172
 msgid "Localization platform"
 msgstr "منصة التعريب"
 
@@ -1567,29 +1577,29 @@ msgstr "منصة التعريب"
 msgid "Long"
 msgstr "طويل"
 
-#: omweather/src/hash.data:155 meecast/qt-qml/qml/WeatherPage.qml:487
+#: omweather/src/hash.data:157 meecast/qt-qml/qml/WeatherPage.qml:487
 msgid "Looks like there's no info for this location."
 msgstr "يبدو انه لايوجد أي معلومات عن المكان."
 
-#: omweather/src/hash.data:156
+#: omweather/src/hash.data:158
 msgid "Low"
 msgstr "الصغرى"
 
-#: omweather/src/hash.data:413
+#: omweather/src/hash.data:415
 msgid "Mainly cloudy with occasional rain."
 msgstr "غائم مع امطار نسبيه"
 
-#: omweather/src/hash.data:414
+#: omweather/src/hash.data:416
 #, fuzzy
 msgid "Mainly cloudy, Slight shower of rain"
 msgstr "غائم مع امطار نسبيه"
 
-#: omweather/src/hash.data:159
+#: omweather/src/hash.data:161
 #, fuzzy
 msgid "Mainly cloudy, drizzle"
 msgstr "غائم جزئيأ مع زخات مطر"
 
-#: omweather/src/hash.data:158
+#: omweather/src/hash.data:160
 #, fuzzy
 msgid "Mainly cloudy, showers"
 msgstr "غائم جزئيأ مع زخات مطر"
@@ -1601,7 +1611,7 @@ msgid ""
 msgstr ""
 "صيانة: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail.com>\n"
 
-#: omweather/src/hash.data:157 meecast/qt-qml/qml/StationsPage.qml:158
+#: omweather/src/hash.data:159 meecast/qt-qml/qml/StationsPage.qml:158
 msgid "Manage locations"
 msgstr "إدارة الأماكن"
 
@@ -1638,35 +1648,35 @@ msgstr "أمتار"
 msgid "Miles"
 msgstr "أميال"
 
-#: omweather/src/hash.data:160
+#: omweather/src/hash.data:162
 msgid "Mist"
 msgstr "سحب"
 
-#: omweather/src/hash.data:162
+#: omweather/src/hash.data:164
 #, fuzzy
 msgid "Moderate Freezing Rain"
 msgstr "أمطار معتدله"
 
-#: omweather/src/hash.data:403
+#: omweather/src/hash.data:405
 msgid "Moderate Rain"
 msgstr "أمطار معتدله"
 
-#: omweather/src/hash.data:404
+#: omweather/src/hash.data:406
 #, fuzzy
 msgid "Moderate Rain Showers"
 msgstr "أمطار معتدله"
 
-#: omweather/src/hash.data:161
+#: omweather/src/hash.data:163
 #, fuzzy
 msgid "Moderate Sleet"
 msgstr "أمطار معتدله"
 
-#: omweather/src/hash.data:163
+#: omweather/src/hash.data:165
 #, fuzzy
 msgid "Moderate Snow Showers"
 msgstr "زخات ثلج صباحاً"
 
-#: omweather/src/hash.data:402
+#: omweather/src/hash.data:404
 msgid "Moderate rain"
 msgstr "أمطار معتدله"
 
@@ -1674,131 +1684,131 @@ msgstr "أمطار معتدله"
 msgid "Modification"
 msgstr "تعديل"
 
-#: omweather/src/hash.data:164
+#: omweather/src/hash.data:166
 msgid "Mostly Clear"
 msgstr "صحو كلياً"
 
-#: omweather/src/hash.data:175
+#: omweather/src/hash.data:177
 msgid "Mostly Cloudy"
 msgstr "غائم كلياً"
 
-#: omweather/src/hash.data:166
+#: omweather/src/hash.data:168
 msgid "Mostly Cloudy / Wind"
 msgstr "غائم كلياً / رياح"
 
-#: omweather/src/hash.data:167
+#: omweather/src/hash.data:169
 #, fuzzy
 msgid "Mostly Cloudy / Windy"
 msgstr "غائم كلياً / رياح"
 
-#: omweather/src/hash.data:168
+#: omweather/src/hash.data:170
 msgid "Mostly Cloudy Few Snow"
 msgstr "ثلوج قليلة غائمة كلياً"
 
-#: omweather/src/hash.data:169
+#: omweather/src/hash.data:171
 msgid "Mostly Cloudy Light Rain"
 msgstr "أمطار خفيفة غائمه كلياً"
 
-#: omweather/src/hash.data:170
+#: omweather/src/hash.data:172
 msgid "Mostly Cloudy Rain"
 msgstr "أمطار غائمه كلياً"
 
-#: omweather/src/hash.data:171
+#: omweather/src/hash.data:173
 msgid "Mostly Cloudy Snow"
 msgstr "ثلوج غائمه كلياً"
 
-#: omweather/src/hash.data:172
+#: omweather/src/hash.data:174
 msgid "Mostly Cloudy T-Storm"
 msgstr "عواصف رعديه غائمه كلياً"
 
-#: omweather/src/hash.data:165 omweather/src/hash.data:173
-#: omweather/src/hash.data:174
+#: omweather/src/hash.data:167 omweather/src/hash.data:175
+#: omweather/src/hash.data:176
 msgid "Mostly Cloudy and Windy"
 msgstr "غائم كلياً مصحوب برياح"
 
-#: omweather/src/hash.data:176
+#: omweather/src/hash.data:178
 msgid "Mostly Cloudy, Drifting Snow"
 msgstr "غائم كلياً, ثلوج منجرفه"
 
-#: omweather/src/hash.data:177
+#: omweather/src/hash.data:179
 msgid "Mostly Cloudy, Few Snow"
 msgstr "غائم كلياً, ثلوج قليله"
 
-#: omweather/src/hash.data:178
+#: omweather/src/hash.data:180
 msgid "Mostly Cloudy, Fog"
 msgstr "غائم كلياً, ضباب"
 
-#: omweather/src/hash.data:179
+#: omweather/src/hash.data:181
 msgid "Mostly Cloudy, Fog, Drizzle"
 msgstr "غائم كلياً, ضباب, رذاذ"
 
-#: omweather/src/hash.data:180
+#: omweather/src/hash.data:182
 msgid "Mostly Cloudy, Heavy Rain"
 msgstr "غائم كلياً, أمطار كثيفه"
 
-#: omweather/src/hash.data:181
+#: omweather/src/hash.data:183
 msgid "Mostly Cloudy, Heavy Rain, T-Storm"
 msgstr "غائم كلياً, أمطار كثيفه, عواصف رعديه"
 
-#: omweather/src/hash.data:182
+#: omweather/src/hash.data:184
 msgid "Mostly Cloudy, Heavy Snow"
 msgstr "غائم كلياً, ثلوج كثيفه"
 
-#: omweather/src/hash.data:183
+#: omweather/src/hash.data:185
 msgid "Mostly Cloudy, Heavy Snow, Freezing Rain"
 msgstr "غائم كلياً, ثلوج كثيفه, أمطار متجمده"
 
-#: omweather/src/hash.data:184
+#: omweather/src/hash.data:186
 msgid "Mostly Cloudy, Light Rain"
 msgstr "غائم كلياً, أمطار خفيفه"
 
-#: omweather/src/hash.data:185
+#: omweather/src/hash.data:187
 msgid "Mostly Cloudy, Light Rain, Drizzle"
 msgstr "غائم كلياً, أمطال خفيفه, رذاذ"
 
-#: omweather/src/hash.data:186
+#: omweather/src/hash.data:188
 msgid "Mostly Cloudy, Light Rain, T-Storm"
 msgstr "غائم كلياً, أمطار خفيفه, عواصف رعديه"
 
-#: omweather/src/hash.data:187
+#: omweather/src/hash.data:189
 #, fuzzy
 msgid "Mostly Cloudy, Light Rain, Weak Heavy Rain"
 msgstr "غائم, أمطار كثيفه"
 
-#: omweather/src/hash.data:188
+#: omweather/src/hash.data:190
 msgid "Mostly Cloudy, Rain"
 msgstr "غائم كلياً,  أمطار"
 
-#: omweather/src/hash.data:189
+#: omweather/src/hash.data:191
 msgid "Mostly Cloudy, Rain, T-Storm"
 msgstr "غائم كلياً, أمطار, عواصف رعديه"
 
-#: omweather/src/hash.data:190
+#: omweather/src/hash.data:192
 msgid "Mostly Cloudy, Smoke"
 msgstr "غائم كلياً, ضباب"
 
-#: omweather/src/hash.data:191
+#: omweather/src/hash.data:193
 msgid "Mostly Cloudy, Snow"
 msgstr "غائم كلياً, ثلوج"
 
-#: omweather/src/hash.data:192
+#: omweather/src/hash.data:194
 msgid "Mostly Cloudy, T-Storm"
 msgstr "غائم كليأ, عواصف رعديه"
 
-#: omweather/src/hash.data:193
+#: omweather/src/hash.data:195
 msgid "Mostly Sunny"
 msgstr "مشمس كليأ"
 
-#: omweather/src/hash.data:195
+#: omweather/src/hash.data:197
 msgid "Mostly clear"
 msgstr "صحو كلياً"
 
-#: omweather/src/hash.data:194
+#: omweather/src/hash.data:196
 #, fuzzy
 msgid "Mostly sunny"
 msgstr "مشمس كليأ"
 
-#: omweather/src/hash.data:196
+#: omweather/src/hash.data:198
 msgid "N"
 msgstr "شمال"
 
@@ -1808,47 +1818,47 @@ msgstr "شمال"
 #: omweather/src/weather-home.c:2727 omweather/src/weather-home.c:2735
 #: omweather/src/weather-home.c:2818 omweather/src/weather-home.c:2822
 #: omweather/src/weather-home.c:2835 omweather/src/weather-home.c:2839
-#: omweather/src/hash.data:197
+#: omweather/src/hash.data:199
 msgid "N/A"
 msgstr "غير متاح"
 
-#: omweather/src/hash.data:198
+#: omweather/src/hash.data:200
 msgid "NE"
 msgstr "شمالي شرقي"
 
-#: omweather/src/hash.data:199
+#: omweather/src/hash.data:201
 msgid "NE_short"
 msgstr "NE_short"
 
-#: omweather/src/hash.data:200
+#: omweather/src/hash.data:202
 msgid "NNE"
 msgstr "شمالية شرقية الى الشرق"
 
-#: omweather/src/hash.data:201
+#: omweather/src/hash.data:203
 msgid "NNE_short"
 msgstr "NNE_short"
 
-#: omweather/src/hash.data:202
+#: omweather/src/hash.data:204
 msgid "NNW"
 msgstr "شمالي الى شمالي غربي"
 
-#: omweather/src/hash.data:203
+#: omweather/src/hash.data:205
 msgid "NNW_short"
 msgstr "NNW_short"
 
-#: omweather/src/hash.data:204
+#: omweather/src/hash.data:206
 msgid "NO STATION"
 msgstr "لايوجد محطة"
 
-#: omweather/src/hash.data:205
+#: omweather/src/hash.data:207
 msgid "NW"
 msgstr "شمالي غربي"
 
-#: omweather/src/hash.data:206
+#: omweather/src/hash.data:208
 msgid "NW_short"
 msgstr "NW_short"
 
-#: omweather/src/hash.data:207
+#: omweather/src/hash.data:209
 msgid "N_short"
 msgstr "N_short"
 
@@ -1863,7 +1873,7 @@ msgstr "الإسم:"
 msgid "Never"
 msgstr "أبداً"
 
-#: omweather/src/hash.data:208
+#: omweather/src/hash.data:210
 msgid "New"
 msgstr "جديد"
 
@@ -1880,7 +1890,7 @@ msgstr "التحديث التالي:"
 msgid "Night"
 msgstr "مساءً"
 
-#: omweather/src/weather-popup.c:1046
+#: omweather/src/weather-popup.c:1045
 msgid "Night:"
 msgstr "مساءً:"
 
@@ -1888,29 +1898,29 @@ msgstr "مساءً:"
 msgid "No"
 msgstr "لا"
 
-#: omweather/src/weather-popup.c:669
+#: omweather/src/weather-popup.c:668
 msgid "No current weather data."
 msgstr "لايوجد أي معلومات حاليه عن الطقس."
 
-#: omweather/src/hash.data:209 meecast/qt-qml/qml/WeatherPage.qml:313
+#: omweather/src/hash.data:211 meecast/qt-qml/qml/WeatherPage.qml:313
 msgid "No locations are set up yet."
 msgstr "لم يتم تحديد المكان."
 
-#: omweather/src/weather-popup.c:657
+#: omweather/src/weather-popup.c:656
 msgid "No weather data for this day."
 msgstr "لايوجد أي معلومات عن الطقس لهذا اليوم."
 
-#: omweather/src/weather-popup.c:681 omweather/src/weather-simple-popup.c:608
+#: omweather/src/weather-popup.c:680 omweather/src/weather-simple-popup.c:608
 msgid "No weather data for this station."
 msgstr "لايوجد أي معلومات عن الطقس لهذه المحطة."
 
-#: meecast/qt-qml/qml/AboutPage.qml:260
+#: meecast/qt-qml/qml/AboutPage.qml:262
 msgid "Norwegian - Peer-Atle Motland\n"
 msgstr ""
 
 #: omweather/src/weather-home.c:2734 omweather/src/weather-home.c:2746
-#: omweather/src/weather-popup.c:459 omweather/src/weather-popup.c:570
-#: omweather/src/weather-popup.c:576
+#: omweather/src/weather-popup.c:458 omweather/src/weather-popup.c:569
+#: omweather/src/weather-popup.c:575
 #: omweather/src/weather-simple-settings.c:2886
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
@@ -1945,7 +1955,7 @@ msgstr "الأن:"
 msgid "OK"
 msgstr "موافق"
 
-#: omweather/src/weather-popup.c:532
+#: omweather/src/weather-popup.c:531
 msgid "OMWeather Forecast"
 msgstr "توقعات OMWeather"
 
@@ -1968,237 +1978,237 @@ msgstr "موافق"
 msgid "Other Maemo Weather Info"
 msgstr "معلومات Meamo Weather أُخرى"
 
-#: omweather/src/hash.data:220
+#: omweather/src/hash.data:222
 msgid "Overcast"
 msgstr "معتم"
 
-#: omweather/src/hash.data:406
+#: omweather/src/hash.data:408
 msgid "Overcast Clouds"
 msgstr "غيوم معتمه"
 
-#: omweather/src/hash.data:210
+#: omweather/src/hash.data:212
 msgid "Overcast and light rain"
 msgstr "معتم مع أمطار خفيفه"
 
-#: omweather/src/hash.data:211
+#: omweather/src/hash.data:213
 msgid "Overcast and light snow"
 msgstr "معتم مع ثلوج خفيفه"
 
-#: omweather/src/hash.data:212
+#: omweather/src/hash.data:214
 msgid "Overcast and light wet snow"
 msgstr "معتم مع ثلوج رطبة خفيفة"
 
-#: omweather/src/hash.data:213
+#: omweather/src/hash.data:215
 msgid "Overcast and rain"
 msgstr "معتم مع أمطار"
 
-#: omweather/src/hash.data:214
+#: omweather/src/hash.data:216
 msgid "Overcast and showers"
 msgstr "معتم مع زخات مطر"
 
-#: omweather/src/hash.data:216
+#: omweather/src/hash.data:218
 msgid "Overcast and snow"
 msgstr "معتم مع ثلوج"
 
-#: omweather/src/hash.data:215
+#: omweather/src/hash.data:217
 msgid "Overcast and snow showers"
 msgstr "معتم مع زخات ثلج"
 
-#: omweather/src/hash.data:218
+#: omweather/src/hash.data:220
 msgid "Overcast and wet snow"
 msgstr " معتم مع ثلوج رطبه"
 
-#: omweather/src/hash.data:217
+#: omweather/src/hash.data:219
 msgid "Overcast and wet snow showers"
 msgstr "معتم مع زخات ثلج رطبه"
 
-#: omweather/src/hash.data:405
+#: omweather/src/hash.data:407
 msgid "Overcast clouds"
 msgstr "غيوم معتمه"
 
-#: omweather/src/hash.data:219
+#: omweather/src/hash.data:221
 msgid "Overcast, thunderstorms with rain"
 msgstr "معتم, عواصف رعدية مع أمطار"
 
-#: omweather/src/hash.data:221
+#: omweather/src/hash.data:223
 msgid "PM Fog"
 msgstr "ضباب مساءً"
 
-#: omweather/src/hash.data:223
+#: omweather/src/hash.data:225
 msgid "PM Light Rain"
 msgstr "أمطار خفيفه مساءً"
 
-#: omweather/src/hash.data:222
+#: omweather/src/hash.data:224
 msgid "PM Light Rain / Wind"
 msgstr "أمطار خفيفه مساءً / رياح"
 
-#: omweather/src/hash.data:225
+#: omweather/src/hash.data:227
 msgid "PM Light Snow"
 msgstr "ثلوج خفيفه مساءً"
 
-#: omweather/src/hash.data:224
+#: omweather/src/hash.data:226
 msgid "PM Light Snow / Wind"
 msgstr "ثلوج خفيفه مساءً / رياح"
 
-#: omweather/src/hash.data:229
+#: omweather/src/hash.data:231
 msgid "PM Rain"
 msgstr "أمطار مساءً"
 
-#: omweather/src/hash.data:226
+#: omweather/src/hash.data:228
 msgid "PM Rain / Snow"
 msgstr "أمطار مساءً / ثلوج"
 
-#: omweather/src/hash.data:227 omweather/src/hash.data:230
+#: omweather/src/hash.data:229 omweather/src/hash.data:232
 #, fuzzy
 msgid "PM Rain / Snow Showers"
 msgstr "مطر صباحاً / زخات ثلج"
 
-#: omweather/src/hash.data:228
+#: omweather/src/hash.data:230
 msgid "PM Rain / Wind"
 msgstr "أمطار مساءً / رياح"
 
-#: omweather/src/hash.data:232
+#: omweather/src/hash.data:234
 msgid "PM Showers"
 msgstr "زخات مطر مساءً"
 
-#: omweather/src/hash.data:231
+#: omweather/src/hash.data:233
 msgid "PM Showers / Wind"
 msgstr "زخات مطر مساءً / رياح"
 
-#: omweather/src/hash.data:235
+#: omweather/src/hash.data:237
 msgid "PM Snow"
 msgstr "ثلوج مساءً"
 
-#: omweather/src/hash.data:236
+#: omweather/src/hash.data:238
 #, fuzzy
 msgid "PM Snow / Wind"
 msgstr "ثلج / رياح"
 
-#: omweather/src/hash.data:234
+#: omweather/src/hash.data:236
 msgid "PM Snow Showers"
 msgstr "زخات ثلج مساءً"
 
-#: omweather/src/hash.data:233
+#: omweather/src/hash.data:235
 msgid "PM Snow Showers / Wind"
 msgstr "زخات ثلج مساءً / رياح"
 
-#: omweather/src/hash.data:237
+#: omweather/src/hash.data:239
 msgid "PM T-Showers"
 msgstr "عواصف ثلجيه مساءً"
 
-#: omweather/src/hash.data:238
+#: omweather/src/hash.data:240
 msgid "PM T-Storms"
 msgstr "عواصف رعديه مساءً"
 
-#: omweather/src/hash.data:240
+#: omweather/src/hash.data:242
 msgid "Partly Cloudy"
 msgstr "غائم جزئياً"
 
-#: omweather/src/hash.data:241
+#: omweather/src/hash.data:243
 msgid "Partly Cloudy / Wind"
 msgstr "غائم جزئياً / رياح"
 
-#: omweather/src/hash.data:242
+#: omweather/src/hash.data:244
 msgid "Partly Cloudy / Windy"
 msgstr ""
 
-#: omweather/src/hash.data:243
+#: omweather/src/hash.data:245
 msgid "Partly Cloudy Few Snow"
 msgstr "غائم جزئيأ مع ثلوج خفيفه"
 
-#: omweather/src/hash.data:244
+#: omweather/src/hash.data:246
 msgid "Partly Cloudy Light Rain"
 msgstr "غائم جزئيأ مع أمطار خفيفه"
 
-#: omweather/src/hash.data:245
+#: omweather/src/hash.data:247
 msgid "Partly Cloudy T-Storm"
 msgstr "غائم جزئيأ مع عواصف رعديه"
 
-#: omweather/src/hash.data:246
+#: omweather/src/hash.data:248
 msgid "Partly Cloudy and Windly"
 msgstr "غائم جزئيأ مع رياح"
 
-#: omweather/src/hash.data:247 omweather/src/hash.data:248
+#: omweather/src/hash.data:249 omweather/src/hash.data:250
 msgid "Partly Cloudy and Windy"
 msgstr "غائم جزئيأ مصحوب رياح"
 
-#: omweather/src/hash.data:249
+#: omweather/src/hash.data:251
 msgid "Partly Cloudy, Few Snow"
 msgstr "غائم جزئيأ, ثلوج خفيفه"
 
-#: omweather/src/hash.data:250
+#: omweather/src/hash.data:252
 msgid "Partly Cloudy, Haze"
 msgstr "غائم جزئيأ, عجاج"
 
-#: omweather/src/hash.data:251
+#: omweather/src/hash.data:253
 msgid "Partly Cloudy, Heavy Rain"
 msgstr "غائم جزئياً, أمطار غزيرة"
 
-#: omweather/src/hash.data:252
+#: omweather/src/hash.data:254
 msgid "Partly Cloudy, Heavy Rain, T-Storm"
 msgstr "غائم جزئياً, أمطار غزيرة, عواصف رعديه"
 
-#: omweather/src/hash.data:253
+#: omweather/src/hash.data:255
 msgid "Partly Cloudy, Heavy Snow"
 msgstr "غائم جزئياً, ثلوج غزيرة"
 
-#: omweather/src/hash.data:254
+#: omweather/src/hash.data:256
 msgid "Partly Cloudy, Light Rain"
 msgstr "غائم جزئياً, أمطار خفيفه"
 
-#: omweather/src/hash.data:255
+#: omweather/src/hash.data:257
 msgid "Partly Cloudy, Light Rain, T-Storm"
 msgstr "غائم جزئياً, أمطار خفيفه, عواصف رعدية"
 
-#: omweather/src/hash.data:256
+#: omweather/src/hash.data:258
 msgid "Partly Cloudy, Rain"
 msgstr "غائم جزئياً, أمطار"
 
-#: omweather/src/hash.data:257
+#: omweather/src/hash.data:259
 msgid "Partly Cloudy, Rain, T-Storm"
 msgstr "غائم جزئياً, أمطار, عواصف رعديه"
 
-#: omweather/src/hash.data:258
+#: omweather/src/hash.data:260
 msgid "Partly Cloudy, Smoke"
 msgstr "غائم جزئياً, ضباب"
 
-#: omweather/src/hash.data:259
+#: omweather/src/hash.data:261
 msgid "Partly Cloudy, Snow"
 msgstr "غائم جزئياً, ثلوج"
 
-#: omweather/src/hash.data:260
+#: omweather/src/hash.data:262
 msgid "Partly Cloudy, T-Storm"
 msgstr "غائم جزئياً, عواصف رعديه"
 
-#: omweather/src/hash.data:268
+#: omweather/src/hash.data:270
 msgid "Partly cloudy"
 msgstr "غائم جزئياً"
 
-#: omweather/src/hash.data:261
+#: omweather/src/hash.data:263
 msgid "Partly cloudy and light rain"
 msgstr "غائم جزئيأ مع أمطار خفيفه"
 
-#: omweather/src/hash.data:262
+#: omweather/src/hash.data:264
 msgid "Partly cloudy and light snow"
 msgstr "غائم جزئيأ مع ثلوج خفيفه"
 
-#: omweather/src/hash.data:263
+#: omweather/src/hash.data:265
 msgid "Partly cloudy and light wet snow"
 msgstr "غائم جزئياً مع ثلوج خفيفه رطبه"
 
-#: omweather/src/hash.data:264
+#: omweather/src/hash.data:266
 msgid "Partly cloudy and showers"
 msgstr "غائم جزئيأ مع زخات مطر"
 
-#: omweather/src/hash.data:265
+#: omweather/src/hash.data:267
 msgid "Partly cloudy and snow showers"
 msgstr "غائم جزئيأ مع زخات ثلج"
 
-#: omweather/src/hash.data:266
+#: omweather/src/hash.data:268
 msgid "Partly cloudy and wet snow showers"
 msgstr "غائم جزئيأ مع زخات ثلج رطبه"
 
-#: omweather/src/hash.data:239 omweather/src/hash.data:267
+#: omweather/src/hash.data:241 omweather/src/hash.data:269
 msgid "Partly cloudy, possible thunderstorms with rain"
 msgstr "غائم جزئياً, أمطار مع عواصف رعدية مُحتَمله"
 
@@ -2206,11 +2216,11 @@ msgstr "غائم جزئياً, أمطار مع عواصف رعدية مُحتَ�
 msgid "Period"
 msgstr "المدة"
 
-#: meecast/qt-qml/qml/AboutPage.qml:244
+#: meecast/qt-qml/qml/AboutPage.qml:246
 msgid "Polish - Tomasz Dominikowski\n"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:252
+#: meecast/qt-qml/qml/AboutPage.qml:254
 msgid "Portuguese - Jose Narciso,\n"
 msgstr ""
 
@@ -2224,7 +2234,7 @@ msgstr "المكان:"
 msgid "Ppcp:"
 msgstr "Ppcp:"
 
-#: omweather/src/hash.data:269
+#: omweather/src/hash.data:271
 #, fuzzy
 msgid "Precipitation"
 msgstr ""
@@ -2266,7 +2276,7 @@ msgstr "وحدات الضغط"
 msgid "Pressure units:"
 msgstr "وحدات الضغط:"
 
-#: omweather/src/weather-popup.c:1308
+#: omweather/src/weather-popup.c:1307
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
 #: meecast/qt-qml/dataitem.cpp:202 meecast/qt-qml/qml/FullWeatherPage.qml:143
 #: meecast/qt-qml/qml/FullWeatherPage.qml:216
@@ -2278,15 +2288,15 @@ msgstr "الضغط:"
 msgid "Pressure: "
 msgstr "الضغط:"
 
-#: meecast/qt-qml/qml/AboutPage.qml:154
+#: meecast/qt-qml/qml/AboutPage.qml:156
 msgid "Programmer"
 msgstr "المبرمج"
 
-#: meecast/qt-qml/qml/AboutPage.qml:138
+#: meecast/qt-qml/qml/AboutPage.qml:140
 msgid "Project administrators"
 msgstr "مدير المشروع"
 
-#: meecast/qt-qml/qml/AboutPage.qml:202
+#: meecast/qt-qml/qml/AboutPage.qml:204
 msgid "Project manager"
 msgstr "مدير المشروع"
 
@@ -2294,117 +2304,117 @@ msgstr "مدير المشروع"
 msgid "Provided by"
 msgstr "مقدمة من"
 
-#: omweather/src/hash.data:270
+#: omweather/src/hash.data:272
 #, fuzzy
 msgid "Proximity shower rain"
 msgstr "أمطار ذات كثافة خفيفة"
 
-#: omweather/src/hash.data:271
+#: omweather/src/hash.data:273
 msgid "Rain"
 msgstr "مطر"
 
-#: omweather/src/hash.data:273
+#: omweather/src/hash.data:275
 msgid "Rain / Freezing Rain"
 msgstr "أمطار / أمطار متجمدة"
 
-#: omweather/src/hash.data:272
+#: omweather/src/hash.data:274
 #, fuzzy
 msgid "Rain / Ice Early"
 msgstr "أمطار / ثلوج مُبكره"
 
-#: omweather/src/hash.data:282
+#: omweather/src/hash.data:284
 msgid "Rain / Snow"
 msgstr "أمطار / ثلج"
 
-#: omweather/src/hash.data:274
+#: omweather/src/hash.data:276
 msgid "Rain / Snow / Wind"
 msgstr "أمطار / ثلج / رياح"
 
-#: omweather/src/hash.data:275
+#: omweather/src/hash.data:277
 #, fuzzy
 msgid "Rain / Snow / Wind Early"
 msgstr "أمطار / ثلج / رياح"
 
-#: omweather/src/hash.data:276
+#: omweather/src/hash.data:278
 msgid "Rain / Snow Early"
 msgstr "أمطار / ثلوج مُبكره"
 
-#: omweather/src/hash.data:277
+#: omweather/src/hash.data:279
 msgid "Rain / Snow Late"
 msgstr "مطر / ثلوج في وقت متأخر"
 
-#: omweather/src/hash.data:281
+#: omweather/src/hash.data:283
 msgid "Rain / Snow Showers"
 msgstr "مطر / زخات ثلج"
 
-#: omweather/src/hash.data:278
+#: omweather/src/hash.data:280
 msgid "Rain / Snow Showers / Wind"
 msgstr "مطر / زخات ثلج / رياح"
 
-#: omweather/src/hash.data:279
+#: omweather/src/hash.data:281
 #, fuzzy
 msgid "Rain / Snow Showers Early"
 msgstr "مطر / زخات ثلج"
 
-#: omweather/src/hash.data:280
+#: omweather/src/hash.data:282
 msgid "Rain / Snow Showers Late"
 msgstr "مطر / زخات ثلج في وقت متأخر"
 
-#: omweather/src/hash.data:283
+#: omweather/src/hash.data:285
 msgid "Rain / Thunder"
 msgstr "أمطار / رعد"
 
-#: omweather/src/hash.data:285
+#: omweather/src/hash.data:287
 msgid "Rain / Wind"
 msgstr "أمطار / رياح"
 
-#: omweather/src/hash.data:284
+#: omweather/src/hash.data:286
 msgid "Rain / Wind Early"
 msgstr "أمطار / رياح مُبكره"
 
-#: omweather/src/hash.data:286
+#: omweather/src/hash.data:288
 msgid "Rain Early"
 msgstr "أمطار  مُبكرة"
 
-#: omweather/src/hash.data:287
+#: omweather/src/hash.data:289
 msgid "Rain Late"
 msgstr "مطر في وقت متأخر"
 
-#: omweather/src/hash.data:289
+#: omweather/src/hash.data:291
 msgid "Rain Shower"
 msgstr "زخات مطر "
 
-#: omweather/src/hash.data:288
+#: omweather/src/hash.data:290
 msgid "Rain Shower and Windy"
 msgstr "رياح وزخات مطر"
 
-#: omweather/src/hash.data:290
+#: omweather/src/hash.data:292
 msgid "Rain Showers"
 msgstr "زخات مطر"
 
-#: omweather/src/hash.data:291
+#: omweather/src/hash.data:293
 msgid "Rain and Snow"
 msgstr "أمطار وثلوج"
 
-#: omweather/src/hash.data:292
+#: omweather/src/hash.data:294
 #, fuzzy
 msgid "Rain and snow"
 msgstr "أمطار وثلوج"
 
-#: omweather/src/hash.data:293
+#: omweather/src/hash.data:295
 #, fuzzy
 msgid "Rain to Snow"
 msgstr "أمطار / ثلج"
 
-#: omweather/src/hash.data:294
+#: omweather/src/hash.data:296
 msgid "Rain to Snow / Wind"
 msgstr "أمطار مصحوبه بثلوج /رياح"
 
-#: omweather/src/hash.data:296
+#: omweather/src/hash.data:298
 msgid "Rain to Wintry Mix"
 msgstr "أمطار مصحوبه بمزيج شتوي خفيف"
 
-#: omweather/src/hash.data:295
+#: omweather/src/hash.data:297
 msgid "Rain to Wintry Mix / Wind"
 msgstr "أمطار مصحوبه بمزيج شتوي / رياح"
 
@@ -2412,7 +2422,7 @@ msgstr "أمطار مصحوبه بمزيج شتوي / رياح"
 msgid "Read sensor every:"
 msgstr "قراءة الحساس كل:"
 
-#: omweather/src/hash.data:425
+#: omweather/src/hash.data:427
 msgid "Refresh"
 msgstr ""
 
@@ -2422,53 +2432,53 @@ msgstr ""
 msgid "Region"
 msgstr "المنطقة"
 
-#: omweather/src/hash.data:297
+#: omweather/src/hash.data:299
 msgid "Rush Hour Traffic"
 msgstr "وقت الذروة"
 
-#: meecast/qt-qml/qml/AboutPage.qml:231
+#: meecast/qt-qml/qml/AboutPage.qml:233
 msgid ""
 "Russian - Pavel Fialko, Vlad Vasilyeu, \n"
 " \tEd Bartosh\n"
 msgstr ""
 
-#: omweather/src/hash.data:298
+#: omweather/src/hash.data:300
 msgid "S"
 msgstr "جنوب"
 
-#: omweather/src/hash.data:299
+#: omweather/src/hash.data:301
 msgid "SE"
 msgstr "جنوب شرقی"
 
-#: omweather/src/hash.data:300
+#: omweather/src/hash.data:302
 msgid "SE_short"
 msgstr "SE_short"
 
-#: omweather/src/hash.data:301
+#: omweather/src/hash.data:303
 msgid "SSE"
 msgstr "جنوب شرقی الى الجنوب"
 
-#: omweather/src/hash.data:302
+#: omweather/src/hash.data:304
 msgid "SSE_short"
 msgstr "SSE_short"
 
-#: omweather/src/hash.data:303
+#: omweather/src/hash.data:305
 msgid "SSW"
 msgstr "جنوب غربي الى الجنوب"
 
-#: omweather/src/hash.data:304
+#: omweather/src/hash.data:306
 msgid "SSW_short"
 msgstr "SSW_short"
 
-#: omweather/src/hash.data:305
+#: omweather/src/hash.data:307
 msgid "SW"
 msgstr "جنوبي غربي"
 
-#: omweather/src/hash.data:306
+#: omweather/src/hash.data:308
 msgid "SW_short"
 msgstr "SW_short"
 
-#: omweather/src/hash.data:307
+#: omweather/src/hash.data:309
 msgid "S_short"
 msgstr "S_short"
 
@@ -2482,27 +2492,27 @@ msgstr "S_short"
 msgid "Save"
 msgstr "حفظ"
 
-#: omweather/src/hash.data:408
+#: omweather/src/hash.data:410
 msgid "Scattered Clouds"
 msgstr "غيوم مُتفرقة"
 
-#: omweather/src/hash.data:308
+#: omweather/src/hash.data:310
 msgid "Scattered Showers"
 msgstr "أمطار مُتفرقة"
 
-#: omweather/src/hash.data:310
+#: omweather/src/hash.data:312
 msgid "Scattered Snow"
 msgstr "ثلوج مُتفرقة"
 
-#: omweather/src/hash.data:309
+#: omweather/src/hash.data:311
 msgid "Scattered Snow Showers"
 msgstr "ثلوج مُتساقطة مُتفرقة"
 
-#: omweather/src/hash.data:311
+#: omweather/src/hash.data:313
 msgid "Scattered T-Storms"
 msgstr "عواصف رعديه مُتفرقة"
 
-#: omweather/src/hash.data:407
+#: omweather/src/hash.data:409
 msgid "Scattered clouds"
 msgstr "غيوم مُتفرقة"
 
@@ -2598,7 +2608,7 @@ msgstr "إختيار المحطة"
 msgid "Sensor"
 msgstr "الحساس"
 
-#: meecast/qt-qml/qml/AboutPage.qml:259
+#: meecast/qt-qml/qml/AboutPage.qml:261
 msgid "Serbian - Aleksandar Zaric\n"
 msgstr ""
 
@@ -2606,7 +2616,7 @@ msgstr ""
 msgid "Set"
 msgstr "ضبط"
 
-#: omweather/src/hash.data:312 meecast/qt-qml/qml/WeatherPage.qml:327
+#: omweather/src/hash.data:314 meecast/qt-qml/qml/WeatherPage.qml:327
 msgid "Set locations"
 msgstr "ضبط الأماكن"
 
@@ -2632,7 +2642,7 @@ msgstr "إعدادت شاشة القفل"
 msgid "Settings of StandbyScreen"
 msgstr "إعدادات شاشة الإنتظار"
 
-#: omweather/src/hash.data:313
+#: omweather/src/hash.data:315
 msgid "Shallow Fog"
 msgstr "ضباب سطحي"
 
@@ -2644,19 +2654,15 @@ msgstr "قصير"
 msgid "Show arrows"
 msgstr "إظهار الأسهم"
 
-#: omweather/src/hash.data:424
+#: omweather/src/hash.data:426
 msgid "Show last update time"
 msgstr ""
-
-#: meecast/qt-qml/qml/FullWeatherPage.qml:648
-msgid "Show on Map"
-msgstr "إظهار على الخريطة"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
 msgstr "عرض الطقس الحالي فقط في الأيقونة الاولى"
 
-#: omweather/src/hash.data:423
+#: omweather/src/hash.data:425
 msgid "Show source logo"
 msgstr ""
 
@@ -2672,123 +2678,123 @@ msgstr "عرض الحرارة في:"
 msgid "Show wind"
 msgstr "عرض الرياح"
 
-#: omweather/src/hash.data:314
+#: omweather/src/hash.data:316
 msgid "Showers"
 msgstr "زخات"
 
-#: omweather/src/hash.data:316
+#: omweather/src/hash.data:318
 msgid "Showers / Wind"
 msgstr "زخات/رياح"
 
-#: omweather/src/hash.data:315
+#: omweather/src/hash.data:317
 msgid "Showers / Wind Early"
 msgstr "زخات/رياح مُبكرة"
 
-#: omweather/src/hash.data:317
+#: omweather/src/hash.data:319
 msgid "Showers Early"
 msgstr "زخات مُبكرة"
 
-#: omweather/src/hash.data:318
+#: omweather/src/hash.data:320
 msgid "Showers Late"
 msgstr "زخات متأخره"
 
-#: omweather/src/hash.data:319
+#: omweather/src/hash.data:321
 msgid "Showers in the Vicinity"
 msgstr "زخات مطر في المنطقة المجاورة"
 
-#: omweather/src/hash.data:320
+#: omweather/src/hash.data:322
 msgid "Showers or Intermittent Precipitation"
 msgstr ""
 
-#: omweather/src/hash.data:410
+#: omweather/src/hash.data:412
 msgid "Sky is Clear"
 msgstr "سماء صافيه"
 
-#: omweather/src/hash.data:409
+#: omweather/src/hash.data:411
 msgid "Sky is clear"
 msgstr "سماء صافيه"
 
-#: omweather/src/hash.data:321
+#: omweather/src/hash.data:323
 msgid "Sleet"
 msgstr "صقيع"
 
-#: omweather/src/hash.data:322
+#: omweather/src/hash.data:324
 #, fuzzy
 msgid "Sleet Showers"
 msgstr "زخات مطر قليله"
 
-#: meecast/qt-qml/qml/AboutPage.qml:245
+#: meecast/qt-qml/qml/AboutPage.qml:247
 msgid "Slovak - Roman Moravčík\n"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:262
+#: meecast/qt-qml/qml/AboutPage.qml:264
 msgid "Slovenian - Boštjan Štrumbelj\n"
 msgstr ""
 
-#: omweather/src/hash.data:323
+#: omweather/src/hash.data:325
 msgid "Smoke"
 msgstr "دخان"
 
-#: omweather/src/hash.data:324
+#: omweather/src/hash.data:326
 msgid "Snow"
 msgstr "ثلج"
 
-#: omweather/src/hash.data:328
+#: omweather/src/hash.data:330
 msgid "Snow / Wind"
 msgstr "ثلج / رياح"
 
-#: omweather/src/hash.data:325
+#: omweather/src/hash.data:327
 #, fuzzy
 msgid "Snow Early"
 msgstr "زخات مُبكرة"
 
-#: omweather/src/hash.data:326
+#: omweather/src/hash.data:328
 #, fuzzy
 msgid "Snow Late"
 msgstr "زخات متأخره"
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:332
 msgid "Snow Shower"
 msgstr "زخات ثلج"
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:331
 msgid "Snow Shower / Wind"
 msgstr "زخات ثلج / رياح"
 
-#: omweather/src/hash.data:331
+#: omweather/src/hash.data:333
 #, fuzzy
 msgid "Snow Showers"
 msgstr "زخات ثلج"
 
-#: omweather/src/hash.data:332
+#: omweather/src/hash.data:334
 msgid "Snow Showers / Wind Early"
 msgstr "زخات ثلج / رياح مُبكرة"
 
-#: omweather/src/hash.data:333
+#: omweather/src/hash.data:335
 msgid "Snow Showers Early"
 msgstr "زخات ثلج مُبكرة"
 
-#: omweather/src/hash.data:334
+#: omweather/src/hash.data:336
 msgid "Snow Showers Late"
 msgstr "زخات ثلج متأخره"
 
-#: omweather/src/hash.data:335
+#: omweather/src/hash.data:337
 msgid "Snow and Freezing Rain"
 msgstr "ثلوج وأمطار متجمدة"
 
-#: omweather/src/hash.data:336
+#: omweather/src/hash.data:338
 msgid "Snow to Rain"
 msgstr "ثلوج الى أمطار"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:340
 msgid "Snow to Wintry Mix"
 msgstr "ثلوج مصحوبه بمزيج شتوي خفيف"
 
-#: omweather/src/hash.data:337
+#: omweather/src/hash.data:339
 msgid "Snow to Wintry Mix / Wind"
 msgstr "ثلوج مصحوبه بمزيج شتوي / رياح"
 
-#: omweather/src/hash.data:327
+#: omweather/src/hash.data:329
 #, fuzzy
 msgid "Snowfall"
 msgstr "ثلج"
@@ -2797,7 +2803,7 @@ msgstr "ثلج"
 msgid "Source"
 msgstr "المصدر"
 
-#: meecast/qt-qml/qml/AboutPage.qml:334
+#: meecast/qt-qml/qml/AboutPage.qml:336
 msgid "Source code"
 msgstr "المصدر البرمجي"
 
@@ -2805,18 +2811,18 @@ msgstr "المصدر البرمجي"
 msgid "Source:"
 msgstr "المصدر:"
 
-#: meecast/qt-qml/qml/AboutPage.qml:243
+#: meecast/qt-qml/qml/AboutPage.qml:245
 msgid "Spanish - Alejandro Lopez, Agustí Clara\n"
 msgstr ""
 
-#: omweather/src/weather-popup.c:998 omweather/src/weather-popup.c:1004
-#: omweather/src/weather-popup.c:1011 omweather/src/weather-popup.c:1129
-#: omweather/src/weather-popup.c:1135 omweather/src/weather-popup.c:1142
+#: omweather/src/weather-popup.c:997 omweather/src/weather-popup.c:1003
+#: omweather/src/weather-popup.c:1010 omweather/src/weather-popup.c:1128
+#: omweather/src/weather-popup.c:1134 omweather/src/weather-popup.c:1141
 #: omweather/src/weather-simple-settings.c:1389
 msgid "Speed"
 msgstr "السرعة"
 
-#: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
+#: omweather/src/weather-popup.c:1331 omweather/src/weather-popup.c:1471
 #: meecast/netbook-UX/meego-panel-omweather.cpp:772
 #: meecast/qt-qml/dataitem.cpp:200
 msgid "Speed:"
@@ -2840,11 +2846,11 @@ msgstr "محطة %i"
 msgid "Stations"
 msgstr "محطات"
 
-#: omweather/src/hash.data:339 omweather/src/weather-alerts.c:154
+#: omweather/src/hash.data:341 omweather/src/weather-alerts.c:154
 msgid "Storm"
 msgstr "عاصفة"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:342
 msgid "Strong Thundershowers"
 msgstr ""
 
@@ -2852,43 +2858,39 @@ msgstr ""
 msgid "Successfully loaded"
 msgstr "تم التحميل بنجاح"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:344
 msgid "Sunny"
 msgstr "مشمس"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:343
 msgid "Sunny / Wind"
 msgstr "مُشمس / رياح"
 
-#: omweather/src/hash.data:411 omweather/src/hash.data:412
+#: omweather/src/hash.data:413 omweather/src/hash.data:414
 msgid "Sunny periods and a few showers."
 msgstr "فترات مشمسه مع زخات مطر قليلة"
 
-#: omweather/src/hash.data:343 meecast/qt-qml/qml/FullWeatherPage.qml:335
+#: omweather/src/hash.data:345 meecast/qt-qml/qml/FullWeatherPage.qml:335
 msgid "Sunrise:"
 msgstr "الشروق:"
 
-#: omweather/src/weather-popup.c:125 omweather/src/weather-popup.c:1019
+#: omweather/src/weather-popup.c:124 omweather/src/weather-popup.c:1018
 msgid "Sunrise: "
 msgstr "الشروق:"
 
-#: omweather/src/hash.data:344 meecast/qt-qml/qml/FullWeatherPage.qml:338
+#: omweather/src/hash.data:346 meecast/qt-qml/qml/FullWeatherPage.qml:338
 msgid "Sunset:"
 msgstr "الغروب:"
 
-#: omweather/src/weather-popup.c:139 omweather/src/weather-popup.c:1150
+#: omweather/src/weather-popup.c:138 omweather/src/weather-popup.c:1149
 msgid "Sunset: "
 msgstr "الغروب:"
-
-#: meecast/qt-qml/qml/AboutPage.qml:86
-msgid "Support"
-msgstr "الدعم"
 
 #: omweather/src/weather-settings.c:3773
 msgid "Swap hi/low temperature"
 msgstr "تبديل الحراره مرتفع/منخفض"
 
-#: meecast/qt-qml/qml/AboutPage.qml:267
+#: meecast/qt-qml/qml/AboutPage.qml:269
 msgid ""
 "Swedish - Angela Nennebrandt,\n"
 " \tÅke Engelbrektson, \n"
@@ -2900,37 +2902,37 @@ msgstr ""
 msgid "Switch to the next station after:"
 msgstr "إنتقل الى المحطه التاليه بعد:"
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:348
 msgid "T-Showers"
 msgstr "عواصف ثلجيه"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:347
 msgid "T-Showers Early"
 msgstr "عواصف ثلجية مُبكره"
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:349
 msgid "T-Storm"
 msgstr "عاصفة رعديه"
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:352
 msgid "T-Storms"
 msgstr "عواصف رعديه"
 
-#: omweather/src/hash.data:348
+#: omweather/src/hash.data:350
 msgid "T-Storms Early"
 msgstr "عواصف رعديه مبكره"
 
-#: omweather/src/hash.data:349
+#: omweather/src/hash.data:351
 msgid "T-Storms Late"
 msgstr "عواصف رعديه متأخره"
 
-#: omweather/src/weather-popup.c:947 omweather/src/weather-popup.c:950
-#: omweather/src/weather-popup.c:1080 omweather/src/weather-popup.c:1083
+#: omweather/src/weather-popup.c:946 omweather/src/weather-popup.c:949
+#: omweather/src/weather-popup.c:1079 omweather/src/weather-popup.c:1082
 #: omweather/src/weather-simple-settings.c:1267
 msgid "Temperature"
 msgstr "درجة الحرارة"
 
-#: omweather/src/hash.data:351 meecast/qt-qml/qml/UnitsPage.qml:30
+#: omweather/src/hash.data:353 meecast/qt-qml/qml/UnitsPage.qml:30
 #: meecast/qt-qml/qml/UnitsPage.qml:102
 msgid "Temperature units"
 msgstr "وحدات درجة الحرارة"
@@ -2944,7 +2946,7 @@ msgstr "وحدات درجة الحرارة:"
 msgid "Temperature:"
 msgstr "الحرارة:"
 
-#: omweather/src/weather-popup.c:1259 omweather/src/weather-popup.c:1441
+#: omweather/src/weather-popup.c:1258 omweather/src/weather-popup.c:1440
 msgid "Temperature: "
 msgstr "الحرارة:"
 
@@ -2956,15 +2958,15 @@ msgstr "شكرا"
 msgid "The weather has been updated."
 msgstr "تم تحديث الطقس"
 
-#: omweather/src/hash.data:418
+#: omweather/src/hash.data:420
 msgid "There are no stations to show in this view of the list"
 msgstr "لايوجد محطات لعرضها في هذه القائمة"
 
-#: omweather/src/hash.data:420
+#: omweather/src/hash.data:422
 msgid "This is experimental feature. Only English is supported."
 msgstr "هذه  الميزة تجريبية. مدعومه باللغة الإنجليزية فقط."
 
-#: meecast/qt-qml/qml/AboutPage.qml:321
+#: meecast/qt-qml/qml/AboutPage.qml:323
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2988,15 +2990,15 @@ msgid ""
 msgstr ""
 "هذا التطبيق مجاني, يمكنك إعادة نشره أو تعديله تحت شروط رخصة GNU العمومية\n"
 
-#: omweather/src/hash.data:352
+#: omweather/src/hash.data:354
 msgid "Thunder"
 msgstr "رعد"
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:356
 msgid "Thunder in the Vicinity"
 msgstr "رعود في المنطقة المجاورة"
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:355
 #, fuzzy
 msgid "Thundershowers"
 msgstr "رعد"
@@ -3008,7 +3010,7 @@ msgstr "رعد"
 msgid "Today"
 msgstr "اليوم"
 
-#: omweather/src/weather-help.c:154 meecast/qt-qml/qml/AboutPage.qml:218
+#: omweather/src/weather-help.c:154 meecast/qt-qml/qml/AboutPage.qml:220
 msgid "Translators"
 msgstr "المترجمين"
 
@@ -3020,7 +3022,7 @@ msgstr ""
 "المترجمين: الفرنسية - Nicolas Granziano, Philippe, Benot Knecht; الروسية - "
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 
-#: omweather/src/hash.data:426
+#: omweather/src/hash.data:428
 #, fuzzy
 msgid "Transparency"
 msgstr "الشفافية:"
@@ -3030,11 +3032,11 @@ msgstr "الشفافية:"
 msgid "Transparency:"
 msgstr "الشفافية:"
 
-#: omweather/src/hash.data:355 meecast/qt-qml/qml/WeatherPage.qml:501
+#: omweather/src/hash.data:357 meecast/qt-qml/qml/WeatherPage.qml:501
 msgid "Try to update"
 msgstr "حاول التحديث"
 
-#: meecast/qt-qml/qml/AboutPage.qml:253
+#: meecast/qt-qml/qml/AboutPage.qml:255
 msgid ""
 "Turkish - Burak Kaan Kose,\n"
 " \tMehmet Çilingir\n"
@@ -3056,7 +3058,7 @@ msgid "Units"
 msgstr "الوحدات"
 
 #: omweather/src/weather-home.c:240 omweather/src/weather-settings.c:78
-#: omweather/src/weather-popup.c:266 omweather/src/weather-popup.c:278
+#: omweather/src/weather-popup.c:265 omweather/src/weather-popup.c:277
 #: omweather/src/weather-download.c:468
 #: omweather/src/weather-simple-popup.c:163
 #: omweather/src/weather-simple-popup.c:271
@@ -3070,7 +3072,7 @@ msgstr "الوحدات"
 msgid "Unknown"
 msgstr "غير معروف"
 
-#: omweather/src/hash.data:356
+#: omweather/src/hash.data:358
 msgid "Unlimited"
 msgstr "غير محدود"
 
@@ -3087,7 +3089,7 @@ msgstr "التحديث مازال جاري."
 msgid "Update interval"
 msgstr "فترة التحيدث"
 
-#: omweather/src/hash.data:357 meecast/qt-qml/qml/WeatherPage.qml:360
+#: omweather/src/hash.data:359 meecast/qt-qml/qml/WeatherPage.qml:360
 msgid "Updating forecast"
 msgstr "تحديث التوقعات"
 
@@ -3119,7 +3121,7 @@ msgstr ""
 msgid "Use device temperature sensor"
 msgstr "إستخدام حساس الحرارة الخاص بالجهاز"
 
-#: omweather/src/hash.data:358
+#: omweather/src/hash.data:360
 msgid "VAR"
 msgstr "VAR"
 
@@ -3127,17 +3129,17 @@ msgstr "VAR"
 msgid "Valid time for current weather:"
 msgstr "الوقت الصحيح للطقس الحالي:"
 
-#: omweather/src/hash.data:359
+#: omweather/src/hash.data:361
 msgid "Very High"
 msgstr "مرتفع جدا"
 
-#: meecast/qt-qml/qml/AboutPage.qml:265
+#: meecast/qt-qml/qml/AboutPage.qml:267
 msgid ""
 "Vietnamese - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
 msgstr ""
 
-#: omweather/src/hash.data:421
+#: omweather/src/hash.data:423
 #, fuzzy
 msgid "Violent Rain Showers"
 msgstr "أمطار خفيفة متفرقة"
@@ -3150,7 +3152,7 @@ msgstr "العناصر الظاهره:"
 msgid "Visible units"
 msgstr "وحدة الرؤيا"
 
-#: omweather/src/weather-popup.c:1288
+#: omweather/src/weather-popup.c:1287
 #: meecast/qt-qml/qml/FullWeatherPage.qml:187
 msgid "Visible:"
 msgstr "مرئي:"
@@ -3160,15 +3162,15 @@ msgstr "مرئي:"
 msgid "Visuals"
 msgstr "المرئيات"
 
-#: omweather/src/hash.data:419
+#: omweather/src/hash.data:421
 msgid "Voice forecast button on a widget"
 msgstr "توقعات الطقس الصوتيه على الويدجت"
 
-#: omweather/src/hash.data:422
+#: omweather/src/hash.data:424
 msgid "Voice weather forecast"
 msgstr "توقعات الطقس الصوتيه"
 
-#: omweather/src/hash.data:360
+#: omweather/src/hash.data:362
 msgid "W"
 msgstr "غرب"
 
@@ -3178,31 +3180,31 @@ msgstr "غرب"
 msgid "WLAN"
 msgstr "WLAN"
 
-#: omweather/src/hash.data:361
+#: omweather/src/hash.data:363
 msgid "WNW"
 msgstr "غربي الى شمالي غربي"
 
-#: omweather/src/hash.data:362
+#: omweather/src/hash.data:364
 msgid "WNW_short"
 msgstr "WNW_short"
 
-#: omweather/src/hash.data:363
+#: omweather/src/hash.data:365
 msgid "WSW"
 msgstr "جنوب غربي الى غرب"
 
-#: omweather/src/hash.data:364
+#: omweather/src/hash.data:366
 msgid "WSW_short"
 msgstr "WSW_short"
 
-#: omweather/src/hash.data:365
+#: omweather/src/hash.data:367
 msgid "W_short"
 msgstr "W_short"
 
-#: omweather/src/hash.data:366
+#: omweather/src/hash.data:368
 msgid "Waning Crescent"
 msgstr "Waning Crescent"
 
-#: omweather/src/hash.data:367
+#: omweather/src/hash.data:369
 msgid "Waning Gibbous"
 msgstr "Waning Gibbous"
 
@@ -3210,15 +3212,15 @@ msgstr "Waning Gibbous"
 msgid "Warning"
 msgstr "تحذير"
 
-#: omweather/src/hash.data:368
+#: omweather/src/hash.data:370
 msgid "Waxing Crescent"
 msgstr "Waxing Crescent"
 
-#: omweather/src/hash.data:369
+#: omweather/src/hash.data:371
 msgid "Waxing Gibbous"
 msgstr "Waxing Gibbous"
 
-#: omweather/src/weather-popup.c:1553
+#: omweather/src/weather-popup.c:1552
 msgid "Weather data provided by: "
 msgstr "بيانات الطقس مُقدمة من:"
 
@@ -3251,7 +3253,7 @@ msgstr "شكل الويدجت"
 msgid "Widget style and Iconset"
 msgstr "شكل الويدجت ومجموعة الأيقونات"
 
-#: omweather/src/hash.data:373
+#: omweather/src/hash.data:375
 msgid "Wind"
 msgstr "رياح"
 
@@ -3261,7 +3263,7 @@ msgstr "رياح"
 msgid "Wind direction"
 msgstr "إتجاه الرياح"
 
-#: omweather/src/hash.data:370
+#: omweather/src/hash.data:372
 msgid "Wind direction:"
 msgstr "إتجاه الرياح:"
 
@@ -3271,7 +3273,7 @@ msgstr "إتجاه الرياح:"
 msgid "Wind gust:"
 msgstr "قوة الرياح:"
 
-#: omweather/src/hash.data:372 meecast/qt-qml/qml/FullWeatherPage.qml:147
+#: omweather/src/hash.data:374 meecast/qt-qml/qml/FullWeatherPage.qml:147
 #: meecast/qt-qml/qml/FullWeatherPage.qml:150
 #: meecast/qt-qml/qml/FullWeatherPage.qml:220
 #: meecast/qt-qml/qml/FullWeatherPage.qml:223
@@ -3280,7 +3282,7 @@ msgstr "قوة الرياح:"
 msgid "Wind speed"
 msgstr "سرعة الرياح:"
 
-#: omweather/src/hash.data:371 meecast/qt-qml/qml/UnitsPage.qml:39
+#: omweather/src/hash.data:373 meecast/qt-qml/qml/UnitsPage.qml:39
 #: meecast/qt-qml/qml/UnitsPage.qml:141
 msgid "Wind speed units"
 msgstr "وحدات سرعة الرياح"
@@ -3289,35 +3291,35 @@ msgstr "وحدات سرعة الرياح"
 msgid "Wind speed units:"
 msgstr "وحدات سرعة الرياح:"
 
-#: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
+#: omweather/src/weather-popup.c:1326 omweather/src/weather-popup.c:1467
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
 #: meecast/qt-qml/dataitem.cpp:198
 msgid "Wind:"
 msgstr "رياح:"
 
 #: omweather/src/weather-home.c:1409 omweather/src/weather-home.c:1464
-#: omweather/src/weather-popup.c:992 omweather/src/weather-popup.c:1123
+#: omweather/src/weather-popup.c:991 omweather/src/weather-popup.c:1122
 msgid "Wind: "
 msgstr "رياح:"
 
-#: omweather/src/hash.data:378
+#: omweather/src/hash.data:380
 msgid "Wintry Mix"
 msgstr "مزيج شتوي"
 
-#: omweather/src/hash.data:375
+#: omweather/src/hash.data:377
 msgid "Wintry Mix / Wind"
 msgstr "مزيج شتوي/ رياح"
 
-#: omweather/src/hash.data:374
+#: omweather/src/hash.data:376
 msgid "Wintry Mix / Wind Early"
 msgstr "بمزيج شتوي/ رياح مُبكره"
 
-#: omweather/src/hash.data:376
+#: omweather/src/hash.data:378
 #, fuzzy
 msgid "Wintry Mix / Windy"
 msgstr "مزيج شتوي/ رياح"
 
-#: omweather/src/hash.data:377
+#: omweather/src/hash.data:379
 msgid "Wintry Mix to Snow"
 msgstr "مزيج شتوي مع ثلوج"
 
@@ -3381,7 +3383,7 @@ msgstr ""
 "كما هو منشور من قبل مؤسسة البرمجيات الحرة؛ إما الإصدار 2.1 من الرخصة، أو "
 "(كما يناسبك) أي إصدار لاحق."
 
-#: omweather/src/weather-popup.c:286
+#: omweather/src/weather-popup.c:285
 msgid "current location local time"
 msgstr "التوقيت المحلي للموقع الحالي"
 
@@ -3429,7 +3431,7 @@ msgstr "كل ساعة"
 msgid "every minute (Debug)"
 msgstr "كل دقيقة (تصحيح)"
 
-#: omweather/src/hash.data:379
+#: omweather/src/hash.data:381
 msgid "falling"
 msgstr "سقوط"
 
@@ -3445,14 +3447,14 @@ msgstr "قبل ساعة"
 msgid "hours ago"
 msgstr "قبل ساعات"
 
-#: meecast/qt-qml/qml/AboutPage.qml:343
+#: meecast/qt-qml/qml/AboutPage.qml:345
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 
 #: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
 #: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4068
-#: omweather/src/weather-popup.c:983 omweather/src/weather-popup.c:1115
-#: omweather/src/weather-popup.c:1313
+#: omweather/src/weather-popup.c:982 omweather/src/weather-popup.c:1114
+#: omweather/src/weather-popup.c:1312
 #: omweather/src/weather-simple-settings.c:1479
 msgid "inHg"
 msgstr "inHg"
@@ -3466,40 +3468,40 @@ msgstr "انش"
 msgid "kPa"
 msgstr "باسكال"
 
-#: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1297
+#: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1296
 #: omweather/src/weather-simple-settings.c:1336
 #: omweather/src/weather-simple-settings.c:2670
 #: meecast/qt-qml/qml/UnitsPage.qml:239
 msgid "km"
 msgstr "كم "
 
-#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:380
+#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:382
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
 #: meecast/qt-qml/qml/UnitsPage.qml:159
 msgid "km/h"
 msgstr "كم/س"
 
-#: omweather/src/hash.data:381
+#: omweather/src/hash.data:383
 msgid "km/s"
 msgstr "كم/ث"
 
-#: omweather/src/hash.data:382
+#: omweather/src/hash.data:384
 msgid "kn"
 msgstr "عقدة"
 
-#: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1296
+#: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1295
 #: omweather/src/weather-simple-settings.c:1328
 #: omweather/src/weather-simple-settings.c:2664
 #: meecast/qt-qml/qml/UnitsPage.qml:232
 msgid "m"
 msgstr "م"
 
-#: omweather/src/hash.data:383
+#: omweather/src/hash.data:385
 msgid "m/h"
 msgstr "م/س"
 
-#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:384
+#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:386
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
 #: meecast/qt-qml/qml/UnitsPage.qml:152
@@ -3508,8 +3510,8 @@ msgstr "م/ث"
 
 #: omweather/src/weather-home.c:1397 omweather/src/weather-home.c:1452
 #: omweather/src/weather-home.c:1604 omweather/src/weather-settings.c:4055
-#: omweather/src/weather-popup.c:980 omweather/src/weather-popup.c:1112
-#: omweather/src/weather-popup.c:1312
+#: omweather/src/weather-popup.c:979 omweather/src/weather-popup.c:1111
+#: omweather/src/weather-popup.c:1311
 #: omweather/src/weather-simple-settings.c:1471
 #: omweather/src/weather-simple-settings.c:2716
 msgid "mb"
@@ -3520,20 +3522,20 @@ msgid "mbar"
 msgstr "mbar"
 
 #: omweather/src/weather-home.c:1589 omweather/src/weather-home.c:1590
-#: omweather/src/weather-popup.c:1298 omweather/src/weather-popup.c:1299
+#: omweather/src/weather-popup.c:1297 omweather/src/weather-popup.c:1298
 #: omweather/src/weather-simple-settings.c:1345
 #: omweather/src/weather-simple-settings.c:2676
 #: meecast/qt-qml/qml/UnitsPage.qml:246
 msgid "mi"
 msgstr "ميل"
 
-#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:385
+#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:387
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
 msgid "mi/h"
 msgstr "ميل/س"
 
-#: omweather/src/hash.data:386
+#: omweather/src/hash.data:388
 msgid "mi/s"
 msgstr "ميل/ثانيه"
 
@@ -3545,7 +3547,7 @@ msgstr "قبل دقيقة"
 msgid "minutes ago"
 msgstr "قبل دقائق"
 
-#: omweather/src/weather-popup.c:961 omweather/src/weather-popup.c:1094
+#: omweather/src/weather-popup.c:960 omweather/src/weather-popup.c:1093
 #: omweather/src/weather-simple-settings.c:2727
 #: meecast/qt-qml/qml/FullWeatherPage.qml:159
 #: meecast/qt-qml/qml/FullWeatherPage.qml:231
@@ -3561,8 +3563,8 @@ msgstr ""
 
 #: omweather/src/weather-home.c:1403 omweather/src/weather-home.c:1458
 #: omweather/src/weather-home.c:1606 omweather/src/weather-settings.c:4078
-#: omweather/src/weather-popup.c:986 omweather/src/weather-popup.c:1118
-#: omweather/src/weather-popup.c:1314
+#: omweather/src/weather-popup.c:985 omweather/src/weather-popup.c:1117
+#: omweather/src/weather-popup.c:1313
 #: omweather/src/weather-simple-settings.c:1488
 #: meecast/qt-qml/qml/UnitsPage.qml:213
 msgid "mmHg"
@@ -3595,7 +3597,7 @@ msgstr "التالي"
 msgid "nmi"
 msgstr "nmi"
 
-#: omweather/src/hash.data:387
+#: omweather/src/hash.data:389
 msgid "rising"
 msgstr "مُتزايد"
 
@@ -3603,7 +3605,7 @@ msgstr "مُتزايد"
 msgid "seconds ago"
 msgstr "قبل ثواني"
 
-#: omweather/src/weather-popup.c:271
+#: omweather/src/weather-popup.c:270
 msgid "station local time"
 msgstr "وقت الموقع المحلي"
 
@@ -3611,38 +3613,44 @@ msgstr "وقت الموقع المحلي"
 msgid "station name"
 msgstr "إسم الوقع"
 
-#: omweather/src/hash.data:388
+#: omweather/src/hash.data:390
 msgid "steady"
 msgstr "ثابت"
 
-#: omweather/src/hash.data:428
+#: omweather/src/hash.data:430
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:429
+#: omweather/src/hash.data:431
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:430
+#: omweather/src/hash.data:432
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:431
+#: omweather/src/hash.data:433
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:432
+#: omweather/src/hash.data:434
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:433
+#: omweather/src/hash.data:435
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:434
+#: omweather/src/hash.data:436
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:435
+#: omweather/src/hash.data:437
 msgid "Ю-З"
 msgstr "Ю-З"
+
+#~ msgid "Show on Map"
+#~ msgstr "إظهار على الخريطة"
+
+#~ msgid "Support"
+#~ msgstr "الدعم"

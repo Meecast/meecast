@@ -1497,12 +1497,20 @@ DeadHorseRiding</translation>
         <translation>强降雪</translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">持续雷雨</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation>雷暴</translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
         <translation>强降雨</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
+        <translation type="unfinished">大雨</translation>
     </message>
     <message>
         <source>High</source>
@@ -3177,10 +3185,6 @@ Ed Bartosh
         <translation>显示最后更新时间</translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation>在地图里显示</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>第一个图标显示当前天气情况</translation>
     </message>
@@ -3469,10 +3473,6 @@ Ed Bartosh
     <message>
         <source>Sunset: </source>
         <translation>日落: </translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation>支持</translation>
     </message>
     <message>
         <source>Swap hi/low temperature</source>

@@ -1501,12 +1501,20 @@ Slovački - Roman Moravčík</translation>
         <translation>Jak sneg</translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">Oluje sa grmljavinom</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation>Jaka grmljavina</translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
         <translation>Kiša jakog intenziteta</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
+        <translation type="unfinished">Snažna kiša</translation>
     </message>
     <message>
         <source>High</source>
@@ -3181,10 +3189,6 @@ Slovački - Roman Moravčík</translation>
         <translation>Prikaži poslednje vreme ažuriranja</translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation>Prikaži na mapi</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>Prikaži samo trenutno vreme na prvoj ikoni</translation>
     </message>
@@ -3473,10 +3477,6 @@ Slovački - Roman Moravčík</translation>
     <message>
         <source>Sunset: </source>
         <translation>Izlazak sunca: </translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation>Podrška</translation>
     </message>
     <message>
         <source>Swap hi/low temperature</source>

@@ -1498,12 +1498,20 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>Snehová búrka</translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">Búrky</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation>Prudká búrka</translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
         <translation>Veľmi silný dážď</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
+        <translation type="unfinished">Silný dážď</translation>
     </message>
     <message>
         <source>High</source>
@@ -3178,10 +3186,6 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>Zobraziť čas poslednej aktualizácie</translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation>Zobraziť na mape</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>Zobraziť aktuálne počasie iba na prvej ikone</translation>
     </message>
@@ -3471,10 +3475,6 @@ Ladislav Hodas
     <message>
         <source>Sunset: </source>
         <translation>Západ: </translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation>Podpora</translation>
     </message>
     <message>
         <source>Swap hi/low temperature</source>

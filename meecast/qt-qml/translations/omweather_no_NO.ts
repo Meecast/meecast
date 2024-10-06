@@ -1500,12 +1500,20 @@ Slovak - Roman Moravčík</translation>
         <translation>Tungt Snøfall</translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">Torden</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation>Mye Torden</translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
         <translation>Kraftig regn</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
+        <translation type="unfinished">Mye Regn</translation>
     </message>
     <message>
         <source>High</source>
@@ -3180,10 +3188,6 @@ Slovak - Roman Moravčík</translation>
         <translation>Vis sist oppdatert</translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation>Vis på Kart</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>Vis bare været på første ikon</translation>
     </message>
@@ -3472,10 +3476,6 @@ Slovak - Roman Moravčík</translation>
     <message>
         <source>Sunset: </source>
         <translation>Solnedgang:</translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation>Support</translation>
     </message>
     <message>
         <source>Swap hi/low temperature</source>

@@ -1455,12 +1455,20 @@ Slovak - Roman Moravčík</source>
         <translation>Сильный снегопад</translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">Грозы</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation>Сильный Гром</translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
         <translation>Сильный дождь</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
+        <translation type="unfinished">Сильный дождь</translation>
     </message>
     <message>
         <source>High</source>
@@ -3124,10 +3132,6 @@ Slovak - Roman Moravčík</source>
         <translation>Показать время последнего обновления</translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation>Показать на карте</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>Только текущая погода в первой иконке</translation>
     </message>
@@ -3413,10 +3417,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Sunset: </source>
         <translation>Закат: </translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation>Поддержка</translation>
     </message>
     <message>
         <source>Swap hi/low temperature</source>

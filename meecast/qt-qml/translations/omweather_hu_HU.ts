@@ -1414,12 +1414,20 @@ Slovak - Roman Moravčík</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">Zivatarok</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
         <translation>Felhőszakadás</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
+        <translation type="unfinished">Kiadós eső</translation>
     </message>
     <message>
         <source>High</source>
@@ -3089,10 +3097,6 @@ Előrejelzés:</translation>
         <translation>Mutasd az utolsó frissítés idejét.</translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation>Mutasd a térképen</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>Csak jelenlegi időjárás az első ikonon</translation>
     </message>
@@ -3378,10 +3382,6 @@ Előrejelzés:</translation>
     <message>
         <source>Sunset: </source>
         <translation>Napnyugta:</translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation>Támogatás</translation>
     </message>
     <message>
         <source>Swap hi/low temperature</source>

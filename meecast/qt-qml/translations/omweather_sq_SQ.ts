@@ -1477,11 +1477,19 @@ Rreshjet: </translation>
         <translation type="unfinished">Rreshje të dëndura dëbore</translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">Stuhi me rrufe</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation type="unfinished">Bubullima</translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
+        <translation type="unfinished">Shira të fortë</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
         <translation type="unfinished">Shira të fortë</translation>
     </message>
     <message>
@@ -3153,10 +3161,6 @@ Rreshjet: </translation>
         <translation type="unfinished">Përditësimi i fundit: </translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation>Trego në hartë</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>Trego kohën e tashme tek ikona e parë</translation>
     </message>
@@ -3442,10 +3446,6 @@ Rreshjet: </translation>
     <message>
         <source>Sunset: </source>
         <translation>Perëndon: </translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Swap hi/low temperature</source>

@@ -1389,11 +1389,19 @@ Slovak - Roman Moravčík</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3057,10 +3065,6 @@ Slovak - Roman Moravčík</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3345,10 +3349,6 @@ Slovak - Roman Moravčík</source>
     </message>
     <message>
         <source>Sunset: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Support</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

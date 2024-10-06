@@ -1499,12 +1499,20 @@ Català - Agustí Clara</translation>
         <translation>Neu intensa</translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">Tempestes</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation>Tempestes intenses</translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
         <translation>Pluja molt intensa</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
+        <translation type="unfinished">Pluja intensa</translation>
     </message>
     <message>
         <source>High</source>
@@ -3179,10 +3187,6 @@ Català - Agustí Clara</translation>
         <translation>Mostra l&apos;hora de l&apos;última actualització</translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation>Mostra al mapa</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>Mostra només el temps actual a la primera icona</translation>
     </message>
@@ -3471,10 +3475,6 @@ Català - Agustí Clara</translation>
     <message>
         <source>Sunset: </source>
         <translation>Posta sol:</translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation>Doneu suport</translation>
     </message>
     <message>
         <source>Swap hi/low temperature</source>

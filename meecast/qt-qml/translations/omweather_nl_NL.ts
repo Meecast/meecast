@@ -1499,12 +1499,20 @@ Slowaaks - Roman Moravčík</translation>
         <translation>Hevige sneeuwval</translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">Onweer</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation>Hevig onweer</translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
         <translation>Zware regenval</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
+        <translation type="unfinished">Zware regen</translation>
     </message>
     <message>
         <source>High</source>
@@ -3179,10 +3187,6 @@ Slowaaks - Roman Moravčík</translation>
         <translation>Toon laatste bijwerkingstijd</translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation>Weergeven op kaart</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>Toon alleen huidig weer op eerste pictogram</translation>
     </message>
@@ -3471,10 +3475,6 @@ Slowaaks - Roman Moravčík</translation>
     <message>
         <source>Sunset: </source>
         <translation>Zonsondergang:</translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation>Ondersteuning</translation>
     </message>
     <message>
         <source>Swap hi/low temperature</source>

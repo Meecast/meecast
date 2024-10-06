@@ -1497,12 +1497,20 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Nieve intensa</translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">Tormentas eléctricas</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation>Tormentas intensas</translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
         <translation>Lluvia intensa</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
+        <translation type="unfinished">Lluvia intensa</translation>
     </message>
     <message>
         <source>High</source>
@@ -3177,10 +3185,6 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Mostrar la hora de la última actualización</translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation>Mostrar en el mapa</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>Clima actual en el primer ícono</translation>
     </message>
@@ -3469,10 +3473,6 @@ Eslovaco - Roman Moravčík</translation>
     <message>
         <source>Sunset: </source>
         <translation>Ocaso: </translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation>Soporte</translation>
     </message>
     <message>
         <source>Swap hi/low temperature</source>

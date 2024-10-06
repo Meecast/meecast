@@ -1484,12 +1484,20 @@ Turkish - Burak Kaan Kose</translation>
         <translation>Şiddetli Kar Yağışı</translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">Fırtnalar</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation>Şiddetli Gök Gürültüsü</translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
         <translation>Ağır şiddetli yağmur</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
+        <translation type="unfinished">Sağnak Yagmur</translation>
     </message>
     <message>
         <source>High</source>
@@ -3164,10 +3172,6 @@ Turkish - Burak Kaan Kose</translation>
         <translation>Son güncelleme zamanını göster</translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation>Haritada Göster</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>Ilk ikonda sadece şimdiki havadurumunu göster</translation>
     </message>
@@ -3456,10 +3460,6 @@ Turkish - Burak Kaan Kose</translation>
     <message>
         <source>Sunset: </source>
         <translation>Günbatımı:</translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation>Destek</translation>
     </message>
     <message>
         <source>Swap hi/low temperature</source>

@@ -1494,11 +1494,19 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <translation type="unfinished">Силен снеговалеж</translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">Гръмотевични бури</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation type="unfinished">Гръмотевица</translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
+        <translation type="unfinished">Порой</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
         <translation type="unfinished">Порой</translation>
     </message>
     <message>
@@ -3171,10 +3179,6 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <translation type="unfinished">Последно опресняване: </translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation>Покажи карта</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>Показвай само текущите метео условия на първата иконка</translation>
     </message>
@@ -3460,10 +3464,6 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
     <message>
         <source>Sunset: </source>
         <translation>Залез: </translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Swap hi/low temperature</source>

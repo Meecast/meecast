@@ -1491,12 +1491,20 @@ Slovacco - Roman Moravčík</translation>
         <translation>Forti nevicate</translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">Temporali</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation>Forti tuoni</translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
         <translation>Pioggia molto intensa</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
+        <translation type="unfinished">Forte pioggia</translation>
     </message>
     <message>
         <source>High</source>
@@ -3162,10 +3170,6 @@ Ilir Gjika
         <translation>Mostra orario ultimo aggiornamento</translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation>Mostra sulla mappa</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>Mostra solo il meteo corrente sulla prima icona</translation>
     </message>
@@ -3451,10 +3455,6 @@ Ilir Gjika
     <message>
         <source>Sunset: </source>
         <translation>Tramonto: </translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation>Donazioni</translation>
     </message>
     <message>
         <source>Swap hi/low temperature</source>

@@ -155,7 +155,7 @@ images.files += data/images/*.png
 #alib.files = libomweather-core.a
 #alib.path = /usr/share/harbour-meecast/lib
 
-INSTALLS += target databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee datanoun dataatmos xsd buttonicons images  icon50  icon16 icon32 icon64 icon108 icon128 icon256 icon86 donation
+INSTALLS += target databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee datanoun dataatmos xsd buttonicons images  icon50  icon16 icon32 icon64 icon108 icon128 icon172 icon256 icon86 donation
 QMAKE_CLEAN += lib$$TARGET* \
     *.pro.user
 

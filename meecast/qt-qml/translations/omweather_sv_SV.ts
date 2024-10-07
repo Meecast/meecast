@@ -347,7 +347,7 @@ W:</translation>
     </message>
     <message>
         <source>AM T-Showers</source>
-        <translation type="unfinished">EM Åskskurar</translation>
+        <translation>FM Åskskurar</translation>
     </message>
     <message>
         <source>AM Wintry Mix</source>
@@ -1499,7 +1499,7 @@ Slovakiska - Roman Moravčík</translation>
     </message>
     <message>
         <source>Heavy T-Storms</source>
-        <translation type="unfinished">Åskväder</translation>
+        <translation>Kraftiga åskstormar</translation>
     </message>
     <message>
         <source>Heavy Thunder</source>
@@ -1511,7 +1511,7 @@ Slovakiska - Roman Moravčík</translation>
     </message>
     <message>
         <source>Heavy rain</source>
-        <translation type="unfinished">Kraftigt regn</translation>
+        <translation>Kraftigt regn</translation>
     </message>
     <message>
         <source>High</source>

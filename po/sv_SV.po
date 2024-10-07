@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Åke Engelbrektson, 2014
-# Åke Engelbrektson, 2015-2020
+# Åke Engelbrektson, 2015-2020,2024
 #  Angela Nennebrandt <EMAIL@ADDRESS>, 2012
 # Nathan Follens, 2015
 # Niklas Åkerström, 2012-2014
@@ -13,10 +13,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-06 20:05+0300\n"
-"PO-Revision-Date: 2020-01-21 07:01+0000\n"
-"Last-Translator: Åke Engelbrektson\n"
-"Language-Team: Swedish (http://www.transifex.com/vasvlad/meecast/language/sv/)\n"
+"POT-Creation-Date: 2024-10-07 21:01+0300\n"
+"PO-Revision-Date: 2012-04-16 13:52+0000\n"
+"Last-Translator: Åke Engelbrektson, 2015-2020,2024\n"
+"Language-Team: Swedish (http://app.transifex.com/vasvlad/meecast/language/"
+"sv/)\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -271,9 +273,8 @@ msgid "AM Snow Showers / Wind Late"
 msgstr "FM Snöbyar / Senare vind"
 
 #: omweather/src/hash.data:28
-#, fuzzy
 msgid "AM T-Showers"
-msgstr "EM Åskskurar"
+msgstr "FM Åskskurar"
 
 #: omweather/src/hash.data:29
 msgid "AM Wintry Mix"
@@ -1170,9 +1171,8 @@ msgid "Heavy Snowfall"
 msgstr "Kraftigt snöfall"
 
 #: omweather/src/hash.data:119
-#, fuzzy
 msgid "Heavy T-Storms"
-msgstr "Åskväder"
+msgstr "Kraftiga åskstormar"
 
 #: omweather/src/hash.data:118
 msgid "Heavy Thunder"
@@ -1183,7 +1183,6 @@ msgid "Heavy intensity rain"
 msgstr "Kraftigt intensivt regn"
 
 #: omweather/src/hash.data:107
-#, fuzzy
 msgid "Heavy rain"
 msgstr "Kraftigt regn"
 
@@ -3467,9 +3466,3 @@ msgstr "Ю-B"
 #: omweather/src/hash.data:437
 msgid "Ю-З"
 msgstr "Ю-3"
-
-#~ msgid "Show on Map"
-#~ msgstr "Visa på kartan"
-
-#~ msgid "Support"
-#~ msgstr "Support"

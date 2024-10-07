@@ -339,6 +339,9 @@ fi
 
 
 %changelog
+* Sat Oct 05 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.6
+- Updated Russian translation
+
 * Sat Oct 05 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.5
 - Added icons and description to fmi.fi
 - Added to [X-Sailjail] Permissions=Internet, removed Sandboxing=Disabled

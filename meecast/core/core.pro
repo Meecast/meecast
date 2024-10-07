@@ -107,6 +107,10 @@ icon86.path = /usr/share/icons/hicolor/86x86/apps/
 icon108.files = data/desktop/Icon/108/harbour-meecast.png
 icon108.path = /usr/share/icons/hicolor/108x108/apps/
 
+icon172.files = data/desktop/Icon/172/harbour-meecast.png
+icon172.path = /usr/share/icons/hicolor/172x172/apps/
+
+
 icon256.files = data/desktop/Icon/256/harbour-meecast.png
 icon256.path = /usr/share/icons/hicolor/256x256/apps/
 

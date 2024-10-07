@@ -332,15 +332,15 @@ W: </source>
     </message>
     <message>
         <source>AM T-Showers</source>
-        <translation type="unfinished">После грозовые ливни</translation>
+        <translation>До полудня дожди</translation>
     </message>
     <message>
         <source>AM Wintry Mix</source>
-        <translation type="unfinished"></translation>
+        <translation>До полудня поземка</translation>
     </message>
     <message>
         <source>AM Wintry Mix / Wind</source>
-        <translation type="unfinished"></translation>
+        <translation>До полудня поземка / Ветер</translation>
     </message>
     <message>
         <source>About</source>
@@ -449,7 +449,8 @@ before installing this package</source>
     <message>
         <source>Arabic - Tarad Alfandi
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Арабский - Tarad Alfandi
+</translation>
     </message>
     <message>
         <source>Are you sure to want delete this station ?</source>
@@ -843,7 +844,8 @@ Connection timeout is expired.</source>
     <message>
         <source>Czech - Jakub Kožíšek, Pavel Šrubař
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Чешский - Jakub Kožíšek, Pavel Šrubař
+</translation>
     </message>
     <message>
         <source>Daily</source>
@@ -1151,7 +1153,7 @@ Brad Jones aka kazrak - за тестирование
     </message>
     <message>
         <source>Fair / Windy</source>
-        <translation type="unfinished"></translation>
+        <translation>Ясно / Ветренно</translation>
     </message>
     <message>
         <source>Feels like</source>
@@ -1456,7 +1458,7 @@ Slovak - Roman Moravčík</source>
     </message>
     <message>
         <source>Heavy T-Storms</source>
-        <translation type="unfinished">Грозы</translation>
+        <translation>Сильные Грозы</translation>
     </message>
     <message>
         <source>Heavy Thunder</source>
@@ -1468,7 +1470,7 @@ Slovak - Roman Moravčík</source>
     </message>
     <message>
         <source>Heavy rain</source>
-        <translation type="unfinished">Сильный дождь</translation>
+        <translation>Сильный дождь</translation>
     </message>
     <message>
         <source>High</source>
@@ -1645,7 +1647,7 @@ Slovak - Roman Moravčík</source>
     </message>
     <message>
         <source>Lawn and Garden Weather</source>
-        <translation type="unfinished"></translation>
+        <translation>Погода для газона и сада</translation>
     </message>
     <message>
         <source>Layout:</source>
@@ -2594,7 +2596,8 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Portuguese - Jose Narciso,
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Португальский - Jose Narciso,
+</translation>
     </message>
     <message>
         <source>Position:</source>

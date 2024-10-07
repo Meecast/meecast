@@ -4,15 +4,17 @@
 # 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012
-# Vlad Vas <vasvlad@gmail.com>, 2013-2020
+# Vlad Vas <vasvlad@gmail.com>, 2013-2020,2024
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-06 20:05+0300\n"
-"PO-Revision-Date: 2020-06-06 17:17+0000\n"
-"Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
-"Language-Team: Russian (http://www.transifex.com/vasvlad/meecast/language/ru/)\n"
+"POT-Creation-Date: 2024-10-07 19:07+0300\n"
+"PO-Revision-Date: 2012-04-16 13:52+0000\n"
+"Last-Translator: Vlad Vas <vasvlad@gmail.com>, 2013-2020,2024\n"
+"Language-Team: Russian (http://app.transifex.com/vasvlad/meecast/language/"
+"ru/)\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -268,17 +270,16 @@ msgid "AM Snow Showers / Wind Late"
 msgstr "До полудня снегопады / Позже ветер"
 
 #: omweather/src/hash.data:28
-#, fuzzy
 msgid "AM T-Showers"
-msgstr "После грозовые ливни"
+msgstr "До полудня дожди"
 
 #: omweather/src/hash.data:29
 msgid "AM Wintry Mix"
-msgstr ""
+msgstr "До полудня поземка"
 
 #: omweather/src/hash.data:30
 msgid "AM Wintry Mix / Wind"
-msgstr ""
+msgstr "До полудня поземка / Ветер"
 
 #: omweather/src/weather-home.c:1286 omweather/src/weather-help.c:100
 #: omweather/src/weather-simple-popup.c:1164
@@ -352,7 +353,7 @@ msgstr "Сейчас будет запущена программа\n'Управ
 
 #: meecast/qt-qml/qml/AboutPage.qml:259
 msgid "Arabic - Tarad Alfandi\n"
-msgstr ""
+msgstr "Арабский - Tarad Alfandi\n"
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -677,7 +678,7 @@ msgstr "Настраиваемый"
 
 #: meecast/qt-qml/qml/AboutPage.qml:265
 msgid "Czech - Jakub Kožíšek, Pavel Šrubař\n"
-msgstr ""
+msgstr "Чешский - Jakub Kožíšek, Pavel Šrubař\n"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:183
 msgid "Daily"
@@ -900,7 +901,7 @@ msgstr "Ясная погода"
 
 #: omweather/src/hash.data:86
 msgid "Fair / Windy"
-msgstr ""
+msgstr "Ясно / Ветренно"
 
 #: omweather/src/hash.data:391
 msgid "Feels like"
@@ -1167,9 +1168,8 @@ msgid "Heavy Snowfall"
 msgstr "Сильный снегопад"
 
 #: omweather/src/hash.data:119
-#, fuzzy
 msgid "Heavy T-Storms"
-msgstr "Грозы"
+msgstr "Сильные Грозы"
 
 #: omweather/src/hash.data:118
 msgid "Heavy Thunder"
@@ -1180,7 +1180,6 @@ msgid "Heavy intensity rain"
 msgstr "Сильный дождь"
 
 #: omweather/src/hash.data:107
-#, fuzzy
 msgid "Heavy rain"
 msgstr "Сильный дождь"
 
@@ -1306,7 +1305,7 @@ msgstr "Обновлено:"
 
 #: omweather/src/hash.data:129
 msgid "Lawn and Garden Weather"
-msgstr ""
+msgstr "Погода для газона и сада"
 
 #: omweather/src/weather-settings.c:2924 omweather/src/weather-settings.c:2931
 msgid "Layout:"
@@ -2089,7 +2088,7 @@ msgstr "Польский - Tomasz Dominikowski\n"
 
 #: meecast/qt-qml/qml/AboutPage.qml:254
 msgid "Portuguese - Jose Narciso,\n"
-msgstr ""
+msgstr "Португальский - Jose Narciso,\n"
 
 #: omweather/src/weather-settings.c:3649
 msgid "Position:"
@@ -3464,9 +3463,3 @@ msgstr ""
 #: omweather/src/hash.data:437
 msgid "Ю-З"
 msgstr ""
-
-#~ msgid "Show on Map"
-#~ msgstr "Показать на карте"
-
-#~ msgid "Support"
-#~ msgstr "Поддержка"

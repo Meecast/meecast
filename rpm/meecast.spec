@@ -342,6 +342,7 @@ fi
 * Sat Oct 05 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.6
 - Updated Russian translation
 - Added Location to Permissions [X-Sailjail] section
+- Fixed warning in Sailfish Harbour rpm validator
 
 * Sat Oct 05 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.5
 - Added icons and description to fmi.fi

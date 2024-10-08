@@ -340,7 +340,7 @@ fi
 
 %changelog
 * Tue Oct 08 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.6
-- Updated Swedish translations
+- Updated Russian and Swedish translations
 - Added Location to Permissions [X-Sailjail] section
 - Fixed warnings in Sailfish Harbour rpm validator
 - Improved in UI on About page

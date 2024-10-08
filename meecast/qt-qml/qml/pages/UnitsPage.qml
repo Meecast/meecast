@@ -52,6 +52,7 @@ Page {
             Column {
                 anchors.fill: parent
                 spacing: Theme.paddingLarge
+                id: column
                 PageHeader {
                     title: Config.tr("Measurement units")
                 }

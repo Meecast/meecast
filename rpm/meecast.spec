@@ -343,6 +343,7 @@ fi
 - Updated Swedish translations
 - Added Location to Permissions [X-Sailjail] section
 - Fixed warnings in Sailfish Harbour rpm validator
+- Improved in UI on About page
 
 * Sat Oct 05 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.5
 - Added icons and description to fmi.fi

@@ -1,9 +1,9 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 
 Page {
     id: sourcepage
-    property int margin: 16
+    property int margin: Theme.paddingSmall
     Rectangle{
         anchors.fill: parent
         color: Config.transparency ? "transparent" : "black"
@@ -40,7 +40,7 @@ Page {
                 title: Config.tr("Select the weather source")
             }
             delegate: Item {
-                height: 80
+                height: Theme.itemSizeSmall
                 width: parent.width
 
                 Label {

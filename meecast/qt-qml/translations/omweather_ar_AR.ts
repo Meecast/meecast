@@ -1478,12 +1478,20 @@ Slovak - Roman Moravčík</source>
         <translation type="unfinished">ثلوج كثيفه</translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">عواصف رعديه</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation type="unfinished">رعد</translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
         <translation>أمطار ذات كثافة عاليه</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
+        <translation type="unfinished">أمطار كثيفه</translation>
     </message>
     <message>
         <source>High</source>
@@ -3154,10 +3162,6 @@ Slovak - Roman Moravčík</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation>إظهار على الخريطة</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>عرض الطقس الحالي فقط في الأيقونة الاولى</translation>
     </message>
@@ -3443,10 +3447,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Sunset: </source>
         <translation>الغروب:</translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation>الدعم</translation>
     </message>
     <message>
         <source>Swap hi/low temperature</source>

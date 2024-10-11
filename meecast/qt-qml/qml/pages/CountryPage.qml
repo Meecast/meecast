@@ -1,9 +1,9 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 
 Page {
     id: countrypage
-    property int margin: 16
+    property int margin: Theme.paddingSmall
     property string source: ""
     property int source_id: -1
     ListModel {
@@ -65,7 +65,7 @@ Page {
                         }
                     }
             delegate: Item {
-                height: 80
+                height: Theme.itemSizeSmall
                 width: parent.width
                 Label {
                     anchors.left: parent.left

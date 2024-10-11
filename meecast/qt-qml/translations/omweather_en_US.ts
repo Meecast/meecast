@@ -1478,12 +1478,20 @@ Precipitation: </translation>
         <translation type="unfinished">Heavy Snow</translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">T-Storms</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation type="unfinished">Thunder</translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
         <translation>Heavy intensity rain</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
+        <translation type="unfinished">Heavy Rain</translation>
     </message>
     <message>
         <source>High</source>
@@ -3154,10 +3162,6 @@ Precipitation: </translation>
         <translation type="unfinished">Last update: </translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation>Show on Map</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>Show only current weather on first icon</translation>
     </message>
@@ -3443,10 +3447,6 @@ Precipitation: </translation>
     <message>
         <source>Sunset: </source>
         <translation>Sunset: </translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Swap hi/low temperature</source>

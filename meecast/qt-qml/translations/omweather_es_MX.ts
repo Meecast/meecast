@@ -1477,11 +1477,19 @@ Precipitación: </translation>
         <translation type="unfinished">Nieve intensa</translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">Tormentas eléctricas</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation type="unfinished">Tormenta eléctrica</translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
+        <translation type="unfinished">Lluvia intensa</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
         <translation type="unfinished">Lluvia intensa</translation>
     </message>
     <message>
@@ -3153,10 +3161,6 @@ Precipitación: </translation>
         <translation type="unfinished">Última actualización: </translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation type="unfinished">Mostrar nombre de la estación</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>Clima actual en el primer ícono</translation>
     </message>
@@ -3444,10 +3448,6 @@ Precipitación: </translation>
         <translation>Ocaso: </translation>
     </message>
     <message>
-        <source>Support</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Swap hi/low temperature</source>
         <translation>Invertir temperaturas máx./min.</translation>
     </message>
@@ -3562,17 +3562,17 @@ Precipitación: </translation>
  Foundation; either version 2.1 of the 
  License, or (at your option) any 
  later version.</source>
-        <translation>Este software es libre; puede redistribuirlo
+        <translation type="unfinished">Este software es libre; puede redistribuirlo
  y/o modificarlo respetando los términos
 de la Licencia para el Público en General
-de GNU (GNU General Public License)
-publicada  por la Free Software Foundation;
-ya sea la versión 2.1 de la licencia, o (a sudiscreción) cualquier versión posterior.</translation>
+de GNU (GNU Lesser General Public License)
+versión 2.1 publicada por la Free Software
+Foundation.</translation>
     </message>
     <message>
         <source>This software is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
 </source>
-        <translation>Este software es libre; puede redistribuirlo y/o modificarlo respetando los términos de la Licencia para el Público en General de GNU (GNU General Public License)
+        <translation type="unfinished">Este software es libre; puede redistribuirlo y/o modificarlo respetando los términos de la Licencia para el Público en General de GNU (GNU Lesser General Public License)
 </translation>
     </message>
     <message>

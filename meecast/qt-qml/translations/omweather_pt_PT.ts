@@ -1478,12 +1478,20 @@ Precipitação:</translation>
         <translation type="unfinished">Forte Queda de Neve</translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">Trovoadas</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation type="unfinished">Trovoadas</translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
         <translation>Chuva com intensidade</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
+        <translation type="unfinished">Chuva Forte</translation>
     </message>
     <message>
         <source>High</source>
@@ -3154,10 +3162,6 @@ Precipitação:</translation>
         <translation type="unfinished">Ultima atualização:</translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation>Mostrar no mapa</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>Mostrar apenas tempo actual no primeiro icon</translation>
     </message>
@@ -3443,10 +3447,6 @@ Precipitação:</translation>
     <message>
         <source>Sunset: </source>
         <translation>Pôr do Sol:</translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation>Suporte</translation>
     </message>
     <message>
         <source>Swap hi/low temperature</source>

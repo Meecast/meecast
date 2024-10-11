@@ -107,6 +107,10 @@ icon86.path = /usr/share/icons/hicolor/86x86/apps/
 icon108.files = data/desktop/Icon/108/harbour-meecast.png
 icon108.path = /usr/share/icons/hicolor/108x108/apps/
 
+icon172.files = data/desktop/Icon/172/harbour-meecast.png
+icon172.path = /usr/share/icons/hicolor/172x172/apps/
+
+
 icon256.files = data/desktop/Icon/256/harbour-meecast.png
 icon256.path = /usr/share/icons/hicolor/256x256/apps/
 
@@ -151,7 +155,7 @@ images.files += data/images/*.png
 #alib.files = libomweather-core.a
 #alib.path = /usr/share/harbour-meecast/lib
 
-INSTALLS += target databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee datanoun dataatmos xsd buttonicons images  icon50  icon16 icon32 icon64 icon108 icon128 icon256 icon86 donation
+INSTALLS += target databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee datanoun dataatmos xsd buttonicons images  icon50  icon16 icon32 icon64 icon108 icon128 icon172 icon256 icon86 donation
 QMAKE_CLEAN += lib$$TARGET* \
     *.pro.user
 

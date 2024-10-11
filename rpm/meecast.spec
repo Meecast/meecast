@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.10.40
+%define vrsn 1.11.6
 %define rlse 1
 
 Name:       harbour-meecast
@@ -103,6 +103,8 @@ DeveloperName: Vasvlad, OMWeather team and contributors
 Custom:
    Repo: %{url}/tree/sailfishos
 PackageIcon: %{url}/raw/sailfishos/meecast/core/data/desktop/Icon/meecast.svg
+Screenshots:
+  - https://openrepos.net/sites/default/files/packages/13234/screenshot-20150114135243.png
 Links:
   Homepage: https://openrepos.net/content/vasvlad/meecast-daemon
   Help: https://openrepos.net/content/vasvlad/meecast-daemon#comments
@@ -138,6 +140,8 @@ DeveloperName: Vasvlad, OMWeather team and contributors
 Custom:
    Repo: %{url}/tree/sailfishos
 PackageIcon: %{url}/raw/sailfishos/meecast/core/data/desktop/Icon/meecast.svg
+Screenshots:
+  - https://openrepos.net/sites/default/files/packages/678/screenshot-20150201162807.png
 Links:
   Homepage: https://openrepos.net/content/vasvlad/meecast-lockscreen
   Help: https://openrepos.net/content/vasvlad/meecast-lockscreen#comments
@@ -185,12 +189,17 @@ DeveloperName: Vasvlad, OMWeather team and contributors
 Custom:
    Repo: %{url}/tree/sailfishos
 PackageIcon: %{url}/raw/sailfishos/meecast/core/data/desktop/Icon/meecast.svg
+Screenshots:
+  - https://openrepos.net/sites/default/files/packages/13234/screenshot-20151006090340.png
+  - https://openrepos.net/sites/default/files/packages/13234/screenshot-20151011183657.png
+  - https://openrepos.net/sites/default/files/packages/13234/screenshot-20151014084258.png
 Links:
   Homepage: https://openrepos.net/content/vasvlad/meecast-event-view
   Help: https://openrepos.net/content/vasvlad/meecast-event-view#comments
   Bugtracker: %{url}/issues
 %endif
 %endif
+
 
 # Detect building for SailfishOS < 4.6.0 or build subpackage event any way.
 %if 0%{?sailfishos_version} < 40600
@@ -221,6 +230,10 @@ DeveloperName: Vasvlad, OMWeather team and contributors
 Custom:
    Repo: %{url}/tree/sailfishos
 PackageIcon: %{url}/raw/sailfishos/meecast/core/data/desktop/Icon/meecast.svg
+Screenshots:
+  - https://openrepos.net/sites/default/files/packages/13234/screenshot-20151006090340.png
+  - https://openrepos.net/sites/default/files/packages/13234/screenshot-20151011183657.png
+  - https://openrepos.net/sites/default/files/packages/13234/screenshot-20151014084258.png
 Links:
   Homepage: https://openrepos.net/content/vasvlad/meecast-event-view
   Help: https://openrepos.net/content/vasvlad/meecast-event-view#comments
@@ -330,7 +343,29 @@ fi
 
 
 %changelog
-* Thu Sep 11 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.40-3
+* Sat Oct 05 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.6
+- Updated Swedish translations
+- Added Location to Permissions [X-Sailjail] section
+- Fixed warnings in Sailfish Harbour rpm validator
+- Improved in UI on About page
+
+* Sat Oct 05 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.5
+- Added icons and description to fmi.fi
+- Added to [X-Sailjail] Permissions=Internet, removed Sandboxing=Disabled
+
+* Thu Sep 26 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.4
+- Nothing
+
+* Thu Sep 26 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.3
+- Improved in settings UI
+
+* Mon Sep 16 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.2
+- Fixed sunrise and sunset for fmi.fi source
+
+* Thu Sep 12 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.1
+- Fixed problem Segmentation fault while trying to load fmi.fi stations, see issue #62
+
+* Wed Sep 11 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.40-3
 - Overhaul spec file, see PR #57
 
 * Thu Jul 18 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.1.40
@@ -616,7 +651,7 @@ fi
 - Fixed problem with null wind direction on main form
 - Added the new source fmi.fi
 
-* Wed Jul 03 2014 Vlad Vasilyeu <vasvlad@gmail.com> - 0.9.5
+* Thu Jul 03 2014 Vlad Vasilyeu <vasvlad@gmail.com> - 0.9.5
 - Fixed problem with Now/Today waether data for Main Page
 - Fixed problem with null data for day forecast in weather.com source
 - Updated Catalan, Finnish, Norwegian, Slovenian, Danish, Spanish, Italian, Russian, Hungarian, French translations

@@ -53,7 +53,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
          *delimiter = NULL;
     time_t current_time = 0;
     time_t utc_time = 0;
-    time_t local_time = 0;
     int current_temperature = INT_MAX;
     int current_humidity = INT_MAX;
     int current_wind_speed = INT_MAX;
@@ -62,6 +61,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     int current_visibility = INT_MAX;
     int current_dewpoint = INT_MAX;
     std::string current_description = "";
+    std::string sunrise_time = "";
+    std::string sunset_time = "";
     int current_icon = 48;
     float current_precipitation = INT_MAX; 
     int check_timezone = false;
@@ -69,7 +70,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     int localtimezone = 0;
     int first_day = false;
     int afternoon = false;
-    int dark = false;
     std::string current_wind_direction = "";
     struct tm time_tm1 = {0,0,0,0,0,0,0,0,0,0,0};
     struct tm time_tm2 = {0,0,0,0,0,0,0,0,0,0,0};
@@ -205,21 +205,11 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     val = _timezone_json["foundLocation"];
     auto timezone_json = val["timezone"].asString();
 
-    auto _current_time = std::chrono::system_clock::now();
 
     date::zoned_time<std::chrono::system_clock::duration> sy = date::make_zoned(timezone_json, std::chrono::system_clock::now());
     auto offset = sy.get_info().offset;
     std::cerr<<"offset count "<<offset.count()<<std::endl;
     timezone = offset.count()/3600;
-    //std::cout << dur<std::chrono::seconds>;
-    /*
-    //auto la = date::zoned_time{"Atlantic/Reykjavik", _current_time};
-    auto la = date::zoned_time{"Etc/UTC", _current_time};
-    auto dur = sy.get_local_time() - la.get_local_time();
-    //auto sss = dur<std::chrono::seconds>;
-    //std::cout << dur<std::chrono::seconds>;
-    std::cout << date::format("%T\n", sy.get_local_time() - la.get_local_time());
-    */
 
     size_t index_for_begin_daylength = buffer_keys_and_values.find("dayLength:", 0);
     if (index_for_begin_daylength  == std::string::npos){
@@ -234,7 +224,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     }
 
     std::string buffer_1_ = buffer_keys_and_values.substr(index_for_begin_daylength, index_for_end_daylength - index_for_begin_daylength + 1);
-    std::cout << buffer_1_ << std::endl;
     //dayLength:{sunrise:"6:29",sunset:"20:04",lengthofday:"13 h 35 min"}
     //{"dayLength":"{"sunrise":"6":"29","sunset":"20":"04","lengthofday":"13 h 35 min"}}
     /* Convert js-script data to JSON */
@@ -253,18 +242,18 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     /* Replace substring *00*00 to :00:00 */
     buffer_1_ = std::regex_replace(buffer_1_, std::regex("\\*"), "\":\"");
     /* Replace substring : to ":" */
-    //buffer_1_ = std::regex_replace(buffer_1_, std::regex(":"), "\":\"");
     buffer_1_ = std::regex_replace(buffer_1_, std::regex("\\|"), ":");
     buffer_1_ = std::regex_replace(buffer_1_, std::regex("dayLength:"), "dayLength\":");
     buffer_1_ += "}";
 
-    std::cout << buffer_1_ << std::endl;
+    bool parsingDayLengthSuccessful = reader.parse(buffer_1_, root, false);
+    if (!parsingDayLengthSuccessful){
+        std::cerr<<"Problem in parsingDayLengthSuccessful";
+        return -1;
+    }
 
-
-
-
-    
-
+    sunrise_time = root["dayLength"]["sunrise"].asString();
+    sunset_time = root["dayLength"]["sunset"].asString();
 
     size_t index_for_begin_forecast = buffer_keys_and_values.find("forecastValues:", 0);
     if (index_for_begin_forecast  == std::string::npos){
@@ -405,223 +394,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     val = root["forecastValues"];
     //std::cerr<<val.size();
 
-    double min_distance = 32000;
-    uint max_count_of_parameters = 0;
-
-#if 0
-    for (uint i = 0; i < val.size(); i++){
-        std::cerr<<val[i].get("isolocaltime", "");
-        /* Current weather */
-        if (atof(val[i].get("distance","").asCString()) < min_distance || (val[i].size()>max_count_of_parameters && atof(val[i].get("distance","").asCString()) - min_distance < 10)){
-            std::string cur_time;
-            cur_time = val[i].get("time","").asCString();
-            if (cur_time!=""){
-                min_distance = atof(val[i].get("distance","").asCString());
-                max_count_of_parameters = val[i].size();
-                tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
-                tmp_tm.tm_isdst = time_tm2.tm_isdst;
-                setlocale(LC_TIME, "POSIX");
-                strptime((const char*)cur_time.c_str(), "%Y%m%d%H%M", &tmp_tm);
-                current_time = mktime(&tmp_tm) + 3600*localtimezone; 
-                setlocale(LC_TIME, "");
-                if (val[i].get("Temperature","").asString() != ""){
-                    if (val[i].get("Temperature","").asString() == "nan"){
-                        current_temperature = INT_MAX;
-                        max_count_of_parameters--;
-                    }else
-                        current_temperature = atoi(val[i].get("Temperature","").asCString());
-                }    
-                if (val[i].get("Humidity","").asString() != ""){
-                    if (val[i].get("Humidity","").asString() == "nan"){
-                        current_humidity = INT_MAX;
-                        max_count_of_parameters--;
-                    }else{
-                        current_humidity = atoi(val[i].get("Humidity","").asCString());
-                    }
-                }    
-                if (val[i].get("WindSpeedMS","").asString() != ""){
-                    if (val[i].get("WindSpeedMS","").asString() == "nan"){
-                        current_wind_speed = INT_MAX;
-                        max_count_of_parameters--;
-                    }else
-                        current_wind_speed = atoi(val[i].get("WindSpeedMS","").asCString());
-                }    
-                if (val[i].get("WindCompass8","").asString() != ""){
-
-                    if (val[i].get("WindCompass8","").asString() == "nan"){
-                        current_wind_direction = "N/A";
-                        max_count_of_parameters--;
-                    }else{
-                        current_wind_direction = val[i].get("WindCompass8","").asCString();
-                    }
-                }    
-                if (val[i].get("WindGust","").asString() != ""){
-                    if (val[i].get("WindGust","").asString() == "nan"){
-                        current_wind_gust = INT_MAX;
-                        max_count_of_parameters--;
-                    }else
-                        current_wind_gust = atoi(val[i].get("WindGust","").asCString());
-                }    
-                if (val[i].get("Pressure","").asString() != ""){
-                    if (val[i].get("Pressure","").asString() == "nan"){
-                        current_pressure = INT_MAX;
-                        max_count_of_parameters--;
-                    }else
-                        current_pressure = atoi(val[i].get("Pressure","").asCString());
-                }    
-                if (val[i].get("Visibility","").asString() != ""){
-                    if (val[i].get("Visibility","").asString() == "nan"){
-                        current_visibility = INT_MAX;
-                    }else
-                        current_visibility = atoi(val[i].get("Visibility","").asCString());
-                }    
-                if (val[i].get("DewPoint","").asString() != ""){
-                    if (val[i].get("DewPoint","").asString() == "nan"){
-                        current_dewpoint = INT_MAX;
-                    }else
-                        current_dewpoint = atoi(val[i].get("DewPoint","").asCString());
-                }    
-                if (val[i].get("RI_10MIN","").asString() != ""){
-                    if (val[i].get("RI_10MIN","").asString() == "nan"){
-                        current_precipitation_rate = INT_MAX;
-                    }else
-                        current_precipitation_rate = atof(val[i].get("RI_10MIN","").asCString());
-                }    
-                if (val[i].get("WW_AWS","").asString() != "" && val[i].get("WW_AWS","").asString() != "nan"){
-                    int code = atoi(val[i].get("WW_AWS","").asCString());
-                    if (code==0 || (code>=20&&code<=29)){
-                        current_icon = 32;
-                        current_description = "Clear";
-                    }
-                    if (code==4 || code==5){
-                        current_icon = 22;
-                        current_description = "Haze, Smoke or Dust";
-                    }
-                    if (code==10){
-                        current_icon = 20;
-                        current_description = "Mist";
-                    }
-                    if (code==11){
-                        current_icon = 9;
-                        current_description = "Drizzle";
-                    }
-                    if (code>=30 && code<=34){
-                        current_icon = 20;
-                        current_description = "Fog";
-                    }
-                    if (code==40){
-                        current_icon = 12;
-                        current_description = "Precipitation";
-                    }
-                    if (code>=50 && code<=53){
-                        current_icon = 9;
-                        current_description = "Drizzle";
-                    }
-                    if (code==60){
-                        current_icon = 12;
-                        current_description = "Rain";
-                    }
-                    if (code==41){
-                        current_icon = 39;
-                        current_description = "Light or Moderate Precipitation";
-                    }
-                    if (code==42){
-                        current_icon = 12;
-                        current_description = "Heavy Precipitation";
-                    }
-                    if (code>=54 && code<=56){
-                        current_icon = 8;
-                        current_description = "Freezing Drizzle";
-                    }
-                    if (code==61){
-                        current_icon = 39;
-                        current_description = "Light Rain";
-                    }
-                    if (code==62){
-                        current_icon = 12;
-                        current_description = "Moderate Rain";
-                    }
-                    if (code==63){
-                        current_icon = 12;
-                        current_description = "Heavy Rain";
-                    }
-                    if (code==64){
-                        current_icon = 10;
-                        current_description = "Light Freezing Rain";
-                    }
-                    if (code==65){
-                        current_icon = 10;
-                        current_description = "Moderate Freezing Rain";
-                    }
-                    if (code==66){
-                        current_icon = 10;
-                        current_description = "Heavy Freezing Rain";
-                    }
-                    if (code==67){
-                        current_icon = 6;
-                        current_description = "Light Sleet";
-                    }
-                    if (code==68){
-                        current_icon = 6;
-                        current_description = "Moderate Sleet";
-                    }
-                    if (code==70){
-                        current_icon = 14;
-                        current_description = "Snow";
-                    }
-                    if (code==71){
-                        current_icon = 14;
-                        current_description = "Light Snow";
-                    }
-                    if (code==72){
-                        current_icon = 14;
-                        current_description = "Light Snow";
-                    }
-                    if (code==73){
-                        current_icon = 16;
-                        current_description = "Heavy Snow";
-                    }
-                    if (code==74 || code==75 || code==76){
-                        current_icon = 7;
-                        current_description = "Ice Pellets";
-                    }
-                    if (code==80){
-                        current_icon = 39;
-                        current_description = "Showers or Intermittent Precipitation";
-                    }
-                    if (code==81){
-                        current_icon = 39;
-                        current_description = "Light Rain Showers";
-                    }
-                    if (code==82){
-                        current_icon = 39;
-                        current_description = "Moderate Rain Showers";
-                    }
-                    if (code==83){
-                        current_icon = 39;
-                        current_description = "Heavy Rain Showers";
-                    }
-                    if (code==84){
-                        current_icon = 39;
-                        current_description = "Violent Rain Showers";
-                    }
-                    if (code==85){
-                        current_icon = 41;
-                        current_description = "Light Snow Showers";
-                    }
-                    if (code==86){
-                        current_icon = 41;
-                        current_description = "Moderate Snow Showers";
-                    }
-                    if (code==87){
-                        current_icon = 41;
-                        current_description = "Heavy Snow Showers";
-                    }
-                }    
-            }
-        }
-    }
-#endif
     /* Forecasts */
     //val = root["forecasts"][0].get("forecast", nullval);
     val = root["forecastValues"];
@@ -632,7 +404,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         int icon = 48;
         time_t offset_time = 0;
         std::string description = "";
-        dark = false;
 
         _local_time_string = val[i].get("isolocaltime","").asCString();
         if (dictionary.find(_local_time_string) != dictionary.end()) {
@@ -681,7 +452,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             
             if (first_day){
                 if (afternoon){
-                    fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone - 3600*timezone - 3600);
+                    fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone - 3600*timezone);
                     fprintf(file_out," end=\"%li\">\n", utc_time + offset_time + 3*3600 + 3600*localtimezone - 3600*timezone + 5*3600); 
                 }else{    
                     fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone - 3600*timezone - 3600) ;
@@ -689,19 +460,23 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 }
             }else{
                 fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone - 3600*timezone);
-                if (i==0){
-                    fprintf(file_out," current=\"true\ ");
-                }  
                 fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600 - 3600*timezone); 
             }    
 
             if (val[i].get("Temperature","").asString() != "" || val[i].get("Temperature","").asString() != "nan"){
-                fprintf(file_out,"     <temperature>%.0f</temperature>\n", atof(val[i].get("Temperature","").asCString()));
+                if (std::isdigit(val[i].get("Temperature","").asString()[0])){
+                    fprintf(file_out,"     <temperature>%.0f</temperature>\n", atof(val[i].get("Temperature","").asCString()));
+                }else{
+                    if (dictionary.find(val[i].get("Temperature","").asString()) != dictionary.end()) {
+                        fprintf(file_out,"     <temperature>%.0f</temperature>\n", atof(dictionary[val[i].get("Temperature","").asString()].c_str()));
+                    }
+                }
             }    
+            std::string description = "";
             if (SmartSymbol != "" ){
                 int result = 0;
                 result = std::stoi(SmartSymbol);
-                std::string description = descriptions_json[SmartSymbol].get("txt_en","").asString();
+                description = descriptions_json[SmartSymbol].get("txt_en","").asString();
                 switch (result){
                     case 1:
                         icon = 32;
@@ -712,7 +487,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         description = "Partly Cloudy";
                         break;
                     case 6:
-                        icon = 29;
+                        icon = 28;
                         description = "Mostly Cloudy";
                         break;
                     case 2:
@@ -799,6 +574,14 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         icon = 41;
                         description = "Heavy Snow Showers";
                         break;
+                    case 47:
+                        icon = 6;
+                        description = "Light Sleet";
+                        break;
+                    case 48:
+                        icon = 6;
+                        description = "Moderate Sleet";
+                        break;
                     case 51:
                         icon = 14;
                         description = "Light Snowfall";
@@ -811,6 +594,18 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         icon = 42;
                         description = "Heavy Snowfall";
                         break;
+                    case 57:
+                        icon = 14;
+                        description = "Light Snowfall";
+                        break;
+                    case 58:
+                        icon = 14;
+                        description = "Moderate Snowfall";
+                        break;
+                    case 59:
+                        icon = 42;
+                        description = "Heavy Snowfall";
+                        break;
                     case 61:
                         icon = 38;
                         description = "Thundershowers";
@@ -818,6 +613,38 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                     case 62:
                         icon = 38;
                         description = "Strong Thundershowers";
+                        break;
+                    case 63:
+                        icon = 17;
+                        description = "Thunder";
+                        break;
+                    case 64:
+                        icon = 4;
+                        description = "Heavy Thunder";
+                        break;
+                    case 72:
+                        icon = 6;
+                        description = "Sleet Showers";
+                        break;
+                    case 73:
+                        icon = 6;
+                        description = "Heavy Sleet Showers";
+                        break;
+                    case 77:
+                        icon = 4;
+                        description = "Thundershowers";
+                        break;
+                    case 81:
+                        icon = 5;
+                        description = "Light Sleet";
+                        break;
+                    case 82:
+                        icon = 5;
+                        description = "Sleet";
+                        break;
+                    case 83:
+                        icon = 5;
+                        description = "Heavy Sleet";
                         break;
                     case 101:
                         icon = 31;
@@ -842,6 +669,10 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                     case 107:
                         icon = 26;
                         description = "Overcast";
+                        break;
+                    case 109:
+                        icon = 20;
+                        description = "Fog";
                         break;
                     case 111:
                         icon = 9;
@@ -919,6 +750,22 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         icon = 42;
                         description = "Heavy Snowfall";
                         break;
+                    case 154:
+                        icon = 46;
+                        description = "Scattered Light Snow Showers";
+                        break;
+                    case 157:
+                        icon = 14;
+                        description = "Light Snowfall";
+                        break;
+                    case 158:
+                        icon = 14;
+                        description = "Moderate Snowfall";
+                        break;
+                    case 159:
+                        icon = 42;
+                        description = "Heavy Snowfall";
+                        break;
                     case 161:
                         icon = 47;
                         description = "Thundershowers";
@@ -927,17 +774,9 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         icon = 47;
                         description = "Strong Thundershowers";
                         break;
-                    case 63:
-                        icon = 17;
-                        description = "Thunder";
-                        break;
                     case 163:
                         icon = 17;
                         description = "Thunder";
-                        break;
-                    case 64:
-                        icon = 4;
-                        description = "Heavy Thunder";
                         break;
                     case 164:
                         icon = 4;
@@ -951,41 +790,25 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         icon = 6;
                         description = "Light Sleet Showers";
                         break;
-                    case 72:
-                        icon = 6;
-                        description = "Sleet Showers";
-                        break;
                     case 172:
                         icon = 6;
                         description = "Sleet Showers";
-                        break;
-                    case 73:
-                        icon = 6;
-                        description = "Heavy Sleet Showers";
                         break;
                     case 173:
                         icon = 6;
                         description = "Heavy Sleet Showers";
                         break;
-                    case 81:
-                        icon = 5;
-                        description = "Light Sleet";
+                    case 177:
+                        icon = 17;
+                        description = "Thundershowers";
                         break;
                     case 181:
                         icon = 5;
                         description = "Light Sleet";
                         break;
-                    case 82:
-                        icon = 5;
-                        description = "Sleet";
-                        break;
                     case 182:
                         icon = 5;
                         description = "Sleet";
-                        break;
-                    case 83:
-                        icon = 5;
-                        description = "Heavy Sleet";
                         break;
                     case 183:
                         icon = 5;
@@ -1044,41 +867,52 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             }    
 
             fprintf(file_out, "    </period>\n");
-            /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            if (first_day && current_temperature != INT_MAX){
-                utc_time = current_time - localtimezone*3600;
-                fprintf(file_out,"    <period start=\"%li\"", utc_time - 2*3600);
-                fprintf(file_out," end=\"%li\" current=\"true\">\n", utc_time + 6*3600); 
-
-                fprintf(file_out,"     <temperature>%i</temperature>\n", current_temperature); 
-                if (current_icon != 48){
-                    if (current_icon == 32 && dark)
-                        current_icon = 31;
-                    if (current_icon == 39 && dark)
-                        current_icon = 45;
-                    if (current_icon == 41 && dark)
-                        current_icon = 46;
-                    fprintf(file_out,"     <icon>%i</icon>\n", current_icon);
-                }else{
-
-                    fprintf(file_out,"     <icon>%i</icon>\n", icon);
+            if (first_day){
+                if (afternoon){
+                    fprintf(file_out,"    <period start=\"%li\" ", utc_time + 3600*localtimezone - 3600*timezone - 3600 - 15*3600);
+                    fprintf(file_out," end=\"%li\">\n", utc_time + offset_time + 3*3600 + 3600*localtimezone - 3600*timezone + 5*3600); 
+                }else{    
+                    fprintf(file_out,"    <period start=\"%li\" ", utc_time + 3600*localtimezone - 3600*timezone - 3600) ;
+                    fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600 + offset_time - 3600*timezone + 5*3600);
                 }
-                if (current_description != "") 
-                    fprintf(file_out,"     <description>%s</description>\n", current_description.c_str());
-                else
-                    fprintf(file_out,"     <description>%s</description>\n", description.c_str());
-                fprintf(file_out,"     <pressure>%i</pressure>\n", current_pressure);
-                fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", current_wind_direction.c_str());
-                fprintf(file_out,"     <humidity>%i</humidity>\n", current_humidity);
-                fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", current_wind_speed);
-                fprintf(file_out,"     <wind_gust>%i</wind_gust>\n", current_wind_gust);
-                fprintf(file_out,"     <dewpoint>%i</dewpoint>\n", current_dewpoint);
-                fprintf(file_out,"     <precipitation_rate>%.1f</precipitation_rate>\n", current_precipitation_rate);
-                fprintf(file_out,"     <visible>%i</visible>\n", current_visibility);
-                fprintf(file_out,"    </period>\n");
+
+                if (val[i].get("Temperature","").asString() != "" || val[i].get("Temperature","").asString() != "nan"){
+                    if (std::isdigit(val[i].get("Temperature","").asString()[0])){
+                        fprintf(file_out,"     <temperature>%.0f</temperature>\n", atof(val[i].get("Temperature","").asCString()));
+                    }else{
+                        if (dictionary.find(val[i].get("Temperature","").asString()) != dictionary.end()) {
+                            fprintf(file_out,"     <temperature>%.0f</temperature>\n", atof(dictionary[val[i].get("Temperature","").asString()].c_str()));
+                        }
+                    }
+                }    
+                fprintf(file_out,"     <icon>%i</icon>\n", icon);
+                fprintf(file_out, "     <description>%s</description>\n", description.c_str());
+                fprintf(file_out, "    </period>\n");
             }
-            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            */
+            if (i==0){
+                time_t _current_time_ = utc_time + 3600*localtimezone - 3600*timezone - 3600;
+                struct tm *lt = localtime(&_current_time_);
+                lt->tm_hour = 0;
+                lt->tm_min = 0;
+                lt->tm_sec = 0;
+                time_t midnight = mktime(lt) + 4*3600;
+                time_t midnight_tomorrow = midnight + 24*3600 + 4*3600;
+
+                lt->tm_hour = atoi(sunrise_time.substr(0, sunrise_time.find(":", 0)).c_str());
+                lt->tm_min = atoi(sunrise_time.substr(sunrise_time.find(":", 0) + 1, sunrise_time.size()).c_str());
+                time_t sunrise = mktime(lt);
+                lt->tm_hour = atoi(sunset_time.substr(0, sunset_time.find(":", 0)).c_str());
+                lt->tm_min = atoi(sunset_time.substr(sunset_time.find(":", 0) + 1, sunset_time.size()).c_str());
+                time_t sunset = mktime(lt);
+
+                fprintf(file_out,"    <period start=\"%li\" ", midnight);
+                fprintf(file_out," end=\"%li\">\n", midnight_tomorrow); 
+
+                fprintf(file_out,"      <sunrise>%li</sunrise>\n", sunrise); 
+                fprintf(file_out,"      <sunset>%li</sunset>\n", sunset); 
+                fprintf(file_out,"    </period>\n");
+            }  
+
             first_day = false;
             afternoon = false;
         }
@@ -1129,7 +963,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
 
     val = root["observations"];
     if (val.size() > 1){
-        size_t index = val.size() -1;
+        int index = val.size() -1;
         if (val[index].get("WindSpeedMS","").asString() == "" &&
             val[index].get("Humidity","").asString() == "" &&
             val[index].get("Pressure","").asString() == "" &&
@@ -1205,7 +1039,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                }
             }    
             if (current_pressure != INT_MAX){
-                std::cerr<<"Pressure2 "<<current_pressure<<std::endl;
                 fprintf(file_out,"     <pressure>%i</pressure>\n", current_pressure);
             }
 
@@ -1224,16 +1057,13 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 if (val[index].get("WindDirection","").asString() == ""){
                     current_wind_direction = "";
                 }else{
-
                     int _current_wind_direction =(int)round(val[index].get("WindDirection","").asInt());
-
                     wind_index = (int)round(_current_wind_direction/22.5) + 1;
                     //std::cout<<"Wind_index "<<wind_index<<std::endl;
                     if (wind_index > 16){
                         wind_index = 16;
                     }
                     //std::cout<<"Wind_direction "<<wind_directions[wind_index].c_str()<<std::endl;
-     
                     fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",wind_directions[wind_index].c_str());
 
                }
@@ -1258,11 +1088,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             if (current_temperature != INT_MAX){
                 fprintf(file_out,"     <temperature>%i</temperature>\n", current_temperature);
             }
-
-
             fprintf(file_out, "    </period>\n");
         }
-
     }
 
     fclose(file_out);
@@ -1303,7 +1130,7 @@ convert_station_fmi_fi_data(const char *days_data_path, const char *result_file,
 /*******************************************************************************/
 int
 main_fmi_fi(int argc, char *argv[]){
-    int result; 
+    int result = -1; 
     if (argc < 2) {
         fprintf(stderr, "fmifi <input_days_file> <output_file> \n");
         return -1;

@@ -6,4 +6,4 @@ X-Nemo-Application-Type=silica-qt5
 Comment=Weather forecast for Sailfish
 Exec=harbour-meecast
 [X-Sailjail]
-Sandboxing=Disabled
+Permissions=Internet;Location

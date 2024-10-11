@@ -1,13 +1,9 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 
 Page {
     id: visuals
-    property int margin: 16
-//    property bool event_widget_status: Config.eventwidget
-//    property bool lockscreen_widget_status: Config.lockscreen
-//    property bool standbyscreen_widget_status: Config.standbyscreen
-//    property bool splash_status: Config.splash
+    property int margin: Theme.paddingSmall
     Rectangle {
         anchors.fill: parent
         color: Config.transparency ? "transparent" : "black"

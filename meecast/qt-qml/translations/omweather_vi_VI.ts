@@ -1471,11 +1471,19 @@ Mưa:</translation>
         <translation type="unfinished">Tuyết dày</translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">Mưa rào kèm sấm sét</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation type="unfinished">Sấm</translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
+        <translation type="unfinished">Mưa to</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
         <translation type="unfinished">Mưa to</translation>
     </message>
     <message>
@@ -3147,10 +3155,6 @@ Mưa:</translation>
         <translation type="unfinished">Cập nhật cuối:</translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation type="unfinished">Hiển thị tên trạm</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>Chỉ hiện thời tiết hiện tại trên icon ban đầu</translation>
     </message>
@@ -3436,10 +3440,6 @@ Mưa:</translation>
     <message>
         <source>Sunset: </source>
         <translation>Lúc xế chiều:</translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Swap hi/low temperature</source>

@@ -1497,12 +1497,20 @@ słowacki - Roman Moravčík</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">Burze</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
+        <translation type="unfinished">Silny deszcz</translation>
     </message>
     <message>
         <source>High</source>
@@ -3177,10 +3185,6 @@ słowacki - Roman Moravčík</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation>Pokaż na mapie</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>Wyświetlanie tylko bieżącej pogody przy pierwszej ikonie</translation>
     </message>
@@ -3471,10 +3475,6 @@ słowacki - Roman Moravčík</translation>
         <translation>Zachód: </translation>
     </message>
     <message>
-        <source>Support</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Swap hi/low temperature</source>
         <translation>Zamiana wysokiej/niskiej temperatury</translation>
     </message>
@@ -3592,16 +3592,14 @@ słowacki - Roman Moravčík</translation>
  Foundation; either version 2.1 of the 
  License, or (at your option) any 
  later version.</source>
-        <translation>To oprogramowanie jest wolne, możesz
+        <translation type="unfinished">To oprogramowanie jest wolne, możesz
 rozpowszechniać, oraz/lub zmieniać je
-na zasadach licencji GNU GPL 2.1 lub 
-dowolnej późniejszej, wydanej przez
-Fundację wolnego oprogramowania.</translation>
+na zasadach licencji GNU LGPL 2.1.</translation>
     </message>
     <message>
         <source>This software is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
 </source>
-        <translation>To oprogramowanie jest wolne, możesz rozpowszechniać i/lub zmieniać je na zasadach licencji GNU GPL
+        <translation type="unfinished">To oprogramowanie jest wolne, możesz rozpowszechniać i/lub zmieniać je na zasadach licencji GNU LGPL 2.1
 </translation>
     </message>
     <message>

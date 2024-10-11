@@ -1,3 +1,27 @@
+meecast (1.11.6) unstable; urgency=low
+  * Updated Russian,Swedish transltions
+ -- Vlad Vasiliev <vlad@gas.by> Sat, 05 Oct 2024 09:02:23 +0300
+
+meecast (1.11.5) unstable; urgency=low
+  * Added icons and description to fmi.fi 
+ -- Vlad Vasiliev <vlad@gas.by> Sat, 05 Oct 2024 09:02:23 +0300
+
+meecast (1.11.3) unstable; urgency=low
+  * Improved in settings UI
+ -- Vlad Vasiliev <vlad@gas.by> Thu, 26 Sep 2024 06:02:23 +0300
+
+meecast (1.11.2) unstable; urgency=low
+  * Fixed sunrise and sunset for fmi.fi source
+ -- Vlad Vasiliev <vlad@gas.by> Mon, 16 Sep 2024 08:02:23 +0300
+
+meecast (1.11.1) unstable; urgency=low
+  * Added icons and descriptions to fmi.fi source
+ -- Vlad Vasiliev <vlad@gas.by> Thu, 12 Sep 2024 11:02:23 +0300
+
+meecast (1.1.41) unstable; urgency=low
+  * Fixed problem Segmentation fault while trying to load fmi.fi stations, see issue #62
+ -- Vlad Vasiliev <vlad@gas.by> Thu, 12 Sep 2024 11:02:23 +0300
+
 meecast (1.1.38) unstable; urgency=low
   * Added station Giulianova in Italy to weather.com, yr.no. Fixed Teramo
      gps-coordinates

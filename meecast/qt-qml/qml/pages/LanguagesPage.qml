@@ -5,7 +5,7 @@ Page {
     id: languagespage
     property int screen_height : languagespage.height
     property int screen_width : languagespage.width 
-    property int margin: 16
+    property int margin: Theme.paddingSmall
     Rectangle {
         anchors.fill: parent
         color: Config.transparency ? "transparent" : "black"
@@ -52,7 +52,8 @@ Page {
             Item {
                 id: wrapper
                 width: parent.width 
-                height: 0.0805*screen_height
+                //height: 0.0805*screen_height
+                height: Theme.itemSizeSmall
                    Label {
                        id: lang_label
                        anchors.leftMargin: margin

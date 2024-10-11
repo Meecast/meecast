@@ -1499,12 +1499,20 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Starker Schneefall</translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">Gewitter</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation>Starke Gewitter</translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
         <translation>Wolkenbruchartige Regenschauer</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
+        <translation type="unfinished">Starkregen</translation>
     </message>
     <message>
         <source>High</source>
@@ -3179,10 +3187,6 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Letzten Aktualisierungszeitpunkt anzeigen</translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation>Auf Karte anzeigen</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>Nur aktuelles Wetter neben erstem Symbol zeigen</translation>
     </message>
@@ -3471,10 +3475,6 @@ Spanisch - Alejandro Lopez</translation>
     <message>
         <source>Sunset: </source>
         <translation>Sonnenuntergang: </translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation>Unterstützung</translation>
     </message>
     <message>
         <source>Swap hi/low temperature</source>

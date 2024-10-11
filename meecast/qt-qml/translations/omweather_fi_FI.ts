@@ -1498,12 +1498,20 @@ Slovakia - Roman Moravčík</translation>
         <translation>Kovaa lumisadetta</translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">Ukkosta</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation>Kovaa ukkosta</translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
         <translation>Rankkaa vesisadetta</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
+        <translation type="unfinished">Rankkasadetta</translation>
     </message>
     <message>
         <source>High</source>
@@ -3178,10 +3186,6 @@ Slovakia - Roman Moravčík</translation>
         <translation>Näytä päivityksen ajankohta</translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation>Näytä kartalla</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>Nykyinen säätieto ensimmäisessä kuvakkeessa</translation>
     </message>
@@ -3472,10 +3476,6 @@ Slovakia - Roman Moravčík</translation>
         <translation>Auringonlasku: </translation>
     </message>
     <message>
-        <source>Support</source>
-        <translation>Tuki</translation>
-    </message>
-    <message>
         <source>Swap hi/low temperature</source>
         <translation>Käänteinen korkea/matala lämpötila</translation>
     </message>
@@ -3593,9 +3593,9 @@ Slovakia - Roman Moravčík</translation>
  Foundation; either version 2.1 of the 
  License, or (at your option) any 
  later version.</source>
-        <translation> Tämä ohjelma on vapaa; tätä ohjelmaa
+        <translation type="unfinished"> Tämä ohjelma on vapaa; tätä ohjelmaa
  on sallittu levittää edelleen ja muuttaa
- GNU yleisen lisenssin (GPL-lisenssin)
+ GNU yleisen lisenssin (LGPL-lisenssin)
  ehtojen mukaan sellaisina kuin Free
  Software Foundation on ne julkaissut;
  joko Lisenssin version 2, tai (valinnan
@@ -3605,7 +3605,7 @@ Slovakia - Roman Moravčík</translation>
     <message>
         <source>This software is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
 </source>
-        <translation>Tämä on vapaa ohjelma; tätä ohjelmaa saa levittää edelleen ja muuttaa GNU General Public Licensen (GPL-lisenssi) ehtojen mukaisesti
+        <translation type="unfinished">Tämä on vapaa ohjelma; tätä ohjelmaa saa levittää edelleen ja muuttaa GNU Lesser General Public Licensen (LGPL-lisenssi) ehtojen mukaisesti
 </translation>
     </message>
     <message>

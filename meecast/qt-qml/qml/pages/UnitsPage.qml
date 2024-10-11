@@ -1,34 +1,25 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 
 
 Page {
     id: units
-    property int margin: 16
+    property int margin: Theme.paddingSmall
 
     Rectangle {
         anchors.fill: parent
         color: Config.transparency ? "transparent" : "black"
     }
 
-    PageHeader {
-        title: Config.tr("Measurement units")
-    }
-
-
     Rectangle{
         anchors.fill: parent
+        anchors.topMargin: 80
+        anchors.leftMargin: margin
+        anchors.rightMargin: margin
         color: "transparent"
+
         Rectangle {
-            id: top_rect
             anchors.top: parent.top
-            anchors.left: parent.left
-            width: parent.width
-            height: 80 
-            color: "transparent"
-        }
-        Rectangle {
-            anchors.top: top_rect.bottom
             anchors.left: parent.left
             width: parent.width
             height: 610
@@ -36,7 +27,7 @@ Page {
         }
         Loader {
             id: background
-            anchors.top: top_rect.bottom
+            anchors.top: parent.top
             anchors.left: parent.left
             width: parent.width
             height: 610
@@ -48,13 +39,23 @@ Page {
             height: parent.height - 610
             color: "transparent"
         }
-        SilicaFlickable {
+    }
+
+     
+    SilicaFlickable {
             anchors.fill: parent
-            anchors.topMargin: 80
-            contentHeight: 850 
+            anchors.topMargin: Theme.paddingLarge
+            contentHeight: column.height
+            contentWidth: parent.width
+            VerticalScrollDecorator {}
 
             Column {
                 anchors.fill: parent
+                spacing: Theme.paddingLarge
+                id: column
+                PageHeader {
+                    title: Config.tr("Measurement units")
+                }
                 ComboBox {
                     label: Config.tr("Temperature units")
                     currentIndex: -1
@@ -163,5 +164,4 @@ Page {
                 }
             }
         }
-    }
 }

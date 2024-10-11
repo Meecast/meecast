@@ -1477,12 +1477,20 @@ Slovaque - Roman Moravčík</translation>
         <translation>Chutes de neige importantes</translation>
     </message>
     <message>
+        <source>Heavy T-Storms</source>
+        <translation type="unfinished">Orages</translation>
+    </message>
+    <message>
         <source>Heavy Thunder</source>
         <translation>Orage</translation>
     </message>
     <message>
         <source>Heavy intensity rain</source>
         <translation>Pluie battante</translation>
+    </message>
+    <message>
+        <source>Heavy rain</source>
+        <translation type="unfinished">Grosse pluie</translation>
     </message>
     <message>
         <source>High</source>
@@ -3146,10 +3154,6 @@ Slovaque - Roman Moravčík</translation>
         <translation>Afficher l&apos;heure de dernière mise à jour</translation>
     </message>
     <message>
-        <source>Show on Map</source>
-        <translation>Montrer sur la carte</translation>
-    </message>
-    <message>
         <source>Show only current weather on first icon</source>
         <translation>Afficher uniquement la météo actuelle sur la première icône</translation>
     </message>
@@ -3435,10 +3439,6 @@ Slovaque - Roman Moravčík</translation>
     <message>
         <source>Sunset: </source>
         <translation>Coucher du soleil : </translation>
-    </message>
-    <message>
-        <source>Support</source>
-        <translation>Support</translation>
     </message>
     <message>
         <source>Swap hi/low temperature</source>

@@ -1,9 +1,9 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 
 Page {
     id: settings
-    property int margin: 16
+    property int margin: Theme.paddingSmall
     function openFile(file)
     {
         pageStack.push(Qt.resolvedUrl(file))
@@ -81,7 +81,7 @@ Page {
                 title: Config.tr("Settings") 
             }
             delegate: Item {
-                height: 80
+                height: Theme.itemSizeSmall
                 width: parent.width
                 Image {
                     id: arrow

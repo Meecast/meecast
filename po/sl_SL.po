@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Boštjan Štrumbelj <sponka@gmail.com>, 2014-2020
+# Boštjan Štrumbelj <sponka@gmail.com>, 2014-2020,2024
 # Boštjan Štrumbelj <sponka@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-06 20:05+0300\n"
-"PO-Revision-Date: 2020-01-20 21:08+0000\n"
-"Last-Translator: Boštjan Štrumbelj <sponka@gmail.com>\n"
-"Language-Team: Slovenian (Slovenia) (http://www.transifex.com/vasvlad/"
+"POT-Creation-Date: 2024-10-12 06:58+0300\n"
+"PO-Revision-Date: 2012-04-16 13:52+0000\n"
+"Last-Translator: Boštjan Štrumbelj <sponka@gmail.com>, 2014-2020,2024\n"
+"Language-Team: Slovenian (Slovenia) (http://app.transifex.com/vasvlad/"
 "meecast/language/sl_SI/)\n"
 "Language: sl_SI\n"
 "MIME-Version: 1.0\n"
@@ -298,9 +298,8 @@ msgid "AM Snow Showers / Wind Late"
 msgstr "Dopoldanske snežne plohe / v poznih urah veter"
 
 #: omweather/src/hash.data:28
-#, fuzzy
 msgid "AM T-Showers"
-msgstr "Popoldanske nevihte z grmenjem in bliskanjem"
+msgstr "Dopoldanske plohe z grmenjem"
 
 #: omweather/src/hash.data:29
 msgid "AM Wintry Mix"
@@ -1263,9 +1262,8 @@ msgid "Heavy Snowfall"
 msgstr "Močno sneženje"
 
 #: omweather/src/hash.data:119
-#, fuzzy
 msgid "Heavy T-Storms"
-msgstr "Nevihte z grmenjem"
+msgstr "Močne nevihte z grmenjem"
 
 #: omweather/src/hash.data:118
 msgid "Heavy Thunder"
@@ -1276,7 +1274,6 @@ msgid "Heavy intensity rain"
 msgstr "Močno intenziven dež"
 
 #: omweather/src/hash.data:107
-#, fuzzy
 msgid "Heavy rain"
 msgstr "Močan dež"
 
@@ -3606,9 +3603,3 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:437
 msgid "Ю-З"
 msgstr "Ю-З"
-
-#~ msgid "Show on Map"
-#~ msgstr "Pokaži na karti"
-
-#~ msgid "Support"
-#~ msgstr "Podpora"

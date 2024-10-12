@@ -5,16 +5,21 @@
 
 %define _binary_payload w2.xzdio
 
+%define vrsn 1.11.6
+%define rlse 2
+
 Name:       harbour-meecast
 Summary:    MeeCast for SailfishOS
 # Versioning for all (sub-)packages adheres to Semantic Versioning 2.0.0, see https://semver.org/
-# Mind that Sailfish-OBS sets the version of all subpackages to the one of the primary package.
-Version:    1.11.6
-Release:    1
+# Because the Sailfish-OBS sets the version of all subpackages to the one of the primary package,
+# this is already done here, hence applies to Meccast built by any build-system (for consistency
+# and to avoid confusing people and RPM).
+Version:    %{vrsn}
+Release:    %{rlse}
 Group:      Utility
 License:    LGPL-2.1-only
 URL:        https://github.com/Meecast/meecast
-Source0:    %{name}-%{version}.tar.bz2
+Source0:    %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 #Temporary
 #Requires:       libmeegotouch-devel
 BuildRequires:  pkgconfig(sailfishapp)
@@ -75,8 +80,8 @@ Links:
 
 
 %package daemon
-Version: 1.11.6
-Release: 1
+Version: %{vrsn}
+Release: %{rlse}
 Summary: MeeCast background daemon for SailfishOS
 Group:    Utility
 License:  LGPL-2.1-only
@@ -110,8 +115,9 @@ Links:
 
 
 %package lockscreen
-Version: 1.11.6
-Release: 1
+Version: %{vrsn}
+Release: %{rlse}
+>>>>>>> 3bb4fb3e46e11381fa58310d092c2afe222fd00f
 Summary: MeeCast widget for SailfishOS' lockscreen
 Group:    Utility
 License:  LGPL-2.1-only
@@ -151,8 +157,8 @@ Links:
 # https://build.sailfishos.org/project/prjconf/sailfishos:4.6
 %if %{undefined sailfishos_version} || 0%{?sailfishos_version} >= 40600
 %package eventview
-Version: 1.11.6
-Release: 1
+Version: %{vrsn}
+Release: %{rlse}
 Summary: MeeCast widget for SailfishOS' eventsview
 Group:    Utility
 License:  LGPL-2.1-only
@@ -197,11 +203,12 @@ Links:
 %endif
 %endif
 
+
 # Detect building for SailfishOS < 4.6.0 or build subpackage event any way.
 %if 0%{?sailfishos_version} < 40600
 %package event
-Version: 1.11.6
-Release: 1
+Version: %{vrsn}
+Release: %{rlse}
 Summary: MeeCast widget for SailfishOS' eventsview
 Group:    Utility
 License:  LGPL-2.1-only

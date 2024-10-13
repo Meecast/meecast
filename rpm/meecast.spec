@@ -153,7 +153,8 @@ Links:
 
 
 # Detect building for SailfishOS >= 4.6.0 or build subpackage eventview any way.
-# %%{sailfishos_version} is defined in the Sailfish-SDK and in e.g.
+# %%{sailfishos_version} seems to be undefined in the Sailfish-SDK, but
+# is defined for the SailfishOS-OBS when using a SFOS DoD-repo, see e.g.
 # https://build.sailfishos.org/project/prjconf/sailfishos:4.6
 %if %{undefined sailfishos_version} || 0%{?sailfishos_version} >= 40600
 %package eventview
@@ -164,7 +165,8 @@ Group:    Utility
 License:  LGPL-2.1-only
 Requires: %{name}
 Requires: %{name}-daemon >= 0.9
-# Require Lipstick Weather Widget on SailfishOS >= 4.6.0
+# Require Lipstick Weather Widget, which only exists as a separate package on
+# SailfishOS >= 4.6.0, see https://forum.sailfishos.org/t/18678/5
 Requires: lipstick-jolla-home-qt5-weather-widget-settings
 # Require these to be able to set a dconf key of the primary user in %%post and %%preun scriplets
 Requires: coreutils

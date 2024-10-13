@@ -117,7 +117,6 @@ Links:
 %package lockscreen
 Version: %{vrsn}
 Release: %{rlse}
->>>>>>> 3bb4fb3e46e11381fa58310d092c2afe222fd00f
 Summary: MeeCast widget for SailfishOS' lockscreen
 Group:    Utility
 License:  LGPL-2.1-only

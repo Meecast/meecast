@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2014 Vlad Vasilyeu
+ * Copyright (C) 2006-2024 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -234,8 +234,13 @@ ConfigQml::saveConfig(){
     lockscreen_settings->setValue("x_position", _lockscreen_x_position);
     lockscreen_settings->setValue("y_position", _lockscreen_y_position);
     lockscreen_settings->sync();
-    Core::Config::saveConfig();
-    qDebug()<<"SaveConfig";
+    qDebug()<<"Before SaveConfig";
+    try{
+        Core::Config::saveConfig();
+    }catch (std::exception &ex){
+        std::cerr<<"Error in Save Config: "<< ex.what() <<std::endl;
+    }
+    qDebug()<<"After SaveConfig";
 }
 
 QString

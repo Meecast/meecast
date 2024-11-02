@@ -239,6 +239,7 @@ ConfigQml::saveConfig(){
         Core::Config::saveConfig();
     }catch (std::exception &ex){
         std::cerr<<"Error in Save Config: "<< ex.what() <<std::endl;
+        emit errorInConfig("Can't save config file");
     }
     qDebug()<<"After SaveConfig";
 }

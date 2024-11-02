@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import Nemo.Notifications 1.0
 import "./"
 
 Page {
@@ -186,6 +187,12 @@ Page {
         return Config.stationname_index(i)
     }
 
+    Notification {
+         id: notification
+         summary: Config.tr("Error")
+         body: ""
+    }
+
     Connections {
         target: Config
         onConfigChanged: {
@@ -200,6 +207,12 @@ Page {
         onConfigChangeStationOnMainPage: {
             console.log("WeatherWrapper.qml onConfigChangeStationOnMainPage ", Config._current_station_id());
             listview.positionViewAtIndex(Config._current_station_id(), ListView.Beginning);
+        }
+        onErrorInConfig: {
+            console.log("onErrorInConfig")
+            console.log(text)
+            notification.body = Config.tr(text)
+            notification.publish()
         }
     }
 

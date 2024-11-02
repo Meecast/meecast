@@ -249,14 +249,12 @@ ConfigQml::saveConfig()
     lockscreen_settings->setValue("y_position", _lockscreen_y_position);
     lockscreen_settings->sync();
 #endif
-    qDebug()<<"Before SaveConfig";
     try{
         Core::Config::saveConfig();
     }catch (std::exception &ex){
         std::cerr<<"Error in Save Config: "<< ex.what() <<std::endl;
         emit errorInConfig("Can't save config file");
     }
-    qDebug()<<"After SaveConfig";
 }
 
 QString

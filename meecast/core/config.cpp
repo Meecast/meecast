@@ -283,17 +283,22 @@ Config::saveConfig()
         ++i;
     }
 
-    QFile file(QString::fromStdString(*_filename));
-    if (!file.open(QIODevice::WriteOnly)){
-        std::cerr<<"error file open "<<_filename<<std::endl;
-        throw("Invalid destination file");
-        return;
-    }
+    try {
+        QFile file(QString::fromStdString(*_filename));
+        if (!file.open(QIODevice::WriteOnly)){
+            std::cerr<<"error file open "<<_filename<<std::endl;
+            throw std::runtime_error("Could not open file");
+        }
 
-    QTextStream ts(&file);
-    ts << doc.toString();
-    //std::cerr << doc.toString().toStdString() << std::endl;
-    file.close();
+        QTextStream ts(&file);
+        ts << doc.toString();
+        //std::cerr << doc.toString().toStdString() << std::endl;
+        file.close();
+    } catch (std::exception &ex) {
+        std::cerr << "Ouch! That hurts in file operations, because: "
+            << ex.what() << "!\n";
+        throw std::runtime_error(ex.what());
+    }
 }
 ////////////////////////////////////////////////////////////////////////////////
 Config* 

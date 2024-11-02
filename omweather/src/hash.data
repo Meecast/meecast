@@ -427,6 +427,8 @@
     g_hash_table_insert(hash, (void*)"Refresh", _("Refresh"));
     g_hash_table_insert(hash, (void*)"Transparency", _("Transparency"));
     g_hash_table_insert(hash, (void*)"Cover Page", _("Cover Page"));
+    g_hash_table_insert(hash, (void*)"Error", _("Error"));
+    g_hash_table_insert(hash, (void*)"Can't save config file", _("Can't save config file"));
     g_hash_table_insert(hash, (void*)"В", _("В"));
     g_hash_table_insert(hash, (void*)"З", _("З"));
     g_hash_table_insert(hash, (void*)"С", _("С"));

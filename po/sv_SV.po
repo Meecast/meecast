@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-07 21:01+0300\n"
+"POT-Creation-Date: 2024-11-02 13:16+0300\n"
 "PO-Revision-Date: 2012-04-16 13:52+0000\n"
 "Last-Translator: Åke Engelbrektson, 2015-2020,2024\n"
 "Language-Team: Swedish (http://app.transifex.com/vasvlad/meecast/language/"
@@ -437,6 +437,10 @@ msgstr "C\n"
 msgid "CALM"
 msgstr "LUGNT"
 
+#: omweather/src/hash.data:431
+msgid "Can't save config file"
+msgstr ""
+
 #: meecast/qt-qml/qml/VisualsPage.qml:108
 msgid "Cancel"
 msgstr "Avbryt"
@@ -841,6 +845,10 @@ msgstr "Aktivera GPS"
 #: meecast/qt-qml/qml/SearchField.qml:50
 msgid "Enter search"
 msgstr "Sök"
+
+#: omweather/src/hash.data:430
+msgid "Error"
+msgstr ""
 
 #: omweather/src/weather-home.c:841
 #, c-format
@@ -3435,34 +3443,34 @@ msgstr "stationsnamn"
 msgid "steady"
 msgstr "stadig"
 
-#: omweather/src/hash.data:430
+#: omweather/src/hash.data:432
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:431
+#: omweather/src/hash.data:433
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:432
+#: omweather/src/hash.data:434
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:433
+#: omweather/src/hash.data:435
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:434
+#: omweather/src/hash.data:436
 msgid "С-З"
 msgstr "C-3"
 
-#: omweather/src/hash.data:435
+#: omweather/src/hash.data:437
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:436
+#: omweather/src/hash.data:438
 msgid "Ю-В"
 msgstr "Ю-B"
 
-#: omweather/src/hash.data:437
+#: omweather/src/hash.data:439
 msgid "Ю-З"
 msgstr "Ю-3"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-06 20:05+0300\n"
+"POT-Creation-Date: 2024-11-02 13:16+0300\n"
 "PO-Revision-Date: 2016-02-21 07:57+0000\n"
 "Last-Translator: Pawel Spoon <pawel@ich-habe-fertig.com>\n"
 "Language-Team: Czech (http://www.transifex.com/vasvlad/meecast/language/"
@@ -487,6 +487,10 @@ msgstr "C\n"
 msgid "CALM"
 msgstr "KLID"
 
+#: omweather/src/hash.data:431
+msgid "Can't save config file"
+msgstr ""
+
 #: meecast/qt-qml/qml/VisualsPage.qml:108
 msgid "Cancel"
 msgstr "Zrušit"
@@ -913,6 +917,10 @@ msgstr "Povolit GPS"
 #: meecast/qt-qml/qml/SearchField.qml:50
 msgid "Enter search"
 msgstr "Zadat hledání"
+
+#: omweather/src/hash.data:430
+msgid "Error"
+msgstr ""
 
 #: omweather/src/weather-home.c:841
 #, c-format
@@ -3594,35 +3602,35 @@ msgstr "jméno meteostanice"
 msgid "steady"
 msgstr "stabilní"
 
-#: omweather/src/hash.data:430
+#: omweather/src/hash.data:432
 msgid "В"
 msgstr "V"
 
-#: omweather/src/hash.data:431
+#: omweather/src/hash.data:433
 msgid "З"
 msgstr "Z"
 
-#: omweather/src/hash.data:432
+#: omweather/src/hash.data:434
 msgid "С"
 msgstr "S"
 
-#: omweather/src/hash.data:433
+#: omweather/src/hash.data:435
 msgid "С-В"
 msgstr "SV"
 
-#: omweather/src/hash.data:434
+#: omweather/src/hash.data:436
 msgid "С-З"
 msgstr "SZ"
 
-#: omweather/src/hash.data:435
+#: omweather/src/hash.data:437
 msgid "Ю"
 msgstr "J"
 
-#: omweather/src/hash.data:436
+#: omweather/src/hash.data:438
 msgid "Ю-В"
 msgstr "JV"
 
-#: omweather/src/hash.data:437
+#: omweather/src/hash.data:439
 msgid "Ю-З"
 msgstr "JZ"
 

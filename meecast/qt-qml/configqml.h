@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2014 Vlad Vasilyeu
+ * Copyright (C) 2006-2024 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -266,6 +266,7 @@ signals:
     void lastupdatecoverpageChanged();
     void lock_screen_x_positionChanged();
     void lock_screen_y_positionChanged();
+    void errorInConfig(QString text);
 public Q_SLOTS:
     void addGpsStation(double latitude, double longitude);
 private slots:

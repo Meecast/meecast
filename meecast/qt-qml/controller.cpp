@@ -37,21 +37,20 @@ create_and_fill_config(){
 
     std::cerr<<"Create Config class: " << std::endl;
     try{
-	QString config_dir = Core::AbstractConfig::getConfigPath().c_str();
-	QString config_file = config_dir + "/config.xml";
-    QFileInfo Conf_File(config_file);
+        QString config_dir = Core::AbstractConfig::getConfigPath().c_str();
+        QString config_file = config_dir + "/config.xml";
+        QFileInfo Conf_File(config_file);
 
-    if (!Conf_File.exists()){
-       QString  oldconfig_file = Core::AbstractConfig::getConfigPathOld2().c_str();
-       oldconfig_file = oldconfig_file + "config.xml";
-       QFile::copy(oldconfig_file, config_file);
-    }
-    config = ConfigQml::Instance(Core::AbstractConfig::getConfigPath()+
-                                   "config.xml",
-                                   Core::AbstractConfig::prefix+
-                                   Core::AbstractConfig::schemaPath+
-                                   "config.xsd");
-
+        if (!Conf_File.exists()){
+           QString  oldconfig_file = Core::AbstractConfig::getConfigPathOld2().c_str();
+           oldconfig_file = oldconfig_file + "config.xml";
+           QFile::copy(oldconfig_file, config_file);
+        }
+        config = ConfigQml::Instance(Core::AbstractConfig::getConfigPath()+
+                                     "config.xml",
+                                     Core::AbstractConfig::prefix+
+                                     Core::AbstractConfig::schemaPath+
+                                     "config.xsd");
     }
     catch(const std::string &str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;

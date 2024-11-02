@@ -594,6 +594,10 @@ Frementle için Dizayn : Krebber Jan Niemelä Ulla
         <translation>DURGUN</translation>
     </message>
     <message>
+        <source>Can&apos;t save config file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>Iptal</translation>
     </message>
@@ -1066,6 +1070,10 @@ fikir ve testleri için Andrew aka Tabster&apos;a ve testleri için Brad Jones&a
     <message>
         <source>Enter search</source>
         <translation>Arama girişi</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error in xml file

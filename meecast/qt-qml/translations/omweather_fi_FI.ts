@@ -604,6 +604,10 @@ Fremantle käyttöliittymä: Krebber Jan ja Niemelä Ulla
         <translation>Tyyntä</translation>
     </message>
     <message>
+        <source>Can&apos;t save config file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>Peruuta</translation>
     </message>
@@ -1078,6 +1082,10 @@ Brad Jones aka kazrak - testauksesta
     <message>
         <source>Enter search</source>
         <translation>Syötä hakutermi</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error in xml file

@@ -604,6 +604,10 @@ Disseny IU per a Fremantle: Krebber Jan Niemela Ulla
         <translation>Calma</translation>
     </message>
     <message>
+        <source>Can&apos;t save config file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>
@@ -1078,6 +1082,10 @@ Brad Jones aka kazrak - per les proves
     <message>
         <source>Enter search</source>
         <translation>Entreu cerca</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error in xml file

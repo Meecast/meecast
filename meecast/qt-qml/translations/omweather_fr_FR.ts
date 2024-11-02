@@ -601,6 +601,10 @@ Design de l&apos;interface pour Fremantle : Krebber Jan Niemelä Ulla
         <translation>Calme</translation>
     </message>
     <message>
+        <source>Can&apos;t save config file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
@@ -1067,6 +1071,10 @@ Brad Jones dit kazrak - pour les tests
     <message>
         <source>Enter search</source>
         <translation>Entrer la recherche</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error in xml file

@@ -605,6 +605,10 @@ Design der Oberfläche für Freemante: Krebber Jan Niemela Ulla
         <translation>STILL</translation>
     </message>
     <message>
+        <source>Can&apos;t save config file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
@@ -1079,6 +1083,10 @@ Brad Jones aka kazrak - fürs Testen
     <message>
         <source>Enter search</source>
         <translation>Suchbegriff eingeben</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error in xml file

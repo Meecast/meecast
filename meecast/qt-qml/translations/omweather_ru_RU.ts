@@ -578,6 +578,10 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
         <translation>Штиль</translation>
     </message>
     <message>
+        <source>Can&apos;t save config file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>Отменить</translation>
     </message>
@@ -1048,6 +1052,10 @@ Brad Jones aka kazrak - за тестирование
     <message>
         <source>Enter search</source>
         <translation>Поиск</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error in xml file

@@ -601,6 +601,10 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
         <translation>هادئ</translation>
     </message>
     <message>
+        <source>Can&apos;t save config file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>إلغاء</translation>
     </message>
@@ -1067,6 +1071,10 @@ Brad Jones aka kazrak - للتجربة
     <message>
         <source>Enter search</source>
         <translation>إدخال كلمة البحث</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error in xml file

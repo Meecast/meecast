@@ -604,6 +604,10 @@ Návrh používateľského rozhrania pre Fremantle: Krebber Jan Niemela Ulla
         <translation>Bezvetrie</translation>
     </message>
     <message>
+        <source>Can&apos;t save config file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>Zrušiť</translation>
     </message>
@@ -1078,6 +1082,10 @@ Brad Jones aka kazrak - testovanie
     <message>
         <source>Enter search</source>
         <translation>Hľadať</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error in xml file

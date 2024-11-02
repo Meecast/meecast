@@ -604,6 +604,10 @@ Ontwerp UI voor Fremantle: Krebber Jan Niemelä Ulla
         <translation>RUSTIG</translation>
     </message>
     <message>
+        <source>Can&apos;t save config file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
@@ -1079,6 +1083,10 @@ Brad Jones aka kazrak - voor het testen
     <message>
         <source>Enter search</source>
         <translation>Zoekopdracht</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error in xml file

@@ -604,6 +604,10 @@ Projekt UI dla Fremantle: Krebber Jan Niemela Ulla
         <translation>SPOKOJNIE</translation>
     </message>
     <message>
+        <source>Can&apos;t save config file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>Przerwij</translation>
     </message>
@@ -1078,6 +1082,10 @@ Brad Jones aka kazrak - za testowanie
     <message>
         <source>Enter search</source>
         <translation>Wyszukaj</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error in xml file

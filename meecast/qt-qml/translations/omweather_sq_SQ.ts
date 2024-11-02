@@ -600,6 +600,10 @@ Krijimi i ndërfaqes për Fremantle-in: Krebber Jan Niemelä Ulla
         <translation>I/e qetë</translation>
     </message>
     <message>
+        <source>Can&apos;t save config file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>Fshije</translation>
     </message>
@@ -1066,6 +1070,10 @@ Brad Jones aka kazrak - for testing
     <message>
         <source>Enter search</source>
         <translation>Fillo kërkimin</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error in xml file

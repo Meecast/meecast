@@ -601,6 +601,10 @@ UI Design para Fremantle: Krebber Jan Niemelä Ulla
         <translation>CALMO</translation>
     </message>
     <message>
+        <source>Can&apos;t save config file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
@@ -1067,6 +1071,10 @@ Brad Jones aka kazrak - para testes
     <message>
         <source>Enter search</source>
         <translation>Activar procura</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error in xml file

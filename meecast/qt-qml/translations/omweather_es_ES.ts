@@ -603,6 +603,10 @@ Diseño de la IU para Fremantle: Krebber Jan Niemela Ulla
         <translation>Calmo</translation>
     </message>
     <message>
+        <source>Can&apos;t save config file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
@@ -1077,6 +1081,10 @@ Brad &quot;kazrak&quot; Jones - por testear
     <message>
         <source>Enter search</source>
         <translation>Ingrese búsqueda</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error in xml file

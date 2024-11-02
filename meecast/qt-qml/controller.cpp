@@ -61,7 +61,15 @@ create_and_fill_config(){
         config =  ConfigQml::Instance();
     }
     //std::cerr<<"End of creating Config class: " <<std::endl;
-    config->saveConfig();
+    try{
+        config->saveConfig();
+    }catch(const std::string &str){
+        std::cerr<<"Error in Save Config: "<< str <<std::endl;
+    }
+    catch(const char *str){
+        std::cerr<<"Error in Save Config: "<< str <<std::endl;
+    }
+
     std::cerr<<"End of creating Config class" <<std::endl;
 
     return config;

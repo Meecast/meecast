@@ -5,8 +5,8 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.11.6
-%define rlse 2
+%define vrsn 1.11.7
+%define rlse 1
 
 Name:       harbour-meecast
 Summary:    MeeCast for SailfishOS
@@ -347,6 +347,8 @@ fi
 
 
 %changelog
+* Tue Oct 08 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.7
+- Fixed a segmentation fault when the configuration file is in read-only mode.
 * Tue Oct 08 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.6
 - Updated Russian and Swedish translations
 - Added Location to Permissions [X-Sailjail] section

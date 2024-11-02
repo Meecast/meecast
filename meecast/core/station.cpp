@@ -150,6 +150,8 @@ Station::Station(const std::string& source_name, const std::string& id,
         filename += source_name;
         filename += "_";
         filename += id;
+        /* Normalization filename */
+        std::replace(filename->begin(), filename->end(),'=', '_');
         _forecastURL = new std::string(forecast_url);
         _detailURL = new std::string(forecast_detail_url);
         _hoursURL = new std::string(forecast_hours_url);

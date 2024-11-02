@@ -81,7 +81,6 @@ void
 Config::saveConfig()
 {
     std::cerr<<"Config::saveConfig "<<_filename->c_str() <<std::endl;
-    #ifndef LIBXML
     QDomDocument doc;
     doc.appendChild(doc.createProcessingInstruction("xml", "version=\"1.0\" encoding=\"utf-8\""));
 
@@ -249,21 +248,9 @@ Config::saveConfig()
 
         el = doc.createElement("forecast_url");
 
-        /* Temporary hack for weather.com Adapted for new URL. Remove after version 1.1.30 */
-        if (QString::fromStdString((*i)->sourceName()) == "weather.com" &&
-            QString::fromStdString((*i)->forecastURL()).contains("wxdata.weather.com")){
-            QString temp = QString::fromStdString((*i)->forecastURL());
-            temp.replace("http://wxdata.weather.com/wxdata/weather/local/", "");
-            temp.replace("?cm_ven=1CW&site=wx.com-bar&cm_ite=wx-cc&par=1CWFFv1.1.9&cm_pla=wx.com-bar&cm_cat=FFv1.1.9&unit=m&dayf=9&cc=*","");
-            std::cerr<<"I'm here !!!!!!"<< temp.toStdString();
-            char forecast_url[4096];
-            snprintf(forecast_url, sizeof(forecast_url)-1, "https://weather.com/en-GB/weather/today/l/%s", temp.toStdString().c_str());
-            t = doc.createTextNode(forecast_url);
-        }else{
-            t = doc.createTextNode(QString::fromStdString((*i)->forecastURL()));
-        }
-            el.appendChild(t);
-            st.appendChild(el);
+        t = doc.createTextNode(QString::fromStdString((*i)->forecastURL()));
+        el.appendChild(t);
+        st.appendChild(el);
 
         el = doc.createElement("cookie");
         t = doc.createTextNode(QString::fromStdString((*i)->cookie()));
@@ -286,38 +273,12 @@ Config::saveConfig()
         st.appendChild(el);
 
         el = doc.createElement("map_url");
-        /* Temporary hack for weather.com . This must be delete after version 0.7.0 */
-        /*
-        if ( QString::fromStdString((*i)->mapURL()) == "" 
-            && QString::fromStdString((*i)->sourceName()) == "weather.com"){
-
-            Core::DatabaseSqlite *db;
-            std::string path(Core::AbstractConfig::prefix);
-            path += Core::AbstractConfig::sharePath;
-            path += "db/weather.com.db";
-            db = new Core::DatabaseSqlite("");
-            db->set_databasename(path);
-            db->open_database();
-            double latitude = (*i)->latitude();
-            double longitude = (*i)->longitude();
-            db->get_station_coordinate((*i)->id(), latitude, longitude); 
-            char map_url[4096];
-            snprintf(map_url, sizeof(map_url)-1, "http://mapserver.weather.com/MapServer/map?layers=sat&lat=%f&lng=%f&bpp=8&fmt=png&w=854&h=480&zoom=5&base=msve-hyb&g=1.5&tx=0.7", latitude, longitude);
-            delete db;
-            t = doc.createTextNode(QString::fromStdString(map_url));
+        if (QString::fromStdString((*i)->mapURL()) != ""){
+            t = doc.createTextNode(QString::fromStdString((*i)->mapURL()));
             el.appendChild(t);
             st.appendChild(el);
-        }else
-        */
-        {
-            if (QString::fromStdString((*i)->mapURL()) != ""){
-                t = doc.createTextNode(QString::fromStdString((*i)->mapURL()));
-                el.appendChild(t);
-                st.appendChild(el);
-            }
-        
         }
-
+        
         el = doc.createElement("basemap_url");
         if (QString::fromStdString((*i)->basemapURL()) != ""){
             t = doc.createTextNode(QString::fromStdString((*i)->basemapURL()));
@@ -367,10 +328,8 @@ Config::saveConfig()
 
     QTextStream ts(&file);
     ts << doc.toString();
-    //file.write(doc.toString());
     //std::cerr << doc.toString().toStdString() << std::endl;
     file.close();
-    #endif
 }
 ////////////////////////////////////////////////////////////////////////////////
 Config* 

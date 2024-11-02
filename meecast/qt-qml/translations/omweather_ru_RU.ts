@@ -579,7 +579,7 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
     </message>
     <message>
         <source>Can&apos;t save config file</source>
-        <translation type="unfinished"></translation>
+        <translation>Невозможно сохранить файл конфигурации</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -858,7 +858,8 @@ Connection timeout is expired.</source>
     <message>
         <source>Danish - Peter Jespersen
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Датский - Peter Jespersen
+</translation>
     </message>
     <message>
         <source>Day</source>
@@ -1055,7 +1056,7 @@ Brad Jones aka kazrak - за тестирование
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка</translation>
     </message>
     <message>
         <source>Error in xml file
@@ -1217,7 +1218,8 @@ Brad Jones aka kazrak - за тестирование
     <message>
         <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Финский - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
+</translation>
     </message>
     <message>
         <source>First Quarter</source>
@@ -3076,7 +3078,8 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Serbian - Aleksandar Zaric
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Сербский - Aleksandar Zaric
+</translation>
     </message>
     <message>
         <source>Set</source>

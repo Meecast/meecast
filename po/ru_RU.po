@@ -12,15 +12,12 @@ msgstr ""
 "POT-Creation-Date: 2024-11-02 13:16+0300\n"
 "PO-Revision-Date: 2012-04-16 13:52+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>, 2013-2020,2024\n"
-"Language-Team: Russian (http://app.transifex.com/vasvlad/meecast/language/"
-"ru/)\n"
-"Language: ru\n"
+"Language-Team: Russian (http://app.transifex.com/vasvlad/meecast/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: omweather/src/weather-home.c:1567
 msgid ""
@@ -436,7 +433,7 @@ msgstr "Штиль"
 
 #: omweather/src/hash.data:431
 msgid "Can't save config file"
-msgstr ""
+msgstr "Невозможно сохранить файл конфигурации"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:108
 msgid "Cancel"
@@ -690,7 +687,7 @@ msgstr "Ежедневно"
 
 #: meecast/qt-qml/qml/AboutPage.qml:260
 msgid "Danish - Peter Jespersen\n"
-msgstr ""
+msgstr "Датский - Peter Jespersen\n"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
 #: meecast/qt-qml/qml/FullWeatherPage.qml:204
@@ -845,7 +842,7 @@ msgstr "Поиск"
 
 #: omweather/src/hash.data:430
 msgid "Error"
-msgstr ""
+msgstr "Ошибка"
 
 #: omweather/src/weather-home.c:841
 #, c-format
@@ -962,7 +959,7 @@ msgstr ""
 msgid ""
 "Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro "
 "Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
-msgstr ""
+msgstr "Финский - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
 
 #: omweather/src/hash.data:92
 msgid "First Quarter"
@@ -1018,7 +1015,7 @@ msgstr "Для отключения виджета MeeCast\nВы должны д
 msgid "Forecast"
 msgstr "Прогноз"
 
-#: omweather/src/weather-popup.c:1433
+#: omweather/src/weather-popup.c:1432
 #: omweather/src/weather-simple-popup.c:1028
 msgid "Forecast at: "
 msgstr "Прогноз на: "
@@ -2469,7 +2466,7 @@ msgstr "Датчик"
 
 #: meecast/qt-qml/qml/AboutPage.qml:261
 msgid "Serbian - Aleksandar Zaric\n"
-msgstr ""
+msgstr "Сербский - Aleksandar Zaric\n"
 
 #: omweather/src/weather-simple-settings.c:2228
 msgid "Set"

@@ -1,12 +1,9 @@
 meecast (1.11.8) unstable; urgency=low
+meecast (1.11.7) unstable; urgency=low
   * Added icons and description to fmi.fi 
   * Fixed problem with symbol '=' and '?' in file name
-  * Updated Russian transltion
- -- Vlad Vasiliev <vlad@gas.by> Sat, 02 Nov 2024 19:02:23 +0300
-
-meecast (1.11.7) unstable; urgency=low
-  * Updated Slovenian transltion
- -- Vlad Vasiliev <vlad@gas.by> Sat, 05 Oct 2024 09:02:23 +0300
+  * Updated Russian, Swedish translations
+ -- Vlad Vasiliev <vlad@gas.by> Sun, 03 Nov 2024 19:02:23 +0300
 
 meecast (1.11.6) unstable; urgency=low
   * Updated Russian,Swedish transltions

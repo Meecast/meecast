@@ -605,7 +605,7 @@ Design UI för Fremantle: Krebber Jan Niemela Ulla
     </message>
     <message>
         <source>Can&apos;t save config file</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan inte spara konfigurationsfilen</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1085,7 +1085,7 @@ Brad Jones aka kazrak - för testning
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Fel</translation>
     </message>
     <message>
         <source>Error in xml file

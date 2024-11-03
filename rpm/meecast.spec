@@ -349,10 +349,10 @@ fi
 %changelog
 * Sun Nov 03 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.7
 - Fixed a segmentation fault when the configuration file is in read-only mode
-- Added icons and description to fmi.fi
+- Added icons and descriptions to fmi.fi
 - Fixed problem with symbols '=' and '?' in station file name
 - Updated Russian, Slovenian translations
-- Fixed the proccess of changing language setting
+- Fixed the procces of changing language setting
 * Tue Oct 08 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.6
 - Updated Russian and Swedish translations
 - Added Location to Permissions [X-Sailjail] section

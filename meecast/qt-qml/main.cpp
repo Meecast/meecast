@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2013 Vlad Vasilyeu
+ * Copyright (C) 2006-2024 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -42,7 +42,6 @@
 //#include <QDeclarativeContext>
 //#include <QDeclarativeEngine>
 //#include <QDeclarativeView>
-#include <QTranslator>
 #include <QLocale>
 #include <QHash>
 #include <QtQml>
@@ -97,18 +96,16 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 {
 
 
-    //QScopedPointer<QGuiApplication> app(Sailfish::createApplication(argc, argv));
      
-    QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
+    //QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
+    QGuiApplication* app(SailfishApp::application(argc, argv));
     qmlRegisterType<MeeCastCover>("harbour.meecast.meecastcover", 1, 0, "MeeCastCover");
     //app->setProperty("NoMStyle", true);
 
     QDir::setCurrent(app->applicationDirPath());
 
     
-    std::cerr<<"Begin "<<std::endl;
     std::cerr<<app->applicationDirPath().toStdString().c_str()<<std::endl;
-    std::cerr<<"End "<<std::endl;
 
 /*
     QString str = QDir::currentPath();
@@ -133,34 +130,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     bindtextdomain("omweather", localepath.toStdString().c_str());
     std::cerr<<" Path for tanslate "<<localepath.toStdString().c_str()<<std::endl;
 */
-    controller = new Controller(); 
-
-    /* Locale */
-    // Set up the translator.
-    QTranslator translator;
-    QString locale_string = QLocale().name();
-    QString filename = QString("omweather_%1").arg(locale_string);
-/*    std::cerr<<filename.toStdString().c_str()<<std::endl; */
-
-    QString localepath =QString::fromStdString(Core::AbstractConfig::prefix + "/share/harbour-meecast/locale");
-    if (translator.load(filename, localepath)) {
-        /* std::cerr<<"Success TR"<<std::endl; */
-        app->installTranslator(&translator);
-    }
-
-//    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
-    for (unsigned int i=1; i<controller->config()->languagesList().size(); i++){
-        if (controller->config()->languagesList().at(i).first == controller->config()->Language()){
-            QLocale::setDefault(QLocale(controller->config()->languagesList().at(i).second.c_str()));
-            filename = QString("omweather_%1").arg(controller->config()->languagesList().at(i).second.c_str());
-            std::cerr<<filename.toStdString().c_str()<<std::endl; 
-            QString localepath = QString::fromStdString(Core::AbstractConfig::prefix + "/share/harbour-meecast/locale");
-            if (translator.load(filename, localepath)) {
-                    std::cerr<<"Success TR"<<std::endl;
-                    app->installTranslator(&translator);
-            }
-        }
-    }
+    controller = new Controller(app);
 
     /* D-BUS */
     DbusAdaptor* dadapt = new DbusAdaptor(controller);

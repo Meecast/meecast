@@ -32,7 +32,7 @@
 #include <QDir>
 
 ConfigQml *
-create_and_fill_config(){
+create_and_fill_config(QGuiApplication *app){
     ConfigQml *config;
 
     std::cerr<<"Create Config class: " << std::endl;
@@ -50,7 +50,7 @@ create_and_fill_config(){
                                      "config.xml",
                                      Core::AbstractConfig::prefix+
                                      Core::AbstractConfig::schemaPath+
-                                     "config.xsd");
+                                     "config.xsd", app);
     }
     catch(const std::string &str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
@@ -76,11 +76,14 @@ create_and_fill_config(){
 }
 
 
-Controller::Controller() : QObject()
+//Controller::Controller(QScopedPointer<QGuiApplication> app) : QObject()
+Controller::Controller(QGuiApplication *app) : QObject()
 {
   std::cerr<<"Controller::Controller()"<<std::endl;
   _qview = SailfishApp::createView();
   _dp = NULL;
+  _app = app;
+ // _translator = translator;
   this->load_config();
   this->load_data();
 
@@ -396,9 +399,10 @@ Controller::load_data(){
 void
 Controller::load_config(){
    std::cout<<"Load"<<std::endl;
-  _config = create_and_fill_config();   
+  _config = create_and_fill_config(_app);
   _qview->rootContext()->setContextProperty("Config", _config);
 }
+
 void
 Controller::reload_config(){
   std::cout<<"Reload";

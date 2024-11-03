@@ -43,6 +43,8 @@
 #include <MGConfItem>
 #endif
 #include <QSettings>
+#include <QtGui/QGuiApplication>
+#include <QTranslator>
 #include <QDir>
 
 #include <libintl.h>
@@ -110,16 +112,18 @@ private:
     int _lockscreen_y_position;
     uint _time_for_updating;
     bool _updating;
+    QGuiApplication *_app;
+    QTranslator _translator;
 protected:
     static ConfigQml* _self;
     static int _refcount_;
     virtual ~ConfigQml();
     ConfigQml();
-    ConfigQml(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
+    ConfigQml(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd", QGuiApplication *app = NULL);
 
 public:
     static ConfigQml* Instance();
-    static ConfigQml* Instance(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
+    static ConfigQml* Instance(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd", QGuiApplication *app = NULL);
     static bool DeleteInstance();
     QString iconset();
     QString iconspath();
@@ -221,6 +225,7 @@ public:
     Q_INVOKABLE void refreshconfig3();
     Q_INVOKABLE void check_and_update_station();
     Q_INVOKABLE void reload_config();
+    Q_INVOKABLE void setLanguage();
 //    void refreshconfig();
     NetworkingControl *networkingcontrol; 
     bool isOnline();
@@ -267,6 +272,7 @@ signals:
     void lock_screen_x_positionChanged();
     void lock_screen_y_positionChanged();
     void errorInConfig(QString text);
+    void languageChanged();
 public Q_SLOTS:
     void addGpsStation(double latitude, double longitude);
 private slots:

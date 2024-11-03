@@ -35,9 +35,10 @@ int ConfigQml::_refcount_;
 
 
 //ConfigQml::ConfigQml():QObject(),Core::Config("config.xml", "../core/data/config.xsd"){}
-ConfigQml::ConfigQml(const std::string& filename, const std::string& schema_filename):QObject(),Core::Config(filename, schema_filename){
+ConfigQml::ConfigQml(const std::string& filename, const std::string& schema_filename, QGuiApplication *app):QObject(),Core::Config(filename, schema_filename){
     std::cerr<<"CONFIG CREATEQML11111!!!!!!!!!!!!!!"<<std::endl;
     _refcount_ = 0;
+    _app = app;
     init();
 }
 
@@ -74,9 +75,9 @@ ConfigQml::Instance(){
 }
 
 ConfigQml* 
-ConfigQml::Instance(const std::string& filename, const std::string& schema_filename){
+ConfigQml::Instance(const std::string& filename, const std::string& schema_filename, QGuiApplication *app){
     if (!_self)
-        _self = new ConfigQml(filename, schema_filename);
+        _self = new ConfigQml(filename, schema_filename, app);
     _refcount_++;
     std::cerr<<"Refcount ConfigQML2: "<<_refcount_<<std::endl;
     return _self;
@@ -161,6 +162,7 @@ ConfigQml::init(){
             delete db_w;
         }
     }
+    setLanguage();
 #if 0 
     if (QFile::exists("/home/user/.cache/com.meecast.omweather/splash.png")){
         /* Check file size */
@@ -177,6 +179,38 @@ ConfigQml::init(){
         }
     }
 #endif
+}
+
+void
+ConfigQml::setLanguage(){
+   std::cout<<"setLanguage"<<std::endl;
+   /* Locale */
+   // Set up the translator.
+   //QTranslator translator;
+   QString locale_string = QLocale().name();
+   QString filename = QString("omweather_%1").arg(locale_string);
+/*   std::cerr<<filename.toStdString().c_str()<<std::endl; */
+
+   QString localepath =QString::fromStdString(Core::AbstractConfig::prefix + "/share/harbour-meecast/locale");
+   if (_translator.load(filename, localepath)) {
+       /* std::cerr<<"Success TR"<<std::endl; */
+       _app->installTranslator(&_translator);
+   }
+
+//   QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+   for (unsigned int i=1; i<languagesList().size(); i++){
+       if (languagesList().at(i).first == Language()){
+           QLocale::setDefault(QLocale(languagesList().at(i).second.c_str()));
+           filename = QString("omweather_%1").arg(languagesList().at(i).second.c_str());
+           std::cerr<<filename.toStdString().c_str()<<std::endl;
+           QString localepath = QString::fromStdString(Core::AbstractConfig::prefix + "/share/harbour-meecast/locale");
+           std::cerr<<localepath.toStdString().c_str()<<std::endl;
+           if (_translator.load(filename, localepath)) {
+                   std::cerr<<"Success TR"<<std::endl;
+                   _app->installTranslator(&_translator);
+           }
+       }
+   }
 }
 
 void 
@@ -312,6 +346,7 @@ ConfigQml::set_language(QString c){
     }
 
     saveConfig();
+    setLanguage();
     refreshconfig();
 }
 
@@ -1127,6 +1162,7 @@ ConfigQml::refreshconfig(){
     emit ConfigQml::configChanged();
     emit ConfigQml::lock_screen_x_positionChanged();
     emit ConfigQml::lock_screen_y_positionChanged();
+    emit ConfigQml::languageChanged();
 }
 
 void

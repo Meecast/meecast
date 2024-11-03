@@ -4,9 +4,17 @@ import Sailfish.Silica 1.0
 Page {
     id: settings
     property int margin: Theme.paddingSmall
-    function openFile(file)
-    {
+    property string header_title: Config.tr("Settings")
+    function openFile(file) {
         pageStack.push(Qt.resolvedUrl(file))
+    }
+    Connections {
+        target: Config
+        onLanguageChanged: {
+            console.log("onLanguageChanged")
+            listview.model = settingsModel
+            header_title = Config.tr("Settings")
+        }
     }
     ListModel {
         id: settingsModel
@@ -78,7 +86,7 @@ Page {
             model: settingsModel
             anchors.fill: parent
             header: PageHeader { 
-                title: Config.tr("Settings") 
+                title: header_title
             }
             delegate: Item {
                 height: Theme.itemSizeSmall

@@ -5,6 +5,7 @@ Page {
     id: settings
     property int margin: Theme.paddingSmall
     property string header_title: Config.tr("Settings")
+    property variant silicalistview_model: settingsModel
     function openFile(file) {
         pageStack.push(Qt.resolvedUrl(file))
     }
@@ -12,39 +13,22 @@ Page {
         target: Config
         onLanguageChanged: {
             console.log("onLanguageChanged")
-            listview.model = settingsModel
+            settingsModel.clear()
+            add_elements_to_model()
+            silicalistview_model = settingsModel
             header_title = Config.tr("Settings")
         }
     }
+    function add_elements_to_model(){
+        settingsModel.append({ page: "StationsPage.qml", title: "Manage locations" })
+        settingsModel.append({ page: "UnitsPage.qml", title: "Measurement units" })
+        settingsModel.append({ page: "VisualsPage.qml", title: "Appearance" })
+        settingsModel.append({ page: "UpdatePage.qml", title: "Update" })
+        settingsModel.append({ page: "LanguagesPage.qml", title: "Language" })
+    }
     ListModel {
         id: settingsModel
-        ListElement {
-            page: "StationsPage.qml"
-            title: "Manage locations"
-        }
-        ListElement {
-            page: "UnitsPage.qml"
-            title: "Measurement units"
-        }
-	/* 
-        ListElement {
-            page: "SourcePage.qml"
-            title: "Source"
-        }*/
-        ListElement {
-            page: "VisualsPage.qml"
-            title: "Appearance"
-        }
-        ListElement {
-            page: "UpdatePage.qml"
-            title: "Update"
-        }
-    	ListElement {
-            page: "LanguagesPage.qml"
-            title: "Language"
-        }
-
-
+        Component.onCompleted: add_elements_to_model()
     }
 
     Rectangle{
@@ -83,7 +67,8 @@ Page {
 
         SilicaListView {
             id: listview
-            model: settingsModel
+            //model: settingsModel
+            model: silicalistview_model
             anchors.fill: parent
             header: PageHeader { 
                 title: header_title

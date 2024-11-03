@@ -187,11 +187,14 @@ ConfigQml::setLanguage(){
     /* Locale */
     // Set up the translator.
     //QTranslator translator;
-    QString locale_string = QLocale().name();
+    QString locale_string = QLocale().system().name();
     QString filename = QString("omweather_%1").arg(locale_string);
-    /*   std::cerr<<filename.toStdString().c_str()<<std::endl; */
+    //std::cerr<<"Filename0: "<<filename.toStdString().c_str()<<std::endl; 
 
     QString localepath = QString::fromStdString(Core::AbstractConfig::prefix + "/share/harbour-meecast/locale");
+    if (!_translator.isEmpty()){
+          QCoreApplication::removeTranslator(&_translator);
+    }
     if (_translator.load(filename, localepath)) {
         /* std::cerr<<"Success TR"<<std::endl; */
         _app->installTranslator(&_translator);
@@ -204,7 +207,7 @@ ConfigQml::setLanguage(){
             filename = QString("omweather_%1").arg(languagesList().at(i).second.c_str());
             std::cerr<<filename.toStdString().c_str()<<std::endl;
             QString localepath = QString::fromStdString(Core::AbstractConfig::prefix + "/share/harbour-meecast/locale");
-            std::cerr<<localepath.toStdString().c_str()<<std::endl;
+            //std::cerr<<"Filename1: "<<localepath.toStdString().c_str()<<std::endl;
             if (_translator.load(filename, localepath)) {
                     std::cerr<<"Success TR"<<std::endl;
                     _app->installTranslator(&_translator);
@@ -335,10 +338,12 @@ ConfigQml::set_iconset(QString c){
 }
 void
 ConfigQml::set_language(QString c){
+    std::cerr<<"ConfigQml::set_language"<<std::endl;
     ConfigQml::Config::Language(c.toStdString());
     /* Set new locale for application */
     for (unsigned int i=1; i<languagesList().size(); i++){
         if (languagesList().at(i).first == Language()){
+            std::cerr<<"ConfigQml::set_language - "<<languagesList().at(i).second.c_str() <<std::endl;
             setlocale (LC_ALL, languagesList().at(i).second.c_str());
             setlocale (LC_MESSAGES, languagesList().at(i).second.c_str());
             QLocale::setDefault(QLocale(languagesList().at(i).second.c_str()));

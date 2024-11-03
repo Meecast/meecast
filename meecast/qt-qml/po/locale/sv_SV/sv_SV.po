@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-02 13:16+0300\n"
+"POT-Creation-Date: 2024-11-03 18:35+0300\n"
 "PO-Revision-Date: 2012-04-16 13:52+0000\n"
 "Last-Translator: Åke Engelbrektson, 2015-2020,2024\n"
 "Language-Team: Swedish (http://app.transifex.com/vasvlad/meecast/language/"
@@ -485,7 +485,7 @@ msgstr "LUGNT"
 
 #: omweather/src/hash.data:431
 msgid "Can't save config file"
-msgstr ""
+msgstr "Kan inte spara konfigurationsfilen"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:108
 msgid "Cancel"
@@ -914,7 +914,7 @@ msgstr "Sök"
 
 #: omweather/src/hash.data:430
 msgid "Error"
-msgstr ""
+msgstr "Fel"
 
 #: omweather/src/weather-home.c:841
 #, c-format

@@ -183,34 +183,34 @@ ConfigQml::init(){
 
 void
 ConfigQml::setLanguage(){
-   std::cout<<"setLanguage"<<std::endl;
-   /* Locale */
-   // Set up the translator.
-   //QTranslator translator;
-   QString locale_string = QLocale().name();
-   QString filename = QString("omweather_%1").arg(locale_string);
-/*   std::cerr<<filename.toStdString().c_str()<<std::endl; */
+    std::cout<<"setLanguage"<<std::endl;
+    /* Locale */
+    // Set up the translator.
+    //QTranslator translator;
+    QString locale_string = QLocale().name();
+    QString filename = QString("omweather_%1").arg(locale_string);
+    /*   std::cerr<<filename.toStdString().c_str()<<std::endl; */
 
-   QString localepath =QString::fromStdString(Core::AbstractConfig::prefix + "/share/harbour-meecast/locale");
-   if (_translator.load(filename, localepath)) {
-       /* std::cerr<<"Success TR"<<std::endl; */
-       _app->installTranslator(&_translator);
-   }
+    QString localepath = QString::fromStdString(Core::AbstractConfig::prefix + "/share/harbour-meecast/locale");
+    if (_translator.load(filename, localepath)) {
+        /* std::cerr<<"Success TR"<<std::endl; */
+        _app->installTranslator(&_translator);
+    }
 
-//   QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
-   for (unsigned int i=1; i<languagesList().size(); i++){
-       if (languagesList().at(i).first == Language()){
-           QLocale::setDefault(QLocale(languagesList().at(i).second.c_str()));
-           filename = QString("omweather_%1").arg(languagesList().at(i).second.c_str());
-           std::cerr<<filename.toStdString().c_str()<<std::endl;
-           QString localepath = QString::fromStdString(Core::AbstractConfig::prefix + "/share/harbour-meecast/locale");
-           std::cerr<<localepath.toStdString().c_str()<<std::endl;
-           if (_translator.load(filename, localepath)) {
-                   std::cerr<<"Success TR"<<std::endl;
-                   _app->installTranslator(&_translator);
-           }
-       }
-   }
+//    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+    for (unsigned int i=1; i<languagesList().size(); i++){
+        if (languagesList().at(i).first == Language()){
+            QLocale::setDefault(QLocale(languagesList().at(i).second.c_str()));
+            filename = QString("omweather_%1").arg(languagesList().at(i).second.c_str());
+            std::cerr<<filename.toStdString().c_str()<<std::endl;
+            QString localepath = QString::fromStdString(Core::AbstractConfig::prefix + "/share/harbour-meecast/locale");
+            std::cerr<<localepath.toStdString().c_str()<<std::endl;
+            if (_translator.load(filename, localepath)) {
+                    std::cerr<<"Success TR"<<std::endl;
+                    _app->installTranslator(&_translator);
+            }
+        }
+    }
 }
 
 void 

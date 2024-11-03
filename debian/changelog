@@ -1,4 +1,3 @@
-meecast (1.11.8) unstable; urgency=low
 meecast (1.11.7) unstable; urgency=low
   * Added icons and description to fmi.fi 
   * Fixed problem with symbol '=' and '?' in file name

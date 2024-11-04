@@ -12,7 +12,7 @@ Name:       harbour-meecast
 Summary:    MeeCast for SailfishOS
 # Versioning for all (sub-)packages adheres to Semantic Versioning 2.0.0, see https://semver.org/
 # Because the Sailfish-OBS sets the version of all subpackages to the one of the primary package,
-# this is already done here, hence applies to Meccast built by any build-system (for consistency
+# this is already done here, hence applies to Meecast built by any build-system (for consistency
 # and to avoid confusing people and RPM).
 Version:    %{vrsn}
 Release:    %{rlse}
@@ -352,7 +352,8 @@ fi
 - Added icons and descriptions to fmi.fi
 - Fixed problem with symbols '=' and '?' in station file name
 - Updated Russian, Slovenian translations
-- Fixed the procces of changing language setting
+- Fixed the process of changing language setting
+
 * Tue Oct 08 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.6
 - Updated Russian and Swedish translations
 - Added Location to Permissions [X-Sailjail] section

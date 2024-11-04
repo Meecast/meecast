@@ -12,7 +12,7 @@ Name:       harbour-meecast
 Summary:    MeeCast for SailfishOS
 # Versioning for all (sub-)packages adheres to Semantic Versioning 2.0.0, see https://semver.org/
 # Because the Sailfish-OBS sets the version of all subpackages to the one of the primary package,
-# this is already done here, hence applies to Meecast built by any build-system (for consistency
+# this is already done here, hence applies to MeeCast built by any build-system (for consistency
 # and to avoid confusing people and RPM).
 Version:    %{vrsn}
 Release:    %{rlse}

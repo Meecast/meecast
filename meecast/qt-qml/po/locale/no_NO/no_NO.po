@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Peer-Atle Motland <PeerAtle@online.no>, 2012-2017
+# Peer-Atle Motland <PeerAtle@Vivaldi.net>, 2012-2019
+# Peer-Atle Motland <PeerAtle@Vivaldi.net>, 2024
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-02 13:16+0300\n"
-"PO-Revision-Date: 2017-03-06 20:39+0000\n"
-"Last-Translator: Peer-Atle Motland <PeerAtle@online.no>\n"
-"Language-Team: Norwegian (Norway) (http://www.transifex.com/vasvlad/meecast/"
+"POT-Creation-Date: 2024-11-07 10:51+0300\n"
+"PO-Revision-Date: 2012-04-16 13:52+0000\n"
+"Last-Translator: Peer-Atle Motland <PeerAtle@Vivaldi.net>, 2024\n"
+"Language-Team: Norwegian (Norway) (http://app.transifex.com/vasvlad/meecast/"
 "language/no_NO/)\n"
 "Language: no_NO\n"
 "MIME-Version: 1.0\n"
@@ -223,16 +224,15 @@ msgstr "Formiddag Tåke / Ettermiddag Sol"
 
 #: omweather/src/hash.data:8
 msgid "AM Ice"
-msgstr ""
+msgstr "Formiddag Is"
 
 #: omweather/src/hash.data:11
 msgid "AM Light Rain"
 msgstr "Formiddag Lett Regn"
 
 #: omweather/src/hash.data:12
-#, fuzzy
 msgid "AM Light Rain / Ice"
-msgstr "Formiddag Lett Regn / Vind"
+msgstr "Formiddag Lett Regn / Is"
 
 #: omweather/src/hash.data:10
 msgid "AM Light Rain / Wind"
@@ -259,9 +259,8 @@ msgid "AM Rain / Snow"
 msgstr "Formiddag Regn / Snø"
 
 #: omweather/src/hash.data:19
-#, fuzzy
 msgid "AM Rain / Snow / Wind"
-msgstr "Regn / Snø / Vind"
+msgstr "Formiddag Regn / Snø / Vind"
 
 #: omweather/src/hash.data:17
 msgid "AM Rain / Snow Showers"
@@ -300,19 +299,16 @@ msgid "AM Snow Showers / Wind Late"
 msgstr "Formiddag Snøbyger / Senere Vind"
 
 #: omweather/src/hash.data:28
-#, fuzzy
 msgid "AM T-Showers"
-msgstr "Ettermiddag Tordenbyger"
+msgstr "Formiddag Tordenskyer"
 
 #: omweather/src/hash.data:29
-#, fuzzy
 msgid "AM Wintry Mix"
-msgstr "Glatt Føre"
+msgstr "Formiddag Vinterblanding"
 
 #: omweather/src/hash.data:30
-#, fuzzy
 msgid "AM Wintry Mix / Wind"
-msgstr "Glatt Føre / Vind"
+msgstr "Formiddag Vinterblanding / Vind"
 
 #: omweather/src/weather-home.c:1286 omweather/src/weather-help.c:100
 #: omweather/src/weather-simple-popup.c:1164
@@ -487,7 +483,7 @@ msgstr "ROLIG"
 
 #: omweather/src/hash.data:431
 msgid "Can't save config file"
-msgstr ""
+msgstr "Kan ikke lagre konfigurasjonsfil"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:108
 msgid "Cancel"
@@ -586,9 +582,8 @@ msgid "Cloudy / Wind"
 msgstr "Skyet / Vind"
 
 #: omweather/src/hash.data:45
-#, fuzzy
 msgid "Cloudy / Windy"
-msgstr "Skyet / Vind"
+msgstr "Overskyet / Vindfullt"
 
 #: omweather/src/hash.data:46
 msgid "Cloudy Few Snow"
@@ -806,7 +801,7 @@ msgid ""
 "of 'omweather-*-stations-db' packages was installed."
 msgstr ""
 "Ikke å legge til stasjon, fordi ingen\n"
-"av \"omweather-*-stations-db 'pakker ble installert."
+"av 'omweather-*-stations-db' pakker ble installert."
 
 #: omweather/src/weather-simple-popup.c:1171
 #: omweather/src/weather-simple-popup.c:1220
@@ -917,7 +912,7 @@ msgstr "Gå til Søk"
 
 #: omweather/src/hash.data:430
 msgid "Error"
-msgstr ""
+msgstr "Feil"
 
 #: omweather/src/weather-home.c:841
 #, c-format
@@ -980,9 +975,8 @@ msgid "Fair"
 msgstr "Pent"
 
 #: omweather/src/hash.data:86
-#, fuzzy
 msgid "Fair / Windy"
-msgstr "Tåke / Vind"
+msgstr "Lyst / Vindfullt"
 
 #: omweather/src/hash.data:391
 msgid "Feels like"
@@ -1275,9 +1269,8 @@ msgid "Heavy Snowfall"
 msgstr "Tungt Snøfall"
 
 #: omweather/src/hash.data:119
-#, fuzzy
 msgid "Heavy T-Storms"
-msgstr "Torden"
+msgstr "Kraftige Tordenstormer"
 
 #: omweather/src/hash.data:118
 msgid "Heavy Thunder"
@@ -1288,9 +1281,8 @@ msgid "Heavy intensity rain"
 msgstr "Kraftig regn"
 
 #: omweather/src/hash.data:107
-#, fuzzy
 msgid "Heavy rain"
-msgstr "Mye Regn"
+msgstr "Kraftig Regn"
 
 #: omweather/src/hash.data:120
 msgid "High"
@@ -1321,9 +1313,8 @@ msgid "Hungarian - Salmi, László Kara\n"
 msgstr "Ungarsk - Salmi, László Kara\n"
 
 #: omweather/src/hash.data:122
-#, fuzzy
 msgid "Ice Early"
-msgstr "Først Duskregn"
+msgstr "Først iset"
 
 #: omweather/src/hash.data:121
 msgid "Ice Pellets"
@@ -1687,9 +1678,8 @@ msgid "Mostly Cloudy / Wind"
 msgstr "For det meste Skyet / Vind"
 
 #: omweather/src/hash.data:169
-#, fuzzy
 msgid "Mostly Cloudy / Windy"
-msgstr "For det meste Skyet / Vind"
+msgstr "For det meste skyet / vind"
 
 #: omweather/src/hash.data:170
 msgid "Mostly Cloudy Few Snow"
@@ -2047,9 +2037,8 @@ msgid "PM Rain / Snow"
 msgstr "Ettermiddag Regn / Snø"
 
 #: omweather/src/hash.data:229 omweather/src/hash.data:232
-#, fuzzy
 msgid "PM Rain / Snow Showers"
-msgstr "Formiddag Regn / Snøbyger"
+msgstr "Ettermiddag Regn / Snøbyger"
 
 #: omweather/src/hash.data:230
 msgid "PM Rain / Wind"
@@ -2068,9 +2057,8 @@ msgid "PM Snow"
 msgstr "Ettermiddag Snø"
 
 #: omweather/src/hash.data:238
-#, fuzzy
 msgid "PM Snow / Wind"
-msgstr "Snø / Vind"
+msgstr "PM Snø / Vind"
 
 #: omweather/src/hash.data:236
 msgid "PM Snow Showers"
@@ -2296,9 +2284,8 @@ msgid "Rain / Freezing Rain"
 msgstr "Regn / Underkjølt Regn"
 
 #: omweather/src/hash.data:274
-#, fuzzy
 msgid "Rain / Ice Early"
-msgstr "Rain / Først Snø"
+msgstr "Regn / Først Iset"
 
 #: omweather/src/hash.data:284
 msgid "Rain / Snow"
@@ -2329,9 +2316,8 @@ msgid "Rain / Snow Showers / Wind"
 msgstr "Regn / Snøbyger / Vind"
 
 #: omweather/src/hash.data:281
-#, fuzzy
 msgid "Rain / Snow Showers Early"
-msgstr "Regn / Snøbyger"
+msgstr "Regn / Tidlig Snøbyger"
 
 #: omweather/src/hash.data:282
 msgid "Rain / Snow Showers Late"
@@ -2378,9 +2364,8 @@ msgid "Rain and snow"
 msgstr "Regn og snø"
 
 #: omweather/src/hash.data:295
-#, fuzzy
 msgid "Rain to Snow"
-msgstr "Regn / Snø"
+msgstr "Regn til Snø"
 
 #: omweather/src/hash.data:296
 msgid "Rain to Snow / Wind"
@@ -3625,9 +3610,3 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:439
 msgid "Ю-З"
 msgstr "Ю-З"
-
-#~ msgid "Show on Map"
-#~ msgstr "Vis på Kart"
-
-#~ msgid "Support"
-#~ msgstr "Support"

@@ -101,6 +101,9 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
      
     //QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
     QGuiApplication* app(Aurora::Application::application(argc, argv));
+    application->setOrganizationName(QStringLiteral("org.meecast"));
+    application->setApplicationName(QStringLiteral("MeeCast"));
+
     qmlRegisterType<MeeCastCover>("harbour.meecast.meecastcover", 1, 0, "MeeCastCover");
     //app->setProperty("NoMStyle", true);
 

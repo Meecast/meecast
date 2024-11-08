@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=MeeCast
+Icon=org.meecast.MeeCast
+X-Nemo-Application-Type=silica-qt5
+Comment=Weather forecast for AuroraOS
+Exec=org.meecast.MeeCast
+[X-Application]
+Permissions=Internet;Location
+OrganizationName=org.meecast
+ApplicationName=MeeCast

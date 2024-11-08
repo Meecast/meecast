@@ -7,8 +7,9 @@
 #QT += sql xml xmlpatterns network qml 
 QT += sql xml xmlpatterns network qml positioning
 
-TARGET = harbour-meecast 
-TEMPLATE = app
+TARGET = org.meecast.MeeCast 
+#TEMPLATE = app
+
 
 
 exists($$QMAKE_INCDIR_QT"/../qmsystem2/qmkeys.h"):contains(MEEGO_EDITION,harmattan): {
@@ -99,12 +100,13 @@ CONFIG += mobility
 MOBILITY += location
 CONFIG += qdeclarative-boostable
 CONFIG += meegotouch 
+AURORAAPP_ICONS = 86x86 108x108 128x128 172x172
 
 QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
 QMAKE_LFLAGS += -pie -rdynamic 
 
 
-DATADIR=/usr/share/harbour-meecast
+DATADIR=/usr/share/org.meecast.MeeCast
 INCLUDEPATH += ../core ../sqlite3 
 
 
@@ -117,11 +119,12 @@ LIBS += ../../omweather-fmi-fi-stations-db/tz.o ../../omweather-fmi-fi-stations-
 
 
 #LIBS += -L ../core ../core/libomweather-core.a  ../libxml2/liblibxml2.a ../../omweather-openweathermap-org-stations-db/libopenweathermaporg.a -lsailfishapp 
-LIBS += -L ../core ../core/libomweather-core.a  ../libxml2/liblibxml2.a  -lsailfishapp  
+LIBS += -L ../core ../core/libomweather-core.a  ../libxml2/liblibxml2.a  -lauroraapp  
 CONFIG += dbus
 CONFIG += qdbus
 CONFIG += link_pkgconfig
-CONFIG += sailfishapp
+#CONFIG += sailfishapp
+CONFIG += auroraapp
 PKGCONFIG += glib-2.0
 PKGCONFIG += libcurl
 PKGCONFIG += zlib
@@ -129,9 +132,9 @@ PKGCONFIG += zlib
 #CONFIG += staticlib
 
 target.path = /usr/bin
-DEPLOYMENT_PATH = /usr/share/harbour-meecast
+DEPLOYMENT_PATH = /usr/share/org.meecast.MeeCast
 
-desktop_.files = harbour-meecast.desktop
+desktop_.files = org.meecast.MeeCast.desktop
 desktop_.path = /usr/share/applications
 icon64.path = /usr/share/pixmaps
 icon64.files += omweather.png

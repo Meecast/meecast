@@ -49,13 +49,13 @@ LIBS += -L ../meecast/libxml2/liblibxml2.a
 #QMAKE_LFLAGS +=   -Wl,-Bstatic -lxml2 -glib-2.0 -Wl,--as-needed
 #-Wl,-Bstatic -lz -lfoo -Wl,-Bdynamic -lbar -Wl,--as-needed
 db.files = data/bom.gov.au.db
-db.path = /usr/share/harbour-meecast/db/
+db.path = /usr/share/org.meecast.MeeCast/db/
 
 source.files = data/bom.gov.au.xml
-source.path = /usr/share/harbour-meecast/sources/
+source.path = /usr/share/org.meecast.MeeCast/sources/
 
 #install
-#target.path = /usr/share/harbour-meecast/lib
+#target.path = /usr/share/org.meecast.MeeCast/lib
 INSTALLS += db source
 
 

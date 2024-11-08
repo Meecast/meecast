@@ -27,9 +27,13 @@
 */
 /*******************************************************************************/
 #include "controller.h"
-#include "sailfishapp.h"
+//#include "sailfishapp.h"
+#include <auroraapp.h>
 #include <QFileInfo>
 #include <QDir>
+
+
+using namespace Aurora;
 
 ConfigQml *
 create_and_fill_config(QGuiApplication *app){
@@ -80,7 +84,7 @@ create_and_fill_config(QGuiApplication *app){
 Controller::Controller(QGuiApplication *app) : QObject()
 {
   std::cerr<<"Controller::Controller()"<<std::endl;
-  _qview = SailfishApp::createView();
+  _qview = Aurora::Application::createView();
   _dp = NULL;
   _app = app;
  // _translator = translator;

@@ -47,14 +47,14 @@ QMAKE_CXXFLAGS += -fPIC -std=c++14
 
 CONFIG += static
 db.files = data/fmi.fi.db
-db.path = /usr/share/harbour-meecast/db/
+db.path = /usr/share/org.meecast.MeeCast/db/
 
 
 source.files = data/fmi.fi.xml
-source.path = /usr/share/harbour-meecast/sources/
+source.path = /usr/share/org.meecast.MeeCast/sources/
 
 #install
-#target.path = /usr/share/harbour-meecast/lib
+#target.path = /usr/share/org.meecast.MeeCast/lib
 INSTALLS += db source
 
 

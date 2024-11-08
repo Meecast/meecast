@@ -38,16 +38,16 @@ PKGCONFIG += libxml-2.0
 
 CONFIG += static
 db.files = data/yr.no.db
-db.path = /usr/share/harbour-meecast/db/
+db.path = /usr/share/org.meecast.MeeCast/db/
 
 #icon.files = data/yr.no.png
 #icon.path = /usr/share/copyright_icons/
 
 source.files = data/yr.no.xml
-source.path = /usr/share/harbour-meecast/sources/
+source.path = /usr/share/org.meecast.MeeCast/sources/
 
 #install
-#target.path = /usr/share/harbour-meecast/lib
+#target.path = /usr/share/org.meecast.MeeCast/lib
 INSTALLS += db source
 
 

@@ -8,8 +8,8 @@
 %define vrsn 1.11.7
 %define rlse 1
 
-Name:       harbour-meecast
-Summary:    MeeCast for SailfishOS
+Name:       org.meecast.MeeCast
+Summary:    MeeCast for AuroraOS
 # Versioning for all (sub-)packages adheres to Semantic Versioning 2.0.0, see https://semver.org/
 # Because the Sailfish-OBS sets the version of all subpackages to the one of the primary package,
 # this is already done here, hence applies to MeeCast built by any build-system (for consistency
@@ -22,7 +22,9 @@ URL:        https://github.com/Meecast/meecast
 Source0:    %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 #Temporary
 #Requires:       libmeegotouch-devel
-BuildRequires:  pkgconfig(sailfishapp)
+#BuildRequires:  pkgconfig(sailfishapp)
+Requires:   sailfishsilica-qt5 >= 0.10.9
+BuildRequires:  pkgconfig(auroraapp)
 BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Core)
@@ -317,7 +319,7 @@ desktop-file-install --delete-original  \
 %{_bindir}/%{name}
 /usr/share/%{name}
 #%%{_datadir}/iconsets
-%{_datadir}/icons/hicolor
+%{_datadir}/icons/hicolor/*/apps/%{name}.png
 #/opt/com.meecast.omweather/share
 
 #%files daemon

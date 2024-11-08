@@ -39,16 +39,16 @@ system(pkg-config --exists glib-2.0){
 #CONFIG += static
 
 db.files = data/openweathermap.org.db
-db.path = /usr/share/harbour-meecast/db/
+db.path = /usr/share/org.meecast.MeeCast/db/
 
 #icon.files = data/yr.no.png
 #icon.path = /usr/share/copyright_icons/
 
 source.files = data/openweathermap.org.xml
-source.path = /usr/share/harbour-meecast/sources/
+source.path = /usr/share/org.meecast.MeeCast/sources/
 
 #install
-#target.path = /usr/share/harbour-meecast/lib
+#target.path = /usr/share/org.meecast.MeeCast/lib
 INSTALLS += db icon source
 
 

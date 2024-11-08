@@ -26,7 +26,8 @@
 */
 /*******************************************************************************/
 
-#include <sailfishapp.h>
+//#include <sailfishapp.h>
+#include <auroraapp.h>
 #include <QtGui/QGuiApplication>
 #include <QtQuick/QQuickView>
 //#include <QtQml/qqml.h>
@@ -75,6 +76,7 @@
 
 #define _(String)  QObject::trUtf8(String).toStdString().c_str()
 
+using namespace Aurora;
 //////////////////////////////////////////////////////////////////////////////
 bool
 update_weather_forecast(Core::Config *config){
@@ -98,7 +100,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 
      
     //QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
-    QGuiApplication* app(SailfishApp::application(argc, argv));
+    QGuiApplication* app(Aurora::Application::application(argc, argv));
     qmlRegisterType<MeeCastCover>("harbour.meecast.meecastcover", 1, 0, "MeeCastCover");
     //app->setProperty("NoMStyle", true);
 
@@ -140,7 +142,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     connection.registerObject("/org/meego/omweather", controller);
     QQuickView *qview;
     qview = controller->qview();
-    QUrl qmlPath(SailfishApp::pathTo("qml/main.qml"));
+    QUrl qmlPath(Aurora::Application::pathTo("qml/main.qml"));
     qview->setSource(qmlPath);
     qview->show();
 

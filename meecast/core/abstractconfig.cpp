@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) and MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2024 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -52,13 +52,13 @@ namespace Core {
     std::string AbstractConfig::layoutqml = "/usr/share/omweather/qml/weatherlayoutitem.qml";
     //std::string AbstractConfig::configPath = "~/.config/omweather/";
     */
-#ifdef SAILFISHOS
+#ifdef AURORA
     std::string AbstractConfig::prefix = "/usr";
-    std::string AbstractConfig::sharePath = "/share/harbour-meecast/";
+    std::string AbstractConfig::sharePath = "/share/org.meecast.MeeCast/";
     std::string AbstractConfig::schemaPath = "/share/xsd/";
-    std::string AbstractConfig::iconsPath = "/share/harbour-meecast/iconsets/";
-    std::string AbstractConfig::libPath = "/share/harbour-meecast/lib/";
-    std::string AbstractConfig::sourcesPath = "/share/harbour-meecast/sources/";
+    std::string AbstractConfig::iconsPath = "/share/org.meecast.MeeCast/iconsets/";
+    std::string AbstractConfig::libPath = "/share/org.meecast.MeeCast/lib/";
+    std::string AbstractConfig::sourcesPath = "/share/org.meecast.MeeCast/sources/";
     std::string AbstractConfig::layoutqml = "qml/main.qml";
     //std::string AbstractConfig::configPath = "~/.config/omweather/";
 #else

@@ -10,12 +10,10 @@ CONFIG += qt-boostable
 
 DEPLOYMENT_PATH = /usr/share/org.meecast.MeeCast/
 
-exists("/usr/lib/qt5/qml/Sailfish/Silica/SilicaGridView.qml"): {
-    DEFINES += SAILFISHOS 
-}
 
-exists("/usr/lib64/qt5/qml/Sailfish/Silica/SilicaGridView.qml"): {
-    DEFINES += SAILFISHOS
+
+exists("/usr/lib64/qt5/qml/Aurora/Controls/AppBar.qml"): {
+    DEFINES += AURORA 
 }
 
 system(pkg-config --exists libxml++-2.6) {

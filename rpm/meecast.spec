@@ -79,76 +79,76 @@ Links:
 %endif
 
 
-%package daemon
-Version: %{vrsn}
-Release: %{rlse}
-Summary: MeeCast background daemon for SailfishOS
-Group:    Utility
-License:  LGPL-2.1-only
-Requires: %{name}
-Requires: systemd
-BuildRequires:  pkgconfig(contentaction5)
-
-%description daemon
-MeeCast daemon obtains weather data in the background.
-%if 0%{?_chum}
-PackageName: MeeCast daemon
-Type: desktop-application
-Categories:
- - Network
- - Science
- - Utility
- - News
- - DataVisualization
- - Qt
-DeveloperName: Vasvlad, OMWeather team and contributors
-Custom:
-   Repo: %{url}/tree/sailfishos
-PackageIcon: %{url}/raw/sailfishos/meecast/core/data/desktop/Icon/meecast.svg
-Screenshots:
-  - https://openrepos.net/sites/default/files/packages/13234/screenshot-20150114135243.png
-Links:
-  Homepage: https://openrepos.net/content/vasvlad/meecast-daemon
-  Help: https://openrepos.net/content/vasvlad/meecast-daemon#comments
-  Bugtracker: %{url}/issues
-%endif
-
-
-%package lockscreen
-Version: %{vrsn}
-Release: %{rlse}
-Summary: MeeCast widget for SailfishOS' lockscreen
-Group:    Utility
-License:  LGPL-2.1-only
-Requires: %{name}
-Requires: %{name}-daemon >= 0.3
-Requires: patchmanager
-Requires: systemd
-
-%description lockscreen
-MeeCast's lockscreen widget displays weather information on SailfishOS' lockscreen.
-%if 0%{?_chum}
-PackageName: MeeCast lockscreen widget
-Type: desktop-application
-Categories:
- - Network
- - Science
- - Utility
- - News
- - DataVisualization
- - Qt
- - Applet
-DeveloperName: Vasvlad, OMWeather team and contributors
-Custom:
-   Repo: %{url}/tree/sailfishos
-PackageIcon: %{url}/raw/sailfishos/meecast/core/data/desktop/Icon/meecast.svg
-Screenshots:
-  - https://openrepos.net/sites/default/files/packages/678/screenshot-20150201162807.png
-Links:
-  Homepage: https://openrepos.net/content/vasvlad/meecast-lockscreen
-  Help: https://openrepos.net/content/vasvlad/meecast-lockscreen#comments
-  Bugtracker: %{url}/issues
-%endif
+#%package daemon
+#Version: %{vrsn}
+#Release: %{rlse}
+#Summary: MeeCast background daemon for SailfishOS
+#Group:    Utility
+#License:  LGPL-2.1-only
+#Requires: %{name}
+#Requires: systemd
+#BuildRequires:  pkgconfig(contentaction5)
+#
+#%description daemon
+#MeeCast daemon obtains weather data in the background.
+#%if 0%{?_chum}
+#PackageName: MeeCast daemon
+#Type: desktop-application
+#Categories:
+# - Network
+# - Science
+# - Utility
+# - News
+# - DataVisualization
+# - Qt
+#DeveloperName: Vasvlad, OMWeather team and contributors
+#Custom:
+#   Repo: %{url}/tree/sailfishos
+#PackageIcon: %{url}/raw/sailfishos/meecast/core/data/desktop/Icon/meecast.svg
+#Screenshots:
+#  - https://openrepos.net/sites/default/files/packages/13234/screenshot-20150114135243.png
+#Links:
+#  Homepage: https://openrepos.net/content/vasvlad/meecast-daemon
+#  Help: https://openrepos.net/content/vasvlad/meecast-daemon#comments
+#  Bugtracker: %{url}/issues
+#%endif
+#
+#
+#%package lockscreen
+#Version: %{vrsn}
+#Release: %{rlse}
+#Summary: MeeCast widget for SailfishOS' lockscreen
+#Group:    Utility
+#License:  LGPL-2.1-only
+#Requires: %{name}
+#Requires: %{name}-daemon >= 0.3
+#Requires: patchmanager
+#Requires: systemd
+#
+#%description lockscreen
+#MeeCast's lockscreen widget displays weather information on SailfishOS' lockscreen.
+#%if 0%{?_chum}
+#PackageName: MeeCast lockscreen widget
+#Type: desktop-application
+#Categories:
+# - Network
+# - Science
+# - Utility
+# - News
+# - DataVisualization
+# - Qt
+# - Applet
+#DeveloperName: Vasvlad, OMWeather team and contributors
+#Custom:
+#   Repo: %{url}/tree/sailfishos
+#PackageIcon: %{url}/raw/sailfishos/meecast/core/data/desktop/Icon/meecast.svg
+#Screenshots:
+#  - https://openrepos.net/sites/default/files/packages/678/screenshot-20150201162807.png
+#Links:
+#  Homepage: https://openrepos.net/content/vasvlad/meecast-lockscreen
+#  Help: https://openrepos.net/content/vasvlad/meecast-lockscreen#comments
+#  Bugtracker: %{url}/issues
+#%endif
 
 
 ## Detect building for SailfishOS >= 4.6.0 or build subpackage eventview any way.
@@ -262,38 +262,38 @@ desktop-file-install --delete-original  \
    %{buildroot}%{_datadir}/applications/*.desktop
 
 
-%post daemon
-pkill -x meecastd
-systemctl-user enable meecastd.service
-systemctl-user start meecastd.service
-exit 0
-
-%preun daemon
-# Removal
-if [ "$1" = "0" ]; then
-    systemctl-user disable meecastd.service
-    systemctl-user stop meecastd.service
-fi
+#%post daemon
 #pkill -x meecastd
-#systemctl-user daemon-reload
-exit 0
-
-
-%pre lockscreen
-if [ -f %{_sbindir}/patchmanager ]; then
-   %{_sbindir}/patchmanager -u sailfishos-lockscreen-meecast-patch || true
-fi
-
-%post lockscreen
-pkill -x meecastd
-systemctl-user enable meecastd.service
-systemctl-user start meecastd.service
-exit 0
-
-%preun lockscreen
-if [ -f %{_sbindir}/patchmanager ]; then
-   %{_sbindir}/patchmanager -u sailfishos-lockscreen-meecast-patch || true
-fi
+#systemctl-user enable meecastd.service
+#systemctl-user start meecastd.service
+#exit 0
+#
+#%preun daemon
+## Removal
+#if [ "$1" = "0" ]; then
+#    systemctl-user disable meecastd.service
+#    systemctl-user stop meecastd.service
+#fi
+##pkill -x meecastd
+##systemctl-user daemon-reload
+#exit 0
+#
+#
+#%pre lockscreen
+#if [ -f %{_sbindir}/patchmanager ]; then
+#   %{_sbindir}/patchmanager -u sailfishos-lockscreen-meecast-patch || true
+#fi
+#
+#%post lockscreen
+#pkill -x meecastd
+#systemctl-user enable meecastd.service
+#systemctl-user start meecastd.service
+#exit 0
+#
+#%preun lockscreen
+#if [ -f %{_sbindir}/patchmanager ]; then
+#   %{_sbindir}/patchmanager -u sailfishos-lockscreen-meecast-patch || true
+#fi
 
 
 #%if %{undefined sailfishos_version} || 0%{?sailfishos_version} >= 40600
@@ -320,16 +320,16 @@ fi
 %{_datadir}/icons/hicolor
 #/opt/com.meecast.omweather/share
 
-%files daemon
-%defattr(-,root,root,-)
-%{_bindir}/meecastd
-%{_bindir}/meecast_predaemon
-%{_userunitdir}/meecastd.service
-%{_libdir}/qt5/qml/org/meecast/data
-
-%files lockscreen
-%defattr(-,root,root,-)
-%{_datadir}/patchmanager/patches/sailfishos-lockscreen-meecast-patch
+#%files daemon
+#%defattr(-,root,root,-)
+#%{_bindir}/meecastd
+#%{_bindir}/meecast_predaemon
+#%{_userunitdir}/meecastd.service
+#%{_libdir}/qt5/qml/org/meecast/data
+#
+#%files lockscreen
+#%defattr(-,root,root,-)
+#%{_datadir}/patchmanager/patches/sailfishos-lockscreen-meecast-patch
 
 #%if %{undefined sailfishos_version} || 0%{?sailfishos_version} >= 40600
 #%files eventview

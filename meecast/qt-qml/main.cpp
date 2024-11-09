@@ -147,14 +147,14 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     connection.registerObject("/org/meego/omweather", controller);
     QQuickView *qview;
     qview = controller->qview();
-    QUrl qmlPath(Aurora::Application::pathTo("qml/main.qml"));
-    /*
+    //QUrl qmlPath(Aurora::Application::pathTo("qml/main.qml"));
+    /* Hack for working in FingerTerminal for direct exec */
     QString myurl = Core::AbstractConfig::prefix.c_str();
     myurl.append(Core::AbstractConfig::sharePath.c_str());
     myurl.append(Core::AbstractConfig::layoutqml.c_str());
     std::cerr<<"MyURL "<<myurl.toStdString()<<std::endl;
     QUrl qmlPath(myurl);
-    */
+
     qview->setSource(qmlPath);
     qview->show();
 

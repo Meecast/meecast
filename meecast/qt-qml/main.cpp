@@ -101,8 +101,8 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
      
     //QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
     QGuiApplication* app(Aurora::Application::application(argc, argv));
-    application->setOrganizationName(QStringLiteral("org.meecast"));
-    application->setApplicationName(QStringLiteral("MeeCast"));
+    app->setOrganizationName(QStringLiteral("org.meecast"));
+    app->setApplicationName(QStringLiteral("MeeCast"));
 
     qmlRegisterType<MeeCastCover>("harbour.meecast.meecastcover", 1, 0, "MeeCastCover");
     //app->setProperty("NoMStyle", true);
@@ -111,19 +111,21 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 
     
     std::cerr<<app->applicationDirPath().toStdString().c_str()<<std::endl;
+//    std::cerr<<Core::AbstractConfig::prefix.c_str()<<std::endl;
 
-/*
     QString str = QDir::currentPath();
     std::cerr<<str.toStdString().c_str()<<std::endl;
 
     str.truncate(str.length()-4);
 
     Core::AbstractConfig::prefix = str.toStdString();
+
+/*
+    std::cerr<<Core::AbstractConfig::prefix.c_str()<<std::endl;
     QDir::setCurrent(QDir::currentPath());
 */
 
 
-    
     //Add the QML snippet into the layout
 
     
@@ -146,6 +148,13 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     QQuickView *qview;
     qview = controller->qview();
     QUrl qmlPath(Aurora::Application::pathTo("qml/main.qml"));
+    /*
+    QString myurl = Core::AbstractConfig::prefix.c_str();
+    myurl.append(Core::AbstractConfig::sharePath.c_str());
+    myurl.append(Core::AbstractConfig::layoutqml.c_str());
+    std::cerr<<"MyURL "<<myurl.toStdString()<<std::endl;
+    QUrl qmlPath(myurl);
+    */
     qview->setSource(qmlPath);
     qview->show();
 

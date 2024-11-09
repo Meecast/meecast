@@ -12,9 +12,7 @@ DEPLOYMENT_PATH = /usr/share/org.meecast.MeeCast/
 
 
 
-exists("/usr/lib64/qt5/qml/Aurora/Controls/AppBar.qml"): {
-    DEFINES += AURORA 
-}
+DEFINES += AURORA 
 
 system(pkg-config --exists libxml++-2.6) {
     CONFIG += -qt

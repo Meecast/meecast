@@ -54,11 +54,11 @@ namespace Core {
     */
 #ifdef AURORA
     std::string AbstractConfig::prefix = "/usr";
-    std::string AbstractConfig::sharePath = "/share/org.meecast.MeeCast/";
-    std::string AbstractConfig::schemaPath = "/share/xsd/";
-    std::string AbstractConfig::iconsPath = "/share/org.meecast.MeeCast/iconsets/";
-    std::string AbstractConfig::libPath = "/share/org.meecast.MeeCast/lib/";
-    std::string AbstractConfig::sourcesPath = "/share/org.meecast.MeeCast/sources/";
+    std::string AbstractConfig::sharePath = "/data/";
+    std::string AbstractConfig::schemaPath = "/data/xsd/";
+    std::string AbstractConfig::iconsPath = "/data/iconsets/";
+    std::string AbstractConfig::libPath = "/data/lib/";
+    std::string AbstractConfig::sourcesPath = "/data/sources/";
     std::string AbstractConfig::layoutqml = "qml/main.qml";
     //std::string AbstractConfig::configPath = "~/.config/omweather/";
 #else
@@ -82,7 +82,7 @@ namespace Core {
         path += "/.config";
         /* TODO check directory exist */
         mkdir(path.c_str(), 0755);
-        path += "/harbour-meecast/";
+        path += "/org.meecast/MeeCast/";
         mkdir(path.c_str(), 0755);
         return path;
 #endif
@@ -97,7 +97,7 @@ namespace Core {
         path += "/.cache";
         /* TODO check directory exist */
         mkdir(path.c_str(), 0755);
-        path += "/harbour-meecast/";
+        path += "/org.meecast/MeeCast/";
         mkdir(path.c_str(), 0755);
         return path;
 #endif

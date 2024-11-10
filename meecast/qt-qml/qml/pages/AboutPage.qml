@@ -62,7 +62,7 @@ Page {
             id: column
             PageHeader {
                 id: pageheader
-                title: Config.tr("MeeCast for SailfishOS")
+                title: Config.tr("MeeCast for AuroraOS")
             }
 
             Image {

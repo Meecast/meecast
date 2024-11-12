@@ -220,6 +220,21 @@ Page {
                 anchors.left: parent.left
             }
             Label {
+                id: coadministratortext
+                text: Config.tr("Co-administrator and contributor") + ":"
+                anchors.topMargin: Theme.paddingLarge
+                anchors.leftMargin: Theme.horizontalPageMargin
+                anchors.left: parent.left
+                color: "#999999"
+            }
+            Label {
+                id: coadministratorfulltext
+                text: "olf (Olf0)"
+                anchors.leftMargin: Theme.horizontalPageMargin
+                anchors.left: parent.left
+            }
+
+            Label {
                 id: translatorstext
                 text: Config.tr("Translators") + ":"
                 anchors.topMargin: Theme.paddingLarge

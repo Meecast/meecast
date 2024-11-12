@@ -101,7 +101,6 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     QGuiApplication* app(SailfishApp::application(argc, argv));
     qmlRegisterType<MeeCastCover>("harbour.meecast.meecastcover", 1, 0, "MeeCastCover");
     //app->setProperty("NoMStyle", true);
-
     QDir::setCurrent(app->applicationDirPath());
 
     
@@ -125,7 +124,25 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     //ConfigQml *config;
     //
     Controller *controller;
+<<<<<<< HEAD
     /*
+=======
+/*
+    QTranslator translator;
+    translator.load("ru.qml", "i18n");
+    app.installTranslator(&translator);
+*/
+    controller = new Controller(app); 
+    
+    /* Locale */
+    for (unsigned int i=1; i<controller->config()->languagesList().size(); i++){
+        if (controller->config()->languagesList().at(i).first == controller->config()->Language()){
+            setlocale (LC_ALL, controller->config()->languagesList().at(i).second.c_str());
+            setlocale (LC_MESSAGES, controller->config()->languagesList().at(i).second.c_str());
+            QLocale::setDefault(QLocale(controller->config()->languagesList().at(i).second.c_str()));
+        }
+    }
+>>>>>>> master
     textdomain("omweather");
     bindtextdomain("omweather", localepath.toStdString().c_str());
     std::cerr<<" Path for tanslate "<<localepath.toStdString().c_str()<<std::endl;
@@ -139,11 +156,20 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     connection.registerService("org.meego.omweather");
     connection.registerObject("/org/meego/omweather", controller);
     QQuickView *qview;
+<<<<<<< HEAD
+=======
+
+    //config = controller->config();
+    //std::cerr<<"iconpath = "<<config->imagespath().toStdString() << std::endl;
+    //update_weather_forecast(config);
+    
+>>>>>>> master
     qview = controller->qview();
     QUrl qmlPath(SailfishApp::pathTo("qml/main.qml"));
     qview->setSource(qmlPath);
     qview->show();
 
+<<<<<<< HEAD
 
     int result = app->exec();
     std::cerr<<"This is the End "<<std::endl;
@@ -151,5 +177,18 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     return result;
 //    return app->exec();
 //    return SailfishApp::main(argc, argv);
+=======
+    std::cerr << "qml path = " << Core::AbstractConfig::layoutqml << std::endl;
+    qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::prefix +
+                                                                Core::AbstractConfig::sharePath +
+                                                                Core::AbstractConfig::layoutqml)));
+    QObject::connect((QObject*)qview->engine(), SIGNAL(quit()), app, SLOT(quit()));
+    qview->showFullScreen();
+    /*This code provides Segmantation fault
+    delete dadapt;
+    delete controller;
+    */
+    return app->exec();
+>>>>>>> master
    
 }

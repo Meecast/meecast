@@ -27,17 +27,28 @@
 */
 /*******************************************************************************/
 #include "controller.h"
+//#include "sailfishapp.h"
+#include <QGuiApplication>
+#include <QFileInfo>
+#include <QDir>
+
+
+
 ConfigQml *
-create_and_fill_config(){
+create_and_fill_config(QGuiApplication *app){
     ConfigQml *config;
 
     std::cerr<<"Create Config class: " << std::endl;
     try{
+        QString config_dir = Core::AbstractConfig::getConfigPath().c_str();
+        QString config_file = config_dir + "/config.xml";
+        QFileInfo Conf_File(config_file);
+
         config = ConfigQml::Instance(Core::AbstractConfig::getConfigPath()+
-                                       "config.xml",
-                                       Core::AbstractConfig::prefix+
-                                       Core::AbstractConfig::schemaPath+
-                                       "config.xsd");
+                                     "config.xml",
+                                     Core::AbstractConfig::prefix+
+                                     Core::AbstractConfig::schemaPath+
+                                     "config.xsd", app);
     }
     catch(const std::string &str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
@@ -63,16 +74,22 @@ create_and_fill_config(){
 }
 
 
-Controller::Controller() : QObject()
+//Controller::Controller(QScopedPointer<QGuiApplication> app) : QObject()
+Controller::Controller(QGuiApplication *app) : QObject()
 {
-  _qview = new QDeclarativeView();
+  std::cerr<<"Controller::Controller()"<<std::endl;
+  _qview = new QQuickView;
+  //_qview = Aurora::Application::createView();
   _dp = NULL;
+  _app = app;
+ // _translator = translator;
   this->load_config();
   this->load_data();
 
 }
 
 Controller::~Controller(){
+  std::cerr<<"Controller::~Controller()"<<std::endl;
   if (_model)
       delete _model;
   if (_current)
@@ -83,14 +100,16 @@ Controller::~Controller(){
       delete _current_night;
   if (_hours_model)
       delete _hours_model;
-  if (_config)
-      _config->DeleteInstance();
   if (_dp) 
       _dp->DeleteInstance();
-
+  if (_qview)
+      delete _qview;
+  std::cerr<<"Controller::~Controller() Before delete config"<<std::endl;
+  if (_config)
+      _config->DeleteInstance();
 }
 
-QDeclarativeView* 
+QQuickView* 
 Controller::qview(){
     return _qview;
 }
@@ -109,7 +128,7 @@ Controller::load_data(){
   int timezone = 0;
   int localtimezone = 0;
   
- /*  std::cerr<<" Controller::load_data()"<<std::endl; */
+  std::cerr<<" Controller::load_data()"<<std::endl; 
 
   std::string mapfilename(Core::AbstractConfig::getCachePath());
   std::string basemapfilename(Core::AbstractConfig::getCachePath());
@@ -143,7 +162,6 @@ Controller::load_data(){
             basemapfilename += "%s.png";
   }
 
- 
     
   _model = new DataModel(new DataItem, qApp);
   _current = new DataModel(new DataItem, qApp);
@@ -163,6 +181,7 @@ Controller::load_data(){
   localtime_r(&current_day, &time_tm2);
   time_tm1.tm_isdst = 0;
   time_tm2.tm_isdst = 0;
+
   localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
   /* set current day */ 
   current_day = time(NULL);
@@ -181,6 +200,7 @@ Controller::load_data(){
       fprintf(stderr,"Current day %li\n", current_day);
   /* fill current day */
   if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))) {
+      std::cerr<<"Fill current day"<<std::endl;
       forecast_data = new DataItem(temp_data);
 
       if (forecast_data->Text() != "")
@@ -220,7 +240,7 @@ Controller::load_data(){
       dbusclient->SetCurrentData( _config->stationname(), forecast_data->temperature(),
                                   forecast_data->temperature_high(),
                                   forecast_data->temperature_low(), 
-                                  (_config->iconspath() + "/" + _config->iconset() + "/" + forecast_data->icon()), 
+                                  (_config->iconspath() + "/" + _config->iconset() + "/" + forecast_data->icon()),
                                   description.fromUtf8(temp_data->Text().c_str()),
                                   result_time, 
                                   forecast_data->current(), 
@@ -263,6 +283,8 @@ Controller::load_data(){
   //i = 3600*24;
   i = 1; /* plus 1 second  */ 
   /* fill other days */
+
+  std::cerr<<" Time for check "<< current_day + 15 * 3600  + i<<std::endl;
   while  (_dp != NULL && ((temp_data = _dp->data().GetDataForTime(current_day + 15 * 3600  + i )) || (i < 7*3600*24))) {
       if (temp_data){
           forecast_data = new DataItem(temp_data);
@@ -352,6 +374,7 @@ Controller::load_data(){
   _qview->rootContext()->setContextProperty("Forecast_night_model", _night_model);
   _qview->rootContext()->setContextProperty("Forecast_hours_model", _hours_model);
 
+  std::cerr<<"End filling"<<std::endl;
 
   /* models for station selection */
   SelectModel* source_model = new SelectModel(qApp);
@@ -375,9 +398,10 @@ Controller::load_data(){
 void
 Controller::load_config(){
    std::cout<<"Load"<<std::endl;
-  _config = create_and_fill_config();   
+  _config = create_and_fill_config(_app);
   _qview->rootContext()->setContextProperty("Config", _config);
 }
+
 void
 Controller::reload_config(){
   std::cout<<"Reload";

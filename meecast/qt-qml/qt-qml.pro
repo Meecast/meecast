@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += declarative sql xml xmlpatterns network positioning
+QT += sql xml xmlpatterns network positioning widgets qml quick
 
 TARGET = omweather-qml
 TEMPLATE = app
@@ -19,7 +19,6 @@ exists($$QMAKE_INCDIR_QT"/../qmsystem2/qmkeys.h"):contains(MEEGO_EDITION,harmatt
 SOURCES += main.cpp \
     dataqml.cpp \
     configqml.cpp \
-    qmllayoutitem.cpp \
     dataitem.cpp \
     datamodel.cpp \
     dbusadaptor.cpp \
@@ -33,10 +32,10 @@ SOURCES += main.cpp \
     citymodel.cpp \
     gpsposition.cpp
 
+    # qmllayoutitem.cpp \
 HEADERS  += \
     dataqml.h \
     configqml.h \
-    qmllayoutitem.h \
     dataitem.h \
     datamodel.h \
     dbusadaptor.h \
@@ -49,6 +48,8 @@ HEADERS  += \
     regionmodel.h \
     citymodel.h \
     gpsposition.h
+
+    # qmllayoutitem.h \
 
 FORMS    +=
 #RESOURCES += weatherlayoutitem.qrc
@@ -109,11 +110,14 @@ icon64.path = /usr/share/pixmaps
 icon64.files += omweather.png
 qml.files = qml/*.qml *.js
 qml.path = /opt/com.meecast.omweather/share/omweather/qml
+qml2.files = qml/pages/*.qml
+qml2.path = /opt/com.meecast.omweather/share/omweather/qml/pages
+
 searchicon.files += gfx/*.png
 searchicon.path += /opt/com.meecast.omweather/share/omweather/qml/gfx
 
 #INSTALLS += desktop qml icon64
-INSTALLS += desktop qml searchicon
+INSTALLS += desktop qml qml2 searchicon
 
 DATADIR=/opt/com.meecast.omweather/share
 

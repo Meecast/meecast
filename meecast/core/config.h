@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2013 Vlad Vasilyeu
+ * Copyright (C) 2006-2014 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -59,6 +59,7 @@ namespace Core{
             bool         _standbyscreen;
             bool         _gps;
             bool         _splash;
+            bool         _transparency;
             int          _update_period;
             std::string *_font_color;
             int          _current_station_id;
@@ -66,6 +67,9 @@ namespace Core{
             languages    *_languages_list;
             int         _Xleft_corner_of_lockscreen_widget;
             int         _Yleft_corner_of_lockscreen_widget;
+            bool        _logo_on_cover;
+            bool        _wind_on_cover;
+            bool        _lastupdate_on_cover;
         protected:
             static Config* _self;
             static int _refcount;
@@ -106,6 +110,8 @@ namespace Core{
             bool Fullscreen(void);
             void Lockscreen(const bool uc);
             bool Lockscreen(void);
+            void Transparency(const bool uc);
+            bool Transparency(void);
             void Standbyscreen(const bool uc);
             bool Standbyscreen(void);
             void Gps(const bool uc);
@@ -130,6 +136,12 @@ namespace Core{
             void Yleft_corner_of_lockscreen_widget(const int Y);
             int Yleft_corner_of_lockscreen_widget(void);
             void saveConfig();
+            void LogoOnCover(const bool uc);
+            bool LogoOnCover(void);
+            void WindOnCover(const bool uc);
+            bool WindOnCover(void);
+            void LastUpdateOnCover(const bool uc);
+            bool LastUpdateOnCover(void);
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

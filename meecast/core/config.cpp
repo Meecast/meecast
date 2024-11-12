@@ -56,6 +56,10 @@ Config::Config()
     _standbyscreen = false;
     _gps = false;
     _splash = true;
+    _logo_on_cover = false;
+    _wind_on_cover = false;
+    _transparency = false;
+    _lastupdate_on_cover = true;
     _font_color = new std::string("#00ff00");
     _language = new std::string("System");
     _mod = new std::string("Digia");
@@ -76,7 +80,7 @@ Config::Config()
 void
 Config::saveConfig()
 {
-    std::cerr<<"SaveConfig"<<std::endl;
+    std::cerr<<"Config::saveConfig "<<_filename->c_str() <<std::endl;
     QDomDocument doc;
     doc.appendChild(doc.createProcessingInstruction("xml", "version=\"1.0\" encoding=\"utf-8\""));
 
@@ -139,6 +143,38 @@ Config::saveConfig()
 
     el = doc.createElement("fullscreen");
     if (_fullscreen)
+        t = doc.createTextNode("true");
+    else
+        t = doc.createTextNode("false");
+    el.appendChild(t);
+    root.appendChild(el);
+
+    el = doc.createElement("logo_on_cover");
+    if (_logo_on_cover)
+        t = doc.createTextNode("true");
+    else
+        t = doc.createTextNode("false");
+    el.appendChild(t);
+    root.appendChild(el);
+
+    el = doc.createElement("wind_on_cover");
+    if (_wind_on_cover)
+        t = doc.createTextNode("true");
+    else
+        t = doc.createTextNode("false");
+    el.appendChild(t);
+    root.appendChild(el);
+
+    el = doc.createElement("transparency");
+    if (_transparency)
+        t = doc.createTextNode("true");
+    else
+        t = doc.createTextNode("false");
+    el.appendChild(t);
+    root.appendChild(el);
+
+    el = doc.createElement("lastupdate_on_cover");
+    if (_lastupdate_on_cover)
         t = doc.createTextNode("true");
     else
         t = doc.createTextNode("false");
@@ -335,8 +371,8 @@ Config::DeleteInstance(){
 ////////////////////////////////////////////////////////////////////////////////
 Config::Config(const std::string& filename, const std::string& schema_filename)
                     : Parser(filename, schema_filename){
-    /* std::cerr<<"CONFIG CREATE222222!!!!!!!!!!!!!!"<<std::endl; */
-   /* std::cerr<<"new Config"<<std::endl; */
+    /*  std::cerr<<"CONFIG CREATE222222!!!!!!!!!!!!!!"<<std::endl; */
+    /* std::cerr<<"new Config"<<std::endl; */
     _filename = new std::string;
     _filename->assign(filename);
     _pathPrefix = new std::string(AbstractConfig::prefix + AbstractConfig::sharePath);
@@ -353,6 +389,10 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _nullname = new std::string("");
     _update_connect = false;
     _fullscreen = false;
+    _logo_on_cover = false;
+    _wind_on_cover = false;
+    _transparency = false;
+    _lastupdate_on_cover = true;
     _lockscreen = false;
     _standbyscreen = false;
     _Xleft_corner_of_lockscreen_widget = 0;
@@ -374,6 +414,10 @@ void
 Config::ReLoadConfig(){
 
     std::cerr<<"ReLoadConfig"<<std::endl;
+    for(unsigned i = 0; i < _stations->size(); i++){
+        Core::Station *_station =_stations->at(i);
+        delete (_station);
+    }
     _stations->clear();
     this->Reloadfile();
     this->LoadConfig();
@@ -404,7 +448,6 @@ Config::LoadConfig(){
         el = root.firstChildElement("current_station_id");
         if (!el.isNull()){
             _current_station_id = el.text().toInt();
-            std::cerr<<"_CURRENT_STATION_ID "<<_current_station_id<<std::endl;
         }
         el = root.firstChildElement("temperature_unit");
         if (!el.isNull())
@@ -427,6 +470,18 @@ Config::LoadConfig(){
         el = root.firstChildElement("fullscreen");
         if (!el.isNull())
             _fullscreen = (el.text() == "true") ? true : false;
+        el = root.firstChildElement("logo_on_cover");
+        if (!el.isNull())
+            _logo_on_cover = (el.text() == "true") ? true : false;
+        el = root.firstChildElement("wind_on_cover");
+        if (!el.isNull())
+            _wind_on_cover = (el.text() == "true") ? true : false;
+        el = root.firstChildElement("transparency");
+        if (!el.isNull())
+            _transparency = (el.text() == "true") ? true : false;
+        el = root.firstChildElement("lastupdate_on_cover");
+        if (!el.isNull())
+            _lastupdate_on_cover = (el.text() == "true") ? true : false;
         el = root.firstChildElement("lockscreen");
         if (!el.isNull())
             _lockscreen = (el.text() == "true") ? true : false;
@@ -568,11 +623,11 @@ void
 Config::InitLanguagesList(){
 
     _languages_list->push_back(std::make_pair("System", ""));
-    _languages_list->push_back(std::make_pair("Albanian", "sq"));
+    _languages_list->push_back(std::make_pair("Albanian", "sq_SQ"));
     _languages_list->push_back(std::make_pair("Arabic", "ar_AR"));
     _languages_list->push_back(std::make_pair("Bulgarian", "bg_BG"));
-    _languages_list->push_back(std::make_pair("Catalan", "ca"));
-    _languages_list->push_back(std::make_pair("Chinese", "zh"));
+    _languages_list->push_back(std::make_pair("Catalan", "ca_CA"));
+    _languages_list->push_back(std::make_pair("Chinese", "zh_ZH"));
     _languages_list->push_back(std::make_pair("Chinese(Hong Kong)", "zh_HK"));
     _languages_list->push_back(std::make_pair("Chinese(Taiwan)", "zh_TW"));
     _languages_list->push_back(std::make_pair("Czech", "cs_CS"));
@@ -589,7 +644,7 @@ Config::InitLanguagesList(){
     _languages_list->push_back(std::make_pair("Polish", "pl_PL"));
     _languages_list->push_back(std::make_pair("Portuguese", "pt_PT"));
     _languages_list->push_back(std::make_pair("Russian", "ru_RU"));
-    _languages_list->push_back(std::make_pair("Serbian", "sr"));
+    _languages_list->push_back(std::make_pair("Serbian", "sr_SR"));
     _languages_list->push_back(std::make_pair("Slovenian", "sl_SL"));
     _languages_list->push_back(std::make_pair("Slovak", "sk_SK"));
     _languages_list->push_back(std::make_pair("Spanish", "es_ES"));
@@ -613,6 +668,7 @@ Config::languagesList(){
 
 ////////////////////////////////////////////////////////////////////////////////
 Config::~Config(){
+    std::cerr<<"Config::~Config()"<<std::endl;
     delete _pathPrefix;
     delete _iconset;
     delete _temperature_unit;
@@ -638,10 +694,12 @@ Config::~Config(){
 void
 Config::iconSet(const std::string& text){
     /* ToDo Check access to path */
+    /* std::cerr<<"Config::iconSet(const std::string& text) "<<text.c_str()<<std::endl; */
     _iconset->assign(text);
 }
 std::string&
 Config::iconSet(){
+    /* std::cerr<<"Config::iconSet() "<<_iconset->c_str()<<std::endl; */
     return *_iconset;
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -759,6 +817,42 @@ Config::Fullscreen(const bool uc){
 bool
 Config::Fullscreen(void){
     return _fullscreen;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::LogoOnCover(const bool uc){
+    _logo_on_cover = uc;
+}
+bool
+Config::LogoOnCover(void){
+    return _logo_on_cover;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::WindOnCover(const bool uc){
+    _wind_on_cover = uc;
+}
+bool
+Config::WindOnCover(void){
+    return _wind_on_cover;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::Transparency(const bool uc){
+    _transparency = uc;
+}
+bool
+Config::Transparency(void){
+    return _transparency;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::LastUpdateOnCover(const bool uc){
+    _lastupdate_on_cover = uc;
+}
+bool
+Config::LastUpdateOnCover(void){
+    return _lastupdate_on_cover;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void
@@ -892,6 +986,7 @@ Config::nextstationname(){
 ////////////////////////////////////////////////////////////////////////////////
 std::string&
 Config::iconspath(){
+    /* std::cerr<<"Iconset path "<< _path->c_str()<<std::endl; */
     return *_iconspath;
 }
 

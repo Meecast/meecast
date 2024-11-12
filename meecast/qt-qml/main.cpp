@@ -32,10 +32,6 @@
 #include <QGraphicsScene>
 #include <QGraphicsWidget>
 #include <QGraphicsLinearLayout>
-#include <QDeclarativeComponent>
-#include <QDeclarativeContext>
-#include <QDeclarativeEngine>
-#include <QDeclarativeView>
 #include <QTranslator>
 #include <QHash>
 #include <QGraphicsGridLayout>
@@ -45,7 +41,6 @@
 #include "core.h"
 #include "dataqml.h"
 #include "configqml.h"
-#include "qmllayoutitem.h"
 #include "dataitem.h"
 #include "datamodel.h"
 #include "parserqt.h"
@@ -86,11 +81,14 @@ update_weather_forecast(Core::Config *config){
 Q_DECL_EXPORT int main(int argc, char* argv[])
 {
     //QApplication::setGraphicsSystem("native");
-    QApplication app(argc, argv);
+    //QApplication app(argc, argv);
+    QGuiApplication* app = new QGuiApplication(argc, argv);
+    app->setOrganizationName(QStringLiteral("org.meecast"));
+    app->setApplicationName(QStringLiteral("MeeCast"));
 
-    app.setProperty("NoMStyle", true);
 
-    QDir::setCurrent(app.applicationDirPath());
+
+    QDir::setCurrent(app->applicationDirPath());
 
     
 
@@ -120,7 +118,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     translator.load("ru.qml", "i18n");
     app.installTranslator(&translator);
 */
-    controller = new Controller(); 
+    controller = new Controller(app); 
     
     /* Locale */
     for (unsigned int i=1; i<controller->config()->languagesList().size(); i++){
@@ -139,25 +137,24 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     QDBusConnection connection = QDBusConnection::sessionBus();
     connection.registerService("org.meego.omweather");
     connection.registerObject("/org/meego/omweather", controller);
-   
+    QQuickView *qview;
 
     //config = controller->config();
     //std::cerr<<"iconpath = "<<config->imagespath().toStdString() << std::endl;
     //update_weather_forecast(config);
     
-    QDeclarativeView *qview;
     qview = controller->qview();
 
     std::cerr << "qml path = " << Core::AbstractConfig::layoutqml << std::endl;
     qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::prefix +
                                                                 Core::AbstractConfig::sharePath +
                                                                 Core::AbstractConfig::layoutqml)));
-    QObject::connect((QObject*)qview->engine(), SIGNAL(quit()), &app, SLOT(quit()));
+    QObject::connect((QObject*)qview->engine(), SIGNAL(quit()), app, SLOT(quit()));
     qview->showFullScreen();
     /*This code provides Segmantation fault
     delete dadapt;
     delete controller;
     */
-    return app.exec();
+    return app->exec();
    
 }

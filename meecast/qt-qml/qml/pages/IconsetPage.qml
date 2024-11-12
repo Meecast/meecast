@@ -1,58 +1,56 @@
-import Qt 4.7
-//import QtQuick 1.1
-//import Qt.labs.components 1.0
-import com.nokia.meego 1.0
+import QtQuick 2.0
+import Sailfish.Silica 1.0
 
 Page {
     id: iconsetpage
+    property int screen_height : iconsetpage.height
+    property int screen_width : iconsetpage.width 
     property int margin: 16
-    tools: ToolBarLayout {
-        ToolIcon {
-            iconId: "toolbar-back"
-            onClicked: {
-                pageStack.pop();
-            }
-        }
-
+    Rectangle {
+        anchors.fill: parent
+        color: Config.transparency ? "transparent" : "black"
     }
-    orientationLock: PageOrientation.LockPortrait
+
+    PageHeader {
+        title: Config.tr("Select the iconset")
+    }
 
     Rectangle{
         anchors.fill: parent
-        anchors.top: title_rect.bottom
-        anchors.topMargin: 80
+        anchors.topMargin: 0.0805*screen_height
         anchors.leftMargin: margin
         anchors.rightMargin: margin
+        color:  "transparent" 
 
         Rectangle {
             anchors.top: parent.top
             anchors.left: parent.left
             width: parent.width
-            height: 274
-            color: "#999999"
+            height: 610
+            color: "transparent"
         }
         Loader {
             id: background
             anchors.top: parent.top
             anchors.left: parent.left
             width: parent.width
-            height: 274
+            height: 610
             sourceComponent: Image {source: Config.imagespath + "/mask_background_grid.png"}
         }
         Rectangle {
             anchors.top: background.bottom
             width: parent.width
-            height: parent.height - 274
-            color: "black"
+            height: parent.height - 610
+            color: "transparent"
         }
 
-        ListView {
+        SilicaListView {
             id: sourcelist
             anchors.fill: parent
             model: Config.icon_list()
 
             delegate: Item {
-                height: 80
+                height: 0.0805*screen_height
                 width: parent.width
 
                 Label {
@@ -80,29 +78,6 @@ Page {
             }
         }
     }
-
-    Rectangle {
-        id: title_rect
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-        width: parent.width - 2*margin
-        height: 80
-        color: "black"
-        Label {
-            id: title
-            anchors.fill: parent
-            color: "white"
-            text: Config.tr("Select the iconset")
-            //font.family: "Nokia Pure Light"
-            font.pixelSize: 30
-            horizontalAlignment: Text.AlignLeft
-            verticalAlignment: Text.AlignVCenter
-        }
-    }
-
-
 }
 
 

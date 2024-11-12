@@ -28,8 +28,10 @@
 /*******************************************************************************/
 #include "core.h"
 #include <QObject>
-#include <QDeclarativeView>
-#include <QDeclarativeContext>
+//#include <QDeclarativeView>
+//#include <QDeclarativeContext>
+#include <QQmlContext>
+#include <QtQuick/QQuickView>
 #include "configqml.h"
 #include "datamodel.h"
 #include "dataitem.h"
@@ -39,6 +41,7 @@
 #include "citymodel.h"
 #include "dbusadaptor_applet.h"
 #include <time.h>
+#include <QtGui/QGuiApplication>
 
 
 #ifndef CONTROLLER_H
@@ -48,9 +51,9 @@ class Controller : public QObject
     Q_OBJECT
 
 public:
-    Controller();
+    Controller(QGuiApplication *app);
     ConfigQml* config();
-    QDeclarativeView *qview();
+    QQuickView *qview();
     virtual ~Controller();
 
 public Q_SLOTS:
@@ -59,8 +62,9 @@ public Q_SLOTS:
     void load_data();
 
 private:
+    QGuiApplication *_app;
     ConfigQml *_config;
-    QDeclarativeView *_qview;
+    QQuickView *_qview;
     Core::DataParser *_dp;
     DataModel *_model; 
     DataModel *_hours_model; 

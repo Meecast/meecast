@@ -6,7 +6,7 @@ on:
       - 'v*'
 env:
   # For available docker images, see https://github.com/CODeRUS/docker-sailfishos-platform-sdk
-  OS_VERSION: 4.3.0.12
+  OS_VERSION: 4.5.0.16
 
 jobs:
   build:

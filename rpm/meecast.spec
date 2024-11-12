@@ -179,7 +179,7 @@ Conflicts: %{name}-event
 %description eventview
 MeeCast eventview widget displays weather information at the top of SailfishOS' eventsview.
 %if 0%{?_chum}
-PackageName: MeeCast eventsview widget for SailfishOS ≥ 4.6.0
+PackageName: MeeCast eventsview widget for SailfishOS >= 4.6.0
 Type: desktop-application
 Categories:
  - Network

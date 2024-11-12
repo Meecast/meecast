@@ -58,6 +58,7 @@ HEADERS  += \
     gpsposition.h \
     meecastcover.h
 
+
 FORMS    +=
 #RESOURCES += weatherlayoutitem.qrc
 

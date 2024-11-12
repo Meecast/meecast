@@ -4,4 +4,3 @@ CONFIG += ordered
 
 SUBDIRS += sqlite3 libxml2 core qt-qml 
 
-

@@ -40,7 +40,6 @@ SOURCES += main.cpp \
     gpsposition.cpp \
     meecastcover.cpp 
 
-    # qmllayoutitem.cpp \
 HEADERS  += \
     dataqml.h \
     configqml.h \
@@ -58,7 +57,6 @@ HEADERS  += \
     gpsposition.h \
     meecastcover.h
 
-    # qmllayoutitem.h \
 
 FORMS    +=
 #RESOURCES += weatherlayoutitem.qrc

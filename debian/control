@@ -3,7 +3,7 @@ Section: user/desktop
 Priority: optional
 Maintainer: Vlad Vasiliev <vlad@gas.by>
 #Non Maemo
-Build-Depends: debhelper, libxml2-dev, libcurl3-dev, libpango1.0-dev, libgtk2.0-dev, libxcomposite-dev, libxdamage-dev, intltool, qtbase5-dev, qtdeclarative5-dev, qtpositioning5-dev
+Build-Depends: debhelper, libxml2-dev, libcurl3-dev, libpango1.0-dev, libgtk2.0-dev, libxcomposite-dev, libxdamage-dev, intltool, qtbase5-dev, qtdeclarative5-dev, qtpositioning5-dev, qtquickcontrols2-5-dev, qml-module-qtquick-controls2
 #Fremantle
 #Build-Depends: debhelper (>= 4.0.0), libxml2-dev, libcurl3-dev, libsqlite3-dev, libqt4-dev, libglib2.0-dev, libdbus-glib-1-dev, libmeegotouch-dev, applauncherd-dev, libqtm-location-dev, libqtm-publishsubscribe-dev   
 #Diablo

@@ -108,9 +108,9 @@ desktop.files = meecast.desktop
 desktop.path = /usr/share/applications
 icon64.path = /usr/share/pixmaps
 icon64.files += omweather.png
-qml.files = qml/*.qml *.js
+qml.files = pureqml/*.qml *.js
 qml.path = /opt/com.meecast.omweather/share/omweather/qml
-qml2.files = qml/pages/*.qml
+qml2.files = pureqml/pages/*.qml
 qml2.path = /opt/com.meecast.omweather/share/omweather/qml/pages
 
 searchicon.files += gfx/*.png

@@ -82,6 +82,9 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 {
     //QApplication::setGraphicsSystem("native");
     //QApplication app(argc, argv);
+    qputenv("QT_QUICK_CONTROLS_STYLE", QByteArray("Material"));
+    qputenv("QT_QUICK_CONTROLS_MATERIAL_THEME", QByteArray("Dark"));
+
     QGuiApplication* app = new QGuiApplication(argc, argv);
     app->setOrganizationName(QStringLiteral("org.meecast"));
     app->setApplicationName(QStringLiteral("MeeCast"));

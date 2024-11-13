@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT += sql xml xmlpatterns network positioning widgets qml quick
+QT += sql xml xmlpatterns network positioning widgets qml quick quickcontrols2
 
 TARGET = omweather-qml
 TEMPLATE = app

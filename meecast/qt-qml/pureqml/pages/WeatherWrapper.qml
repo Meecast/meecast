@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
+import QtQuick.Window 2.2
 //import Sailfish.Silica 1.0
 //import Nemo.Notifications 1.0
 import "./"
@@ -9,7 +10,10 @@ Page {
     property int margin: 16
     property int screen_height : main.height 
     property int screen_width : main.width 
-    property real ratio: Theme.pixelRatio 
+    //property real ratio: Theme.pixelRatio 
+    property real ratio: Screen.devicePixelRatio
+
+//    property real ratio: 0.5
     //property real ratio: main.screen_width/540
     property int column_rect_height: 72*ratio
     property int large_FontPointSize: 28*ratio
@@ -271,7 +275,7 @@ Page {
      Flickable {
      //SilicaFlickable {
         anchors.fill: parent
-        contentHeight: screen_height 
+        contentHeight: screen_height
         id: startview
         /*
         PullDownMenu {
@@ -315,7 +319,7 @@ Page {
                 anchors.top: parent.top
                 width: parent.width
                 height: column_rect_height 
-                color: Theme.primaryColor
+                //color: Theme.primaryColor
                 font.pointSize: large_FontPointSize 
                 text: Config.tr("MeeCast")
                 horizontalAlignment: Text.AlignHCenter
@@ -347,7 +351,7 @@ Page {
                 horizontalAlignment: Text.AlignHCenter
                 text: Config.tr("No locations are set up yet.")
                 font.pixelSize: huge_PixelSize 
-                color: Theme.secondaryColor
+                //color: Theme.secondaryColor
                 wrapMode: Text.Wrap
                 width: parent.width - 2*margin*ratio
                 anchors.top: parent.top

@@ -1,5 +1,6 @@
 import QtQuick 2.2
-import Sailfish.Silica 1.0
+//import Sailfish.Silica 1.0
+import QtQuick.Controls 2.12
 
 Page {
     id: countrypage
@@ -46,10 +47,13 @@ Page {
             height: parent.height - 610
             color: "transparent"
         }
+        /*
         PageHeader {
             title: Config.tr("Select country")
         }
-        SilicaListView {
+        */
+        ListView {
+        //SilicaListView {
             id: countrylist
             anchors.fill: parent
             currentIndex: -1
@@ -57,6 +61,7 @@ Page {
             anchors.bottom: parent.bottom
             width: parent.width
             model: listModel
+            /*
             header: SearchField {
                         id: searchField
                         width: parent.width
@@ -64,8 +69,10 @@ Page {
                             listModel.update(text)
                         }
                     }
+            */
             delegate: Item {
-                height: Theme.itemSizeSmall
+                //height: Theme.itemSizeSmall
+                height: 100
                 width: parent.width
                 Label {
                     anchors.left: parent.left

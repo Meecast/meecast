@@ -1,8 +1,8 @@
 import QtQuick 2.0
+import "./"
 //import Sailfish.Silica 1.0
 import QtQuick.Controls 2.12
 import QtQuick.Window 2.2
-import "./"
 Component {
    id: weatherStationDelegate
 
@@ -117,7 +117,7 @@ Component {
                     anchors.top: parent.top
                     width: parent.width
                     height: 72
-                    //color: Theme.primaryColor
+                    color: Theme.primaryColor
                     font.pointSize: 28
                     text: Config.tr("MeeCast")
                     horizontalAlignment: Text.AlignHCenter
@@ -277,7 +277,7 @@ Component {
                                 height: current_text_rect_height 
                                 anchors.top: parent.top
                                 anchors.left: parent.left
-                                //color: Theme.primaryColor
+                                color: Theme.primaryColor
                                 text: main.current_model("current", main_index) == true ? Config.tr("Now") : Config.tr("Today")
                                 font.pointSize: large_FontPointSize 
                                 verticalAlignment: Text.AlignVCenter
@@ -394,7 +394,7 @@ Component {
                                 anchors.top: desc.bottom
                                 anchors.topMargin: small_box_rect_top_margin 
                                 height: small_box_rect_height 
-                                //color: Theme.primaryColor
+                                color: Theme.primaryColor
                                 font.pointSize: medium_FontPointSize 
                                 verticalAlignment: Text.AlignVCenter
                             }
@@ -432,7 +432,7 @@ Component {
                                 anchors.top: desc.bottom
                                 anchors.topMargin: small_box_rect_top_margin
                                 height: small_box_rect_height 
-                                //color: Theme.primaryColor
+                                color: Theme.primaryColor
                                 font.pointSize: medium_FontPointSize 
                                 verticalAlignment: Text.AlignVCenter
                             }
@@ -454,7 +454,7 @@ Component {
                                 anchors.top: humidity.bottom
                                 anchors.topMargin: small_box_rect_top_margin2 
                                 height: small_box_rect_height 
-                                //color: Theme.primaryColor
+                                color: Theme.primaryColor
                                 font.pointSize: medium_FontPointSize 
                                 verticalAlignment: Text.AlignVCenter
                             }
@@ -476,7 +476,7 @@ Component {
                                 anchors.top: humidity.bottom
                                 anchors.topMargin: small_box_rect_top_margin2 
                                 height: small_box_rect_height 
-                                //color: Theme.primaryColor
+                                color: Theme.primaryColor
                                 font.pointSize: medium_FontPointSize 
                                 verticalAlignment: Text.AlignVCenter
                             }

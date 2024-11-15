@@ -2,6 +2,7 @@ import QtQuick 2.0
 //import Sailfish.Silica 1.0
 import QtQuick.Controls 2.12
 import QtQuick.Window 2.2
+import "./"
 Component {
    id: weatherStationDelegate
 
@@ -519,7 +520,7 @@ Component {
                     id: itemDelegate
                     Item {
                         id: day
-                        width: parent.width
+                        width: main_rectangle.width
                         height: row_rect_height 
                         ListView.onAdd: {
                             /* Hack */		
@@ -544,7 +545,7 @@ Component {
                             }
                             Text {
                                 text: main.forecast_model(index, "shortdate", main_index) == undefined ? "" : main.forecast_model(index, "shortdate", main_index) 
-                                //color: Theme.primaryColor
+                                color: Theme.primaryColor
                                 font.pointSize: medium_FontPointSize 
                                 anchors.left: parent.left
                                 anchors.leftMargin: (margin + txt_date.width + small_box_rect_left_margin)

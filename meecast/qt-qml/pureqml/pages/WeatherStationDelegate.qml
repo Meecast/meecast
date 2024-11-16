@@ -142,7 +142,7 @@ Component {
                     horizontalAlignment: Text.AlignHCenter
                     text: Config.tr("No locations are set up yet.")
                     font.pixelSize: huge_PixelSize 
-                    //color: Theme.secondaryColor
+                    color: Theme.secondaryColor
                     wrapMode: Text.Wrap
                     width: parent.width - 2*margin
                     //anchors.verticalCenter: parent.verticalCenter
@@ -227,7 +227,7 @@ Component {
                         horizontalAlignment: Text.AlignHCenter
                         text: Config.tr("Looks like there's no info for this location.")
                         font.pixelSize: huge_PixelSize 
-                        //color: Theme.secondaryColor
+                        color: Theme.secondaryColor
                         wrapMode: Text.Wrap
                         width: parent.width - 2*margin
                         //anchors.verticalCenter: parent.verticalCenter
@@ -536,7 +536,7 @@ Component {
                             Text {
                                 id: txt_date
                                 text: main.forecast_model(index, "fulldate", main_index) == undefined ? "" : main.forecast_model(index, "fulldate", main_index)
-                                //color: Theme.secondaryColor
+                                color: Theme.secondaryColor
                                 font.pointSize: medium_FontPointSize 
                                 anchors.left: parent.left
                                 anchors.leftMargin: margin
@@ -573,7 +573,7 @@ Component {
                             Text {
                                 id: txt_templo
                                 font.pointSize: medium_FontPointSize 
-                                //color: Theme.secondaryColor
+                                color: Theme.secondaryColor
                                 text: main.forecast_model(index, "temp_low", main_index) + '°'
                                 anchors.right: parent.right
                                 anchors.rightMargin: margin

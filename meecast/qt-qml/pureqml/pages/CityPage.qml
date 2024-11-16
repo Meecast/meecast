@@ -1,5 +1,6 @@
 import QtQuick 2.2
-import Sailfish.Silica 1.0
+//import Sailfish.Silica 1.0
+import QtQuick.Controls 2.12
 
 Page {
     id: citypage
@@ -48,10 +49,11 @@ Page {
             height: parent.height - 610
             color: "transparent"
         }
-        PageHeader {
-            title: Config.tr("Select location")
-        }
-        SilicaListView {
+//        PageHeader {
+//            title: Config.tr("Select location")
+//        }
+        ListView {
+        //SilicaListView {
             id: citylist
             anchors.fill: parent
             anchors.topMargin: 100
@@ -59,6 +61,7 @@ Page {
             width: parent.width
             currentIndex: -1
             model: listModel
+            /*
             header:  SearchField {
                         id: searchField
                         width: parent.width
@@ -67,9 +70,10 @@ Page {
                             forceActiveFocus()
                         }
                     }
-            
+                    */
             delegate: Item {
-                height: Theme.itemSizeSmall
+                //height: Theme.itemSizeSmall
+                height: 100
                 width: parent.width
 
                 Label {

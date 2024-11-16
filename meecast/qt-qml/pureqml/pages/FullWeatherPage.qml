@@ -1,7 +1,8 @@
 import QtQuick 2.0
-import Sailfish.Silica 1.0
-import Nemo.Configuration 1.0
-
+import QtQuick.Controls 2.12
+//import Sailfish.Silica 1.0
+//import Nemo.Configuration 1.0
+import QtQuick.Window 2.2
 Page {
     id: fullweather
     property int screen_height : fullweather.height
@@ -10,7 +11,8 @@ Page {
 //    property int screen_width : (isPortrait) ? fullweather.width :  fullweather.height
 
     //property real ratio: fullweather.screen_width/540
-    property real ratio: Theme.pixelRatio
+    //property real ratio: Theme.pixelRatio
+    property real ratio: Screen.devicePixelRatio
     property int icon_size: 128*ratio
     property int top_rect_height: 274*ratio
     property int current_text_rect_height: 84*ratio
@@ -296,11 +298,11 @@ Page {
             var i = 0;
             while (i<model_hours.rowCount()){   
                 var hour_data = ""
-                if (timeFormatConfig.value === "24") {
+                //if (timeFormatConfig.value === "24") {
                     hour_data=model_hours.getdata(i, 'hourdate24')
-                }else{
-                    hour_data=model_hours.getdata(i, 'hourdate12')
-                }
+                //}else{
+                //    hour_data=model_hours.getdata(i, 'hourdate12')
+                //}
                 hours_condition.append({fulldate: model_hours.getdata(i, 'fulldate'), hourdate: hour_data,
                                         pict: model_hours.getdata(i, 'pict'), precipitation: model_hours.getdata(i, 'precipitation'),
                                         temp: model_hours.getdata(i, 'temp'), temp_high: model_hours.getdata(i, 'temp_high')});
@@ -311,19 +313,19 @@ Page {
 	}
         if ((model_day.getdata(day, "sunrise")) != "N/A")
 
-            if (timeFormatConfig.value === "24") 
+           // if (timeFormatConfig.value === "24") 
                 condition2.append({cond_name: Config.tr("Sunrise:"),
                          value: model_day.getdata(day, "sunrise24")});
-            else
-                condition2.append({cond_name: Config.tr("Sunrise:"),
-                         value: model_day.getdata(day, "sunrise12")});
+            //else
+            //    condition2.append({cond_name: Config.tr("Sunrise:"),
+            //             value: model_day.getdata(day, "sunrise12")});
         if ((model_day.getdata(day, "sunset")) != "N/A")
-            if (timeFormatConfig.value === "24") 
+            //if (timeFormatConfig.value === "24") 
                 condition2.append({cond_name: Config.tr("Sunset:"),
                          value: model_day.getdata(day, "sunset24")});
-            else
-                condition2.append({cond_name: Config.tr("Sunset:"),
-                         value: model_day.getdata(day, "sunset12")});
+            //else
+             //   condition2.append({cond_name: Config.tr("Sunset:"),
+             //            value: model_day.getdata(day, "sunset12")});
         if ((model_day.getdata(day, "daylength")) != "N/A")
             condition2.append({cond_name: Config.tr("Day length:"),
                          value: model_day.getdata(day, "daylength")});
@@ -370,16 +372,18 @@ Page {
         }
     }
 
-    ConfigurationValue {
+    /*
+     * ConfigurationValue {
         id: timeFormatConfig
         key: "/sailfish/i18n/lc_timeformat24h"
     }
-
+    */
     Rectangle{
         width: screen_width
         height: screen_height 
         color: Config.transparency ? "transparent" : "black"
-        SilicaFlickable {
+        //SilicaFlickable {
+        Flickable {
             id: flickable
             anchors.top: parent.top
             anchors.left: parent.left
@@ -387,6 +391,7 @@ Page {
             anchors.bottom: toolbar.top
             flickableDirection: Flickable.VerticalFlick
             contentWidth: flickable.width
+            /*
             PageHeader {
                 id: daynameheader
                 title: (current && day == 0) ? Config.tr("Today") : model_day.getdata(day, "date");
@@ -402,7 +407,7 @@ Page {
                     }
                 }
             }
-
+            */ 
             Rectangle {
                 id: day_rect
                 anchors.left: parent.left
@@ -435,7 +440,7 @@ Page {
                     anchors.top: parent.top
                     anchors.left: parent.left
                     anchors.leftMargin: margin
-                    color: Theme.primaryColor
+                    //color: Theme.primaryColor
                     text: day_period_name;
                     font.pointSize: large_FontPointSize
                     verticalAlignment: Text.AlignVCenter
@@ -458,7 +463,7 @@ Page {
                     anchors.rightMargin: margin
                     width: screen_width/2 - icon_size/2 
                     height: current_text_rect_height 
-                    color: Theme.primaryColor
+                    //color: Theme.primaryColor
                     font.pointSize: large_FontPointSize
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
@@ -470,7 +475,7 @@ Page {
                    width: parent.width 
                    anchors.left: parent.left
                    anchors.top: now.bottom
-                   property color textColor: Theme.primaryColor
+                   //property color textColor: Theme.primaryColor
 
                    Row {  
                         id: desc_row
@@ -528,13 +533,13 @@ Page {
                         spacing: 3
                         Text {
                             text: model.cond_name
-                            color: Theme.secondaryColor
+                            //color: Theme.secondaryColor
 //                            color: "#999999"
                             font.pointSize: medium_FontPointSize 
                         }
                         Text {
                             text: model.value
-                            color: Theme.primaryColor
+                            //color: Theme.primaryColor
 //                            color: "white"
                             font.pointSize: medium_FontPointSize
                         }
@@ -569,12 +574,12 @@ Page {
                         spacing: 3
                         Text {
                             text: model.cond_name
-                            color: Theme.secondaryColor
+                            //color: Theme.secondaryColor
                             font.pointSize: medium_FontPointSize 
                         }
                         Text {
                             text: model.value
-                            color: Theme.primaryColor
+                            //color: Theme.primaryColor
                             font.pointSize: medium_FontPointSize
                         }
                     }
@@ -592,7 +597,7 @@ Page {
                         id: map_text
                         anchors.fill: parent
                         text:  Config.tr("Show on Map") 
-                        color: Theme.primaryColor
+                        //color: Theme.primaryColor
                         visible: false
                         font.pointSize: large_FontPointSize 
                         width: parent.width 
@@ -639,7 +644,7 @@ Page {
                             Text {
                                 id: txt_date
                                 text: model.fulldate
-                                color: Theme.secondaryColor
+                                //color: Theme.secondaryColor
                                 font.pointSize: medium_FontPointSize 
                                 anchors.left: parent.left
                                 anchors.leftMargin: margin
@@ -648,7 +653,7 @@ Page {
                             }
                             Text {
                                 text: model.hourdate
-                                color: Theme.primaryColor
+                                //color: Theme.primaryColor
                                 font.pointSize: medium_FontPointSize 
                                 anchors.left: parent.left
                                 anchors.leftMargin: (margin + txt_date.width + 8*ratio)
@@ -668,7 +673,7 @@ Page {
                                 id: txt_precipitation
                                 visible: (model.precipitation == "N/A") ? false : true
                                 font.pointSize: small_FontPointSize 
-                                color: (model.precipitation == "0.0") ? "#889397" : Theme.primaryColor
+//                                color: (model.precipitation == "0.0") ? "#889397" : Theme.primaryColor
                                 text: model.precipitation + Config.tr("mm")
                                 anchors.left: parent.left 
                                 anchors.leftMargin: screen_width/2 + icon_size/4 + 30 
@@ -678,7 +683,7 @@ Page {
                             Text {
                                 id: txt_temp
                                 font.pointSize: medium_FontPointSize 
-                                color: (Theme.primaryColor == "#ffffff") ? getColor(model.temp_high) : Theme.primaryColor
+//                                color: (Theme.primaryColor == "#ffffff") ? getColor(model.temp_high) : Theme.primaryColor
                                 text: model.temp + '°'
                                 anchors.right: parent.right
                                 anchors.rightMargin: (model.precipitation == "N/A") ? margin + 70*ratio : margin + 30*ratio
@@ -695,12 +700,13 @@ Page {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: flickable.botttom
-            color: Config.transparency ? Theme.secondaryHighlightColor : "black"
+//            color: Config.transparency ? Theme.secondaryHighlightColor : "black"
             opacity: 0.8
             id: toolbar
             height: toolbar_height 
             Row {
-                spacing: Theme.paddingLarge
+//                spacing: Theme.paddingLarge
+                spacing: 50                
                 //spacing: Theme.itemSizeSmall
                 anchors.horizontalCenter: parent.horizontalCenter
                 Switch {

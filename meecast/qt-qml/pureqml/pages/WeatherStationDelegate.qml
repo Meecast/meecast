@@ -10,7 +10,7 @@ Component {
     Rectangle {
         id: main_rectangle
         width: main.screen_width 
-        height: main.screen_height
+        height: main.screen_height - headerRowLayout.height
         //property real ratio: main.screen_width/540
         //property real ratio: Theme.pixelRatio
         property real ratio: Screen.devicePixelRatio

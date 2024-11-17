@@ -1,3 +1,0 @@
-[D-BUS Service]
-Name=com.meego.UX.Shell.Panels.omweather
-Exec=/opt/com.meecast.omweather/libexec/meego-panel-omweather

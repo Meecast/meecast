@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2013 Vlad Vasilyeu
+ * Copyright (C) 2006-2024 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -31,8 +31,6 @@
 #include <QGuiApplication>
 #include <QFileInfo>
 #include <QDir>
-
-
 
 ConfigQml *
 create_and_fill_config(QGuiApplication *app){

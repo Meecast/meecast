@@ -12,7 +12,7 @@ Component {
         width: main.screen_width 
         height: main.screen_height
         //property real ratio: main.screen_width/540
-       // property real ratio: Theme.pixelRatio
+        //property real ratio: Theme.pixelRatio
         property real ratio: Screen.devicePixelRatio
         property int icon_size: 128*ratio
         property int top_rect_height: 274*ratio
@@ -57,7 +57,7 @@ Component {
             anchors.bottom: toolbar.top
             pressDelay: 0
             contentWidth: flickable.width
-            //contentHeight: station_rect.height + current_rect.height + list.height
+            contentHeight: station_rect.height + current_rect.height + list.height
             flickableDirection: Flickable.VerticalFlick
 
             /*
@@ -142,7 +142,7 @@ Component {
                     horizontalAlignment: Text.AlignHCenter
                     text: Config.tr("No locations are set up yet.")
                     font.pixelSize: huge_PixelSize 
-                    //color: Theme.secondaryColor
+                    color: Theme.secondaryColor
                     wrapMode: Text.Wrap
                     width: parent.width - 2*margin
                     //anchors.verticalCenter: parent.verticalCenter
@@ -227,7 +227,7 @@ Component {
                         horizontalAlignment: Text.AlignHCenter
                         text: Config.tr("Looks like there's no info for this location.")
                         font.pixelSize: huge_PixelSize 
-                        //color: Theme.secondaryColor
+                        color: Theme.secondaryColor
                         wrapMode: Text.Wrap
                         width: parent.width - 2*margin
                         //anchors.verticalCenter: parent.verticalCenter
@@ -290,7 +290,7 @@ Component {
                                 id: temp_text
                                 width: main.screen_width/2 - icon_size/2
                                 height: current_text_rect_height 
-                                //color: Theme.primaryColor
+                                color: Theme.primaryColor
                                 text: model.temp + '°'
                                 font.pointSize: large_FontPointSize
                                 verticalAlignment: Text.AlignVCenter
@@ -334,7 +334,7 @@ Component {
                                width: current_rect.width 
                                anchors.left: parent.left
                                anchors.top: now.bottom
-                               //property color textColor: Theme.primaryColor
+                               property color textColor: Theme.primaryColor
                                Row {  
                                    id: desc_row
                                    width: parent.width 
@@ -342,7 +342,7 @@ Component {
                                      id: text; 
                                      font.pointSize: description_FontPointSize; 
                                      width: parent.width 
-                                     //color: desc.textColor; 
+                                     color: desc.textColor; 
                                      text: main.current_model("current", main_index) == true ? main.current_model("description", main_index) : main.forecast_model(index, "description", main_index) ; 
                                      verticalAlignment: Text.AlignVCenter; 
                                      horizontalAlignment: main.current_model("current", main_index) == true ? ((main.current_model("description", main_index) >35) ? Text.AlignHLeft : Text.AlignHCenter) : ((main.forecast_model(index, "description", main_index) >35) ? Text.AlignHLeft : Text.AlignHCenter); 
@@ -536,7 +536,7 @@ Component {
                             Text {
                                 id: txt_date
                                 text: main.forecast_model(index, "fulldate", main_index) == undefined ? "" : main.forecast_model(index, "fulldate", main_index)
-                                //color: Theme.secondaryColor
+                                color: Theme.secondaryColor
                                 font.pointSize: medium_FontPointSize 
                                 anchors.left: parent.left
                                 anchors.leftMargin: margin
@@ -563,7 +563,7 @@ Component {
                             Text {
                                 id: txt_temphi
                                 font.pointSize: medium_FontPointSize 
-                                //color: (Theme.primaryColor == "#ffffff") ? (main.forecast_model(index, "temp_high", main_index) != undefined ? getColor(main.forecast_model(index, "temp_high", main_index)) : getColor(0)) : Theme.primaryColor
+                                color: (Theme.primaryColor == "#ffffff") ? (main.forecast_model(index, "temp_high", main_index) != undefined ? getColor(main.forecast_model(index, "temp_high", main_index)) : getColor(0)) : Theme.primaryColor
                                 text: main.forecast_model(index, "temp_high", main_index) + '°'
                                 anchors.right: parent.right
                                 anchors.rightMargin: margin + 70*ratio
@@ -573,7 +573,7 @@ Component {
                             Text {
                                 id: txt_templo
                                 font.pointSize: medium_FontPointSize 
-                                //color: Theme.secondaryColor
+                                color: Theme.secondaryColor
                                 text: main.forecast_model(index, "temp_low", main_index) + '°'
                                 anchors.right: parent.right
                                 anchors.rightMargin: margin
@@ -610,7 +610,7 @@ Component {
             anchors.left: parent.left
             anchors.right: parent.right
             height: 90*ratio
-            //color: Config.transparency ? Theme.secondaryHighlightColor : "black"
+            color: Config.transparency ? Theme.secondaryHighlightColor : "black"
             opacity: 0.8
             Image {
                 id: sourceicon

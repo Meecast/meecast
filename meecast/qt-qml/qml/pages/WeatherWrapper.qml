@@ -258,7 +258,7 @@ Page {
      }
      SilicaFlickable {
         anchors.fill: parent
-        contentHeight: screen_height 
+        contentHeight: screen_height
         id: startview
         PullDownMenu {
             MenuItem {

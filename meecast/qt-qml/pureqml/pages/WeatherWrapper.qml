@@ -1,4 +1,5 @@
 import QtQuick 2.12
+import "./"
 import QtQuick.Controls 2.12
 import QtQuick.Window 2.2
 //import Sailfish.Silica 1.0
@@ -319,7 +320,7 @@ Page {
                 anchors.top: parent.top
                 width: parent.width
                 height: column_rect_height 
-                //color: Theme.primaryColor
+                color: Theme.primaryColor
                 font.pointSize: large_FontPointSize 
                 text: Config.tr("MeeCast")
                 horizontalAlignment: Text.AlignHCenter
@@ -351,7 +352,7 @@ Page {
                 horizontalAlignment: Text.AlignHCenter
                 text: Config.tr("No locations are set up yet.")
                 font.pixelSize: huge_PixelSize 
-                //color: Theme.secondaryColor
+                color: Theme.secondaryColor
                 wrapMode: Text.Wrap
                 width: parent.width - 2*margin*ratio
                 anchors.top: parent.top

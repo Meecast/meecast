@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import "./" 
 import QtQuick.Controls 2.12
 //import Sailfish.Silica 1.0
 //import Nemo.Configuration 1.0
@@ -440,7 +441,7 @@ Page {
                     anchors.top: parent.top
                     anchors.left: parent.left
                     anchors.leftMargin: margin
-                    //color: Theme.primaryColor
+                    color: Theme.primaryColor
                     text: day_period_name;
                     font.pointSize: large_FontPointSize
                     verticalAlignment: Text.AlignVCenter
@@ -463,7 +464,7 @@ Page {
                     anchors.rightMargin: margin
                     width: screen_width/2 - icon_size/2 
                     height: current_text_rect_height 
-                    //color: Theme.primaryColor
+                    color: Theme.primaryColor
                     font.pointSize: large_FontPointSize
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
@@ -475,7 +476,7 @@ Page {
                    width: parent.width 
                    anchors.left: parent.left
                    anchors.top: now.bottom
-                   //property color textColor: Theme.primaryColor
+                   property color textColor: Theme.primaryColor
 
                    Row {  
                         id: desc_row
@@ -533,13 +534,13 @@ Page {
                         spacing: 3
                         Text {
                             text: model.cond_name
-                            //color: Theme.secondaryColor
+                            color: Theme.secondaryColor
 //                            color: "#999999"
                             font.pointSize: medium_FontPointSize 
                         }
                         Text {
                             text: model.value
-                            //color: Theme.primaryColor
+                            color: Theme.primaryColor
 //                            color: "white"
                             font.pointSize: medium_FontPointSize
                         }
@@ -574,12 +575,12 @@ Page {
                         spacing: 3
                         Text {
                             text: model.cond_name
-                            //color: Theme.secondaryColor
+                            color: Theme.secondaryColor
                             font.pointSize: medium_FontPointSize 
                         }
                         Text {
                             text: model.value
-                            //color: Theme.primaryColor
+                            color: Theme.primaryColor
                             font.pointSize: medium_FontPointSize
                         }
                     }
@@ -597,7 +598,7 @@ Page {
                         id: map_text
                         anchors.fill: parent
                         text:  Config.tr("Show on Map") 
-                        //color: Theme.primaryColor
+                        color: Theme.primaryColor
                         visible: false
                         font.pointSize: large_FontPointSize 
                         width: parent.width 
@@ -644,7 +645,7 @@ Page {
                             Text {
                                 id: txt_date
                                 text: model.fulldate
-                                //color: Theme.secondaryColor
+                                color: Theme.secondaryColor
                                 font.pointSize: medium_FontPointSize 
                                 anchors.left: parent.left
                                 anchors.leftMargin: margin
@@ -653,7 +654,7 @@ Page {
                             }
                             Text {
                                 text: model.hourdate
-                                //color: Theme.primaryColor
+                                color: Theme.primaryColor
                                 font.pointSize: medium_FontPointSize 
                                 anchors.left: parent.left
                                 anchors.leftMargin: (margin + txt_date.width + 8*ratio)
@@ -673,7 +674,7 @@ Page {
                                 id: txt_precipitation
                                 visible: (model.precipitation == "N/A") ? false : true
                                 font.pointSize: small_FontPointSize 
-//                                color: (model.precipitation == "0.0") ? "#889397" : Theme.primaryColor
+                                color: (model.precipitation == "0.0") ? "#889397" : Theme.primaryColor
                                 text: model.precipitation + Config.tr("mm")
                                 anchors.left: parent.left 
                                 anchors.leftMargin: screen_width/2 + icon_size/4 + 30 
@@ -683,7 +684,7 @@ Page {
                             Text {
                                 id: txt_temp
                                 font.pointSize: medium_FontPointSize 
-//                                color: (Theme.primaryColor == "#ffffff") ? getColor(model.temp_high) : Theme.primaryColor
+                                color: (Theme.primaryColor == "#ffffff") ? getColor(model.temp_high) : Theme.primaryColor
                                 text: model.temp + '°'
                                 anchors.right: parent.right
                                 anchors.rightMargin: (model.precipitation == "N/A") ? margin + 70*ratio : margin + 30*ratio
@@ -700,13 +701,13 @@ Page {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: flickable.botttom
-//            color: Config.transparency ? Theme.secondaryHighlightColor : "black"
+            color: Config.transparency ? Theme.secondaryHighlightColor : "black"
             opacity: 0.8
             id: toolbar
             height: toolbar_height 
             Row {
-//                spacing: Theme.paddingLarge
-                spacing: 50                
+                spacing: Theme.paddingLarge
+                //spacing: 50                
                 //spacing: Theme.itemSizeSmall
                 anchors.horizontalCenter: parent.horizontalCenter
                 Switch {

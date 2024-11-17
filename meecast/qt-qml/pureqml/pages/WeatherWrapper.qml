@@ -25,12 +25,15 @@ Page {
     property real flick_start_position: 0
     property bool menuitemgps: Config.gps
     property bool flipmoving: false
+    property string station_name_text: ""
 
     objectName: "WeatherPage"
 
     header: Label {
-         text: main.stationname1_index(index)
+         text: station_name_text
          horizontalAlignment: Text.AlignHCenter
+         color: Theme.primaryColor
+         font.pointSize: large_FontPointSize 
          MouseArea {
             anchors.fill: parent
             onClicked: {

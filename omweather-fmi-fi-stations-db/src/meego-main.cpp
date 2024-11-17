@@ -574,6 +574,10 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         icon = 41;
                         description = "Heavy Snow Showers";
                         break;
+                    case 44:
+                        icon = 6;
+                        description = "Scattered Light Sleet Showers";
+                        break;
                     case 47:
                         icon = 6;
                         description = "Light Sleet";

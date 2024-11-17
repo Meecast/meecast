@@ -58,7 +58,9 @@ UpdateThread::run(){
         std::cerr<<"Not connect to Internet"<<std::endl;
         //config->connectSession(false);
         config->connectSession(true);
-        config->need_updating = true;
+    //    config->need_updating = true;
+        config->need_updating = false;
+        config->updating(false);
         return;
     }
     /* std::cerr<<"Size of StationList "<< config->stationsList().size()<<std::endl; */
@@ -66,4 +68,5 @@ UpdateThread::run(){
         config->stationsList().at(i)->updateData(true);
     }
     config->need_updating = false;
+    config->updating(false);
 }

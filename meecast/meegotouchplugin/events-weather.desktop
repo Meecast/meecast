@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=X-MeeGoApplicationExtension
-Name=Weather Extension Meecast
-Exec=mapplicationextensionrunner
-
-[X-MeeGoApplicationExtension]
-Interface=com.nokia.home.EventsExtensionInterface/1.0
-Extension=libevents-meecast.so
-Identifier=libevents-meecast

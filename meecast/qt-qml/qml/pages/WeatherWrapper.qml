@@ -19,6 +19,7 @@ Page {
     property real flick_start_position: 0
     property bool menuitemgps: Config.gps
     property bool flipmoving: false
+    property string station_name_text: ""
 
     objectName: "WeatherPage"
 

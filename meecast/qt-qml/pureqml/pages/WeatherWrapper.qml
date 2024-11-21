@@ -2,6 +2,7 @@ import QtQuick 2.12
 import "./"
 import QtQuick.Controls 2.12
 import QtQuick.Window 2.2
+import QtQuick.Layouts 1.15
 //import Sailfish.Silica 1.0
 //import Nemo.Notifications 1.0
 import "./"
@@ -25,19 +26,27 @@ Page {
     property real flick_start_position: 0
     property bool menuitemgps: Config.gps
     property bool flipmoving: false
+    property string station_name_text: ""
 
     objectName: "WeatherPage"
 
-    header: Label {
-         text: main.stationname1_index(index)
-         horizontalAlignment: Text.AlignHCenter
-         MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                console.log("111111111111111")
-            }
-         }
+    header: RowLayout {
+        id: headerRowLayout
+        Label {
+          text: station_name_text
+          Layout.fillWidth: true
+          horizontalAlignment: Text.AlignHCenter
+          color: Theme.primaryColor
+          font.pointSize: large_FontPointSize
+          MouseArea {
+             anchors.fill: parent
+             onClicked: {
+                 console.log("111111111111111")
+             }
+          }
+        }
     }
+
     ListModel {
         id: listModel
         function update() {

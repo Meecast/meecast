@@ -11,6 +11,7 @@ Component {
         id: main_rectangle
         width: main.screen_width 
         height: main.screen_height
+        //height: main.screen_height - headerRowLayout.height
         //property real ratio: main.screen_width/540
         //property real ratio: Theme.pixelRatio
         property real ratio: Screen.devicePixelRatio
@@ -513,6 +514,7 @@ Component {
                     Component.onCompleted: {
                        console.log("list onCompleted ", main_index, forecast_stub.count)
                        console.log("WeatherStationDelegate.qml - Config.stationname ", Config.stationname) 
+                       main.station_name_text = main.stationname1_index(main_index)
                        list.height = row_rect_height * forecast_model_count(main_index) 
                     }
                 }
@@ -612,23 +614,32 @@ Component {
             height: 90*ratio
             color: Config.transparency ? Theme.secondaryHighlightColor : "black"
             opacity: 0.8
-            Image {
-                id: sourceicon
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter: parent.verticalCenter
-                source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source_index(index) + ".png"
-                smooth: true
-
-                Component.onCompleted: {
-//                    console.log("Index")
-//                    console.log(index)
-//                    console.log( Config.source_index(index))
-//                    console.log( Config.stationname)
+            Row {
+                width: parent.width
+                Label {
+                    anchors.verticalCenter: parent.verticalCenter
+                    font.pixelSize: huge_PixelSize 
+                    color: Theme.secondaryColor
+                    text: "\u2630"
                 }
-                MouseArea{
-                    anchors.fill: parent
-                    onClicked: {
-                        Config.showweb();	
+                Image {
+                    id: sourceicon
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                    source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source_index(index) + ".png"
+                    smooth: true
+
+                    Component.onCompleted: {
+    //                    console.log("Index")
+    //                    console.log(index)
+    //                    console.log( Config.source_index(index))
+    //                    console.log( Config.stationname)
+                    }
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: {
+                            Config.showweb();	
+                        }
                     }
                 }
             }

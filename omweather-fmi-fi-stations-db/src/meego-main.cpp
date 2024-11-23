@@ -773,6 +773,10 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         icon = 46;
                         description = "Scattered Light Snow Showers";
                         break;
+                    case 155:
+                        icon = 46;
+                        description = "Scattered Moderate Snow Showers";
+                        break;
                     case 157:
                         icon = 14;
                         description = "Light Snowfall";

@@ -464,7 +464,10 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             }    
 
             if (val[i].get("Temperature","").asString() != "" || val[i].get("Temperature","").asString() != "nan"){
-                if (std::isdigit(val[i].get("Temperature","").asString()[0])||val[i].get("Temperature","").asString()[0] == '-'){
+                if (std::isdigit(val[i].get("Temperature","").asString()[0]) ||
+                                 val[i].get("Temperature","").asString()[0] == '-' ||
+                                 val[i].get("Temperature","").asString()[0] == '+' ||
+                                 val[i].get("Temperature","").asString()[0] == '.'){
                     fprintf(file_out,"     <temperature>%.0f</temperature>\n", atof(val[i].get("Temperature","").asCString()));
                 }else{
                     if (dictionary.find(val[i].get("Temperature","").asString()) != dictionary.end()) {

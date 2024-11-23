@@ -242,6 +242,8 @@ Page {
         }
     }
 
+    /*
+     * I don't know what this code does  :( *
     Item{
         Timer{
             interval: 700; running: true; repeat: false
@@ -253,6 +255,7 @@ Page {
             }
         }
     }
+    */
     //SilicaListView {
     ListView {
         id: listview

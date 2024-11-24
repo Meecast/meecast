@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.11.7
+%define vrsn 1.11.8
 %define rlse 1
 
 Name:       org.meecast.MeeCast
@@ -349,6 +349,12 @@ desktop-file-install --delete-original  \
 
 
 %changelog
+* Sun Nov 24 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.8
+- Added icons and description to fmi.fi 
+- Updated Norwegian translation
+- Fixed segmentation fault
+- Fixed hour's negative temperature problem in fmi.fi source
+
 * Sun Nov 03 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.7
 - Fixed a segmentation fault when the configuration file is in read-only mode
 - Added icons and descriptions to fmi.fi

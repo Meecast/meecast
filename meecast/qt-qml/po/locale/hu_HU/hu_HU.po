@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-02 13:16+0300\n"
+"POT-Creation-Date: 2024-11-24 21:09+0300\n"
 "PO-Revision-Date: 2014-07-28 05:20+0000\n"
 "Last-Translator: Macilaci457 <laci.kara@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/meecast/"
@@ -90,6 +90,142 @@ msgid ""
 "W: "
 msgstr ""
 
+#: meecast/qt-qml/qml/pages/AboutPage.qml:269
+msgid "    Albanian - Ilir Gjika\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:277
+msgid "    Arabic - Tarad Alfandi\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:268
+msgid "    Bulgarian - Zlatko Enikov\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:275
+msgid "    Catalan - Agustí Clara\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:270
+msgid ""
+"    Chinese - Wong Man Kong, Michael,\n"
+"     \tgwmgdemj\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:284
+msgid "    Chinese(Taiwan) - osk2, \n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:283
+msgid "    Czech - Jakub Kožíšek, Pavel Šrubař\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:278
+msgid "    Danish - Peter Jespersen\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:266
+msgid ""
+"    Dutch - Tom Leenders, Michiel Pater\n"
+"     \tHeimen Stoffels, Nathan Follens\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:253
+msgid ""
+"    Finnish - Marko Vertainen,\n"
+"    \tdeadhead (A-P Partonen),\n"
+"     \tjarliim\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:247
+msgid ""
+"    French -  Nicolas Granziano, \n"
+"     \tPhilippe, Benot Knecht, \n"
+"     \tQuentin Caillard, \n"
+"     \tJordi\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:276
+msgid "    Galician - pakoR\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:256
+msgid ""
+"    German -  Claudius Henrichs,\n"
+"     \tJens Klingen,\n"
+"     \tDeadHorseRiding\n"
+" "
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:281
+msgid "    Hungarian - Salmi, László Kara\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:259
+#, fuzzy
+msgid ""
+"    Italian - Lorenzo Facca,\n"
+"     \tPavel Fialko, Alessandro Pasotti,\n"
+"     \tSalvatore Fiorenzo, Ilir Gjika,\n"
+"     \tLuca Onnis\n"
+msgstr ""
+"Olasz - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
+"Lengyel - Tomasz Dominikowski; Bulgár - Zlatko Enikov"
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:280
+msgid "    Norwegian - Peer-Atle Motland\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:264
+msgid "    Polish - Tomasz Dominikowski\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:272
+msgid "    Portuguese - Jose Narciso,\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:251
+msgid ""
+"    Russian - Pavel Fialko, Vlad Vasilyeu, \n"
+"     \tEd Bartosh\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:279
+msgid "    Serbian - Aleksandar Zaric\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:265
+msgid "    Slovak - Roman Moravčík\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:282
+msgid "    Slovenian - Boštjan Štrumbelj\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:263
+msgid "    Spanish - Alejandro Lopez, Agustí Clara\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:287
+msgid ""
+"    Swedish - Angela Nennebrandt,\n"
+"     \tÅke Engelbrektson, \n"
+"     \tNiklas Åkerström, \n"
+"     \tTomislav Veleckovik"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:273
+msgid ""
+"    Turkish - Burak Kaan Kose,\n"
+"     \tMehmet Çilingir\n"
+msgstr ""
+
+#: meecast/qt-qml/qml/pages/AboutPage.qml:285
+msgid ""
+"    Vietnamese - Hieu Nguyen\n"
+"     \tAnh Dương and truongnx, \n"
+msgstr ""
+
 #: meecast/qt-qml/dataitem.cpp:569 meecast/qt-qml/dataitem.cpp:570
 msgid "(Low)"
 msgstr "(alacsony)"
@@ -106,7 +242,7 @@ msgstr "1 nap"
 #: omweather/src/weather-settings.c:4240
 #: omweather/src/weather-simple-settings.c:1696
 #: omweather/src/weather-simple-settings.c:2805
-#: meecast/qt-qml/qml/UpdatePage.qml:154
+#: meecast/qt-qml/qml/pages/UpdatePage.qml:74
 msgid "1 hour"
 msgstr "1 óra"
 
@@ -122,15 +258,13 @@ msgstr "10 perc"
 msgid "10 seconds"
 msgstr "10 másodperc"
 
-#: meecast/qt-qml/qml/UpdatePage.qml:175
-msgid "12 hours"
-msgstr "12 óra"
-
-#: omweather/src/weather-sensor.c:151 meecast/qt-qml/qml/UpdatePage.qml:140
+#: omweather/src/weather-sensor.c:151
+#: meecast/qt-qml/qml/pages/UpdatePage.qml:66
 msgid "15 minutes"
 msgstr "15 perc"
 
-#: omweather/src/weather-settings.c:4242 meecast/qt-qml/qml/UpdatePage.qml:161
+#: omweather/src/weather-settings.c:4242
+#: meecast/qt-qml/qml/pages/UpdatePage.qml:78
 msgid "2 hours"
 msgstr "2 óra"
 
@@ -142,7 +276,8 @@ msgstr "20 másodperc"
 msgid "3 minutes"
 msgstr "3 perc"
 
-#: omweather/src/weather-sensor.c:153 meecast/qt-qml/qml/UpdatePage.qml:147
+#: omweather/src/weather-sensor.c:153
+#: meecast/qt-qml/qml/pages/UpdatePage.qml:70
 msgid "30 minutes"
 msgstr "30 perc"
 
@@ -153,7 +288,7 @@ msgstr "30 másodperc"
 #: omweather/src/weather-settings.c:4244
 #: omweather/src/weather-simple-settings.c:1705
 #: omweather/src/weather-simple-settings.c:2808
-#: meecast/qt-qml/qml/UpdatePage.qml:168
+#: meecast/qt-qml/qml/pages/UpdatePage.qml:82
 msgid "4 hours"
 msgstr "4 óra"
 
@@ -293,8 +428,9 @@ msgstr "Havas eső / szél"
 #: omweather/src/weather-home.c:1286 omweather/src/weather-help.c:100
 #: omweather/src/weather-simple-popup.c:1164
 #: omweather/src/weather-simple-status.c:179
-#: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/qml/main.qml:58 meecast/qt-qml/qml/AboutPage.qml:68
+#: meecast/qt-qml/qml/pages/AboutPage.qml:86
+#: meecast/qt-qml/qml/pages/WeatherWrapper.qml:268
+#: meecast/qt-qml/qml/pages/WeatherStationDelegate.qml:70
 msgid "About"
 msgstr "A programról"
 
@@ -311,16 +447,9 @@ msgid "Add"
 msgstr "Hozzáad"
 
 #: omweather/src/weather-settings.c:467
+#: meecast/qt-qml/qml/pages/StationsPage.qml:143
 msgid "Add Station"
 msgstr "Állomás hozzáadása"
-
-#: meecast/qt-qml/qml/main.qml:51
-msgid "Adjust GPS station"
-msgstr "Válassz GPS állomást"
-
-#: meecast/qt-qml/qml/AboutPage.qml:251
-msgid "Albanian - Ilir Gjika\n"
-msgstr ""
 
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
 #: omweather/src/weather-settings.c:1381
@@ -348,21 +477,9 @@ msgstr "Ismeretlen hiba történt."
 msgid "Animation"
 msgstr "Animáció"
 
-#: meecast/qt-qml/qml/VisualsPage.qml:566
+#: meecast/qt-qml/qml/pages/VisualsPage.qml:62
 msgid "Appearance"
 msgstr "Megjelenés"
-
-#: meecast/qt-qml/qml/VisualsPage.qml:94
-msgid ""
-"Application manager will now start\n"
-"for installing package 'MeeCast applet'.\n"
-"You should uninstall AccuWeather \n"
-"before installing this package"
-msgstr ""
-
-#: meecast/qt-qml/qml/AboutPage.qml:259
-msgid "Arabic - Tarad Alfandi\n"
-msgstr ""
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -380,10 +497,6 @@ msgid ""
 "Design UI and default iconset: Andrew Zhilin\n"
 "Design UI for Fremantle: Krebber Jan Niemela Ulla\n"
 msgstr ""
-
-#: meecast/netbook-UX/meego-panel-omweather.cpp:415
-msgid "Author and maintenance: Vlad Vasilyeu, <vlad@gas.by>\n"
-msgstr "Készítő: Vlad Vasilyeu, <vlad@gas.by>\n"
 
 #: omweather/src/weather-help.c:111
 msgid "Authors"
@@ -407,7 +520,7 @@ msgstr "Beauf."
 
 #: omweather/src/weather-settings.c:4021
 #: omweather/src/weather-simple-settings.c:2707
-#: meecast/qt-qml/qml/UnitsPage.qml:180
+#: meecast/qt-qml/qml/pages/UnitsPage.qml:103
 msgid "Beaufort scale"
 msgstr "Beauford skála"
 
@@ -422,10 +535,6 @@ msgstr "Felszakadozó felhőzet"
 #: omweather/src/hash.data:396
 msgid "Broken clouds"
 msgstr "Felszakadozó felhőzet"
-
-#: meecast/qt-qml/qml/AboutPage.qml:250
-msgid "Bulgarian - Zlatko Enikov\n"
-msgstr ""
 
 #: omweather/src/weather-home.c:1536 omweather/src/weather-home.c:1562
 #: omweather/src/weather-simple-popup.c:1042
@@ -447,36 +556,18 @@ msgstr ""
 msgid "Can't save config file"
 msgstr ""
 
-#: meecast/qt-qml/qml/VisualsPage.qml:108
-msgid "Cancel"
-msgstr "Mégse"
-
 #: omweather/src/weather-config.c:383
 #, c-format
 msgid "Cannot get path to the HOME directory. Quitting.\n"
 msgstr "Nem találom a HOME könyvtárat. Kilépek.\n"
 
-#: meecast/qt-qml/qml/AboutPage.qml:257
-msgid "Catalan - Agustí Clara\n"
-msgstr ""
-
 #: omweather/src/weather-settings.c:3864
 msgid "Celcius"
 msgstr "Celsius"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:113
+#: meecast/qt-qml/qml/pages/UnitsPage.qml:65
 msgid "Celsius"
 msgstr "Celsius"
-
-#: meecast/qt-qml/qml/AboutPage.qml:252
-msgid ""
-"Chinese - Wong Man Kong, Michael,\n"
-" \tgwmgdemj\n"
-msgstr ""
-
-#: meecast/qt-qml/qml/AboutPage.qml:266
-msgid "Chinese(Taiwan) - osk2, \n"
-msgstr ""
 
 #: omweather/src/weather-simple-settings.c:677
 #: omweather/src/weather-simple-settings.c:710
@@ -647,13 +738,9 @@ msgstr ""
 msgid "Cloudy, thunderstorms with rain"
 msgstr "Felhős és zivataros"
 
-#: meecast/netbook-UX/meego-panel-omweather.cpp:413
-msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
-msgstr "A szerzői jogok Vlad Vasilyeu and Pavel Fialko-t illetik (2006-2011),"
-
-#: meecast/netbook-UX/meego-panel-omweather.cpp:414
-msgid "Copyright(c) 2010-2011 by Tanya Makova\n"
-msgstr "A szerzői jogok Tanya Makova-t illetik (2010-2011)\n"
+#: omweather/src/hash.data:434 meecast/qt-qml/qml/pages/AboutPage.qml:224
+msgid "Co-administrator and contributor"
+msgstr ""
 
 #: omweather/src/weather-download.c:226
 msgid ""
@@ -693,20 +780,7 @@ msgstr ""
 msgid "Custom"
 msgstr "Egyedi"
 
-#: meecast/qt-qml/qml/AboutPage.qml:265
-msgid "Czech - Jakub Kožíšek, Pavel Šrubař\n"
-msgstr ""
-
-#: meecast/qt-qml/qml/UpdatePage.qml:183
-msgid "Daily"
-msgstr "Naponta"
-
-#: meecast/qt-qml/qml/AboutPage.qml:260
-msgid "Danish - Peter Jespersen\n"
-msgstr ""
-
-#: meecast/netbook-UX/meego-panel-omweather.cpp:584
-#: meecast/qt-qml/qml/FullWeatherPage.qml:204
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:152
 msgid "Day"
 msgstr "Nappal"
 
@@ -714,7 +788,7 @@ msgstr "Nappal"
 msgid "Day length"
 msgstr "Nappal hossza"
 
-#: omweather/src/hash.data:70 meecast/qt-qml/qml/FullWeatherPage.qml:341
+#: omweather/src/hash.data:70 meecast/qt-qml/qml/pages/FullWeatherPage.qml:328
 msgid "Day length:"
 msgstr "Nappal hossza:"
 
@@ -722,25 +796,18 @@ msgstr "Nappal hossza:"
 msgid "Day:"
 msgstr "Nap:"
 
-#: meecast/qt-qml/qml/StationsPage.qml:75
+#: meecast/qt-qml/qml/pages/StationsPage.qml:61
+#: meecast/qt-qml/qml/pages/StationsPage.qml:127
 msgid "Delete location?"
 msgstr "Hely törlése?"
-
-#: meecast/netbook-UX/meego-panel-omweather.cpp:417
-msgid ""
-"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
-"zhilin@ovi.com>\n"
-msgstr ""
-"Felhasználói felület dizájn és alap ikoncsomag: Copyright 2006-2011 Andrew "
-"Zhilin, <andrew.zhilin@ovi.com>\n"
 
 #: omweather/src/weather-popup.c:461 omweather/src/weather-popup.c:601
 msgid "Detailed"
 msgstr "Részletes"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:170
-#: meecast/qt-qml/qml/FullWeatherPage.qml:242
-#: meecast/qt-qml/qml/FullWeatherPage.qml:305
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:116
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:195
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:266
 msgid "Dew point"
 msgstr ""
 
@@ -801,12 +868,6 @@ msgstr "Délelőtt szitálás"
 msgid "Drizzle Late"
 msgstr "Délután szitálás"
 
-#: meecast/qt-qml/qml/AboutPage.qml:248
-msgid ""
-"Dutch - Tom Leenders, Michiel Pater\n"
-" \tHeimen Stoffels, Nathan Follens\n"
-msgstr ""
-
 #: omweather/src/hash.data:77
 msgid "E"
 msgstr "K"
@@ -854,11 +915,7 @@ msgstr "Egyedi megjelenés szerkesztése"
 msgid "Enable GPS"
 msgstr "GPS engedélyezése"
 
-#: meecast/qt-qml/qml/SearchField.qml:50
-msgid "Enter search"
-msgstr "Keresés megadása"
-
-#: omweather/src/hash.data:430
+#: omweather/src/hash.data:430 meecast/qt-qml/qml/pages/WeatherWrapper.qml:193
 msgid "Error"
 msgstr ""
 
@@ -900,7 +957,8 @@ msgstr "F\n"
 msgid "FL: "
 msgstr ""
 
-#: omweather/src/weather-settings.c:3876 meecast/qt-qml/qml/UnitsPage.qml:121
+#: omweather/src/weather-settings.c:3876
+#: meecast/qt-qml/qml/pages/UnitsPage.qml:69
 msgid "Fahrenheit"
 msgstr "Fahrenheit"
 
@@ -963,32 +1021,17 @@ msgstr "Elszórtan hózáporok / szél"
 msgid "Few clouds"
 msgstr "Néhány felhő"
 
-#: meecast/qt-qml/qml/StationsPage.qml:92
+#: meecast/qt-qml/qml/pages/StationsPage.qml:82
 msgid "Find location via GPS"
 msgstr "Helykeresés GPS-szel"
-
-#: meecast/qt-qml/qml/AboutPage.qml:235
-msgid ""
-"Finnish - Marko Vertainen,\n"
-"\tdeadhead (A-P Partonen),\n"
-" \tjarliim\n"
-msgstr ""
-
-#: meecast/netbook-UX/meego-panel-omweather.cpp:428
-msgid ""
-"Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro "
-"Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
-msgstr ""
-"Finn - Marko Vertainen; Német - Claudius Henrichs; Spanyol - Alejandro "
-"Lopez; Holland - Tom Leenders; Szlovák - Roman Moravčík\n"
 
 #: omweather/src/hash.data:92
 msgid "First Quarter"
 msgstr "Első negyed"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:167
-#: meecast/qt-qml/qml/FullWeatherPage.qml:239
-#: meecast/qt-qml/qml/FullWeatherPage.qml:302
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:113
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:192
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:263
 msgid "Flike"
 msgstr "Hőérzet"
 
@@ -1025,14 +1068,6 @@ msgstr "Betűszín"
 msgid "Font:"
 msgstr "Betűtípus:"
 
-#: meecast/qt-qml/qml/VisualsPage.qml:292
-msgid ""
-"For disabling MeeCast widget,\n"
-"you should uninstall package\n"
-"'Activating MeeCast Applet'\n"
-"using Application manager"
-msgstr ""
-
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
 msgstr "Előrejelzés"
@@ -1053,14 +1088,6 @@ msgstr "Szitáló jégeső"
 #, fuzzy
 msgid "Freezing Rain"
 msgstr "Könnyű jégeső"
-
-#: meecast/qt-qml/qml/AboutPage.qml:229
-msgid ""
-"French -  Nicolas Granziano, \n"
-" \tPhilippe, Benot Knecht, \n"
-" \tQuentin Caillard, \n"
-" \tJordi\n"
-msgstr ""
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1083,10 +1110,6 @@ msgstr "Teljes"
 msgid "Full forecast"
 msgstr "Teljes előrejelzés"
 
-#: meecast/qt-qml/qml/VisualsPage.qml:369
-msgid "Fullscreen mode"
-msgstr "Teljesképernyős mód"
-
 #: omweather/src/weather-home.c:1641
 msgid "G: "
 msgstr "G:"
@@ -1108,25 +1131,6 @@ msgstr "GSM+WLAN"
 #: omweather/src/weather-simple-settings.c:2395
 msgid "GUI|Clear"
 msgstr "GUI|Töröl"
-
-#: meecast/qt-qml/qml/AboutPage.qml:258
-msgid "Galician - pakoR\n"
-msgstr ""
-
-#: meecast/qt-qml/qml/AboutPage.qml:238
-msgid ""
-"German -  Claudius Henrichs,\n"
-" \tJens Klingen,\n"
-" \tDeadHorseRiding\n"
-" "
-msgstr ""
-
-#: meecast/netbook-UX/meego-panel-omweather.cpp:418
-msgid ""
-"Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka.pl>"
-msgstr ""
-"Grzanka ikonkészlete: Minden jog fenntartva; Wojciech Grzanka, 2005 "
-"<wojciech@grzanka.pl>"
 
 #: omweather/src/weather-popup.c:1353 omweather/src/weather-popup.c:1492
 msgid "Gust:"
@@ -1223,25 +1227,20 @@ msgstr "Magas"
 msgid "Hourly"
 msgstr "Óránként"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:323
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:286
 msgid "Hours"
 msgstr "Órák"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:137
-#: meecast/qt-qml/qml/FullWeatherPage.qml:210
-#: meecast/qt-qml/qml/FullWeatherPage.qml:273
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:83
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:163
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:234
 msgid "Humidity"
 msgstr "Páratartalom"
 
 #: omweather/src/weather-popup.c:1280 omweather/src/weather-popup.c:1456
-#: meecast/netbook-UX/meego-panel-omweather.cpp:722
 #: meecast/qt-qml/dataitem.cpp:196
 msgid "Humidity:"
 msgstr "Páratartalom:"
-
-#: meecast/qt-qml/qml/AboutPage.qml:263
-msgid "Hungarian - Salmi, László Kara\n"
-msgstr ""
 
 #: omweather/src/hash.data:122
 #, fuzzy
@@ -1260,23 +1259,13 @@ msgstr "Ikoncsomag:"
 msgid "Icon size:"
 msgstr "Ikonméret:"
 
-#: meecast/qt-qml/qml/VisualsPage.qml:44 meecast/qt-qml/qml/UpdatePage.qml:42
-msgid "Icons"
-msgstr "Ikonok"
-
-#: omweather/src/hash.data:123 meecast/qt-qml/qml/VisualsPage.qml:391
+#: omweather/src/hash.data:123 meecast/qt-qml/qml/pages/VisualsPage.qml:70
 msgid "Iconset"
 msgstr "Ikoncsomag"
 
-#: omweather/src/hash.data:124 meecast/qt-qml/qml/AboutPage.qml:280
+#: omweather/src/hash.data:124 meecast/qt-qml/qml/pages/AboutPage.qml:297
 msgid "Iconsets"
 msgstr "Ikoncsomagok"
-
-#: meecast/qt-qml/qml/VisualsPage.qml:64 meecast/qt-qml/qml/VisualsPage.qml:136
-#: meecast/qt-qml/qml/VisualsPage.qml:163
-#: meecast/qt-qml/qml/VisualsPage.qml:226
-msgid "Information"
-msgstr "Információ"
 
 #: omweather/src/hash.data:126
 msgid "Isolated T-Storms"
@@ -1286,30 +1275,11 @@ msgstr "Viharok többfelé"
 msgid "Isolated T-Storms / Wind"
 msgstr "Viharok többfelé / szél"
 
-#: meecast/qt-qml/qml/AboutPage.qml:241
-#, fuzzy
-msgid ""
-"Italian - Lorenzo Facca,\n"
-" \tPavel Fialko, Alessandro Pasotti,\n"
-" \tSalvatore Fiorenzo, Ilir Gjika,\n"
-" \tLuca Onnis\n"
-msgstr ""
-"Olasz - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
-"Lengyel - Tomasz Dominikowski; Bulgár - Zlatko Enikov"
-
-#: meecast/netbook-UX/meego-panel-omweather.cpp:429
-msgid ""
-"Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
-"Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov"
-msgstr ""
-"Olasz - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
-"Lengyel - Tomasz Dominikowski; Bulgár - Zlatko Enikov"
-
 #: omweather/src/weather-settings.c:3915
 msgid "Kilometers"
 msgstr "Kilóméter"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:173
+#: meecast/qt-qml/qml/pages/UnitsPage.qml:99
 msgid "Knots"
 msgstr "Csomó"
 
@@ -1329,7 +1299,10 @@ msgstr "Utolsó frissítés a szerveren:"
 msgid "Last update from server: "
 msgstr "Utolsó frissítés a szerverről:"
 
-#: omweather/src/hash.data:128 meecast/qt-qml/qml/FullWeatherPage.qml:344
+#: omweather/src/hash.data:128 meecast/qt-qml/qml/pages/FullWeatherPage.qml:331
+#: meecast/qt-qml/qml/cover/CoverPage.qml:189
+#: meecast/qt-qml/qml/cover/CoverPage.qml:190
+#: meecast/qt-qml/qml/cover/CoverPage.qml:445
 msgid "Last update:"
 msgstr "Utolsó frissítés:"
 
@@ -1348,11 +1321,11 @@ msgstr "Park és kert időjárás"
 msgid "Layout:"
 msgstr "Megjelenés:"
 
-#: meecast/qt-qml/qml/AboutPage.qml:188
+#: meecast/qt-qml/qml/pages/AboutPage.qml:196
 msgid "Lead designers"
 msgstr "Vezető tervezők"
 
-#: meecast/qt-qml/qml/AboutPage.qml:314
+#: meecast/qt-qml/qml/pages/AboutPage.qml:329
 msgid "License"
 msgstr "Licensz"
 
@@ -1489,7 +1462,7 @@ msgstr "Állomáslista betöltése"
 msgid "Local Pollen Reports"
 msgstr "Helyi pollen jelentés"
 
-#: meecast/qt-qml/qml/AboutPage.qml:172
+#: meecast/qt-qml/qml/pages/AboutPage.qml:182
 msgid "Localization platform"
 msgstr "Nyelvi platform"
 
@@ -1497,7 +1470,9 @@ msgstr "Nyelvi platform"
 msgid "Long"
 msgstr "Hosszú"
 
-#: omweather/src/hash.data:157 meecast/qt-qml/qml/WeatherPage.qml:487
+#: omweather/src/hash.data:157
+#: meecast/qt-qml/qml/pages/WeatherStationDelegate.qml:227
+#: meecast/qt-qml/qml/cover/CoverPage.qml:168
 msgid "Looks like there's no info for this location."
 msgstr "Úgy tűnik nincs információ az állomáshoz."
 
@@ -1524,15 +1499,7 @@ msgstr "Helyenként felhős, záporokkal"
 msgid "Mainly cloudy, showers"
 msgstr "Helyenként felhős, záporokkal"
 
-#: meecast/netbook-UX/meego-panel-omweather.cpp:416
-msgid ""
-"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
-"com>\n"
-msgstr ""
-"Karbantartók: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
-"<tanyshk@gmail.com>\n"
-
-#: omweather/src/hash.data:159 meecast/qt-qml/qml/StationsPage.qml:158
+#: omweather/src/hash.data:159 meecast/qt-qml/qml/pages/StationsPage.qml:76
 msgid "Manage locations"
 msgstr "Helyek kezelése"
 
@@ -1540,25 +1507,32 @@ msgstr "Helyek kezelése"
 msgid "Manual"
 msgstr "Kézi"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:282
+#: meecast/qt-qml/qml/pages/UnitsPage.qml:57
 msgid "Measurement units"
 msgstr "Mértékegységek"
 
-#: meecast/qt-qml/qml/WeatherPage.qml:292
+#: meecast/qt-qml/qml/pages/WeatherWrapper.qml:308
+#: meecast/qt-qml/qml/pages/WeatherStationDelegate.qml:121
 msgid "MeeCast"
 msgstr "MeeCast"
 
-#: meecast/qt-qml/qml/AboutPage.qml:77
+#: meecast/qt-qml/qml/pages/AboutPage.qml:94
 #, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2016"
+"client based on OMWeather code. Copyright (C) 2006-2024"
 msgstr ""
 "MeeCast - multiplatform testreszabható nyilt forráskódú irőjárás jelentő "
 "kliens az OMWeather kódja alapján. Szerzői joggal védett (C) 2006-2014"
 
-#: meecast/qt-qml/qml/AboutPage.qml:23
-msgid "MeeCast for Harmattan"
+#: omweather/src/hash.data:433 meecast/qt-qml/qml/pages/AboutPage.qml:65
+#, fuzzy
+msgid "MeeCast for AuroraOS"
+msgstr "MeeCast Harmattan-re"
+
+#: omweather/src/hash.data:432
+#, fuzzy
+msgid "MeeCast for SailfishOS"
 msgstr "MeeCast Harmattan-re"
 
 #: omweather/src/weather-settings.c:3901
@@ -1784,7 +1758,7 @@ msgstr "Név:"
 #: omweather/src/weather-settings.c:920 omweather/src/weather-settings.c:4190
 #: omweather/src/weather-config.c:324 omweather/src/weather-sensor.c:141
 #: omweather/src/weather-simple-settings.c:2802
-#: meecast/qt-qml/qml/UpdatePage.qml:133
+#: meecast/qt-qml/qml/pages/UpdatePage.qml:62
 msgid "Never"
 msgstr "Soha"
 
@@ -1792,16 +1766,11 @@ msgstr "Soha"
 msgid "New"
 msgstr "Új"
 
-#: meecast/qt-qml/qml/NewStationPage.qml:38
-msgid "New location"
-msgstr "Új hely"
-
 #: omweather/src/weather-settings.c:4275
 msgid "Next update:"
 msgstr "Következő frissítés:"
 
-#: meecast/netbook-UX/meego-panel-omweather.cpp:588
-#: meecast/qt-qml/qml/FullWeatherPage.qml:259
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:215
 msgid "Night"
 msgstr "Éjjel"
 
@@ -1809,7 +1778,7 @@ msgstr "Éjjel"
 msgid "Night:"
 msgstr "Nappal"
 
-#: omweather/src/weather-settings.c:825 meecast/qt-qml/qml/StationsPage.qml:78
+#: omweather/src/weather-settings.c:825
 msgid "No"
 msgstr "Nem"
 
@@ -1817,7 +1786,10 @@ msgstr "Nem"
 msgid "No current weather data."
 msgstr "Nincs friss időjárás adat."
 
-#: omweather/src/hash.data:211 meecast/qt-qml/qml/WeatherPage.qml:313
+#: omweather/src/hash.data:211 meecast/qt-qml/qml/pages/WeatherWrapper.qml:336
+#: meecast/qt-qml/qml/pages/WeatherStationDelegate.qml:142
+#: meecast/qt-qml/qml/cover/CoverPage.qml:152
+#: meecast/qt-qml/qml/cover/CoverPage.qml:434
 msgid "No locations are set up yet."
 msgstr "Még nincs hely beállítva."
 
@@ -1829,18 +1801,14 @@ msgstr "Nincs időjárásadat ehhez a naphoz."
 msgid "No weather data for this station."
 msgstr "Nincs időjárás adat az állomásról."
 
-#: meecast/qt-qml/qml/AboutPage.qml:262
-msgid "Norwegian - Peer-Atle Motland\n"
-msgstr ""
-
 #: omweather/src/weather-home.c:2734 omweather/src/weather-home.c:2746
 #: omweather/src/weather-popup.c:458 omweather/src/weather-popup.c:569
 #: omweather/src/weather-popup.c:575
-#: omweather/src/weather-simple-settings.c:2886
-#: meecast/netbook-UX/meego-panel-omweather.cpp:592
-#: meecast/netbook-UX/meego-panel-omweather.cpp:847
-#: meecast/qt-qml/dataitem.cpp:204 meecast/qt-qml/qml/FullWeatherPage.qml:131
-#: meecast/qt-qml/qml/WeatherPage.qml:541
+#: omweather/src/weather-simple-settings.c:2886 meecast/qt-qml/dataitem.cpp:204
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:72
+#: meecast/qt-qml/qml/pages/WeatherStationDelegate.qml:280
+#: meecast/qt-qml/qml/cover/CoverPage.qml:129
+#: meecast/qt-qml/qml/cover/CoverPage.qml:347
 msgid "Now"
 msgstr "Most"
 
@@ -1866,7 +1834,6 @@ msgid "Now: "
 msgstr "Most:"
 
 #: omweather/src/weather-help.c:67 omweather/src/weather-simple-popup.c:1223
-#: meecast/qt-qml/qml/VisualsPage.qml:115
 msgid "OK"
 msgstr "OK"
 
@@ -1882,12 +1849,6 @@ msgstr "OMWeather beállítások"
 #: omweather/src/weather-home.c:1268 omweather/src/weather-home.c:2856
 msgid "OMWeather settings"
 msgstr "OMWeather beállítások"
-
-#: meecast/qt-qml/qml/VisualsPage.qml:206
-#: meecast/qt-qml/qml/VisualsPage.qml:269
-#: meecast/qt-qml/qml/VisualsPage.qml:305
-msgid "Ok"
-msgstr "Ok"
 
 #: omweather/src/weather-help.c:64 omweather/src/weather-help.c:70
 msgid "Other Maemo Weather Info"
@@ -2015,6 +1976,11 @@ msgstr "du. zivatarok"
 msgid "PM T-Storms"
 msgstr "du. viharok"
 
+#: meecast/qt-qml/qml/pages/UnitsPage.qml:125
+#, fuzzy
+msgid "Pa"
+msgstr "Pa"
+
 #: omweather/src/hash.data:242
 msgid "Partly Cloudy"
 msgstr "Helyenként felhős"
@@ -2131,21 +2097,13 @@ msgstr "Elszórtan felhős, néhol záporokkal"
 msgid "Period"
 msgstr "Időszak"
 
-#: meecast/qt-qml/qml/AboutPage.qml:246
-msgid "Polish - Tomasz Dominikowski\n"
-msgstr ""
-
-#: meecast/qt-qml/qml/AboutPage.qml:254
-msgid "Portuguese - Jose Narciso,\n"
-msgstr ""
-
 #: omweather/src/weather-settings.c:3649
 msgid "Position:"
 msgstr "Pozíció:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:155
-#: meecast/qt-qml/qml/FullWeatherPage.qml:227
-#: meecast/qt-qml/qml/FullWeatherPage.qml:290
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:101
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:180
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:251
 msgid "Ppcp:"
 msgstr "Csapadék esélye:"
 
@@ -2153,18 +2111,18 @@ msgstr "Csapadék esélye:"
 msgid "Precipitation"
 msgstr ""
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:161
-#: meecast/qt-qml/qml/FullWeatherPage.qml:233
-#: meecast/qt-qml/qml/FullWeatherPage.qml:296
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:107
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:186
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:257
 #, fuzzy
 msgid "Precipitation rate:"
 msgstr ""
 "\n"
 "Előrejelzés:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:158
-#: meecast/qt-qml/qml/FullWeatherPage.qml:230
-#: meecast/qt-qml/qml/FullWeatherPage.qml:293
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:104
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:183
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:254
 #, fuzzy
 msgid "Precipitation:"
 msgstr ""
@@ -2180,7 +2138,7 @@ msgstr "Beállítások|Frissítés"
 msgid "Pressure"
 msgstr "Légnyomás"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:48 meecast/qt-qml/qml/UnitsPage.qml:188
+#: meecast/qt-qml/qml/pages/UnitsPage.qml:116
 msgid "Pressure units"
 msgstr "Légnyomás m.e."
 
@@ -2188,11 +2146,10 @@ msgstr "Légnyomás m.e."
 msgid "Pressure units:"
 msgstr "Légnyomás mértékegységek:"
 
-#: omweather/src/weather-popup.c:1307
-#: meecast/netbook-UX/meego-panel-omweather.cpp:697
-#: meecast/qt-qml/dataitem.cpp:202 meecast/qt-qml/qml/FullWeatherPage.qml:143
-#: meecast/qt-qml/qml/FullWeatherPage.qml:216
-#: meecast/qt-qml/qml/FullWeatherPage.qml:279
+#: omweather/src/weather-popup.c:1307 meecast/qt-qml/dataitem.cpp:202
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:89
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:169
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:240
 msgid "Pressure:"
 msgstr "Légnyomás:"
 
@@ -2200,21 +2157,18 @@ msgstr "Légnyomás:"
 msgid "Pressure: "
 msgstr "Légnyomás:"
 
-#: meecast/qt-qml/qml/AboutPage.qml:156
+#: meecast/qt-qml/qml/pages/AboutPage.qml:168
 msgid "Programmer"
 msgstr "Programozó"
 
-#: meecast/qt-qml/qml/AboutPage.qml:140
-msgid "Project administrators"
+#: meecast/qt-qml/qml/pages/AboutPage.qml:154
+#, fuzzy
+msgid "Project administrator"
 msgstr "Projektadminisztrátor"
 
-#: meecast/qt-qml/qml/AboutPage.qml:204
+#: meecast/qt-qml/qml/pages/AboutPage.qml:210
 msgid "Project manager"
 msgstr "Projektmenedzser"
-
-#: meecast/netbook-UX/meego-panel-omweather.cpp:922
-msgid "Provided by"
-msgstr "Elérhetővé tette:"
 
 #: omweather/src/hash.data:272
 msgid "Proximity shower rain"
@@ -2333,7 +2287,8 @@ msgstr "Eső, havas eső / szél"
 msgid "Read sensor every:"
 msgstr "Érzékelő olvasása minden:"
 
-#: omweather/src/hash.data:427
+#: omweather/src/hash.data:427 meecast/qt-qml/qml/pages/WeatherWrapper.qml:282
+#: meecast/qt-qml/qml/pages/WeatherStationDelegate.qml:84
 msgid "Refresh"
 msgstr "Frissít"
 
@@ -2346,12 +2301,6 @@ msgstr "Régió"
 #: omweather/src/hash.data:299
 msgid "Rush Hour Traffic"
 msgstr "Csúcsidő forgalom"
-
-#: meecast/qt-qml/qml/AboutPage.qml:233
-msgid ""
-"Russian - Pavel Fialko, Vlad Vasilyeu, \n"
-" \tEd Bartosh\n"
-msgstr ""
 
 #: omweather/src/hash.data:300
 msgid "S"
@@ -2435,62 +2384,28 @@ msgstr "Tengeri mérföld"
 msgid "Search"
 msgstr "Keresés"
 
-#: meecast/qt-qml/qml/NewStationPage.qml:73
-#: meecast/qt-qml/qml/NewStationPage.qml:120
-msgid "Select city"
-msgstr "Város kiválasztása"
-
-#: meecast/qt-qml/qml/CountryPage.qml:153
-#: meecast/qt-qml/qml/NewStationPage.qml:55
-#: meecast/qt-qml/qml/NewStationPage.qml:102
+#: meecast/qt-qml/qml/pages/CountryPage.qml:50
 msgid "Select country"
 msgstr "Ország kiválasztása"
 
 #: omweather/src/weather-simple-settings.c:2168
-#: meecast/qt-qml/qml/CityPage.qml:142
+#: meecast/qt-qml/qml/pages/CityPage.qml:52
 msgid "Select location"
 msgstr "Hely kiválasztása"
 
-#: meecast/qt-qml/qml/NewStationPage.qml:64
-#: meecast/qt-qml/qml/NewStationPage.qml:111
-#: meecast/qt-qml/qml/RegionPage.qml:144
+#: meecast/qt-qml/qml/pages/RegionPage.qml:51
 msgid "Select region"
 msgstr "Régió kiválasztása"
 
-#: meecast/qt-qml/qml/NewStationPage.qml:46
-#: meecast/qt-qml/qml/NewStationPage.qml:93
-msgid "Select source"
-msgstr "Forrás kiválasztása"
-
-#: meecast/qt-qml/qml/LockScreen.qml:85
-msgid "Select the X-position for left corner of widget"
-msgstr "Válaszd ki az X pozícióját a widget bal sarkához"
-
-#: meecast/qt-qml/qml/LockScreen.qml:125
-msgid "Select the Y-position for left corner of widget"
-msgstr "Válaszd ki az Y pozícióját a widget bal sarkához"
-
-#: meecast/qt-qml/qml/StandbyScreen.qml:267
-msgid "Select the color of font for current temperature"
-msgstr "Válaszd ki a betű színét a jelenlegi hőmérsékletnek"
-
-#: meecast/qt-qml/qml/StandbyScreen.qml:123
-msgid "Select the color of font for station name"
-msgstr "Válaszd ki a betű színét az állomás nevének"
-
-#: meecast/qt-qml/qml/StandbyScreen.qml:195
-msgid "Select the color of font for temperature"
-msgstr "Válaszd ki a betű színét a hőmérsékletnek"
-
-#: meecast/qt-qml/qml/IconsetPage.qml:97
+#: meecast/qt-qml/qml/pages/IconsetPage.qml:15
 msgid "Select the iconset"
 msgstr "Ikoncsomag kiválasztása"
 
-#: meecast/qt-qml/qml/LanguagesPage.qml:130
+#: meecast/qt-qml/qml/pages/LanguagesPage.qml:15
 msgid "Select the language"
 msgstr "Válaszd ki a nyelvet"
 
-#: meecast/qt-qml/qml/SourcePage.qml:108
+#: meecast/qt-qml/qml/pages/SourcePage.qml:40
 msgid "Select the weather source"
 msgstr "Időjárás jelentés forrásának kiválasztása"
 
@@ -2519,39 +2434,23 @@ msgstr "Állomás kiválasztása"
 msgid "Sensor"
 msgstr "Érzékelő"
 
-#: meecast/qt-qml/qml/AboutPage.qml:261
-msgid "Serbian - Aleksandar Zaric\n"
-msgstr ""
-
 #: omweather/src/weather-simple-settings.c:2228
 msgid "Set"
 msgstr "Beállít"
 
-#: omweather/src/hash.data:314 meecast/qt-qml/qml/WeatherPage.qml:327
+#: omweather/src/hash.data:314 meecast/qt-qml/qml/pages/WeatherWrapper.qml:349
+#: meecast/qt-qml/qml/pages/WeatherStationDelegate.qml:156
 msgid "Set locations"
 msgstr "Helyek beállítása"
 
 #: omweather/src/weather-home.c:1291 omweather/src/weather-simple-popup.c:1157
-#: omweather/src/weather-simple-status.c:158 meecast/qt-qml/qml/main.qml:43
-#: meecast/qt-qml/qml/SettingsPage.qml:144
+#: omweather/src/weather-simple-status.c:158
+#: meecast/qt-qml/qml/pages/SettingsPage.qml:7
+#: meecast/qt-qml/qml/pages/SettingsPage.qml:19
+#: meecast/qt-qml/qml/pages/WeatherWrapper.qml:275
+#: meecast/qt-qml/qml/pages/WeatherStationDelegate.qml:77
 msgid "Settings"
 msgstr "Beállítások"
-
-#: meecast/qt-qml/qml/LockScreen.qml:65
-msgid "Settings for Lockscreen widget"
-msgstr "A nyitó képernyő beállítása"
-
-#: meecast/qt-qml/qml/StandbyScreen.qml:102
-msgid "Settings for standby widget"
-msgstr "A készenléti képernyő beállítása"
-
-#: meecast/qt-qml/qml/VisualsPage.qml:534
-msgid "Settings of LockScreen"
-msgstr "A nyitó képernyő beállítása"
-
-#: meecast/qt-qml/qml/VisualsPage.qml:514
-msgid "Settings of StandbyScreen"
-msgstr "A készenléti képernyő beállítása"
 
 #: omweather/src/hash.data:315
 msgid "Shallow Fog"
@@ -2565,15 +2464,19 @@ msgstr "Rövid"
 msgid "Show arrows"
 msgstr "Nyilak mutatása"
 
-#: omweather/src/hash.data:426
+#: omweather/src/hash.data:426 meecast/qt-qml/qml/pages/VisualsPage.qml:172
 msgid "Show last update time"
 msgstr "Mutasd az utolsó frissítés idejét."
+
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:594
+msgid "Show on Map"
+msgstr "Mutasd a térképen"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
 msgstr "Csak jelenlegi időjárás az első ikonon"
 
-#: omweather/src/hash.data:425
+#: omweather/src/hash.data:425 meecast/qt-qml/qml/pages/VisualsPage.qml:148
 msgid "Show source logo"
 msgstr "Mutasd a forrás logóját"
 
@@ -2586,6 +2489,7 @@ msgid "Show temperature at:"
 msgstr "Mutasd a hőmérsékletet ha:"
 
 #: omweather/src/weather-settings.c:3795
+#: meecast/qt-qml/qml/pages/VisualsPage.qml:160
 msgid "Show wind"
 msgstr "Mutasd a szelet"
 
@@ -2631,14 +2535,6 @@ msgstr "Ólmos eső, dara"
 
 #: omweather/src/hash.data:324
 msgid "Sleet Showers"
-msgstr ""
-
-#: meecast/qt-qml/qml/AboutPage.qml:247
-msgid "Slovak - Roman Moravčík\n"
-msgstr ""
-
-#: meecast/qt-qml/qml/AboutPage.qml:264
-msgid "Slovenian - Boštjan Štrumbelj\n"
 msgstr ""
 
 #: omweather/src/hash.data:325
@@ -2711,17 +2607,13 @@ msgstr ""
 msgid "Source"
 msgstr "Forrás"
 
-#: meecast/qt-qml/qml/AboutPage.qml:336
+#: meecast/qt-qml/qml/pages/AboutPage.qml:350
 msgid "Source code"
 msgstr "Forráskód"
 
 #: omweather/src/weather-settings.c:498
 msgid "Source:"
 msgstr "Forrás:"
-
-#: meecast/qt-qml/qml/AboutPage.qml:245
-msgid "Spanish - Alejandro Lopez, Agustí Clara\n"
-msgstr ""
 
 #: omweather/src/weather-popup.c:997 omweather/src/weather-popup.c:1003
 #: omweather/src/weather-popup.c:1010 omweather/src/weather-popup.c:1128
@@ -2731,14 +2623,9 @@ msgid "Speed"
 msgstr "Sebesség"
 
 #: omweather/src/weather-popup.c:1331 omweather/src/weather-popup.c:1471
-#: meecast/netbook-UX/meego-panel-omweather.cpp:772
 #: meecast/qt-qml/dataitem.cpp:200
 msgid "Speed:"
 msgstr "Sebesség:"
-
-#: meecast/qt-qml/qml/VisualsPage.qml:491
-msgid "Splash screen"
-msgstr "Nyitó képernyő"
 
 #: omweather/src/weather-settings.c:522
 msgid "State:"
@@ -2778,7 +2665,8 @@ msgstr "Napos / szeles"
 msgid "Sunny periods and a few showers."
 msgstr "Napos, néhány záporral"
 
-#: omweather/src/hash.data:345 meecast/qt-qml/qml/FullWeatherPage.qml:335
+#: omweather/src/hash.data:345 meecast/qt-qml/qml/pages/FullWeatherPage.qml:315
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:318
 msgid "Sunrise:"
 msgstr "Napfelkelte:"
 
@@ -2786,7 +2674,8 @@ msgstr "Napfelkelte:"
 msgid "Sunrise: "
 msgstr "Napfelkelte:"
 
-#: omweather/src/hash.data:346 meecast/qt-qml/qml/FullWeatherPage.qml:338
+#: omweather/src/hash.data:346 meecast/qt-qml/qml/pages/FullWeatherPage.qml:322
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:325
 msgid "Sunset:"
 msgstr "Napnyugta:"
 
@@ -2797,14 +2686,6 @@ msgstr "Napnyugta:"
 #: omweather/src/weather-settings.c:3773
 msgid "Swap hi/low temperature"
 msgstr "Alacsony/magas hőmérséklet felcserélése"
-
-#: meecast/qt-qml/qml/AboutPage.qml:269
-msgid ""
-"Swedish - Angela Nennebrandt,\n"
-" \tÅke Engelbrektson, \n"
-" \tNiklas Åkerström, \n"
-" \tTomislav Veleckovik"
-msgstr ""
 
 #: omweather/src/weather-settings.c:4180
 msgid "Switch to the next station after:"
@@ -2840,8 +2721,7 @@ msgstr "Délután zivatarok"
 msgid "Temperature"
 msgstr "Hőmérséklet"
 
-#: omweather/src/hash.data:353 meecast/qt-qml/qml/UnitsPage.qml:30
-#: meecast/qt-qml/qml/UnitsPage.qml:102
+#: omweather/src/hash.data:353 meecast/qt-qml/qml/pages/UnitsPage.qml:60
 msgid "Temperature units"
 msgstr "Hőmérséklet"
 
@@ -2849,7 +2729,6 @@ msgstr "Hőmérséklet"
 msgid "Temperature units:"
 msgstr "Hőmérséklet:"
 
-#: meecast/netbook-UX/meego-panel-omweather.cpp:660
 #: meecast/qt-qml/dataitem.cpp:194
 msgid "Temperature:"
 msgstr "Hőmérséklet:"
@@ -2874,22 +2753,19 @@ msgstr "Ebben a nézetben nem láthatók állomások"
 msgid "This is experimental feature. Only English is supported."
 msgstr "Ez egy kísérleti funkció. Csak az angol nyelv támogatott."
 
-#: meecast/qt-qml/qml/AboutPage.qml:323
+#: meecast/qt-qml/qml/pages/AboutPage.qml:337
+#, fuzzy
 msgid ""
 "This software is free software; you can\n"
-" redistribute it and/or modify it under \n"
-" the terms of the GNU General Public\n"
-" License as published by the Free Software \n"
-" Foundation; either version 2.1 of the \n"
-" License, or (at your option) any \n"
-" later version."
+"     redistribute it and/or modify it under \n"
+"     the terms of the GNU General Public\n"
+"     License as published by the Free Software \n"
+"     Foundation; either version 2.1 of the \n"
+"     License, or (at your option) any \n"
+"     later version."
 msgstr ""
-
-#: meecast/netbook-UX/meego-panel-omweather.cpp:438
-msgid ""
-"This software is free software; you can redistribute it and/or modify it "
-"under the terms of the GNU General Public License\n"
-msgstr ""
+"az FSF által publikált formában; akár a Licence 2.1-es verziója, vagy (ha "
+"úgy gondolod) bármely későbbi verzió."
 
 #: omweather/src/hash.data:354
 msgid "Thunder"
@@ -2905,22 +2781,18 @@ msgstr ""
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
-#: meecast/qt-qml/qml/FullWeatherPage.qml:470
-#: meecast/qt-qml/qml/WeatherPage.qml:541
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:392
+#: meecast/qt-qml/qml/pages/WeatherStationDelegate.qml:280
+#: meecast/qt-qml/qml/cover/CoverPage.qml:131
+#: meecast/qt-qml/qml/cover/CoverPage.qml:347
 msgid "Today"
 msgstr "Ma"
 
-#: omweather/src/weather-help.c:154 meecast/qt-qml/qml/AboutPage.qml:220
+#: omweather/src/weather-help.c:154 meecast/qt-qml/qml/pages/AboutPage.qml:239
 msgid "Translators"
 msgstr "Fordítók"
 
-#: meecast/netbook-UX/meego-panel-omweather.cpp:427
-msgid ""
-"Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - "
-"Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
-msgstr ""
-
-#: omweather/src/hash.data:428
+#: omweather/src/hash.data:428 meecast/qt-qml/qml/pages/VisualsPage.qml:91
 msgid "Transparency"
 msgstr "Átlátszóság"
 
@@ -2929,21 +2801,16 @@ msgstr "Átlátszóság"
 msgid "Transparency:"
 msgstr "Áttetszőség:"
 
-#: omweather/src/hash.data:357 meecast/qt-qml/qml/WeatherPage.qml:501
+#: omweather/src/hash.data:357
+#: meecast/qt-qml/qml/pages/WeatherStationDelegate.qml:241
 msgid "Try to update"
 msgstr "Kísérlet a frissítésre"
-
-#: meecast/qt-qml/qml/AboutPage.qml:255
-msgid ""
-"Turkish - Burak Kaan Kose,\n"
-" \tMehmet Çilingir\n"
-msgstr ""
 
 #: omweather/src/weather-settings.c:3452
 msgid "Type of click:"
 msgstr "Kattintás típusa:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:190
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:138
 msgid "UV index:"
 msgstr "UV index:"
 
@@ -2975,6 +2842,7 @@ msgstr "Korlátlan"
 
 #: omweather/src/weather-settings.c:1142 omweather/src/weather-settings.c:1348
 #: omweather/src/weather-settings.c:1352
+#: meecast/qt-qml/qml/pages/UpdatePage.qml:53
 msgid "Update"
 msgstr "Frissítés"
 
@@ -2982,11 +2850,13 @@ msgstr "Frissítés"
 msgid "Update already running."
 msgstr "Frissítés folyamatban"
 
-#: meecast/qt-qml/qml/UpdatePage.qml:122
+#: meecast/qt-qml/qml/pages/UpdatePage.qml:57
 msgid "Update interval"
 msgstr "Frissítési intervallum"
 
-#: omweather/src/hash.data:359 meecast/qt-qml/qml/WeatherPage.qml:360
+#: omweather/src/hash.data:359
+#: meecast/qt-qml/qml/pages/WeatherStationDelegate.qml:183
+#: meecast/qt-qml/qml/cover/CoverPage.qml:490
 msgid "Updating forecast"
 msgstr "Előrejelzés frissítése"
 
@@ -3030,12 +2900,6 @@ msgstr "Pontos idő a jelenlegi időjáráshoz:"
 msgid "Very High"
 msgstr "Nagyon magas"
 
-#: meecast/qt-qml/qml/AboutPage.qml:267
-msgid ""
-"Vietnamese - Hieu Nguyen\n"
-" \tAnh Dương and truongnx, \n"
-msgstr ""
-
 #: omweather/src/hash.data:423
 msgid "Violent Rain Showers"
 msgstr ""
@@ -3044,12 +2908,12 @@ msgstr ""
 msgid "Visible items:"
 msgstr "Látható elemek:"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:57 meecast/qt-qml/qml/UnitsPage.qml:221
+#: meecast/qt-qml/qml/pages/UnitsPage.qml:141
 msgid "Visible units"
 msgstr "Távolság m.e."
 
 #: omweather/src/weather-popup.c:1287
-#: meecast/qt-qml/qml/FullWeatherPage.qml:187
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:135
 msgid "Visible:"
 msgstr "Látható:"
 
@@ -3120,25 +2984,9 @@ msgstr "Csökkenő hold"
 msgid "Weather data provided by: "
 msgstr "Az időjárás adatok szolgáltatója:"
 
-#: meecast/netbook-UX/meego-panel-omweather.cpp:410
-msgid "Weather forecast for the Meego. Version "
-msgstr "Időjárás előrejelzős Meegora. Verzió"
-
 #: omweather/src/weather-utils.c:797
 msgid "Widget OMWeather is reloading"
 msgstr "OMWeather widget újratöltődik"
-
-#: meecast/qt-qml/qml/VisualsPage.qml:437
-msgid "Widget in LockScreen"
-msgstr "Widget a nyitó képernyőn"
-
-#: meecast/qt-qml/qml/VisualsPage.qml:464
-msgid "Widget in StandbyScreen"
-msgstr "Widget a készenléti képernyőn"
-
-#: meecast/qt-qml/qml/VisualsPage.qml:411
-msgid "Widget in events view"
-msgstr "Widget az esemény képernyőn"
 
 #: omweather/src/weather-simple-settings.c:2914
 #: omweather/src/weather-simple-settings.c:2922
@@ -3153,9 +3001,9 @@ msgstr "Widget stílusa és ikoncsomag"
 msgid "Wind"
 msgstr "Szél"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:140
-#: meecast/qt-qml/qml/FullWeatherPage.qml:213
-#: meecast/qt-qml/qml/FullWeatherPage.qml:276
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:86
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:166
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:237
 msgid "Wind direction"
 msgstr "Szélirány"
 
@@ -3163,23 +3011,22 @@ msgstr "Szélirány"
 msgid "Wind direction:"
 msgstr "Szélirány:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:164
-#: meecast/qt-qml/qml/FullWeatherPage.qml:236
-#: meecast/qt-qml/qml/FullWeatherPage.qml:299
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:110
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:189
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:260
 msgid "Wind gust:"
 msgstr "Szélroham:"
 
-#: omweather/src/hash.data:374 meecast/qt-qml/qml/FullWeatherPage.qml:147
-#: meecast/qt-qml/qml/FullWeatherPage.qml:150
-#: meecast/qt-qml/qml/FullWeatherPage.qml:220
-#: meecast/qt-qml/qml/FullWeatherPage.qml:223
-#: meecast/qt-qml/qml/FullWeatherPage.qml:283
-#: meecast/qt-qml/qml/FullWeatherPage.qml:286
+#: omweather/src/hash.data:374 meecast/qt-qml/qml/pages/FullWeatherPage.qml:93
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:96
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:173
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:176
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:244
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:247
 msgid "Wind speed"
 msgstr "Szélsebesség"
 
-#: omweather/src/hash.data:373 meecast/qt-qml/qml/UnitsPage.qml:39
-#: meecast/qt-qml/qml/UnitsPage.qml:141
+#: omweather/src/hash.data:373 meecast/qt-qml/qml/pages/UnitsPage.qml:82
 msgid "Wind speed units"
 msgstr "Szélsebesség"
 
@@ -3188,7 +3035,6 @@ msgid "Wind speed units:"
 msgstr "Szélsebesség m.e.:"
 
 #: omweather/src/weather-popup.c:1326 omweather/src/weather-popup.c:1467
-#: meecast/netbook-UX/meego-panel-omweather.cpp:747
 #: meecast/qt-qml/dataitem.cpp:198
 msgid "Wind:"
 msgstr "Szél:"
@@ -3227,33 +3073,14 @@ msgstr ""
 "Hibás állomás kód\n"
 "vagy irányítószám!"
 
-#: omweather/src/weather-settings.c:824 meecast/qt-qml/qml/StationsPage.qml:77
+#: omweather/src/weather-settings.c:824
+#: meecast/qt-qml/qml/pages/StationsPage.qml:58
 msgid "Yes"
 msgstr "Igen"
 
 #: omweather/src/weather-simple-popup.c:1233
 msgid "You can make donation here: "
 msgstr "Itt támogathatsz minket:"
-
-#: meecast/qt-qml/qml/VisualsPage.qml:193
-msgid ""
-"You should activate \n"
-"'Widget in events view'\n"
-" for using LockScreen widget"
-msgstr ""
-
-#: meecast/qt-qml/qml/VisualsPage.qml:256
-msgid ""
-"You should activate \n"
-"'Widget in events view'\n"
-" for using StandbyScreen widget"
-msgstr ""
-
-#: meecast/qt-qml/qml/UpdatePage.qml:73
-msgid ""
-"You should activate 'Widget in the events view' option in MeeCast appearance "
-"settings for auto update."
-msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2758
 msgid "Zoom in popup window "
@@ -3262,14 +3089,6 @@ msgstr "Nagyítás a felugró ablakban"
 #: omweather/src/weather-simple-settings.c:1915
 msgid "Zooming in popup window"
 msgstr "Nagyítás a felugró ablakban"
-
-#: meecast/netbook-UX/meego-panel-omweather.cpp:439
-msgid ""
-"as published by the Free Software Foundation; either version 2.1 of the "
-"License, or (at your option) any later version."
-msgstr ""
-"az FSF által publikált formában; akár a Licence 2.1-es verziója, vagy (ha "
-"úgy gondolod) bármely későbbi verzió."
 
 #: omweather/src/weather-popup.c:285
 msgid "current location local time"
@@ -3335,7 +3154,7 @@ msgstr "órája"
 msgid "hours ago"
 msgstr "órája"
 
-#: meecast/qt-qml/qml/AboutPage.qml:345
+#: meecast/qt-qml/qml/pages/AboutPage.qml:358
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 
@@ -3351,22 +3170,17 @@ msgstr "Higany / inch"
 msgid "inch"
 msgstr "hüvelyk"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:206
-#, fuzzy
-msgid "kPa"
-msgstr "Pa"
-
 #: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1296
 #: omweather/src/weather-simple-settings.c:1336
 #: omweather/src/weather-simple-settings.c:2670
-#: meecast/qt-qml/qml/UnitsPage.qml:239
+#: meecast/qt-qml/qml/pages/UnitsPage.qml:150
 msgid "km"
 msgstr "km"
 
 #: omweather/src/weather-settings.c:3994 omweather/src/hash.data:382
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
-#: meecast/qt-qml/qml/UnitsPage.qml:159
+#: meecast/qt-qml/qml/pages/UnitsPage.qml:91
 msgid "km/h"
 msgstr "km/h"
 
@@ -3381,7 +3195,7 @@ msgstr ""
 #: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1295
 #: omweather/src/weather-simple-settings.c:1328
 #: omweather/src/weather-simple-settings.c:2664
-#: meecast/qt-qml/qml/UnitsPage.qml:232
+#: meecast/qt-qml/qml/pages/UnitsPage.qml:146
 msgid "m"
 msgstr "m"
 
@@ -3392,7 +3206,7 @@ msgstr "m/h"
 #: omweather/src/weather-settings.c:3980 omweather/src/hash.data:386
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
-#: meecast/qt-qml/qml/UnitsPage.qml:152
+#: meecast/qt-qml/qml/pages/UnitsPage.qml:87
 msgid "m/s"
 msgstr "m/s"
 
@@ -3405,7 +3219,7 @@ msgstr "m/s"
 msgid "mb"
 msgstr ""
 
-#: meecast/qt-qml/qml/UnitsPage.qml:199
+#: meecast/qt-qml/qml/pages/UnitsPage.qml:121
 msgid "mbar"
 msgstr "mbar"
 
@@ -3413,7 +3227,7 @@ msgstr "mbar"
 #: omweather/src/weather-popup.c:1297 omweather/src/weather-popup.c:1298
 #: omweather/src/weather-simple-settings.c:1345
 #: omweather/src/weather-simple-settings.c:2676
-#: meecast/qt-qml/qml/UnitsPage.qml:246
+#: meecast/qt-qml/qml/pages/UnitsPage.qml:154
 msgid "mi"
 msgstr "mérföld"
 
@@ -3437,15 +3251,16 @@ msgstr "perce"
 
 #: omweather/src/weather-popup.c:960 omweather/src/weather-popup.c:1093
 #: omweather/src/weather-simple-settings.c:2727
-#: meecast/qt-qml/qml/FullWeatherPage.qml:159
-#: meecast/qt-qml/qml/FullWeatherPage.qml:231
-#: meecast/qt-qml/qml/FullWeatherPage.qml:294
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:105
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:184
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:255
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:672
 msgid "mm"
 msgstr "mm"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:162
-#: meecast/qt-qml/qml/FullWeatherPage.qml:234
-#: meecast/qt-qml/qml/FullWeatherPage.qml:297
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:108
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:187
+#: meecast/qt-qml/qml/pages/FullWeatherPage.qml:258
 msgid "mm/h"
 msgstr ""
 
@@ -3454,11 +3269,11 @@ msgstr ""
 #: omweather/src/weather-popup.c:985 omweather/src/weather-popup.c:1117
 #: omweather/src/weather-popup.c:1313
 #: omweather/src/weather-simple-settings.c:1488
-#: meecast/qt-qml/qml/UnitsPage.qml:213
+#: meecast/qt-qml/qml/pages/UnitsPage.qml:129
 msgid "mmHg"
 msgstr "Hgmm"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:166
+#: meecast/qt-qml/qml/pages/UnitsPage.qml:95
 #, fuzzy
 msgid "mph"
 msgstr "m/h"
@@ -3505,40 +3320,163 @@ msgstr "állomás neve"
 msgid "steady"
 msgstr "állandó"
 
-#: omweather/src/hash.data:432
+#: omweather/src/hash.data:435
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:433
+#: omweather/src/hash.data:436
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:434
+#: omweather/src/hash.data:437
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:435
+#: omweather/src/hash.data:438
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:436
+#: omweather/src/hash.data:439
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:437
+#: omweather/src/hash.data:440
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:438
+#: omweather/src/hash.data:441
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:439
+#: omweather/src/hash.data:442
 msgid "Ю-З"
 msgstr ""
 
-#~ msgid "Show on Map"
-#~ msgstr "Mutasd a térképen"
+#~ msgid "12 hours"
+#~ msgstr "12 óra"
+
+#~ msgid "Adjust GPS station"
+#~ msgstr "Válassz GPS állomást"
+
+#~ msgid "Author and maintenance: Vlad Vasilyeu, <vlad@gas.by>\n"
+#~ msgstr "Készítő: Vlad Vasilyeu, <vlad@gas.by>\n"
+
+#~ msgid "Cancel"
+#~ msgstr "Mégse"
+
+#~ msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
+#~ msgstr ""
+#~ "A szerzői jogok Vlad Vasilyeu and Pavel Fialko-t illetik (2006-2011),"
+
+#~ msgid "Copyright(c) 2010-2011 by Tanya Makova\n"
+#~ msgstr "A szerzői jogok Tanya Makova-t illetik (2010-2011)\n"
+
+#~ msgid "Daily"
+#~ msgstr "Naponta"
+
+#~ msgid ""
+#~ "Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
+#~ "zhilin@ovi.com>\n"
+#~ msgstr ""
+#~ "Felhasználói felület dizájn és alap ikoncsomag: Copyright 2006-2011 "
+#~ "Andrew Zhilin, <andrew.zhilin@ovi.com>\n"
+
+#~ msgid "Enter search"
+#~ msgstr "Keresés megadása"
+
+#~ msgid ""
+#~ "Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - "
+#~ "Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
+#~ msgstr ""
+#~ "Finn - Marko Vertainen; Német - Claudius Henrichs; Spanyol - Alejandro "
+#~ "Lopez; Holland - Tom Leenders; Szlovák - Roman Moravčík\n"
+
+#~ msgid "Fullscreen mode"
+#~ msgstr "Teljesképernyős mód"
+
+#~ msgid ""
+#~ "Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka."
+#~ "pl>"
+#~ msgstr ""
+#~ "Grzanka ikonkészlete: Minden jog fenntartva; Wojciech Grzanka, 2005 "
+#~ "<wojciech@grzanka.pl>"
+
+#~ msgid "Icons"
+#~ msgstr "Ikonok"
+
+#~ msgid "Information"
+#~ msgstr "Információ"
+
+#~ msgid ""
+#~ "Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca "
+#~ "Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov"
+#~ msgstr ""
+#~ "Olasz - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
+#~ "Lengyel - Tomasz Dominikowski; Bulgár - Zlatko Enikov"
+
+#~ msgid ""
+#~ "Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
+#~ "<tanyshk@gmail.com>\n"
+#~ msgstr ""
+#~ "Karbantartók: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
+#~ "<tanyshk@gmail.com>\n"
+
+#~ msgid "New location"
+#~ msgstr "Új hely"
+
+#~ msgid "Ok"
+#~ msgstr "Ok"
+
+#~ msgid "Provided by"
+#~ msgstr "Elérhetővé tette:"
+
+#~ msgid "Select city"
+#~ msgstr "Város kiválasztása"
+
+#~ msgid "Select source"
+#~ msgstr "Forrás kiválasztása"
+
+#~ msgid "Select the X-position for left corner of widget"
+#~ msgstr "Válaszd ki az X pozícióját a widget bal sarkához"
+
+#~ msgid "Select the Y-position for left corner of widget"
+#~ msgstr "Válaszd ki az Y pozícióját a widget bal sarkához"
+
+#~ msgid "Select the color of font for current temperature"
+#~ msgstr "Válaszd ki a betű színét a jelenlegi hőmérsékletnek"
+
+#~ msgid "Select the color of font for station name"
+#~ msgstr "Válaszd ki a betű színét az állomás nevének"
+
+#~ msgid "Select the color of font for temperature"
+#~ msgstr "Válaszd ki a betű színét a hőmérsékletnek"
+
+#~ msgid "Settings for Lockscreen widget"
+#~ msgstr "A nyitó képernyő beállítása"
+
+#~ msgid "Settings for standby widget"
+#~ msgstr "A készenléti képernyő beállítása"
+
+#~ msgid "Settings of LockScreen"
+#~ msgstr "A nyitó képernyő beállítása"
+
+#~ msgid "Settings of StandbyScreen"
+#~ msgstr "A készenléti képernyő beállítása"
+
+#~ msgid "Splash screen"
+#~ msgstr "Nyitó képernyő"
+
+#~ msgid "Weather forecast for the Meego. Version "
+#~ msgstr "Időjárás előrejelzős Meegora. Verzió"
+
+#~ msgid "Widget in LockScreen"
+#~ msgstr "Widget a nyitó képernyőn"
+
+#~ msgid "Widget in StandbyScreen"
+#~ msgstr "Widget a készenléti képernyőn"
+
+#~ msgid "Widget in events view"
+#~ msgstr "Widget az esemény képernyőn"
 
 #~ msgid "Support"
 #~ msgstr "Támogatás"

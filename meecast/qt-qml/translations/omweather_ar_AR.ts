@@ -122,6 +122,154 @@ W: </source>
 W: </translation>
     </message>
     <message>
+        <source>    Albanian - Ilir Gjika
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Arabic - Tarad Alfandi
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Bulgarian - Zlatko Enikov
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Catalan - Agustí Clara
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Chinese - Wong Man Kong, Michael,
+     	gwmgdemj
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Chinese(Taiwan) - osk2, 
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Czech - Jakub Kožíšek, Pavel Šrubař
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Danish - Peter Jespersen
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Dutch - Tom Leenders, Michiel Pater
+     	Heimen Stoffels, Nathan Follens
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Finnish - Marko Vertainen,
+    	deadhead (A-P Partonen),
+     	jarliim
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    French -  Nicolas Granziano, 
+     	Philippe, Benot Knecht, 
+     	Quentin Caillard, 
+     	Jordi
+</source>
+        <translation type="unfinished">المترجمين: الفرنسية - Nicolas Granziano, Philippe, Benot Knecht; الروسية - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
+</translation>
+    </message>
+    <message>
+        <source>    Galician - pakoR
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    German -  Claudius Henrichs,
+     	Jens Klingen,
+     	DeadHorseRiding
+ </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Hungarian - Salmi, László Kara
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Italian - Lorenzo Facca,
+     	Pavel Fialko, Alessandro Pasotti,
+     	Salvatore Fiorenzo, Ilir Gjika,
+     	Luca Onnis
+</source>
+        <translation type="unfinished">الإيطالية - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; البولندية - Tomasz Dominikowski; البلغارية - Zlatko Enikov</translation>
+    </message>
+    <message>
+        <source>    Norwegian - Peer-Atle Motland
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Polish - Tomasz Dominikowski
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Portuguese - Jose Narciso,
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Russian - Pavel Fialko, Vlad Vasilyeu, 
+     	Ed Bartosh
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Serbian - Aleksandar Zaric
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Slovak - Roman Moravčík
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Slovenian - Boštjan Štrumbelj
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Spanish - Alejandro Lopez, Agustí Clara
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Swedish - Angela Nennebrandt,
+     	Åke Engelbrektson, 
+     	Niklas Åkerström, 
+     	Tomislav Veleckovik</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Turkish - Burak Kaan Kose,
+     	Mehmet Çilingir
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Vietnamese - Hieu Nguyen
+     	Anh Dương and truongnx, 
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>(Low)</source>
         <translation>(صغرى)</translation>
     </message>
@@ -172,10 +320,6 @@ W: </translation>
     <message>
         <source>10 seconds</source>
         <translation>10 ثواني</translation>
-    </message>
-    <message>
-        <source>12 hours</source>
-        <translation>12 ساعة</translation>
     </message>
     <message>
         <source>15 minutes</source>
@@ -402,13 +546,8 @@ W: </translation>
         <translation>إضافة محطة</translation>
     </message>
     <message>
-        <source>Adjust GPS station</source>
-        <translation>ضبط محطه تحديد المواقع</translation>
-    </message>
-    <message>
-        <source>Albanian - Ilir Gjika
-</source>
-        <translation type="unfinished"></translation>
+        <source>Add Station</source>
+        <translation>إضافة محطة</translation>
     </message>
     <message>
         <source>Alerts</source>
@@ -457,21 +596,6 @@ Eric Link - لطلب الإضافات والمزايا والتبرعات
         <translation>المظهر</translation>
     </message>
     <message>
-        <source>Application manager will now start
-for installing package &apos;MeeCast applet&apos;.
-You should uninstall AccuWeather 
-before installing this package</source>
-        <translation>سيبدأ مدير التطبيق الآن
-بثبيت حزمة &apos;MeeCast applet&apos;.
-يجب حذف تطبيق AccuWeather 
-قبل تثبيت هذه الحزمة</translation>
-    </message>
-    <message>
-        <source>Arabic - Tarad Alfandi
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Are you sure to want delete this station ?</source>
         <translation>هل انت متأكد من مسح هذه المحطة؟</translation>
     </message>
@@ -491,12 +615,6 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
 توثيق: Marko Vertainen
 تصميم الواجهة والأيقونات الإفتراضية: Andrew Zhilin
 تصميم الواجهة لنظام فريمانتل: Krebber Jan Niemelä Ulla
-</translation>
-    </message>
-    <message>
-        <source>Author and maintenance: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
-</source>
-        <translation>كتابة وتطوير: &lt;Vlad Vasiliev, &lt;vlad@gas.by
 </translation>
     </message>
     <message>
@@ -546,11 +664,6 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
     <message>
         <source>Broken clouds</source>
         <translation>غيوم مُتفرقة</translation>
-    </message>
-    <message>
-        <source>Bulgarian - Zlatko Enikov
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>C</source>
@@ -605,19 +718,10 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>إلغاء</translation>
-    </message>
-    <message>
         <source>Cannot get path to the HOME directory. Quitting.
 </source>
         <translation>لايمكن الوصول الى مسار الرئيسية. إنهاء.
 </translation>
-    </message>
-    <message>
-        <source>Catalan - Agustí Clara
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Celcius</source>
@@ -626,17 +730,6 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
     <message>
         <source>Celsius</source>
         <translation>درجة مئوية</translation>
-    </message>
-    <message>
-        <source>Chinese - Wong Man Kong, Michael,
- 	gwmgdemj
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Chinese(Taiwan) - osk2, 
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>City</source>
@@ -815,14 +908,12 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
         <translation>غائم, عواصف رعدية مع أمطار</translation>
     </message>
     <message>
-        <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
-        <translation>الحقوق(c) ٢٠٠٦-٢٠١١ بواسطة Vlad Vasilyeu و Pavel Fialko,</translation>
+        <source>Co-administrator and contributor</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Copyright(c) 2010-2011 by Tanya Makova
-</source>
-        <translation>الحقوق(c) ٢٠١٠-٢٠١١ بواسطة Tanya Makova
-</translation>
+        <source>Co-administrator and contributor</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Could not connecting to Internet.
@@ -865,24 +956,6 @@ Connection timeout is expired.</source>
         <translation>مخصص</translation>
     </message>
     <message>
-        <source>Czech - Jakub Kožíšek, Pavel Šrubař
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Daily</source>
-        <translation>يومي</translation>
-    </message>
-    <message>
-        <source>Danish - Peter Jespersen
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Day</source>
-        <translation>يوم</translation>
-    </message>
-    <message>
         <source>Day</source>
         <translation>يوم</translation>
     </message>
@@ -907,10 +980,8 @@ Connection timeout is expired.</source>
         <translation>حذف المكان؟</translation>
     </message>
     <message>
-        <source>Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
-</source>
-        <translation>تصميم الواجهة والأيقونات الإفتراضية: الحقوق ٢٠٠٦-٢٠١١ &lt;Andrew Zhilin, &lt;andrew.zhilin@ovi.com
-</translation>
+        <source>Delete location?</source>
+        <translation>حذف المكان؟</translation>
     </message>
     <message>
         <source>Detailed</source>
@@ -1003,12 +1074,6 @@ of &apos;omweather-*-stations-db&apos; packages was installed.</source>
         <translation>رذار مُتأخر</translation>
     </message>
     <message>
-        <source>Dutch - Tom Leenders, Michiel Pater
- 	Heimen Stoffels, Nathan Follens
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>E</source>
         <translation>شرق</translation>
     </message>
@@ -1069,8 +1134,8 @@ Brad Jones aka kazrak - للتجربة
         <translation>تفعيل نظام تحديد المواقع</translation>
     </message>
     <message>
-        <source>Enter search</source>
-        <translation>إدخال كلمة البحث</translation>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error</source>
@@ -1227,19 +1292,6 @@ Brad Jones aka kazrak - للتجربة
         <translation>إيجاد المكان عبر نظام تحديد المواقع</translation>
     </message>
     <message>
-        <source>Finnish - Marko Vertainen,
-	deadhead (A-P Partonen),
- 	jarliim
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
-</source>
-        <translation>الفنلندية - Marko Vertainen; الألمانية - Claudius Henrichs; الأسبانية - Alejandro Lopez; الهولندية - Tom Leenders; السولفاكية - Roman Moravčík
-</translation>
-    </message>
-    <message>
         <source>First Quarter</source>
         <translation>الربع الأول</translation>
     </message>
@@ -1292,16 +1344,6 @@ Brad Jones aka kazrak - للتجربة
         <translation>الخط:</translation>
     </message>
     <message>
-        <source>For disabling MeeCast widget,
-you should uninstall package
-&apos;Activating MeeCast Applet&apos;
-using Application manager</source>
-        <translation>لتعطيل أداة MeeCast,
-يجب إزالة حزمة
-&apos;Activating MeeCast Applet&apos;
-بإستخدام مدير التطبيقات</translation>
-    </message>
-    <message>
         <source>Forecast</source>
         <translation>التوقعات</translation>
     </message>
@@ -1326,15 +1368,6 @@ using Application manager</source>
     <message>
         <source>Freezing Rain</source>
         <translation type="unfinished">أمطار / أمطار متجمدة</translation>
-    </message>
-    <message>
-        <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht, 
- 	Quentin Caillard, 
- 	Jordi
-</source>
-        <translation type="unfinished">المترجمين: الفرنسية - Nicolas Granziano, Philippe, Benot Knecht; الروسية - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
-</translation>
     </message>
     <message>
         <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1365,10 +1398,6 @@ Slovak - Roman Moravčík</source>
         <translation>كامل التنبؤات</translation>
     </message>
     <message>
-        <source>Fullscreen mode</source>
-        <translation>وضعية الشاشة الكامله</translation>
-    </message>
-    <message>
         <source>G: </source>
         <translation>G: </translation>
     </message>
@@ -1395,22 +1424,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>GUI|Clear</source>
         <translation>واجهة المستخدم | مسح</translation>
-    </message>
-    <message>
-        <source>Galician - pakoR
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>German -  Claudius Henrichs,
- 	Jens Klingen,
- 	DeadHorseRiding
- </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Grzanka&apos;s Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
-        <translation>مجموعة أيقونات Grzanka&apos;s: حقوق 2005 بواسطة &lt;Wojciech Grzanka, &lt;wojciech@grzanka.pl</translation>
     </message>
     <message>
         <source>Gust:</source>
@@ -1538,15 +1551,6 @@ Slovak - Roman Moravčík</source>
         <translation>الرطوبة:</translation>
     </message>
     <message>
-        <source>Humidity:</source>
-        <translation>الرطوبة:</translation>
-    </message>
-    <message>
-        <source>Hungarian - Salmi, László Kara
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ice Early</source>
         <translation type="unfinished">رذار مُبكر</translation>
     </message>
@@ -1567,14 +1571,6 @@ Slovak - Roman Moravčík</source>
         <translation>حجم الأيقونة:</translation>
     </message>
     <message>
-        <source>Icons</source>
-        <translation>أيقونات</translation>
-    </message>
-    <message>
-        <source>Icons</source>
-        <translation>أيقونات</translation>
-    </message>
-    <message>
         <source>Iconset</source>
         <translation>مجموعة الأيقونات</translation>
     </message>
@@ -1589,22 +1585,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Iconsets</source>
         <translation>مجموعة الأيقونات</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>معلومات</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>معلومات</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>معلومات</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>معلومات</translation>
     </message>
     <message>
         <source>Isolated T-Storms</source>
@@ -1613,18 +1593,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Isolated T-Storms / Wind</source>
         <translation>عواصف رعدية معزولة / رياح</translation>
-    </message>
-    <message>
-        <source>Italian - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
-</source>
-        <translation type="unfinished">الإيطالية - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; البولندية - Tomasz Dominikowski; البلغارية - Zlatko Enikov</translation>
-    </message>
-    <message>
-        <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
-        <translation>الإيطالية - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; البولندية - Tomasz Dominikowski; البلغارية - Zlatko Enikov</translation>
     </message>
     <message>
         <source>Kilometers</source>
@@ -1653,6 +1621,18 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Last update from server: </source>
         <translation>أخر تحديث من الخادم:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>أخر تحديث:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>أخر تحديث:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>أخر تحديث:</translation>
     </message>
     <message>
         <source>Last update:</source>
@@ -1847,6 +1827,10 @@ Slovak - Roman Moravčík</source>
         <translation>يبدو انه لايوجد أي معلومات عن المكان.</translation>
     </message>
     <message>
+        <source>Looks like there&apos;s no info for this location.</source>
+        <translation>يبدو انه لايوجد أي معلومات عن المكان.</translation>
+    </message>
+    <message>
         <source>Low</source>
         <translation>الصغرى</translation>
     </message>
@@ -1865,12 +1849,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Mainly cloudy, showers</source>
         <translation type="unfinished">غائم جزئيأ مع زخات مطر</translation>
-    </message>
-    <message>
-        <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
-</source>
-        <translation>صيانة: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
-</translation>
     </message>
     <message>
         <source>Manage locations</source>
@@ -1893,12 +1871,24 @@ Slovak - Roman Moravčík</source>
         <translation>MeeCast</translation>
     </message>
     <message>
-        <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
+        <source>MeeCast</source>
+        <translation>MeeCast</translation>
+    </message>
+    <message>
+        <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2024</source>
         <translation type="unfinished">MeeCast - هو تطبيق لعرض تنبؤات الطقس مفتوح المصدر وقابل للتعديل إستنادا الى كود OMWeather. الحقوق(C) 2006-2014</translation>
     </message>
     <message>
-        <source>MeeCast for Harmattan</source>
-        <translation>MeeCast الخاص بـHarmattan</translation>
+        <source>MeeCast for AuroraOS</source>
+        <translation type="unfinished">MeeCast الخاص بـHarmattan</translation>
+    </message>
+    <message>
+        <source>MeeCast for AuroraOS</source>
+        <translation type="unfinished">MeeCast الخاص بـHarmattan</translation>
+    </message>
+    <message>
+        <source>MeeCast for SailfishOS</source>
+        <translation type="unfinished">MeeCast الخاص بـHarmattan</translation>
     </message>
     <message>
         <source>Meters</source>
@@ -2197,16 +2187,8 @@ Slovak - Roman Moravčík</source>
         <translation>جديد</translation>
     </message>
     <message>
-        <source>New location</source>
-        <translation>مكان جديد</translation>
-    </message>
-    <message>
         <source>Next update:</source>
         <translation>التحديث التالي:</translation>
-    </message>
-    <message>
-        <source>Night</source>
-        <translation>مساءً</translation>
     </message>
     <message>
         <source>Night</source>
@@ -2221,12 +2203,20 @@ Slovak - Roman Moravčík</source>
         <translation>لا</translation>
     </message>
     <message>
-        <source>No</source>
-        <translation>لا</translation>
-    </message>
-    <message>
         <source>No current weather data.</source>
         <translation>لايوجد أي معلومات حاليه عن الطقس.</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>لم يتم تحديد المكان.</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>لم يتم تحديد المكان.</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>لم يتم تحديد المكان.</translation>
     </message>
     <message>
         <source>No locations are set up yet.</source>
@@ -2247,11 +2237,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>No weather data for this station.</source>
         <translation>لايوجد أي معلومات عن الطقس لهذه المحطة.</translation>
-    </message>
-    <message>
-        <source>Norwegian - Peer-Atle Motland
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Now</source>
@@ -2326,10 +2311,6 @@ Slovak - Roman Moravčík</source>
         <translation>موافق</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation>موافق</translation>
-    </message>
-    <message>
         <source>OMWeather Forecast</source>
         <translation>توقعات OMWeather</translation>
     </message>
@@ -2348,18 +2329,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>OMWeather settings</source>
         <translation>إعدادات OMWeather</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>موافق</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>موافق</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>موافق</translation>
     </message>
     <message>
         <source>Other Maemo Weather Info</source>
@@ -2494,6 +2463,10 @@ Slovak - Roman Moravčík</source>
         <translation>عواصف رعديه مساءً</translation>
     </message>
     <message>
+        <source>Pa</source>
+        <translation type="unfinished">باسكال</translation>
+    </message>
+    <message>
         <source>Partly Cloudy</source>
         <translation>غائم جزئياً</translation>
     </message>
@@ -2618,16 +2591,6 @@ Slovak - Roman Moravčík</source>
         <translation>المدة</translation>
     </message>
     <message>
-        <source>Polish - Tomasz Dominikowski
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Portuguese - Jose Narciso,
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Position:</source>
         <translation>المكان:</translation>
     </message>
@@ -2695,16 +2658,8 @@ Slovak - Roman Moravčík</source>
         <translation>وحدات الضغط</translation>
     </message>
     <message>
-        <source>Pressure units</source>
-        <translation>وحدات الضغط</translation>
-    </message>
-    <message>
         <source>Pressure units:</source>
         <translation>وحدات الضغط:</translation>
-    </message>
-    <message>
-        <source>Pressure:</source>
-        <translation>الضغط:</translation>
     </message>
     <message>
         <source>Pressure:</source>
@@ -2739,16 +2694,12 @@ Slovak - Roman Moravčík</source>
         <translation>المبرمج</translation>
     </message>
     <message>
-        <source>Project administrators</source>
-        <translation>مدير المشروع</translation>
+        <source>Project administrator</source>
+        <translation type="unfinished">مدير المشروع</translation>
     </message>
     <message>
         <source>Project manager</source>
         <translation>مدير المشروع</translation>
-    </message>
-    <message>
-        <source>Provided by</source>
-        <translation>مقدمة من</translation>
     </message>
     <message>
         <source>Proximity shower rain</source>
@@ -2867,6 +2818,14 @@ Slovak - Roman Moravčík</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Region</source>
         <translation>المنطقة</translation>
     </message>
@@ -2881,12 +2840,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Rush Hour Traffic</source>
         <translation>وقت الذروة</translation>
-    </message>
-    <message>
-        <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
- 	Ed Bartosh
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>S</source>
@@ -2989,22 +2942,6 @@ Slovak - Roman Moravčík</source>
         <translation>بحث</translation>
     </message>
     <message>
-        <source>Select city</source>
-        <translation>اختر المدينة</translation>
-    </message>
-    <message>
-        <source>Select city</source>
-        <translation>اختر المدينة</translation>
-    </message>
-    <message>
-        <source>Select country</source>
-        <translation>اختر الدولة</translation>
-    </message>
-    <message>
-        <source>Select country</source>
-        <translation>اختر الدولة</translation>
-    </message>
-    <message>
         <source>Select country</source>
         <translation>اختر الدولة</translation>
     </message>
@@ -3019,42 +2956,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Select region</source>
         <translation>اختر المنطقة</translation>
-    </message>
-    <message>
-        <source>Select region</source>
-        <translation>اختر المنطقة</translation>
-    </message>
-    <message>
-        <source>Select region</source>
-        <translation>اختر المنطقة</translation>
-    </message>
-    <message>
-        <source>Select source</source>
-        <translation>اختر المصدر</translation>
-    </message>
-    <message>
-        <source>Select source</source>
-        <translation>اختر المصدر</translation>
-    </message>
-    <message>
-        <source>Select the X-position for left corner of widget</source>
-        <translation>إختر المكان الافقي للزاويه اليسرى من الويدجت</translation>
-    </message>
-    <message>
-        <source>Select the Y-position for left corner of widget</source>
-        <translation>إختر المكان العمودي للزاويه اليسرى من الويدجت</translation>
-    </message>
-    <message>
-        <source>Select the color of font for current temperature</source>
-        <translation>إختيار لون الخط لدرجة الحرارة الحالية</translation>
-    </message>
-    <message>
-        <source>Select the color of font for station name</source>
-        <translation>إختيار لون الخط لإسم الموقع</translation>
-    </message>
-    <message>
-        <source>Select the color of font for temperature</source>
-        <translation>إختيار لون الخط لدرجة الحرارة </translation>
     </message>
     <message>
         <source>Select the iconset</source>
@@ -3101,11 +3002,6 @@ Slovak - Roman Moravčík</source>
         <translation>الحساس</translation>
     </message>
     <message>
-        <source>Serbian - Aleksandar Zaric
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Set</source>
         <translation>ضبط</translation>
     </message>
@@ -3118,8 +3014,8 @@ Slovak - Roman Moravčík</source>
         <translation>ضبط الأماكن</translation>
     </message>
     <message>
-        <source>Settings</source>
-        <translation>الإعدادات</translation>
+        <source>Set locations</source>
+        <translation>ضبط الأماكن</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3138,20 +3034,16 @@ Slovak - Roman Moravčík</source>
         <translation>الإعدادات</translation>
     </message>
     <message>
-        <source>Settings for Lockscreen widget</source>
-        <translation>إعدادت شاشة القفل</translation>
+        <source>Settings</source>
+        <translation>الإعدادات</translation>
     </message>
     <message>
-        <source>Settings for standby widget</source>
-        <translation>إعدادات شاشة الإتنظار</translation>
+        <source>Settings</source>
+        <translation>الإعدادات</translation>
     </message>
     <message>
-        <source>Settings of LockScreen</source>
-        <translation>إعدادت شاشة القفل</translation>
-    </message>
-    <message>
-        <source>Settings of StandbyScreen</source>
-        <translation>إعدادات شاشة الإنتظار</translation>
+        <source>Settings</source>
+        <translation>الإعدادات</translation>
     </message>
     <message>
         <source>Shallow Fog</source>
@@ -3170,8 +3062,20 @@ Slovak - Roman Moravčík</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Show last update time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show on Map</source>
+        <translation>إظهار على الخريطة</translation>
+    </message>
+    <message>
         <source>Show only current weather on first icon</source>
         <translation>عرض الطقس الحالي فقط في الأيقونة الاولى</translation>
+    </message>
+    <message>
+        <source>Show source logo</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show source logo</source>
@@ -3184,6 +3088,10 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Show temperature at:</source>
         <translation>عرض الحرارة في:</translation>
+    </message>
+    <message>
+        <source>Show wind</source>
+        <translation>عرض الرياح</translation>
     </message>
     <message>
         <source>Show wind</source>
@@ -3232,16 +3140,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Sleet Showers</source>
         <translation type="unfinished">زخات مطر قليله</translation>
-    </message>
-    <message>
-        <source>Slovak - Roman Moravčík
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Slovenian - Boštjan Štrumbelj
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Smoke</source>
@@ -3320,11 +3218,6 @@ Slovak - Roman Moravčík</source>
         <translation>المصدر:</translation>
     </message>
     <message>
-        <source>Spanish - Alejandro Lopez, Agustí Clara
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Speed</source>
         <translation>السرعة</translation>
     </message>
@@ -3363,14 +3256,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Speed:</source>
         <translation>السرعة:</translation>
-    </message>
-    <message>
-        <source>Speed:</source>
-        <translation>السرعة:</translation>
-    </message>
-    <message>
-        <source>Splash screen</source>
-        <translation>شاشة البدايه</translation>
     </message>
     <message>
         <source>State:</source>
@@ -3433,12 +3318,20 @@ Slovak - Roman Moravčík</source>
         <translation>الشروق:</translation>
     </message>
     <message>
+        <source>Sunrise:</source>
+        <translation>الشروق:</translation>
+    </message>
+    <message>
         <source>Sunrise: </source>
         <translation>الشروق:</translation>
     </message>
     <message>
         <source>Sunrise: </source>
         <translation>الشروق:</translation>
+    </message>
+    <message>
+        <source>Sunset:</source>
+        <translation>الغروب:</translation>
     </message>
     <message>
         <source>Sunset:</source>
@@ -3459,13 +3352,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Swap hi/low temperature</source>
         <translation>تبديل الحراره مرتفع/منخفض</translation>
-    </message>
-    <message>
-        <source>Swedish - Angela Nennebrandt,
- 	Åke Engelbrektson, 
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Switch to the next station after:</source>
@@ -3524,16 +3410,8 @@ Slovak - Roman Moravčík</source>
         <translation>وحدات درجة الحرارة</translation>
     </message>
     <message>
-        <source>Temperature units</source>
-        <translation>وحدات درجة الحرارة</translation>
-    </message>
-    <message>
         <source>Temperature units:</source>
         <translation>وحدات درجة الحرارة:</translation>
-    </message>
-    <message>
-        <source>Temperature:</source>
-        <translation>الحرارة:</translation>
     </message>
     <message>
         <source>Temperature:</source>
@@ -3565,24 +3443,18 @@ Slovak - Roman Moravčík</source>
     </message>
     <message>
         <source>This software is free software; you can
- redistribute it and/or modify it under 
- the terms of the GNU General Public
- License as published by the Free Software 
- Foundation; either version 2.1 of the 
- License, or (at your option) any 
- later version.</source>
-        <translation>هذا التطبيق مجاني, يمكنك
+     redistribute it and/or modify it under 
+     the terms of the GNU General Public
+     License as published by the Free Software 
+     Foundation; either version 2.1 of the 
+     License, or (at your option) any 
+     later version.</source>
+        <translation type="unfinished">هذا التطبيق مجاني, يمكنك
 إعادة نشره أو تعديله تحت
 شروط رخصة GNU العمومية
  المنشوره بواسطة مؤسسة البرامج
 المجانيه; إما الإصدار 2.1 أو (لديك الخيار)
 أي إصدار أحدث</translation>
-    </message>
-    <message>
-        <source>This software is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
-</source>
-        <translation>هذا التطبيق مجاني, يمكنك إعادة نشره أو تعديله تحت شروط رخصة GNU العمومية
-</translation>
     </message>
     <message>
         <source>Thunder</source>
@@ -3613,18 +3485,24 @@ Slovak - Roman Moravčík</source>
         <translation>اليوم</translation>
     </message>
     <message>
-        <source>Translators</source>
-        <translation>المترجمين</translation>
+        <source>Today</source>
+        <translation>اليوم</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>اليوم</translation>
     </message>
     <message>
         <source>Translators</source>
         <translation>المترجمين</translation>
     </message>
     <message>
-        <source>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
-</source>
-        <translation>المترجمين: الفرنسية - Nicolas Granziano, Philippe, Benot Knecht; الروسية - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
-</translation>
+        <source>Translators</source>
+        <translation>المترجمين</translation>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation type="unfinished">الشفافية:</translation>
     </message>
     <message>
         <source>Transparency</source>
@@ -3649,12 +3527,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Try to update</source>
         <translation>حاول التحديث</translation>
-    </message>
-    <message>
-        <source>Turkish - Burak Kaan Kose,
- 	Mehmet Çilingir
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Type of click:</source>
@@ -3757,12 +3629,20 @@ Slovak - Roman Moravčík</source>
         <translation>تحديث</translation>
     </message>
     <message>
+        <source>Update</source>
+        <translation>تحديث</translation>
+    </message>
+    <message>
         <source>Update already running.</source>
         <translation>التحديث مازال جاري.</translation>
     </message>
     <message>
         <source>Update interval</source>
         <translation>فترة التحيدث</translation>
+    </message>
+    <message>
+        <source>Updating forecast</source>
+        <translation>تحديث التوقعات</translation>
     </message>
     <message>
         <source>Updating forecast</source>
@@ -3811,12 +3691,6 @@ for tuning images of applet</source>
         <translation>مرتفع جدا</translation>
     </message>
     <message>
-        <source>Vietnamese - Hieu Nguyen
- 	Anh Dương and truongnx, 
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Violent Rain Showers</source>
         <translation type="unfinished">أمطار خفيفة متفرقة</translation>
     </message>
@@ -3827,10 +3701,6 @@ for tuning images of applet</source>
     <message>
         <source>Visible items:</source>
         <translation>العناصر الظاهره:</translation>
-    </message>
-    <message>
-        <source>Visible units</source>
-        <translation>وحدة الرؤيا</translation>
     </message>
     <message>
         <source>Visible units</source>
@@ -3925,24 +3795,8 @@ for tuning images of applet</source>
         <translation>بيانات الطقس مُقدمة من:</translation>
     </message>
     <message>
-        <source>Weather forecast for the Meego. Version </source>
-        <translation>تنبؤات الطقس لميجو. الإصدار</translation>
-    </message>
-    <message>
         <source>Widget OMWeather is reloading</source>
         <translation>جاري تحميل ويدجت OMWeather</translation>
-    </message>
-    <message>
-        <source>Widget in LockScreen</source>
-        <translation>الويدجت في شاشة القفل</translation>
-    </message>
-    <message>
-        <source>Widget in StandbyScreen</source>
-        <translation>الويدجت في شاشة الإنتظار</translation>
-    </message>
-    <message>
-        <source>Widget in events view</source>
-        <translation>الويدجت في شاشة الأحداث</translation>
     </message>
     <message>
         <source>Widget style</source>
@@ -4025,16 +3879,8 @@ for tuning images of applet</source>
         <translation>وحدات سرعة الرياح</translation>
     </message>
     <message>
-        <source>Wind speed units</source>
-        <translation>وحدات سرعة الرياح</translation>
-    </message>
-    <message>
         <source>Wind speed units:</source>
         <translation>وحدات سرعة الرياح:</translation>
-    </message>
-    <message>
-        <source>Wind:</source>
-        <translation>رياح:</translation>
     </message>
     <message>
         <source>Wind:</source>
@@ -4103,36 +3949,12 @@ or ZIP code!!!</source>
         <translation>يمكن التبرع هنا:</translation>
     </message>
     <message>
-        <source>You should activate 
-&apos;Widget in events view&apos;
- for using LockScreen widget</source>
-        <translation>يجب تفعيل
-’الويدجت في شاشة الأحداث’
-لإستخدام ويدجت شاشة القفل</translation>
-    </message>
-    <message>
-        <source>You should activate 
-&apos;Widget in events view&apos;
- for using StandbyScreen widget</source>
-        <translation>يجب تفعيل
-’الويدجت في شاشة الأحداث’
-لإستخدام ويدجت شاشة الإنتظار</translation>
-    </message>
-    <message>
-        <source>You should activate &apos;Widget in the events view&apos; option in MeeCast appearance settings for auto update.</source>
-        <translation>يجب تفعيل خيار ’الويدجت في شاشة الأحداث’ في إعدادات مظهر MeeCast للتحديث الالي.</translation>
-    </message>
-    <message>
         <source>Zoom in popup window </source>
         <translation>تكبير في النافذة المنبثقة</translation>
     </message>
     <message>
         <source>Zooming in popup window</source>
         <translation>التكبير في النافذة المنبثقة</translation>
-    </message>
-    <message>
-        <source>as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</source>
-        <translation>كما هو منشور من قبل مؤسسة البرمجيات الحرة؛ إما الإصدار 2.1 من الرخصة، أو (كما يناسبك) أي إصدار لاحق.</translation>
     </message>
     <message>
         <source>current location local time</source>
@@ -4237,10 +4059,6 @@ or ZIP code!!!</source>
     <message>
         <source>inch</source>
         <translation>انش</translation>
-    </message>
-    <message>
-        <source>kPa</source>
-        <translation type="unfinished">باسكال</translation>
     </message>
     <message>
         <source>km</source>
@@ -4429,6 +4247,10 @@ or ZIP code!!!</source>
     <message>
         <source>minutes ago</source>
         <translation>قبل دقائق</translation>
+    </message>
+    <message>
+        <source>mm</source>
+        <translation>mm</translation>
     </message>
     <message>
         <source>mm</source>

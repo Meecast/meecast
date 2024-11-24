@@ -103,6 +103,153 @@ W: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>    Albanian - Ilir Gjika
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Arabic - Tarad Alfandi
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Bulgarian - Zlatko Enikov
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Catalan - Agustí Clara
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Chinese - Wong Man Kong, Michael,
+     	gwmgdemj
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Chinese(Taiwan) - osk2, 
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Czech - Jakub Kožíšek, Pavel Šrubař
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Danish - Peter Jespersen
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Dutch - Tom Leenders, Michiel Pater
+     	Heimen Stoffels, Nathan Follens
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Finnish - Marko Vertainen,
+    	deadhead (A-P Partonen),
+     	jarliim
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    French -  Nicolas Granziano, 
+     	Philippe, Benot Knecht, 
+     	Quentin Caillard, 
+     	Jordi
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Galician - pakoR
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    German -  Claudius Henrichs,
+     	Jens Klingen,
+     	DeadHorseRiding
+ </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Hungarian - Salmi, László Kara
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Italian - Lorenzo Facca,
+     	Pavel Fialko, Alessandro Pasotti,
+     	Salvatore Fiorenzo, Ilir Gjika,
+     	Luca Onnis
+</source>
+        <translation type="unfinished">Olasz - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Lengyel - Tomasz Dominikowski; Bulgár - Zlatko Enikov</translation>
+    </message>
+    <message>
+        <source>    Norwegian - Peer-Atle Motland
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Polish - Tomasz Dominikowski
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Portuguese - Jose Narciso,
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Russian - Pavel Fialko, Vlad Vasilyeu, 
+     	Ed Bartosh
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Serbian - Aleksandar Zaric
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Slovak - Roman Moravčík
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Slovenian - Boštjan Štrumbelj
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Spanish - Alejandro Lopez, Agustí Clara
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Swedish - Angela Nennebrandt,
+     	Åke Engelbrektson, 
+     	Niklas Åkerström, 
+     	Tomislav Veleckovik</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Turkish - Burak Kaan Kose,
+     	Mehmet Çilingir
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Vietnamese - Hieu Nguyen
+     	Anh Dương and truongnx, 
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>(Low)</source>
         <translation>(alacsony)</translation>
     </message>
@@ -153,10 +300,6 @@ W: </source>
     <message>
         <source>10 seconds</source>
         <translation>10 másodperc</translation>
-    </message>
-    <message>
-        <source>12 hours</source>
-        <translation>12 óra</translation>
     </message>
     <message>
         <source>15 minutes</source>
@@ -383,13 +526,8 @@ W: </source>
         <translation>Állomás hozzáadása</translation>
     </message>
     <message>
-        <source>Adjust GPS station</source>
-        <translation>Válassz GPS állomást</translation>
-    </message>
-    <message>
-        <source>Albanian - Ilir Gjika
-</source>
-        <translation type="unfinished"></translation>
+        <source>Add Station</source>
+        <translation>Állomás hozzáadása</translation>
     </message>
     <message>
         <source>Alerts</source>
@@ -429,18 +567,6 @@ Eric Link - for feature request and donation
         <translation>Megjelenés</translation>
     </message>
     <message>
-        <source>Application manager will now start
-for installing package &apos;MeeCast applet&apos;.
-You should uninstall AccuWeather 
-before installing this package</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Arabic - Tarad Alfandi
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Are you sure to want delete this station ?</source>
         <translation>Biztos, hogy törlöd ezt az állomást?</translation>
     </message>
@@ -456,12 +582,6 @@ Design UI and default iconset: Andrew Zhilin
 Design UI for Fremantle: Krebber Jan Niemela Ulla
 </source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Author and maintenance: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
-</source>
-        <translation>Készítő: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
-</translation>
     </message>
     <message>
         <source>Authors</source>
@@ -512,11 +632,6 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
         <translation>Felszakadozó felhőzet</translation>
     </message>
     <message>
-        <source>Bulgarian - Zlatko Enikov
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>C</source>
         <translation type="unfinished"></translation>
     </message>
@@ -565,19 +680,10 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Mégse</translation>
-    </message>
-    <message>
         <source>Cannot get path to the HOME directory. Quitting.
 </source>
         <translation>Nem találom a HOME könyvtárat. Kilépek.
 </translation>
-    </message>
-    <message>
-        <source>Catalan - Agustí Clara
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Celcius</source>
@@ -586,17 +692,6 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
     <message>
         <source>Celsius</source>
         <translation>Celsius</translation>
-    </message>
-    <message>
-        <source>Chinese - Wong Man Kong, Michael,
- 	gwmgdemj
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Chinese(Taiwan) - osk2, 
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>City</source>
@@ -775,14 +870,12 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
         <translation>Felhős és zivataros</translation>
     </message>
     <message>
-        <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
-        <translation>A szerzői jogok Vlad Vasilyeu and Pavel Fialko-t illetik (2006-2011),</translation>
+        <source>Co-administrator and contributor</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Copyright(c) 2010-2011 by Tanya Makova
-</source>
-        <translation>A szerzői jogok Tanya Makova-t illetik (2010-2011)
-</translation>
+        <source>Co-administrator and contributor</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Could not connecting to Internet.
@@ -825,24 +918,6 @@ Időtúllépés ideje lejárt.</translation>
         <translation>Egyedi</translation>
     </message>
     <message>
-        <source>Czech - Jakub Kožíšek, Pavel Šrubař
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Daily</source>
-        <translation>Naponta</translation>
-    </message>
-    <message>
-        <source>Danish - Peter Jespersen
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Day</source>
-        <translation>Nappal</translation>
-    </message>
-    <message>
         <source>Day</source>
         <translation>Nappal</translation>
     </message>
@@ -867,10 +942,8 @@ Időtúllépés ideje lejárt.</translation>
         <translation>Hely törlése?</translation>
     </message>
     <message>
-        <source>Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
-</source>
-        <translation>Felhasználói felület dizájn és alap ikoncsomag: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
-</translation>
+        <source>Delete location?</source>
+        <translation>Hely törlése?</translation>
     </message>
     <message>
         <source>Detailed</source>
@@ -962,12 +1035,6 @@ of &apos;omweather-*-stations-db&apos; packages was installed.</source>
         <translation>Délután szitálás</translation>
     </message>
     <message>
-        <source>Dutch - Tom Leenders, Michiel Pater
- 	Heimen Stoffels, Nathan Follens
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>E</source>
         <translation>K</translation>
     </message>
@@ -1018,8 +1085,8 @@ Brad Jones aka kazrak - for testing
         <translation>GPS engedélyezése</translation>
     </message>
     <message>
-        <source>Enter search</source>
-        <translation>Keresés megadása</translation>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error</source>
@@ -1176,19 +1243,6 @@ Brad Jones aka kazrak - for testing
         <translation>Helykeresés GPS-szel</translation>
     </message>
     <message>
-        <source>Finnish - Marko Vertainen,
-	deadhead (A-P Partonen),
- 	jarliim
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
-</source>
-        <translation>Finn - Marko Vertainen; Német - Claudius Henrichs; Spanyol - Alejandro Lopez; Holland - Tom Leenders; Szlovák - Roman Moravčík
-</translation>
-    </message>
-    <message>
         <source>First Quarter</source>
         <translation>Első negyed</translation>
     </message>
@@ -1241,13 +1295,6 @@ Brad Jones aka kazrak - for testing
         <translation>Betűtípus:</translation>
     </message>
     <message>
-        <source>For disabling MeeCast widget,
-you should uninstall package
-&apos;Activating MeeCast Applet&apos;
-using Application manager</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Forecast</source>
         <translation>Előrejelzés</translation>
     </message>
@@ -1274,14 +1321,6 @@ using Application manager</source>
         <translation type="unfinished">Könnyű jégeső</translation>
     </message>
     <message>
-        <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht, 
- 	Quentin Caillard, 
- 	Jordi
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>French - Nicolas Granziano, Philippe, Benot Knecht
 Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh
 Finnish - Marko Vertainen
@@ -1300,10 +1339,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Full forecast</source>
         <translation>Teljes előrejelzés</translation>
-    </message>
-    <message>
-        <source>Fullscreen mode</source>
-        <translation>Teljesképernyős mód</translation>
     </message>
     <message>
         <source>G: </source>
@@ -1332,22 +1367,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>GUI|Clear</source>
         <translation>GUI|Töröl</translation>
-    </message>
-    <message>
-        <source>Galician - pakoR
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>German -  Claudius Henrichs,
- 	Jens Klingen,
- 	DeadHorseRiding
- </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Grzanka&apos;s Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
-        <translation>Grzanka ikonkészlete: Minden jog fenntartva; Wojciech Grzanka, 2005 &lt;wojciech@grzanka.pl&gt;</translation>
     </message>
     <message>
         <source>Gust:</source>
@@ -1474,15 +1493,6 @@ Slovak - Roman Moravčík</source>
         <translation>Páratartalom:</translation>
     </message>
     <message>
-        <source>Humidity:</source>
-        <translation>Páratartalom:</translation>
-    </message>
-    <message>
-        <source>Hungarian - Salmi, László Kara
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ice Early</source>
         <translation type="unfinished">Délelőtt szitálás</translation>
     </message>
@@ -1503,14 +1513,6 @@ Slovak - Roman Moravčík</source>
         <translation>Ikonméret:</translation>
     </message>
     <message>
-        <source>Icons</source>
-        <translation>Ikonok</translation>
-    </message>
-    <message>
-        <source>Icons</source>
-        <translation>Ikonok</translation>
-    </message>
-    <message>
         <source>Iconset</source>
         <translation>Ikoncsomag</translation>
     </message>
@@ -1525,22 +1527,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Iconsets</source>
         <translation>Ikoncsomagok</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Információ</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Információ</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Információ</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Információ</translation>
     </message>
     <message>
         <source>Isolated T-Storms</source>
@@ -1549,18 +1535,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Isolated T-Storms / Wind</source>
         <translation>Viharok többfelé / szél</translation>
-    </message>
-    <message>
-        <source>Italian - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
-</source>
-        <translation type="unfinished">Olasz - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Lengyel - Tomasz Dominikowski; Bulgár - Zlatko Enikov</translation>
-    </message>
-    <message>
-        <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
-        <translation>Olasz - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Lengyel - Tomasz Dominikowski; Bulgár - Zlatko Enikov</translation>
     </message>
     <message>
         <source>Kilometers</source>
@@ -1589,6 +1563,18 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Last update from server: </source>
         <translation>Utolsó frissítés a szerverről:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Utolsó frissítés:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Utolsó frissítés:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Utolsó frissítés:</translation>
     </message>
     <message>
         <source>Last update:</source>
@@ -1783,6 +1769,10 @@ Slovak - Roman Moravčík</source>
         <translation>Úgy tűnik nincs információ az állomáshoz.</translation>
     </message>
     <message>
+        <source>Looks like there&apos;s no info for this location.</source>
+        <translation>Úgy tűnik nincs információ az állomáshoz.</translation>
+    </message>
+    <message>
         <source>Low</source>
         <translation>Alacsony</translation>
     </message>
@@ -1801,12 +1791,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Mainly cloudy, showers</source>
         <translation type="unfinished">Helyenként felhős, záporokkal</translation>
-    </message>
-    <message>
-        <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
-</source>
-        <translation>Karbantartók: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
-</translation>
     </message>
     <message>
         <source>Manage locations</source>
@@ -1829,12 +1813,24 @@ Slovak - Roman Moravčík</source>
         <translation>MeeCast</translation>
     </message>
     <message>
-        <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
+        <source>MeeCast</source>
+        <translation>MeeCast</translation>
+    </message>
+    <message>
+        <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2024</source>
         <translation type="unfinished">MeeCast - multiplatform testreszabható nyilt forráskódú irőjárás jelentő kliens az OMWeather kódja alapján. Szerzői joggal védett (C) 2006-2014</translation>
     </message>
     <message>
-        <source>MeeCast for Harmattan</source>
-        <translation>MeeCast Harmattan-re</translation>
+        <source>MeeCast for AuroraOS</source>
+        <translation type="unfinished">MeeCast Harmattan-re</translation>
+    </message>
+    <message>
+        <source>MeeCast for AuroraOS</source>
+        <translation type="unfinished">MeeCast Harmattan-re</translation>
+    </message>
+    <message>
+        <source>MeeCast for SailfishOS</source>
+        <translation type="unfinished">MeeCast Harmattan-re</translation>
     </message>
     <message>
         <source>Meters</source>
@@ -2133,16 +2129,8 @@ Slovak - Roman Moravčík</source>
         <translation>Új</translation>
     </message>
     <message>
-        <source>New location</source>
-        <translation>Új hely</translation>
-    </message>
-    <message>
         <source>Next update:</source>
         <translation>Következő frissítés:</translation>
-    </message>
-    <message>
-        <source>Night</source>
-        <translation>Éjjel</translation>
     </message>
     <message>
         <source>Night</source>
@@ -2157,12 +2145,20 @@ Slovak - Roman Moravčík</source>
         <translation>Nem</translation>
     </message>
     <message>
-        <source>No</source>
-        <translation>Nem</translation>
-    </message>
-    <message>
         <source>No current weather data.</source>
         <translation>Nincs friss időjárás adat.</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>Még nincs hely beállítva.</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>Még nincs hely beállítva.</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>Még nincs hely beállítva.</translation>
     </message>
     <message>
         <source>No locations are set up yet.</source>
@@ -2183,11 +2179,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>No weather data for this station.</source>
         <translation>Nincs időjárás adat az állomásról.</translation>
-    </message>
-    <message>
-        <source>Norwegian - Peer-Atle Motland
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Now</source>
@@ -2262,10 +2253,6 @@ Slovak - Roman Moravčík</source>
         <translation>OK</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation>OK</translation>
-    </message>
-    <message>
         <source>OMWeather Forecast</source>
         <translation>OMWeather előrejelzés</translation>
     </message>
@@ -2284,18 +2271,6 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>OMWeather settings</source>
         <translation>OMWeather beállítások</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>Ok</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>Ok</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>Ok</translation>
     </message>
     <message>
         <source>Other Maemo Weather Info</source>
@@ -2430,6 +2405,10 @@ Slovak - Roman Moravčík</source>
         <translation>du. viharok</translation>
     </message>
     <message>
+        <source>Pa</source>
+        <translation type="unfinished">Pa</translation>
+    </message>
+    <message>
         <source>Partly Cloudy</source>
         <translation>Helyenként felhős</translation>
     </message>
@@ -2554,16 +2533,6 @@ Slovak - Roman Moravčík</source>
         <translation>Időszak</translation>
     </message>
     <message>
-        <source>Polish - Tomasz Dominikowski
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Portuguese - Jose Narciso,
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Position:</source>
         <translation>Pozíció:</translation>
     </message>
@@ -2630,16 +2599,8 @@ Előrejelzés:</translation>
         <translation>Légnyomás m.e.</translation>
     </message>
     <message>
-        <source>Pressure units</source>
-        <translation>Légnyomás m.e.</translation>
-    </message>
-    <message>
         <source>Pressure units:</source>
         <translation>Légnyomás mértékegységek:</translation>
-    </message>
-    <message>
-        <source>Pressure:</source>
-        <translation>Légnyomás:</translation>
     </message>
     <message>
         <source>Pressure:</source>
@@ -2674,16 +2635,12 @@ Előrejelzés:</translation>
         <translation>Programozó</translation>
     </message>
     <message>
-        <source>Project administrators</source>
-        <translation>Projektadminisztrátor</translation>
+        <source>Project administrator</source>
+        <translation type="unfinished">Projektadminisztrátor</translation>
     </message>
     <message>
         <source>Project manager</source>
         <translation>Projektmenedzser</translation>
-    </message>
-    <message>
-        <source>Provided by</source>
-        <translation>Elérhetővé tette:</translation>
     </message>
     <message>
         <source>Proximity shower rain</source>
@@ -2802,6 +2759,14 @@ Előrejelzés:</translation>
         <translation>Frissít</translation>
     </message>
     <message>
+        <source>Refresh</source>
+        <translation>Frissít</translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation>Frissít</translation>
+    </message>
+    <message>
         <source>Region</source>
         <translation>Régió</translation>
     </message>
@@ -2816,12 +2781,6 @@ Előrejelzés:</translation>
     <message>
         <source>Rush Hour Traffic</source>
         <translation>Csúcsidő forgalom</translation>
-    </message>
-    <message>
-        <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
- 	Ed Bartosh
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>S</source>
@@ -2924,22 +2883,6 @@ Előrejelzés:</translation>
         <translation>Keresés</translation>
     </message>
     <message>
-        <source>Select city</source>
-        <translation>Város kiválasztása</translation>
-    </message>
-    <message>
-        <source>Select city</source>
-        <translation>Város kiválasztása</translation>
-    </message>
-    <message>
-        <source>Select country</source>
-        <translation>Ország kiválasztása</translation>
-    </message>
-    <message>
-        <source>Select country</source>
-        <translation>Ország kiválasztása</translation>
-    </message>
-    <message>
         <source>Select country</source>
         <translation>Ország kiválasztása</translation>
     </message>
@@ -2954,42 +2897,6 @@ Előrejelzés:</translation>
     <message>
         <source>Select region</source>
         <translation>Régió kiválasztása</translation>
-    </message>
-    <message>
-        <source>Select region</source>
-        <translation>Régió kiválasztása</translation>
-    </message>
-    <message>
-        <source>Select region</source>
-        <translation>Régió kiválasztása</translation>
-    </message>
-    <message>
-        <source>Select source</source>
-        <translation>Forrás kiválasztása</translation>
-    </message>
-    <message>
-        <source>Select source</source>
-        <translation>Forrás kiválasztása</translation>
-    </message>
-    <message>
-        <source>Select the X-position for left corner of widget</source>
-        <translation>Válaszd ki az X pozícióját a widget bal sarkához</translation>
-    </message>
-    <message>
-        <source>Select the Y-position for left corner of widget</source>
-        <translation>Válaszd ki az Y pozícióját a widget bal sarkához</translation>
-    </message>
-    <message>
-        <source>Select the color of font for current temperature</source>
-        <translation>Válaszd ki a betű színét a jelenlegi hőmérsékletnek</translation>
-    </message>
-    <message>
-        <source>Select the color of font for station name</source>
-        <translation>Válaszd ki a betű színét az állomás nevének</translation>
-    </message>
-    <message>
-        <source>Select the color of font for temperature</source>
-        <translation>Válaszd ki a betű színét a hőmérsékletnek</translation>
     </message>
     <message>
         <source>Select the iconset</source>
@@ -3036,11 +2943,6 @@ Előrejelzés:</translation>
         <translation>Érzékelő</translation>
     </message>
     <message>
-        <source>Serbian - Aleksandar Zaric
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Set</source>
         <translation>Beállít</translation>
     </message>
@@ -3053,8 +2955,8 @@ Előrejelzés:</translation>
         <translation>Helyek beállítása</translation>
     </message>
     <message>
-        <source>Settings</source>
-        <translation>Beállítások</translation>
+        <source>Set locations</source>
+        <translation>Helyek beállítása</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3073,20 +2975,16 @@ Előrejelzés:</translation>
         <translation>Beállítások</translation>
     </message>
     <message>
-        <source>Settings for Lockscreen widget</source>
-        <translation>A nyitó képernyő beállítása</translation>
+        <source>Settings</source>
+        <translation>Beállítások</translation>
     </message>
     <message>
-        <source>Settings for standby widget</source>
-        <translation>A készenléti képernyő beállítása</translation>
+        <source>Settings</source>
+        <translation>Beállítások</translation>
     </message>
     <message>
-        <source>Settings of LockScreen</source>
-        <translation>A nyitó képernyő beállítása</translation>
-    </message>
-    <message>
-        <source>Settings of StandbyScreen</source>
-        <translation>A készenléti képernyő beállítása</translation>
+        <source>Settings</source>
+        <translation>Beállítások</translation>
     </message>
     <message>
         <source>Shallow Fog</source>
@@ -3105,8 +3003,20 @@ Előrejelzés:</translation>
         <translation>Mutasd az utolsó frissítés idejét.</translation>
     </message>
     <message>
+        <source>Show last update time</source>
+        <translation>Mutasd az utolsó frissítés idejét.</translation>
+    </message>
+    <message>
+        <source>Show on Map</source>
+        <translation>Mutasd a térképen</translation>
+    </message>
+    <message>
         <source>Show only current weather on first icon</source>
         <translation>Csak jelenlegi időjárás az első ikonon</translation>
+    </message>
+    <message>
+        <source>Show source logo</source>
+        <translation>Mutasd a forrás logóját</translation>
     </message>
     <message>
         <source>Show source logo</source>
@@ -3119,6 +3029,10 @@ Előrejelzés:</translation>
     <message>
         <source>Show temperature at:</source>
         <translation>Mutasd a hőmérsékletet ha:</translation>
+    </message>
+    <message>
+        <source>Show wind</source>
+        <translation>Mutasd a szelet</translation>
     </message>
     <message>
         <source>Show wind</source>
@@ -3166,16 +3080,6 @@ Előrejelzés:</translation>
     </message>
     <message>
         <source>Sleet Showers</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Slovak - Roman Moravčík
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Slovenian - Boštjan Štrumbelj
-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3255,11 +3159,6 @@ Előrejelzés:</translation>
         <translation>Forrás:</translation>
     </message>
     <message>
-        <source>Spanish - Alejandro Lopez, Agustí Clara
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Speed</source>
         <translation>Sebesség</translation>
     </message>
@@ -3298,14 +3197,6 @@ Előrejelzés:</translation>
     <message>
         <source>Speed:</source>
         <translation>Sebesség:</translation>
-    </message>
-    <message>
-        <source>Speed:</source>
-        <translation>Sebesség:</translation>
-    </message>
-    <message>
-        <source>Splash screen</source>
-        <translation>Nyitó képernyő</translation>
     </message>
     <message>
         <source>State:</source>
@@ -3368,12 +3259,20 @@ Előrejelzés:</translation>
         <translation>Napfelkelte:</translation>
     </message>
     <message>
+        <source>Sunrise:</source>
+        <translation>Napfelkelte:</translation>
+    </message>
+    <message>
         <source>Sunrise: </source>
         <translation>Napfelkelte:</translation>
     </message>
     <message>
         <source>Sunrise: </source>
         <translation>Napfelkelte:</translation>
+    </message>
+    <message>
+        <source>Sunset:</source>
+        <translation>Napnyugta:</translation>
     </message>
     <message>
         <source>Sunset:</source>
@@ -3394,13 +3293,6 @@ Előrejelzés:</translation>
     <message>
         <source>Swap hi/low temperature</source>
         <translation>Alacsony/magas hőmérséklet felcserélése</translation>
-    </message>
-    <message>
-        <source>Swedish - Angela Nennebrandt,
- 	Åke Engelbrektson, 
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Switch to the next station after:</source>
@@ -3459,15 +3351,7 @@ Előrejelzés:</translation>
         <translation>Hőmérséklet</translation>
     </message>
     <message>
-        <source>Temperature units</source>
-        <translation>Hőmérséklet</translation>
-    </message>
-    <message>
         <source>Temperature units:</source>
-        <translation>Hőmérséklet:</translation>
-    </message>
-    <message>
-        <source>Temperature:</source>
         <translation>Hőmérséklet:</translation>
     </message>
     <message>
@@ -3500,18 +3384,13 @@ Előrejelzés:</translation>
     </message>
     <message>
         <source>This software is free software; you can
- redistribute it and/or modify it under 
- the terms of the GNU General Public
- License as published by the Free Software 
- Foundation; either version 2.1 of the 
- License, or (at your option) any 
- later version.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This software is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
-</source>
-        <translation type="unfinished"></translation>
+     redistribute it and/or modify it under 
+     the terms of the GNU General Public
+     License as published by the Free Software 
+     Foundation; either version 2.1 of the 
+     License, or (at your option) any 
+     later version.</source>
+        <translation type="unfinished">az FSF által publikált formában; akár a Licence 2.1-es verziója, vagy (ha úgy gondolod) bármely későbbi verzió.</translation>
     </message>
     <message>
         <source>Thunder</source>
@@ -3542,17 +3421,24 @@ Előrejelzés:</translation>
         <translation>Ma</translation>
     </message>
     <message>
-        <source>Translators</source>
-        <translation>Fordítók</translation>
+        <source>Today</source>
+        <translation>Ma</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>Ma</translation>
     </message>
     <message>
         <source>Translators</source>
         <translation>Fordítók</translation>
     </message>
     <message>
-        <source>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
-</source>
-        <translation type="unfinished"></translation>
+        <source>Translators</source>
+        <translation>Fordítók</translation>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation>Átlátszóság</translation>
     </message>
     <message>
         <source>Transparency</source>
@@ -3577,12 +3463,6 @@ Előrejelzés:</translation>
     <message>
         <source>Try to update</source>
         <translation>Kísérlet a frissítésre</translation>
-    </message>
-    <message>
-        <source>Turkish - Burak Kaan Kose,
- 	Mehmet Çilingir
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Type of click:</source>
@@ -3685,12 +3565,20 @@ Előrejelzés:</translation>
         <translation>Frissítés</translation>
     </message>
     <message>
+        <source>Update</source>
+        <translation>Frissítés</translation>
+    </message>
+    <message>
         <source>Update already running.</source>
         <translation>Frissítés folyamatban</translation>
     </message>
     <message>
         <source>Update interval</source>
         <translation>Frissítési intervallum</translation>
+    </message>
+    <message>
+        <source>Updating forecast</source>
+        <translation>Előrejelzés frissítése</translation>
     </message>
     <message>
         <source>Updating forecast</source>
@@ -3739,12 +3627,6 @@ adatok rendszeres frissítéséhet.
         <translation>Nagyon magas</translation>
     </message>
     <message>
-        <source>Vietnamese - Hieu Nguyen
- 	Anh Dương and truongnx, 
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Violent Rain Showers</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3755,10 +3637,6 @@ adatok rendszeres frissítéséhet.
     <message>
         <source>Visible items:</source>
         <translation>Látható elemek:</translation>
-    </message>
-    <message>
-        <source>Visible units</source>
-        <translation>Távolság m.e.</translation>
     </message>
     <message>
         <source>Visible units</source>
@@ -3853,24 +3731,8 @@ adatok rendszeres frissítéséhet.
         <translation>Az időjárás adatok szolgáltatója:</translation>
     </message>
     <message>
-        <source>Weather forecast for the Meego. Version </source>
-        <translation>Időjárás előrejelzős Meegora. Verzió</translation>
-    </message>
-    <message>
         <source>Widget OMWeather is reloading</source>
         <translation>OMWeather widget újratöltődik</translation>
-    </message>
-    <message>
-        <source>Widget in LockScreen</source>
-        <translation>Widget a nyitó képernyőn</translation>
-    </message>
-    <message>
-        <source>Widget in StandbyScreen</source>
-        <translation>Widget a készenléti képernyőn</translation>
-    </message>
-    <message>
-        <source>Widget in events view</source>
-        <translation>Widget az esemény képernyőn</translation>
     </message>
     <message>
         <source>Widget style</source>
@@ -3953,16 +3815,8 @@ adatok rendszeres frissítéséhet.
         <translation>Szélsebesség</translation>
     </message>
     <message>
-        <source>Wind speed units</source>
-        <translation>Szélsebesség</translation>
-    </message>
-    <message>
         <source>Wind speed units:</source>
         <translation>Szélsebesség m.e.:</translation>
-    </message>
-    <message>
-        <source>Wind:</source>
-        <translation>Szél:</translation>
     </message>
     <message>
         <source>Wind:</source>
@@ -4031,32 +3885,12 @@ vagy irányítószám!</translation>
         <translation>Itt támogathatsz minket:</translation>
     </message>
     <message>
-        <source>You should activate 
-&apos;Widget in events view&apos;
- for using LockScreen widget</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You should activate 
-&apos;Widget in events view&apos;
- for using StandbyScreen widget</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You should activate &apos;Widget in the events view&apos; option in MeeCast appearance settings for auto update.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Zoom in popup window </source>
         <translation>Nagyítás a felugró ablakban</translation>
     </message>
     <message>
         <source>Zooming in popup window</source>
         <translation>Nagyítás a felugró ablakban</translation>
-    </message>
-    <message>
-        <source>as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</source>
-        <translation>az FSF által publikált formában; akár a Licence 2.1-es verziója, vagy (ha úgy gondolod) bármely későbbi verzió.</translation>
     </message>
     <message>
         <source>current location local time</source>
@@ -4161,10 +3995,6 @@ vagy irányítószám!</translation>
     <message>
         <source>inch</source>
         <translation>hüvelyk</translation>
-    </message>
-    <message>
-        <source>kPa</source>
-        <translation type="unfinished">Pa</translation>
     </message>
     <message>
         <source>km</source>
@@ -4353,6 +4183,10 @@ vagy irányítószám!</translation>
     <message>
         <source>minutes ago</source>
         <translation>perce</translation>
+    </message>
+    <message>
+        <source>mm</source>
+        <translation>mm</translation>
     </message>
     <message>
         <source>mm</source>

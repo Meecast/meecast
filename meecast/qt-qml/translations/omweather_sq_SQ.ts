@@ -121,6 +121,154 @@ W: </source>
 P: </translation>
     </message>
     <message>
+        <source>    Albanian - Ilir Gjika
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Arabic - Tarad Alfandi
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Bulgarian - Zlatko Enikov
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Catalan - Agustí Clara
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Chinese - Wong Man Kong, Michael,
+     	gwmgdemj
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Chinese(Taiwan) - osk2, 
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Czech - Jakub Kožíšek, Pavel Šrubař
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Danish - Peter Jespersen
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Dutch - Tom Leenders, Michiel Pater
+     	Heimen Stoffels, Nathan Follens
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Finnish - Marko Vertainen,
+    	deadhead (A-P Partonen),
+     	jarliim
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    French -  Nicolas Granziano, 
+     	Philippe, Benot Knecht, 
+     	Quentin Caillard, 
+     	Jordi
+</source>
+        <translation type="unfinished">Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
+</translation>
+    </message>
+    <message>
+        <source>    Galician - pakoR
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    German -  Claudius Henrichs,
+     	Jens Klingen,
+     	DeadHorseRiding
+ </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Hungarian - Salmi, László Kara
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Italian - Lorenzo Facca,
+     	Pavel Fialko, Alessandro Pasotti,
+     	Salvatore Fiorenzo, Ilir Gjika,
+     	Luca Onnis
+</source>
+        <translation type="unfinished">Italisht - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polonisht - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</translation>
+    </message>
+    <message>
+        <source>    Norwegian - Peer-Atle Motland
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Polish - Tomasz Dominikowski
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Portuguese - Jose Narciso,
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Russian - Pavel Fialko, Vlad Vasilyeu, 
+     	Ed Bartosh
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Serbian - Aleksandar Zaric
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Slovak - Roman Moravčík
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Slovenian - Boštjan Štrumbelj
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Spanish - Alejandro Lopez, Agustí Clara
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Swedish - Angela Nennebrandt,
+     	Åke Engelbrektson, 
+     	Niklas Åkerström, 
+     	Tomislav Veleckovik</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Turkish - Burak Kaan Kose,
+     	Mehmet Çilingir
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Vietnamese - Hieu Nguyen
+     	Anh Dương and truongnx, 
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>(Low)</source>
         <translation>(I ulët)</translation>
     </message>
@@ -171,10 +319,6 @@ P: </translation>
     <message>
         <source>10 seconds</source>
         <translation>10 sekonda</translation>
-    </message>
-    <message>
-        <source>12 hours</source>
-        <translation>12 orë</translation>
     </message>
     <message>
         <source>15 minutes</source>
@@ -401,13 +545,8 @@ P: </translation>
         <translation>Shto Stacion</translation>
     </message>
     <message>
-        <source>Adjust GPS station</source>
-        <translation type="unfinished">Shto Stacion</translation>
-    </message>
-    <message>
-        <source>Albanian - Ilir Gjika
-</source>
-        <translation type="unfinished"></translation>
+        <source>Add Station</source>
+        <translation>Shto Stacion</translation>
     </message>
     <message>
         <source>Alerts</source>
@@ -456,21 +595,6 @@ Eric Link - për kërkesat dhe ofertat
         <translation>Paraqitja</translation>
     </message>
     <message>
-        <source>Application manager will now start
-for installing package &apos;MeeCast applet&apos;.
-You should uninstall AccuWeather 
-before installing this package</source>
-        <translation>Programi për instalimin e
-&apos;MeeCast applet&apos; do të fillojë tani.
-Ju duhet të fshini AccuWeather 
-përpara se të vazhdoni</translation>
-    </message>
-    <message>
-        <source>Arabic - Tarad Alfandi
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Are you sure to want delete this station ?</source>
         <translation>Je i sigurt që do t&apos;a fshish këtë stacion?</translation>
     </message>
@@ -490,12 +614,6 @@ Mirëmbajtja: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Dokumentacioni: Marko Vertainen
 Krijimi i ndërfaqes dhe ikonat e paravendosura: Andrew Zhilin
 Krijimi i ndërfaqes për Fremantle-in: Krebber Jan Niemelä Ulla
-</translation>
-    </message>
-    <message>
-        <source>Author and maintenance: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
-</source>
-        <translation>Krijuesi dhe mirëmbajtja: Vlad Vasiliev, &lt;vlad@gas.by&gt;
 </translation>
     </message>
     <message>
@@ -544,11 +662,6 @@ Krijimi i ndërfaqes për Fremantle-in: Krebber Jan Niemelä Ulla
     </message>
     <message>
         <source>Broken clouds</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Bulgarian - Zlatko Enikov
-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -604,19 +717,10 @@ Krijimi i ndërfaqes për Fremantle-in: Krebber Jan Niemelä Ulla
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Fshije</translation>
-    </message>
-    <message>
         <source>Cannot get path to the HOME directory. Quitting.
 </source>
         <translation>Nuk gjeta dot rrugën për te dosja HOME. Po dal.
 </translation>
-    </message>
-    <message>
-        <source>Catalan - Agustí Clara
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Celcius</source>
@@ -625,17 +729,6 @@ Krijimi i ndërfaqes për Fremantle-in: Krebber Jan Niemelä Ulla
     <message>
         <source>Celsius</source>
         <translation>Celcius</translation>
-    </message>
-    <message>
-        <source>Chinese - Wong Man Kong, Michael,
- 	gwmgdemj
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Chinese(Taiwan) - osk2, 
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>City</source>
@@ -814,14 +907,12 @@ Krijimi i ndërfaqes për Fremantle-in: Krebber Jan Niemelä Ulla
         <translation>Me re, Stuhi e shoqëruar me shira</translation>
     </message>
     <message>
-        <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
-        <translation>Copyright(c) 2006-2011 by Vlad Vasilyeu dhe Pavel Fialko, </translation>
+        <source>Co-administrator and contributor</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Copyright(c) 2010-2011 by Tanya Makova
-</source>
-        <translation>Copyright(c) 2010-2011 by Tanya Makova
-</translation>
+        <source>Co-administrator and contributor</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Could not connecting to Internet.
@@ -864,24 +955,6 @@ Koha për lidhjen mbaroi.</translation>
         <translation>Përvetësuar</translation>
     </message>
     <message>
-        <source>Czech - Jakub Kožíšek, Pavel Šrubař
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Daily</source>
-        <translation>Ditore</translation>
-    </message>
-    <message>
-        <source>Danish - Peter Jespersen
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Day</source>
-        <translation>Ditë</translation>
-    </message>
-    <message>
         <source>Day</source>
         <translation>Ditë</translation>
     </message>
@@ -906,10 +979,8 @@ Koha për lidhjen mbaroi.</translation>
         <translation>T&apos;a fshij këtë vënd?</translation>
     </message>
     <message>
-        <source>Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
-</source>
-        <translation>Krijimi i ndërfaqes dhe ikonat e paravendosura: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
-</translation>
+        <source>Delete location?</source>
+        <translation>T&apos;a fshij këtë vënd?</translation>
     </message>
     <message>
         <source>Detailed</source>
@@ -1002,12 +1073,6 @@ paketat &apos;omweather-*-stations-db&apos; është e instaluar .</translation>
         <translation>Shi i imët vonë</translation>
     </message>
     <message>
-        <source>Dutch - Tom Leenders, Michiel Pater
- 	Heimen Stoffels, Nathan Follens
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>E</source>
         <translation>L</translation>
     </message>
@@ -1068,8 +1133,8 @@ Brad Jones aka kazrak - for testing
         <translation>Ndiz GPS-in</translation>
     </message>
     <message>
-        <source>Enter search</source>
-        <translation>Fillo kërkimin</translation>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error</source>
@@ -1226,19 +1291,6 @@ Brad Jones aka kazrak - for testing
         <translation>Gjej vëndin me GPS-në</translation>
     </message>
     <message>
-        <source>Finnish - Marko Vertainen,
-	deadhead (A-P Partonen),
- 	jarliim
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
-</source>
-        <translation>Finlandisht - Marko Vertainen; Gjermanisht - Claudius Henrichs; Spanjisht - Alejandro Lopez; Sllovakisht - Roman Moravčík
-</translation>
-    </message>
-    <message>
         <source>First Quarter</source>
         <translation>Tremujori i parë</translation>
     </message>
@@ -1291,16 +1343,6 @@ Brad Jones aka kazrak - for testing
         <translation>Lloji i gërmave</translation>
     </message>
     <message>
-        <source>For disabling MeeCast widget,
-you should uninstall package
-&apos;Activating MeeCast Applet&apos;
-using Application manager</source>
-        <translation>Për të çaktivizuar MeeCast widget,
-duhet hequr
-&apos;Activating MeeCast Applet&apos;
-duke përdorur Application manager</translation>
-    </message>
-    <message>
         <source>Forecast</source>
         <translation>Parashikime</translation>
     </message>
@@ -1325,15 +1367,6 @@ duke përdorur Application manager</translation>
     <message>
         <source>Freezing Rain</source>
         <translation type="unfinished">Shi / Shi i ngrirë</translation>
-    </message>
-    <message>
-        <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht, 
- 	Quentin Caillard, 
- 	Jordi
-</source>
-        <translation type="unfinished">Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
-</translation>
     </message>
     <message>
         <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1364,10 +1397,6 @@ Sllovakisht - Roman Moravčík</translation>
         <translation>Parashikimet e plota</translation>
     </message>
     <message>
-        <source>Fullscreen mode</source>
-        <translation>Në gjithe ekranin</translation>
-    </message>
-    <message>
         <source>G: </source>
         <translation>G: </translation>
     </message>
@@ -1394,22 +1423,6 @@ Sllovakisht - Roman Moravčík</translation>
     <message>
         <source>GUI|Clear</source>
         <translation>GUI|Fshije</translation>
-    </message>
-    <message>
-        <source>Galician - pakoR
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>German -  Claudius Henrichs,
- 	Jens Klingen,
- 	DeadHorseRiding
- </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Grzanka&apos;s Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
-        <translation>Grzanka&apos;s Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</translation>
     </message>
     <message>
         <source>Gust:</source>
@@ -1537,15 +1550,6 @@ Rreshjet: </translation>
         <translation>Lagështira:</translation>
     </message>
     <message>
-        <source>Humidity:</source>
-        <translation>Lagështira:</translation>
-    </message>
-    <message>
-        <source>Hungarian - Salmi, László Kara
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ice Early</source>
         <translation type="unfinished">Shi i imët herët</translation>
     </message>
@@ -1566,14 +1570,6 @@ Rreshjet: </translation>
         <translation>Madhësia e ikonave:</translation>
     </message>
     <message>
-        <source>Icons</source>
-        <translation>Iconat</translation>
-    </message>
-    <message>
-        <source>Icons</source>
-        <translation>Iconat</translation>
-    </message>
-    <message>
         <source>Iconset</source>
         <translation>Seti i ikonave</translation>
     </message>
@@ -1588,22 +1584,6 @@ Rreshjet: </translation>
     <message>
         <source>Iconsets</source>
         <translation>Setet e ikonave</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Informacion</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Informacion</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Informacion</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Informacion</translation>
     </message>
     <message>
         <source>Isolated T-Storms</source>
@@ -1612,18 +1592,6 @@ Rreshjet: </translation>
     <message>
         <source>Isolated T-Storms / Wind</source>
         <translation>Rrebeshe të izoluara / Erë</translation>
-    </message>
-    <message>
-        <source>Italian - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
-</source>
-        <translation type="unfinished">Italisht - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polonisht - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</translation>
-    </message>
-    <message>
-        <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
-        <translation>Italisht - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polonisht - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</translation>
     </message>
     <message>
         <source>Kilometers</source>
@@ -1652,6 +1620,18 @@ Rreshjet: </translation>
     <message>
         <source>Last update from server: </source>
         <translation>Përditësimi i fundit nga serveri: </translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Përditësimi i fundit:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Përditësimi i fundit:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Përditësimi i fundit:</translation>
     </message>
     <message>
         <source>Last update:</source>
@@ -1846,6 +1826,10 @@ Rreshjet: </translation>
         <translation>Duket sikur s&apos;paska të dhëna për këtë stacion</translation>
     </message>
     <message>
+        <source>Looks like there&apos;s no info for this location.</source>
+        <translation>Duket sikur s&apos;paska të dhëna për këtë stacion</translation>
+    </message>
+    <message>
         <source>Low</source>
         <translation>I ulët</translation>
     </message>
@@ -1864,12 +1848,6 @@ Rreshjet: </translation>
     <message>
         <source>Mainly cloudy, showers</source>
         <translation type="unfinished">Pjesërisht me re dhe me rreshje</translation>
-    </message>
-    <message>
-        <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
-</source>
-        <translation>Mirëmbajtja: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
-</translation>
     </message>
     <message>
         <source>Manage locations</source>
@@ -1892,12 +1870,24 @@ Rreshjet: </translation>
         <translation>MeeCast</translation>
     </message>
     <message>
-        <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
+        <source>MeeCast</source>
+        <translation>MeeCast</translation>
+    </message>
+    <message>
+        <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2024</source>
         <translation type="unfinished">MeeCast është një program multiplataformë dhe i personalizueshëm, me kod të hapur, për paraqitjen e parashikimeve te motit i bazuar në kodin e OMWeather. Të gjitha të drejtat janë të rezervuara 2006-2012</translation>
     </message>
     <message>
-        <source>MeeCast for Harmattan</source>
-        <translation>MeeCast për Harmattan-in</translation>
+        <source>MeeCast for AuroraOS</source>
+        <translation type="unfinished">MeeCast për Harmattan-in</translation>
+    </message>
+    <message>
+        <source>MeeCast for AuroraOS</source>
+        <translation type="unfinished">MeeCast për Harmattan-in</translation>
+    </message>
+    <message>
+        <source>MeeCast for SailfishOS</source>
+        <translation type="unfinished">MeeCast për Harmattan-in</translation>
     </message>
     <message>
         <source>Meters</source>
@@ -2196,16 +2186,8 @@ Rreshjet: </translation>
         <translation>I ri</translation>
     </message>
     <message>
-        <source>New location</source>
-        <translation>Vënd i ri</translation>
-    </message>
-    <message>
         <source>Next update:</source>
         <translation>Përditësimi që vjen:</translation>
-    </message>
-    <message>
-        <source>Night</source>
-        <translation>Natën</translation>
     </message>
     <message>
         <source>Night</source>
@@ -2220,12 +2202,20 @@ Rreshjet: </translation>
         <translation>Jo</translation>
     </message>
     <message>
-        <source>No</source>
-        <translation>Jo</translation>
-    </message>
-    <message>
         <source>No current weather data.</source>
         <translation>S&apos;ka të dhëna mbi parashikimin e motit</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>S&apos;ke zgjedhur akoma vëndin për të cilin do parashikimet e motit</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>S&apos;ke zgjedhur akoma vëndin për të cilin do parashikimet e motit</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>S&apos;ke zgjedhur akoma vëndin për të cilin do parashikimet e motit</translation>
     </message>
     <message>
         <source>No locations are set up yet.</source>
@@ -2246,11 +2236,6 @@ Rreshjet: </translation>
     <message>
         <source>No weather data for this station.</source>
         <translation>S&apos;ka të dhëna nga ky stacion</translation>
-    </message>
-    <message>
-        <source>Norwegian - Peer-Atle Motland
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Now</source>
@@ -2325,10 +2310,6 @@ Rreshjet: </translation>
         <translation>OK</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation>OK</translation>
-    </message>
-    <message>
         <source>OMWeather Forecast</source>
         <translation>Parashikimet OMWeather</translation>
     </message>
@@ -2347,18 +2328,6 @@ Rreshjet: </translation>
     <message>
         <source>OMWeather settings</source>
         <translation>Rregullimet për OMWeather</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>Ok</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>Ok</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>Ok</translation>
     </message>
     <message>
         <source>Other Maemo Weather Info</source>
@@ -2493,6 +2462,10 @@ Rreshjet: </translation>
         <translation>Pasdite Stuhira</translation>
     </message>
     <message>
+        <source>Pa</source>
+        <translation type="unfinished">Pa</translation>
+    </message>
+    <message>
         <source>Partly Cloudy</source>
         <translation>Pjesërisht me re</translation>
     </message>
@@ -2617,16 +2590,6 @@ Rreshjet: </translation>
         <translation>Periudha</translation>
     </message>
     <message>
-        <source>Polish - Tomasz Dominikowski
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Portuguese - Jose Narciso,
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Position:</source>
         <translation>Posicioni:</translation>
     </message>
@@ -2694,16 +2657,8 @@ Rreshjet: </translation>
         <translation>Njësia e presionit</translation>
     </message>
     <message>
-        <source>Pressure units</source>
-        <translation>Njësia e presionit</translation>
-    </message>
-    <message>
         <source>Pressure units:</source>
         <translation>Njesitë e presionit:</translation>
-    </message>
-    <message>
-        <source>Pressure:</source>
-        <translation>Presioni:</translation>
     </message>
     <message>
         <source>Pressure:</source>
@@ -2738,16 +2693,12 @@ Rreshjet: </translation>
         <translation type="unfinished">Programuesit</translation>
     </message>
     <message>
-        <source>Project administrators</source>
+        <source>Project administrator</source>
         <translation type="unfinished">Shefi i projektit</translation>
     </message>
     <message>
         <source>Project manager</source>
         <translation>Shefi i projektit</translation>
-    </message>
-    <message>
-        <source>Provided by</source>
-        <translation>U mundësua nga</translation>
     </message>
     <message>
         <source>Proximity shower rain</source>
@@ -2866,6 +2817,14 @@ Rreshjet: </translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Region</source>
         <translation>Rajoni</translation>
     </message>
@@ -2880,12 +2839,6 @@ Rreshjet: </translation>
     <message>
         <source>Rush Hour Traffic</source>
         <translation>Ora e pikut</translation>
-    </message>
-    <message>
-        <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
- 	Ed Bartosh
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>S</source>
@@ -2988,22 +2941,6 @@ Rreshjet: </translation>
         <translation>Kërko</translation>
     </message>
     <message>
-        <source>Select city</source>
-        <translation>Zgjidh qytetin</translation>
-    </message>
-    <message>
-        <source>Select city</source>
-        <translation>Zgjidh qytetin</translation>
-    </message>
-    <message>
-        <source>Select country</source>
-        <translation>Zgjidh Shtetin</translation>
-    </message>
-    <message>
-        <source>Select country</source>
-        <translation>Zgjidh Shtetin</translation>
-    </message>
-    <message>
         <source>Select country</source>
         <translation>Zgjidh Shtetin</translation>
     </message>
@@ -3018,42 +2955,6 @@ Rreshjet: </translation>
     <message>
         <source>Select region</source>
         <translation>Zgjidh Rrethin</translation>
-    </message>
-    <message>
-        <source>Select region</source>
-        <translation>Zgjidh Rrethin</translation>
-    </message>
-    <message>
-        <source>Select region</source>
-        <translation>Zgjidh Rrethin</translation>
-    </message>
-    <message>
-        <source>Select source</source>
-        <translation>Zgjidh burimin</translation>
-    </message>
-    <message>
-        <source>Select source</source>
-        <translation>Zgjidh burimin</translation>
-    </message>
-    <message>
-        <source>Select the X-position for left corner of widget</source>
-        <translation>Zgjidh pozicionin X për këndin e majtë të widget-it</translation>
-    </message>
-    <message>
-        <source>Select the Y-position for left corner of widget</source>
-        <translation>Zgjidh pozicionin Y për këndin e majtë të widget-it</translation>
-    </message>
-    <message>
-        <source>Select the color of font for current temperature</source>
-        <translation>Zgjidh ngjyrën e gërmave për temperaturën e tashme</translation>
-    </message>
-    <message>
-        <source>Select the color of font for station name</source>
-        <translation>Zgjidh ngjyrën e gërmave për emrin e stacionit metereollogjik</translation>
-    </message>
-    <message>
-        <source>Select the color of font for temperature</source>
-        <translation>Zgjidh ngjyrën e gërmave</translation>
     </message>
     <message>
         <source>Select the iconset</source>
@@ -3100,11 +3001,6 @@ Rreshjet: </translation>
         <translation>Sensori</translation>
     </message>
     <message>
-        <source>Serbian - Aleksandar Zaric
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Set</source>
         <translation>Vendos</translation>
     </message>
@@ -3117,8 +3013,8 @@ Rreshjet: </translation>
         <translation>Vendos vëndin</translation>
     </message>
     <message>
-        <source>Settings</source>
-        <translation>Rregullimet</translation>
+        <source>Set locations</source>
+        <translation>Vendos vëndin</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3137,20 +3033,16 @@ Rreshjet: </translation>
         <translation>Rregullimet</translation>
     </message>
     <message>
-        <source>Settings for Lockscreen widget</source>
-        <translation>Rregullimet për widget-in kur ekrani është i bllokuar</translation>
+        <source>Settings</source>
+        <translation>Rregullimet</translation>
     </message>
     <message>
-        <source>Settings for standby widget</source>
-        <translation>Rregullimet për widget.in kur telefoni është në pritje</translation>
+        <source>Settings</source>
+        <translation>Rregullimet</translation>
     </message>
     <message>
-        <source>Settings of LockScreen</source>
-        <translation>Rregullimet kur ekrani është i bllokuar</translation>
-    </message>
-    <message>
-        <source>Settings of StandbyScreen</source>
-        <translation>Rregullimet e Ekranit në Pritje</translation>
+        <source>Settings</source>
+        <translation>Rregullimet</translation>
     </message>
     <message>
         <source>Shallow Fog</source>
@@ -3169,8 +3061,20 @@ Rreshjet: </translation>
         <translation type="unfinished">Përditësimi i fundit: </translation>
     </message>
     <message>
+        <source>Show last update time</source>
+        <translation type="unfinished">Përditësimi i fundit: </translation>
+    </message>
+    <message>
+        <source>Show on Map</source>
+        <translation>Trego në hartë</translation>
+    </message>
+    <message>
         <source>Show only current weather on first icon</source>
         <translation>Trego kohën e tashme tek ikona e parë</translation>
+    </message>
+    <message>
+        <source>Show source logo</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show source logo</source>
@@ -3183,6 +3087,10 @@ Rreshjet: </translation>
     <message>
         <source>Show temperature at:</source>
         <translation>Trego temeperaturën në:</translation>
+    </message>
+    <message>
+        <source>Show wind</source>
+        <translation>Trego erën</translation>
     </message>
     <message>
         <source>Show wind</source>
@@ -3231,16 +3139,6 @@ Rreshjet: </translation>
     <message>
         <source>Sleet Showers</source>
         <translation type="unfinished">Disa stuhira shiu</translation>
-    </message>
-    <message>
-        <source>Slovak - Roman Moravčík
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Slovenian - Boštjan Štrumbelj
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Smoke</source>
@@ -3319,11 +3217,6 @@ Rreshjet: </translation>
         <translation>Burimi:</translation>
     </message>
     <message>
-        <source>Spanish - Alejandro Lopez, Agustí Clara
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Speed</source>
         <translation>Shpejtësia</translation>
     </message>
@@ -3362,14 +3255,6 @@ Rreshjet: </translation>
     <message>
         <source>Speed:</source>
         <translation>Shpejtësia:</translation>
-    </message>
-    <message>
-        <source>Speed:</source>
-        <translation>Shpejtësia:</translation>
-    </message>
-    <message>
-        <source>Splash screen</source>
-        <translation>Dritarja e hapjes</translation>
     </message>
     <message>
         <source>State:</source>
@@ -3432,12 +3317,20 @@ Rreshjet: </translation>
         <translation>Dielli lind në orën:</translation>
     </message>
     <message>
+        <source>Sunrise:</source>
+        <translation>Dielli lind në orën:</translation>
+    </message>
+    <message>
         <source>Sunrise: </source>
         <translation>Dielli lind në orën: </translation>
     </message>
     <message>
         <source>Sunrise: </source>
         <translation>Dielli lind në orën: </translation>
+    </message>
+    <message>
+        <source>Sunset:</source>
+        <translation>Perëndon:</translation>
     </message>
     <message>
         <source>Sunset:</source>
@@ -3458,13 +3351,6 @@ Rreshjet: </translation>
     <message>
         <source>Swap hi/low temperature</source>
         <translation>Ndërro temperaturën e lartë/ e ulët</translation>
-    </message>
-    <message>
-        <source>Swedish - Angela Nennebrandt,
- 	Åke Engelbrektson, 
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Switch to the next station after:</source>
@@ -3523,16 +3409,8 @@ Rreshjet: </translation>
         <translation>Njësia për matjen e temperaturës</translation>
     </message>
     <message>
-        <source>Temperature units</source>
-        <translation>Njësia për matjen e temperaturës</translation>
-    </message>
-    <message>
         <source>Temperature units:</source>
         <translation>Njësitë për matjen e temperaturës:</translation>
-    </message>
-    <message>
-        <source>Temperature:</source>
-        <translation>Temperatura:</translation>
     </message>
     <message>
         <source>Temperature:</source>
@@ -3564,25 +3442,18 @@ Rreshjet: </translation>
     </message>
     <message>
         <source>This software is free software; you can
- redistribute it and/or modify it under 
- the terms of the GNU General Public
- License as published by the Free Software 
- Foundation; either version 2.1 of the 
- License, or (at your option) any 
- later version.</source>
-        <translation>Ky program është falas; ju mund ta shpërndani
+     redistribute it and/or modify it under 
+     the terms of the GNU General Public
+     License as published by the Free Software 
+     Foundation; either version 2.1 of the 
+     License, or (at your option) any 
+     later version.</source>
+        <translation type="unfinished">Ky program është falas; ju mund ta shpërndani
 apo ndryshoni në bazë të GNU General Public
  License siç janë publikuar nga Free Software 
  Foundation; duke filluar nga versioni 2.1 i 
  Liçencës, ose (si ta vendosni ju) ndonjë
 version më të ri.</translation>
-    </message>
-    <message>
-        <source>This software is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
-</source>
-        <translation>Ky program është falas; ju mund ta shpërndani apo ndryshoni në bazë 
-të GNU General Public License
-</translation>
     </message>
     <message>
         <source>Thunder</source>
@@ -3613,18 +3484,24 @@ të GNU General Public License
         <translation>Sot</translation>
     </message>
     <message>
-        <source>Translators</source>
-        <translation>Përkthyesit</translation>
+        <source>Today</source>
+        <translation>Sot</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>Sot</translation>
     </message>
     <message>
         <source>Translators</source>
         <translation>Përkthyesit</translation>
     </message>
     <message>
-        <source>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
-</source>
-        <translation>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
-</translation>
+        <source>Translators</source>
+        <translation>Përkthyesit</translation>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation type="unfinished">Tejduekshmëria:</translation>
     </message>
     <message>
         <source>Transparency</source>
@@ -3649,12 +3526,6 @@ të GNU General Public License
     <message>
         <source>Try to update</source>
         <translation>Provo të përditësosh</translation>
-    </message>
-    <message>
-        <source>Turkish - Burak Kaan Kose,
- 	Mehmet Çilingir
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Type of click:</source>
@@ -3757,12 +3628,20 @@ të GNU General Public License
         <translation>Përditësim</translation>
     </message>
     <message>
+        <source>Update</source>
+        <translation>Përditësim</translation>
+    </message>
+    <message>
         <source>Update already running.</source>
         <translation>Përditësimi është duke u kryer</translation>
     </message>
     <message>
         <source>Update interval</source>
         <translation>Frekuenca e përditësimeve</translation>
+    </message>
+    <message>
+        <source>Updating forecast</source>
+        <translation>Duke përditësuar parashikimet</translation>
     </message>
     <message>
         <source>Updating forecast</source>
@@ -3810,12 +3689,6 @@ për të ndryshuar fotografinë applet</translation>
         <translation>Shumë e lartë</translation>
     </message>
     <message>
-        <source>Vietnamese - Hieu Nguyen
- 	Anh Dương and truongnx, 
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Violent Rain Showers</source>
         <translation type="unfinished">Rreshje të shkurtra shiu</translation>
     </message>
@@ -3826,10 +3699,6 @@ për të ndryshuar fotografinë applet</translation>
     <message>
         <source>Visible items:</source>
         <translation>Artikuj në dukje</translation>
-    </message>
-    <message>
-        <source>Visible units</source>
-        <translation>Njësitë e dukshme</translation>
     </message>
     <message>
         <source>Visible units</source>
@@ -3924,24 +3793,8 @@ për të ndryshuar fotografinë applet</translation>
         <translation>Të dhënat mbi motin mundësohen nga:</translation>
     </message>
     <message>
-        <source>Weather forecast for the Meego. Version </source>
-        <translation>Parashikime moti për MeeGo-në. Versioni </translation>
-    </message>
-    <message>
         <source>Widget OMWeather is reloading</source>
         <translation>Widget OMWeather po riniset</translation>
-    </message>
-    <message>
-        <source>Widget in LockScreen</source>
-        <translation>Widget në Ekranin e bllokuar</translation>
-    </message>
-    <message>
-        <source>Widget in StandbyScreen</source>
-        <translation>Widget në Ekranin në Pritje</translation>
-    </message>
-    <message>
-        <source>Widget in events view</source>
-        <translation>Widget në faqen e lajmeve</translation>
     </message>
     <message>
         <source>Widget style</source>
@@ -4024,16 +3877,8 @@ për të ndryshuar fotografinë applet</translation>
         <translation>Njesia matëse për shpejtësinë e erës</translation>
     </message>
     <message>
-        <source>Wind speed units</source>
-        <translation>Njesia matëse për shpejtësinë e erës</translation>
-    </message>
-    <message>
         <source>Wind speed units:</source>
         <translation>Njesia matëse për shpejtësinë e erës:</translation>
-    </message>
-    <message>
-        <source>Wind:</source>
-        <translation>Era:</translation>
     </message>
     <message>
         <source>Wind:</source>
@@ -4102,37 +3947,12 @@ ose kodi postar!!!</translation>
         <translation>Mund të bëni ofertën tuaj këtu: </translation>
     </message>
     <message>
-        <source>You should activate 
-&apos;Widget in events view&apos;
- for using LockScreen widget</source>
-        <translation>Duhet të aktivizioni
-&quot;Widget in events view&quot; (widget-i në faqen e lajmeve)
-për të përdorur widget-in në faqen e Ekranit të bllokuar</translation>
-    </message>
-    <message>
-        <source>You should activate 
-&apos;Widget in events view&apos;
- for using StandbyScreen widget</source>
-        <translation>Duhet të aktivizioni
-&quot;Widget in events view&quot; (widget-i në faqen e lajmeve)
-për të parë widget-in në ekranin e fikur</translation>
-    </message>
-    <message>
-        <source>You should activate &apos;Widget in the events view&apos; option in MeeCast appearance settings for auto update.</source>
-        <translation>Duhet të aktivizioni
-&quot;Widget in events view&quot; (widget-i në faqen e lajmeve) në rregullimet e MeeCast që të aktivizoni vetëpërditësimet.</translation>
-    </message>
-    <message>
         <source>Zoom in popup window </source>
         <translation>Zmadhoje në një dritare flluckë</translation>
     </message>
     <message>
         <source>Zooming in popup window</source>
         <translation>Po e zmadhoj në një dritare flluckë</translation>
-    </message>
-    <message>
-        <source>as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</source>
-        <translation>në bazë të Free Software Foundation; nga versioni 2.1 të Liçencës, ose (po të doni) më të ri.</translation>
     </message>
     <message>
         <source>current location local time</source>
@@ -4237,10 +4057,6 @@ për të parë widget-in në ekranin e fikur</translation>
     <message>
         <source>inch</source>
         <translation>inç</translation>
-    </message>
-    <message>
-        <source>kPa</source>
-        <translation type="unfinished">Pa</translation>
     </message>
     <message>
         <source>km</source>
@@ -4429,6 +4245,10 @@ për të parë widget-in në ekranin e fikur</translation>
     <message>
         <source>minutes ago</source>
         <translation>minuta më parë</translation>
+    </message>
+    <message>
+        <source>mm</source>
+        <translation>mm</translation>
     </message>
     <message>
         <source>mm</source>

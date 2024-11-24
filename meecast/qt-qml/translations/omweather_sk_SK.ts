@@ -122,6 +122,197 @@ W: </source>
 Viet.: </translation>
     </message>
     <message>
+        <source>    Albanian - Ilir Gjika
+</source>
+        <translation type="unfinished">Albánčina - Ilir Gjika
+</translation>
+    </message>
+    <message>
+        <source>    Arabic - Tarad Alfandi
+</source>
+        <translation type="unfinished">Arabčina - Tarad Alfandi
+</translation>
+    </message>
+    <message>
+        <source>    Bulgarian - Zlatko Enikov
+</source>
+        <translation type="unfinished">Bulharčina - Zlatko Enikov
+</translation>
+    </message>
+    <message>
+        <source>    Catalan - Agustí Clara
+</source>
+        <translation type="unfinished">Catalánčina - Agustí Clara
+</translation>
+    </message>
+    <message>
+        <source>    Chinese - Wong Man Kong, Michael,
+     	gwmgdemj
+</source>
+        <translation type="unfinished">Čínština - Wong Man Kong, Michael,
+ 	gwmgdemj
+</translation>
+    </message>
+    <message>
+        <source>    Chinese(Taiwan) - osk2, 
+</source>
+        <translation type="unfinished">Čínština (Taiwan) - osk2, 
+</translation>
+    </message>
+    <message>
+        <source>    Czech - Jakub Kožíšek, Pavel Šrubař
+</source>
+        <translation type="unfinished">Čeština - Jakub Kožíšek, Pavel Šrubař
+</translation>
+    </message>
+    <message>
+        <source>    Danish - Peter Jespersen
+</source>
+        <translation type="unfinished">Dánčina - Peter Jespersen
+</translation>
+    </message>
+    <message>
+        <source>    Dutch - Tom Leenders, Michiel Pater
+     	Heimen Stoffels, Nathan Follens
+</source>
+        <translation type="unfinished">Holandčina - Tom Leenders, Michiel Pater
+ 	Heimen Stoffels, Nathan Follens
+</translation>
+    </message>
+    <message>
+        <source>    Finnish - Marko Vertainen,
+    	deadhead (A-P Partonen),
+     	jarliim
+</source>
+        <translation type="unfinished">Fínčina - Marko Vertainen,
+	deadhead (A-P Partonen),
+ 	jarliim
+</translation>
+    </message>
+    <message>
+        <source>    French -  Nicolas Granziano, 
+     	Philippe, Benot Knecht, 
+     	Quentin Caillard, 
+     	Jordi
+</source>
+        <translation type="unfinished">Francúzština -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard, 
+ 	Jordi
+</translation>
+    </message>
+    <message>
+        <source>    Galician - pakoR
+</source>
+        <translation type="unfinished">Galícijsky - pakoR
+</translation>
+    </message>
+    <message>
+        <source>    German -  Claudius Henrichs,
+     	Jens Klingen,
+     	DeadHorseRiding
+ </source>
+        <translation type="unfinished">Nemčina -  Claudius Henrichs,
+ 	Jens Klingen,
+ 	DeadHorseRiding
+ </translation>
+    </message>
+    <message>
+        <source>    Hungarian - Salmi, László Kara
+</source>
+        <translation type="unfinished">Maďarčina - Salmi, László Kara
+</translation>
+    </message>
+    <message>
+        <source>    Italian - Lorenzo Facca,
+     	Pavel Fialko, Alessandro Pasotti,
+     	Salvatore Fiorenzo, Ilir Gjika,
+     	Luca Onnis
+</source>
+        <translation type="unfinished">Taliančina - Lorenzo Facca,
+ 	Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+</translation>
+    </message>
+    <message>
+        <source>    Norwegian - Peer-Atle Motland
+</source>
+        <translation type="unfinished">Nórčina - Peer-Atle Motland
+</translation>
+    </message>
+    <message>
+        <source>    Polish - Tomasz Dominikowski
+</source>
+        <translation type="unfinished">Poľština - Tomasz Dominikowski
+</translation>
+    </message>
+    <message>
+        <source>    Portuguese - Jose Narciso,
+</source>
+        <translation type="unfinished">Portugalčina - Jose Narciso,
+</translation>
+    </message>
+    <message>
+        <source>    Russian - Pavel Fialko, Vlad Vasilyeu, 
+     	Ed Bartosh
+</source>
+        <translation type="unfinished">Ruština - Pavel Fialko, Vlad Vasilyeu, 
+ 	Ed Bartosh
+</translation>
+    </message>
+    <message>
+        <source>    Serbian - Aleksandar Zaric
+</source>
+        <translation type="unfinished">Srbčina - Aleksandar Zaric
+</translation>
+    </message>
+    <message>
+        <source>    Slovak - Roman Moravčík
+</source>
+        <translation type="unfinished">Slovenčina - Roman Moravčík
+Ladislav Hodas
+</translation>
+    </message>
+    <message>
+        <source>    Slovenian - Boštjan Štrumbelj
+</source>
+        <translation type="unfinished">Slovinčina - Boštjan Štrumbelj
+</translation>
+    </message>
+    <message>
+        <source>    Spanish - Alejandro Lopez, Agustí Clara
+</source>
+        <translation type="unfinished">Španielčina - Alejandro Lopez, Agustí Clara
+</translation>
+    </message>
+    <message>
+        <source>    Swedish - Angela Nennebrandt,
+     	Åke Engelbrektson, 
+     	Niklas Åkerström, 
+     	Tomislav Veleckovik</source>
+        <translation type="unfinished">Švédčina - Angela Nennebrandt,
+ 	Åke Engelbrektson, 
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</translation>
+    </message>
+    <message>
+        <source>    Turkish - Burak Kaan Kose,
+     	Mehmet Çilingir
+</source>
+        <translation type="unfinished">Turečtina - Burak Kaan Kose,
+ 	Mehmet Çilingir
+</translation>
+    </message>
+    <message>
+        <source>    Vietnamese - Hieu Nguyen
+     	Anh Dương and truongnx, 
+</source>
+        <translation type="unfinished">Vietnamčina - Hieu Nguyen
+ 	Anh Dương and truongnx, 
+</translation>
+    </message>
+    <message>
         <source>(Low)</source>
         <translation>(Nízka)</translation>
     </message>
@@ -172,10 +363,6 @@ Viet.: </translation>
     <message>
         <source>10 seconds</source>
         <translation>10 sekúnd</translation>
-    </message>
-    <message>
-        <source>12 hours</source>
-        <translation>12 hodín</translation>
     </message>
     <message>
         <source>15 minutes</source>
@@ -402,14 +589,8 @@ Viet.: </translation>
         <translation>Pridať stanicu</translation>
     </message>
     <message>
-        <source>Adjust GPS station</source>
-        <translation>Nastaviť stanicu podľa GPS</translation>
-    </message>
-    <message>
-        <source>Albanian - Ilir Gjika
-</source>
-        <translation>Albánčina - Ilir Gjika
-</translation>
+        <source>Add Station</source>
+        <translation>Pridať stanicu</translation>
     </message>
     <message>
         <source>Alerts</source>
@@ -458,22 +639,6 @@ Eric Link - žiadanie nových funkcií a dary
         <translation>Vzhľad</translation>
     </message>
     <message>
-        <source>Application manager will now start
-for installing package &apos;MeeCast applet&apos;.
-You should uninstall AccuWeather 
-before installing this package</source>
-        <translation>Správca aplikácii teraz začne inštaláciu
-balíka &apos;MeeCast applet&apos;.
-Pred inštaláciou tohto balíka 
-by ste mali odinštalovať AccuWeather</translation>
-    </message>
-    <message>
-        <source>Arabic - Tarad Alfandi
-</source>
-        <translation>Arabčina - Tarad Alfandi
-</translation>
-    </message>
-    <message>
         <source>Are you sure to want delete this station ?</source>
         <translation>Ste si istý že chcete odstrániť túto stanicu?</translation>
     </message>
@@ -493,12 +658,6 @@ Správca: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Dokumentácia: Marko Vertainen
 Návrh používateľského rozhrania a implicitný súbor ikon: Andrew Zhilin
 Návrh používateľského rozhrania pre Fremantle: Krebber Jan Niemela Ulla
-</translation>
-    </message>
-    <message>
-        <source>Author and maintenance: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
-</source>
-        <translation>Autor a správca: Vlad Vasiliev, &lt;vlad@gas.by&gt;
 </translation>
     </message>
     <message>
@@ -548,12 +707,6 @@ Návrh používateľského rozhrania pre Fremantle: Krebber Jan Niemela Ulla
     <message>
         <source>Broken clouds</source>
         <translation>Rozpadajúce oblaky</translation>
-    </message>
-    <message>
-        <source>Bulgarian - Zlatko Enikov
-</source>
-        <translation>Bulharčina - Zlatko Enikov
-</translation>
     </message>
     <message>
         <source>C</source>
@@ -608,19 +761,9 @@ Návrh používateľského rozhrania pre Fremantle: Krebber Jan Niemela Ulla
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Zrušiť</translation>
-    </message>
-    <message>
         <source>Cannot get path to the HOME directory. Quitting.
 </source>
         <translation>Nie je možné získať cestu k domovskému priečinku. Ukončovanie.
-</translation>
-    </message>
-    <message>
-        <source>Catalan - Agustí Clara
-</source>
-        <translation>Catalánčina - Agustí Clara
 </translation>
     </message>
     <message>
@@ -630,20 +773,6 @@ Návrh používateľského rozhrania pre Fremantle: Krebber Jan Niemela Ulla
     <message>
         <source>Celsius</source>
         <translation>Celzius</translation>
-    </message>
-    <message>
-        <source>Chinese - Wong Man Kong, Michael,
- 	gwmgdemj
-</source>
-        <translation>Čínština - Wong Man Kong, Michael,
- 	gwmgdemj
-</translation>
-    </message>
-    <message>
-        <source>Chinese(Taiwan) - osk2, 
-</source>
-        <translation>Čínština (Taiwan) - osk2, 
-</translation>
     </message>
     <message>
         <source>City</source>
@@ -822,14 +951,12 @@ Návrh používateľského rozhrania pre Fremantle: Krebber Jan Niemela Ulla
         <translation>Zamračené, búrky</translation>
     </message>
     <message>
-        <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
-        <translation>Copyright(c) 2006-2011 Vlad Vasilyeu a Pavel Fialko, </translation>
+        <source>Co-administrator and contributor</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Copyright(c) 2010-2011 by Tanya Makova
-</source>
-        <translation>Copyright(c) 2010-2011 Tanya Makova
-</translation>
+        <source>Co-administrator and contributor</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Could not connecting to Internet.
@@ -872,26 +999,6 @@ Spojenie vypršalo.</translation>
         <translation>Vlastné</translation>
     </message>
     <message>
-        <source>Czech - Jakub Kožíšek, Pavel Šrubař
-</source>
-        <translation>Čeština - Jakub Kožíšek, Pavel Šrubař
-</translation>
-    </message>
-    <message>
-        <source>Daily</source>
-        <translation>Denne</translation>
-    </message>
-    <message>
-        <source>Danish - Peter Jespersen
-</source>
-        <translation>Dánčina - Peter Jespersen
-</translation>
-    </message>
-    <message>
-        <source>Day</source>
-        <translation>Deň</translation>
-    </message>
-    <message>
         <source>Day</source>
         <translation>Deň</translation>
     </message>
@@ -916,10 +1023,8 @@ Spojenie vypršalo.</translation>
         <translation>Odstrániť miesto?</translation>
     </message>
     <message>
-        <source>Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
-</source>
-        <translation>Návrh používateľského rozhrania a predvolenej témy ikon: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
-</translation>
+        <source>Delete location?</source>
+        <translation>Odstrániť miesto?</translation>
     </message>
     <message>
         <source>Detailed</source>
@@ -1012,14 +1117,6 @@ s balíčkov &apos;omweather-*-stations-db&apos; nebol nainštalovaný.</transla
         <translation>Neskôr mrholenie</translation>
     </message>
     <message>
-        <source>Dutch - Tom Leenders, Michiel Pater
- 	Heimen Stoffels, Nathan Follens
-</source>
-        <translation>Holandčina - Tom Leenders, Michiel Pater
- 	Heimen Stoffels, Nathan Follens
-</translation>
-    </message>
-    <message>
         <source>E</source>
         <translation>V</translation>
     </message>
@@ -1080,8 +1177,8 @@ Brad Jones aka kazrak - testovanie
         <translation>Povoliť GPS</translation>
     </message>
     <message>
-        <source>Enter search</source>
-        <translation>Hľadať</translation>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error</source>
@@ -1238,22 +1335,6 @@ Brad Jones aka kazrak - testovanie
         <translation>Nájsť miesto pomocou GPS</translation>
     </message>
     <message>
-        <source>Finnish - Marko Vertainen,
-	deadhead (A-P Partonen),
- 	jarliim
-</source>
-        <translation>Fínčina - Marko Vertainen,
-	deadhead (A-P Partonen),
- 	jarliim
-</translation>
-    </message>
-    <message>
-        <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
-</source>
-        <translation>Fínčina - Marko Vertainen; Nemčina - Claudius Henrichs; Španielčina - Alejandro Lopez; Holandčina - Tom Leenders; Slovenčina - Roman Moravčík
-</translation>
-    </message>
-    <message>
         <source>First Quarter</source>
         <translation>Prvá štvrtina</translation>
     </message>
@@ -1306,16 +1387,6 @@ Brad Jones aka kazrak - testovanie
         <translation>Písmo:</translation>
     </message>
     <message>
-        <source>For disabling MeeCast widget,
-you should uninstall package
-&apos;Activating MeeCast Applet&apos;
-using Application manager</source>
-        <translation>Pre vypnutie miniatúry MeeCast
-by ste mali odinštalovať balík
-&apos;Activating MeeCast Applet&apos;
-pomocou Správcu aplikácií</translation>
-    </message>
-    <message>
         <source>Forecast</source>
         <translation>Predpoveď</translation>
     </message>
@@ -1340,18 +1411,6 @@ pomocou Správcu aplikácií</translation>
     <message>
         <source>Freezing Rain</source>
         <translation>Mrznúci dážď</translation>
-    </message>
-    <message>
-        <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht, 
- 	Quentin Caillard, 
- 	Jordi
-</source>
-        <translation>Francúzština -  Nicolas Granziano, 
- 	Philippe, Benot Knecht, 
- 	Quentin Caillard, 
- 	Jordi
-</translation>
     </message>
     <message>
         <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1382,10 +1441,6 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>Úplná predpoveď</translation>
     </message>
     <message>
-        <source>Fullscreen mode</source>
-        <translation>Celoobrazovkový režim</translation>
-    </message>
-    <message>
         <source>G: </source>
         <translation>Nar.: </translation>
     </message>
@@ -1412,26 +1467,6 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
     <message>
         <source>GUI|Clear</source>
         <translation>Vymazať</translation>
-    </message>
-    <message>
-        <source>Galician - pakoR
-</source>
-        <translation>Galícijsky - pakoR
-</translation>
-    </message>
-    <message>
-        <source>German -  Claudius Henrichs,
- 	Jens Klingen,
- 	DeadHorseRiding
- </source>
-        <translation>Nemčina -  Claudius Henrichs,
- 	Jens Klingen,
- 	DeadHorseRiding
- </translation>
-    </message>
-    <message>
-        <source>Grzanka&apos;s Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
-        <translation>Grzankova téma ikon: Copyright 2005 Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</translation>
     </message>
     <message>
         <source>Gust:</source>
@@ -1558,16 +1593,6 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>Vlhkosť:</translation>
     </message>
     <message>
-        <source>Humidity:</source>
-        <translation>Vlhkosť:</translation>
-    </message>
-    <message>
-        <source>Hungarian - Salmi, László Kara
-</source>
-        <translation>Maďarčina - Salmi, László Kara
-</translation>
-    </message>
-    <message>
         <source>Ice Early</source>
         <translation>Námraza</translation>
     </message>
@@ -1588,14 +1613,6 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>Veľkosť ikon:</translation>
     </message>
     <message>
-        <source>Icons</source>
-        <translation>Ikony</translation>
-    </message>
-    <message>
-        <source>Icons</source>
-        <translation>Ikony</translation>
-    </message>
-    <message>
         <source>Iconset</source>
         <translation>Téma ikon</translation>
     </message>
@@ -1610,22 +1627,6 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
     <message>
         <source>Iconsets</source>
         <translation>Témy ikon</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Informácie</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Informácie</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Informácie</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Informácie</translation>
     </message>
     <message>
         <source>Isolated T-Storms</source>
@@ -1634,22 +1635,6 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
     <message>
         <source>Isolated T-Storms / Wind</source>
         <translation>Občasné búrky/vietor</translation>
-    </message>
-    <message>
-        <source>Italian - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
-</source>
-        <translation>Taliančina - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
-</translation>
-    </message>
-    <message>
-        <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
-        <translation>Taliančina - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Poľština - Tomasz Dominikowski; Bulharčina - Zlatko Enikov</translation>
     </message>
     <message>
         <source>Kilometers</source>
@@ -1678,6 +1663,18 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
     <message>
         <source>Last update from server: </source>
         <translation>Posledná aktualizácia zo servera: </translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Posledná aktualizácia:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Posledná aktualizácia:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Posledná aktualizácia:</translation>
     </message>
     <message>
         <source>Last update:</source>
@@ -1872,6 +1869,10 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>Žiadne údaje o počasí pre toto miesto.</translation>
     </message>
     <message>
+        <source>Looks like there&apos;s no info for this location.</source>
+        <translation>Žiadne údaje o počasí pre toto miesto.</translation>
+    </message>
+    <message>
         <source>Low</source>
         <translation>Nízké</translation>
     </message>
@@ -1890,12 +1891,6 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
     <message>
         <source>Mainly cloudy, showers</source>
         <translation>Prevažne oblačno, prehánky</translation>
-    </message>
-    <message>
-        <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
-</source>
-        <translation>Správca: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
-</translation>
     </message>
     <message>
         <source>Manage locations</source>
@@ -1918,12 +1913,24 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>MeeCast</translation>
     </message>
     <message>
-        <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
-        <translation>MeeCast - multiplatformový, vysoko-prispôsobivý klient predpovede počasia s otvorenými zdrojmi založený na zdrojovom kóde OMWeather. Copyright (C) 2006-2016</translation>
+        <source>MeeCast</source>
+        <translation>MeeCast</translation>
     </message>
     <message>
-        <source>MeeCast for Harmattan</source>
-        <translation>MeeCast pre Harmattan</translation>
+        <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2024</source>
+        <translation type="unfinished">MeeCast - multiplatformový, vysoko-prispôsobivý klient predpovede počasia s otvorenými zdrojmi založený na zdrojovom kóde OMWeather. Copyright (C) 2006-2016</translation>
+    </message>
+    <message>
+        <source>MeeCast for AuroraOS</source>
+        <translation type="unfinished">MeeCast pre Harmattan</translation>
+    </message>
+    <message>
+        <source>MeeCast for AuroraOS</source>
+        <translation type="unfinished">MeeCast pre Harmattan</translation>
+    </message>
+    <message>
+        <source>MeeCast for SailfishOS</source>
+        <translation type="unfinished">MeeCast pre Harmattan</translation>
     </message>
     <message>
         <source>Meters</source>
@@ -2222,16 +2229,8 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>Nov</translation>
     </message>
     <message>
-        <source>New location</source>
-        <translation>Nové miesto</translation>
-    </message>
-    <message>
         <source>Next update:</source>
         <translation>Ďalšia aktualizácia:</translation>
-    </message>
-    <message>
-        <source>Night</source>
-        <translation>Noc</translation>
     </message>
     <message>
         <source>Night</source>
@@ -2246,12 +2245,20 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>Nie</translation>
     </message>
     <message>
-        <source>No</source>
-        <translation>Nie</translation>
-    </message>
-    <message>
         <source>No current weather data.</source>
         <translation>Žiadne aktuálne údaje o počasí.</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>Žiadne nastavené miesta.</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>Žiadne nastavené miesta.</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>Žiadne nastavené miesta.</translation>
     </message>
     <message>
         <source>No locations are set up yet.</source>
@@ -2272,12 +2279,6 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
     <message>
         <source>No weather data for this station.</source>
         <translation>Žiadne údaje o počasí pre túto stanicu.</translation>
-    </message>
-    <message>
-        <source>Norwegian - Peer-Atle Motland
-</source>
-        <translation>Nórčina - Peer-Atle Motland
-</translation>
     </message>
     <message>
         <source>Now</source>
@@ -2352,10 +2353,6 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>Potvrdiť</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation>Potvrdiť</translation>
-    </message>
-    <message>
         <source>OMWeather Forecast</source>
         <translation>Predpoveď OMWeather</translation>
     </message>
@@ -2374,18 +2371,6 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
     <message>
         <source>OMWeather settings</source>
         <translation>Nastavenie OMWeather</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>Potvrdiť</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>Potvrdiť</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>Potvrdiť</translation>
     </message>
     <message>
         <source>Other Maemo Weather Info</source>
@@ -2520,6 +2505,10 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>Popoludní búrky</translation>
     </message>
     <message>
+        <source>Pa</source>
+        <translation type="unfinished">kPa</translation>
+    </message>
+    <message>
         <source>Partly Cloudy</source>
         <translation>Polooblačno</translation>
     </message>
@@ -2644,18 +2633,6 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>Perióda</translation>
     </message>
     <message>
-        <source>Polish - Tomasz Dominikowski
-</source>
-        <translation>Poľština - Tomasz Dominikowski
-</translation>
-    </message>
-    <message>
-        <source>Portuguese - Jose Narciso,
-</source>
-        <translation>Portugalčina - Jose Narciso,
-</translation>
-    </message>
-    <message>
         <source>Position:</source>
         <translation>Poloha:</translation>
     </message>
@@ -2716,16 +2693,8 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>Jednotky tlaku</translation>
     </message>
     <message>
-        <source>Pressure units</source>
-        <translation>Jednotky tlaku</translation>
-    </message>
-    <message>
         <source>Pressure units:</source>
         <translation>Jednotky tlaku:</translation>
-    </message>
-    <message>
-        <source>Pressure:</source>
-        <translation>Tlak:</translation>
     </message>
     <message>
         <source>Pressure:</source>
@@ -2760,16 +2729,12 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>Programátor</translation>
     </message>
     <message>
-        <source>Project administrators</source>
-        <translation>Správca projektu</translation>
+        <source>Project administrator</source>
+        <translation type="unfinished">Správca projektu</translation>
     </message>
     <message>
         <source>Project manager</source>
         <translation>Vedúci projektu</translation>
-    </message>
-    <message>
-        <source>Provided by</source>
-        <translation>Poskytuje</translation>
     </message>
     <message>
         <source>Proximity shower rain</source>
@@ -2888,6 +2853,14 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>Obnoviť</translation>
     </message>
     <message>
+        <source>Refresh</source>
+        <translation>Obnoviť</translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation>Obnoviť</translation>
+    </message>
+    <message>
         <source>Region</source>
         <translation>Región</translation>
     </message>
@@ -2902,14 +2875,6 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
     <message>
         <source>Rush Hour Traffic</source>
         <translation>Dopravná špička</translation>
-    </message>
-    <message>
-        <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
- 	Ed Bartosh
-</source>
-        <translation>Ruština - Pavel Fialko, Vlad Vasilyeu, 
- 	Ed Bartosh
-</translation>
     </message>
     <message>
         <source>S</source>
@@ -3012,22 +2977,6 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>Hľadať</translation>
     </message>
     <message>
-        <source>Select city</source>
-        <translation>Zvoľte mesto</translation>
-    </message>
-    <message>
-        <source>Select city</source>
-        <translation>Zvoľte mesto</translation>
-    </message>
-    <message>
-        <source>Select country</source>
-        <translation>Zvoľte krajinu</translation>
-    </message>
-    <message>
-        <source>Select country</source>
-        <translation>Zvoľte krajinu</translation>
-    </message>
-    <message>
         <source>Select country</source>
         <translation>Zvoľte krajinu</translation>
     </message>
@@ -3042,42 +2991,6 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
     <message>
         <source>Select region</source>
         <translation>Zvoľte región</translation>
-    </message>
-    <message>
-        <source>Select region</source>
-        <translation>Zvoľte región</translation>
-    </message>
-    <message>
-        <source>Select region</source>
-        <translation>Zvoľte región</translation>
-    </message>
-    <message>
-        <source>Select source</source>
-        <translation>Zvoľte zdroj</translation>
-    </message>
-    <message>
-        <source>Select source</source>
-        <translation>Zvoľte zdroj</translation>
-    </message>
-    <message>
-        <source>Select the X-position for left corner of widget</source>
-        <translation>Zvoľte pozíciu X pre ľavý roh miniatúry</translation>
-    </message>
-    <message>
-        <source>Select the Y-position for left corner of widget</source>
-        <translation>Zvoľte pozíciu Y pre ľavý roh miniatúry</translation>
-    </message>
-    <message>
-        <source>Select the color of font for current temperature</source>
-        <translation>Zvoľte farbu písma pre súčasnú teplotu</translation>
-    </message>
-    <message>
-        <source>Select the color of font for station name</source>
-        <translation>Zvoľte farbu písma pre názov stanice</translation>
-    </message>
-    <message>
-        <source>Select the color of font for temperature</source>
-        <translation>Zvoľte farbu písma pre teplotu</translation>
     </message>
     <message>
         <source>Select the iconset</source>
@@ -3124,12 +3037,6 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>Snímač</translation>
     </message>
     <message>
-        <source>Serbian - Aleksandar Zaric
-</source>
-        <translation>Srbčina - Aleksandar Zaric
-</translation>
-    </message>
-    <message>
         <source>Set</source>
         <translation>Nast.</translation>
     </message>
@@ -3142,8 +3049,8 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>Nastaviť miesta</translation>
     </message>
     <message>
-        <source>Settings</source>
-        <translation>Nastavenie</translation>
+        <source>Set locations</source>
+        <translation>Nastaviť miesta</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3162,20 +3069,16 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>Nastavenie</translation>
     </message>
     <message>
-        <source>Settings for Lockscreen widget</source>
-        <translation>Nastavenia pre mini-aplikáciu zamknutej obrazovky</translation>
+        <source>Settings</source>
+        <translation>Nastavenie</translation>
     </message>
     <message>
-        <source>Settings for standby widget</source>
-        <translation>Nastavenia pre pohotovostnú mini-aplikáciu</translation>
+        <source>Settings</source>
+        <translation>Nastavenie</translation>
     </message>
     <message>
-        <source>Settings of LockScreen</source>
-        <translation>Nastavenia pre uzamknutú obrazovku</translation>
-    </message>
-    <message>
-        <source>Settings of StandbyScreen</source>
-        <translation>Nastavenie pohotovostnej obazovky</translation>
+        <source>Settings</source>
+        <translation>Nastavenie</translation>
     </message>
     <message>
         <source>Shallow Fog</source>
@@ -3194,8 +3097,20 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>Zobraziť čas poslednej aktualizácie</translation>
     </message>
     <message>
+        <source>Show last update time</source>
+        <translation>Zobraziť čas poslednej aktualizácie</translation>
+    </message>
+    <message>
+        <source>Show on Map</source>
+        <translation>Zobraziť na mape</translation>
+    </message>
+    <message>
         <source>Show only current weather on first icon</source>
         <translation>Zobraziť aktuálne počasie iba na prvej ikone</translation>
+    </message>
+    <message>
+        <source>Show source logo</source>
+        <translation>Zobraziť zdrojové logo</translation>
     </message>
     <message>
         <source>Show source logo</source>
@@ -3208,6 +3123,10 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
     <message>
         <source>Show temperature at:</source>
         <translation>Zobraziť teplotu v:</translation>
+    </message>
+    <message>
+        <source>Show wind</source>
+        <translation>Zobraziť vietor</translation>
     </message>
     <message>
         <source>Show wind</source>
@@ -3256,19 +3175,6 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
     <message>
         <source>Sleet Showers</source>
         <translation>Dažďové prehánky so snehom</translation>
-    </message>
-    <message>
-        <source>Slovak - Roman Moravčík
-</source>
-        <translation>Slovenčina - Roman Moravčík
-Ladislav Hodas
-</translation>
-    </message>
-    <message>
-        <source>Slovenian - Boštjan Štrumbelj
-</source>
-        <translation>Slovinčina - Boštjan Štrumbelj
-</translation>
     </message>
     <message>
         <source>Smoke</source>
@@ -3347,12 +3253,6 @@ Ladislav Hodas
         <translation>Zdroj:</translation>
     </message>
     <message>
-        <source>Spanish - Alejandro Lopez, Agustí Clara
-</source>
-        <translation>Španielčina - Alejandro Lopez, Agustí Clara
-</translation>
-    </message>
-    <message>
         <source>Speed</source>
         <translation>Rychlosť</translation>
     </message>
@@ -3391,14 +3291,6 @@ Ladislav Hodas
     <message>
         <source>Speed:</source>
         <translation>Rýchlosť:</translation>
-    </message>
-    <message>
-        <source>Speed:</source>
-        <translation>Rýchlosť:</translation>
-    </message>
-    <message>
-        <source>Splash screen</source>
-        <translation>Úvodná obrazovka</translation>
     </message>
     <message>
         <source>State:</source>
@@ -3461,12 +3353,20 @@ Ladislav Hodas
         <translation>Východ:</translation>
     </message>
     <message>
+        <source>Sunrise:</source>
+        <translation>Východ:</translation>
+    </message>
+    <message>
         <source>Sunrise: </source>
         <translation>Východ: </translation>
     </message>
     <message>
         <source>Sunrise: </source>
         <translation>Východ: </translation>
+    </message>
+    <message>
+        <source>Sunset:</source>
+        <translation>Západ:</translation>
     </message>
     <message>
         <source>Sunset:</source>
@@ -3487,16 +3387,6 @@ Ladislav Hodas
     <message>
         <source>Swap hi/low temperature</source>
         <translation>Zameniť vysokú/nízku teplotu</translation>
-    </message>
-    <message>
-        <source>Swedish - Angela Nennebrandt,
- 	Åke Engelbrektson, 
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</source>
-        <translation>Švédčina - Angela Nennebrandt,
- 	Åke Engelbrektson, 
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</translation>
     </message>
     <message>
         <source>Switch to the next station after:</source>
@@ -3555,16 +3445,8 @@ Ladislav Hodas
         <translation>Teplota</translation>
     </message>
     <message>
-        <source>Temperature units</source>
-        <translation>Teplota</translation>
-    </message>
-    <message>
         <source>Temperature units:</source>
         <translation>Jednotky teploty:</translation>
-    </message>
-    <message>
-        <source>Temperature:</source>
-        <translation>Teplota:</translation>
     </message>
     <message>
         <source>Temperature:</source>
@@ -3596,25 +3478,19 @@ Ladislav Hodas
     </message>
     <message>
         <source>This software is free software; you can
- redistribute it and/or modify it under 
- the terms of the GNU General Public
- License as published by the Free Software 
- Foundation; either version 2.1 of the 
- License, or (at your option) any 
- later version.</source>
-        <translation>Tento softvér je slobodný softvér; môžete
+     redistribute it and/or modify it under 
+     the terms of the GNU General Public
+     License as published by the Free Software 
+     Foundation; either version 2.1 of the 
+     License, or (at your option) any 
+     later version.</source>
+        <translation type="unfinished">Tento softvér je slobodný softvér; môžete
  ho ďalej šíriť a/alebo upravovať podľa
  ustanovení Všeobecnej verejnej licencie
  GNU tak, ako bola vydaná organizáciou
  Free Software Foundation, a to buď verzie 2
  tejto licencie, alebo (podľa vášho uváženia)
  ktorejkoľvek neskoršej verzie.</translation>
-    </message>
-    <message>
-        <source>This software is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
-</source>
-        <translation>Tento softvér je slobodný softvér; môžete ho ďalej šíriť a/alebo upravovať podľa ustanovení Všeobecnej verejnej licencie GNU
-</translation>
     </message>
     <message>
         <source>Thunder</source>
@@ -3645,18 +3521,24 @@ Ladislav Hodas
         <translation>Dnes</translation>
     </message>
     <message>
-        <source>Translators</source>
-        <translation>Prekladatelia</translation>
+        <source>Today</source>
+        <translation>Dnes</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>Dnes</translation>
     </message>
     <message>
         <source>Translators</source>
         <translation>Prekladatelia</translation>
     </message>
     <message>
-        <source>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
-</source>
-        <translation>Prekladatelia: Francúzština - Nicolas Granziano, Philippe, Benot Knecht; Ruština - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
-</translation>
+        <source>Translators</source>
+        <translation>Prekladatelia</translation>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation>Priehľadnosť</translation>
     </message>
     <message>
         <source>Transparency</source>
@@ -3681,14 +3563,6 @@ Ladislav Hodas
     <message>
         <source>Try to update</source>
         <translation>Skúste aktualizovať</translation>
-    </message>
-    <message>
-        <source>Turkish - Burak Kaan Kose,
- 	Mehmet Çilingir
-</source>
-        <translation>Turečtina - Burak Kaan Kose,
- 	Mehmet Çilingir
-</translation>
     </message>
     <message>
         <source>Type of click:</source>
@@ -3791,12 +3665,20 @@ Ladislav Hodas
         <translation>Aktualizácia</translation>
     </message>
     <message>
+        <source>Update</source>
+        <translation>Aktualizácia</translation>
+    </message>
+    <message>
         <source>Update already running.</source>
         <translation>Aktualizácia práve prebieha.</translation>
     </message>
     <message>
         <source>Update interval</source>
         <translation>Interval aktualizácie</translation>
+    </message>
+    <message>
+        <source>Updating forecast</source>
+        <translation>Aktualizujem údaje o počasí</translation>
     </message>
     <message>
         <source>Updating forecast</source>
@@ -3845,14 +3727,6 @@ zovanie informácií o počasí.
         <translation>Veľmi vysoké</translation>
     </message>
     <message>
-        <source>Vietnamese - Hieu Nguyen
- 	Anh Dương and truongnx, 
-</source>
-        <translation>Vietnamčina - Hieu Nguyen
- 	Anh Dương and truongnx, 
-</translation>
-    </message>
-    <message>
         <source>Violent Rain Showers</source>
         <translation>Prudké dažďové prehánky</translation>
     </message>
@@ -3863,10 +3737,6 @@ zovanie informácií o počasí.
     <message>
         <source>Visible items:</source>
         <translation>Viditeľné položky:</translation>
-    </message>
-    <message>
-        <source>Visible units</source>
-        <translation>Viditeľné jednotky</translation>
     </message>
     <message>
         <source>Visible units</source>
@@ -3961,24 +3831,8 @@ zovanie informácií o počasí.
         <translation>Údaje o počasí poskytol: </translation>
     </message>
     <message>
-        <source>Weather forecast for the Meego. Version </source>
-        <translation>Predpoveď počasia pre Meego. Verzia </translation>
-    </message>
-    <message>
         <source>Widget OMWeather is reloading</source>
         <translation>Miniatúra OMWeather sa znovu načítava</translation>
-    </message>
-    <message>
-        <source>Widget in LockScreen</source>
-        <translation>Miniatúra na zamknutej obrazovke</translation>
-    </message>
-    <message>
-        <source>Widget in StandbyScreen</source>
-        <translation>Widget na pohotovostnom displeji</translation>
-    </message>
-    <message>
-        <source>Widget in events view</source>
-        <translation>Widget na úvodnom displeji</translation>
     </message>
     <message>
         <source>Widget style</source>
@@ -4061,16 +3915,8 @@ zovanie informácií o počasí.
         <translation>Rýchlosti vetra</translation>
     </message>
     <message>
-        <source>Wind speed units</source>
-        <translation>Rýchlosti vetra</translation>
-    </message>
-    <message>
         <source>Wind speed units:</source>
         <translation>Jednotky rýchlosti vetra:</translation>
-    </message>
-    <message>
-        <source>Wind:</source>
-        <translation>Vietor:</translation>
     </message>
     <message>
         <source>Wind:</source>
@@ -4139,37 +3985,12 @@ ale ZIP kód!!!</translation>
         <translation>Darovanie môžete uskutočniť tu:</translation>
     </message>
     <message>
-        <source>You should activate 
-&apos;Widget in events view&apos;
- for using LockScreen widget</source>
-        <translation>Môžete zapnúť
-Miniatúru v Prehľade udalostí
-pre zobrazenie na zamknutej obrazovke</translation>
-    </message>
-    <message>
-        <source>You should activate 
-&apos;Widget in events view&apos;
- for using StandbyScreen widget</source>
-        <translation>Mali by ste povoliť 
-&apos;Widget na úvodnom displeji&apos;
- pre použitie widgetu 
-na pohotovostnom displeji</translation>
-    </message>
-    <message>
-        <source>You should activate &apos;Widget in the events view&apos; option in MeeCast appearance settings for auto update.</source>
-        <translation>Mali by ste povoliť voľbu &apos;Widget na úvodnom displeji&apos; v nastavení vzhľadu pre automatické aktualizovanie.</translation>
-    </message>
-    <message>
         <source>Zoom in popup window </source>
         <translation>Priblíženie v pop-ovom okne</translation>
     </message>
     <message>
         <source>Zooming in popup window</source>
         <translation>Približovanie v pop-ovom okne</translation>
-    </message>
-    <message>
-        <source>as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</source>
-        <translation>tak, ako bola vydaná organizáciou Free Software Foundation, a to buď verzie 2 tejto licencie, alebo (podľa vášho uváženia) ktorejkoľvek neskoršej verzie.</translation>
     </message>
     <message>
         <source>current location local time</source>
@@ -4274,10 +4095,6 @@ na pohotovostnom displeji</translation>
     <message>
         <source>inch</source>
         <translation>palec</translation>
-    </message>
-    <message>
-        <source>kPa</source>
-        <translation>kPa</translation>
     </message>
     <message>
         <source>km</source>
@@ -4466,6 +4283,10 @@ na pohotovostnom displeji</translation>
     <message>
         <source>minutes ago</source>
         <translation>pred minútami</translation>
+    </message>
+    <message>
+        <source>mm</source>
+        <translation>mm</translation>
     </message>
     <message>
         <source>mm</source>

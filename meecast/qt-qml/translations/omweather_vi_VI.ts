@@ -122,6 +122,154 @@ W: </source>
 W:</translation>
     </message>
     <message>
+        <source>    Albanian - Ilir Gjika
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Arabic - Tarad Alfandi
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Bulgarian - Zlatko Enikov
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Catalan - Agustí Clara
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Chinese - Wong Man Kong, Michael,
+     	gwmgdemj
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Chinese(Taiwan) - osk2, 
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Czech - Jakub Kožíšek, Pavel Šrubař
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Danish - Peter Jespersen
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Dutch - Tom Leenders, Michiel Pater
+     	Heimen Stoffels, Nathan Follens
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Finnish - Marko Vertainen,
+    	deadhead (A-P Partonen),
+     	jarliim
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    French -  Nicolas Granziano, 
+     	Philippe, Benot Knecht, 
+     	Quentin Caillard, 
+     	Jordi
+</source>
+        <translation type="unfinished">Dịch: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh 
+</translation>
+    </message>
+    <message>
+        <source>    Galician - pakoR
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    German -  Claudius Henrichs,
+     	Jens Klingen,
+     	DeadHorseRiding
+ </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Hungarian - Salmi, László Kara
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Italian - Lorenzo Facca,
+     	Pavel Fialko, Alessandro Pasotti,
+     	Salvatore Fiorenzo, Ilir Gjika,
+     	Luca Onnis
+</source>
+        <translation type="unfinished">Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</translation>
+    </message>
+    <message>
+        <source>    Norwegian - Peer-Atle Motland
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Polish - Tomasz Dominikowski
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Portuguese - Jose Narciso,
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Russian - Pavel Fialko, Vlad Vasilyeu, 
+     	Ed Bartosh
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Serbian - Aleksandar Zaric
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Slovak - Roman Moravčík
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Slovenian - Boštjan Štrumbelj
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Spanish - Alejandro Lopez, Agustí Clara
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Swedish - Angela Nennebrandt,
+     	Åke Engelbrektson, 
+     	Niklas Åkerström, 
+     	Tomislav Veleckovik</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Turkish - Burak Kaan Kose,
+     	Mehmet Çilingir
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>    Vietnamese - Hieu Nguyen
+     	Anh Dương and truongnx, 
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>(Low)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -172,10 +320,6 @@ W:</translation>
     <message>
         <source>10 seconds</source>
         <translation>10 giây</translation>
-    </message>
-    <message>
-        <source>12 hours</source>
-        <translation>12 tiếng</translation>
     </message>
     <message>
         <source>15 minutes</source>
@@ -402,13 +546,8 @@ W:</translation>
         <translation>Thêm vị trí</translation>
     </message>
     <message>
-        <source>Adjust GPS station</source>
-        <translation type="unfinished">Thêm vị trí</translation>
-    </message>
-    <message>
-        <source>Albanian - Ilir Gjika
-</source>
-        <translation type="unfinished"></translation>
+        <source>Add Station</source>
+        <translation>Thêm vị trí</translation>
     </message>
     <message>
         <source>Alerts</source>
@@ -456,19 +595,6 @@ Eric Link - for feature request and donation
         <translation>Giao diện</translation>
     </message>
     <message>
-        <source>Application manager will now start
-for installing package &apos;MeeCast applet&apos;.
-You should uninstall AccuWeather 
-before installing this package</source>
-        <translation>Quản lý ứng dụng sẽ bắt đầu⏎ cài đặt &apos;MeeCast&apos;.⏎
-Bạn nên gỡ bỏ AccuWeather ⏎ trước khi cài ứng dụng này</translation>
-    </message>
-    <message>
-        <source>Arabic - Tarad Alfandi
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Are you sure to want delete this station ?</source>
         <translation>Xóa địa điểm này?</translation>
     </message>
@@ -484,12 +610,6 @@ Design UI and default iconset: Andrew Zhilin
 Design UI for Fremantle: Krebber Jan Niemela Ulla
 </source>
         <translation type="unfinished">Tác giả và quản lý: Vlad Vasiliev, &lt;vlad@gas.by&gt;⏎ Duy trì: Pavel Fialko, &lt;pavelnf@gmail.com&gt;⏎ Tài liệu: Marko Vertainen⏎ Thiết kế giao diện và icon: Andrew Zhilin⏎ Thiết kế giao diện cho Fremantle: Krebber Jan Niemelä Ulla⏎
-</translation>
-    </message>
-    <message>
-        <source>Author and maintenance: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
-</source>
-        <translation>Tác giả và quản lý: Vlad Vasiliev, &lt;vlad@gas.by&gt;
 </translation>
     </message>
     <message>
@@ -538,11 +658,6 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
     </message>
     <message>
         <source>Broken clouds</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Bulgarian - Zlatko Enikov
-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -598,19 +713,10 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Thoát</translation>
-    </message>
-    <message>
         <source>Cannot get path to the HOME directory. Quitting.
 </source>
         <translation>Không thể lấy đường dẫn tới thư mục Home. Đang đóng ứng dụng
 </translation>
-    </message>
-    <message>
-        <source>Catalan - Agustí Clara
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Celcius</source>
@@ -618,17 +724,6 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
     </message>
     <message>
         <source>Celsius</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Chinese - Wong Man Kong, Michael,
- 	gwmgdemj
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Chinese(Taiwan) - osk2, 
-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -808,14 +903,12 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
         <translation type="unfinished">U ám, bão và mưa</translation>
     </message>
     <message>
-        <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
-        <translation>Bản quyền(c) 2006-2011 bởi Vlad Vasilyeu và Pavel Fialko,</translation>
+        <source>Co-administrator and contributor</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Copyright(c) 2010-2011 by Tanya Makova
-</source>
-        <translation>Bản quyền 2010-2011 bởi Tanya Makova 
-</translation>
+        <source>Co-administrator and contributor</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Could not connecting to Internet.
@@ -858,24 +951,6 @@ Hết hạn hời gian kết nối hết.</translation>
         <translation>Tùy chỉnh</translation>
     </message>
     <message>
-        <source>Czech - Jakub Kožíšek, Pavel Šrubař
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Daily</source>
-        <translation>Hàng ngày</translation>
-    </message>
-    <message>
-        <source>Danish - Peter Jespersen
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Day</source>
-        <translation>Ngày</translation>
-    </message>
-    <message>
         <source>Day</source>
         <translation>Ngày</translation>
     </message>
@@ -900,10 +975,8 @@ Hết hạn hời gian kết nối hết.</translation>
         <translation>Xóa vị trí?</translation>
     </message>
     <message>
-        <source>Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
-</source>
-        <translation>Thiết kế giao diện và biểu tượng mặc định: Bản quyền 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt; 
-</translation>
+        <source>Delete location?</source>
+        <translation>Xóa vị trí?</translation>
     </message>
     <message>
         <source>Detailed</source>
@@ -995,12 +1068,6 @@ of &apos;omweather-*-stations-db&apos; packages was installed.</source>
         <translation>Mưa phùn muộn</translation>
     </message>
     <message>
-        <source>Dutch - Tom Leenders, Michiel Pater
- 	Heimen Stoffels, Nathan Follens
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>E</source>
         <translation>E</translation>
     </message>
@@ -1061,8 +1128,8 @@ Brad Jones aka kazrak - for testing
         <translation>Kích hoạt GPS</translation>
     </message>
     <message>
-        <source>Enter search</source>
-        <translation>Kích hoạt tìm kiếm</translation>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error</source>
@@ -1219,19 +1286,6 @@ Brad Jones aka kazrak - for testing
         <translation>Tìm địa điểm qua GPS</translation>
     </message>
     <message>
-        <source>Finnish - Marko Vertainen,
-	deadhead (A-P Partonen),
- 	jarliim
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
-</source>
-        <translation>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
-</translation>
-    </message>
-    <message>
         <source>First Quarter</source>
         <translation>Quý một</translation>
     </message>
@@ -1284,16 +1338,6 @@ Brad Jones aka kazrak - for testing
         <translation>Font chữ:</translation>
     </message>
     <message>
-        <source>For disabling MeeCast widget,
-you should uninstall package
-&apos;Activating MeeCast Applet&apos;
-using Application manager</source>
-        <translation>Để tắt widget Meecast 
-Bạn cần gỡ bỏ gói cài đặt 
-&apos; Activating MeeCast Applet&apos; 
-bằng trình quản lý ứng dụng</translation>
-    </message>
-    <message>
         <source>Forecast</source>
         <translation>Dự báo</translation>
     </message>
@@ -1318,15 +1362,6 @@ bằng trình quản lý ứng dụng</translation>
     <message>
         <source>Freezing Rain</source>
         <translation type="unfinished">Có mưa kèm băng giá</translation>
-    </message>
-    <message>
-        <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht, 
- 	Quentin Caillard, 
- 	Jordi
-</source>
-        <translation type="unfinished">Dịch: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh 
-</translation>
     </message>
     <message>
         <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1358,10 +1393,6 @@ Việt Nam- Quý Trọng</translation>
         <translation>Dự báo đầy đủ</translation>
     </message>
     <message>
-        <source>Fullscreen mode</source>
-        <translation>Toàn màn hình</translation>
-    </message>
-    <message>
         <source>G: </source>
         <translation>G:</translation>
     </message>
@@ -1388,22 +1419,6 @@ Việt Nam- Quý Trọng</translation>
     <message>
         <source>GUI|Clear</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Galician - pakoR
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>German -  Claudius Henrichs,
- 	Jens Klingen,
- 	DeadHorseRiding
- </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Grzanka&apos;s Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
-        <translation>Biểu tượng Grzanka&apos;s: Bản quyền 2005 bởi Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</translation>
     </message>
     <message>
         <source>Gust:</source>
@@ -1531,15 +1546,6 @@ Mưa:</translation>
         <translation>Độ ẩm:</translation>
     </message>
     <message>
-        <source>Humidity:</source>
-        <translation>Độ ẩm:</translation>
-    </message>
-    <message>
-        <source>Hungarian - Salmi, László Kara
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ice Early</source>
         <translation type="unfinished">Mưa phùn sớm</translation>
     </message>
@@ -1560,14 +1566,6 @@ Mưa:</translation>
         <translation>Kích thước biểu tượng:</translation>
     </message>
     <message>
-        <source>Icons</source>
-        <translation>Biểu tượng</translation>
-    </message>
-    <message>
-        <source>Icons</source>
-        <translation>Biểu tượng</translation>
-    </message>
-    <message>
         <source>Iconset</source>
         <translation>Bộ biểu tượng</translation>
     </message>
@@ -1582,22 +1580,6 @@ Mưa:</translation>
     <message>
         <source>Iconsets</source>
         <translation>Các bộ biểu tượng</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Thông tin</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Thông tin</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Thông tin</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Thông tin</translation>
     </message>
     <message>
         <source>Isolated T-Storms</source>
@@ -1606,18 +1588,6 @@ Mưa:</translation>
     <message>
         <source>Isolated T-Storms / Wind</source>
         <translation>Mưa giông có sấm sét / Gió</translation>
-    </message>
-    <message>
-        <source>Italian - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
-</source>
-        <translation type="unfinished">Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</translation>
-    </message>
-    <message>
-        <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
-        <translation>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</translation>
     </message>
     <message>
         <source>Kilometers</source>
@@ -1646,6 +1616,18 @@ Mưa:</translation>
     <message>
         <source>Last update from server: </source>
         <translation>Cập nhật cuối từ máy chủ:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Cập nhật cuối:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Cập nhật cuối:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Cập nhật cuối:</translation>
     </message>
     <message>
         <source>Last update:</source>
@@ -1840,6 +1822,10 @@ Mưa:</translation>
         <translation>Có vẻ như không có thông tin cho vị trí này.</translation>
     </message>
     <message>
+        <source>Looks like there&apos;s no info for this location.</source>
+        <translation>Có vẻ như không có thông tin cho vị trí này.</translation>
+    </message>
+    <message>
         <source>Low</source>
         <translation>Thấp</translation>
     </message>
@@ -1858,12 +1844,6 @@ Mưa:</translation>
     <message>
         <source>Mainly cloudy, showers</source>
         <translation type="unfinished">Ít mây, có mưa rào</translation>
-    </message>
-    <message>
-        <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
-</source>
-        <translation>Phát triển: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;⏎
-</translation>
     </message>
     <message>
         <source>Manage locations</source>
@@ -1886,12 +1866,24 @@ Mưa:</translation>
         <translation>MeeCast</translation>
     </message>
     <message>
-        <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
+        <source>MeeCast</source>
+        <translation>MeeCast</translation>
+    </message>
+    <message>
+        <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2024</source>
         <translation type="unfinished">MeeCast - ứng dụng đa nền tảng, có thể chỉnh mã nguồn mở của thời tiết dựa trên mã OMWeather. Bản quyền (C) 2006-2011</translation>
     </message>
     <message>
-        <source>MeeCast for Harmattan</source>
-        <translation>MeeCast cho Harmattan</translation>
+        <source>MeeCast for AuroraOS</source>
+        <translation type="unfinished">MeeCast cho Harmattan</translation>
+    </message>
+    <message>
+        <source>MeeCast for AuroraOS</source>
+        <translation type="unfinished">MeeCast cho Harmattan</translation>
+    </message>
+    <message>
+        <source>MeeCast for SailfishOS</source>
+        <translation type="unfinished">MeeCast cho Harmattan</translation>
     </message>
     <message>
         <source>Meters</source>
@@ -2190,16 +2182,8 @@ Mưa:</translation>
         <translation>Mới</translation>
     </message>
     <message>
-        <source>New location</source>
-        <translation>Vị trí mới</translation>
-    </message>
-    <message>
         <source>Next update:</source>
         <translation>Cập nhật tiếp theo:</translation>
-    </message>
-    <message>
-        <source>Night</source>
-        <translation>Đêm</translation>
     </message>
     <message>
         <source>Night</source>
@@ -2214,12 +2198,20 @@ Mưa:</translation>
         <translation>Không</translation>
     </message>
     <message>
-        <source>No</source>
-        <translation>Không</translation>
-    </message>
-    <message>
         <source>No current weather data.</source>
         <translation>Dữ liệu thời tiết hiện không có.</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>Không có vị trí nào được thiết lập.</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>Không có vị trí nào được thiết lập.</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>Không có vị trí nào được thiết lập.</translation>
     </message>
     <message>
         <source>No locations are set up yet.</source>
@@ -2240,11 +2232,6 @@ Mưa:</translation>
     <message>
         <source>No weather data for this station.</source>
         <translation>Không có dữ liệu thời tiết ở trạm này.</translation>
-    </message>
-    <message>
-        <source>Norwegian - Peer-Atle Motland
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Now</source>
@@ -2319,10 +2306,6 @@ Mưa:</translation>
         <translation>Đồng ý</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation>Đồng ý</translation>
-    </message>
-    <message>
         <source>OMWeather Forecast</source>
         <translation>Dự báo OMWeather</translation>
     </message>
@@ -2341,18 +2324,6 @@ Mưa:</translation>
     <message>
         <source>OMWeather settings</source>
         <translation>Thiết lập OMWeather</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>Đồng ý</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>Đồng ý</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>Đồng ý</translation>
     </message>
     <message>
         <source>Other Maemo Weather Info</source>
@@ -2487,6 +2458,10 @@ Mưa:</translation>
         <translation>PM Sấm sét</translation>
     </message>
     <message>
+        <source>Pa</source>
+        <translation type="unfinished">Pa</translation>
+    </message>
+    <message>
         <source>Partly Cloudy</source>
         <translation>Ít mây, trời nắng</translation>
     </message>
@@ -2611,16 +2586,6 @@ Mưa:</translation>
         <translation>Thời gian</translation>
     </message>
     <message>
-        <source>Polish - Tomasz Dominikowski
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Portuguese - Jose Narciso,
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Position:</source>
         <translation>Vị trí:</translation>
     </message>
@@ -2688,16 +2653,8 @@ Mưa:</translation>
         <translation>Đơn vị đo áp suất</translation>
     </message>
     <message>
-        <source>Pressure units</source>
-        <translation>Đơn vị đo áp suất</translation>
-    </message>
-    <message>
         <source>Pressure units:</source>
         <translation>Đơn vị đo áp suất:</translation>
-    </message>
-    <message>
-        <source>Pressure:</source>
-        <translation>Áp suất:</translation>
     </message>
     <message>
         <source>Pressure:</source>
@@ -2732,16 +2689,12 @@ Mưa:</translation>
         <translation type="unfinished">Chỉ đạo lập trình</translation>
     </message>
     <message>
-        <source>Project administrators</source>
+        <source>Project administrator</source>
         <translation type="unfinished">Admin của dự án:</translation>
     </message>
     <message>
         <source>Project manager</source>
         <translation>Người quản lí dự án</translation>
-    </message>
-    <message>
-        <source>Provided by</source>
-        <translation>Cung cấp bởi</translation>
     </message>
     <message>
         <source>Proximity shower rain</source>
@@ -2860,6 +2813,14 @@ Mưa:</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Region</source>
         <translation>Vùng:</translation>
     </message>
@@ -2874,12 +2835,6 @@ Mưa:</translation>
     <message>
         <source>Rush Hour Traffic</source>
         <translation>Giờ giao thông:</translation>
-    </message>
-    <message>
-        <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
- 	Ed Bartosh
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>S</source>
@@ -2982,22 +2937,6 @@ Mưa:</translation>
         <translation>Tìm</translation>
     </message>
     <message>
-        <source>Select city</source>
-        <translation>Chọn thành phố</translation>
-    </message>
-    <message>
-        <source>Select city</source>
-        <translation>Chọn thành phố</translation>
-    </message>
-    <message>
-        <source>Select country</source>
-        <translation>Chọn nước</translation>
-    </message>
-    <message>
-        <source>Select country</source>
-        <translation>Chọn nước</translation>
-    </message>
-    <message>
         <source>Select country</source>
         <translation>Chọn nước</translation>
     </message>
@@ -3012,42 +2951,6 @@ Mưa:</translation>
     <message>
         <source>Select region</source>
         <translation>Chọn vùng</translation>
-    </message>
-    <message>
-        <source>Select region</source>
-        <translation>Chọn vùng</translation>
-    </message>
-    <message>
-        <source>Select region</source>
-        <translation>Chọn vùng</translation>
-    </message>
-    <message>
-        <source>Select source</source>
-        <translation>Chọn nguồn</translation>
-    </message>
-    <message>
-        <source>Select source</source>
-        <translation>Chọn nguồn</translation>
-    </message>
-    <message>
-        <source>Select the X-position for left corner of widget</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select the Y-position for left corner of widget</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select the color of font for current temperature</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select the color of font for station name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select the color of font for temperature</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select the iconset</source>
@@ -3094,11 +2997,6 @@ Mưa:</translation>
         <translation>Cảm biến</translation>
     </message>
     <message>
-        <source>Serbian - Aleksandar Zaric
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Set</source>
         <translation>Đặt</translation>
     </message>
@@ -3111,8 +3009,8 @@ Mưa:</translation>
         <translation>Đặt vị trí</translation>
     </message>
     <message>
-        <source>Settings</source>
-        <translation>Cài đặt</translation>
+        <source>Set locations</source>
+        <translation>Đặt vị trí</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3131,20 +3029,16 @@ Mưa:</translation>
         <translation>Cài đặt</translation>
     </message>
     <message>
-        <source>Settings for Lockscreen widget</source>
-        <translation type="unfinished"></translation>
+        <source>Settings</source>
+        <translation>Cài đặt</translation>
     </message>
     <message>
-        <source>Settings for standby widget</source>
-        <translation type="unfinished">Tùy chỉnh Màn hình chờ</translation>
+        <source>Settings</source>
+        <translation>Cài đặt</translation>
     </message>
     <message>
-        <source>Settings of LockScreen</source>
-        <translation type="unfinished">Tùy chỉnh Màn hình chờ</translation>
-    </message>
-    <message>
-        <source>Settings of StandbyScreen</source>
-        <translation>Tùy chỉnh Màn hình chờ</translation>
+        <source>Settings</source>
+        <translation>Cài đặt</translation>
     </message>
     <message>
         <source>Shallow Fog</source>
@@ -3163,8 +3057,20 @@ Mưa:</translation>
         <translation type="unfinished">Cập nhật cuối:</translation>
     </message>
     <message>
+        <source>Show last update time</source>
+        <translation type="unfinished">Cập nhật cuối:</translation>
+    </message>
+    <message>
+        <source>Show on Map</source>
+        <translation type="unfinished">Hiển thị tên trạm</translation>
+    </message>
+    <message>
         <source>Show only current weather on first icon</source>
         <translation>Chỉ hiện thời tiết hiện tại trên icon ban đầu</translation>
+    </message>
+    <message>
+        <source>Show source logo</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show source logo</source>
@@ -3177,6 +3083,10 @@ Mưa:</translation>
     <message>
         <source>Show temperature at:</source>
         <translation>Xem nhiệt độ tại:</translation>
+    </message>
+    <message>
+        <source>Show wind</source>
+        <translation>Xem gió</translation>
     </message>
     <message>
         <source>Show wind</source>
@@ -3225,16 +3135,6 @@ Mưa:</translation>
     <message>
         <source>Sleet Showers</source>
         <translation type="unfinished">Mưa rào rải rác</translation>
-    </message>
-    <message>
-        <source>Slovak - Roman Moravčík
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Slovenian - Boštjan Štrumbelj
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Smoke</source>
@@ -3313,11 +3213,6 @@ Mưa:</translation>
         <translation>Nguồn:</translation>
     </message>
     <message>
-        <source>Spanish - Alejandro Lopez, Agustí Clara
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Speed</source>
         <translation>Tốc độ</translation>
     </message>
@@ -3356,14 +3251,6 @@ Mưa:</translation>
     <message>
         <source>Speed:</source>
         <translation>Tốc độ:</translation>
-    </message>
-    <message>
-        <source>Speed:</source>
-        <translation>Tốc độ:</translation>
-    </message>
-    <message>
-        <source>Splash screen</source>
-        <translation>Hình khởi động</translation>
     </message>
     <message>
         <source>State:</source>
@@ -3426,12 +3313,20 @@ Mưa:</translation>
         <translation>Lúc bình minh:</translation>
     </message>
     <message>
+        <source>Sunrise:</source>
+        <translation>Lúc bình minh:</translation>
+    </message>
+    <message>
         <source>Sunrise: </source>
         <translation>Lúc bình minh:</translation>
     </message>
     <message>
         <source>Sunrise: </source>
         <translation>Lúc bình minh:</translation>
+    </message>
+    <message>
+        <source>Sunset:</source>
+        <translation>Lúc xế chiều:</translation>
     </message>
     <message>
         <source>Sunset:</source>
@@ -3452,13 +3347,6 @@ Mưa:</translation>
     <message>
         <source>Swap hi/low temperature</source>
         <translation>Hoán đổi nhiệt độ Cao/thấp:</translation>
-    </message>
-    <message>
-        <source>Swedish - Angela Nennebrandt,
- 	Åke Engelbrektson, 
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Switch to the next station after:</source>
@@ -3517,16 +3405,8 @@ Mưa:</translation>
         <translation>Đơn vị đo nhiệt độ</translation>
     </message>
     <message>
-        <source>Temperature units</source>
-        <translation>Đơn vị đo nhiệt độ</translation>
-    </message>
-    <message>
         <source>Temperature units:</source>
         <translation>Đơn vị đo nhiệt độ:</translation>
-    </message>
-    <message>
-        <source>Temperature:</source>
-        <translation>Nhiệt độ:</translation>
     </message>
     <message>
         <source>Temperature:</source>
@@ -3558,19 +3438,13 @@ Mưa:</translation>
     </message>
     <message>
         <source>This software is free software; you can
- redistribute it and/or modify it under 
- the terms of the GNU General Public
- License as published by the Free Software 
- Foundation; either version 2.1 of the 
- License, or (at your option) any 
- later version.</source>
-        <translation>Phần mềm này là phần mềm miễn phí; bạn có thể⏎ phân phối và sửa chữa nó ở bên dưới ⏎ các thuật ngữ GNU General Public⏎ Giấy phép được xuất bản bởi Free Sofrware ⏎ Cơ sở hoặc phiên bản 2.1 thuộc về ⏎ giấy phép, hay (tại tùy chọn của bạn) một vài⏎ phiên bản muộn hơn.</translation>
-    </message>
-    <message>
-        <source>This software is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
-</source>
-        <translation>Phần mềm này miễn phí. Do đó bạn có thể phát hành lại hoặc chỉnh sửa nó theo các điều khoản của GNU General Public License 
-</translation>
+     redistribute it and/or modify it under 
+     the terms of the GNU General Public
+     License as published by the Free Software 
+     Foundation; either version 2.1 of the 
+     License, or (at your option) any 
+     later version.</source>
+        <translation type="unfinished">Phần mềm này là phần mềm miễn phí; bạn có thể⏎ phân phối và sửa chữa nó ở bên dưới ⏎ các thuật ngữ GNU General Public⏎ Giấy phép được xuất bản bởi Free Sofrware ⏎ Cơ sở hoặc phiên bản 2.1 thuộc về ⏎ giấy phép, hay (tại tùy chọn của bạn) một vài⏎ phiên bản muộn hơn.</translation>
     </message>
     <message>
         <source>Thunder</source>
@@ -3601,18 +3475,24 @@ Mưa:</translation>
         <translation>Hôm nay</translation>
     </message>
     <message>
-        <source>Translators</source>
-        <translation>Người dịch</translation>
+        <source>Today</source>
+        <translation>Hôm nay</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>Hôm nay</translation>
     </message>
     <message>
         <source>Translators</source>
         <translation>Người dịch</translation>
     </message>
     <message>
-        <source>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
-</source>
-        <translation>Dịch: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh 
-</translation>
+        <source>Translators</source>
+        <translation>Người dịch</translation>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation type="unfinished">Độ trong suốt:</translation>
     </message>
     <message>
         <source>Transparency</source>
@@ -3637,12 +3517,6 @@ Mưa:</translation>
     <message>
         <source>Try to update</source>
         <translation>Thử cập nhật</translation>
-    </message>
-    <message>
-        <source>Turkish - Burak Kaan Kose,
- 	Mehmet Çilingir
-</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Type of click:</source>
@@ -3745,12 +3619,20 @@ Mưa:</translation>
         <translation>Cập nhật</translation>
     </message>
     <message>
+        <source>Update</source>
+        <translation>Cập nhật</translation>
+    </message>
+    <message>
         <source>Update already running.</source>
         <translation>Cập nhật đang chạy.</translation>
     </message>
     <message>
         <source>Update interval</source>
         <translation>Khoảng thời gian cập nhật</translation>
+    </message>
+    <message>
+        <source>Updating forecast</source>
+        <translation>Đang cập nhật dự báo thời tiết</translation>
     </message>
     <message>
         <source>Updating forecast</source>
@@ -3798,12 +3680,6 @@ for tuning images of applet</source>
         <translation>Rất cao</translation>
     </message>
     <message>
-        <source>Vietnamese - Hieu Nguyen
- 	Anh Dương and truongnx, 
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Violent Rain Showers</source>
         <translation type="unfinished">Mưa rào nhẹ</translation>
     </message>
@@ -3814,10 +3690,6 @@ for tuning images of applet</source>
     <message>
         <source>Visible items:</source>
         <translation>Hiện các mục:</translation>
-    </message>
-    <message>
-        <source>Visible units</source>
-        <translation type="unfinished">Hiện các mục:</translation>
     </message>
     <message>
         <source>Visible units</source>
@@ -3912,24 +3784,8 @@ for tuning images of applet</source>
         <translation>Thông tin thời tiết từ:</translation>
     </message>
     <message>
-        <source>Weather forecast for the Meego. Version </source>
-        <translation>Dự báo thời tiết cho Meego. Phiên bản</translation>
-    </message>
-    <message>
         <source>Widget OMWeather is reloading</source>
         <translation>Đang tải Widget OMWeather</translation>
-    </message>
-    <message>
-        <source>Widget in LockScreen</source>
-        <translation>Widget ở màn hình khóa</translation>
-    </message>
-    <message>
-        <source>Widget in StandbyScreen</source>
-        <translation>Widget ở màn hình nghỉ</translation>
-    </message>
-    <message>
-        <source>Widget in events view</source>
-        <translation>Xem widget ở mục sự kiện</translation>
     </message>
     <message>
         <source>Widget style</source>
@@ -4012,16 +3868,8 @@ for tuning images of applet</source>
         <translation>Đơn vị vận tốc gió</translation>
     </message>
     <message>
-        <source>Wind speed units</source>
-        <translation>Đơn vị vận tốc gió</translation>
-    </message>
-    <message>
         <source>Wind speed units:</source>
         <translation>Đơn vị vận tốc gió:</translation>
-    </message>
-    <message>
-        <source>Wind:</source>
-        <translation>Gió:</translation>
     </message>
     <message>
         <source>Wind:</source>
@@ -4089,32 +3937,12 @@ or ZIP code!!!</source>
         <translation>Bạn có thể ủng hộ ở đây:</translation>
     </message>
     <message>
-        <source>You should activate 
-&apos;Widget in events view&apos;
- for using LockScreen widget</source>
-        <translation>Bạn cần kích hoạt \n &apos;Xem widget ở sự kiện&apos; \n để sử dụng widget ở màn hình khóa</translation>
-    </message>
-    <message>
-        <source>You should activate 
-&apos;Widget in events view&apos;
- for using StandbyScreen widget</source>
-        <translation>Bạn cần kích hoạt \n &apos;Xem widget ở sự kiện&apos; \n để sử dụng widget ở màn hình  chờ</translation>
-    </message>
-    <message>
-        <source>You should activate &apos;Widget in the events view&apos; option in MeeCast appearance settings for auto update.</source>
-        <translation>Bạn cần kích hoạt \n &apos;Xem widget ở sự kiện&apos; \n trong lựa chọn của MeeCast để tự động cập nhật.</translation>
-    </message>
-    <message>
         <source>Zoom in popup window </source>
         <translation>Phóng to ở cửa sổ thông báo</translation>
     </message>
     <message>
         <source>Zooming in popup window</source>
         <translation>Đang phóng to ở cửa sổ thông báo</translation>
-    </message>
-    <message>
-        <source>as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</source>
-        <translation>Phần mềm được phân phối miễn phí với phiên bản 2.1 hoặc những bản cũ hơn</translation>
     </message>
     <message>
         <source>current location local time</source>
@@ -4219,10 +4047,6 @@ or ZIP code!!!</source>
     <message>
         <source>inch</source>
         <translation>inch</translation>
-    </message>
-    <message>
-        <source>kPa</source>
-        <translation type="unfinished">Pa</translation>
     </message>
     <message>
         <source>km</source>
@@ -4411,6 +4235,10 @@ or ZIP code!!!</source>
     <message>
         <source>minutes ago</source>
         <translation>Phút trước</translation>
+    </message>
+    <message>
+        <source>mm</source>
+        <translation>mm</translation>
     </message>
     <message>
         <source>mm</source>

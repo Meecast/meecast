@@ -122,6 +122,196 @@ W: </source>
 Vie: </translation>
     </message>
     <message>
+        <source>    Albanian - Ilir Gjika
+</source>
+        <translation type="unfinished">Albanés - Ilir Gjika
+</translation>
+    </message>
+    <message>
+        <source>    Arabic - Tarad Alfandi
+</source>
+        <translation type="unfinished">Árabe - Tarad Alfandi
+</translation>
+    </message>
+    <message>
+        <source>    Bulgarian - Zlatko Enikov
+</source>
+        <translation type="unfinished">Búlgaro - Zlatko Enikov
+</translation>
+    </message>
+    <message>
+        <source>    Catalan - Agustí Clara
+</source>
+        <translation type="unfinished">Catalán - Agustí Clara
+</translation>
+    </message>
+    <message>
+        <source>    Chinese - Wong Man Kong, Michael,
+     	gwmgdemj
+</source>
+        <translation type="unfinished">Chino - Wong Man Kong, Michael,
+ 	gwmgdemj
+</translation>
+    </message>
+    <message>
+        <source>    Chinese(Taiwan) - osk2, 
+</source>
+        <translation type="unfinished">Chino(Taiwan) - osk2, 
+</translation>
+    </message>
+    <message>
+        <source>    Czech - Jakub Kožíšek, Pavel Šrubař
+</source>
+        <translation type="unfinished">Checo - Jakub Kožíšek, Pavel Šrubař
+</translation>
+    </message>
+    <message>
+        <source>    Danish - Peter Jespersen
+</source>
+        <translation type="unfinished">Danés - Peter Jespersen
+</translation>
+    </message>
+    <message>
+        <source>    Dutch - Tom Leenders, Michiel Pater
+     	Heimen Stoffels, Nathan Follens
+</source>
+        <translation type="unfinished">Holandés - Tom Leenders, Michiel Pater
+ 	Heimen Stoffels, Nathan Follens
+</translation>
+    </message>
+    <message>
+        <source>    Finnish - Marko Vertainen,
+    	deadhead (A-P Partonen),
+     	jarliim
+</source>
+        <translation type="unfinished">Finés - Marko Vertainen,
+	deadhead (A-P Partonen),
+ 	jarliim
+</translation>
+    </message>
+    <message>
+        <source>    French -  Nicolas Granziano, 
+     	Philippe, Benot Knecht, 
+     	Quentin Caillard, 
+     	Jordi
+</source>
+        <translation type="unfinished">Francés -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard, 
+ 	Jordi
+</translation>
+    </message>
+    <message>
+        <source>    Galician - pakoR
+</source>
+        <translation type="unfinished">Gallego - pakoR
+</translation>
+    </message>
+    <message>
+        <source>    German -  Claudius Henrichs,
+     	Jens Klingen,
+     	DeadHorseRiding
+ </source>
+        <translation type="unfinished">Alemán -  Claudius Henrichs,
+ 	Jens Klingen,
+ 	DeadHorseRiding
+ </translation>
+    </message>
+    <message>
+        <source>    Hungarian - Salmi, László Kara
+</source>
+        <translation type="unfinished">Húngaro - Salmi, László Kara
+</translation>
+    </message>
+    <message>
+        <source>    Italian - Lorenzo Facca,
+     	Pavel Fialko, Alessandro Pasotti,
+     	Salvatore Fiorenzo, Ilir Gjika,
+     	Luca Onnis
+</source>
+        <translation type="unfinished">Italiano - Lorenzo Facca,
+ 	Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+</translation>
+    </message>
+    <message>
+        <source>    Norwegian - Peer-Atle Motland
+</source>
+        <translation type="unfinished">Noruego - Peer-Atle Motland
+</translation>
+    </message>
+    <message>
+        <source>    Polish - Tomasz Dominikowski
+</source>
+        <translation type="unfinished">Polaco - Tomasz Dominikowski
+</translation>
+    </message>
+    <message>
+        <source>    Portuguese - Jose Narciso,
+</source>
+        <translation type="unfinished">Portugués - Jose Narciso,
+</translation>
+    </message>
+    <message>
+        <source>    Russian - Pavel Fialko, Vlad Vasilyeu, 
+     	Ed Bartosh
+</source>
+        <translation type="unfinished">Ruso - Pavel Fialko, Vlad Vasilyeu, 
+ 	Ed Bartosh
+</translation>
+    </message>
+    <message>
+        <source>    Serbian - Aleksandar Zaric
+</source>
+        <translation type="unfinished">Serbio - Aleksandar Zaric
+</translation>
+    </message>
+    <message>
+        <source>    Slovak - Roman Moravčík
+</source>
+        <translation type="unfinished">Eslovaco - Roman Moravčík
+</translation>
+    </message>
+    <message>
+        <source>    Slovenian - Boštjan Štrumbelj
+</source>
+        <translation type="unfinished">Esloveno - Boštjan Štrumbelj
+</translation>
+    </message>
+    <message>
+        <source>    Spanish - Alejandro Lopez, Agustí Clara
+</source>
+        <translation type="unfinished">Español - Alejandro Lopez, Agustí Clara
+</translation>
+    </message>
+    <message>
+        <source>    Swedish - Angela Nennebrandt,
+     	Åke Engelbrektson, 
+     	Niklas Åkerström, 
+     	Tomislav Veleckovik</source>
+        <translation type="unfinished">Sueco - Angela Nennebrandt,
+ 	Åke Engelbrektson, 
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</translation>
+    </message>
+    <message>
+        <source>    Turkish - Burak Kaan Kose,
+     	Mehmet Çilingir
+</source>
+        <translation type="unfinished">Turco - Burak Kaan Kose,
+ 	Mehmet Çilingir
+</translation>
+    </message>
+    <message>
+        <source>    Vietnamese - Hieu Nguyen
+     	Anh Dương and truongnx, 
+</source>
+        <translation type="unfinished">Vietnamita - Hieu Nguyen
+ 	Anh Dương and truongnx, 
+</translation>
+    </message>
+    <message>
         <source>(Low)</source>
         <translation>(Bajo)</translation>
     </message>
@@ -172,10 +362,6 @@ Vie: </translation>
     <message>
         <source>10 seconds</source>
         <translation>10 segundos</translation>
-    </message>
-    <message>
-        <source>12 hours</source>
-        <translation>12 horas</translation>
     </message>
     <message>
         <source>15 minutes</source>
@@ -402,14 +588,8 @@ Vie: </translation>
         <translation>Agregar estación</translation>
     </message>
     <message>
-        <source>Adjust GPS station</source>
-        <translation>Ajuste de la estación GPS</translation>
-    </message>
-    <message>
-        <source>Albanian - Ilir Gjika
-</source>
-        <translation>Albanés - Ilir Gjika
-</translation>
+        <source>Add Station</source>
+        <translation>Agregar estación</translation>
     </message>
     <message>
         <source>Alerts</source>
@@ -457,22 +637,6 @@ Eric Link - por pedido de funcionalidad y donación
         <translation>Apariencia</translation>
     </message>
     <message>
-        <source>Application manager will now start
-for installing package &apos;MeeCast applet&apos;.
-You should uninstall AccuWeather 
-before installing this package</source>
-        <translation>Se lanzará el Administrador de Aplicaciones
-para instalar el paquete &apos;MeeCast applet&apos;.
-Debería desinstalar AccuWeather antes
-de instalar dicho paquete.</translation>
-    </message>
-    <message>
-        <source>Arabic - Tarad Alfandi
-</source>
-        <translation>Árabe - Tarad Alfandi
-</translation>
-    </message>
-    <message>
         <source>Are you sure to want delete this station ?</source>
         <translation>¿Está seguro de querer borrar esta estación?</translation>
     </message>
@@ -492,12 +656,6 @@ Mantenimiento: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Documentación: Marko Vertainen
 Diseño de la IU y los íconos por defecto: Andrew Zhilin
 Diseño de la IU para Fremantle: Krebber Jan Niemela Ulla
-</translation>
-    </message>
-    <message>
-        <source>Author and maintenance: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
-</source>
-        <translation>Autor y mantenimiento: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
 </translation>
     </message>
     <message>
@@ -547,12 +705,6 @@ Diseño de la IU para Fremantle: Krebber Jan Niemela Ulla
     <message>
         <source>Broken clouds</source>
         <translation>Nubosidad variable</translation>
-    </message>
-    <message>
-        <source>Bulgarian - Zlatko Enikov
-</source>
-        <translation>Búlgaro - Zlatko Enikov
-</translation>
     </message>
     <message>
         <source>C</source>
@@ -607,19 +759,9 @@ Diseño de la IU para Fremantle: Krebber Jan Niemela Ulla
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Cancelar</translation>
-    </message>
-    <message>
         <source>Cannot get path to the HOME directory. Quitting.
 </source>
         <translation>No puedo obtener el camino al directorio HOME. Terminando.
-</translation>
-    </message>
-    <message>
-        <source>Catalan - Agustí Clara
-</source>
-        <translation>Catalán - Agustí Clara
 </translation>
     </message>
     <message>
@@ -629,20 +771,6 @@ Diseño de la IU para Fremantle: Krebber Jan Niemela Ulla
     <message>
         <source>Celsius</source>
         <translation>Celsius</translation>
-    </message>
-    <message>
-        <source>Chinese - Wong Man Kong, Michael,
- 	gwmgdemj
-</source>
-        <translation>Chino - Wong Man Kong, Michael,
- 	gwmgdemj
-</translation>
-    </message>
-    <message>
-        <source>Chinese(Taiwan) - osk2, 
-</source>
-        <translation>Chino(Taiwan) - osk2, 
-</translation>
     </message>
     <message>
         <source>City</source>
@@ -821,14 +949,12 @@ Diseño de la IU para Fremantle: Krebber Jan Niemela Ulla
         <translation>Nublado, tormentas con lluvia</translation>
     </message>
     <message>
-        <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
-        <translation>Copyright(c) 2006-2011 por Vlad Vasiliev y Pavel Fialko, </translation>
+        <source>Co-administrator and contributor</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Copyright(c) 2010-2011 by Tanya Makova
-</source>
-        <translation>Copyright(c) 2006-2011 por Tanya Makova
-</translation>
+        <source>Co-administrator and contributor</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Could not connecting to Internet.
@@ -871,26 +997,6 @@ El tiempo de conexión expiró.</translation>
         <translation>Personal</translation>
     </message>
     <message>
-        <source>Czech - Jakub Kožíšek, Pavel Šrubař
-</source>
-        <translation>Checo - Jakub Kožíšek, Pavel Šrubař
-</translation>
-    </message>
-    <message>
-        <source>Daily</source>
-        <translation>Diario</translation>
-    </message>
-    <message>
-        <source>Danish - Peter Jespersen
-</source>
-        <translation>Danés - Peter Jespersen
-</translation>
-    </message>
-    <message>
-        <source>Day</source>
-        <translation>Día</translation>
-    </message>
-    <message>
         <source>Day</source>
         <translation>Día</translation>
     </message>
@@ -915,10 +1021,8 @@ El tiempo de conexión expiró.</translation>
         <translation>¿Borrar la ubicación?</translation>
     </message>
     <message>
-        <source>Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
-</source>
-        <translation>Diseño de la IU e íconos por defecto: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
-</translation>
+        <source>Delete location?</source>
+        <translation>¿Borrar la ubicación?</translation>
     </message>
     <message>
         <source>Detailed</source>
@@ -1011,14 +1115,6 @@ paquete &apos;omweather-*-station-db&apos; fue instalado.</translation>
         <translation>Llovizna tarde</translation>
     </message>
     <message>
-        <source>Dutch - Tom Leenders, Michiel Pater
- 	Heimen Stoffels, Nathan Follens
-</source>
-        <translation>Holandés - Tom Leenders, Michiel Pater
- 	Heimen Stoffels, Nathan Follens
-</translation>
-    </message>
-    <message>
         <source>E</source>
         <translation>E</translation>
     </message>
@@ -1079,8 +1175,8 @@ Brad &quot;kazrak&quot; Jones - por testear
         <translation>Activar GPS</translation>
     </message>
     <message>
-        <source>Enter search</source>
-        <translation>Ingrese búsqueda</translation>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error</source>
@@ -1237,22 +1333,6 @@ Brad &quot;kazrak&quot; Jones - por testear
         <translation>Tomar ubicación del GPS</translation>
     </message>
     <message>
-        <source>Finnish - Marko Vertainen,
-	deadhead (A-P Partonen),
- 	jarliim
-</source>
-        <translation>Finés - Marko Vertainen,
-	deadhead (A-P Partonen),
- 	jarliim
-</translation>
-    </message>
-    <message>
-        <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
-</source>
-        <translation>Finés - Marko Vertainen; Alemán - Claudius Henrichs; Español - Alejandro López; Holandés - Tom Leenders; Eslovaco - Roman Moravčík
-</translation>
-    </message>
-    <message>
         <source>First Quarter</source>
         <translation>Cuarto creciente</translation>
     </message>
@@ -1305,16 +1385,6 @@ Brad &quot;kazrak&quot; Jones - por testear
         <translation>Tipografía:</translation>
     </message>
     <message>
-        <source>For disabling MeeCast widget,
-you should uninstall package
-&apos;Activating MeeCast Applet&apos;
-using Application manager</source>
-        <translation>Para deshabilitar el panel MeeCast,
-debe desinstalar el paquete
-&apos;Activating MeeCast Applet&apos; desde
-el Administrador de Aplicaciones.</translation>
-    </message>
-    <message>
         <source>Forecast</source>
         <translation>Pronóstico</translation>
     </message>
@@ -1339,18 +1409,6 @@ el Administrador de Aplicaciones.</translation>
     <message>
         <source>Freezing Rain</source>
         <translation type="unfinished">Lluvia helada intensa</translation>
-    </message>
-    <message>
-        <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht, 
- 	Quentin Caillard, 
- 	Jordi
-</source>
-        <translation>Francés -  Nicolas Granziano, 
- 	Philippe, Benot Knecht, 
- 	Quentin Caillard, 
- 	Jordi
-</translation>
     </message>
     <message>
         <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1381,10 +1439,6 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Pronóstico completo</translation>
     </message>
     <message>
-        <source>Fullscreen mode</source>
-        <translation>Modo de pantalla completa</translation>
-    </message>
-    <message>
         <source>G: </source>
         <translation>R: </translation>
     </message>
@@ -1411,26 +1465,6 @@ Eslovaco - Roman Moravčík</translation>
     <message>
         <source>GUI|Clear</source>
         <translation>Borrar</translation>
-    </message>
-    <message>
-        <source>Galician - pakoR
-</source>
-        <translation>Gallego - pakoR
-</translation>
-    </message>
-    <message>
-        <source>German -  Claudius Henrichs,
- 	Jens Klingen,
- 	DeadHorseRiding
- </source>
-        <translation>Alemán -  Claudius Henrichs,
- 	Jens Klingen,
- 	DeadHorseRiding
- </translation>
-    </message>
-    <message>
-        <source>Grzanka&apos;s Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
-        <translation>Íconos de Grzanka: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</translation>
     </message>
     <message>
         <source>Gust:</source>
@@ -1557,16 +1591,6 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Humedad: </translation>
     </message>
     <message>
-        <source>Humidity:</source>
-        <translation>Humedad: </translation>
-    </message>
-    <message>
-        <source>Hungarian - Salmi, László Kara
-</source>
-        <translation>Húngaro - Salmi, László Kara
-</translation>
-    </message>
-    <message>
         <source>Ice Early</source>
         <translation type="unfinished">Llovizna temprano</translation>
     </message>
@@ -1587,14 +1611,6 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Tamaño de los íconos: </translation>
     </message>
     <message>
-        <source>Icons</source>
-        <translation>Íconos</translation>
-    </message>
-    <message>
-        <source>Icons</source>
-        <translation>Íconos</translation>
-    </message>
-    <message>
         <source>Iconset</source>
         <translation>Juego de íconos</translation>
     </message>
@@ -1609,22 +1625,6 @@ Eslovaco - Roman Moravčík</translation>
     <message>
         <source>Iconsets</source>
         <translation>Juegos de íconos:</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Información</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Información</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Información</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Información</translation>
     </message>
     <message>
         <source>Isolated T-Storms</source>
@@ -1633,22 +1633,6 @@ Eslovaco - Roman Moravčík</translation>
     <message>
         <source>Isolated T-Storms / Wind</source>
         <translation>Tormentas eléctricas aisladas / Viento</translation>
-    </message>
-    <message>
-        <source>Italian - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
-</source>
-        <translation>Italiano - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
-</translation>
-    </message>
-    <message>
-        <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
-        <translation>Italiano - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polaco - Tomasz Dominikowski; Búlgaro - Zlatko Enikov</translation>
     </message>
     <message>
         <source>Kilometers</source>
@@ -1677,6 +1661,18 @@ Eslovaco - Roman Moravčík</translation>
     <message>
         <source>Last update from server: </source>
         <translation>Última actualización desde el servidor: </translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Última actualización:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Última actualización:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Última actualización:</translation>
     </message>
     <message>
         <source>Last update:</source>
@@ -1871,6 +1867,10 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Parece no haber información para esta ubicación.</translation>
     </message>
     <message>
+        <source>Looks like there&apos;s no info for this location.</source>
+        <translation>Parece no haber información para esta ubicación.</translation>
+    </message>
+    <message>
         <source>Low</source>
         <translation>Mínima</translation>
     </message>
@@ -1889,12 +1889,6 @@ Eslovaco - Roman Moravčík</translation>
     <message>
         <source>Mainly cloudy, showers</source>
         <translation>Bastante nuboso, chubascos</translation>
-    </message>
-    <message>
-        <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
-</source>
-        <translation>Mantenimiento: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
-</translation>
     </message>
     <message>
         <source>Manage locations</source>
@@ -1917,12 +1911,24 @@ Eslovaco - Roman Moravčík</translation>
         <translation>MeeCast</translation>
     </message>
     <message>
-        <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
-        <translation>MeeCast - cliente de pronósticos del tiempo de código abierto, altamente personalizable y multiplataforma, basado en el código de OMWeather. Copyright (C) 2006-2016</translation>
+        <source>MeeCast</source>
+        <translation>MeeCast</translation>
     </message>
     <message>
-        <source>MeeCast for Harmattan</source>
-        <translation>MeeCast para Harmattan</translation>
+        <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2024</source>
+        <translation type="unfinished">MeeCast - cliente de pronósticos del tiempo de código abierto, altamente personalizable y multiplataforma, basado en el código de OMWeather. Copyright (C) 2006-2016</translation>
+    </message>
+    <message>
+        <source>MeeCast for AuroraOS</source>
+        <translation type="unfinished">MeeCast para Harmattan</translation>
+    </message>
+    <message>
+        <source>MeeCast for AuroraOS</source>
+        <translation type="unfinished">MeeCast para Harmattan</translation>
+    </message>
+    <message>
+        <source>MeeCast for SailfishOS</source>
+        <translation type="unfinished">MeeCast para Harmattan</translation>
     </message>
     <message>
         <source>Meters</source>
@@ -2221,16 +2227,8 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Nueva</translation>
     </message>
     <message>
-        <source>New location</source>
-        <translation>Nueva ubicación</translation>
-    </message>
-    <message>
         <source>Next update:</source>
         <translation>Próxima actualización:</translation>
-    </message>
-    <message>
-        <source>Night</source>
-        <translation>Noche</translation>
     </message>
     <message>
         <source>Night</source>
@@ -2245,12 +2243,20 @@ Eslovaco - Roman Moravčík</translation>
         <translation>No</translation>
     </message>
     <message>
-        <source>No</source>
-        <translation>No</translation>
-    </message>
-    <message>
         <source>No current weather data.</source>
         <translation>El clima actual no está disponible</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>Todavía no se definió ninguna ubicación.</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>Todavía no se definió ninguna ubicación.</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>Todavía no se definió ninguna ubicación.</translation>
     </message>
     <message>
         <source>No locations are set up yet.</source>
@@ -2271,12 +2277,6 @@ Eslovaco - Roman Moravčík</translation>
     <message>
         <source>No weather data for this station.</source>
         <translation>No hay datos del clima para esta estación.</translation>
-    </message>
-    <message>
-        <source>Norwegian - Peer-Atle Motland
-</source>
-        <translation>Noruego - Peer-Atle Motland
-</translation>
     </message>
     <message>
         <source>Now</source>
@@ -2351,10 +2351,6 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Aceptar</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation>Aceptar</translation>
-    </message>
-    <message>
         <source>OMWeather Forecast</source>
         <translation>Pronóstico OMWeather</translation>
     </message>
@@ -2373,18 +2369,6 @@ Eslovaco - Roman Moravčík</translation>
     <message>
         <source>OMWeather settings</source>
         <translation>Configuración de OMWeather</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>Aceptar</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>Aceptar</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>Aceptar</translation>
     </message>
     <message>
         <source>Other Maemo Weather Info</source>
@@ -2519,6 +2503,10 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Tormentas eléctricas aisladas por la noche</translation>
     </message>
     <message>
+        <source>Pa</source>
+        <translation type="unfinished">kPa</translation>
+    </message>
+    <message>
         <source>Partly Cloudy</source>
         <translation>Parcialmente nublado</translation>
     </message>
@@ -2643,18 +2631,6 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Período</translation>
     </message>
     <message>
-        <source>Polish - Tomasz Dominikowski
-</source>
-        <translation>Polaco - Tomasz Dominikowski
-</translation>
-    </message>
-    <message>
-        <source>Portuguese - Jose Narciso,
-</source>
-        <translation>Portugués - Jose Narciso,
-</translation>
-    </message>
-    <message>
         <source>Position:</source>
         <translation>Posición:</translation>
     </message>
@@ -2715,16 +2691,8 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Unidades de presión</translation>
     </message>
     <message>
-        <source>Pressure units</source>
-        <translation>Unidades de presión</translation>
-    </message>
-    <message>
         <source>Pressure units:</source>
         <translation>Unidades de presión: </translation>
-    </message>
-    <message>
-        <source>Pressure:</source>
-        <translation>Presión:</translation>
     </message>
     <message>
         <source>Pressure:</source>
@@ -2759,16 +2727,12 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Programador</translation>
     </message>
     <message>
-        <source>Project administrators</source>
-        <translation>Administradores del proyecto</translation>
+        <source>Project administrator</source>
+        <translation type="unfinished">Administradores del proyecto</translation>
     </message>
     <message>
         <source>Project manager</source>
         <translation>Director del proyecto</translation>
-    </message>
-    <message>
-        <source>Provided by</source>
-        <translation>Provisto por</translation>
     </message>
     <message>
         <source>Proximity shower rain</source>
@@ -2887,6 +2851,14 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Refrescar</translation>
     </message>
     <message>
+        <source>Refresh</source>
+        <translation>Refrescar</translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation>Refrescar</translation>
+    </message>
+    <message>
         <source>Region</source>
         <translation>Región</translation>
     </message>
@@ -2901,14 +2873,6 @@ Eslovaco - Roman Moravčík</translation>
     <message>
         <source>Rush Hour Traffic</source>
         <translation>Tráfico de hora pico</translation>
-    </message>
-    <message>
-        <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
- 	Ed Bartosh
-</source>
-        <translation>Ruso - Pavel Fialko, Vlad Vasilyeu, 
- 	Ed Bartosh
-</translation>
     </message>
     <message>
         <source>S</source>
@@ -3011,22 +2975,6 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Buscar</translation>
     </message>
     <message>
-        <source>Select city</source>
-        <translation>Selección de ciudad</translation>
-    </message>
-    <message>
-        <source>Select city</source>
-        <translation>Selección de ciudad</translation>
-    </message>
-    <message>
-        <source>Select country</source>
-        <translation>Selección de país</translation>
-    </message>
-    <message>
-        <source>Select country</source>
-        <translation>Selección de país</translation>
-    </message>
-    <message>
         <source>Select country</source>
         <translation>Selección de país</translation>
     </message>
@@ -3041,42 +2989,6 @@ Eslovaco - Roman Moravčík</translation>
     <message>
         <source>Select region</source>
         <translation>Selección de región</translation>
-    </message>
-    <message>
-        <source>Select region</source>
-        <translation>Selección de región</translation>
-    </message>
-    <message>
-        <source>Select region</source>
-        <translation>Selección de región</translation>
-    </message>
-    <message>
-        <source>Select source</source>
-        <translation>Selección de origen</translation>
-    </message>
-    <message>
-        <source>Select source</source>
-        <translation>Selección de origen</translation>
-    </message>
-    <message>
-        <source>Select the X-position for left corner of widget</source>
-        <translation>Seleccionar la posición-X para el extremo izquierdo del widget</translation>
-    </message>
-    <message>
-        <source>Select the Y-position for left corner of widget</source>
-        <translation>Seleccionar la posición-Y para el extremo izquierdo del widget</translation>
-    </message>
-    <message>
-        <source>Select the color of font for current temperature</source>
-        <translation>Seleccionar el color de fuente para la temperatura actual</translation>
-    </message>
-    <message>
-        <source>Select the color of font for station name</source>
-        <translation>Seleccionar el color de fuente para el nombre de estación</translation>
-    </message>
-    <message>
-        <source>Select the color of font for temperature</source>
-        <translation>Seleccionar el color de fuente para la temperatura</translation>
     </message>
     <message>
         <source>Select the iconset</source>
@@ -3123,12 +3035,6 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Sensor</translation>
     </message>
     <message>
-        <source>Serbian - Aleksandar Zaric
-</source>
-        <translation>Serbio - Aleksandar Zaric
-</translation>
-    </message>
-    <message>
         <source>Set</source>
         <translation>Íconos</translation>
     </message>
@@ -3141,8 +3047,8 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Elegir ubicaciones</translation>
     </message>
     <message>
-        <source>Settings</source>
-        <translation>Configuración</translation>
+        <source>Set locations</source>
+        <translation>Elegir ubicaciones</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3161,20 +3067,16 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Configuración</translation>
     </message>
     <message>
-        <source>Settings for Lockscreen widget</source>
-        <translation>Configuración de la pantalla de bloqueo</translation>
+        <source>Settings</source>
+        <translation>Configuración</translation>
     </message>
     <message>
-        <source>Settings for standby widget</source>
-        <translation>Configuración del widget en la pantalla de espera</translation>
+        <source>Settings</source>
+        <translation>Configuración</translation>
     </message>
     <message>
-        <source>Settings of LockScreen</source>
-        <translation>Configuración de la pantalla de bloqueo</translation>
-    </message>
-    <message>
-        <source>Settings of StandbyScreen</source>
-        <translation>Configuración de la Pantalla de Espera</translation>
+        <source>Settings</source>
+        <translation>Configuración</translation>
     </message>
     <message>
         <source>Shallow Fog</source>
@@ -3193,8 +3095,20 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Mostrar la hora de la última actualización</translation>
     </message>
     <message>
+        <source>Show last update time</source>
+        <translation>Mostrar la hora de la última actualización</translation>
+    </message>
+    <message>
+        <source>Show on Map</source>
+        <translation>Mostrar en el mapa</translation>
+    </message>
+    <message>
         <source>Show only current weather on first icon</source>
         <translation>Clima actual en el primer ícono</translation>
+    </message>
+    <message>
+        <source>Show source logo</source>
+        <translation>Mostrar el logo del proveedor de datos</translation>
     </message>
     <message>
         <source>Show source logo</source>
@@ -3207,6 +3121,10 @@ Eslovaco - Roman Moravčík</translation>
     <message>
         <source>Show temperature at:</source>
         <translation>Mostrar temperatura en:</translation>
+    </message>
+    <message>
+        <source>Show wind</source>
+        <translation>Mostrar viento</translation>
     </message>
     <message>
         <source>Show wind</source>
@@ -3255,18 +3173,6 @@ Eslovaco - Roman Moravčík</translation>
     <message>
         <source>Sleet Showers</source>
         <translation>Chubascos de aguanieve</translation>
-    </message>
-    <message>
-        <source>Slovak - Roman Moravčík
-</source>
-        <translation>Eslovaco - Roman Moravčík
-</translation>
-    </message>
-    <message>
-        <source>Slovenian - Boštjan Štrumbelj
-</source>
-        <translation>Esloveno - Boštjan Štrumbelj
-</translation>
     </message>
     <message>
         <source>Smoke</source>
@@ -3345,12 +3251,6 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Origen:</translation>
     </message>
     <message>
-        <source>Spanish - Alejandro Lopez, Agustí Clara
-</source>
-        <translation>Español - Alejandro Lopez, Agustí Clara
-</translation>
-    </message>
-    <message>
         <source>Speed</source>
         <translation>Velocidad</translation>
     </message>
@@ -3389,14 +3289,6 @@ Eslovaco - Roman Moravčík</translation>
     <message>
         <source>Speed:</source>
         <translation>Velocidad:</translation>
-    </message>
-    <message>
-        <source>Speed:</source>
-        <translation>Velocidad:</translation>
-    </message>
-    <message>
-        <source>Splash screen</source>
-        <translation>Pantalla de presentación</translation>
     </message>
     <message>
         <source>State:</source>
@@ -3459,12 +3351,20 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Amanecer:</translation>
     </message>
     <message>
+        <source>Sunrise:</source>
+        <translation>Amanecer:</translation>
+    </message>
+    <message>
         <source>Sunrise: </source>
         <translation>Amanecer: </translation>
     </message>
     <message>
         <source>Sunrise: </source>
         <translation>Amanecer: </translation>
+    </message>
+    <message>
+        <source>Sunset:</source>
+        <translation>Ocaso:</translation>
     </message>
     <message>
         <source>Sunset:</source>
@@ -3485,16 +3385,6 @@ Eslovaco - Roman Moravčík</translation>
     <message>
         <source>Swap hi/low temperature</source>
         <translation>Invertir temperaturas máx./min.</translation>
-    </message>
-    <message>
-        <source>Swedish - Angela Nennebrandt,
- 	Åke Engelbrektson, 
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</source>
-        <translation>Sueco - Angela Nennebrandt,
- 	Åke Engelbrektson, 
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</translation>
     </message>
     <message>
         <source>Switch to the next station after:</source>
@@ -3553,16 +3443,8 @@ Eslovaco - Roman Moravčík</translation>
         <translation>Unidades de temperatura</translation>
     </message>
     <message>
-        <source>Temperature units</source>
-        <translation>Unidades de temperatura</translation>
-    </message>
-    <message>
         <source>Temperature units:</source>
         <translation>Unidades de temperatura:</translation>
-    </message>
-    <message>
-        <source>Temperature:</source>
-        <translation>Temperatura:</translation>
     </message>
     <message>
         <source>Temperature:</source>
@@ -3594,24 +3476,18 @@ Eslovaco - Roman Moravčík</translation>
     </message>
     <message>
         <source>This software is free software; you can
- redistribute it and/or modify it under 
- the terms of the GNU General Public
- License as published by the Free Software 
- Foundation; either version 2.1 of the 
- License, or (at your option) any 
- later version.</source>
-        <translation>Este software es libre; puede redistribuirlo
+     redistribute it and/or modify it under 
+     the terms of the GNU General Public
+     License as published by the Free Software 
+     Foundation; either version 2.1 of the 
+     License, or (at your option) any 
+     later version.</source>
+        <translation type="unfinished">Este software es libre; puede redistribuirlo
  y/o modificarlo respetando los términos
 de la Licencia para el Público en General
 de GNU (GNU General Public License)
 publicada  por la Free Software Foundation;
 ya sea la versión 2.1 de la licencia, o (a sudiscreción) cualquier versión posterior.</translation>
-    </message>
-    <message>
-        <source>This software is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
-</source>
-        <translation>Este software es libre; puede redistribuirlo y/o modificarlo respetando los términos de la Licencia para el Público en General de GNU (GNU General Public License)
-</translation>
     </message>
     <message>
         <source>Thunder</source>
@@ -3642,18 +3518,24 @@ ya sea la versión 2.1 de la licencia, o (a sudiscreción) cualquier versión po
         <translation>Hoy</translation>
     </message>
     <message>
-        <source>Translators</source>
-        <translation>Traductores</translation>
+        <source>Today</source>
+        <translation>Hoy</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>Hoy</translation>
     </message>
     <message>
         <source>Translators</source>
         <translation>Traductores</translation>
     </message>
     <message>
-        <source>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
-</source>
-        <translation>Traductores: Francés - Nicolas Granziano, Philippe, Benoit Knecht; Ruso - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
-</translation>
+        <source>Translators</source>
+        <translation>Traductores</translation>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation>Transparencia</translation>
     </message>
     <message>
         <source>Transparency</source>
@@ -3678,14 +3560,6 @@ ya sea la versión 2.1 de la licencia, o (a sudiscreción) cualquier versión po
     <message>
         <source>Try to update</source>
         <translation>Intentar actualizar</translation>
-    </message>
-    <message>
-        <source>Turkish - Burak Kaan Kose,
- 	Mehmet Çilingir
-</source>
-        <translation>Turco - Burak Kaan Kose,
- 	Mehmet Çilingir
-</translation>
     </message>
     <message>
         <source>Type of click:</source>
@@ -3788,12 +3662,20 @@ ya sea la versión 2.1 de la licencia, o (a sudiscreción) cualquier versión po
         <translation>Actualización</translation>
     </message>
     <message>
+        <source>Update</source>
+        <translation>Actualización</translation>
+    </message>
+    <message>
         <source>Update already running.</source>
         <translation>Actualización ya en progreso.</translation>
     </message>
     <message>
         <source>Update interval</source>
         <translation>Intervalo de actualización</translation>
+    </message>
+    <message>
+        <source>Updating forecast</source>
+        <translation>Actualizando el pronóstico</translation>
     </message>
     <message>
         <source>Updating forecast</source>
@@ -3842,14 +3724,6 @@ la información del clima.
         <translation>Muy alta</translation>
     </message>
     <message>
-        <source>Vietnamese - Hieu Nguyen
- 	Anh Dương and truongnx, 
-</source>
-        <translation>Vietnamita - Hieu Nguyen
- 	Anh Dương and truongnx, 
-</translation>
-    </message>
-    <message>
         <source>Violent Rain Showers</source>
         <translation>Chubascos violentos</translation>
     </message>
@@ -3860,10 +3734,6 @@ la información del clima.
     <message>
         <source>Visible items:</source>
         <translation>Elementos visibles:</translation>
-    </message>
-    <message>
-        <source>Visible units</source>
-        <translation>Unidades visibles</translation>
     </message>
     <message>
         <source>Visible units</source>
@@ -3958,24 +3828,8 @@ la información del clima.
         <translation>Datos del clima provistos por: </translation>
     </message>
     <message>
-        <source>Weather forecast for the Meego. Version </source>
-        <translation>Pronóstico meteorológico para Meego. Versión </translation>
-    </message>
-    <message>
         <source>Widget OMWeather is reloading</source>
         <translation>El panel OMWeather se está recargando</translation>
-    </message>
-    <message>
-        <source>Widget in LockScreen</source>
-        <translation>Panel en LockScreen</translation>
-    </message>
-    <message>
-        <source>Widget in StandbyScreen</source>
-        <translation>Panel en StandbyScreen</translation>
-    </message>
-    <message>
-        <source>Widget in events view</source>
-        <translation>Panel en vista de eventos</translation>
     </message>
     <message>
         <source>Widget style</source>
@@ -4058,16 +3912,8 @@ la información del clima.
         <translation>Unidades de velocidad de viento</translation>
     </message>
     <message>
-        <source>Wind speed units</source>
-        <translation>Unidades de velocidad de viento</translation>
-    </message>
-    <message>
         <source>Wind speed units:</source>
         <translation>Unidades de velocidad de viento:</translation>
-    </message>
-    <message>
-        <source>Wind:</source>
-        <translation>Viento:</translation>
     </message>
     <message>
         <source>Wind:</source>
@@ -4136,36 +3982,12 @@ o postal erróneo!!!</translation>
         <translation>Puede hacer donaciones aquí: </translation>
     </message>
     <message>
-        <source>You should activate 
-&apos;Widget in events view&apos;
- for using LockScreen widget</source>
-        <translation>Debería activar 
-&quot;Panel en vista de eventos&quot;
-para usar el panel LockScreen</translation>
-    </message>
-    <message>
-        <source>You should activate 
-&apos;Widget in events view&apos;
- for using StandbyScreen widget</source>
-        <translation>Debería activar 
-&quot;Panel en vista de eventos&quot;
- para usar el panel StandbyScreen</translation>
-    </message>
-    <message>
-        <source>You should activate &apos;Widget in the events view&apos; option in MeeCast appearance settings for auto update.</source>
-        <translation>Debería activar la opción &quot;Panel en vista de eventos&quot; en la configuración de la apariencia de MeeCast para la auto-actualización.</translation>
-    </message>
-    <message>
         <source>Zoom in popup window </source>
         <translation>Acercamiento en ventana emergente</translation>
     </message>
     <message>
         <source>Zooming in popup window</source>
         <translation>Acercamiento de la ventana emergente</translation>
-    </message>
-    <message>
-        <source>as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</source>
-        <translation>Según fue publicada por la Free Software Foundation; ya sea la versión 2.1 de la licencia, o cualquier versión posterior (a su discreción).</translation>
     </message>
     <message>
         <source>current location local time</source>
@@ -4270,10 +4092,6 @@ para usar el panel LockScreen</translation>
     <message>
         <source>inch</source>
         <translation>pulgada</translation>
-    </message>
-    <message>
-        <source>kPa</source>
-        <translation>kPa</translation>
     </message>
     <message>
         <source>km</source>
@@ -4462,6 +4280,10 @@ para usar el panel LockScreen</translation>
     <message>
         <source>minutes ago</source>
         <translation>minutos atrás</translation>
+    </message>
+    <message>
+        <source>mm</source>
+        <translation>mm</translation>
     </message>
     <message>
         <source>mm</source>

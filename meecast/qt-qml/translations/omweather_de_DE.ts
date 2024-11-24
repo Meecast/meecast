@@ -122,6 +122,196 @@ W: </source>
 W: </translation>
     </message>
     <message>
+        <source>    Albanian - Ilir Gjika
+</source>
+        <translation type="unfinished">Albanisch- Ilir Gjika
+</translation>
+    </message>
+    <message>
+        <source>    Arabic - Tarad Alfandi
+</source>
+        <translation type="unfinished">Arabisch - Tarad Alfandi
+</translation>
+    </message>
+    <message>
+        <source>    Bulgarian - Zlatko Enikov
+</source>
+        <translation type="unfinished">Bulgarisch - Zlatko Enikov
+</translation>
+    </message>
+    <message>
+        <source>    Catalan - Agustí Clara
+</source>
+        <translation type="unfinished">Katalanisch - Agustí Clara
+</translation>
+    </message>
+    <message>
+        <source>    Chinese - Wong Man Kong, Michael,
+     	gwmgdemj
+</source>
+        <translation type="unfinished">Chinesisch - Wong Man Kong, Michael,
+ 	gwmgdemj
+</translation>
+    </message>
+    <message>
+        <source>    Chinese(Taiwan) - osk2, 
+</source>
+        <translation type="unfinished">Chinesisch (Taiwan) - osk2
+</translation>
+    </message>
+    <message>
+        <source>    Czech - Jakub Kožíšek, Pavel Šrubař
+</source>
+        <translation type="unfinished">Tschechisch  - Jakub Kožíšek, Pavel Šrubař
+</translation>
+    </message>
+    <message>
+        <source>    Danish - Peter Jespersen
+</source>
+        <translation type="unfinished">Dänisch - Peter Jespersen
+</translation>
+    </message>
+    <message>
+        <source>    Dutch - Tom Leenders, Michiel Pater
+     	Heimen Stoffels, Nathan Follens
+</source>
+        <translation type="unfinished">Niederländisch - Tom Leenders, Michiel Pater
+ 	Heimen Stoffels, Nathan Follens
+</translation>
+    </message>
+    <message>
+        <source>    Finnish - Marko Vertainen,
+    	deadhead (A-P Partonen),
+     	jarliim
+</source>
+        <translation type="unfinished">Finnisch - Marko Vertainen,
+	deadhead (A-P Partonen),
+ 	jarliim
+</translation>
+    </message>
+    <message>
+        <source>    French -  Nicolas Granziano, 
+     	Philippe, Benot Knecht, 
+     	Quentin Caillard, 
+     	Jordi
+</source>
+        <translation type="unfinished">Französisch -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard, 
+ 	Jordi
+</translation>
+    </message>
+    <message>
+        <source>    Galician - pakoR
+</source>
+        <translation type="unfinished">Galicisch - pakoR
+</translation>
+    </message>
+    <message>
+        <source>    German -  Claudius Henrichs,
+     	Jens Klingen,
+     	DeadHorseRiding
+ </source>
+        <translation type="unfinished">Deutsch -  Claudius Henrichs,
+ 	Jens Klingen,
+ 	DeadHorseRiding
+ </translation>
+    </message>
+    <message>
+        <source>    Hungarian - Salmi, László Kara
+</source>
+        <translation type="unfinished">Ungarisch  - Salmi, László Kara
+</translation>
+    </message>
+    <message>
+        <source>    Italian - Lorenzo Facca,
+     	Pavel Fialko, Alessandro Pasotti,
+     	Salvatore Fiorenzo, Ilir Gjika,
+     	Luca Onnis
+</source>
+        <translation type="unfinished">Italienisch -  Lorenzo Facca,
+ 	Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+</translation>
+    </message>
+    <message>
+        <source>    Norwegian - Peer-Atle Motland
+</source>
+        <translation type="unfinished">Norwegisch- Peer-Atle Motland
+</translation>
+    </message>
+    <message>
+        <source>    Polish - Tomasz Dominikowski
+</source>
+        <translation type="unfinished">Polnisch - Tomasz Dominikowski
+</translation>
+    </message>
+    <message>
+        <source>    Portuguese - Jose Narciso,
+</source>
+        <translation type="unfinished">Portugiesisch - Jose Narciso,
+</translation>
+    </message>
+    <message>
+        <source>    Russian - Pavel Fialko, Vlad Vasilyeu, 
+     	Ed Bartosh
+</source>
+        <translation type="unfinished">Russisch - Pavel Fialko, Vlad Vasilyeu, 
+ 	Ed Bartosh
+</translation>
+    </message>
+    <message>
+        <source>    Serbian - Aleksandar Zaric
+</source>
+        <translation type="unfinished">Serbisch - Aleksandar Zaric
+</translation>
+    </message>
+    <message>
+        <source>    Slovak - Roman Moravčík
+</source>
+        <translation type="unfinished">Slowakisch - Roman Moravčík
+</translation>
+    </message>
+    <message>
+        <source>    Slovenian - Boštjan Štrumbelj
+</source>
+        <translation type="unfinished">Slowenisch - Boštjan Štrumbelj
+</translation>
+    </message>
+    <message>
+        <source>    Spanish - Alejandro Lopez, Agustí Clara
+</source>
+        <translation type="unfinished">Spanisch - Alejandro Lopez, Agustí Clara
+</translation>
+    </message>
+    <message>
+        <source>    Swedish - Angela Nennebrandt,
+     	Åke Engelbrektson, 
+     	Niklas Åkerström, 
+     	Tomislav Veleckovik</source>
+        <translation type="unfinished">Schwedisch - Angela Nennebrandt,
+ 	Åke Engelbrektson, 
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</translation>
+    </message>
+    <message>
+        <source>    Turkish - Burak Kaan Kose,
+     	Mehmet Çilingir
+</source>
+        <translation type="unfinished">Türkisch - Burak Kaan Kose,
+ 	Mehmet Çilingir
+</translation>
+    </message>
+    <message>
+        <source>    Vietnamese - Hieu Nguyen
+     	Anh Dương and truongnx, 
+</source>
+        <translation type="unfinished">Vietnamesisch - Hieu Nguyen
+ 	Anh Dương and truongnx, 
+</translation>
+    </message>
+    <message>
         <source>(Low)</source>
         <translation>(Niedrig)</translation>
     </message>
@@ -172,10 +362,6 @@ W: </translation>
     <message>
         <source>10 seconds</source>
         <translation>10 Sekunden</translation>
-    </message>
-    <message>
-        <source>12 hours</source>
-        <translation>12 Stunden</translation>
     </message>
     <message>
         <source>15 minutes</source>
@@ -402,14 +588,8 @@ W: </translation>
         <translation>Station hinzufügen</translation>
     </message>
     <message>
-        <source>Adjust GPS station</source>
-        <translation>GPS-Station update</translation>
-    </message>
-    <message>
-        <source>Albanian - Ilir Gjika
-</source>
-        <translation>Albanisch- Ilir Gjika
-</translation>
+        <source>Add Station</source>
+        <translation>Station hinzufügen</translation>
     </message>
     <message>
         <source>Alerts</source>
@@ -458,23 +638,6 @@ Eric Link - für Feature Request und die Spende
         <translation>Erscheinungsbild</translation>
     </message>
     <message>
-        <source>Application manager will now start
-for installing package &apos;MeeCast applet&apos;.
-You should uninstall AccuWeather 
-before installing this package</source>
-        <translation>Programm-Manager wird jetzt zur
-Installation des Pakets &quot;MeeCast 
-Applet&quot; gestartet. Bitte AccuWeather
-vor der Installation dieses Pakets
-deinstallieren.</translation>
-    </message>
-    <message>
-        <source>Arabic - Tarad Alfandi
-</source>
-        <translation>Arabisch - Tarad Alfandi
-</translation>
-    </message>
-    <message>
         <source>Are you sure to want delete this station ?</source>
         <translation>Wollen Sie diese Station wirklich entfernen?</translation>
     </message>
@@ -494,12 +657,6 @@ Wartung: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Dokumentation: Marko Vertainen
 Design des Standardsymbolsatzes und der Oberfläche: Andrew Zhilin
 Design der Oberfläche für Freemante: Krebber Jan Niemela Ulla
-</translation>
-    </message>
-    <message>
-        <source>Author and maintenance: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
-</source>
-        <translation>Author und Produktpflege: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
 </translation>
     </message>
     <message>
@@ -549,12 +706,6 @@ Design der Oberfläche für Freemante: Krebber Jan Niemela Ulla
     <message>
         <source>Broken clouds</source>
         <translation>Aufgerissene Bewölkung</translation>
-    </message>
-    <message>
-        <source>Bulgarian - Zlatko Enikov
-</source>
-        <translation>Bulgarisch - Zlatko Enikov
-</translation>
     </message>
     <message>
         <source>C</source>
@@ -609,19 +760,9 @@ Design der Oberfläche für Freemante: Krebber Jan Niemela Ulla
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Abbrechen</translation>
-    </message>
-    <message>
         <source>Cannot get path to the HOME directory. Quitting.
 </source>
         <translation>Pfad zum HOME-Verzeichnis konnte nicht ermittelt werden. Programmabbruch.
-</translation>
-    </message>
-    <message>
-        <source>Catalan - Agustí Clara
-</source>
-        <translation>Katalanisch - Agustí Clara
 </translation>
     </message>
     <message>
@@ -631,20 +772,6 @@ Design der Oberfläche für Freemante: Krebber Jan Niemela Ulla
     <message>
         <source>Celsius</source>
         <translation>Celsius</translation>
-    </message>
-    <message>
-        <source>Chinese - Wong Man Kong, Michael,
- 	gwmgdemj
-</source>
-        <translation>Chinesisch - Wong Man Kong, Michael,
- 	gwmgdemj
-</translation>
-    </message>
-    <message>
-        <source>Chinese(Taiwan) - osk2, 
-</source>
-        <translation>Chinesisch (Taiwan) - osk2
-</translation>
     </message>
     <message>
         <source>City</source>
@@ -823,14 +950,12 @@ Design der Oberfläche für Freemante: Krebber Jan Niemela Ulla
         <translation>Bewölkt, Gewitter mit Regen</translation>
     </message>
     <message>
-        <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
-        <translation>Copyright(c) 2006-2011 by Vlad Vasilyeu und Pavel Fialko, </translation>
+        <source>Co-administrator and contributor</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Copyright(c) 2010-2011 by Tanya Makova
-</source>
-        <translation>Copyright(c) 2010-2011 by Tanya Makova
-</translation>
+        <source>Co-administrator and contributor</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Could not connecting to Internet.
@@ -873,26 +998,6 @@ Max. Verbindungszeit überschritten.</translation>
         <translation>Angepasst</translation>
     </message>
     <message>
-        <source>Czech - Jakub Kožíšek, Pavel Šrubař
-</source>
-        <translation>Tschechisch  - Jakub Kožíšek, Pavel Šrubař
-</translation>
-    </message>
-    <message>
-        <source>Daily</source>
-        <translation>Täglich</translation>
-    </message>
-    <message>
-        <source>Danish - Peter Jespersen
-</source>
-        <translation>Dänisch - Peter Jespersen
-</translation>
-    </message>
-    <message>
-        <source>Day</source>
-        <translation>Tag</translation>
-    </message>
-    <message>
         <source>Day</source>
         <translation>Tag</translation>
     </message>
@@ -917,10 +1022,8 @@ Max. Verbindungszeit überschritten.</translation>
         <translation>Standort löschen?</translation>
     </message>
     <message>
-        <source>Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
-</source>
-        <translation>Oberflächendesign und Standardsymbole: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
-</translation>
+        <source>Delete location?</source>
+        <translation>Standort löschen?</translation>
     </message>
     <message>
         <source>Detailed</source>
@@ -1013,14 +1116,6 @@ of &apos;omweather-*-stations-db&apos; packages was installed.</source>
         <translation>Nieselregen spät</translation>
     </message>
     <message>
-        <source>Dutch - Tom Leenders, Michiel Pater
- 	Heimen Stoffels, Nathan Follens
-</source>
-        <translation>Niederländisch - Tom Leenders, Michiel Pater
- 	Heimen Stoffels, Nathan Follens
-</translation>
-    </message>
-    <message>
         <source>E</source>
         <translation>O</translation>
     </message>
@@ -1081,8 +1176,8 @@ Brad Jones aka kazrak - fürs Testen
         <translation>GPS aktivieren</translation>
     </message>
     <message>
-        <source>Enter search</source>
-        <translation>Suchbegriff eingeben</translation>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error</source>
@@ -1239,22 +1334,6 @@ Brad Jones aka kazrak - fürs Testen
         <translation>Standort per GPS ermitteln</translation>
     </message>
     <message>
-        <source>Finnish - Marko Vertainen,
-	deadhead (A-P Partonen),
- 	jarliim
-</source>
-        <translation>Finnisch - Marko Vertainen,
-	deadhead (A-P Partonen),
- 	jarliim
-</translation>
-    </message>
-    <message>
-        <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
-</source>
-        <translation>Finnisch - Marko Vertainen; Deutsch - Claudius Henrichs; Spanisch - Alejandro Lopez; Niederländisch - Tom Leenders; Slovakisch - Roman Moravčík
-</translation>
-    </message>
-    <message>
         <source>First Quarter</source>
         <translation>Erstes Viertel</translation>
     </message>
@@ -1307,16 +1386,6 @@ Brad Jones aka kazrak - fürs Testen
         <translation>Schriftart:</translation>
     </message>
     <message>
-        <source>For disabling MeeCast widget,
-you should uninstall package
-&apos;Activating MeeCast Applet&apos;
-using Application manager</source>
-        <translation>Zum Deaktivieren des MeeCast-
-Widgets, bitte das Paket
-&apos;Activating MeeCast Applet&apos; im
-Programm-Manager deinstallieren.</translation>
-    </message>
-    <message>
         <source>Forecast</source>
         <translation>Vorhersage</translation>
     </message>
@@ -1341,18 +1410,6 @@ Programm-Manager deinstallieren.</translation>
     <message>
         <source>Freezing Rain</source>
         <translation>Eisregen</translation>
-    </message>
-    <message>
-        <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht, 
- 	Quentin Caillard, 
- 	Jordi
-</source>
-        <translation>Französisch -  Nicolas Granziano, 
- 	Philippe, Benot Knecht, 
- 	Quentin Caillard, 
- 	Jordi
-</translation>
     </message>
     <message>
         <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1383,10 +1440,6 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Vorhersage</translation>
     </message>
     <message>
-        <source>Fullscreen mode</source>
-        <translation>Vollbildmodus</translation>
-    </message>
-    <message>
         <source>G: </source>
         <translation>G: </translation>
     </message>
@@ -1413,26 +1466,6 @@ Spanisch - Alejandro Lopez</translation>
     <message>
         <source>GUI|Clear</source>
         <translation>Löschen</translation>
-    </message>
-    <message>
-        <source>Galician - pakoR
-</source>
-        <translation>Galicisch - pakoR
-</translation>
-    </message>
-    <message>
-        <source>German -  Claudius Henrichs,
- 	Jens Klingen,
- 	DeadHorseRiding
- </source>
-        <translation>Deutsch -  Claudius Henrichs,
- 	Jens Klingen,
- 	DeadHorseRiding
- </translation>
-    </message>
-    <message>
-        <source>Grzanka&apos;s Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
-        <translation>Grzankas Symbole: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</translation>
     </message>
     <message>
         <source>Gust:</source>
@@ -1559,16 +1592,6 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Luftfeuchtigkeit: </translation>
     </message>
     <message>
-        <source>Humidity:</source>
-        <translation>Luftfeuchtigkeit: </translation>
-    </message>
-    <message>
-        <source>Hungarian - Salmi, László Kara
-</source>
-        <translation>Ungarisch  - Salmi, László Kara
-</translation>
-    </message>
-    <message>
         <source>Ice Early</source>
         <translation>Eis früh</translation>
     </message>
@@ -1589,14 +1612,6 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Symbolgröße:</translation>
     </message>
     <message>
-        <source>Icons</source>
-        <translation>Symbole</translation>
-    </message>
-    <message>
-        <source>Icons</source>
-        <translation>Symbole</translation>
-    </message>
-    <message>
         <source>Iconset</source>
         <translation>Symbolsatz</translation>
     </message>
@@ -1611,22 +1626,6 @@ Spanisch - Alejandro Lopez</translation>
     <message>
         <source>Iconsets</source>
         <translation>Symbolsätze</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Information</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Information</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Information</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Information</translation>
     </message>
     <message>
         <source>Isolated T-Storms</source>
@@ -1635,22 +1634,6 @@ Spanisch - Alejandro Lopez</translation>
     <message>
         <source>Isolated T-Storms / Wind</source>
         <translation>Vereinzelt Gewitter / Wind</translation>
-    </message>
-    <message>
-        <source>Italian - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
-</source>
-        <translation>Italienisch -  Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
-</translation>
-    </message>
-    <message>
-        <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
-        <translation>Italienisch - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polnisch - Tomasz Dominikowski; Bulgarisch - Zlatko Enikov</translation>
     </message>
     <message>
         <source>Kilometers</source>
@@ -1679,6 +1662,18 @@ Spanisch - Alejandro Lopez</translation>
     <message>
         <source>Last update from server: </source>
         <translation>Letzte Aktualisierung vom Server:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Letzte Änderung:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Letzte Änderung:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Letzte Änderung:</translation>
     </message>
     <message>
         <source>Last update:</source>
@@ -1873,6 +1868,10 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Es liegen keine Wetterdaten für diese Station vor.</translation>
     </message>
     <message>
+        <source>Looks like there&apos;s no info for this location.</source>
+        <translation>Es liegen keine Wetterdaten für diese Station vor.</translation>
+    </message>
+    <message>
         <source>Low</source>
         <translation>Niedrig</translation>
     </message>
@@ -1891,12 +1890,6 @@ Spanisch - Alejandro Lopez</translation>
     <message>
         <source>Mainly cloudy, showers</source>
         <translation>Überwiegend bewölkt, Regenschauer</translation>
-    </message>
-    <message>
-        <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
-</source>
-        <translation>Produktpflege: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
-</translation>
     </message>
     <message>
         <source>Manage locations</source>
@@ -1919,12 +1912,24 @@ Spanisch - Alejandro Lopez</translation>
         <translation>MeeCast</translation>
     </message>
     <message>
-        <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
-        <translation>MeeCast - plattformübergreifende und anpassbare Open-Source-Anwendung zur Wettervorhersage, basierend auf dem Code von OMWeather. Copyright (C) 2006-2016</translation>
+        <source>MeeCast</source>
+        <translation>MeeCast</translation>
     </message>
     <message>
-        <source>MeeCast for Harmattan</source>
-        <translation>MeeCast für Harmattan</translation>
+        <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2024</source>
+        <translation type="unfinished">MeeCast - plattformübergreifende und anpassbare Open-Source-Anwendung zur Wettervorhersage, basierend auf dem Code von OMWeather. Copyright (C) 2006-2016</translation>
+    </message>
+    <message>
+        <source>MeeCast for AuroraOS</source>
+        <translation type="unfinished">MeeCast für Harmattan</translation>
+    </message>
+    <message>
+        <source>MeeCast for AuroraOS</source>
+        <translation type="unfinished">MeeCast für Harmattan</translation>
+    </message>
+    <message>
+        <source>MeeCast for SailfishOS</source>
+        <translation type="unfinished">MeeCast für Harmattan</translation>
     </message>
     <message>
         <source>Meters</source>
@@ -2223,16 +2228,8 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Neu</translation>
     </message>
     <message>
-        <source>New location</source>
-        <translation>Neuer Standort</translation>
-    </message>
-    <message>
         <source>Next update:</source>
         <translation>Nächste Aktualisierung um:</translation>
-    </message>
-    <message>
-        <source>Night</source>
-        <translation>Nacht</translation>
     </message>
     <message>
         <source>Night</source>
@@ -2247,12 +2244,20 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Nein</translation>
     </message>
     <message>
-        <source>No</source>
-        <translation>Nein</translation>
-    </message>
-    <message>
         <source>No current weather data.</source>
         <translation>Keine aktuellen Wetterdaten.</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>Noch keine Standorte eingerichtet.</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>Noch keine Standorte eingerichtet.</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>Noch keine Standorte eingerichtet.</translation>
     </message>
     <message>
         <source>No locations are set up yet.</source>
@@ -2273,12 +2278,6 @@ Spanisch - Alejandro Lopez</translation>
     <message>
         <source>No weather data for this station.</source>
         <translation>Keine Wetterdaten für diese Station.</translation>
-    </message>
-    <message>
-        <source>Norwegian - Peer-Atle Motland
-</source>
-        <translation>Norwegisch- Peer-Atle Motland
-</translation>
     </message>
     <message>
         <source>Now</source>
@@ -2353,10 +2352,6 @@ Spanisch - Alejandro Lopez</translation>
         <translation>OK</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation>OK</translation>
-    </message>
-    <message>
         <source>OMWeather Forecast</source>
         <translation>OMWeather Vorhersage</translation>
     </message>
@@ -2375,18 +2370,6 @@ Spanisch - Alejandro Lopez</translation>
     <message>
         <source>OMWeather settings</source>
         <translation>OMWeather Einstellungen</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>Ok</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>Ok</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>Ok</translation>
     </message>
     <message>
         <source>Other Maemo Weather Info</source>
@@ -2521,6 +2504,10 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Nachmittags Gewitter</translation>
     </message>
     <message>
+        <source>Pa</source>
+        <translation type="unfinished">kPa</translation>
+    </message>
+    <message>
         <source>Partly Cloudy</source>
         <translation>Teilweise bewölkt</translation>
     </message>
@@ -2645,18 +2632,6 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Intervall</translation>
     </message>
     <message>
-        <source>Polish - Tomasz Dominikowski
-</source>
-        <translation>Polnisch - Tomasz Dominikowski
-</translation>
-    </message>
-    <message>
-        <source>Portuguese - Jose Narciso,
-</source>
-        <translation>Portugiesisch - Jose Narciso,
-</translation>
-    </message>
-    <message>
         <source>Position:</source>
         <translation>Position:</translation>
     </message>
@@ -2717,16 +2692,8 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Einheit für Luftdruck</translation>
     </message>
     <message>
-        <source>Pressure units</source>
-        <translation>Einheit für Luftdruck</translation>
-    </message>
-    <message>
         <source>Pressure units:</source>
         <translation>Luftdruck:</translation>
-    </message>
-    <message>
-        <source>Pressure:</source>
-        <translation>Luftdruck: </translation>
     </message>
     <message>
         <source>Pressure:</source>
@@ -2761,16 +2728,12 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Programmierer</translation>
     </message>
     <message>
-        <source>Project administrators</source>
-        <translation>Projekt-Administratoren</translation>
+        <source>Project administrator</source>
+        <translation type="unfinished">Projekt-Administratoren</translation>
     </message>
     <message>
         <source>Project manager</source>
         <translation>Projektmanager</translation>
-    </message>
-    <message>
-        <source>Provided by</source>
-        <translation>Zur Verfügung gestellt durch</translation>
     </message>
     <message>
         <source>Proximity shower rain</source>
@@ -2889,6 +2852,14 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Aktualisieren</translation>
     </message>
     <message>
+        <source>Refresh</source>
+        <translation>Aktualisieren</translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation>Aktualisieren</translation>
+    </message>
+    <message>
         <source>Region</source>
         <translation>Region</translation>
     </message>
@@ -2903,14 +2874,6 @@ Spanisch - Alejandro Lopez</translation>
     <message>
         <source>Rush Hour Traffic</source>
         <translation>Stoßverkehr</translation>
-    </message>
-    <message>
-        <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
- 	Ed Bartosh
-</source>
-        <translation>Russisch - Pavel Fialko, Vlad Vasilyeu, 
- 	Ed Bartosh
-</translation>
     </message>
     <message>
         <source>S</source>
@@ -3013,22 +2976,6 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Suchen</translation>
     </message>
     <message>
-        <source>Select city</source>
-        <translation>Stadt wählen</translation>
-    </message>
-    <message>
-        <source>Select city</source>
-        <translation>Stadt wählen</translation>
-    </message>
-    <message>
-        <source>Select country</source>
-        <translation>Land wählen</translation>
-    </message>
-    <message>
-        <source>Select country</source>
-        <translation>Land wählen</translation>
-    </message>
-    <message>
         <source>Select country</source>
         <translation>Land wählen</translation>
     </message>
@@ -3043,42 +2990,6 @@ Spanisch - Alejandro Lopez</translation>
     <message>
         <source>Select region</source>
         <translation>Region wählen</translation>
-    </message>
-    <message>
-        <source>Select region</source>
-        <translation>Region wählen</translation>
-    </message>
-    <message>
-        <source>Select region</source>
-        <translation>Region wählen</translation>
-    </message>
-    <message>
-        <source>Select source</source>
-        <translation>Datenquelle wählen</translation>
-    </message>
-    <message>
-        <source>Select source</source>
-        <translation>Datenquelle wählen</translation>
-    </message>
-    <message>
-        <source>Select the X-position for left corner of widget</source>
-        <translation>X-Position der linken Ecke des Widgets</translation>
-    </message>
-    <message>
-        <source>Select the Y-position for left corner of widget</source>
-        <translation>Y-Position der linken Ecke des Widgets</translation>
-    </message>
-    <message>
-        <source>Select the color of font for current temperature</source>
-        <translation>Schriftfarbe für aktuelle Temperatur auswählen</translation>
-    </message>
-    <message>
-        <source>Select the color of font for station name</source>
-        <translation>Schriftfarbe für Stationsnamen auswählen</translation>
-    </message>
-    <message>
-        <source>Select the color of font for temperature</source>
-        <translation>Schriftfarbe für Temperatur auswählen</translation>
     </message>
     <message>
         <source>Select the iconset</source>
@@ -3125,12 +3036,6 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Sensor</translation>
     </message>
     <message>
-        <source>Serbian - Aleksandar Zaric
-</source>
-        <translation>Serbisch - Aleksandar Zaric
-</translation>
-    </message>
-    <message>
         <source>Set</source>
         <translation>Wählen</translation>
     </message>
@@ -3143,8 +3048,8 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Standorte einrichten</translation>
     </message>
     <message>
-        <source>Settings</source>
-        <translation>Einstellungen</translation>
+        <source>Set locations</source>
+        <translation>Standorte einrichten</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3163,20 +3068,16 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <source>Settings for Lockscreen widget</source>
-        <translation>Widget-Einstellungen für Sperrbildschirm</translation>
+        <source>Settings</source>
+        <translation>Einstellungen</translation>
     </message>
     <message>
-        <source>Settings for standby widget</source>
-        <translation>Widget-Einstellungen für Ruhezustand</translation>
+        <source>Settings</source>
+        <translation>Einstellungen</translation>
     </message>
     <message>
-        <source>Settings of LockScreen</source>
-        <translation>Einstellungen für Sperrbildschirm</translation>
-    </message>
-    <message>
-        <source>Settings of StandbyScreen</source>
-        <translation>Einstellungen für Ruhezustands-Ansicht</translation>
+        <source>Settings</source>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <source>Shallow Fog</source>
@@ -3195,8 +3096,20 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Letzten Aktualisierungszeitpunkt anzeigen</translation>
     </message>
     <message>
+        <source>Show last update time</source>
+        <translation>Letzten Aktualisierungszeitpunkt anzeigen</translation>
+    </message>
+    <message>
+        <source>Show on Map</source>
+        <translation>Auf Karte anzeigen</translation>
+    </message>
+    <message>
         <source>Show only current weather on first icon</source>
         <translation>Nur aktuelles Wetter neben erstem Symbol zeigen</translation>
+    </message>
+    <message>
+        <source>Show source logo</source>
+        <translation>Logo der Datenquelle anzeigen</translation>
     </message>
     <message>
         <source>Show source logo</source>
@@ -3209,6 +3122,10 @@ Spanisch - Alejandro Lopez</translation>
     <message>
         <source>Show temperature at:</source>
         <translation>Temperatur anzeigen:</translation>
+    </message>
+    <message>
+        <source>Show wind</source>
+        <translation>Wind anzeigen</translation>
     </message>
     <message>
         <source>Show wind</source>
@@ -3257,18 +3174,6 @@ Spanisch - Alejandro Lopez</translation>
     <message>
         <source>Sleet Showers</source>
         <translation>Graupelschauer</translation>
-    </message>
-    <message>
-        <source>Slovak - Roman Moravčík
-</source>
-        <translation>Slowakisch - Roman Moravčík
-</translation>
-    </message>
-    <message>
-        <source>Slovenian - Boštjan Štrumbelj
-</source>
-        <translation>Slowenisch - Boštjan Štrumbelj
-</translation>
     </message>
     <message>
         <source>Smoke</source>
@@ -3347,12 +3252,6 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Quelle: </translation>
     </message>
     <message>
-        <source>Spanish - Alejandro Lopez, Agustí Clara
-</source>
-        <translation>Spanisch - Alejandro Lopez, Agustí Clara
-</translation>
-    </message>
-    <message>
         <source>Speed</source>
         <translation>Geschwindigkeit</translation>
     </message>
@@ -3391,14 +3290,6 @@ Spanisch - Alejandro Lopez</translation>
     <message>
         <source>Speed:</source>
         <translation>Geschwindigkeit:</translation>
-    </message>
-    <message>
-        <source>Speed:</source>
-        <translation>Geschwindigkeit:</translation>
-    </message>
-    <message>
-        <source>Splash screen</source>
-        <translation>Splash Screen</translation>
     </message>
     <message>
         <source>State:</source>
@@ -3461,12 +3352,20 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Sonnenaufgang:</translation>
     </message>
     <message>
+        <source>Sunrise:</source>
+        <translation>Sonnenaufgang:</translation>
+    </message>
+    <message>
         <source>Sunrise: </source>
         <translation>Sonnenaufgang: </translation>
     </message>
     <message>
         <source>Sunrise: </source>
         <translation>Sonnenaufgang: </translation>
+    </message>
+    <message>
+        <source>Sunset:</source>
+        <translation>Sonnenuntergang:</translation>
     </message>
     <message>
         <source>Sunset:</source>
@@ -3487,16 +3386,6 @@ Spanisch - Alejandro Lopez</translation>
     <message>
         <source>Swap hi/low temperature</source>
         <translation>Max/Min Temperatur tauschen</translation>
-    </message>
-    <message>
-        <source>Swedish - Angela Nennebrandt,
- 	Åke Engelbrektson, 
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</source>
-        <translation>Schwedisch - Angela Nennebrandt,
- 	Åke Engelbrektson, 
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</translation>
     </message>
     <message>
         <source>Switch to the next station after:</source>
@@ -3555,15 +3444,7 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Temperatureinheit</translation>
     </message>
     <message>
-        <source>Temperature units</source>
-        <translation>Temperatureinheit</translation>
-    </message>
-    <message>
         <source>Temperature units:</source>
-        <translation>Temperatur:</translation>
-    </message>
-    <message>
-        <source>Temperature:</source>
         <translation>Temperatur:</translation>
     </message>
     <message>
@@ -3596,13 +3477,13 @@ Spanisch - Alejandro Lopez</translation>
     </message>
     <message>
         <source>This software is free software; you can
- redistribute it and/or modify it under 
- the terms of the GNU General Public
- License as published by the Free Software 
- Foundation; either version 2.1 of the 
- License, or (at your option) any 
- later version.</source>
-        <translation>Diese Software ist freie Software; Sie
+     redistribute it and/or modify it under 
+     the terms of the GNU General Public
+     License as published by the Free Software 
+     Foundation; either version 2.1 of the 
+     License, or (at your option) any 
+     later version.</source>
+        <translation type="unfinished">Diese Software ist freie Software; Sie
  dürfen sie weiter verbreiten und/oder
  modifizieren unter den Bedingungen der
  GNU General Public License wie sie von
@@ -3610,12 +3491,6 @@ Spanisch - Alejandro Lopez</translation>
  öffentlicht wurde; entweder Version 2.1
  der Lizenz oder (von Ihnen wählbar)
  eine neuere Version.</translation>
-    </message>
-    <message>
-        <source>This software is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
-</source>
-        <translation>Diese Software ist freie Software; Sie können sie weiter verbreiten und/oder modifizieren unter den Bedingungen der GNU General Public License
-</translation>
     </message>
     <message>
         <source>Thunder</source>
@@ -3646,18 +3521,24 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Heute</translation>
     </message>
     <message>
-        <source>Translators</source>
-        <translation>Übersetzer</translation>
+        <source>Today</source>
+        <translation>Heute</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>Heute</translation>
     </message>
     <message>
         <source>Translators</source>
         <translation>Übersetzer</translation>
     </message>
     <message>
-        <source>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
-</source>
-        <translation>Übersetzer: Französisch - Nicolas Granziano, Philippe, Benot Knecht; Russisch - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
-</translation>
+        <source>Translators</source>
+        <translation>Übersetzer</translation>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation>Transparenz</translation>
     </message>
     <message>
         <source>Transparency</source>
@@ -3682,14 +3563,6 @@ Spanisch - Alejandro Lopez</translation>
     <message>
         <source>Try to update</source>
         <translation>Aktualisieren</translation>
-    </message>
-    <message>
-        <source>Turkish - Burak Kaan Kose,
- 	Mehmet Çilingir
-</source>
-        <translation>Türkisch - Burak Kaan Kose,
- 	Mehmet Çilingir
-</translation>
     </message>
     <message>
         <source>Type of click:</source>
@@ -3792,12 +3665,20 @@ Spanisch - Alejandro Lopez</translation>
         <translation>Aktualisierung</translation>
     </message>
     <message>
+        <source>Update</source>
+        <translation>Aktualisierung</translation>
+    </message>
+    <message>
         <source>Update already running.</source>
         <translation>Aktualisierung wird bereits ausgeführt.</translation>
     </message>
     <message>
         <source>Update interval</source>
         <translation>Aktualisierungsintervall</translation>
+    </message>
+    <message>
+        <source>Updating forecast</source>
+        <translation>Wetterdaten aktualisieren</translation>
     </message>
     <message>
         <source>Updating forecast</source>
@@ -3846,14 +3727,6 @@ um die Darstellung des Applets anzupassen</translation>
         <translation>Sehr hoch</translation>
     </message>
     <message>
-        <source>Vietnamese - Hieu Nguyen
- 	Anh Dương and truongnx, 
-</source>
-        <translation>Vietnamesisch - Hieu Nguyen
- 	Anh Dương and truongnx, 
-</translation>
-    </message>
-    <message>
         <source>Violent Rain Showers</source>
         <translation>Heftige Regenschauer</translation>
     </message>
@@ -3864,10 +3737,6 @@ um die Darstellung des Applets anzupassen</translation>
     <message>
         <source>Visible items:</source>
         <translation>Angezeigte Elemente:</translation>
-    </message>
-    <message>
-        <source>Visible units</source>
-        <translation>Sichtweite</translation>
     </message>
     <message>
         <source>Visible units</source>
@@ -3962,24 +3831,8 @@ um die Darstellung des Applets anzupassen</translation>
         <translation>Wetterdaten von:</translation>
     </message>
     <message>
-        <source>Weather forecast for the Meego. Version </source>
-        <translation>Wettervorhersage für Meego. Version </translation>
-    </message>
-    <message>
         <source>Widget OMWeather is reloading</source>
         <translation>OMWeather Widget wird neu geladen</translation>
-    </message>
-    <message>
-        <source>Widget in LockScreen</source>
-        <translation>Widget im Sperrbildschirm</translation>
-    </message>
-    <message>
-        <source>Widget in StandbyScreen</source>
-        <translation>Widget in Standbyansicht</translation>
-    </message>
-    <message>
-        <source>Widget in events view</source>
-        <translation>Widget in der Ereignisansicht</translation>
     </message>
     <message>
         <source>Widget style</source>
@@ -4062,16 +3915,8 @@ um die Darstellung des Applets anzupassen</translation>
         <translation>Einheit für Windgeschwindigkeit</translation>
     </message>
     <message>
-        <source>Wind speed units</source>
-        <translation>Einheit für Windgeschwindigkeit</translation>
-    </message>
-    <message>
         <source>Wind speed units:</source>
         <translation>Windgeschwindigkeit:</translation>
-    </message>
-    <message>
-        <source>Wind:</source>
-        <translation>Wind: </translation>
     </message>
     <message>
         <source>Wind:</source>
@@ -4140,36 +3985,12 @@ oder ZIP-Code!</translation>
         <translation>Hier können Sie spenden: </translation>
     </message>
     <message>
-        <source>You should activate 
-&apos;Widget in events view&apos;
- for using LockScreen widget</source>
-        <translation>Aktivieren Sie die Option 
-&quot;Widget in der Ereignisansicht&quot; 
-für das Widget im Sperrbildschirm.</translation>
-    </message>
-    <message>
-        <source>You should activate 
-&apos;Widget in events view&apos;
- for using StandbyScreen widget</source>
-        <translation>Aktivieren Sie die Option 
-&quot;Widget in der Ereignisansicht&quot; 
-für das Widget im Standby.</translation>
-    </message>
-    <message>
-        <source>You should activate &apos;Widget in the events view&apos; option in MeeCast appearance settings for auto update.</source>
-        <translation>Aktivieren Sie die Option &quot;Widget in der Ereignisansicht&quot; in den Einstellungen für das MeeCast-Erscheinungsbild für automatische Aktualisierung.</translation>
-    </message>
-    <message>
         <source>Zoom in popup window </source>
         <translation>Popupfenster vergrößern</translation>
     </message>
     <message>
         <source>Zooming in popup window</source>
         <translation>Popupfenster wird vergrößert</translation>
-    </message>
-    <message>
-        <source>as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</source>
-        <translation>wie von der Free Software Foundation veröffentlicht; entweder Version 2.1 der Lizenz oder (von Ihnen wählbar) eine neuere Version.</translation>
     </message>
     <message>
         <source>current location local time</source>
@@ -4274,10 +4095,6 @@ für das Widget im Standby.</translation>
     <message>
         <source>inch</source>
         <translation>Zoll</translation>
-    </message>
-    <message>
-        <source>kPa</source>
-        <translation>kPa</translation>
     </message>
     <message>
         <source>km</source>
@@ -4466,6 +4283,10 @@ für das Widget im Standby.</translation>
     <message>
         <source>minutes ago</source>
         <translation>Minuten her</translation>
+    </message>
+    <message>
+        <source>mm</source>
+        <translation>mm</translation>
     </message>
     <message>
         <source>mm</source>

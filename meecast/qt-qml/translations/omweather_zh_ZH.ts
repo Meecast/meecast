@@ -122,6 +122,196 @@ W: </source>
 W: </translation>
     </message>
     <message>
+        <source>    Albanian - Ilir Gjika
+</source>
+        <translation type="unfinished">阿尔巴尼亚语 - Ilir Gjika
+</translation>
+    </message>
+    <message>
+        <source>    Arabic - Tarad Alfandi
+</source>
+        <translation type="unfinished">阿拉伯语 - Tarad Alfandi
+</translation>
+    </message>
+    <message>
+        <source>    Bulgarian - Zlatko Enikov
+</source>
+        <translation type="unfinished">保加利亚语 - Zlatko Enikov
+</translation>
+    </message>
+    <message>
+        <source>    Catalan - Agustí Clara
+</source>
+        <translation type="unfinished">加泰罗尼亚语 - Ausetí Clara
+</translation>
+    </message>
+    <message>
+        <source>    Chinese - Wong Man Kong, Michael,
+     	gwmgdemj
+</source>
+        <translation type="unfinished">简体中文 - Wong Man Kong,Michael,
+gwmgdemj，Luchy Kon
+
+</translation>
+    </message>
+    <message>
+        <source>    Chinese(Taiwan) - osk2, 
+</source>
+        <translation type="unfinished">繁体中文(Taiwan) - osk2,
+</translation>
+    </message>
+    <message>
+        <source>    Czech - Jakub Kožíšek, Pavel Šrubař
+</source>
+        <translation type="unfinished">捷克 - jakub Kožíšek, Pavel Šrubař
+</translation>
+    </message>
+    <message>
+        <source>    Danish - Peter Jespersen
+</source>
+        <translation type="unfinished">丹麦语 - Peter Jespersen
+</translation>
+    </message>
+    <message>
+        <source>    Dutch - Tom Leenders, Michiel Pater
+     	Heimen Stoffels, Nathan Follens
+</source>
+        <translation type="unfinished">荷兰语 - Tom Leenders, Michiel Pater
+Heimen Stoffels, Nathan Follens
+</translation>
+    </message>
+    <message>
+        <source>    Finnish - Marko Vertainen,
+    	deadhead (A-P Partonen),
+     	jarliim
+</source>
+        <translation type="unfinished">芬兰语 - Marko Vertainen,
+deadhead (A-P Partonen),
+jarliim
+</translation>
+    </message>
+    <message>
+        <source>    French -  Nicolas Granziano, 
+     	Philippe, Benot Knecht, 
+     	Quentin Caillard, 
+     	Jordi
+</source>
+        <translation type="unfinished">法语 - Nicolas Granziano, 
+Philippe, Benot Knecht, 
+Quentin Caillard, 
+Jordi
+</translation>
+    </message>
+    <message>
+        <source>    Galician - pakoR
+</source>
+        <translation type="unfinished">加利西亚语 - pakoR
+</translation>
+    </message>
+    <message>
+        <source>    German -  Claudius Henrichs,
+     	Jens Klingen,
+     	DeadHorseRiding
+ </source>
+        <translation type="unfinished">德语 - Claudius Henrichs,
+Jens Klingen,
+DeadHorseRiding</translation>
+    </message>
+    <message>
+        <source>    Hungarian - Salmi, László Kara
+</source>
+        <translation type="unfinished">匈牙利语 - Salmi, László Kara
+</translation>
+    </message>
+    <message>
+        <source>    Italian - Lorenzo Facca,
+     	Pavel Fialko, Alessandro Pasotti,
+     	Salvatore Fiorenzo, Ilir Gjika,
+     	Luca Onnis
+</source>
+        <translation type="unfinished">意大利语 - Lorenzo Facca,
+Pavel Fialko, Alessandro Pasotti,
+Salvatore Fiorenzo, Ilir Gjika,
+Luca Onnis
+</translation>
+    </message>
+    <message>
+        <source>    Norwegian - Peer-Atle Motland
+</source>
+        <translation type="unfinished">挪威语 - Peer-Atle Motland
+</translation>
+    </message>
+    <message>
+        <source>    Polish - Tomasz Dominikowski
+</source>
+        <translation type="unfinished">波兰语 - Tomasz Dominikowski
+</translation>
+    </message>
+    <message>
+        <source>    Portuguese - Jose Narciso,
+</source>
+        <translation type="unfinished">葡萄牙语 - Jose Narciso,
+</translation>
+    </message>
+    <message>
+        <source>    Russian - Pavel Fialko, Vlad Vasilyeu, 
+     	Ed Bartosh
+</source>
+        <translation type="unfinished">俄语 - Pavel Fialko, Vlad Vasilyeu,
+Ed Bartosh
+</translation>
+    </message>
+    <message>
+        <source>    Serbian - Aleksandar Zaric
+</source>
+        <translation type="unfinished">塞尔维亚语 - Aleksandar Zaric
+</translation>
+    </message>
+    <message>
+        <source>    Slovak - Roman Moravčík
+</source>
+        <translation type="unfinished">斯洛伐克语 - Roman Moravčík
+</translation>
+    </message>
+    <message>
+        <source>    Slovenian - Boštjan Štrumbelj
+</source>
+        <translation type="unfinished">斯洛文尼亚语 - Boštjan Štrumbelj
+</translation>
+    </message>
+    <message>
+        <source>    Spanish - Alejandro Lopez, Agustí Clara
+</source>
+        <translation type="unfinished">西班牙语 - Alejandro Lopez, Agustí Clara
+</translation>
+    </message>
+    <message>
+        <source>    Swedish - Angela Nennebrandt,
+     	Åke Engelbrektson, 
+     	Niklas Åkerström, 
+     	Tomislav Veleckovik</source>
+        <translation type="unfinished">瑞典语 - Angela Nennebrandt,
+Åke Engelbrektson,
+Niklas Åkerström,
+Tomislav Veleckovik</translation>
+    </message>
+    <message>
+        <source>    Turkish - Burak Kaan Kose,
+     	Mehmet Çilingir
+</source>
+        <translation type="unfinished">土耳其语 - Burak Kaan Kose,
+Mehmet Çilingir
+</translation>
+    </message>
+    <message>
+        <source>    Vietnamese - Hieu Nguyen
+     	Anh Dương and truongnx, 
+</source>
+        <translation type="unfinished">越南语 - Hieu Nguyen
+Anh Dương and truongnx
+</translation>
+    </message>
+    <message>
         <source>(Low)</source>
         <translation>(最低)</translation>
     </message>
@@ -172,10 +362,6 @@ W: </translation>
     <message>
         <source>10 seconds</source>
         <translation>10 秒</translation>
-    </message>
-    <message>
-        <source>12 hours</source>
-        <translation>12 小时</translation>
     </message>
     <message>
         <source>15 minutes</source>
@@ -402,14 +588,8 @@ W: </translation>
         <translation>增加地区</translation>
     </message>
     <message>
-        <source>Adjust GPS station</source>
-        <translation>刷新位置(GPS定位)</translation>
-    </message>
-    <message>
-        <source>Albanian - Ilir Gjika
-</source>
-        <translation>阿尔巴尼亚语 - Ilir Gjika
-</translation>
+        <source>Add Station</source>
+        <translation>增加地区</translation>
     </message>
     <message>
         <source>Alerts</source>
@@ -458,22 +638,6 @@ Eric Link - 功能请求和捐赠
         <translation>界面</translation>
     </message>
     <message>
-        <source>Application manager will now start
-for installing package &apos;MeeCast applet&apos;.
-You should uninstall AccuWeather 
-before installing this package</source>
-        <translation>应用程序管理器即将
-安装“MeeCast applet”
-安装前请确认”AccuWeather“ 
-这个程序已经卸载</translation>
-    </message>
-    <message>
-        <source>Arabic - Tarad Alfandi
-</source>
-        <translation>阿拉伯语 - Tarad Alfandi
-</translation>
-    </message>
-    <message>
         <source>Are you sure to want delete this station ?</source>
         <translation>删除这个位置</translation>
     </message>
@@ -493,12 +657,6 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
 参考资料提供者: Marko Vertainen
 用户界面设计和图标绘制者: Andrew Zhilin
 为Fremantle设计用户界面: Krebber Jan Niemela Ulla
-</translation>
-    </message>
-    <message>
-        <source>Author and maintenance: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
-</source>
-        <translation>作者及维护:Vlad Vasilyeu, &lt;vlad@gas.by&gt;
 </translation>
     </message>
     <message>
@@ -548,12 +706,6 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
     <message>
         <source>Broken clouds</source>
         <translation>多云</translation>
-    </message>
-    <message>
-        <source>Bulgarian - Zlatko Enikov
-</source>
-        <translation>保加利亚语 - Zlatko Enikov
-</translation>
     </message>
     <message>
         <source>C</source>
@@ -608,19 +760,9 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
         <source>Cannot get path to the HOME directory. Quitting.
 </source>
         <translation>无法获取主目录路径。正在退出。
-</translation>
-    </message>
-    <message>
-        <source>Catalan - Agustí Clara
-</source>
-        <translation>加泰罗尼亚语 - Ausetí Clara
 </translation>
     </message>
     <message>
@@ -630,21 +772,6 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
     <message>
         <source>Celsius</source>
         <translation>摄氏</translation>
-    </message>
-    <message>
-        <source>Chinese - Wong Man Kong, Michael,
- 	gwmgdemj
-</source>
-        <translation>简体中文 - Wong Man Kong,Michael,
-gwmgdemj，Luchy Kon
-
-</translation>
-    </message>
-    <message>
-        <source>Chinese(Taiwan) - osk2, 
-</source>
-        <translation>繁体中文(Taiwan) - osk2,
-</translation>
     </message>
     <message>
         <source>City</source>
@@ -823,14 +950,12 @@ gwmgdemj，Luchy Kon
         <translation>小雨有雷声</translation>
     </message>
     <message>
-        <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
-        <translation>版权所有(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </translation>
+        <source>Co-administrator and contributor</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Copyright(c) 2010-2011 by Tanya Makova
-</source>
-        <translation>版权所有(c) 2010-2011 by Tanya Makova
-</translation>
+        <source>Co-administrator and contributor</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Could not connecting to Internet.
@@ -873,26 +998,6 @@ Connection timeout is expired.</source>
         <translation>自定义</translation>
     </message>
     <message>
-        <source>Czech - Jakub Kožíšek, Pavel Šrubař
-</source>
-        <translation>捷克 - jakub Kožíšek, Pavel Šrubař
-</translation>
-    </message>
-    <message>
-        <source>Daily</source>
-        <translation>每天</translation>
-    </message>
-    <message>
-        <source>Danish - Peter Jespersen
-</source>
-        <translation>丹麦语 - Peter Jespersen
-</translation>
-    </message>
-    <message>
-        <source>Day</source>
-        <translation>白天</translation>
-    </message>
-    <message>
         <source>Day</source>
         <translation>白天</translation>
     </message>
@@ -917,10 +1022,8 @@ Connection timeout is expired.</source>
         <translation>删除地点</translation>
     </message>
     <message>
-        <source>Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
-</source>
-        <translation>UI设计与默认图标: 版权所有 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
-</translation>
+        <source>Delete location?</source>
+        <translation>删除地点</translation>
     </message>
     <message>
         <source>Detailed</source>
@@ -1013,14 +1116,6 @@ of &apos;omweather-*-stations-db&apos; packages was installed.</source>
         <translation>晚间毛毛雨</translation>
     </message>
     <message>
-        <source>Dutch - Tom Leenders, Michiel Pater
- 	Heimen Stoffels, Nathan Follens
-</source>
-        <translation>荷兰语 - Tom Leenders, Michiel Pater
-Heimen Stoffels, Nathan Follens
-</translation>
-    </message>
-    <message>
         <source>E</source>
         <translation>东</translation>
     </message>
@@ -1081,8 +1176,8 @@ Brad Jones aka kazrak - 测试
         <translation>启用GPS</translation>
     </message>
     <message>
-        <source>Enter search</source>
-        <translation>输入搜索</translation>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error</source>
@@ -1239,22 +1334,6 @@ Brad Jones aka kazrak - 测试
         <translation>通过GPS定位</translation>
     </message>
     <message>
-        <source>Finnish - Marko Vertainen,
-	deadhead (A-P Partonen),
- 	jarliim
-</source>
-        <translation>芬兰语 - Marko Vertainen,
-deadhead (A-P Partonen),
-jarliim
-</translation>
-    </message>
-    <message>
-        <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
-</source>
-        <translation>法语 - Marko Vertainen; 德语 - Claudius Henrichs; 西班牙语 - Alejandro Lopez; 荷兰语 - Tom Leenders; 斯洛伐克语 - Roman Moravčík
-</translation>
-    </message>
-    <message>
         <source>First Quarter</source>
         <translation>第一季</translation>
     </message>
@@ -1307,15 +1386,6 @@ jarliim
         <translation>字体:</translation>
     </message>
     <message>
-        <source>For disabling MeeCast widget,
-you should uninstall package
-&apos;Activating MeeCast Applet&apos;
-using Application manager</source>
-        <translation>禁用MeeCast widget,
-请先到程序管理卸载
-&apos;Activating MeeCast Applet&apos;</translation>
-    </message>
-    <message>
         <source>Forecast</source>
         <translation>预报</translation>
     </message>
@@ -1340,18 +1410,6 @@ using Application manager</source>
     <message>
         <source>Freezing Rain</source>
         <translation>冻雨</translation>
-    </message>
-    <message>
-        <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht, 
- 	Quentin Caillard, 
- 	Jordi
-</source>
-        <translation>法语 - Nicolas Granziano, 
-Philippe, Benot Knecht, 
-Quentin Caillard, 
-Jordi
-</translation>
     </message>
     <message>
         <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1382,10 +1440,6 @@ Slovak - Roman Moravčík</translation>
         <translation>全部预测</translation>
     </message>
     <message>
-        <source>Fullscreen mode</source>
-        <translation>全屏模式</translation>
-    </message>
-    <message>
         <source>G: </source>
         <translation>G: </translation>
     </message>
@@ -1412,25 +1466,6 @@ Slovak - Roman Moravčík</translation>
     <message>
         <source>GUI|Clear</source>
         <translation>清除</translation>
-    </message>
-    <message>
-        <source>Galician - pakoR
-</source>
-        <translation>加利西亚语 - pakoR
-</translation>
-    </message>
-    <message>
-        <source>German -  Claudius Henrichs,
- 	Jens Klingen,
- 	DeadHorseRiding
- </source>
-        <translation>德语 - Claudius Henrichs,
-Jens Klingen,
-DeadHorseRiding</translation>
-    </message>
-    <message>
-        <source>Grzanka&apos;s Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
-        <translation>Grzanka&apos;s Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</translation>
     </message>
     <message>
         <source>Gust:</source>
@@ -1557,16 +1592,6 @@ DeadHorseRiding</translation>
         <translation>湿度: </translation>
     </message>
     <message>
-        <source>Humidity:</source>
-        <translation>湿度: </translation>
-    </message>
-    <message>
-        <source>Hungarian - Salmi, László Kara
-</source>
-        <translation>匈牙利语 - Salmi, László Kara
-</translation>
-    </message>
-    <message>
         <source>Ice Early</source>
         <translation>早间有结冰</translation>
     </message>
@@ -1587,14 +1612,6 @@ DeadHorseRiding</translation>
         <translation>图标大小:</translation>
     </message>
     <message>
-        <source>Icons</source>
-        <translation>图标</translation>
-    </message>
-    <message>
-        <source>Icons</source>
-        <translation>图标</translation>
-    </message>
-    <message>
         <source>Iconset</source>
         <translation>图标设置</translation>
     </message>
@@ -1609,22 +1626,6 @@ DeadHorseRiding</translation>
     <message>
         <source>Iconsets</source>
         <translation>图标集</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>提示</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>提示</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>提示</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>提示</translation>
     </message>
     <message>
         <source>Isolated T-Storms</source>
@@ -1633,22 +1634,6 @@ DeadHorseRiding</translation>
     <message>
         <source>Isolated T-Storms / Wind</source>
         <translation>局部雷雨/刮风</translation>
-    </message>
-    <message>
-        <source>Italian - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
-</source>
-        <translation>意大利语 - Lorenzo Facca,
-Pavel Fialko, Alessandro Pasotti,
-Salvatore Fiorenzo, Ilir Gjika,
-Luca Onnis
-</translation>
-    </message>
-    <message>
-        <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
-        <translation>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</translation>
     </message>
     <message>
         <source>Kilometers</source>
@@ -1677,6 +1662,18 @@ Luca Onnis
     <message>
         <source>Last update from server: </source>
         <translation>最后从服务器更新: </translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>最后更新: </translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>最后更新: </translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>最后更新: </translation>
     </message>
     <message>
         <source>Last update:</source>
@@ -1871,6 +1868,10 @@ Luca Onnis
         <translation>无当地天气预报信息.</translation>
     </message>
     <message>
+        <source>Looks like there&apos;s no info for this location.</source>
+        <translation>无当地天气预报信息.</translation>
+    </message>
+    <message>
         <source>Low</source>
         <translation>最低</translation>
     </message>
@@ -1889,12 +1890,6 @@ Luca Onnis
     <message>
         <source>Mainly cloudy, showers</source>
         <translation>大部多云，阵雨</translation>
-    </message>
-    <message>
-        <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
-</source>
-        <translation>维护: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
-</translation>
     </message>
     <message>
         <source>Manage locations</source>
@@ -1917,12 +1912,24 @@ Luca Onnis
         <translation>MeeCast</translation>
     </message>
     <message>
-        <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
-        <translation>MeeCast - 一个基于OMweather编码的多平台高度定制化开源天气预报客户端 。Copyright (C) 2006-2016</translation>
+        <source>MeeCast</source>
+        <translation>MeeCast</translation>
     </message>
     <message>
-        <source>MeeCast for Harmattan</source>
-        <translation>MeeCast  For Harmattan</translation>
+        <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2024</source>
+        <translation type="unfinished">MeeCast - 一个基于OMweather编码的多平台高度定制化开源天气预报客户端 。Copyright (C) 2006-2016</translation>
+    </message>
+    <message>
+        <source>MeeCast for AuroraOS</source>
+        <translation type="unfinished">MeeCast  For Harmattan</translation>
+    </message>
+    <message>
+        <source>MeeCast for AuroraOS</source>
+        <translation type="unfinished">MeeCast  For Harmattan</translation>
+    </message>
+    <message>
+        <source>MeeCast for SailfishOS</source>
+        <translation type="unfinished">MeeCast  For Harmattan</translation>
     </message>
     <message>
         <source>Meters</source>
@@ -2221,16 +2228,8 @@ Luca Onnis
         <translation>新建</translation>
     </message>
     <message>
-        <source>New location</source>
-        <translation>新位置</translation>
-    </message>
-    <message>
         <source>Next update:</source>
         <translation>下次更新:</translation>
-    </message>
-    <message>
-        <source>Night</source>
-        <translation>夜间</translation>
     </message>
     <message>
         <source>Night</source>
@@ -2245,12 +2244,20 @@ Luca Onnis
         <translation>取消</translation>
     </message>
     <message>
-        <source>No</source>
-        <translation>取消</translation>
-    </message>
-    <message>
         <source>No current weather data.</source>
         <translation>当前没有气象信息.</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>未设置位置.</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>未设置位置.</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>未设置位置.</translation>
     </message>
     <message>
         <source>No locations are set up yet.</source>
@@ -2271,12 +2278,6 @@ Luca Onnis
     <message>
         <source>No weather data for this station.</source>
         <translation>此地区没有天气数据.</translation>
-    </message>
-    <message>
-        <source>Norwegian - Peer-Atle Motland
-</source>
-        <translation>挪威语 - Peer-Atle Motland
-</translation>
     </message>
     <message>
         <source>Now</source>
@@ -2351,10 +2352,6 @@ Luca Onnis
         <translation>确定</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation>确定</translation>
-    </message>
-    <message>
         <source>OMWeather Forecast</source>
         <translation>OMWeather预报</translation>
     </message>
@@ -2373,18 +2370,6 @@ Luca Onnis
     <message>
         <source>OMWeather settings</source>
         <translation>OMWeather 设置</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>确定</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>确定</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>确定</translation>
     </message>
     <message>
         <source>Other Maemo Weather Info</source>
@@ -2519,6 +2504,10 @@ Luca Onnis
         <translation>下午 雷雨</translation>
     </message>
     <message>
+        <source>Pa</source>
+        <translation type="unfinished">kPa</translation>
+    </message>
+    <message>
         <source>Partly Cloudy</source>
         <translation>局部多云</translation>
     </message>
@@ -2643,18 +2632,6 @@ Luca Onnis
         <translation>间隔</translation>
     </message>
     <message>
-        <source>Polish - Tomasz Dominikowski
-</source>
-        <translation>波兰语 - Tomasz Dominikowski
-</translation>
-    </message>
-    <message>
-        <source>Portuguese - Jose Narciso,
-</source>
-        <translation>葡萄牙语 - Jose Narciso,
-</translation>
-    </message>
-    <message>
         <source>Position:</source>
         <translation>位置:</translation>
     </message>
@@ -2715,16 +2692,8 @@ Luca Onnis
         <translation>气压单位</translation>
     </message>
     <message>
-        <source>Pressure units</source>
-        <translation>气压单位</translation>
-    </message>
-    <message>
         <source>Pressure units:</source>
         <translation>气压单位: </translation>
-    </message>
-    <message>
-        <source>Pressure:</source>
-        <translation>气压:</translation>
     </message>
     <message>
         <source>Pressure:</source>
@@ -2759,16 +2728,12 @@ Luca Onnis
         <translation>设计人员</translation>
     </message>
     <message>
-        <source>Project administrators</source>
-        <translation>项目主管</translation>
+        <source>Project administrator</source>
+        <translation type="unfinished">项目主管</translation>
     </message>
     <message>
         <source>Project manager</source>
         <translation>项目管理</translation>
-    </message>
-    <message>
-        <source>Provided by</source>
-        <translation>提供</translation>
     </message>
     <message>
         <source>Proximity shower rain</source>
@@ -2887,6 +2852,14 @@ Luca Onnis
         <translation>刷新</translation>
     </message>
     <message>
+        <source>Refresh</source>
+        <translation>刷新</translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation>刷新</translation>
+    </message>
+    <message>
         <source>Region</source>
         <translation>区域</translation>
     </message>
@@ -2901,14 +2874,6 @@ Luca Onnis
     <message>
         <source>Rush Hour Traffic</source>
         <translation>繁忙时段的交通</translation>
-    </message>
-    <message>
-        <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
- 	Ed Bartosh
-</source>
-        <translation>俄语 - Pavel Fialko, Vlad Vasilyeu,
-Ed Bartosh
-</translation>
     </message>
     <message>
         <source>S</source>
@@ -3011,22 +2976,6 @@ Ed Bartosh
         <translation>搜索</translation>
     </message>
     <message>
-        <source>Select city</source>
-        <translation>选择城市</translation>
-    </message>
-    <message>
-        <source>Select city</source>
-        <translation>选择城市</translation>
-    </message>
-    <message>
-        <source>Select country</source>
-        <translation>选择国家</translation>
-    </message>
-    <message>
-        <source>Select country</source>
-        <translation>选择国家</translation>
-    </message>
-    <message>
         <source>Select country</source>
         <translation>选择国家</translation>
     </message>
@@ -3041,42 +2990,6 @@ Ed Bartosh
     <message>
         <source>Select region</source>
         <translation>选择区域</translation>
-    </message>
-    <message>
-        <source>Select region</source>
-        <translation>选择区域</translation>
-    </message>
-    <message>
-        <source>Select region</source>
-        <translation>选择区域</translation>
-    </message>
-    <message>
-        <source>Select source</source>
-        <translation>选择天气预报源</translation>
-    </message>
-    <message>
-        <source>Select source</source>
-        <translation>选择天气预报源</translation>
-    </message>
-    <message>
-        <source>Select the X-position for left corner of widget</source>
-        <translation>修改插件左上角X坐标</translation>
-    </message>
-    <message>
-        <source>Select the Y-position for left corner of widget</source>
-        <translation>修改插件左上角Y坐标</translation>
-    </message>
-    <message>
-        <source>Select the color of font for current temperature</source>
-        <translation>选择实时温度的字体颜色</translation>
-    </message>
-    <message>
-        <source>Select the color of font for station name</source>
-        <translation>选择地区的字体颜色</translation>
-    </message>
-    <message>
-        <source>Select the color of font for temperature</source>
-        <translation>选择温度的字体颜色</translation>
     </message>
     <message>
         <source>Select the iconset</source>
@@ -3123,12 +3036,6 @@ Ed Bartosh
         <translation>传感器</translation>
     </message>
     <message>
-        <source>Serbian - Aleksandar Zaric
-</source>
-        <translation>塞尔维亚语 - Aleksandar Zaric
-</translation>
-    </message>
-    <message>
         <source>Set</source>
         <translation>设定</translation>
     </message>
@@ -3141,8 +3048,8 @@ Ed Bartosh
         <translation>选择地区</translation>
     </message>
     <message>
-        <source>Settings</source>
-        <translation>设置</translation>
+        <source>Set locations</source>
+        <translation>选择地区</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3161,20 +3068,16 @@ Ed Bartosh
         <translation>设置</translation>
     </message>
     <message>
-        <source>Settings for Lockscreen widget</source>
-        <translation>锁屏插件设置</translation>
+        <source>Settings</source>
+        <translation>设置</translation>
     </message>
     <message>
-        <source>Settings for standby widget</source>
-        <translation>待机屏幕插件设置</translation>
+        <source>Settings</source>
+        <translation>设置</translation>
     </message>
     <message>
-        <source>Settings of LockScreen</source>
-        <translation>锁屏插件设置</translation>
-    </message>
-    <message>
-        <source>Settings of StandbyScreen</source>
-        <translation>待机屏幕插件设置</translation>
+        <source>Settings</source>
+        <translation>设置</translation>
     </message>
     <message>
         <source>Shallow Fog</source>
@@ -3193,8 +3096,20 @@ Ed Bartosh
         <translation>显示最后更新时间</translation>
     </message>
     <message>
+        <source>Show last update time</source>
+        <translation>显示最后更新时间</translation>
+    </message>
+    <message>
+        <source>Show on Map</source>
+        <translation>在地图里显示</translation>
+    </message>
+    <message>
         <source>Show only current weather on first icon</source>
         <translation>第一个图标显示当前天气情况</translation>
+    </message>
+    <message>
+        <source>Show source logo</source>
+        <translation>显示天气来源logo</translation>
     </message>
     <message>
         <source>Show source logo</source>
@@ -3207,6 +3122,10 @@ Ed Bartosh
     <message>
         <source>Show temperature at:</source>
         <translation>显示温度:</translation>
+    </message>
+    <message>
+        <source>Show wind</source>
+        <translation>显示风向</translation>
     </message>
     <message>
         <source>Show wind</source>
@@ -3255,18 +3174,6 @@ Ed Bartosh
     <message>
         <source>Sleet Showers</source>
         <translation>短时冻雨</translation>
-    </message>
-    <message>
-        <source>Slovak - Roman Moravčík
-</source>
-        <translation>斯洛伐克语 - Roman Moravčík
-</translation>
-    </message>
-    <message>
-        <source>Slovenian - Boštjan Štrumbelj
-</source>
-        <translation>斯洛文尼亚语 - Boštjan Štrumbelj
-</translation>
     </message>
     <message>
         <source>Smoke</source>
@@ -3345,12 +3252,6 @@ Ed Bartosh
         <translation>服务器:</translation>
     </message>
     <message>
-        <source>Spanish - Alejandro Lopez, Agustí Clara
-</source>
-        <translation>西班牙语 - Alejandro Lopez, Agustí Clara
-</translation>
-    </message>
-    <message>
         <source>Speed</source>
         <translation>风速</translation>
     </message>
@@ -3389,14 +3290,6 @@ Ed Bartosh
     <message>
         <source>Speed:</source>
         <translation>风速:</translation>
-    </message>
-    <message>
-        <source>Speed:</source>
-        <translation>风速:</translation>
-    </message>
-    <message>
-        <source>Splash screen</source>
-        <translation>启动闪屏</translation>
     </message>
     <message>
         <source>State:</source>
@@ -3459,12 +3352,20 @@ Ed Bartosh
         <translation>日出:</translation>
     </message>
     <message>
+        <source>Sunrise:</source>
+        <translation>日出:</translation>
+    </message>
+    <message>
         <source>Sunrise: </source>
         <translation>日出: </translation>
     </message>
     <message>
         <source>Sunrise: </source>
         <translation>日出: </translation>
+    </message>
+    <message>
+        <source>Sunset:</source>
+        <translation>日落:</translation>
     </message>
     <message>
         <source>Sunset:</source>
@@ -3485,16 +3386,6 @@ Ed Bartosh
     <message>
         <source>Swap hi/low temperature</source>
         <translation>互换高/低温.</translation>
-    </message>
-    <message>
-        <source>Swedish - Angela Nennebrandt,
- 	Åke Engelbrektson, 
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</source>
-        <translation>瑞典语 - Angela Nennebrandt,
-Åke Engelbrektson,
-Niklas Åkerström,
-Tomislav Veleckovik</translation>
     </message>
     <message>
         <source>Switch to the next station after:</source>
@@ -3553,16 +3444,8 @@ Tomislav Veleckovik</translation>
         <translation>温度单位</translation>
     </message>
     <message>
-        <source>Temperature units</source>
-        <translation>温度单位</translation>
-    </message>
-    <message>
         <source>Temperature units:</source>
         <translation>温度单位:</translation>
-    </message>
-    <message>
-        <source>Temperature:</source>
-        <translation>温度:</translation>
     </message>
     <message>
         <source>Temperature:</source>
@@ -3600,7 +3483,7 @@ Tomislav Veleckovik</translation>
  Foundation; either version 2.1 of the 
  License, or (at your option) any 
  later version.</source>
-        <translation>This software is free software; you can
+        <translation type="unfinished">This software is free software; you can
  redistribute it and/or modify it under 
  the terms of the GNU General Public
  License as published by the Free Software 
@@ -3643,18 +3526,24 @@ Tomislav Veleckovik</translation>
         <translation>今天</translation>
     </message>
     <message>
-        <source>Translators</source>
-        <translation>翻译名单</translation>
+        <source>Today</source>
+        <translation>今天</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>今天</translation>
     </message>
     <message>
         <source>Translators</source>
         <translation>翻译名单</translation>
     </message>
     <message>
-        <source>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
-</source>
-        <translation>翻译人员: 法语 - Nicolas Granziano, Philippe, Benot Knecht; 俄语 - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
-</translation>
+        <source>Translators</source>
+        <translation>翻译名单</translation>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation>透明度</translation>
     </message>
     <message>
         <source>Transparency</source>
@@ -3679,14 +3568,6 @@ Tomislav Veleckovik</translation>
     <message>
         <source>Try to update</source>
         <translation>更新试试</translation>
-    </message>
-    <message>
-        <source>Turkish - Burak Kaan Kose,
- 	Mehmet Çilingir
-</source>
-        <translation>土耳其语 - Burak Kaan Kose,
-Mehmet Çilingir
-</translation>
     </message>
     <message>
         <source>Type of click:</source>
@@ -3789,12 +3670,20 @@ Mehmet Çilingir
         <translation>更新</translation>
     </message>
     <message>
+        <source>Update</source>
+        <translation>更新</translation>
+    </message>
+    <message>
         <source>Update already running.</source>
         <translation>正在更新中.</translation>
     </message>
     <message>
         <source>Update interval</source>
         <translation>自动更新</translation>
+    </message>
+    <message>
+        <source>Updating forecast</source>
+        <translation>更新预报中</translation>
     </message>
     <message>
         <source>Updating forecast</source>
@@ -3843,14 +3732,6 @@ for tuning images of applet</source>
         <translation>非常高</translation>
     </message>
     <message>
-        <source>Vietnamese - Hieu Nguyen
- 	Anh Dương and truongnx, 
-</source>
-        <translation>越南语 - Hieu Nguyen
-Anh Dương and truongnx
-</translation>
-    </message>
-    <message>
         <source>Violent Rain Showers</source>
         <translation>短时暴雨</translation>
     </message>
@@ -3861,10 +3742,6 @@ Anh Dương and truongnx
     <message>
         <source>Visible items:</source>
         <translation>可见项目:</translation>
-    </message>
-    <message>
-        <source>Visible units</source>
-        <translation>距离单位</translation>
     </message>
     <message>
         <source>Visible units</source>
@@ -3959,24 +3836,8 @@ Anh Dương and truongnx
         <translation>所提供的天气数据: </translation>
     </message>
     <message>
-        <source>Weather forecast for the Meego. Version </source>
-        <translation>天气预报Meego版本</translation>
-    </message>
-    <message>
         <source>Widget OMWeather is reloading</source>
         <translation>OMWeather 控件重新载入</translation>
-    </message>
-    <message>
-        <source>Widget in LockScreen</source>
-        <translation>锁屏插件</translation>
-    </message>
-    <message>
-        <source>Widget in StandbyScreen</source>
-        <translation>待机屏幕插件</translation>
-    </message>
-    <message>
-        <source>Widget in events view</source>
-        <translation>事件主屏插件</translation>
     </message>
     <message>
         <source>Widget style</source>
@@ -4059,16 +3920,8 @@ Anh Dương and truongnx
         <translation>风速单位</translation>
     </message>
     <message>
-        <source>Wind speed units</source>
-        <translation>风速单位</translation>
-    </message>
-    <message>
         <source>Wind speed units:</source>
         <translation>风速单位:</translation>
-    </message>
-    <message>
-        <source>Wind:</source>
-        <translation>风向:</translation>
     </message>
     <message>
         <source>Wind:</source>
@@ -4137,34 +3990,12 @@ or ZIP code!!!</source>
         <translation>点这里您可以进行捐赠: </translation>
     </message>
     <message>
-        <source>You should activate 
-&apos;Widget in events view&apos;
- for using LockScreen widget</source>
-        <translation>激活“事件主屏插件”后
-才能使用锁屏插件</translation>
-    </message>
-    <message>
-        <source>You should activate 
-&apos;Widget in events view&apos;
- for using StandbyScreen widget</source>
-        <translation>激活“事件主屏插件”后
-才能使用待机屏幕插件</translation>
-    </message>
-    <message>
-        <source>You should activate &apos;Widget in the events view&apos; option in MeeCast appearance settings for auto update.</source>
-        <translation>只有在“界面”设置里激活“事件作品插件”后才能使用自动更新功能。</translation>
-    </message>
-    <message>
         <source>Zoom in popup window </source>
         <translation>在弹出窗口的缩放</translation>
     </message>
     <message>
         <source>Zooming in popup window</source>
         <translation>在弹出窗口的缩放</translation>
-    </message>
-    <message>
-        <source>as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</source>
-        <translation>软件基于 FSF2.1版本的开源协议，或者更晚的版本</translation>
     </message>
     <message>
         <source>current location local time</source>
@@ -4269,10 +4100,6 @@ or ZIP code!!!</source>
     <message>
         <source>inch</source>
         <translation>寸</translation>
-    </message>
-    <message>
-        <source>kPa</source>
-        <translation>kPa</translation>
     </message>
     <message>
         <source>km</source>
@@ -4461,6 +4288,10 @@ or ZIP code!!!</source>
     <message>
         <source>minutes ago</source>
         <translation>分钟前</translation>
+    </message>
+    <message>
+        <source>mm</source>
+        <translation>mm</translation>
     </message>
     <message>
         <source>mm</source>

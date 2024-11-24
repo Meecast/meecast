@@ -122,6 +122,196 @@ W: </source>
 W: </translation>
     </message>
     <message>
+        <source>    Albanian - Ilir Gjika
+</source>
+        <translation type="unfinished">Albanès - Ilir Gjika
+</translation>
+    </message>
+    <message>
+        <source>    Arabic - Tarad Alfandi
+</source>
+        <translation type="unfinished">Àrab - Tarad Alfandi
+</translation>
+    </message>
+    <message>
+        <source>    Bulgarian - Zlatko Enikov
+</source>
+        <translation type="unfinished">Búlgar - Zlatko Enikov
+</translation>
+    </message>
+    <message>
+        <source>    Catalan - Agustí Clara
+</source>
+        <translation type="unfinished">Català - Agustí Clara
+</translation>
+    </message>
+    <message>
+        <source>    Chinese - Wong Man Kong, Michael,
+     	gwmgdemj
+</source>
+        <translation type="unfinished">Xinès - Wong Man Kong, Michael,
+ 	gwmgdemj
+</translation>
+    </message>
+    <message>
+        <source>    Chinese(Taiwan) - osk2, 
+</source>
+        <translation type="unfinished">Xinès (Taiwan) - osk2,
+</translation>
+    </message>
+    <message>
+        <source>    Czech - Jakub Kožíšek, Pavel Šrubař
+</source>
+        <translation type="unfinished">Txec - Jakub Kožíšek, Pavel Šrubař
+</translation>
+    </message>
+    <message>
+        <source>    Danish - Peter Jespersen
+</source>
+        <translation type="unfinished">Danès - Peter Jespersen
+</translation>
+    </message>
+    <message>
+        <source>    Dutch - Tom Leenders, Michiel Pater
+     	Heimen Stoffels, Nathan Follens
+</source>
+        <translation type="unfinished">Neerlandès - Tom Leenders, Michiel Pater
+ /tHeimen Stoffels, Nathan Follens
+</translation>
+    </message>
+    <message>
+        <source>    Finnish - Marko Vertainen,
+    	deadhead (A-P Partonen),
+     	jarliim
+</source>
+        <translation type="unfinished">Finlandès - Marko Vertainen,
+	deadhead (A-P Partonen),
+ 	jarliim
+</translation>
+    </message>
+    <message>
+        <source>    French -  Nicolas Granziano, 
+     	Philippe, Benot Knecht, 
+     	Quentin Caillard, 
+     	Jordi
+</source>
+        <translation type="unfinished">Francès -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard, 
+ 	Jordi
+</translation>
+    </message>
+    <message>
+        <source>    Galician - pakoR
+</source>
+        <translation type="unfinished">Gallec - pakoR
+</translation>
+    </message>
+    <message>
+        <source>    German -  Claudius Henrichs,
+     	Jens Klingen,
+     	DeadHorseRiding
+ </source>
+        <translation type="unfinished">Alemany -  Claudius Henrichs,
+ 	Jens Klingen,
+ 	DeadHorseRiding
+ </translation>
+    </message>
+    <message>
+        <source>    Hungarian - Salmi, László Kara
+</source>
+        <translation type="unfinished">Hongarès - Salmi, László Kara
+</translation>
+    </message>
+    <message>
+        <source>    Italian - Lorenzo Facca,
+     	Pavel Fialko, Alessandro Pasotti,
+     	Salvatore Fiorenzo, Ilir Gjika,
+     	Luca Onnis
+</source>
+        <translation type="unfinished">Italià - Lorenzo Facca,
+ 	Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+</translation>
+    </message>
+    <message>
+        <source>    Norwegian - Peer-Atle Motland
+</source>
+        <translation type="unfinished">Noruec - Peer-Atle Motland
+</translation>
+    </message>
+    <message>
+        <source>    Polish - Tomasz Dominikowski
+</source>
+        <translation type="unfinished">Polonès - Tomasz Dominikowski
+</translation>
+    </message>
+    <message>
+        <source>    Portuguese - Jose Narciso,
+</source>
+        <translation type="unfinished">Portuguès - Jose Narciso
+</translation>
+    </message>
+    <message>
+        <source>    Russian - Pavel Fialko, Vlad Vasilyeu, 
+     	Ed Bartosh
+</source>
+        <translation type="unfinished">Rus - Pavel Fialko, Vlad Vasilyeu, 
+ 	Ed Bartosh
+</translation>
+    </message>
+    <message>
+        <source>    Serbian - Aleksandar Zaric
+</source>
+        <translation type="unfinished">Serbi - Aleksandar Zaric
+</translation>
+    </message>
+    <message>
+        <source>    Slovak - Roman Moravčík
+</source>
+        <translation type="unfinished">Eslovac - Roman Moravčík
+</translation>
+    </message>
+    <message>
+        <source>    Slovenian - Boštjan Štrumbelj
+</source>
+        <translation type="unfinished">Eslovè - Boštjan Štrumbelj
+</translation>
+    </message>
+    <message>
+        <source>    Spanish - Alejandro Lopez, Agustí Clara
+</source>
+        <translation type="unfinished">Castellà - Alejandro López, Agustí Clara
+</translation>
+    </message>
+    <message>
+        <source>    Swedish - Angela Nennebrandt,
+     	Åke Engelbrektson, 
+     	Niklas Åkerström, 
+     	Tomislav Veleckovik</source>
+        <translation type="unfinished">Suec - Angela Nennebrandt,
+ 	Åke Engelbrektson, 
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</translation>
+    </message>
+    <message>
+        <source>    Turkish - Burak Kaan Kose,
+     	Mehmet Çilingir
+</source>
+        <translation type="unfinished">Turc - Burak Kaan Kose,
+ 	Mehmet Çilingir
+</translation>
+    </message>
+    <message>
+        <source>    Vietnamese - Hieu Nguyen
+     	Anh Dương and truongnx, 
+</source>
+        <translation type="unfinished">Vietnamita - Hieu Nguyen
+ 	Anh Dương and truongnx, 
+</translation>
+    </message>
+    <message>
         <source>(Low)</source>
         <translation>(Baix)</translation>
     </message>
@@ -172,10 +362,6 @@ W: </translation>
     <message>
         <source>10 seconds</source>
         <translation>10 segons</translation>
-    </message>
-    <message>
-        <source>12 hours</source>
-        <translation>12 hores</translation>
     </message>
     <message>
         <source>15 minutes</source>
@@ -402,14 +588,8 @@ W: </translation>
         <translation>Afegeix Estació</translation>
     </message>
     <message>
-        <source>Adjust GPS station</source>
-        <translation>Ajusta l&apos;estació GPS</translation>
-    </message>
-    <message>
-        <source>Albanian - Ilir Gjika
-</source>
-        <translation>Albanès - Ilir Gjika
-</translation>
+        <source>Add Station</source>
+        <translation>Afegeix Estació</translation>
     </message>
     <message>
         <source>Alerts</source>
@@ -458,22 +638,6 @@ Eric Link - pels requeriments de funcions i donacions
         <translation>Aparença</translation>
     </message>
     <message>
-        <source>Application manager will now start
-for installing package &apos;MeeCast applet&apos;.
-You should uninstall AccuWeather 
-before installing this package</source>
-        <translation>S&apos;iniciarà el gestor d&apos;aplicacions
-per instal·lar el paquet &apos;MeeCast applet&apos;.
-Heu de desinstal·lar AccuWeather 
-abans d&apos;instal·lar aquest paquet</translation>
-    </message>
-    <message>
-        <source>Arabic - Tarad Alfandi
-</source>
-        <translation>Àrab - Tarad Alfandi
-</translation>
-    </message>
-    <message>
         <source>Are you sure to want delete this station ?</source>
         <translation>Esteu segur que voleu eliminar aquesta estació?</translation>
     </message>
@@ -493,12 +657,6 @@ Manteniment: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
 Documentació: Marko Vertainen
 Disseny IU i icones per defecte: Andrew Zhilin
 Disseny IU per a Fremantle: Krebber Jan Niemela Ulla
-</translation>
-    </message>
-    <message>
-        <source>Author and maintenance: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
-</source>
-        <translation>Autoria i manteniment: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
 </translation>
     </message>
     <message>
@@ -548,12 +706,6 @@ Disseny IU per a Fremantle: Krebber Jan Niemela Ulla
     <message>
         <source>Broken clouds</source>
         <translation>Núvols trencats</translation>
-    </message>
-    <message>
-        <source>Bulgarian - Zlatko Enikov
-</source>
-        <translation>Búlgar - Zlatko Enikov
-</translation>
     </message>
     <message>
         <source>C</source>
@@ -608,19 +760,9 @@ Disseny IU per a Fremantle: Krebber Jan Niemela Ulla
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Cancel·la</translation>
-    </message>
-    <message>
         <source>Cannot get path to the HOME directory. Quitting.
 </source>
         <translation>No es pot trobar la ruta de la carpeta HOME. S&apos;està sortint.
-</translation>
-    </message>
-    <message>
-        <source>Catalan - Agustí Clara
-</source>
-        <translation>Català - Agustí Clara
 </translation>
     </message>
     <message>
@@ -630,20 +772,6 @@ Disseny IU per a Fremantle: Krebber Jan Niemela Ulla
     <message>
         <source>Celsius</source>
         <translation>Celsius</translation>
-    </message>
-    <message>
-        <source>Chinese - Wong Man Kong, Michael,
- 	gwmgdemj
-</source>
-        <translation>Xinès - Wong Man Kong, Michael,
- 	gwmgdemj
-</translation>
-    </message>
-    <message>
-        <source>Chinese(Taiwan) - osk2, 
-</source>
-        <translation>Xinès (Taiwan) - osk2,
-</translation>
     </message>
     <message>
         <source>City</source>
@@ -822,14 +950,12 @@ Disseny IU per a Fremantle: Krebber Jan Niemela Ulla
         <translation>Núvol, tempestes amb pluja</translation>
     </message>
     <message>
-        <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
-        <translation>Copyright(c) 2006-2011 per Vlad Vasilyeu and Pavel Fialko, </translation>
+        <source>Co-administrator and contributor</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Copyright(c) 2010-2011 by Tanya Makova
-</source>
-        <translation>Copyright(c) 2010-2011 per Tanya Makova
-</translation>
+        <source>Co-administrator and contributor</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Could not connecting to Internet.
@@ -872,26 +998,6 @@ El temps d&apos;espera de la connexió s&apos;ha esgotat.</translation>
         <translation>Personalitza</translation>
     </message>
     <message>
-        <source>Czech - Jakub Kožíšek, Pavel Šrubař
-</source>
-        <translation>Txec - Jakub Kožíšek, Pavel Šrubař
-</translation>
-    </message>
-    <message>
-        <source>Daily</source>
-        <translation>Diària</translation>
-    </message>
-    <message>
-        <source>Danish - Peter Jespersen
-</source>
-        <translation>Danès - Peter Jespersen
-</translation>
-    </message>
-    <message>
-        <source>Day</source>
-        <translation>Dia</translation>
-    </message>
-    <message>
         <source>Day</source>
         <translation>Dia</translation>
     </message>
@@ -916,10 +1022,8 @@ El temps d&apos;espera de la connexió s&apos;ha esgotat.</translation>
         <translation>Voleu eliminar la ubicació?</translation>
     </message>
     <message>
-        <source>Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
-</source>
-        <translation>Disseny  de la interfície d&apos;usuari i icones per defecte: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
-</translation>
+        <source>Delete location?</source>
+        <translation>Voleu eliminar la ubicació?</translation>
     </message>
     <message>
         <source>Detailed</source>
@@ -1012,14 +1116,6 @@ dels paquets &apos;omweather-*-stations-db&apos; està instal·lat.</translation
         <translation>Plugims més tard</translation>
     </message>
     <message>
-        <source>Dutch - Tom Leenders, Michiel Pater
- 	Heimen Stoffels, Nathan Follens
-</source>
-        <translation>Neerlandès - Tom Leenders, Michiel Pater
- /tHeimen Stoffels, Nathan Follens
-</translation>
-    </message>
-    <message>
         <source>E</source>
         <translation>E</translation>
     </message>
@@ -1080,8 +1176,8 @@ Brad Jones aka kazrak - per les proves
         <translation>Habilita el GPS</translation>
     </message>
     <message>
-        <source>Enter search</source>
-        <translation>Entreu cerca</translation>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error</source>
@@ -1238,22 +1334,6 @@ Brad Jones aka kazrak - per les proves
         <translation>Troba la ubicació via GPS</translation>
     </message>
     <message>
-        <source>Finnish - Marko Vertainen,
-	deadhead (A-P Partonen),
- 	jarliim
-</source>
-        <translation>Finlandès - Marko Vertainen,
-	deadhead (A-P Partonen),
- 	jarliim
-</translation>
-    </message>
-    <message>
-        <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
-</source>
-        <translation>Finlandès - Marko Vertainen; Alemany - Claudius Henrichs; Castellà - Alejandro Lopez; Holandès - Tom Leenders; Eslovac - Roman Moravčík
-</translation>
-    </message>
-    <message>
         <source>First Quarter</source>
         <translation>Quart creixent</translation>
     </message>
@@ -1306,16 +1386,6 @@ Brad Jones aka kazrak - per les proves
         <translation>Lletra:</translation>
     </message>
     <message>
-        <source>For disabling MeeCast widget,
-you should uninstall package
-&apos;Activating MeeCast Applet&apos;
-using Application manager</source>
-        <translation>Per deshabilitar el panell MeeCast,
-heu de desinstal·lar el paquet
-&apos;Activating MeeCast Applet&apos;
-utilitzant el Gestor d&apos;aplicacions</translation>
-    </message>
-    <message>
         <source>Forecast</source>
         <translation>Previsió</translation>
     </message>
@@ -1340,18 +1410,6 @@ utilitzant el Gestor d&apos;aplicacions</translation>
     <message>
         <source>Freezing Rain</source>
         <translation type="unfinished">Pluja gebradora intensa</translation>
-    </message>
-    <message>
-        <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht, 
- 	Quentin Caillard, 
- 	Jordi
-</source>
-        <translation>Francès -  Nicolas Granziano, 
- 	Philippe, Benot Knecht, 
- 	Quentin Caillard, 
- 	Jordi
-</translation>
     </message>
     <message>
         <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1383,10 +1441,6 @@ Català - Agustí Clara</translation>
         <translation>Previsió completa</translation>
     </message>
     <message>
-        <source>Fullscreen mode</source>
-        <translation>Pantalla completa</translation>
-    </message>
-    <message>
         <source>G: </source>
         <translation>G:</translation>
     </message>
@@ -1413,26 +1467,6 @@ Català - Agustí Clara</translation>
     <message>
         <source>GUI|Clear</source>
         <translation>Esborra</translation>
-    </message>
-    <message>
-        <source>Galician - pakoR
-</source>
-        <translation>Gallec - pakoR
-</translation>
-    </message>
-    <message>
-        <source>German -  Claudius Henrichs,
- 	Jens Klingen,
- 	DeadHorseRiding
- </source>
-        <translation>Alemany -  Claudius Henrichs,
- 	Jens Klingen,
- 	DeadHorseRiding
- </translation>
-    </message>
-    <message>
-        <source>Grzanka&apos;s Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
-        <translation>Icones de Grzanka&apos;s: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</translation>
     </message>
     <message>
         <source>Gust:</source>
@@ -1559,16 +1593,6 @@ Català - Agustí Clara</translation>
         <translation>Humitat:</translation>
     </message>
     <message>
-        <source>Humidity:</source>
-        <translation>Humitat:</translation>
-    </message>
-    <message>
-        <source>Hungarian - Salmi, László Kara
-</source>
-        <translation>Hongarès - Salmi, László Kara
-</translation>
-    </message>
-    <message>
         <source>Ice Early</source>
         <translation type="unfinished">Plugims primer</translation>
     </message>
@@ -1589,14 +1613,6 @@ Català - Agustí Clara</translation>
         <translation>Mida de les icones:</translation>
     </message>
     <message>
-        <source>Icons</source>
-        <translation>Icones</translation>
-    </message>
-    <message>
-        <source>Icons</source>
-        <translation>Icones</translation>
-    </message>
-    <message>
         <source>Iconset</source>
         <translation>Joc d&apos;icones</translation>
     </message>
@@ -1611,22 +1627,6 @@ Català - Agustí Clara</translation>
     <message>
         <source>Iconsets</source>
         <translation>Jocs d&apos;icones</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Informació</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Informació</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Informació</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Informació</translation>
     </message>
     <message>
         <source>Isolated T-Storms</source>
@@ -1635,22 +1635,6 @@ Català - Agustí Clara</translation>
     <message>
         <source>Isolated T-Storms / Wind</source>
         <translation>Tempestes aïllades / Vent</translation>
-    </message>
-    <message>
-        <source>Italian - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
-</source>
-        <translation>Italià - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
-</translation>
-    </message>
-    <message>
-        <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
-        <translation>Italià - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polonès - Tomasz Dominikowski; Búlgar - Zlatko Enikov</translation>
     </message>
     <message>
         <source>Kilometers</source>
@@ -1679,6 +1663,18 @@ Català - Agustí Clara</translation>
     <message>
         <source>Last update from server: </source>
         <translation>Última actualització rebuda del servidor:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Última actualització:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Última actualització:</translation>
+    </message>
+    <message>
+        <source>Last update:</source>
+        <translation>Última actualització:</translation>
     </message>
     <message>
         <source>Last update:</source>
@@ -1873,6 +1869,10 @@ Català - Agustí Clara</translation>
         <translation>No es disposa d&apos;informació per aquesta ubicació.</translation>
     </message>
     <message>
+        <source>Looks like there&apos;s no info for this location.</source>
+        <translation>No es disposa d&apos;informació per aquesta ubicació.</translation>
+    </message>
+    <message>
         <source>Low</source>
         <translation>Mínima</translation>
     </message>
@@ -1891,12 +1891,6 @@ Català - Agustí Clara</translation>
     <message>
         <source>Mainly cloudy, showers</source>
         <translation>Força núvol, ruixats</translation>
-    </message>
-    <message>
-        <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
-</source>
-        <translation>Manteniment: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
-</translation>
     </message>
     <message>
         <source>Manage locations</source>
@@ -1919,12 +1913,24 @@ Català - Agustí Clara</translation>
         <translation>MeeCast</translation>
     </message>
     <message>
-        <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2016</source>
-        <translation>MeeCast - client multiplataforma, personalitzable i de codi obert basat en el codi de OMWeather. Copyright (C) 2006-2016</translation>
+        <source>MeeCast</source>
+        <translation>MeeCast</translation>
     </message>
     <message>
-        <source>MeeCast for Harmattan</source>
-        <translation>MeeCast per a Harmattan</translation>
+        <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2024</source>
+        <translation type="unfinished">MeeCast - client multiplataforma, personalitzable i de codi obert basat en el codi de OMWeather. Copyright (C) 2006-2016</translation>
+    </message>
+    <message>
+        <source>MeeCast for AuroraOS</source>
+        <translation type="unfinished">MeeCast per a Harmattan</translation>
+    </message>
+    <message>
+        <source>MeeCast for AuroraOS</source>
+        <translation type="unfinished">MeeCast per a Harmattan</translation>
+    </message>
+    <message>
+        <source>MeeCast for SailfishOS</source>
+        <translation type="unfinished">MeeCast per a Harmattan</translation>
     </message>
     <message>
         <source>Meters</source>
@@ -2223,16 +2229,8 @@ Català - Agustí Clara</translation>
         <translation>Nou</translation>
     </message>
     <message>
-        <source>New location</source>
-        <translation>Nova ubicació</translation>
-    </message>
-    <message>
         <source>Next update:</source>
         <translation>Pròxima actualització:</translation>
-    </message>
-    <message>
-        <source>Night</source>
-        <translation>Nit</translation>
     </message>
     <message>
         <source>Night</source>
@@ -2247,12 +2245,20 @@ Català - Agustí Clara</translation>
         <translation>No</translation>
     </message>
     <message>
-        <source>No</source>
-        <translation>No</translation>
-    </message>
-    <message>
         <source>No current weather data.</source>
         <translation>No hi ha dades actuals sobre el temps</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>S&apos;ha de definir alguna ubicació primer</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>S&apos;ha de definir alguna ubicació primer</translation>
+    </message>
+    <message>
+        <source>No locations are set up yet.</source>
+        <translation>S&apos;ha de definir alguna ubicació primer</translation>
     </message>
     <message>
         <source>No locations are set up yet.</source>
@@ -2273,12 +2279,6 @@ Català - Agustí Clara</translation>
     <message>
         <source>No weather data for this station.</source>
         <translation>No hi ha dades per aquesta estació sobre el temps</translation>
-    </message>
-    <message>
-        <source>Norwegian - Peer-Atle Motland
-</source>
-        <translation>Noruec - Peer-Atle Motland
-</translation>
     </message>
     <message>
         <source>Now</source>
@@ -2353,10 +2353,6 @@ Català - Agustí Clara</translation>
         <translation>D&apos;acord</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation>D&apos;acord</translation>
-    </message>
-    <message>
         <source>OMWeather Forecast</source>
         <translation>Previsió de l&apos;OMWeather</translation>
     </message>
@@ -2375,18 +2371,6 @@ Català - Agustí Clara</translation>
     <message>
         <source>OMWeather settings</source>
         <translation>Configuració de l&apos;OMWeather</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>D&apos;acord</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>D&apos;acord</translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation>D&apos;acord</translation>
     </message>
     <message>
         <source>Other Maemo Weather Info</source>
@@ -2521,6 +2505,10 @@ Català - Agustí Clara</translation>
         <translation>p.m.: Tempestes</translation>
     </message>
     <message>
+        <source>Pa</source>
+        <translation type="unfinished">kPa</translation>
+    </message>
+    <message>
         <source>Partly Cloudy</source>
         <translation>En part núvol</translation>
     </message>
@@ -2645,18 +2633,6 @@ Català - Agustí Clara</translation>
         <translation>Període</translation>
     </message>
     <message>
-        <source>Polish - Tomasz Dominikowski
-</source>
-        <translation>Polonès - Tomasz Dominikowski
-</translation>
-    </message>
-    <message>
-        <source>Portuguese - Jose Narciso,
-</source>
-        <translation>Portuguès - Jose Narciso
-</translation>
-    </message>
-    <message>
         <source>Position:</source>
         <translation>Posició:</translation>
     </message>
@@ -2717,16 +2693,8 @@ Català - Agustí Clara</translation>
         <translation>Unitats de pressió</translation>
     </message>
     <message>
-        <source>Pressure units</source>
-        <translation>Unitats de pressió</translation>
-    </message>
-    <message>
         <source>Pressure units:</source>
         <translation>Unitats de pressió:</translation>
-    </message>
-    <message>
-        <source>Pressure:</source>
-        <translation>Pressió:</translation>
     </message>
     <message>
         <source>Pressure:</source>
@@ -2761,16 +2729,12 @@ Català - Agustí Clara</translation>
         <translation>Programador</translation>
     </message>
     <message>
-        <source>Project administrators</source>
-        <translation>Administradors del projecte</translation>
+        <source>Project administrator</source>
+        <translation type="unfinished">Administradors del projecte</translation>
     </message>
     <message>
         <source>Project manager</source>
         <translation>Gestor del projecte</translation>
-    </message>
-    <message>
-        <source>Provided by</source>
-        <translation>Proporcionat per</translation>
     </message>
     <message>
         <source>Proximity shower rain</source>
@@ -2889,6 +2853,14 @@ Català - Agustí Clara</translation>
         <translation>Refresca</translation>
     </message>
     <message>
+        <source>Refresh</source>
+        <translation>Refresca</translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation>Refresca</translation>
+    </message>
+    <message>
         <source>Region</source>
         <translation>Regió</translation>
     </message>
@@ -2903,14 +2875,6 @@ Català - Agustí Clara</translation>
     <message>
         <source>Rush Hour Traffic</source>
         <translation>Trànsit d&apos;hora punta</translation>
-    </message>
-    <message>
-        <source>Russian - Pavel Fialko, Vlad Vasilyeu, 
- 	Ed Bartosh
-</source>
-        <translation>Rus - Pavel Fialko, Vlad Vasilyeu, 
- 	Ed Bartosh
-</translation>
     </message>
     <message>
         <source>S</source>
@@ -3013,22 +2977,6 @@ Català - Agustí Clara</translation>
         <translation>Cerca</translation>
     </message>
     <message>
-        <source>Select city</source>
-        <translation>Seleccioneu ciutat</translation>
-    </message>
-    <message>
-        <source>Select city</source>
-        <translation>Seleccioneu ciutat</translation>
-    </message>
-    <message>
-        <source>Select country</source>
-        <translation>Seleccioneu país</translation>
-    </message>
-    <message>
-        <source>Select country</source>
-        <translation>Seleccioneu país</translation>
-    </message>
-    <message>
         <source>Select country</source>
         <translation>Seleccioneu país</translation>
     </message>
@@ -3043,42 +2991,6 @@ Català - Agustí Clara</translation>
     <message>
         <source>Select region</source>
         <translation>Seleccioneu regió</translation>
-    </message>
-    <message>
-        <source>Select region</source>
-        <translation>Seleccioneu regió</translation>
-    </message>
-    <message>
-        <source>Select region</source>
-        <translation>Seleccioneu regió</translation>
-    </message>
-    <message>
-        <source>Select source</source>
-        <translation>Seleccioneu font</translation>
-    </message>
-    <message>
-        <source>Select source</source>
-        <translation>Seleccioneu font</translation>
-    </message>
-    <message>
-        <source>Select the X-position for left corner of widget</source>
-        <translation>Seleccioneu la posició-X pel giny del costat esquerre</translation>
-    </message>
-    <message>
-        <source>Select the Y-position for left corner of widget</source>
-        <translation>Seleccioneu la posició-Y pel giny del costat dret</translation>
-    </message>
-    <message>
-        <source>Select the color of font for current temperature</source>
-        <translation>Seleccioneu el color de la font de la temperatura actual</translation>
-    </message>
-    <message>
-        <source>Select the color of font for station name</source>
-        <translation>Seleccioneu el color de la font del nom d&apos;estació</translation>
-    </message>
-    <message>
-        <source>Select the color of font for temperature</source>
-        <translation>Seleccioneu el color de la font de la temperatura</translation>
     </message>
     <message>
         <source>Select the iconset</source>
@@ -3125,12 +3037,6 @@ Català - Agustí Clara</translation>
         <translation>Sensor</translation>
     </message>
     <message>
-        <source>Serbian - Aleksandar Zaric
-</source>
-        <translation>Serbi - Aleksandar Zaric
-</translation>
-    </message>
-    <message>
         <source>Set</source>
         <translation>Icones</translation>
     </message>
@@ -3143,8 +3049,8 @@ Català - Agustí Clara</translation>
         <translation>Definiu ubicacions</translation>
     </message>
     <message>
-        <source>Settings</source>
-        <translation>Configuració</translation>
+        <source>Set locations</source>
+        <translation>Definiu ubicacions</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -3163,20 +3069,16 @@ Català - Agustí Clara</translation>
         <translation>Configuració</translation>
     </message>
     <message>
-        <source>Settings for Lockscreen widget</source>
-        <translation>Configuració del giny de la pantalla de bloqueig</translation>
+        <source>Settings</source>
+        <translation>Configuració</translation>
     </message>
     <message>
-        <source>Settings for standby widget</source>
-        <translation>Configuració del giny de la pantalla d&apos;espera</translation>
+        <source>Settings</source>
+        <translation>Configuració</translation>
     </message>
     <message>
-        <source>Settings of LockScreen</source>
-        <translation>Configuració de la pantalla de bloqueig</translation>
-    </message>
-    <message>
-        <source>Settings of StandbyScreen</source>
-        <translation>Configuració de la pantalla d&apos;espera</translation>
+        <source>Settings</source>
+        <translation>Configuració</translation>
     </message>
     <message>
         <source>Shallow Fog</source>
@@ -3195,8 +3097,20 @@ Català - Agustí Clara</translation>
         <translation>Mostra l&apos;hora de l&apos;última actualització</translation>
     </message>
     <message>
+        <source>Show last update time</source>
+        <translation>Mostra l&apos;hora de l&apos;última actualització</translation>
+    </message>
+    <message>
+        <source>Show on Map</source>
+        <translation>Mostra al mapa</translation>
+    </message>
+    <message>
         <source>Show only current weather on first icon</source>
         <translation>Mostra només el temps actual a la primera icona</translation>
+    </message>
+    <message>
+        <source>Show source logo</source>
+        <translation>Mostra el logo del proveïdor de dades</translation>
     </message>
     <message>
         <source>Show source logo</source>
@@ -3209,6 +3123,10 @@ Català - Agustí Clara</translation>
     <message>
         <source>Show temperature at:</source>
         <translation>Mostra la temperatura a:</translation>
+    </message>
+    <message>
+        <source>Show wind</source>
+        <translation>Mostra el vent</translation>
     </message>
     <message>
         <source>Show wind</source>
@@ -3257,18 +3175,6 @@ Català - Agustí Clara</translation>
     <message>
         <source>Sleet Showers</source>
         <translation>Ruixats d&apos;aiguaneu</translation>
-    </message>
-    <message>
-        <source>Slovak - Roman Moravčík
-</source>
-        <translation>Eslovac - Roman Moravčík
-</translation>
-    </message>
-    <message>
-        <source>Slovenian - Boštjan Štrumbelj
-</source>
-        <translation>Eslovè - Boštjan Štrumbelj
-</translation>
     </message>
     <message>
         <source>Smoke</source>
@@ -3347,12 +3253,6 @@ Català - Agustí Clara</translation>
         <translation>Origen:</translation>
     </message>
     <message>
-        <source>Spanish - Alejandro Lopez, Agustí Clara
-</source>
-        <translation>Castellà - Alejandro López, Agustí Clara
-</translation>
-    </message>
-    <message>
         <source>Speed</source>
         <translation>Velocitat</translation>
     </message>
@@ -3391,14 +3291,6 @@ Català - Agustí Clara</translation>
     <message>
         <source>Speed:</source>
         <translation>Velocitat:</translation>
-    </message>
-    <message>
-        <source>Speed:</source>
-        <translation>Velocitat:</translation>
-    </message>
-    <message>
-        <source>Splash screen</source>
-        <translation>Imatge d&apos;entrada</translation>
     </message>
     <message>
         <source>State:</source>
@@ -3461,12 +3353,20 @@ Català - Agustí Clara</translation>
         <translation>Sortida sol:</translation>
     </message>
     <message>
+        <source>Sunrise:</source>
+        <translation>Sortida sol:</translation>
+    </message>
+    <message>
         <source>Sunrise: </source>
         <translation>Sortida sol:</translation>
     </message>
     <message>
         <source>Sunrise: </source>
         <translation>Sortida sol:</translation>
+    </message>
+    <message>
+        <source>Sunset:</source>
+        <translation>Posta sol:</translation>
     </message>
     <message>
         <source>Sunset:</source>
@@ -3487,16 +3387,6 @@ Català - Agustí Clara</translation>
     <message>
         <source>Swap hi/low temperature</source>
         <translation>Inverteix temp. màx./mín.</translation>
-    </message>
-    <message>
-        <source>Swedish - Angela Nennebrandt,
- 	Åke Engelbrektson, 
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</source>
-        <translation>Suec - Angela Nennebrandt,
- 	Åke Engelbrektson, 
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</translation>
     </message>
     <message>
         <source>Switch to the next station after:</source>
@@ -3555,16 +3445,8 @@ Català - Agustí Clara</translation>
         <translation>Unitats de temperatura</translation>
     </message>
     <message>
-        <source>Temperature units</source>
-        <translation>Unitats de temperatura</translation>
-    </message>
-    <message>
         <source>Temperature units:</source>
         <translation>Unitats de temperatura:</translation>
-    </message>
-    <message>
-        <source>Temperature:</source>
-        <translation>Temperatura:</translation>
     </message>
     <message>
         <source>Temperature:</source>
@@ -3596,26 +3478,18 @@ Català - Agustí Clara</translation>
     </message>
     <message>
         <source>This software is free software; you can
- redistribute it and/or modify it under 
- the terms of the GNU General Public
- License as published by the Free Software 
- Foundation; either version 2.1 of the 
- License, or (at your option) any 
- later version.</source>
-        <translation>Aquest programa és programari lliure. Podeu
+     redistribute it and/or modify it under 
+     the terms of the GNU General Public
+     License as published by the Free Software 
+     Foundation; either version 2.1 of the 
+     License, or (at your option) any 
+     later version.</source>
+        <translation type="unfinished">Aquest programa és programari lliure. Podeu
 redistribuir-lo i/o modificar-lo respectant  
 els termes de la Llicència &apos;GNU General Public License&apos; 
 publicada per la Free Software Foundation; 
 ja sigui la versió 2.1 de la Llicència, o bé 
 qualsevol versió posterior.</translation>
-    </message>
-    <message>
-        <source>This software is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
-</source>
-        <translation>Aquest programa és programari lliure. Podeu redistribuir-lo i/o modificar-lo respectant els termes de la Llicència &apos;GNU General Public License&apos;
-
-
-</translation>
     </message>
     <message>
         <source>Thunder</source>
@@ -3646,18 +3520,24 @@ qualsevol versió posterior.</translation>
         <translation>Avui</translation>
     </message>
     <message>
-        <source>Translators</source>
-        <translation>Traductors</translation>
+        <source>Today</source>
+        <translation>Avui</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>Avui</translation>
     </message>
     <message>
         <source>Translators</source>
         <translation>Traductors</translation>
     </message>
     <message>
-        <source>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
-</source>
-        <translation>Traductors: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
-</translation>
+        <source>Translators</source>
+        <translation>Traductors</translation>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation>Transparència</translation>
     </message>
     <message>
         <source>Transparency</source>
@@ -3682,14 +3562,6 @@ qualsevol versió posterior.</translation>
     <message>
         <source>Try to update</source>
         <translation>Intenta actualitzar</translation>
-    </message>
-    <message>
-        <source>Turkish - Burak Kaan Kose,
- 	Mehmet Çilingir
-</source>
-        <translation>Turc - Burak Kaan Kose,
- 	Mehmet Çilingir
-</translation>
     </message>
     <message>
         <source>Type of click:</source>
@@ -3792,12 +3664,20 @@ qualsevol versió posterior.</translation>
         <translation>Actualitzacions</translation>
     </message>
     <message>
+        <source>Update</source>
+        <translation>Actualitzacions</translation>
+    </message>
+    <message>
         <source>Update already running.</source>
         <translation>L&apos;actualització està encara en curs</translation>
     </message>
     <message>
         <source>Update interval</source>
         <translation>Interval d&apos;actualització</translation>
+    </message>
+    <message>
+        <source>Updating forecast</source>
+        <translation>S&apos;està actualitzant la previsió</translation>
     </message>
     <message>
         <source>Updating forecast</source>
@@ -3847,14 +3727,6 @@ de la informació del temps.
         <translation>Molt alta</translation>
     </message>
     <message>
-        <source>Vietnamese - Hieu Nguyen
- 	Anh Dương and truongnx, 
-</source>
-        <translation>Vietnamita - Hieu Nguyen
- 	Anh Dương and truongnx, 
-</translation>
-    </message>
-    <message>
         <source>Violent Rain Showers</source>
         <translation>Ruixats violents</translation>
     </message>
@@ -3865,10 +3737,6 @@ de la informació del temps.
     <message>
         <source>Visible items:</source>
         <translation>Elements visibles</translation>
-    </message>
-    <message>
-        <source>Visible units</source>
-        <translation>Unitats visibles</translation>
     </message>
     <message>
         <source>Visible units</source>
@@ -3963,24 +3831,8 @@ de la informació del temps.
         <translation>Dades del temps facilitades per:</translation>
     </message>
     <message>
-        <source>Weather forecast for the Meego. Version </source>
-        <translation>Previsió del temps per a MeeGo. Versió</translation>
-    </message>
-    <message>
         <source>Widget OMWeather is reloading</source>
         <translation>S&apos;està recarregant el panell OMWeather</translation>
-    </message>
-    <message>
-        <source>Widget in LockScreen</source>
-        <translation>Panell a la Pantalla de bloqueig</translation>
-    </message>
-    <message>
-        <source>Widget in StandbyScreen</source>
-        <translation>Panell a la Pantalla d&apos;espera</translation>
-    </message>
-    <message>
-        <source>Widget in events view</source>
-        <translation>Panell a la vista d&apos;esdeveniments</translation>
     </message>
     <message>
         <source>Widget style</source>
@@ -4063,16 +3915,8 @@ de la informació del temps.
         <translation>Unitats de velocitat del vent</translation>
     </message>
     <message>
-        <source>Wind speed units</source>
-        <translation>Unitats de velocitat del vent</translation>
-    </message>
-    <message>
         <source>Wind speed units:</source>
         <translation>Unitats de velocitat del vent:</translation>
-    </message>
-    <message>
-        <source>Wind:</source>
-        <translation>Vent:</translation>
     </message>
     <message>
         <source>Wind:</source>
@@ -4140,36 +3984,12 @@ or ZIP code!!!</source>
         <translation>Podeu fer una donació aquí:</translation>
     </message>
     <message>
-        <source>You should activate 
-&apos;Widget in events view&apos;
- for using LockScreen widget</source>
-        <translation>Heu d&apos;activar l&apos;opció
-&apos;Panell a la vista d&apos;esdeveniments&apos; (&apos;Widget in events view&apos;)
-per utilitzar el panell per a la pantalla de bloqueig</translation>
-    </message>
-    <message>
-        <source>You should activate 
-&apos;Widget in events view&apos;
- for using StandbyScreen widget</source>
-        <translation>Heu d&apos;activar l&apos;opció
-&apos;Panell a la vista d&apos;esdeveniments&apos; (&apos;Widget in events view&apos;)
-per utilitzar el panell per a la pantalla d&apos;espera</translation>
-    </message>
-    <message>
-        <source>You should activate &apos;Widget in the events view&apos; option in MeeCast appearance settings for auto update.</source>
-        <translation>Heu d&apos;activar &apos;Panell a la vista d&apos;esdeveniments&apos; (&apos;Widget in events view&apos;) a la configuració d&apos;aparença per les actualitzacions automàtiques.</translation>
-    </message>
-    <message>
         <source>Zoom in popup window </source>
         <translation>Zoom a les finestres emergents</translation>
     </message>
     <message>
         <source>Zooming in popup window</source>
         <translation>Zoom a les finestres emergents</translation>
-    </message>
-    <message>
-        <source>as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</source>
-        <translation>segons està publicada per la Free Software Foundation, ja sigui la versió 2.1 o qualsevol altre versió posterior.</translation>
     </message>
     <message>
         <source>current location local time</source>
@@ -4274,10 +4094,6 @@ per utilitzar el panell per a la pantalla d&apos;espera</translation>
     <message>
         <source>inch</source>
         <translation>polzada</translation>
-    </message>
-    <message>
-        <source>kPa</source>
-        <translation>kPa</translation>
     </message>
     <message>
         <source>km</source>
@@ -4466,6 +4282,10 @@ per utilitzar el panell per a la pantalla d&apos;espera</translation>
     <message>
         <source>minutes ago</source>
         <translation>minuts enrere</translation>
+    </message>
+    <message>
+        <source>mm</source>
+        <translation>mm</translation>
     </message>
     <message>
         <source>mm</source>

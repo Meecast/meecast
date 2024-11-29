@@ -55,7 +55,7 @@ get_data_from_russia_data(char *temp_string){
     /* Find first separate - Space */
     temp_point = strchr(temp_string,' ');
     snprintf(buffer, strlen(temp_point) - strlen(strchr(temp_point + 1,' ')),"%s", temp_point + 1);
-    /* Add Mounth */
+    /* Add Month */
     temp_point = strchr(temp_point + 1,' ');
     snprintf(temp_buffer, strlen(temp_point) - strlen(strchr(temp_point + 1,' ')),"%s", temp_point + 1);
     if (!strcoll(temp_buffer, "Января"))
@@ -119,7 +119,24 @@ get_data_from_russia_data(char *temp_string){
         return hash_gismeteo_icon_table_find(hash_for_icons, image);
     }
 #endif
-   /*******************************************************************************/
+/*******************************************************************************/
+int
+get_month(char *temp_string){
+    std::size_t found;
+    const char* months[12]
+        = { "январь", "февраль", "март", "апрель", "май", "июнь", "июль","август", "сентябрь", "октябрь", "ноябрь", "декабрь" };
+
+    for (int i = 0; i < 12; i++){
+        if (sizeof(temp_string) > sizeof(months[i]))
+            continue;
+        fprintf(stderr, "compare %s %s\n", months[i], temp_string);
+        if (strncmp(months[i], temp_string,  sizeof(temp_string)) == 0)
+            return i + 1;
+    }
+    /* default negative result -1 */
+    return -1;
+}
+/*******************************************************************************/
 struct tm
 get_date_for_current_weather(char *temp_string){
     char buffer[512];
@@ -230,6 +247,9 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
                 current_wind_speed[15];
     char        temp_buffer[buff_size];
     char        temp_buffer2[buff_size];
+    int         month = -1;
+    int         day_of_month = -1;
+    int         year = -1;
 #ifdef GLIB
     GSList      *forecast = NULL;
     GSList      *tmp = NULL;
@@ -241,6 +261,8 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
     int    i, j;
     xmlXPathContextPtr xpathCtx; 
     xmlXPathObjectPtr xpathObj = NULL; 
+    xmlXPathObjectPtr xpathObj_day = NULL; 
+    xmlXPathObjectPtr xpathObj_date = NULL; 
     xmlXPathObjectPtr xpathObj2 = NULL; 
     xmlXPathObjectPtr xpathObj3 = NULL; 
     xmlXPathObjectPtr xpathObj4 = NULL; 
@@ -464,14 +486,20 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
    // xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/@title", xpathCtx);
 //   xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div/table/tbody/tr/th/@title", xpathCtx);
    //xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody/tr/th/@title", xpathCtx);
-   xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/section/div/section/div/div/div/*//div[@class='date']", xpathCtx);
+//   xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/section/div/section/div/div/div/*//div[@class='date']", xpathCtx);
+   //xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/*//div[@class='widget-row widget-row-date']", xpathCtx);
+   //xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[1]/a", xpathCtx);
+   //xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[1]/a/div[@class='day']", xpathCtx);
+   xpathObj_day = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[1]/a/div[@class='day']", xpathCtx);
+   xpathObj_date = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[1]/a/div[@class='date']", xpathCtx);
+   // /html/body/main/div[1]/section[2]/div[1]/div/div/div[1]/a[1]
    if(xpathObj == NULL) {
         fprintf(stderr,"Error: unable to evaluate xpath expression \"%s\"\n", "//*[@class='c0 day']/div/text()");
         xmlXPathFreeContext(xpathCtx); 
         return(-1);
    }
 
-  nodes   = xpathObj->nodesetval;
+  nodes   = xpathObj_day->nodesetval;
   size = (nodes) ? nodes->nodeNr : 0;
    fprintf(stderr, "SIZE!!!!!!!!!!!!!!: %i\n", size); 
   //xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody/tr/th[@title]/text()", xpathCtx);
@@ -497,10 +525,51 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
 #ifdef GLIB
       day = NULL;
 #endif
+    day_of_month = -1;
+    if (!nodes->nodeTab[i]->children->content)
+        continue;
+    if (xpathObj_date && !xmlXPathNodeSetIsEmpty(xpathObj_date->nodesetval) &&
+           xpathObj_date->nodesetval->nodeTab[i] && xpathObj_date->nodesetval->nodeTab[i]->children){
+      day_of_month = atoi((char *)xpathObj_date->nodesetval->nodeTab[i]->children->content);
+      /* If this is the first day of the row then, look for the month */
+      if (i == 0){
+          memset(temp_buffer, 0, sizeof(temp_buffer));
+          /* Find first separate - Space */
+          char *temp_point = strchr((char *)xpathObj_date->nodesetval->nodeTab[i]->children->content,' ');
+          if (temp_point){
+              snprintf(temp_buffer, strlen(temp_point),"%s", temp_point + 1);
+          }
+          month = get_month(temp_buffer);
+          /* Current year */
+          time_t seconds=time(NULL);
+          struct tm* current_time=localtime(&seconds);
+          year = current_time->tm_year + 1900;
+      }else{
+          /* Check transition to the next month and year */
+          if (day_of_month == 1){
+              if (month == 12){
+                  month = 1;
+                  year ++;
+              }else
+                  month++;
+          }
+      }
+    }
+    if (month == -1)
+        continue;
+    /* Set time of period */
+    setlocale(LC_TIME, "POSIX");
+    memset(temp_buffer, 0, sizeof(temp_buffer));
+    snprintf(temp_buffer, sizeof(temp_buffer)-1,"%i  %i %i", day_of_month, month, year);
+    strptime(temp_buffer, "%d %m %Y", &tmp_tm);
+    setlocale(LC_TIME, "");
+    utc_time = mktime(&tmp_tm) + localtimezone*3600;
+    fprintf(file_out,"    <period start=\"%li\"", utc_time);
+    fprintf(file_out," end=\"%li\">\n", utc_time + 6*3600); 
 
-      /* Take UTC time: */
-      if (!nodes->nodeTab[i]->children->content)
-          continue;
+
+    fprintf(file_out,"    </period>\n");
+    continue;
       temp_char = strstr((char *)nodes->nodeTab[i]->children->content, "UTC: ");
       if (temp_char && strlen(temp_char) >6)
               temp_char = temp_char +5;
@@ -682,8 +751,10 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
       fprintf(file_out,"    </period>\n");
   }	
   /* Cleanup */
-  if (xpathObj)
-    xmlXPathFreeObject(xpathObj);
+  if (xpathObj_day)
+    xmlXPathFreeObject(xpathObj_day);
+  if (xpathObj_date)
+    xmlXPathFreeObject(xpathObj_date);
   if (xpathObj2)
     xmlXPathFreeObject(xpathObj2);
   if (xpathObj3)

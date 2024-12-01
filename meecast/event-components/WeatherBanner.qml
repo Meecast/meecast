@@ -6,7 +6,7 @@ BackgroundItem {
 
     id: weatherData
     property bool autoRefresh: false
-    property bool active: true 
+    property bool active: true
     property QtObject meecastData
     property bool expanded
 
@@ -20,7 +20,7 @@ BackgroundItem {
     function refresh(){
 
         icon.source = weatherData.meecastData.forecastdata["item1_icon"]
-        stationname.text = weatherData.meecastData.nameString 
+        stationname.text = weatherData.meecastData.nameString
         description.text = weatherData.meecastData.forecastdata["item1_description"] ? weatherData.meecastData.forecastdata["item1_description"] : "MeeCast"
         if (weatherData.meecastData.forecastdata["item1_temperature"] && weatherData.meecastData.forecastdata["item1_temperature"] != "N/A"){
             temperature.text = weatherData.meecastData.forecastdata["item1_temperature"] + '°' + weatherData.meecastData.forecastdata["temperatureunit"]
@@ -29,67 +29,67 @@ BackgroundItem {
         }
         if (expanded){
             last_update.text = weatherData.meecastData.forecastdata["last_update_text"] + " " + weatherData.meecastData.forecastdata["last_update"]
-            if ( weatherData.meecastData.forecastdata["item2_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item2_temperature_low"] == "N/A" ){   
+            if ( weatherData.meecastData.forecastdata["item2_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item2_temperature_low"] == "N/A" ){
                 temperature_2.text = weatherData.meecastData.forecastdata["item2_temperature"] + '°'
             }else{
                 if (weatherData.meecastData.forecastdata["item2_temperature_low"] && weatherData.meecastData.forecastdata["item2_temperature_high"])
-                    temperature_2.text = weatherData.meecastData.forecastdata["item2_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item2_temperature_high"]  + '°'     
+                    temperature_2.text = weatherData.meecastData.forecastdata["item2_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item2_temperature_high"]  + '°'
                 else{
-                    temperature_2.text = "" 
+                    temperature_2.text = ""
                 }
             }
-            if ( weatherData.meecastData.forecastdata["item3_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item3_temperature_low"] == "N/A" ){   
+            if ( weatherData.meecastData.forecastdata["item3_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item3_temperature_low"] == "N/A" ){
                 temperature_3.text = weatherData.meecastData.forecastdata["item3_temperature"] + '°'
             }else{
                 if (weatherData.meecastData.forecastdata["item3_temperature_low"] && weatherData.meecastData.forecastdata["item3_temperature_high"])
-                    temperature_3.text = weatherData.meecastData.forecastdata["item3_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item3_temperature_high"]  + '°'     
+                    temperature_3.text = weatherData.meecastData.forecastdata["item3_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item3_temperature_high"]  + '°'
                 else{
-                    temperature_3.text = "" 
+                    temperature_3.text = ""
                 }
             }
-            if ( weatherData.meecastData.forecastdata["item4_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item4_temperature_low"] == "N/A" ){   
+            if ( weatherData.meecastData.forecastdata["item4_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item4_temperature_low"] == "N/A" ){
                 temperature_4.text = weatherData.meecastData.forecastdata["item4_temperature"] + '°'
             }else{
                 if (weatherData.meecastData.forecastdata["item4_temperature_low"] && weatherData.meecastData.forecastdata["item4_temperature_high"])
-                    temperature_4.text = weatherData.meecastData.forecastdata["item4_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item4_temperature_high"]  + '°'     
+                    temperature_4.text = weatherData.meecastData.forecastdata["item4_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item4_temperature_high"]  + '°'
                 else{
-                    temperature_4.text = "" 
+                    temperature_4.text = ""
                 }
             }
-            if ( weatherData.meecastData.forecastdata["item5_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item5_temperature_low"] == "N/A" ){   
+            if ( weatherData.meecastData.forecastdata["item5_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item5_temperature_low"] == "N/A" ){
                 temperature_5.text = weatherData.meecastData.forecastdata["item5_temperature"] + '°'
             }else{
                 if (weatherData.meecastData.forecastdata["item5_temperature_low"] && weatherData.meecastData.forecastdata["item5_temperature_high"])
-                    temperature_5.text = weatherData.meecastData.forecastdata["item5_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item5_temperature_high"]  + '°'     
+                    temperature_5.text = weatherData.meecastData.forecastdata["item5_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item5_temperature_high"]  + '°'
                 else{
-                    temperature_5.text = "" 
+                    temperature_5.text = ""
                 }
             }
-            if ( weatherData.meecastData.forecastdata["item6_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item6_temperature_low"] == "N/A" ){   
+            if ( weatherData.meecastData.forecastdata["item6_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item6_temperature_low"] == "N/A" ){
                 temperature_6.text = weatherData.meecastData.forecastdata["item6_temperature"] + '°'
             }else{
                 if (weatherData.meecastData.forecastdata["item6_temperature_low"] && weatherData.meecastData.forecastdata["item6_temperature_high"])
-                    temperature_6.text = weatherData.meecastData.forecastdata["item6_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item6_temperature_high"]  + '°'     
+                    temperature_6.text = weatherData.meecastData.forecastdata["item6_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item6_temperature_high"]  + '°'
                 else{
-                    temperature_6.text = "" 
+                    temperature_6.text = ""
                 }
             }
-            if ( weatherData.meecastData.forecastdata["item7_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item7_temperature_low"] == "N/A" ){   
+            if ( weatherData.meecastData.forecastdata["item7_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item7_temperature_low"] == "N/A" ){
                 temperature_7.text = weatherData.meecastData.forecastdata["item7_temperature"] + '°'
             }else{
                 if (weatherData.meecastData.forecastdata["item7_temperature_low"] && weatherData.meecastData.forecastdata["item7_temperature_high"])
-                    temperature_7.text = weatherData.meecastData.forecastdata["item7_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item7_temperature_high"]  + '°'     
+                    temperature_7.text = weatherData.meecastData.forecastdata["item7_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item7_temperature_high"]  + '°'
                 else{
-                    temperature_7.text = "" 
+                    temperature_7.text = ""
                 }
             }
-            if ( weatherData.meecastData.forecastdata["item8_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item8_temperature_low"] == "N/A" ){   
+            if ( weatherData.meecastData.forecastdata["item8_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item8_temperature_low"] == "N/A" ){
                 temperature_8.text = weatherData.meecastData.forecastdata["item8_temperature"] + '°'
             }else{
                 if (weatherData.meecastData.forecastdata["item8_temperature_low"] && weatherData.meecastData.forecastdata["item8_temperature_high"])
-                    temperature_8.text = weatherData.meecastData.forecastdata["item8_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item8_temperature_high"]  + '°'     
+                    temperature_8.text = weatherData.meecastData.forecastdata["item8_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item8_temperature_high"]  + '°'
                 else{
-                    temperature_8.text = "" 
+                    temperature_8.text = ""
                 }
             }
 
@@ -117,9 +117,9 @@ BackgroundItem {
     }
 
     visible: enabled
-    enabled: enabled 
+    enabled: enabled
     height: enabled ? column.height : 0
-    
+
     Column {
         id: column
         width: parent.width
@@ -128,27 +128,31 @@ BackgroundItem {
         }
         Row {
             id: current_row
-            spacing: Theme.paddingMedium
-            anchors.horizontalCenter: parent.horizontalCenter
+
+            property int margin: (column.width - icon.width - 2*Theme.paddingMedium - temperature.width
+                                  - location_desc.width)/2
+            x: margin
+            width: parent.width - x
             height: Theme.itemSizeSmall
-            anchors.left: parent.left
-            anchors.leftMargin: isPortrait ? Theme.paddingSmall : Theme.paddingMedium + Theme.paddingSmall
+            spacing: Theme.paddingMedium
 
             Image {
                 id: icon
-                height: parent.height 
+                height: parent.height
                 width: height
                 opacity: lipstickSettings.lowPowerMode ? 0.8 : 1.0
+                anchors.verticalCenter: parent.verticalCenter
                 source: weatherData.meecastData.forecastdata["item1_icon"]
             }
+
             Label {
                 id: temperature
                 text: {
                     if (weatherData.meecastData.forecastdata["item1_temperature"] && weatherData.meecastData.forecastdata["item1_temperature"] != "N/A"){
-                        return weatherData.meecastData.forecastdata["item1_temperature"] + '°' 
+                        return weatherData.meecastData.forecastdata["item1_temperature"] + '°'
                     }else{
                         if (weatherData.meecastData.forecastdata["item1_temperature_low"] && weatherData.meecastData.forecastdata["item1_temperature_high"])
-                            return weatherData.meecastData.forecastdata["item1_temperature_low"] +  '°' + "/"+  weatherData.meecastData.forecastdata["item1_temperature_high"] + '°' 
+                            return weatherData.meecastData.forecastdata["item1_temperature_low"] +  '°' + "/"+  weatherData.meecastData.forecastdata["item1_temperature_high"] + '°'
                         else
                             return ""
                     }
@@ -162,28 +166,28 @@ BackgroundItem {
                     family: Theme.fontFamilyHeading
                 }
                 color: lipstickSettings.lowPowerMode ? Theme.highlightColor : Theme.primaryColor
+                anchors.verticalCenter: parent.verticalCenter
             }
 
             Column {
-                width:  parent.width - temperature.width - icon.width
+                id: location_desc
                 Label {
                     id: stationname
-                    width: parent.width
                     text: weatherData.meecastData.nameString ? weatherData.meecastData.nameString : "MeeCast"
-                    //color: Theme.primaryColor 
-                    color: Theme.highlightColor 
-                    //horizontalAlignment: Text.AlignRight
+                    color: Theme.highlightColor
                     horizontalAlignment: Text.AlignHCenter
                     font {
-                        pixelSize: Theme.fontSizeLarge 
+                        pixelSize: Theme.fontSizeLarge
                         family: Theme.fontFamilyHeading
                     }
                     truncationMode: TruncationMode.Fade
+                    width: Math.min(implicitWidth,
+                       column.width - icon.width - 2*Theme.paddingMedium
+                       - temperature.width - Theme.horizontalPageMargin)
                 }
 
                 Label {
-                    id: description 
-                    width: parent.width
+                    id: description
                     text: weatherData.meecastData.forecastdata["item1_description"] ? weatherData.meecastData.forecastdata["item1_description"] : "MeeCast"
                     horizontalAlignment: Text.AlignHCenter
                     font {
@@ -192,16 +196,23 @@ BackgroundItem {
                     }
                     color: lipstickSettings.lowPowerMode ? Theme.highlightColor : Theme.secondaryColor
                     truncationMode: TruncationMode.Fade
+                    width: Math.min(implicitWidth,
+                       column.width - icon.width - 2*Theme.paddingMedium
+                       - temperature.width - Theme.horizontalPageMargin)
                 }
             }
         }
+
         Row {
             id: forecasts_row
+            property int orientation_scale: isPortrait ? 4 : 7
+            property int margin: (column.width - orientation_scale * forecast2_row.width - (orientation_scale -1 ) * Theme.paddingSmall * 1.16)/2
+            x: margin
             width: parent.width - 2*Theme.paddingSmall*1.16
             height: 0
             opacity: 0.0
             spacing: Theme.paddingSmall*1.16
-            anchors.horizontalCenter: parent.horizontalCenter
+            //anchors.horizontalCenter: parent.horizontalCenter
             states: State {
                 name: "expanded"
                 when: weatherData.expanded
@@ -217,10 +228,10 @@ BackgroundItem {
                 Column {
                     id: icon_day_column2
                     Label {
-                        id: day_name_2 
-                        anchors.bottom: icon_2.top 
+                        id: day_name_2
+                        anchors.bottom: icon_2.top
                         anchors.bottomMargin: -Theme.paddingSmall
-                        font.pixelSize: Theme.fontSizeSmall 
+                        font.pixelSize: Theme.fontSizeSmall
                         color: Theme.secondaryColor
                         horizontalAlignment: Text.AlignHCenter
                         width: parent.width
@@ -229,12 +240,12 @@ BackgroundItem {
                     Row{
                         Image {
                             id: icon2
-                            height: Screen.sizeCategory >= Screen.Large ? Theme.itemSizeLarge : Theme.itemSizeSmall 
+                            height: Screen.sizeCategory >= Screen.Large ? Theme.itemSizeLarge : Theme.itemSizeSmall
                             width: height
                             source: weatherData.meecastData.forecastdata["item2_icon"]
                         }
                         Label {
-                            id: temperature_2 
+                            id: temperature_2
                             font.pixelSize: Theme.fontSizeSmall
                             horizontalAlignment: Text.AlignRight
                             verticalAlignment: Text.AlignVCenter
@@ -242,10 +253,10 @@ BackgroundItem {
                             wrapMode: Text.Wrap
                             width: 1.6*Theme.fontSizeSmall
                             text: {
-                                if ( weatherData.meecastData.forecastdata["item2_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item2_temperature_low"] == "N/A" ){   
+                                if ( weatherData.meecastData.forecastdata["item2_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item2_temperature_low"] == "N/A" ){
                                     return weatherData.meecastData.forecastdata["item2_temperature"] + '°'                        }else{
                                     if (weatherData.meecastData.forecastdata["item2_temperature_low"] && weatherData.meecastData.forecastdata["item2_temperature_high"])
-                                        return weatherData.meecastData.forecastdata["item2_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item2_temperature_high"]  + '°'     
+                                        return weatherData.meecastData.forecastdata["item2_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item2_temperature_high"]  + '°'
                                     else
                                         return ""
                                 }
@@ -255,15 +266,16 @@ BackgroundItem {
                     }
                 }
             }
+
             Row {
                 id: forecast3_row
                 Column {
                     id: icon_day_column3
                     Label {
-                        id: day_name_3 
-                        anchors.bottom: icon_3.top 
+                        id: day_name_3
+                        anchors.bottom: icon_3.top
                         anchors.bottomMargin: -Theme.paddingSmall
-                        font.pixelSize: Theme.fontSizeSmall 
+                        font.pixelSize: Theme.fontSizeSmall
                         color: Theme.secondaryColor
                         horizontalAlignment: Text.AlignHCenter
                         width: parent.width
@@ -272,12 +284,12 @@ BackgroundItem {
                     Row{
                         Image {
                             id: icon3
-                            height: Screen.sizeCategory >= Screen.Large ? Theme.itemSizeLarge : Theme.itemSizeSmall 
+                            height: Screen.sizeCategory >= Screen.Large ? Theme.itemSizeLarge : Theme.itemSizeSmall
                             width: height
                             source: weatherData.meecastData.forecastdata["item3_icon"]
                         }
                         Label {
-                            id: temperature_3 
+                            id: temperature_3
                             font.pixelSize: Theme.fontSizeSmall
                             horizontalAlignment: Text.AlignRight
                             verticalAlignment: Text.AlignVCenter
@@ -285,10 +297,10 @@ BackgroundItem {
                             wrapMode: Text.Wrap
                             width: 1.6*Theme.fontSizeSmall
                             text: {
-                                if ( weatherData.meecastData.forecastdata["item3_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item3_temperature_low"] == "N/A" ){   
+                                if ( weatherData.meecastData.forecastdata["item3_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item3_temperature_low"] == "N/A" ){
                                     return weatherData.meecastData.forecastdata["item3_temperature"] + '°'                        }else{
                                     if (weatherData.meecastData.forecastdata["item3_temperature_low"] && weatherData.meecastData.forecastdata["item3_temperature_high"])
-                                        return weatherData.meecastData.forecastdata["item3_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item3_temperature_high"]  + '°'     
+                                        return weatherData.meecastData.forecastdata["item3_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item3_temperature_high"]  + '°'
                                     else
                                         return ""
                                 }
@@ -303,8 +315,8 @@ BackgroundItem {
                 Column {
                     id: icon_day_column4
                     Label {
-                        id: day_name_4 
-                        anchors.bottom: icon_4.top 
+                        id: day_name_4
+                        anchors.bottom: icon_4.top
                         anchors.bottomMargin: -Theme.paddingSmall
                         font.pixelSize: Theme.fontSizeSmall
                         color: Theme.secondaryColor
@@ -320,7 +332,7 @@ BackgroundItem {
                             source: weatherData.meecastData.forecastdata["item4_icon"]
                         }
                         Label {
-                            id: temperature_4 
+                            id: temperature_4
                             font.pixelSize: Theme.fontSizeSmall
                             horizontalAlignment: Text.AlignRight
                             verticalAlignment: Text.AlignVCenter
@@ -328,10 +340,10 @@ BackgroundItem {
                             wrapMode: Text.Wrap
                             width: 1.6*Theme.fontSizeSmall
                             text: {
-                                if ( weatherData.meecastData.forecastdata["item4_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item4_temperature_low"] == "N/A" ){   
+                                if ( weatherData.meecastData.forecastdata["item4_temperature_high"] == "N/A" || weatherData.meecastData.forecastdata["item4_temperature_low"] == "N/A" ){
                                     return weatherData.meecastData.forecastdata["item4_temperature"] + '°'                        }else{
                                     if (weatherData.meecastData.forecastdata["item4_temperature_low"] && weatherData.meecastData.forecastdata["item4_temperature_high"])
-                                        return weatherData.meecastData.forecastdata["item4_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item4_temperature_high"]  + '°'     
+                                        return weatherData.meecastData.forecastdata["item4_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item4_temperature_high"]  + '°'
                                     else
                                         return ""
                                 }
@@ -345,8 +357,8 @@ BackgroundItem {
                 Column {
                     id: icon_day_column5
                     Label {
-                        id: day_name_5 
-                        anchors.bottom: icon_5.top 
+                        id: day_name_5
+                        anchors.bottom: icon_5.top
                         anchors.bottomMargin: -Theme.paddingSmall
                         font.pixelSize: Theme.fontSizeSmall
                         color: Theme.secondaryColor
@@ -362,7 +374,7 @@ BackgroundItem {
                             source: weatherData.meecastData.forecastdata["item5_icon"]
                         }
                         Label {
-                            id: temperature_5 
+                            id: temperature_5
                             font.pixelSize: Theme.fontSizeSmall
                             horizontalAlignment: Text.AlignRight
                             verticalAlignment: Text.AlignVCenter
@@ -374,7 +386,7 @@ BackgroundItem {
                                     return weatherData.meecastData.forecastdata["item5_temperature"] + '°'
                                 }else{
                                     if (weatherData.meecastData.forecastdata["item5_temperature_low"] && weatherData.meecastData.forecastdata["item5_temperature_high"])
-                                        return weatherData.meecastData.forecastdata["item5_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item5_temperature_high"]  + '°'     
+                                        return weatherData.meecastData.forecastdata["item5_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item5_temperature_high"]  + '°'
                                     else
                                         return ""
                                 }
@@ -390,8 +402,8 @@ BackgroundItem {
                 Column {
                     id: icon_day_column6
                     Label {
-                        id: day_name_6 
-                        anchors.bottom: icon_6.top 
+                        id: day_name_6
+                        anchors.bottom: icon_6.top
                         anchors.bottomMargin: -Theme.paddingSmall
                         font.pixelSize: Theme.fontSizeSmall
                         color: Theme.secondaryColor
@@ -407,7 +419,7 @@ BackgroundItem {
                             source: weatherData.meecastData.forecastdata["item6_icon"]
                         }
                         Label {
-                            id: temperature_6 
+                            id: temperature_6
                             font.pixelSize: Theme.fontSizeSmall
                             horizontalAlignment: Text.AlignRight
                             verticalAlignment: Text.AlignVCenter
@@ -419,7 +431,7 @@ BackgroundItem {
                                     return weatherData.meecastData.forecastdata["item6_temperature"] + '°'
                                 }else{
                                     if (weatherData.meecastData.forecastdata["item6_temperature_low"] && weatherData.meecastData.forecastdata["item6_temperature_high"])
-                                        return weatherData.meecastData.forecastdata["item6_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item6_temperature_high"]  + '°'     
+                                        return weatherData.meecastData.forecastdata["item6_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item6_temperature_high"]  + '°'
                                     else
                                         return ""
                                 }
@@ -436,8 +448,8 @@ BackgroundItem {
                 Column {
                     id: icon_day_column7
                     Label {
-                        id: day_name_7 
-                        anchors.bottom: icon_7.top 
+                        id: day_name_7
+                        anchors.bottom: icon_7.top
                         anchors.bottomMargin: -Theme.paddingSmall
                         font.pixelSize: Theme.fontSizeSmall
                         color: Theme.secondaryColor
@@ -453,7 +465,7 @@ BackgroundItem {
                             source: weatherData.meecastData.forecastdata["item7_icon"]
                         }
                         Label {
-                            id: temperature_7 
+                            id: temperature_7
                             font.pixelSize: Theme.fontSizeSmall
                             horizontalAlignment: Text.AlignRight
                             verticalAlignment: Text.AlignVCenter
@@ -465,7 +477,7 @@ BackgroundItem {
                                     return weatherData.meecastData.forecastdata["item7_temperature"] + '°'
                                 }else{
                                     if (weatherData.meecastData.forecastdata["item7_temperature_low"] && weatherData.meecastData.forecastdata["item7_temperature_high"])
-                                        return weatherData.meecastData.forecastdata["item7_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item7_temperature_high"]  + '°'     
+                                        return weatherData.meecastData.forecastdata["item7_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item7_temperature_high"]  + '°'
                                     else
                                         return ""
                                 }
@@ -481,8 +493,8 @@ BackgroundItem {
                 Column {
                     id: icon_day_column8
                     Label {
-                        id: day_name_8 
-                        anchors.bottom: icon_8.top 
+                        id: day_name_8
+                        anchors.bottom: icon_8.top
                         anchors.bottomMargin: -Theme.paddingSmall
                         font.pixelSize: Theme.fontSizeSmall
                         color: Theme.secondaryColor
@@ -498,7 +510,7 @@ BackgroundItem {
                             source: weatherData.meecastData.forecastdata["item8_icon"]
                         }
                         Label {
-                            id: temperature_8 
+                            id: temperature_8
                             font.pixelSize: Theme.fontSizeSmall
                             horizontalAlignment: Text.AlignRight
                             verticalAlignment: Text.AlignVCenter
@@ -510,7 +522,7 @@ BackgroundItem {
                                     return weatherData.meecastData.forecastdata["item8_temperature"] + '°'
                                 }else{
                                     if (weatherData.meecastData.forecastdata["item8_temperature_low"] && weatherData.meecastData.forecastdata["item8_temperature_high"])
-                                        return weatherData.meecastData.forecastdata["item8_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item8_temperature_high"]  + '°'     
+                                        return weatherData.meecastData.forecastdata["item8_temperature_low"]  + '°' + "\n"+  weatherData.meecastData.forecastdata["item8_temperature_high"]  + '°'
                                     else
                                         return ""
                                 }
@@ -521,6 +533,7 @@ BackgroundItem {
             }
 
         }
+
         Row {
             height: 0
             opacity: 0.0
@@ -548,9 +561,10 @@ BackgroundItem {
             }
         }
     }
+
     Connections {
-        target: weatherData.meecastData 
-        onRefreshWidget: {            
+        target: weatherData.meecastData
+        onRefreshWidget: {
             console.log("Refresh MeeCast widget !!!!!!!!!!!!!!")
             weatherData.refresh();
         }

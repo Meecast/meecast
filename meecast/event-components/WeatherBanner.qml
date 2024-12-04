@@ -129,12 +129,9 @@ BackgroundItem {
         Row {
             id: current_row
 
-            property int margin: (column.width - icon.width - 2*Theme.paddingMedium - temperature.width
-                                  - location_desc.width)/2
-            x: margin
-            width: parent.width - x
-            height: Theme.itemSizeSmall
             spacing: Theme.paddingMedium
+            height: Theme.itemSizeSmall
+            anchors.horizontalCenter: parent.horizontalCenter
 
             Image {
                 id: icon
@@ -205,14 +202,10 @@ BackgroundItem {
 
         Row {
             id: forecasts_row
-            property int orientation_scale: isPortrait ? 4 : 7
-            property int margin: (column.width - orientation_scale * forecast2_row.width - (orientation_scale -1 ) * Theme.paddingSmall * 1.16)/2
-            x: margin
-            width: parent.width - 2*Theme.paddingSmall*1.16
             height: 0
             opacity: 0.0
             spacing: Theme.paddingSmall*1.16
-            //anchors.horizontalCenter: parent.horizontalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
             states: State {
                 name: "expanded"
                 when: weatherData.expanded

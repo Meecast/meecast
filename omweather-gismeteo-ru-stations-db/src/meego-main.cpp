@@ -672,21 +672,22 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
 
     fprintf(file_out,"    </period>\n");
 
-         fprintf(stderr,"sssss %p\n",xpathObjDescription);
-         xmlNodePtr _node_d = xpathObjDescription->nodesetval->nodeTab[i];
-         fprintf(stderr,"sssss\n");
-         fprintf (stderr, "description %s %s\n", _node_d->name, (char *)xmlGetProp(_node_d, (xmlChar*) "data-tooltip"));
          /* added text */
          if (xpathObjDescription && !xmlXPathNodeSetIsEmpty(xpathObjDescription->nodesetval) &&
              xpathObjDescription->nodesetval->nodeTab[i] && xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip")){
-              fprintf (stderr, "description %s\n", (char *)xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip"));
 #ifdef GLIB
              fprintf(file_out,"     <description>%s</description>\n", hash_gismeteo_table_find(hash_for_translate, (char *)xpathObjDescription->nodesetval->nodeTab[i]->content, FALSE));
 #endif
 #ifdef QT
             fprintf(file_out,"     <description>%s</description>\n", (char*)hash_gismeteo_description_table_find(hash_for_translate, (char *)xpathObjDescription->nodesetval->nodeTab[i]->content).toStdString().c_str()); 
 #endif
-            fprintf(file_out,"     <description>%s</description>\n", (char*)xmlHashLookup(hash_for_descriptions, (const xmlChar*)xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip")));
+            if (xmlHashLookup(hash_for_descriptions, (const xmlChar*)xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip"))){
+                fprintf(file_out,"     <description>%s</description>\n", (char*)xmlHashLookup(hash_for_descriptions, (const xmlChar*)xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip")));
+            }else{
+              fprintf (stderr, "description %s not found\n", (char *)xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip"));
+                fprintf(file_out,"     <description>%s</description>\n", (const xmlChar*)xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip"));
+            }
+
          }
     continue;
          /* added pressure */

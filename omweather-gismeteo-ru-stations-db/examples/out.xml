@@ -11,15 +11,15 @@
     <period start="1733529600" end="1733551200">
      <icon>5</icon>
     </period>
-     <description>(null)</description>
+     <description>Пасмурно, небольшой  мокрый снег, снежные зёрна</description>
     <period start="1733616000" end="1733637600">
      <icon>5</icon>
     </period>
-     <description>(null)</description>
+     <description>Пасмурно,  снег с дождём, снежные зёрна</description>
     <period start="1733702400" end="1733724000">
      <icon>5</icon>
     </period>
-     <description>(null)</description>
+     <description>Пасмурно, небольшой  снег с дождём, снежные зёрна</description>
     <period start="1733788800" end="1733810400">
      <icon>26</icon>
     </period>
@@ -27,11 +27,11 @@
     <period start="1733875200" end="1733896800">
      <icon>5</icon>
     </period>
-     <description>(null)</description>
+     <description>Пасмурно, небольшой  снег с дождём, небольшая морось, гололёд</description>
     <period start="1733961600" end="1733983200">
      <icon>5</icon>
     </period>
-     <description>(null)</description>
+     <description>Cloudy, Light Snow and Rain</description>
     <period start="1734048000" end="1734069600">
      <icon>28</icon>
     </period>
@@ -47,7 +47,7 @@
     <period start="1734307200" end="1734328800">
      <icon>5</icon>
     </period>
-     <description>(null)</description>
+     <description>Cloudy, Light Snow and Rain</description>
     <period start="-2209081800" end="-2209067400" current="true">
      <temperature></temperature>
      <icon>5</icon>

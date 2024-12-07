@@ -90,6 +90,7 @@
     hash_insert(hash, "Облачно, гроза", "Cloudy, T-Storm");
     hash_insert(hash, "Облачно,  снег", "Cloudy, Snow");
     hash_insert(hash, "Облачно, снег", "Cloudy, Snow");
+    hash_insert(hash, "Пасмурно,  мокрый снег", "Mainly cloudy, Wet snow");
     hash_insert(hash, "Облачно, сильный дождь", "Cloudy, Heavy Rain");
     hash_insert(hash, "Облачно, сильный дождь, гроза", "Cloudy, Heavy Rain, T-Storm");
     hash_insert(hash, "Облачно, сильный дождь, ливневый дождь", "Cloudy, Strong Rain, Storm Rain");

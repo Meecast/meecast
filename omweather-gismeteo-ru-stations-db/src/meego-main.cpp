@@ -268,11 +268,12 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
     xmlXPathObjectPtr xpathObjMinTemp = NULL; 
     xmlXPathObjectPtr xpathObjIcons = NULL; 
     xmlXPathObjectPtr xpathObjDescription = NULL; 
-    xmlXPathObjectPtr xpathObj6 = NULL; 
-    xmlXPathObjectPtr xpathObj7 = NULL; 
-    xmlXPathObjectPtr xpathObj8 = NULL; 
-    xmlXPathObjectPtr xpathObj9 = NULL; 
-    xmlXPathObjectPtr xpathObj10 = NULL; 
+    xmlXPathObjectPtr xpathObjMaxPressure = NULL; 
+    xmlXPathObjectPtr xpathObjWindSpeed = NULL; 
+    xmlXPathObjectPtr xpathObjWindGust = NULL; 
+    xmlXPathObjectPtr xpathObjWindDirection = NULL; 
+    xmlXPathObjectPtr xpathObjHumidity = NULL; 
+    xmlXPathObjectPtr xpathObjUv = NULL; 
     xmlNodeSetPtr nodes;
     char       *temp_char;
     int        pressure; 
@@ -484,8 +485,8 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
 
    /* Day weather forecast */
    /* Evaluate xpath expression */
-   xpathObj_day = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[1]/a/div[@class='day']", xpathCtx);
-   xpathObj_date = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[1]/a/div[@class='date']", xpathCtx);
+   xpathObj_day = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/*//div[@class='day']", xpathCtx);
+   xpathObj_date = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/*//div[@class='date']", xpathCtx);
    if(xpathObj == NULL) {
         fprintf(stderr,"Error: unable to evaluate xpath expression \"%s\"\n", "//*[@class='c0 day']/div/text()");
         xmlXPathFreeContext(xpathCtx); 
@@ -501,18 +502,13 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
    xpathObjMinTemp = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row-chart widget-row-chart-temperature-air row-with-caption']/div/div[@class='values']/div[@class='value']/div[@class='mint']/temperature-value", xpathCtx);
 
   xpathObjIcons = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[2]/div/div[@class='weather-icon-group']", xpathCtx);
-  //xpathObjDescription = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[2]/div[@data-tooltip]/@data-tooltip", xpathCtx);
   xpathObjDescription = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[2]/div[@data-tooltip]", xpathCtx);
- // xpathObj6 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c4']/text()", xpathCtx);
-  //xpathObj6 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div//table/tbody/tr/th/following-sibling::*/text()", xpathCtx);
-  xpathObj6 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody//*/td/span[@class='value m_press torr']/text()", xpathCtx);
-//  xpathObj7 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div//table/tbody/tr/th/following-sibling::*/dl[@class='wind']/dd/text()", xpathCtx);
-  xpathObj7 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody//*/dl[@class='wind']/dd/span[@class='value m_wind ms']/text()", xpathCtx);
-  //xpathObj8 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div//table/tbody/tr/th/following-sibling::*/dl/dt/text()", xpathCtx);
-  xpathObj8 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody//*/dt[@class]/text()", xpathCtx);
-//  xpathObj9 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c6']/text()", xpathCtx);
-  xpathObj9 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div//div/table/tbody/tr/td[6]/text()", xpathCtx);
-  xpathObj10 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div//div/table/tbody/tr/td[7]/span[@class='value m_temp c']/text()", xpathCtx);
+  xpathObjMaxPressure = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row-chart widget-row-chart-pressure row-with-caption'  ]/div/div[@class='values']/div[@class='value']/div[@class='maxt']/pressure-value", xpathCtx);
+  xpathObjWindSpeed = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-wind row-wind-speed row-with-caption'  ]/div//speed-value", xpathCtx);
+  xpathObjWindGust = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-wind row-wind-gust row-with-caption'  ]/div//speed-value", xpathCtx);
+  xpathObjWindDirection = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-wind row-wind-direction row-with-caption'  ]/div//div[@class='direction']/text()", xpathCtx);
+  xpathObjHumidity = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-humidity row-with-caption']/div/text()", xpathCtx);
+  xpathObjUv = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-radiation row-with-caption']/div/text()", xpathCtx);
   fprintf(stderr, "Result (%d nodes):\n", size); 
   for(i = 0; i < size; ++i) {
 #ifdef GLIB
@@ -692,29 +688,50 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
 
          }
 
-    fprintf(file_out,"    </period>\n");
-    continue;
          /* added pressure */
-         if (xpathObj6 && !xmlXPathNodeSetIsEmpty(xpathObj6->nodesetval) &&
-             xpathObj6->nodesetval->nodeNr >= (i*5+2) &&
-             xpathObj6->nodesetval->nodeTab[i*5+2] && xpathObj6->nodesetval->nodeTab[i*5+2]->content){
-             pressure = atoi((char*)xpathObj6->nodesetval->nodeTab[i*5+2]->content);
+         memset(buffer, 0, sizeof(buffer));
+         if (xpathObjMaxPressure && !xmlXPathNodeSetIsEmpty(xpathObjMaxPressure->nodesetval) &&
+             xpathObjMaxPressure->nodesetval->nodeTab[i]){
+             //fprintf (stderr, "pressure %s\n",  xmlGetProp(xpathObjMaxPressure->nodesetval->nodeTab[i], (xmlChar*) "value"));
+             snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(xpathObjMaxPressure->nodesetval->nodeTab[i], (xmlChar*) "value"));
+			 fprintf(file_out,"     <pressure>%s</pressure>\n", buffer); 
+         }
+         /*
+         if (xpathObjMaxPressure && !xmlXPathNodeSetIsEmpty(xpathObjMaxPressure->nodesetval) &&
+             xpathObjMaxPressure->nodesetval->nodeNr >= (i*5+2) &&
+             xpathObjMaxPressure->nodesetval->nodeTab[i*5+2] && xpathObjMaxPressure->nodesetval->nodeTab[i*5+2]->content){
+             pressure = atoi((char*)xpathObjMaxPressure->nodesetval->nodeTab[i*5+2]->content);
              pressure = pressure * 1.333224;
 			fprintf(file_out,"     <pressure>%i</pressure>\n", pressure);
          }
+         */
          /* added wind speed */
-         if (xpathObj7 && !xmlXPathNodeSetIsEmpty(xpathObj7->nodesetval) &&
-             xpathObj7->nodesetval->nodeTab[i] && xpathObj7->nodesetval->nodeTab[i]->content){
+         memset(buffer, 0, sizeof(buffer));
+         if (xpathObjWindSpeed && !xmlXPathNodeSetIsEmpty(xpathObjWindSpeed->nodesetval) &&
+             xpathObjWindSpeed->nodesetval->nodeTab[i]){
             /* Normalize speed to km/h from m/s */
             /* fprintf(stderr, "Wind  speed    \n"); */ 
-            speed = atoi ((char *)xpathObj7->nodesetval->nodeTab[i]->content);
+            snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(xpathObjWindSpeed->nodesetval->nodeTab[i], (xmlChar*) "value"));
+            speed = atoi ((char *)buffer);
 			fprintf(file_out,"     <wind_speed>%1.f</wind_speed>\n",  (double)(speed));
          }
+         /* added wind gust */
+         memset(buffer, 0, sizeof(buffer));
+         if (xpathObjWindGust && !xmlXPathNodeSetIsEmpty(xpathObjWindGust->nodesetval) &&
+             xpathObjWindGust->nodesetval->nodeTab[i]){
+            /* Normalize speed to km/h from m/s */
+            /* fprintf(stderr, "Wind  speed    \n"); */ 
+            snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(xpathObjWindGust->nodesetval->nodeTab[i], (xmlChar*) "value"));
+            speed = atoi ((char *)buffer);
+			fprintf(file_out,"     <wind_gust>%1.f</wind_gust>\n",  (double)(speed));
+         }
+
          /* added wind direction */
-         if (xpathObj8 && !xmlXPathNodeSetIsEmpty(xpathObj8->nodesetval) &&
-             xpathObj8->nodesetval->nodeTab[i] && xpathObj8->nodesetval->nodeTab[i]->content){
-             /* fprintf (stderr, "Wind direction: %s\n", xpathObj8->nodesetval->nodeTab[i]->content);  */
-             snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj8->nodesetval->nodeTab[i]->content);
+         memset(buffer, 0, sizeof(buffer));
+         if (xpathObjWindDirection && !xmlXPathNodeSetIsEmpty(xpathObjWindDirection->nodesetval) &&
+             xpathObjWindDirection->nodesetval->nodeTab[i] && xpathObjWindDirection->nodesetval->nodeTab[i]->content){
+             /* fprintf (stderr, "Wind direction: %s\n", xpathObjWindDirection->nodesetval->nodeTab[i]->content);  */
+             snprintf(buffer, sizeof(buffer)-1,"%s", xpathObjWindDirection->nodesetval->nodeTab[i]->content);
              /* Wind direction */
              if (!strcoll(buffer, "З"))
                   sprintf(buffer,"%s","W");
@@ -738,34 +755,19 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
                   sprintf(buffer,"%s","CALM");
 			 fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", buffer); 
          }
+
          /* added humidity */
-         if (xpathObj9 && !xmlXPathNodeSetIsEmpty(xpathObj9->nodesetval) &&
-             xpathObj9->nodesetval->nodeTab[i] && xpathObj9->nodesetval->nodeTab[i]->content){
-             /* fprintf (stderr, "description %s\n", xpathObjDescription->nodesetval->nodeTab[i]->content); */
-			fprintf(file_out,"     <humidity>%s</humidity>\n", (char *)xpathObj9->nodesetval->nodeTab[i]->content);
+         if (xpathObjHumidity && !xmlXPathNodeSetIsEmpty(xpathObjHumidity->nodesetval) &&
+             xpathObjHumidity->nodesetval->nodeTab[i] && xpathObjHumidity->nodesetval->nodeTab[i]->content){
+			fprintf(file_out,"     <humidity>%s</humidity>\n", (char *)xpathObjHumidity->nodesetval->nodeTab[i]->content);
          }
-	 /* added feels like */
-        if (xpathObj10 && !xmlXPathNodeSetIsEmpty(xpathObj10->nodesetval) &&
-             xpathObj10->nodesetval->nodeTab[i] && xpathObj10->nodesetval->nodeTab[i]->content){
-             snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj10->nodesetval->nodeTab[i]->content);
-             memset(temp_buffer, 0, sizeof(temp_buffer));
-             memset(temp_buffer2, 0, sizeof(temp_buffer2));
-             for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
-                 if ((char)buffer[j] == -30 || (uint)buffer[j] == 226 ||  buffer[j] == '-' || buffer[j] == '&' || (buffer[j]>='0' && buffer[j]<='9')){
-                     if ((char)buffer[j] == -30 || buffer[j] == '&' || (uint)buffer[j] == 226){
-                        sprintf(temp_buffer2,"%s",temp_buffer);
-                        sprintf(temp_buffer,"%s-",temp_buffer2);
-                     }
-                     else{
-                        sprintf(temp_buffer2,"%s",temp_buffer);
-                        sprintf(temp_buffer,"%s%c",temp_buffer2, buffer[j]);
-                     }
-                 }
-             }
-		     fprintf(file_out,"     <flike>%s</flike>\n", temp_buffer); 
+         /* added uv-index */
+         if (xpathObjUv && !xmlXPathNodeSetIsEmpty(xpathObjUv->nodesetval) &&
+             xpathObjUv->nodesetval->nodeTab[i] && xpathObjUv->nodesetval->nodeTab[i]->content){
+			fprintf(file_out,"     <uv_index>%s</uv_index>\n", (char *)xpathObjUv->nodesetval->nodeTab[i]->content);
          }
 
-      fprintf(file_out,"    </period>\n");
+        fprintf(file_out,"    </period>\n");
   }	
   /* Cleanup */
   if (xpathObj_day)
@@ -782,16 +784,16 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
     xmlXPathFreeObject(xpathObjIcons);
   if (xpathObjDescription)
     xmlXPathFreeObject(xpathObjDescription);
-  if (xpathObj6)
-    xmlXPathFreeObject(xpathObj6);
-  if (xpathObj7)
-    xmlXPathFreeObject(xpathObj7);
-  if (xpathObj8)
-    xmlXPathFreeObject(xpathObj8);
-  if (xpathObj9)
-    xmlXPathFreeObject(xpathObj9);
-  if (xpathObj10)
-    xmlXPathFreeObject(xpathObj10);
+  if (xpathObjMaxPressure)
+    xmlXPathFreeObject(xpathObjMaxPressure);
+  if (xpathObjWindSpeed)
+    xmlXPathFreeObject(xpathObjWindSpeed);
+  if (xpathObjWindDirection)
+    xmlXPathFreeObject(xpathObjWindDirection);
+  if (xpathObjHumidity)
+    xmlXPathFreeObject(xpathObjHumidity);
+  if (xpathObjUv)
+    xmlXPathFreeObject(xpathObjUv);
 
   /* fill current data */
   utc_time = mktime(&current_tm);
@@ -913,10 +915,11 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
     xmlXPathObjectPtr xpathObjMaxTemp = NULL; 
     xmlXPathObjectPtr xpathObjIcons = NULL; 
     xmlXPathObjectPtr xpathObjDescription = NULL; 
-    xmlXPathObjectPtr xpathObj6 = NULL; 
-    xmlXPathObjectPtr xpathObj7 = NULL; 
-    xmlXPathObjectPtr xpathObj8 = NULL; 
-    xmlXPathObjectPtr xpathObj9 = NULL; 
+    xmlXPathObjectPtr xpathObjMaxPressure = NULL; 
+    xmlXPathObjectPtr xpathObjWindSpeed = NULL; 
+    xmlXPathObjectPtr xpathObjWindGust = NULL; 
+    xmlXPathObjectPtr xpathObjWindDirection = NULL; 
+    xmlXPathObjectPtr xpathObjHumidity = NULL; 
     xmlNodeSetPtr nodes;
     int size;
     time_t      t_start = 0, t_end = 0;
@@ -1062,12 +1065,12 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
   xpathObjMaxTemp = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//div/table/tbody/tr/th/following-sibling::*[@class='cltext']/text()", xpathCtx);
   xpathObjIcons = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div/table/tbody/tr/td[@class='temp']/span[@class='value m_temp c']/text()", xpathCtx);
   xpathObjDescription = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div/table/tbody/tr/td/span[@class='value m_press torr']/text()", xpathCtx);
-  //xpathObj6 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//table/tbody/tr/td/dl[@class='wind']/dt/text()", xpathCtx);
-  xpathObj6 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//table/tbody/tr/td/dl[@class='wind']/dd/span[@class='value m_wind ms']/text()", xpathCtx);
+  //xpathObjMaxPressure = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//table/tbody/tr/td/dl[@class='wind']/dt/text()", xpathCtx);
+  xpathObjMaxPressure = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//table/tbody/tr/td/dl[@class='wind']/dd/span[@class='value m_wind ms']/text()", xpathCtx);
 //  /html/body/div/div/div//table/tbody/tr/td/dl[@class='wind']/dd/span[@class='value m_wind ms']/text()
-  xpathObj7 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//div/table/tbody/tr/th/following-sibling::*/dl/dt/text()", xpathCtx);
-  xpathObj8 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div/table/tbody/tr/td[6]/text()", xpathCtx);
-  xpathObj9 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div/table/tbody/tr/td[7]/span[@class='value m_temp c']/text()", xpathCtx);
+  xpathObjWindSpeed = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//div/table/tbody/tr/th/following-sibling::*/dl/dt/text()", xpathCtx);
+  xpathObjWindDirection = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div/table/tbody/tr/td[6]/text()", xpathCtx);
+  xpathObjHumidity = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div/table/tbody/tr/td[7]/span[@class='value m_temp c']/text()", xpathCtx);
   nodes   = xpathObj->nodesetval;
   size = (nodes) ? nodes->nodeNr : 0;
   /* fprintf(stderr,"Size fo hours %i\n", size); */
@@ -1161,18 +1164,18 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
       /* fprintf (stderr, "pressure %s\n", xpathObjDescription->nodesetval->nodeTab[i]->content); */
    }
    /* added wind speed */
-   if (xpathObj6 && !xmlXPathNodeSetIsEmpty(xpathObj6->nodesetval) && xpathObj6->nodesetval->nodeTab[i]->content){
+   if (xpathObjMaxPressure && !xmlXPathNodeSetIsEmpty(xpathObjMaxPressure->nodesetval) && xpathObjMaxPressure->nodesetval->nodeTab[i]->content){
       /* Normalize speed to km/h from m/s */
       /* fprintf(stderr, "Wind  speed    %s\n", temp_buffer); */
-      speed = atoi ((char *)xpathObj6->nodesetval->nodeTab[i]->content);
+      speed = atoi ((char *)xpathObjMaxPressure->nodesetval->nodeTab[i]->content);
       /* speed = speed * 3600/1000; */
       sprintf(buffer, "%i", speed);
       fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", buffer);
    }
    /* added wind direction */
-   if (xpathObj7 && !xmlXPathNodeSetIsEmpty(xpathObj7->nodesetval) && xpathObj7->nodesetval->nodeTab[i]->content){
-       /*  fprintf (stderr, "Wind direction: %s\n", xpathObj7->nodesetval->nodeTab[i]->content); */
-       snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj7->nodesetval->nodeTab[i]->content);
+   if (xpathObjWindSpeed && !xmlXPathNodeSetIsEmpty(xpathObjWindSpeed->nodesetval) && xpathObjWindSpeed->nodesetval->nodeTab[i]->content){
+       /*  fprintf (stderr, "Wind direction: %s\n", xpathObjWindSpeed->nodesetval->nodeTab[i]->content); */
+       snprintf(buffer, sizeof(buffer)-1,"%s", xpathObjWindSpeed->nodesetval->nodeTab[i]->content);
        /* Wind direction */
        if (!strcoll(buffer, "З"))
             sprintf(buffer,"%s","W");
@@ -1198,12 +1201,12 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
        fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", buffer);
    }
   /* added humidity */
-  if (xpathObj8 && !xmlXPathNodeSetIsEmpty(xpathObj8->nodesetval) && xpathObj8->nodesetval->nodeTab[i]->content){
-     fprintf(file_out,"     <humidity>%s</humidity>\n", xpathObj8->nodesetval->nodeTab[i]->content);
+  if (xpathObjWindDirection && !xmlXPathNodeSetIsEmpty(xpathObjWindDirection->nodesetval) && xpathObjWindDirection->nodesetval->nodeTab[i]->content){
+     fprintf(file_out,"     <humidity>%s</humidity>\n", xpathObjWindDirection->nodesetval->nodeTab[i]->content);
   }
   /* added feels like */
-  if (xpathObj9 && !xmlXPathNodeSetIsEmpty(xpathObj9->nodesetval) && xpathObj9->nodesetval->nodeTab[i]->content){
-             snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj9->nodesetval->nodeTab[i]->content);
+  if (xpathObjHumidity && !xmlXPathNodeSetIsEmpty(xpathObjHumidity->nodesetval) && xpathObjHumidity->nodesetval->nodeTab[i]->content){
+             snprintf(buffer, sizeof(buffer)-1,"%s", xpathObjHumidity->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
              memset(temp_buffer2, 0, sizeof(temp_buffer2));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
@@ -1231,14 +1234,14 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
     xmlXPathFreeObject(xpathObjIcons);
   if (xpathObjDescription)
     xmlXPathFreeObject(xpathObjDescription);
-  if (xpathObj6)
-    xmlXPathFreeObject(xpathObj6);
-  if (xpathObj7)
-    xmlXPathFreeObject(xpathObj7);
-  if (xpathObj8)
-    xmlXPathFreeObject(xpathObj8);
-  if (xpathObj9)
-    xmlXPathFreeObject(xpathObj9);
+  if (xpathObjMaxPressure)
+    xmlXPathFreeObject(xpathObjMaxPressure);
+  if (xpathObjWindSpeed)
+    xmlXPathFreeObject(xpathObjWindSpeed);
+  if (xpathObjWindDirection)
+    xmlXPathFreeObject(xpathObjWindDirection);
+  if (xpathObjHumidity)
+    xmlXPathFreeObject(xpathObjHumidity);
   if (xpathCtx)
     xmlXPathFreeContext(xpathCtx); 
 

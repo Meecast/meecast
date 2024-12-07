@@ -13,64 +13,172 @@
      <temperature_low>-2</temperature_low>
      <icon>5</icon>
      <description>Пасмурно, небольшой  мокрый снег, снежные зёрна</description>
+     <pressure>756</pressure>
+     <wind_speed>2</wind_speed>
+     <wind_gust>6</wind_gust>
+     <wind_direction>S</wind_direction>
+     <humidity>96</humidity>
+     <uv_index>0</uv_index>
     </period>
     <period start="1733616001" end="1733702401">
      <temperature_hi>1</temperature_hi>
      <temperature_low>0</temperature_low>
      <icon>5</icon>
      <description>Пасмурно,  снег с дождём, снежные зёрна</description>
+     <pressure>755</pressure>
+     <wind_speed>2</wind_speed>
+     <wind_gust>5</wind_gust>
+     <wind_direction>SE</wind_direction>
+     <humidity>97</humidity>
+     <uv_index>0</uv_index>
     </period>
     <period start="1733702401" end="1733788801">
      <temperature_hi>1</temperature_hi>
      <temperature_low>0</temperature_low>
      <icon>5</icon>
      <description>Пасмурно, небольшой  снег с дождём, снежные зёрна</description>
+     <pressure>760</pressure>
+     <wind_speed>2</wind_speed>
+     <wind_gust>4</wind_gust>
+     <wind_direction>SE</wind_direction>
+     <humidity>98</humidity>
+     <uv_index>0</uv_index>
     </period>
     <period start="1733788801" end="1733875201">
      <temperature_hi>0</temperature_hi>
      <temperature_low>-1</temperature_low>
      <icon>26</icon>
      <description>Mostly Cloudy</description>
+     <pressure>760</pressure>
+     <wind_speed>2</wind_speed>
+     <wind_gust>6</wind_gust>
+     <wind_direction>NW</wind_direction>
+     <humidity>94</humidity>
+     <uv_index>0</uv_index>
     </period>
     <period start="1733875201" end="1733961601">
      <temperature_hi>1</temperature_hi>
      <temperature_low>-1</temperature_low>
      <icon>5</icon>
      <description>Пасмурно, небольшой  снег с дождём, небольшая морось, гололёд</description>
+     <pressure>759</pressure>
+     <wind_speed>2</wind_speed>
+     <wind_gust>6</wind_gust>
+     <wind_direction>W</wind_direction>
+     <humidity>93</humidity>
+     <uv_index>0</uv_index>
     </period>
     <period start="1733961601" end="1734048001">
      <temperature_hi>1</temperature_hi>
      <temperature_low>-1</temperature_low>
      <icon>5</icon>
      <description>Cloudy, Light Snow and Rain</description>
+     <pressure>755</pressure>
+     <wind_speed>3</wind_speed>
+     <wind_gust>8</wind_gust>
+     <wind_direction>N</wind_direction>
+     <humidity>94</humidity>
+     <uv_index>0</uv_index>
     </period>
     <period start="1734048001" end="1734134401">
      <temperature_hi>-1</temperature_hi>
      <temperature_low>-3</temperature_low>
      <icon>28</icon>
      <description>Cloudy</description>
+     <pressure>765</pressure>
+     <wind_speed>3</wind_speed>
+     <wind_gust>7</wind_gust>
+     <wind_direction>NW</wind_direction>
+     <humidity>90</humidity>
+     <uv_index>0</uv_index>
     </period>
     <period start="1734134401" end="1734220801">
      <temperature_hi>-3</temperature_hi>
      <temperature_low>-4</temperature_low>
      <icon>28</icon>
      <description>Cloudy</description>
+     <pressure>766</pressure>
+     <wind_speed>3</wind_speed>
+     <wind_gust>12</wind_gust>
+     <wind_direction>W</wind_direction>
+     <humidity>91</humidity>
+     <uv_index>0</uv_index>
     </period>
     <period start="1734220801" end="1734307201">
      <temperature_hi>-2</temperature_hi>
      <temperature_low>-4</temperature_low>
      <icon>26</icon>
      <description>Mostly Cloudy</description>
+     <pressure>756</pressure>
+     <wind_speed>3</wind_speed>
+     <wind_gust>12</wind_gust>
+     <wind_direction>SW</wind_direction>
+     <humidity>88</humidity>
+     <uv_index>0</uv_index>
     </period>
     <period start="1734307201" end="1734393601">
      <temperature_hi>2</temperature_hi>
      <temperature_low>-1</temperature_low>
      <icon>5</icon>
      <description>Cloudy, Light Snow and Rain</description>
+     <pressure>751</pressure>
+     <wind_speed>4</wind_speed>
+     <wind_gust>15</wind_gust>
+     <wind_direction>SW</wind_direction>
+     <humidity>89</humidity>
+     <uv_index>0</uv_index>
+    </period>
+    <period start="1734393601" end="1734480001">
+     <temperature_hi>1</temperature_hi>
+     <temperature_low>0</temperature_low>
+     <icon>5</icon>
+     <description>Cloudy, Light Snow and Rain</description>
+     <pressure>743</pressure>
+     <wind_speed>5</wind_speed>
+     <wind_gust>13</wind_gust>
+     <wind_direction>W</wind_direction>
+     <humidity>93</humidity>
+     <uv_index>0</uv_index>
+    </period>
+    <period start="1734480001" end="1734566401">
+     <temperature_hi>0</temperature_hi>
+     <temperature_low>-3</temperature_low>
+     <icon>5</icon>
+     <description>Пасмурно, сильный  мокрый снег</description>
+     <pressure>747</pressure>
+     <wind_speed>3</wind_speed>
+     <wind_gust>4</wind_gust>
+     <wind_direction>SW</wind_direction>
+     <humidity>87</humidity>
+     <uv_index>0</uv_index>
+    </period>
+    <period start="1734566401" end="1734652801">
+     <temperature_hi>-3</temperature_hi>
+     <temperature_low>-4</temperature_low>
+     <icon>5</icon>
+     <description>Пасмурно, небольшой  мокрый снег</description>
+     <pressure>748</pressure>
+     <wind_speed>2</wind_speed>
+     <wind_gust>7</wind_gust>
+     <wind_direction>SW</wind_direction>
+     <humidity>89</humidity>
+     <uv_index>0</uv_index>
+    </period>
+    <period start="1734652801" end="1734739201">
+     <temperature_hi>-3</temperature_hi>
+     <temperature_low>-4</temperature_low>
+     <icon>14</icon>
+     <description>Mostly Cloudy, Few Snow</description>
+     <pressure>749</pressure>
+     <wind_speed>3</wind_speed>
+     <wind_gust>6</wind_gust>
+     <wind_direction>SW</wind_direction>
+     <humidity>91</humidity>
+     <uv_index>0</uv_index>
     </period>
     <period start="-2209081800" end="-2209067400" current="true">
      <temperature></temperature>
-     <icon>5</icon>
+     <icon>14</icon>
      <description></description>
      <pressure></pressure>
      <wind_direction></wind_direction>

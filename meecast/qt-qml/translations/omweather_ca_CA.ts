@@ -926,6 +926,10 @@ Disseny IU per a Fremantle: Krebber Jan Niemela Ulla
         <translation>Núvol, Pluja suau, Plugims</translation>
     </message>
     <message>
+        <source>Cloudy, Light Snow and Rain</source>
+        <translation type="unfinished">Núvol, Pluja suau</translation>
+    </message>
+    <message>
         <source>Cloudy, Rain</source>
         <translation>Núvol, Pluja</translation>
     </message>
@@ -1883,6 +1887,10 @@ Català - Agustí Clara</translation>
     <message>
         <source>Mainly cloudy, Slight shower of rain</source>
         <translation>Núvol, en general; ruixats suaus</translation>
+    </message>
+    <message>
+        <source>Mainly cloudy, Wet snow</source>
+        <translation type="unfinished">Força núvol, ruixats</translation>
     </message>
     <message>
         <source>Mainly cloudy, drizzle</source>

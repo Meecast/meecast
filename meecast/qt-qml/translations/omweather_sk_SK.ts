@@ -124,59 +124,59 @@ Viet.: </translation>
     <message>
         <source>    Albanian - Ilir Gjika
 </source>
-        <translation type="unfinished">Albánčina - Ilir Gjika
+        <translation>    Albánčina - Ilir Gjika
 </translation>
     </message>
     <message>
         <source>    Arabic - Tarad Alfandi
 </source>
-        <translation type="unfinished">Arabčina - Tarad Alfandi
+        <translation>    Arabčina - Tarad Alfandi
 </translation>
     </message>
     <message>
         <source>    Bulgarian - Zlatko Enikov
 </source>
-        <translation type="unfinished">Bulharčina - Zlatko Enikov
+        <translation>    Bulharčina - Zlatko Enikov
 </translation>
     </message>
     <message>
         <source>    Catalan - Agustí Clara
 </source>
-        <translation type="unfinished">Catalánčina - Agustí Clara
+        <translation>    Katalánčina - Agustí Clara
 </translation>
     </message>
     <message>
         <source>    Chinese - Wong Man Kong, Michael,
      	gwmgdemj
 </source>
-        <translation type="unfinished">Čínština - Wong Man Kong, Michael,
- 	gwmgdemj
+        <translation>    Čínština - Wong Man Kong, Michael,
+     	gwmgdemj
 </translation>
     </message>
     <message>
         <source>    Chinese(Taiwan) - osk2, 
 </source>
-        <translation type="unfinished">Čínština (Taiwan) - osk2, 
+        <translation>    Čínština(Taiwan) - osk2, 
 </translation>
     </message>
     <message>
         <source>    Czech - Jakub Kožíšek, Pavel Šrubař
 </source>
-        <translation type="unfinished">Čeština - Jakub Kožíšek, Pavel Šrubař
+        <translation>    Čeština - Jakub Kožíšek, Pavel Šrubař
 </translation>
     </message>
     <message>
         <source>    Danish - Peter Jespersen
 </source>
-        <translation type="unfinished">Dánčina - Peter Jespersen
+        <translation>    Dánčina - Peter Jespersen
 </translation>
     </message>
     <message>
         <source>    Dutch - Tom Leenders, Michiel Pater
      	Heimen Stoffels, Nathan Follens
 </source>
-        <translation type="unfinished">Holandčina - Tom Leenders, Michiel Pater
- 	Heimen Stoffels, Nathan Follens
+        <translation>    Holandčina - Tom Leenders, Michiel Pater
+     	Heimen Stoffels, Nathan Follens
 </translation>
     </message>
     <message>
@@ -184,9 +184,9 @@ Viet.: </translation>
     	deadhead (A-P Partonen),
      	jarliim
 </source>
-        <translation type="unfinished">Fínčina - Marko Vertainen,
-	deadhead (A-P Partonen),
- 	jarliim
+        <translation>    Fínčina - Marko Vertainen,
+    	deadhead (A-P Partonen),
+     	jarliim
 </translation>
     </message>
     <message>
@@ -195,16 +195,16 @@ Viet.: </translation>
      	Quentin Caillard, 
      	Jordi
 </source>
-        <translation type="unfinished">Francúzština -  Nicolas Granziano, 
- 	Philippe, Benot Knecht, 
- 	Quentin Caillard, 
- 	Jordi
+        <translation>    Francúzština -  Nicolas Granziano, 
+     	Philippe, Benot Knecht, 
+     	Quentin Caillard, 
+     	Jordi
 </translation>
     </message>
     <message>
         <source>    Galician - pakoR
 </source>
-        <translation type="unfinished">Galícijsky - pakoR
+        <translation>    Galicíjčina - pakoR
 </translation>
     </message>
     <message>
@@ -212,15 +212,15 @@ Viet.: </translation>
      	Jens Klingen,
      	DeadHorseRiding
  </source>
-        <translation type="unfinished">Nemčina -  Claudius Henrichs,
- 	Jens Klingen,
- 	DeadHorseRiding
+        <translation>    Nemčina -  Claudius Henrichs,
+     	Jens Klingen,
+     	DeadHorseRiding
  </translation>
     </message>
     <message>
         <source>    Hungarian - Salmi, László Kara
 </source>
-        <translation type="unfinished">Maďarčina - Salmi, László Kara
+        <translation>    Maďarčina - Salmi, László Kara
 </translation>
     </message>
     <message>
@@ -229,61 +229,61 @@ Viet.: </translation>
      	Salvatore Fiorenzo, Ilir Gjika,
      	Luca Onnis
 </source>
-        <translation type="unfinished">Taliančina - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
+        <translation>    Taliančina - Lorenzo Facca,
+     	Pavel Fialko, Alessandro Pasotti,
+     	Salvatore Fiorenzo, Ilir Gjika,
+     	Luca Onnis
 </translation>
     </message>
     <message>
         <source>    Norwegian - Peer-Atle Motland
 </source>
-        <translation type="unfinished">Nórčina - Peer-Atle Motland
+        <translation>    Nórčina - Peer-Atle Motland
 </translation>
     </message>
     <message>
         <source>    Polish - Tomasz Dominikowski
 </source>
-        <translation type="unfinished">Poľština - Tomasz Dominikowski
+        <translation>    Poľština - Tomasz Dominikowski
 </translation>
     </message>
     <message>
         <source>    Portuguese - Jose Narciso,
 </source>
-        <translation type="unfinished">Portugalčina - Jose Narciso,
+        <translation>    Portugalčina - Jose Narciso,
 </translation>
     </message>
     <message>
         <source>    Russian - Pavel Fialko, Vlad Vasilyeu, 
      	Ed Bartosh
 </source>
-        <translation type="unfinished">Ruština - Pavel Fialko, Vlad Vasilyeu, 
- 	Ed Bartosh
+        <translation>    Ruština - Pavel Fialko, Vlad Vasilyeu, 
+     	Ed Bartosh
 </translation>
     </message>
     <message>
         <source>    Serbian - Aleksandar Zaric
 </source>
-        <translation type="unfinished">Srbčina - Aleksandar Zaric
+        <translation>    Srbčina - Aleksandar Zaric
 </translation>
     </message>
     <message>
         <source>    Slovak - Roman Moravčík
 </source>
-        <translation type="unfinished">Slovenčina - Roman Moravčík
-Ladislav Hodas
+        <translation>    Slovenčina - Roman Moravčík,
+	Ladislav Hodas
 </translation>
     </message>
     <message>
         <source>    Slovenian - Boštjan Štrumbelj
 </source>
-        <translation type="unfinished">Slovinčina - Boštjan Štrumbelj
+        <translation>    Slovinčina - Boštjan Štrumbelj
 </translation>
     </message>
     <message>
         <source>    Spanish - Alejandro Lopez, Agustí Clara
 </source>
-        <translation type="unfinished">Španielčina - Alejandro Lopez, Agustí Clara
+        <translation>    Španielčina - Alejandro Lopez, Agustí Clara
 </translation>
     </message>
     <message>
@@ -291,25 +291,25 @@ Ladislav Hodas
      	Åke Engelbrektson, 
      	Niklas Åkerström, 
      	Tomislav Veleckovik</source>
-        <translation type="unfinished">Švédčina - Angela Nennebrandt,
- 	Åke Engelbrektson, 
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</translation>
+        <translation>    Švédčina - Angela Nennebrandt,
+     	Åke Engelbrektson, 
+     	Niklas Åkerström, 
+     	Tomislav Veleckovik</translation>
     </message>
     <message>
         <source>    Turkish - Burak Kaan Kose,
      	Mehmet Çilingir
 </source>
-        <translation type="unfinished">Turečtina - Burak Kaan Kose,
- 	Mehmet Çilingir
+        <translation>    Turečtina - Burak Kaan Kose,
+     	Mehmet Çilingir
 </translation>
     </message>
     <message>
         <source>    Vietnamese - Hieu Nguyen
      	Anh Dương and truongnx, 
 </source>
-        <translation type="unfinished">Vietnamčina - Hieu Nguyen
- 	Anh Dương and truongnx, 
+        <translation>    Vietnamčina - Hieu Nguyen
+     	Anh Dương and truongnx, 
 </translation>
     </message>
     <message>
@@ -758,7 +758,7 @@ Návrh používateľského rozhrania pre Fremantle: Krebber Jan Niemela Ulla
     </message>
     <message>
         <source>Can&apos;t save config file</source>
-        <translation type="unfinished"></translation>
+        <translation>Nemožno uložiť konfiguračný súbor</translation>
     </message>
     <message>
         <source>Cannot get path to the HOME directory. Quitting.
@@ -927,6 +927,10 @@ Návrh používateľského rozhrania pre Fremantle: Krebber Jan Niemela Ulla
         <translation>Zamračené, slabý až mierny dážď</translation>
     </message>
     <message>
+        <source>Cloudy, Light Snow and Rain</source>
+        <translation type="unfinished">Zamračené, slabý dážď</translation>
+    </message>
+    <message>
         <source>Cloudy, Rain</source>
         <translation>Zamračené, dážď</translation>
     </message>
@@ -952,11 +956,11 @@ Návrh používateľského rozhrania pre Fremantle: Krebber Jan Niemela Ulla
     </message>
     <message>
         <source>Co-administrator and contributor</source>
-        <translation type="unfinished"></translation>
+        <translation>Spolu-správca a prispievateľ</translation>
     </message>
     <message>
         <source>Co-administrator and contributor</source>
-        <translation type="unfinished"></translation>
+        <translation>Spolu-správca a prispievateľ</translation>
     </message>
     <message>
         <source>Could not connecting to Internet.
@@ -1178,11 +1182,11 @@ Brad Jones aka kazrak - testovanie
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Chyba</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Chyba</translation>
     </message>
     <message>
         <source>Error in xml file
@@ -1542,7 +1546,7 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
     </message>
     <message>
         <source>Heavy T-Storms</source>
-        <translation type="unfinished">Búrky</translation>
+        <translation>Silné búrky</translation>
     </message>
     <message>
         <source>Heavy Thunder</source>
@@ -1554,7 +1558,7 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
     </message>
     <message>
         <source>Heavy rain</source>
-        <translation type="unfinished">Silný dážď</translation>
+        <translation>Silný dážď</translation>
     </message>
     <message>
         <source>High</source>
@@ -1885,6 +1889,10 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
         <translation>Prevažne zamračené, slabý dážď</translation>
     </message>
     <message>
+        <source>Mainly cloudy, Wet snow</source>
+        <translation type="unfinished">Prevažne oblačno, prehánky</translation>
+    </message>
+    <message>
         <source>Mainly cloudy, drizzle</source>
         <translation>Prevažne oblačno, mrholenie</translation>
     </message>
@@ -1918,19 +1926,19 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
     </message>
     <message>
         <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2024</source>
-        <translation type="unfinished">MeeCast - multiplatformový, vysoko-prispôsobivý klient predpovede počasia s otvorenými zdrojmi založený na zdrojovom kóde OMWeather. Copyright (C) 2006-2016</translation>
+        <translation>MeeCast - multiplatformový, vysoko-prispôsobivý klient predpovede počasia s otvorenými zdrojmi založený na zdrojovom kóde OMWeather. Copyright (C) 2006-2024</translation>
     </message>
     <message>
         <source>MeeCast for AuroraOS</source>
-        <translation type="unfinished">MeeCast pre Harmattan</translation>
+        <translation>MeeCast pre AuroraOS</translation>
     </message>
     <message>
         <source>MeeCast for AuroraOS</source>
-        <translation type="unfinished">MeeCast pre Harmattan</translation>
+        <translation>MeeCast pre AuroraOS</translation>
     </message>
     <message>
         <source>MeeCast for SailfishOS</source>
-        <translation type="unfinished">MeeCast pre Harmattan</translation>
+        <translation>MeeCast pre SailfishOS</translation>
     </message>
     <message>
         <source>Meters</source>
@@ -2506,7 +2514,7 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
     </message>
     <message>
         <source>Pa</source>
-        <translation type="unfinished">kPa</translation>
+        <translation>Pa</translation>
     </message>
     <message>
         <source>Partly Cloudy</source>
@@ -2730,7 +2738,7 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
     </message>
     <message>
         <source>Project administrator</source>
-        <translation type="unfinished">Správca projektu</translation>
+        <translation>Správca projektu</translation>
     </message>
     <message>
         <source>Project manager</source>
@@ -3484,11 +3492,11 @@ Slovenčina - Roman Moravčík, Ladislav Hodas</translation>
      Foundation; either version 2.1 of the 
      License, or (at your option) any 
      later version.</source>
-        <translation type="unfinished">Tento softvér je slobodný softvér; môžete
+        <translation>Tento softvér je slobodný softvér; môžete
  ho ďalej šíriť a/alebo upravovať podľa
  ustanovení Všeobecnej verejnej licencie
  GNU tak, ako bola vydaná organizáciou
- Free Software Foundation, a to buď verzie 2
+ Free Software Foundation, a to buď verzie 2.1
  tejto licencie, alebo (podľa vášho uváženia)
  ktorejkoľvek neskoršej verzie.</translation>
     </message>

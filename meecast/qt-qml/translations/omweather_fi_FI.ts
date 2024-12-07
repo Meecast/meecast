@@ -925,6 +925,10 @@ Fremantle käyttöliittymä: Krebber Jan ja Niemelä Ulla
         <translation>Pilvistä, kevyttä sadetta, kovaa sadetta</translation>
     </message>
     <message>
+        <source>Cloudy, Light Snow and Rain</source>
+        <translation type="unfinished">Pilvistä, kevyttä vesisadetta</translation>
+    </message>
+    <message>
         <source>Cloudy, Rain</source>
         <translation>Pilvistä, vesisadetta</translation>
     </message>
@@ -1881,6 +1885,10 @@ Slovakia - Roman Moravčík</translation>
     <message>
         <source>Mainly cloudy, Slight shower of rain</source>
         <translation>Melko pilvistä, kevyitä sadekuuroja</translation>
+    </message>
+    <message>
+        <source>Mainly cloudy, Wet snow</source>
+        <translation type="unfinished">Enimmäkseen pilvistä, sadekuuroja</translation>
     </message>
     <message>
         <source>Mainly cloudy, drizzle</source>

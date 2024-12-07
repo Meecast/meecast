@@ -926,6 +926,10 @@ Dizajn korisničkog prikaza za Fremantle: Krebber Jan Niemela Ulla
         <translation>Oblačno, slaba kiša, kratka obilna kiša</translation>
     </message>
     <message>
+        <source>Cloudy, Light Snow and Rain</source>
+        <translation type="unfinished">Oblačno, Slaba kiša</translation>
+    </message>
+    <message>
         <source>Cloudy, Rain</source>
         <translation>Oblačno, Kiša</translation>
     </message>
@@ -1882,6 +1886,10 @@ Slovački - Roman Moravčík</translation>
     <message>
         <source>Mainly cloudy, Slight shower of rain</source>
         <translation>Uglavnom oblačno, kratki pljusak</translation>
+    </message>
+    <message>
+        <source>Mainly cloudy, Wet snow</source>
+        <translation type="unfinished">Uglavnom oblačno, pljuskovi</translation>
     </message>
     <message>
         <source>Mainly cloudy, drizzle</source>

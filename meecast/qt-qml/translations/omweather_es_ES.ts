@@ -925,6 +925,10 @@ Diseño de la IU para Fremantle: Krebber Jan Niemela Ulla
         <translation>Nublado, Lluvia ligera, Llovizna</translation>
     </message>
     <message>
+        <source>Cloudy, Light Snow and Rain</source>
+        <translation type="unfinished">Nublado, lluvia ligera</translation>
+    </message>
+    <message>
         <source>Cloudy, Rain</source>
         <translation>Nublado, Lluvia</translation>
     </message>
@@ -1881,6 +1885,10 @@ Eslovaco - Roman Moravčík</translation>
     <message>
         <source>Mainly cloudy, Slight shower of rain</source>
         <translation>Principalmente nublado, chubascos ligeros</translation>
+    </message>
+    <message>
+        <source>Mainly cloudy, Wet snow</source>
+        <translation type="unfinished">Bastante nuboso, chubascos</translation>
     </message>
     <message>
         <source>Mainly cloudy, drizzle</source>

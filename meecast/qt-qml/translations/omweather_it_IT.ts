@@ -904,6 +904,10 @@ Design UI per Fremantle: Krebber Jan Niemelä Ulla
         <translation>Nuvoloso, Deboli piogge</translation>
     </message>
     <message>
+        <source>Cloudy, Light Snow and Rain</source>
+        <translation type="unfinished">Nuvoloso, deboli Piogge</translation>
+    </message>
+    <message>
         <source>Cloudy, Rain</source>
         <translation>Nuvoloso, Pioggia</translation>
     </message>
@@ -1864,6 +1868,10 @@ Slovacco - Roman Moravčík</translation>
     <message>
         <source>Mainly cloudy, Slight shower of rain</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mainly cloudy, Wet snow</source>
+        <translation type="unfinished">Parzialmente nuvoloso e rovesci</translation>
     </message>
     <message>
         <source>Mainly cloudy, drizzle</source>

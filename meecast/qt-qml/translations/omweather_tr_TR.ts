@@ -919,6 +919,10 @@ Frementle için Dizayn : Krebber Jan Niemelä Ulla
         <translation>Bulutlu, Hafif Yağmur, Hafif Şiddetli Yağmur</translation>
     </message>
     <message>
+        <source>Cloudy, Light Snow and Rain</source>
+        <translation type="unfinished">Bulutlu , Hafif Yağmur</translation>
+    </message>
+    <message>
         <source>Cloudy, Rain</source>
         <translation>Bulutlu , Yağmur</translation>
     </message>
@@ -1872,6 +1876,10 @@ Turkish - Burak Kaan Kose</translation>
     <message>
         <source>Mainly cloudy, Slight shower of rain</source>
         <translation>Genelde bulutlu, ara ara yağmurlu</translation>
+    </message>
+    <message>
+        <source>Mainly cloudy, Wet snow</source>
+        <translation type="unfinished">Parçali bulutlu ve sağnak</translation>
     </message>
     <message>
         <source>Mainly cloudy, drizzle</source>

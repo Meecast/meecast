@@ -926,6 +926,10 @@ Design der Oberfläche für Freemante: Krebber Jan Niemela Ulla
         <translation>Bewölkt, Leichter Regen, Weak Heavy Rain</translation>
     </message>
     <message>
+        <source>Cloudy, Light Snow and Rain</source>
+        <translation type="unfinished">Bewölkt, Leichter Regen</translation>
+    </message>
+    <message>
         <source>Cloudy, Rain</source>
         <translation>Bewölkt, Regen</translation>
     </message>
@@ -1882,6 +1886,10 @@ Spanisch - Alejandro Lopez</translation>
     <message>
         <source>Mainly cloudy, Slight shower of rain</source>
         <translation>Überwiegend bewölkt mit einzelnen Regenschauern</translation>
+    </message>
+    <message>
+        <source>Mainly cloudy, Wet snow</source>
+        <translation type="unfinished">Überwiegend bewölkt, Regenschauer</translation>
     </message>
     <message>
         <source>Mainly cloudy, drizzle</source>

@@ -924,6 +924,10 @@ Projekt UI dla Fremantle: Krebber Jan Niemela Ulla
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Cloudy, Light Snow and Rain</source>
+        <translation type="unfinished">Pochmurnie, lekki deszcz</translation>
+    </message>
+    <message>
         <source>Cloudy, Rain</source>
         <translation>Pochmurnie, deszcz</translation>
     </message>
@@ -1880,6 +1884,10 @@ słowacki - Roman Moravčík</translation>
     <message>
         <source>Mainly cloudy, Slight shower of rain</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mainly cloudy, Wet snow</source>
+        <translation type="unfinished">Głównie pochmurnie, lekki śnieg</translation>
     </message>
     <message>
         <source>Mainly cloudy, drizzle</source>

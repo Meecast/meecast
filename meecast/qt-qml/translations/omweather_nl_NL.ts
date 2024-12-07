@@ -926,6 +926,10 @@ Ontwerp UI voor Fremantle: Krebber Jan Niemelä Ulla
         <translation>Bewolkt, lichte regen, zwakke hevige regen</translation>
     </message>
     <message>
+        <source>Cloudy, Light Snow and Rain</source>
+        <translation type="unfinished">Bewolkt, lichte regen</translation>
+    </message>
+    <message>
         <source>Cloudy, Rain</source>
         <translation>Bewolkt, regen</translation>
     </message>
@@ -1883,6 +1887,10 @@ Slowaaks - Roman Moravčík</translation>
     <message>
         <source>Mainly cloudy, Slight shower of rain</source>
         <translation>Vooral bewolkt, lichte regenbuien</translation>
+    </message>
+    <message>
+        <source>Mainly cloudy, Wet snow</source>
+        <translation type="unfinished">Overwegend bewolkt, buien</translation>
     </message>
     <message>
         <source>Mainly cloudy, drizzle</source>

@@ -884,6 +884,10 @@ UI Design para Fremantle: Krebber Jan Niemelä Ulla
         <translation type="unfinished">Nublado, Chuva Forte</translation>
     </message>
     <message>
+        <source>Cloudy, Light Snow and Rain</source>
+        <translation type="unfinished">Nublado, Aguaceiros</translation>
+    </message>
+    <message>
         <source>Cloudy, Rain</source>
         <translation>Nublado, Chuva</translation>
     </message>
@@ -1841,6 +1845,10 @@ Precipitação:</translation>
     <message>
         <source>Mainly cloudy, Slight shower of rain</source>
         <translation type="unfinished">Parcialmente nublado com chuva fraca</translation>
+    </message>
+    <message>
+        <source>Mainly cloudy, Wet snow</source>
+        <translation type="unfinished">Parcialmente nublado e aguaceiros</translation>
     </message>
     <message>
         <source>Mainly cloudy, drizzle</source>

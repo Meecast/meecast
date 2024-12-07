@@ -124,58 +124,58 @@ W:</translation>
     <message>
         <source>    Albanian - Ilir Gjika
 </source>
-        <translation type="unfinished">Albanska - Ilir Gjika
+        <translation>Albanska - Ilir Gjika
 </translation>
     </message>
     <message>
         <source>    Arabic - Tarad Alfandi
 </source>
-        <translation type="unfinished">Arabiska - Tarad Alfandi
+        <translation>Arabiska - Tarad Alfandi
 </translation>
     </message>
     <message>
         <source>    Bulgarian - Zlatko Enikov
 </source>
-        <translation type="unfinished">Bulgariska - Zlatko Enikov
+        <translation>Bulgariska - Zlatko Enikov
 </translation>
     </message>
     <message>
         <source>    Catalan - Agustí Clara
 </source>
-        <translation type="unfinished">Katalanska - Agustí Clara
+        <translation>Katalanska - Agustí Clara
 </translation>
     </message>
     <message>
         <source>    Chinese - Wong Man Kong, Michael,
      	gwmgdemj
 </source>
-        <translation type="unfinished">Kinesiska - Wong Man Kong, Michael,
+        <translation>Kinesiska - Wong Man Kong, Michael,
  	gwmgdemj
 </translation>
     </message>
     <message>
         <source>    Chinese(Taiwan) - osk2, 
 </source>
-        <translation type="unfinished">Kinesiska (Taiwan) - osk2, 
+        <translation>Kinesiska (Taiwan) - osk2, 
 </translation>
     </message>
     <message>
         <source>    Czech - Jakub Kožíšek, Pavel Šrubař
 </source>
-        <translation type="unfinished">Tjeckiska - Jakub Kožíšek, Pavel Šrubař
+        <translation>Tjeckiska - Jakub Kožíšek, Pavel Šrubař
 </translation>
     </message>
     <message>
         <source>    Danish - Peter Jespersen
 </source>
-        <translation type="unfinished">Danska - Peter Jespersen
+        <translation>Danska - Peter Jespersen
 </translation>
     </message>
     <message>
         <source>    Dutch - Tom Leenders, Michiel Pater
      	Heimen Stoffels, Nathan Follens
 </source>
-        <translation type="unfinished">Nederländska - Tom Leenders, Michiel Pater
+        <translation>Nederländska - Tom Leenders, Michiel Pater
  	Heimen Stoffels, Nathan Follens
 </translation>
     </message>
@@ -184,7 +184,7 @@ W:</translation>
     	deadhead (A-P Partonen),
      	jarliim
 </source>
-        <translation type="unfinished">Finska - Marko Vertainen,
+        <translation>Finska - Marko Vertainen,
 	deadhead (A-P Partonen),
  	jarliim
 </translation>
@@ -195,7 +195,7 @@ W:</translation>
      	Quentin Caillard, 
      	Jordi
 </source>
-        <translation type="unfinished">Franska -  Nicolas Granziano, 
+        <translation>Franska -  Nicolas Granziano, 
  	Philippe, Benot Knecht, 
  	Quentin Caillard, 
  	Jordi
@@ -204,7 +204,7 @@ W:</translation>
     <message>
         <source>    Galician - pakoR
 </source>
-        <translation type="unfinished">Galiciska - pakoR
+        <translation>Galiciska - pakoR
 </translation>
     </message>
     <message>
@@ -212,7 +212,7 @@ W:</translation>
      	Jens Klingen,
      	DeadHorseRiding
  </source>
-        <translation type="unfinished">Tyska -  Claudius Henrichs,
+        <translation>Tyska -  Claudius Henrichs,
  	Jens Klingen,
  	DeadHorseRiding
  </translation>
@@ -220,7 +220,7 @@ W:</translation>
     <message>
         <source>    Hungarian - Salmi, László Kara
 </source>
-        <translation type="unfinished">Ungerska - Salmi, László Kara
+        <translation>Ungerska - Salmi, László Kara
 </translation>
     </message>
     <message>
@@ -229,7 +229,7 @@ W:</translation>
      	Salvatore Fiorenzo, Ilir Gjika,
      	Luca Onnis
 </source>
-        <translation type="unfinished">Italienska - Lorenzo Facca,
+        <translation>Italienska - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
  	Luca Onnis
@@ -238,51 +238,51 @@ W:</translation>
     <message>
         <source>    Norwegian - Peer-Atle Motland
 </source>
-        <translation type="unfinished">Norska - Peer-Atle Motland
+        <translation>Norska - Peer-Atle Motland
 </translation>
     </message>
     <message>
         <source>    Polish - Tomasz Dominikowski
 </source>
-        <translation type="unfinished">Polska - Tomasz Dominikowski
+        <translation>Polska - Tomasz Dominikowski
 </translation>
     </message>
     <message>
         <source>    Portuguese - Jose Narciso,
 </source>
-        <translation type="unfinished">Portugisiska - Jose Narciso,
+        <translation>Portugisiska - Jose Narciso,
 </translation>
     </message>
     <message>
         <source>    Russian - Pavel Fialko, Vlad Vasilyeu, 
      	Ed Bartosh
 </source>
-        <translation type="unfinished">Ryska - Pavel Fialko, Vlad Vasilyeu, 
+        <translation>Ryska - Pavel Fialko, Vlad Vasilyeu, 
  	Ed Bartosh
 </translation>
     </message>
     <message>
         <source>    Serbian - Aleksandar Zaric
 </source>
-        <translation type="unfinished">Serbiska - Aleksandar Zaric
+        <translation>Serbiska - Aleksandar Zaric
 </translation>
     </message>
     <message>
         <source>    Slovak - Roman Moravčík
 </source>
-        <translation type="unfinished">Slovakiska - Roman Moravčík
+        <translation>Slovakiska - Roman Moravčík
 </translation>
     </message>
     <message>
         <source>    Slovenian - Boštjan Štrumbelj
 </source>
-        <translation type="unfinished">Slovenska - Boštjan Štrumbelj
+        <translation>Slovenska - Boštjan Štrumbelj
 </translation>
     </message>
     <message>
         <source>    Spanish - Alejandro Lopez, Agustí Clara
 </source>
-        <translation type="unfinished">Spanska - Alejandro Lopez, Agustí Clara
+        <translation>Spanska - Alejandro Lopez, Agustí Clara
 </translation>
     </message>
     <message>
@@ -290,16 +290,13 @@ W:</translation>
      	Åke Engelbrektson, 
      	Niklas Åkerström, 
      	Tomislav Veleckovik</source>
-        <translation type="unfinished">Svenska - Angela Nennebrandt,
- 	Åke Engelbrektson, 
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>    Turkish - Burak Kaan Kose,
      	Mehmet Çilingir
 </source>
-        <translation type="unfinished">Turkiska - Burak Kaan Kose,
+        <translation>Turkiska - Burak Kaan Kose,
  	Mehmet Çilingir
 </translation>
     </message>
@@ -307,7 +304,7 @@ W:</translation>
         <source>    Vietnamese - Hieu Nguyen
      	Anh Dương and truongnx, 
 </source>
-        <translation type="unfinished">Vietnamesiska - Hieu Nguyen
+        <translation>Vietnamesiska - Hieu Nguyen
  	Anh Dương and truongnx, 
 </translation>
     </message>
@@ -926,6 +923,10 @@ Design UI för Fremantle: Krebber Jan Niemela Ulla
         <translation>Molnigt, Lätt regn, Ganska mycket regn</translation>
     </message>
     <message>
+        <source>Cloudy, Light Snow and Rain</source>
+        <translation type="unfinished">Molnigt, lätt regn</translation>
+    </message>
+    <message>
         <source>Cloudy, Rain</source>
         <translation>Molnigt, Regn</translation>
     </message>
@@ -951,11 +952,11 @@ Design UI för Fremantle: Krebber Jan Niemela Ulla
     </message>
     <message>
         <source>Co-administrator and contributor</source>
-        <translation type="unfinished"></translation>
+        <translation>Medadministratör och bidragsgivare</translation>
     </message>
     <message>
         <source>Co-administrator and contributor</source>
-        <translation type="unfinished"></translation>
+        <translation>Medadministratör och bidragsgivare</translation>
     </message>
     <message>
         <source>Could not connecting to Internet.
@@ -1884,6 +1885,10 @@ Slovakiska - Roman Moravčík</translation>
         <translation>Huvudsakligen molnigt med sporadiska regnskurar</translation>
     </message>
     <message>
+        <source>Mainly cloudy, Wet snow</source>
+        <translation type="unfinished">Mestadels molnigt, regnskurar</translation>
+    </message>
+    <message>
         <source>Mainly cloudy, drizzle</source>
         <translation>Mestadels molnigt, Duggregn</translation>
     </message>
@@ -1917,19 +1922,19 @@ Slovakiska - Roman Moravčík</translation>
     </message>
     <message>
         <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2024</source>
-        <translation type="unfinished">MeeCast - Multiplattform, öppen källkods, väderprognosklient baserad på OMWeather-kod. Copyright (C) 2006-2016</translation>
+        <translation>MeeCast - Anpassningsbar väderprognosklient. Plattformsoberoende och öppen källkod. Baserad på OMWeather-kod. Copyright (C) 2006-2024</translation>
     </message>
     <message>
         <source>MeeCast for AuroraOS</source>
-        <translation type="unfinished">MeeCast för Harmattan</translation>
+        <translation>MeeCast för AuroraOS</translation>
     </message>
     <message>
         <source>MeeCast for AuroraOS</source>
-        <translation type="unfinished">MeeCast för Harmattan</translation>
+        <translation>MeeCast för AuroraOS</translation>
     </message>
     <message>
         <source>MeeCast for SailfishOS</source>
-        <translation type="unfinished">MeeCast för Harmattan</translation>
+        <translation>MeeCast för SailfishOS</translation>
     </message>
     <message>
         <source>Meters</source>
@@ -2505,7 +2510,7 @@ Slovakiska - Roman Moravčík</translation>
     </message>
     <message>
         <source>Pa</source>
-        <translation type="unfinished">kPa</translation>
+        <translation>Pa</translation>
     </message>
     <message>
         <source>Partly Cloudy</source>
@@ -2729,7 +2734,7 @@ Slovakiska - Roman Moravčík</translation>
     </message>
     <message>
         <source>Project administrator</source>
-        <translation type="unfinished">Projektadministratörer</translation>
+        <translation>Projektadministratör</translation>
     </message>
     <message>
         <source>Project manager</source>
@@ -3101,7 +3106,7 @@ Slovakiska - Roman Moravčík</translation>
     </message>
     <message>
         <source>Show on Map</source>
-        <translation type="unfinished">Visa väderstationens namn</translation>
+        <translation>Visa på kartan</translation>
     </message>
     <message>
         <source>Show only current weather on first icon</source>
@@ -3483,12 +3488,12 @@ Slovakiska - Roman Moravčík</translation>
      Foundation; either version 2.1 of the 
      License, or (at your option) any 
      later version.</source>
-        <translation type="unfinished">Denna mjukvara är gratis. Du kan
+        <translation>Denna mjukvara är gratis. Du kan
 vidaredistribuera den och/eller modifiera
 den under GNU General Public License,
 såsom den publiceras av Free Software
 Foundation. Antingen version 2.1 av 
-licensen, eller senare.</translation>
+licensen, eller (om du vill) senare.</translation>
     </message>
     <message>
         <source>Thunder</source>

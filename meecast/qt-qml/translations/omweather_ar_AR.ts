@@ -884,6 +884,10 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
         <translation type="unfinished">غائم, أمطار كثيفه</translation>
     </message>
     <message>
+        <source>Cloudy, Light Snow and Rain</source>
+        <translation type="unfinished">غائم, أمطار خفيفه</translation>
+    </message>
+    <message>
         <source>Cloudy, Rain</source>
         <translation>غائم, أمطار</translation>
     </message>
@@ -1841,6 +1845,10 @@ Slovak - Roman Moravčík</source>
     <message>
         <source>Mainly cloudy, Slight shower of rain</source>
         <translation type="unfinished">غائم مع امطار نسبيه</translation>
+    </message>
+    <message>
+        <source>Mainly cloudy, Wet snow</source>
+        <translation type="unfinished">غائم جزئيأ مع زخات مطر</translation>
     </message>
     <message>
         <source>Mainly cloudy, drizzle</source>

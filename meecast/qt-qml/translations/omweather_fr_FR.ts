@@ -884,6 +884,10 @@ Design de l&apos;interface pour Fremantle : Krebber Jan Niemelä Ulla
         <translation>Nuageux pluie légère, courte pluie battante</translation>
     </message>
     <message>
+        <source>Cloudy, Light Snow and Rain</source>
+        <translation type="unfinished">Nuageux, pluie légère</translation>
+    </message>
+    <message>
         <source>Cloudy, Rain</source>
         <translation>Nuageux, pluie</translation>
     </message>
@@ -1840,6 +1844,10 @@ Slovaque - Roman Moravčík</translation>
     <message>
         <source>Mainly cloudy, Slight shower of rain</source>
         <translation type="unfinished">Très nuageux avec quelques précipitations</translation>
+    </message>
+    <message>
+        <source>Mainly cloudy, Wet snow</source>
+        <translation type="unfinished">Partiellement nuageux et averses</translation>
     </message>
     <message>
         <source>Mainly cloudy, drizzle</source>

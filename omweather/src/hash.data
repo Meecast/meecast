@@ -62,6 +62,7 @@
     g_hash_table_insert(hash, (void*)"Cloudy, Light Rain", _("Cloudy, Light Rain"));
     g_hash_table_insert(hash, (void*)"Cloudy, Light Rain, T-Storm", _("Cloudy, Light Rain, T-Storm"));
     g_hash_table_insert(hash, (void*)"Cloudy, Light Rain, Weak Heavy Rain", _("Cloudy, Light Rain, Weak Heavy Rain"));
+    g_hash_table_insert(hash, (void*)"Cloudy, Light Snow and Rain", _("Cloudy, Light Snow and Rain"));
     g_hash_table_insert(hash, (void*)"Cloudy, Rain", _("Cloudy, Rain"));
     g_hash_table_insert(hash, (void*)"Cloudy, Rain, T-Storm", _("Cloudy, Rain, T-Storm"));
     g_hash_table_insert(hash, (void*)"Cloudy, Smoke", _("Cloudy, Smoke"));
@@ -414,6 +415,7 @@
     g_hash_table_insert(hash, (void*)"Sunny periods and a few showers.", _("Sunny periods and a few showers."));
     g_hash_table_insert(hash, (void*)"Mainly cloudy with occasional rain.", _("Mainly cloudy with occasional rain."));
     g_hash_table_insert(hash, (void*)"Mainly cloudy, Slight shower of rain", _("Mainly cloudy, Slight shower of rain"));
+    g_hash_table_insert(hash, (void*)"Mainly cloudy, Wet snow", _("Mainly cloudy, Wet snow"));
     g_hash_table_insert(hash, (void*)"Cloudy with occasional rain.", _("Cloudy with occasional rain."));
     g_hash_table_insert(hash, (void*)"Heavy intensity rain", _("Heavy intensity rain"));
     g_hash_table_insert(hash, (void*)"Light intensity shower rain", _("Light intensity shower rain"));

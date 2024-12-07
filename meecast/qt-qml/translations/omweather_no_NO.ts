@@ -928,6 +928,10 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
         <translation>Skyet, lett regn</translation>
     </message>
     <message>
+        <source>Cloudy, Light Snow and Rain</source>
+        <translation type="unfinished">Skyet, Lett Regn</translation>
+    </message>
+    <message>
         <source>Cloudy, Rain</source>
         <translation>Skyet, Regn</translation>
     </message>
@@ -1884,6 +1888,10 @@ Slovak - Roman Moravčík</translation>
     <message>
         <source>Mainly cloudy, Slight shower of rain</source>
         <translation>Hovedsakelig skyet, Litt duskregn</translation>
+    </message>
+    <message>
+        <source>Mainly cloudy, Wet snow</source>
+        <translation type="unfinished">Hovedsakelig skyet, byger</translation>
     </message>
     <message>
         <source>Mainly cloudy, drizzle</source>

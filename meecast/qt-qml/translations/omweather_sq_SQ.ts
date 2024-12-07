@@ -883,6 +883,10 @@ Krijimi i ndërfaqes për Fremantle-in: Krebber Jan Niemelä Ulla
         <translation type="unfinished">Me re, rreshje të forta</translation>
     </message>
     <message>
+        <source>Cloudy, Light Snow and Rain</source>
+        <translation type="unfinished">Me re, Shi i dobët</translation>
+    </message>
+    <message>
         <source>Cloudy, Rain</source>
         <translation>Me re, Shi</translation>
     </message>
@@ -1840,6 +1844,10 @@ Rreshjet: </translation>
     <message>
         <source>Mainly cloudy, Slight shower of rain</source>
         <translation type="unfinished">Pjesërisht me re dhe shi i dobët</translation>
+    </message>
+    <message>
+        <source>Mainly cloudy, Wet snow</source>
+        <translation type="unfinished">Pjesërisht me re dhe me rreshje</translation>
     </message>
     <message>
         <source>Mainly cloudy, drizzle</source>

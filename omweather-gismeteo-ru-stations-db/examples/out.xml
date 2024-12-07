@@ -8,29 +8,69 @@
   <h>%</h>  
   <p>mmHg</p>
  </units>
-    <period start="1732665600" end="1732687200">
+    <period start="1733529600" end="1733551200">
+     <temperature_hi>0</temperature_hi>
+     <temperature_low>-2</temperature_low>
+     <icon>5</icon>
     </period>
-    <period start="1732752000" end="1732773600">
+     <description>Пасмурно, небольшой  мокрый снег, снежные зёрна</description>
+    <period start="1733616000" end="1733637600">
+     <temperature_hi>1</temperature_hi>
+     <temperature_low>0</temperature_low>
+     <icon>5</icon>
     </period>
-    <period start="1732838400" end="1732860000">
+     <description>Пасмурно,  снег с дождём, снежные зёрна</description>
+    <period start="1733702400" end="1733724000">
+     <temperature_hi>1</temperature_hi>
+     <temperature_low>0</temperature_low>
+     <icon>5</icon>
     </period>
-    <period start="1732924800" end="1732946400">
+     <description>Пасмурно, небольшой  снег с дождём, снежные зёрна</description>
+    <period start="1733788800" end="1733810400">
+     <temperature_hi>0</temperature_hi>
+     <temperature_low>-1</temperature_low>
+     <icon>26</icon>
     </period>
-    <period start="1733011200" end="1733032800">
+     <description>Mostly Cloudy</description>
+    <period start="1733875200" end="1733896800">
+     <temperature_hi>1</temperature_hi>
+     <temperature_low>-1</temperature_low>
+     <icon>5</icon>
     </period>
-    <period start="1733097600" end="1733119200">
+     <description>Пасмурно, небольшой  снег с дождём, небольшая морось, гололёд</description>
+    <period start="1733961600" end="1733983200">
+     <temperature_hi>1</temperature_hi>
+     <temperature_low>-1</temperature_low>
+     <icon>5</icon>
     </period>
-    <period start="1733184000" end="1733205600">
+     <description>Cloudy, Light Snow and Rain</description>
+    <period start="1734048000" end="1734069600">
+     <temperature_hi>-1</temperature_hi>
+     <temperature_low>-3</temperature_low>
+     <icon>28</icon>
     </period>
-    <period start="1733270400" end="1733292000">
+     <description>Cloudy</description>
+    <period start="1734134400" end="1734156000">
+     <temperature_hi>-3</temperature_hi>
+     <temperature_low>-4</temperature_low>
+     <icon>28</icon>
     </period>
-    <period start="1733356800" end="1733378400">
+     <description>Cloudy</description>
+    <period start="1734220800" end="1734242400">
+     <temperature_hi>-2</temperature_hi>
+     <temperature_low>-4</temperature_low>
+     <icon>26</icon>
     </period>
-    <period start="1733443200" end="1733464800">
+     <description>Mostly Cloudy</description>
+    <period start="1734307200" end="1734328800">
+     <temperature_hi>2</temperature_hi>
+     <temperature_low>-1</temperature_low>
+     <icon>5</icon>
     </period>
+     <description>Cloudy, Light Snow and Rain</description>
     <period start="-2209081800" end="-2209067400" current="true">
      <temperature></temperature>
-     <icon></icon>
+     <icon>5</icon>
      <description></description>
      <pressure></pressure>
      <wind_direction></wind_direction>

@@ -484,16 +484,8 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
 
    /* Day weather forecast */
    /* Evaluate xpath expression */
-   // xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/@title", xpathCtx);
-//   xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div/table/tbody/tr/th/@title", xpathCtx);
-   //xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody/tr/th/@title", xpathCtx);
-//   xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/section/div/section/div/div/div/*//div[@class='date']", xpathCtx);
-   //xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/*//div[@class='widget-row widget-row-date']", xpathCtx);
-   //xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[1]/a", xpathCtx);
-   //xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[1]/a/div[@class='day']", xpathCtx);
    xpathObj_day = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[1]/a/div[@class='day']", xpathCtx);
    xpathObj_date = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[1]/a/div[@class='date']", xpathCtx);
-   // /html/body/main/div[1]/section[2]/div[1]/div/div/div[1]/a[1]
    if(xpathObj == NULL) {
         fprintf(stderr,"Error: unable to evaluate xpath expression \"%s\"\n", "//*[@class='c0 day']/div/text()");
         xmlXPathFreeContext(xpathCtx); 
@@ -564,9 +556,9 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
     snprintf(temp_buffer, sizeof(temp_buffer)-1,"%i  %i %i", day_of_month, month, year);
     strptime(temp_buffer, "%d %m %Y", &tmp_tm);
     setlocale(LC_TIME, "");
-    utc_time = mktime(&tmp_tm) + localtimezone*3600;
+    utc_time = mktime(&tmp_tm) + localtimezone*3600 + 1;
     fprintf(file_out,"    <period start=\"%li\"", utc_time);
-    fprintf(file_out," end=\"%li\">\n", utc_time + 6*3600); 
+    fprintf(file_out," end=\"%li\">\n", utc_time + 24*3600); 
 
 
     /*

@@ -266,7 +266,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
     xmlXPathObjectPtr xpathObj2 = NULL; 
     xmlXPathObjectPtr xpathObj3 = NULL; 
     xmlXPathObjectPtr xpathObjIcons = NULL; 
-    xmlXPathObjectPtr xpathObj5 = NULL; 
+    xmlXPathObjectPtr xpathObjDescription = NULL; 
     xmlXPathObjectPtr xpathObj6 = NULL; 
     xmlXPathObjectPtr xpathObj7 = NULL; 
     xmlXPathObjectPtr xpathObj8 = NULL; 
@@ -507,8 +507,8 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
   xpathObj3 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody//*/td[@class='temp']/span[@class='value m_temp c']/text()", xpathCtx);
  
   xpathObjIcons = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[2]/div/div[@class='weather-icon-group']", xpathCtx);
- // xpathObj5 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c2']/span/text()", xpathCtx);
-  xpathObj5 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody/tr/th/following-sibling::*[@class='cltext']/text()", xpathCtx);
+  //xpathObjDescription = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[2]/div[@data-tooltip]/@data-tooltip", xpathCtx);
+  xpathObjDescription = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[2]/div[@data-tooltip]", xpathCtx);
  // xpathObj6 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c4']/text()", xpathCtx);
   //xpathObj6 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div//table/tbody/tr/th/following-sibling::*/text()", xpathCtx);
   xpathObj6 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody//*/td/span[@class='value m_press torr']/text()", xpathCtx);
@@ -671,20 +671,24 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
           xmlNode *iter_node = NULL;
 
     fprintf(file_out,"    </period>\n");
-    continue;
+
+         fprintf(stderr,"sssss %p\n",xpathObjDescription);
+         xmlNodePtr _node_d = xpathObjDescription->nodesetval->nodeTab[i];
+         fprintf(stderr,"sssss\n");
+         fprintf (stderr, "description %s %s\n", _node_d->name, (char *)xmlGetProp(_node_d, (xmlChar*) "data-tooltip"));
          /* added text */
-         if (xpathObj5 && !xmlXPathNodeSetIsEmpty(xpathObj5->nodesetval) &&
-             xpathObj5->nodesetval->nodeTab[i] && xpathObj5->nodesetval->nodeTab[i]->content){
-             /* fprintf (stderr, "description %s\n", xpathObj5->nodesetval->nodeTab[i]->content); */
+         if (xpathObjDescription && !xmlXPathNodeSetIsEmpty(xpathObjDescription->nodesetval) &&
+             xpathObjDescription->nodesetval->nodeTab[i] && xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip")){
+              fprintf (stderr, "description %s\n", (char *)xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip"));
 #ifdef GLIB
-             fprintf(file_out,"     <description>%s</description>\n", hash_gismeteo_table_find(hash_for_translate, (char *)xpathObj5->nodesetval->nodeTab[i]->content, FALSE));
+             fprintf(file_out,"     <description>%s</description>\n", hash_gismeteo_table_find(hash_for_translate, (char *)xpathObjDescription->nodesetval->nodeTab[i]->content, FALSE));
 #endif
 #ifdef QT
-            fprintf(file_out,"     <description>%s</description>\n", (char*)hash_gismeteo_description_table_find(hash_for_translate, (char *)xpathObj5->nodesetval->nodeTab[i]->content).toStdString().c_str()); 
+            fprintf(file_out,"     <description>%s</description>\n", (char*)hash_gismeteo_description_table_find(hash_for_translate, (char *)xpathObjDescription->nodesetval->nodeTab[i]->content).toStdString().c_str()); 
 #endif
-            fprintf(file_out,"     <description>%s</description>\n", (char*)xmlHashLookup(hash_for_descriptions, (const xmlChar*)xpathObj5->nodesetval->nodeTab[i]->content)
-);
+            fprintf(file_out,"     <description>%s</description>\n", (char*)xmlHashLookup(hash_for_descriptions, (const xmlChar*)xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip")));
          }
+    continue;
          /* added pressure */
          if (xpathObj6 && !xmlXPathNodeSetIsEmpty(xpathObj6->nodesetval) &&
              xpathObj6->nodesetval->nodeNr >= (i*5+2) &&
@@ -732,7 +736,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
          /* added humidity */
          if (xpathObj9 && !xmlXPathNodeSetIsEmpty(xpathObj9->nodesetval) &&
              xpathObj9->nodesetval->nodeTab[i] && xpathObj9->nodesetval->nodeTab[i]->content){
-             /* fprintf (stderr, "description %s\n", xpathObj5->nodesetval->nodeTab[i]->content); */
+             /* fprintf (stderr, "description %s\n", xpathObjDescription->nodesetval->nodeTab[i]->content); */
 			fprintf(file_out,"     <humidity>%s</humidity>\n", (char *)xpathObj9->nodesetval->nodeTab[i]->content);
          }
 	 /* added feels like */
@@ -769,8 +773,8 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
     xmlXPathFreeObject(xpathObj3);
   if (xpathObjIcons)
     xmlXPathFreeObject(xpathObjIcons);
-  if (xpathObj5)
-    xmlXPathFreeObject(xpathObj5);
+  if (xpathObjDescription)
+    xmlXPathFreeObject(xpathObjDescription);
   if (xpathObj6)
     xmlXPathFreeObject(xpathObj6);
   if (xpathObj7)
@@ -901,7 +905,7 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
     xmlXPathObjectPtr xpathObj2 = NULL; 
     xmlXPathObjectPtr xpathObj3 = NULL; 
     xmlXPathObjectPtr xpathObjIcons = NULL; 
-    xmlXPathObjectPtr xpathObj5 = NULL; 
+    xmlXPathObjectPtr xpathObjDescription = NULL; 
     xmlXPathObjectPtr xpathObj6 = NULL; 
     xmlXPathObjectPtr xpathObj7 = NULL; 
     xmlXPathObjectPtr xpathObj8 = NULL; 
@@ -1050,7 +1054,7 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
   xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//div/table/tbody//td[@class='clicon']/img/@src", xpathCtx);
   xpathObj3 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//div/table/tbody/tr/th/following-sibling::*[@class='cltext']/text()", xpathCtx);
   xpathObjIcons = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div/table/tbody/tr/td[@class='temp']/span[@class='value m_temp c']/text()", xpathCtx);
-  xpathObj5 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div/table/tbody/tr/td/span[@class='value m_press torr']/text()", xpathCtx);
+  xpathObjDescription = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div/table/tbody/tr/td/span[@class='value m_press torr']/text()", xpathCtx);
   //xpathObj6 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//table/tbody/tr/td/dl[@class='wind']/dt/text()", xpathCtx);
   xpathObj6 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//table/tbody/tr/td/dl[@class='wind']/dd/span[@class='value m_wind ms']/text()", xpathCtx);
 //  /html/body/div/div/div//table/tbody/tr/td/dl[@class='wind']/dd/span[@class='value m_wind ms']/text()
@@ -1142,12 +1146,12 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
         fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer); 
    }
    /* added pressure */
-   if (xpathObj5 && !xmlXPathNodeSetIsEmpty(xpathObj5->nodesetval) && xpathObj5->nodesetval->nodeTab[i]->content){
-      pressure = atoi((char*)xpathObj5->nodesetval->nodeTab[i]->content);
+   if (xpathObjDescription && !xmlXPathNodeSetIsEmpty(xpathObjDescription->nodesetval) && xpathObjDescription->nodesetval->nodeTab[i]->content){
+      pressure = atoi((char*)xpathObjDescription->nodesetval->nodeTab[i]->content);
       pressure = pressure * 1.333224;
       snprintf(buffer, sizeof(buffer)-1,"%i", pressure);
       fprintf(file_out,"     <pressure>%s</pressure>\n", buffer);
-      /* fprintf (stderr, "pressure %s\n", xpathObj5->nodesetval->nodeTab[i]->content); */
+      /* fprintf (stderr, "pressure %s\n", xpathObjDescription->nodesetval->nodeTab[i]->content); */
    }
    /* added wind speed */
    if (xpathObj6 && !xmlXPathNodeSetIsEmpty(xpathObj6->nodesetval) && xpathObj6->nodesetval->nodeTab[i]->content){
@@ -1218,8 +1222,8 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
     xmlXPathFreeObject(xpathObj3);
   if (xpathObjIcons)
     xmlXPathFreeObject(xpathObjIcons);
-  if (xpathObj5)
-    xmlXPathFreeObject(xpathObj5);
+  if (xpathObjDescription)
+    xmlXPathFreeObject(xpathObjDescription);
   if (xpathObj6)
     xmlXPathFreeObject(xpathObj6);
   if (xpathObj7)

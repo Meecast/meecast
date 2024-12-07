@@ -129,8 +129,8 @@ get_month(char *temp_string){
     for (int i = 0; i < 12; i++){
         if (sizeof(temp_string) > sizeof(months[i]))
             continue;
-        fprintf(stderr, "compare %s %s\n", months[i], temp_string);
-        if (strncmp(months[i], temp_string,  sizeof(temp_string)) == 0)
+        //fprintf(stderr, "compare %s %s %i %i\n", months[i], temp_string, sizeof(temp_string), strncmp(months[i], temp_string,  strlen(temp_string)));
+        if (strncmp(months[i], temp_string,  strlen(temp_string)) == 0)
             return i + 1;
     }
     /* default negative result -1 */
@@ -265,7 +265,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
     xmlXPathObjectPtr xpathObj_date = NULL; 
     xmlXPathObjectPtr xpathObj2 = NULL; 
     xmlXPathObjectPtr xpathObj3 = NULL; 
-    xmlXPathObjectPtr xpathObj4 = NULL; 
+    xmlXPathObjectPtr xpathObjIcons = NULL; 
     xmlXPathObjectPtr xpathObj5 = NULL; 
     xmlXPathObjectPtr xpathObj6 = NULL; 
     xmlXPathObjectPtr xpathObj7 = NULL; 
@@ -506,8 +506,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
   xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/section/div/section/div/div/div/*//div[@class='date']/text()", xpathCtx);
   xpathObj3 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody//*/td[@class='temp']/span[@class='value m_temp c']/text()", xpathCtx);
  
-//  xpathObj4 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c1']/div/img/@src", xpathCtx);
-  xpathObj4 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody/tr/th/following-sibling::*[@class='clicon']/img/@src", xpathCtx);
+  xpathObjIcons = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[2]/div/div[@class='weather-icon-group']", xpathCtx);
  // xpathObj5 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c2']/span/text()", xpathCtx);
   xpathObj5 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody/tr/th/following-sibling::*[@class='cltext']/text()", xpathCtx);
  // xpathObj6 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c4']/text()", xpathCtx);
@@ -520,7 +519,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
 //  xpathObj9 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c6']/text()", xpathCtx);
   xpathObj9 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div//div/table/tbody/tr/td[6]/text()", xpathCtx);
   xpathObj10 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div//div/table/tbody/tr/td[7]/span[@class='value m_temp c']/text()", xpathCtx);
-  /* fprintf(stderr, "Result (%d nodes):\n", size); */
+  fprintf(stderr, "Result (%d nodes):\n", size); 
   for(i = 0; i < size; ++i) {
 #ifdef GLIB
       day = NULL;
@@ -568,8 +567,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
     fprintf(file_out," end=\"%li\">\n", utc_time + 6*3600); 
 
 
-    fprintf(file_out,"    </period>\n");
-    continue;
+    /*
       temp_char = strstr((char *)nodes->nodeTab[i]->children->content, "UTC: ");
       if (temp_char && strlen(temp_char) >6)
               temp_char = temp_char +5;
@@ -577,7 +575,6 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
       tmp_tm = get_date_for_hour_weather(temp_char);
       utc_time = mktime(&tmp_tm) + localtimezone*3600;
       //utc_time = mktime(&tmp_tm);
-      /* fprintf(stderr," UTC Temp char %s %li %li\n", temp_char, utc_time, mktime(&tmp_tm)); */
       if(!timezone_flag){
           utc_time = mktime(&tmp_tm) + localtimezone*3600;
           temp_char = strstr((char *)nodes->nodeTab[i]->children->content, "Local: ");
@@ -585,20 +582,18 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
               temp_char = temp_char + 7;
            tmp_tm_loc = get_date_for_hour_weather(temp_char);
            loc_time = mktime(&tmp_tm_loc) + localtimezone*3600;
-           /* fprintf(stderr," Local Temp char %s %li\n", temp_char, loc_time); */
 //           time_diff = difftime(loc_time, utc_time);
 //           if(time_diff)
            timezone_flag = true;
 //           location_timezone = (int)time_diff/3600;
            location_timezone = (int)((loc_time - utc_time)/3600);
-           /* fprintf(stderr, "\nTimezone %i\n", location_timezone); */
            fprintf(file_out,"  <timezone>%i</timezone>\n", location_timezone);
       }
 
       fprintf(file_out,"    <period start=\"%li\"", utc_time);
       fprintf(file_out," end=\"%li\">\n", utc_time + 6*3600); 
 
-
+*/
 #if 0
       /* Check Day and Night */
       if (xpathObj2 && !xmlXPathNodeSetIsEmpty(xpathObj2->nodesetval) && xpathObj2->nodesetval->nodeTab[i]->content && (
@@ -644,26 +639,39 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
              }
 			 fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer); 
          }
+
          /* added icon */
-         if (xpathObj4 && !xmlXPathNodeSetIsEmpty(xpathObj4->nodesetval) &&
-             xpathObj4->nodesetval->nodeTab[i] && xpathObj4->nodesetval->nodeTab[i]->children->content){
-            temp_char = strrchr((char*)xpathObj4->nodesetval->nodeTab[i]->children->content, '/');
-            temp_char ++;
-            /* fprintf (stderr, "icon %s %s \n", xpathObj4->nodesetval->nodeTab[i]->children->content, choose_hour_weather_icon(hash_for_icons, temp_char)); */
-#ifdef GLIB
-            fprintf(file_out,"     <icon>%s</icon>\n",  choose_hour_weather_icon(hash_for_icons, temp_char));
-#endif
-#ifdef QT 
-        fprintf(file_out,"     <icon>%s</icon>\n",  choose_hour_weather_icon(hash_for_icons, temp_char).toStdString().c_str());
-#endif
-        if (xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char))
-            fprintf(file_out,"     <icon>%s</icon>\n",(char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char));
-        else
-            fprintf(file_out,"     <icon>49</icon>\n");
-
-
-
+         memset(temp_buffer, 0, sizeof(temp_buffer));
+         xmlNodePtr _node = xpathObjIcons->nodesetval->nodeTab[i];
+         for (xmlNodePtr iter_node = _node->children; iter_node; iter_node = iter_node->next){
+            if (iter_node->type == XML_ELEMENT_NODE){
+                 //printf("node type: Element, name: %s\n", iter_node->name);
+                 if (strncmp((char *)iter_node->name, "svg",  strlen((char *)iter_node->name)) == 0){
+                     for (xmlNodePtr iter_node2 = iter_node->children; iter_node2; iter_node2 = iter_node2->next){
+                         if (strncmp((char *)iter_node2->name, "use",  strlen((char *)iter_node2->name)) == 0){
+                            //printf("node2 type: Element, name: %s\n", iter_node2->name);
+                            char const *namehref = (char *)xmlGetProp(iter_node2, (xmlChar*) "href");
+                            //printf("href name: %s\n", namehref);
+                            strcat(temp_buffer, namehref);
+                         }
+                     }
+                 }
+             }
          }
+         printf("href name: %s\n", temp_buffer);
+         if (xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer)){
+            snprintf(current_icon, sizeof(current_icon)-1,"%s",
+             (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer));
+             fprintf(file_out,"     <icon>%s</icon>\n",  current_icon);
+         }else{
+             fprintf(file_out,"     <icon>49</icon>\n");
+             printf("href name: %s not found\n", temp_buffer);
+         }
+
+          xmlNode *iter_node = NULL;
+
+    fprintf(file_out,"    </period>\n");
+    continue;
          /* added text */
          if (xpathObj5 && !xmlXPathNodeSetIsEmpty(xpathObj5->nodesetval) &&
              xpathObj5->nodesetval->nodeTab[i] && xpathObj5->nodesetval->nodeTab[i]->content){
@@ -759,8 +767,8 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
     xmlXPathFreeObject(xpathObj2);
   if (xpathObj3)
     xmlXPathFreeObject(xpathObj3);
-  if (xpathObj4)
-    xmlXPathFreeObject(xpathObj4);
+  if (xpathObjIcons)
+    xmlXPathFreeObject(xpathObjIcons);
   if (xpathObj5)
     xmlXPathFreeObject(xpathObj5);
   if (xpathObj6)
@@ -892,7 +900,7 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
     xmlXPathObjectPtr xpathObj = NULL; 
     xmlXPathObjectPtr xpathObj2 = NULL; 
     xmlXPathObjectPtr xpathObj3 = NULL; 
-    xmlXPathObjectPtr xpathObj4 = NULL; 
+    xmlXPathObjectPtr xpathObjIcons = NULL; 
     xmlXPathObjectPtr xpathObj5 = NULL; 
     xmlXPathObjectPtr xpathObj6 = NULL; 
     xmlXPathObjectPtr xpathObj7 = NULL; 
@@ -1041,7 +1049,7 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
  // xpathObj2 = xmlXPathEvalExpression("/html/body/div/div/div//div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*[@class='clicon']/img/@src", xpathCtx);
   xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//div/table/tbody//td[@class='clicon']/img/@src", xpathCtx);
   xpathObj3 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//div/table/tbody/tr/th/following-sibling::*[@class='cltext']/text()", xpathCtx);
-  xpathObj4 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div/table/tbody/tr/td[@class='temp']/span[@class='value m_temp c']/text()", xpathCtx);
+  xpathObjIcons = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div/table/tbody/tr/td[@class='temp']/span[@class='value m_temp c']/text()", xpathCtx);
   xpathObj5 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div/table/tbody/tr/td/span[@class='value m_press torr']/text()", xpathCtx);
   //xpathObj6 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//table/tbody/tr/td/dl[@class='wind']/dt/text()", xpathCtx);
   xpathObj6 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//table/tbody/tr/td/dl[@class='wind']/dd/span[@class='value m_wind ms']/text()", xpathCtx);
@@ -1116,9 +1124,9 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
       fprintf(file_out,"     <description>%s</description>\n", (char*)xmlHashLookup(hash_for_descriptions, (const xmlChar*)xpathObj3->nodesetval->nodeTab[i]->content)); 
    }
    /* added temperature */
-   if (xpathObj4 && !xmlXPathNodeSetIsEmpty(xpathObj4->nodesetval) && xpathObj4->nodesetval->nodeTab[i]->content){
+   if (xpathObjIcons && !xmlXPathNodeSetIsEmpty(xpathObjIcons->nodesetval) && xpathObjIcons->nodesetval->nodeTab[i]->content){
       
-       snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj4->nodesetval->nodeTab[i]->content);
+       snprintf(buffer, sizeof(buffer)-1,"%s", xpathObjIcons->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
              memset(temp_buffer2, 0, sizeof(temp_buffer));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
@@ -1132,7 +1140,6 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
                  }
              }
         fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer); 
-        /* fprintf (stderr, "temperature %s %s\n", xpathObj4->nodesetval->nodeTab[i]->content, temp_buffer); */
    }
    /* added pressure */
    if (xpathObj5 && !xmlXPathNodeSetIsEmpty(xpathObj5->nodesetval) && xpathObj5->nodesetval->nodeTab[i]->content){
@@ -1209,8 +1216,8 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
     xmlXPathFreeObject(xpathObj2);
   if (xpathObj3)
     xmlXPathFreeObject(xpathObj3);
-  if (xpathObj4)
-    xmlXPathFreeObject(xpathObj4);
+  if (xpathObjIcons)
+    xmlXPathFreeObject(xpathObjIcons);
   if (xpathObj5)
     xmlXPathFreeObject(xpathObj5);
   if (xpathObj6)

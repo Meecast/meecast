@@ -1,5 +1,6 @@
 meecast (1.11.9) unstable; urgency=low
   * Added Torzhok to weather.com and openweathermap.org
+  * Added icons and description to fmi.fi 
   * Restored gismeteo.ru source
   * Updated Slovak, Slovenian, Swedish translations
  -- Vlad Vasiliev <vlad@gas.by> Sun, 24 Nov 2024 19:02:23 +0300

@@ -688,6 +688,14 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         icon = 9;
                         description = "Drizzle";
                         break;
+                    case 114:
+                        icon = 8;
+                        description = "Freezing Drizzle";
+                        break;
+                    case 117:
+                        icon = 10;
+                        description = "Freezing Rain";
+                        break;
                     case 121:
                         icon = 45;
                         description = "Light Rain Showers";

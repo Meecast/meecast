@@ -38,6 +38,11 @@
 #endif
 
 
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <cctype>
+
 #include <locale.h>
 #include <sys/stat.h>
 /*******************************************************************************/

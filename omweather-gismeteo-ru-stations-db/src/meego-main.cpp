@@ -26,7 +26,10 @@
 #endif
 #include "meego-main.h"
 #include <unistd.h>
+#include <iostream> 
+#include "json/json.h"
 #include <string.h>
+#include <math.h> 
 #include <time.h>
 #include <wchar.h>
 #define DAY 1
@@ -299,6 +302,12 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
     struct tm time_tm2;
 
 
+    Json::Value root;   // will contains the root value after parsing.
+    Json::Reader reader;
+    Json::Value val;
+    Json::Value nullval ;
+    std::string wind_directions[17] = {"N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW","N"};
+
     file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
@@ -336,6 +345,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
    /* Current data */
    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div//span[@class='icon date']/text()", xpathCtx);
 
+#if 0
    if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
      /* fprintf(stderr, "Current date and time %s\n", (char*)xpathObj->nodesetval->nodeTab[0]->content); */
       current_tm = get_date_for_current_weather((char*)xpathObj->nodesetval->nodeTab[0]->content);
@@ -482,6 +492,88 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
   }
   if (xpathObj)
     xmlXPathFreeObject(xpathObj);
+#endif
+
+  /* Current weather */
+  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/head/script[1]/text()", xpathCtx);
+  if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
+      temp_char = ((char *)xpathObj->nodesetval->nodeTab[0]->content);
+    std::string buffer_0(temp_char);
+    size_t index_0 = buffer_0.find("window.M.state = ", 0);
+    if (index_0  != std::string::npos){
+        std::string buffer_keys_and_values = buffer_0.substr(index_0 + 17, buffer_0.length());
+        std::cerr<<buffer_keys_and_values<<std::endl;
+        bool parsingSuccessful = reader.parse(buffer_keys_and_values, root, false);
+        if (parsingSuccessful){
+            val = root["city"];
+            auto timezone_json = val["timeZone"].asInt();
+            std::cerr<<timezone_json<<std::endl;
+            fprintf(file_out,"    <timezone>%i</timezone>\n", timezone_json/60);
+            auto utc = val["dates"]["utc"].asString();
+            /* "2024-12-07T15:51:53.282Z" */
+            tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
+            tmp_tm.tm_isdst = time_tm2.tm_isdst;
+            setlocale(LC_TIME, "POSIX");
+            strptime((const char*)utc.c_str(), "%Y-%m-%dT%H:%M:%S", &tmp_tm);
+            utc_time = mktime(&tmp_tm); 
+            setlocale(LC_TIME, "");
+            fprintf(file_out,"    <period start=\"%li\" current=\"true\"", utc_time + 3600*localtimezone);
+ 
+            fprintf(file_out," end=\"%li\">\n", utc_time + 3*3600) +3600*localtimezone; 
+            std::cerr<<utc<<std::endl;
+
+            val = root["weather"]["cw"];
+            auto description = val["description"][0].asString();
+            fprintf(file_out,"     <description>%s</description>\n", description.c_str());
+            auto humidity = val["humidity"][0].asInt();
+            fprintf(file_out,"     <humidity>%i</humidity>\n", humidity);
+            auto pressure = val["pressure"][0].asInt();
+            fprintf(file_out,"     <pressure>%i</pressure>\n", pressure);
+            auto precipitation = val["precipitation"][0].asDouble();
+            fprintf(file_out,"     <precipitation>%.1f</precipitation>\n", precipitation);
+
+            auto radiation = val["radiation"][0].asInt();
+            fprintf(file_out,"     <uv_index>%i</uv_index>\n", radiation);
+
+            auto temperatureAir = val["temperatureAir"][0].asInt();
+            fprintf(file_out,"     <temperature>%i</temperature>\n", temperatureAir);
+            auto temperatureHeatIndex = val["temperatureHeatIndex"][0].asInt();
+            fprintf(file_out,"     <flike>%i</flike>\n", temperatureHeatIndex);
+            auto windDirection = val["windDirection"][0].asInt();
+            int wind_index = (int)round(windDirection/22.5) + 1;
+                    //std::cout<<"Wind_index "<<wind_index<<std::endl;
+                    if (wind_index > 16){
+                        wind_index = 16;
+                    }
+                    //std::cout<<"Wind_direction "<<wind_directions[wind_index].c_str()<<std::endl;
+            fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",wind_directions[wind_index].c_str());
+
+            auto windSpeed = val["windSpeed"][0].asInt();
+            fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", windSpeed);
+            auto windGust = val["windGust"][0].asInt();
+            fprintf(file_out,"     <wind_gust>%i</wind_gust>\n", windGust);
+            auto iconWeather = val["iconWeather"][0].asString();
+            if (xmlHashLookup(hash_for_icons, (const xmlChar*)iconWeather.c_str())){
+               snprintf(current_icon, sizeof(current_icon)-1,"%s",
+                (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)iconWeather.c_str()));
+                fprintf(file_out,"     <icon>%s</icon>\n",  current_icon);
+            }else{
+                fprintf(file_out,"     <icon>49</icon>\n");
+                printf("Current icon name: %s not found\n", iconWeather.c_str());
+            }
+
+
+            fprintf(file_out, "    </period>\n");
+        }else{
+            std::cerr<<"Problem in parsingSuccessful";
+        }
+
+
+    }else{
+        std::cerr<<"Error in index_0"<<std::endl;
+    }
+
+  }
 
    /* Day weather forecast */
    /* Evaluate xpath expression */
@@ -651,7 +743,13 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
                             //printf("node2 type: Element, name: %s\n", iter_node2->name);
                             char const *namehref = (char *)xmlGetProp(iter_node2, (xmlChar*) "href");
                             //printf("href name: %s\n", namehref);
-                            strcat(temp_buffer, namehref);
+                            if (strlen(temp_buffer) == 0) {
+                                strcat(temp_buffer, namehref + 1);
+                            }else{
+                                char additional[] = "_";
+                                strcat(temp_buffer, additional);
+                                strcat(temp_buffer, namehref + 1);
+                            }
                          }
                      }
                  }

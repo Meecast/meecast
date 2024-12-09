@@ -290,7 +290,10 @@ W:</translation>
      	Åke Engelbrektson, 
      	Niklas Åkerström, 
      	Tomislav Veleckovik</source>
-        <translation type="unfinished"></translation>
+        <translation>    Swedish - Angela Nennebrandt,
+     	Åke Engelbrektson, 
+     	Niklas Åkerström, 
+     	Tomislav Veleckovik</translation>
     </message>
     <message>
         <source>    Turkish - Burak Kaan Kose,
@@ -924,7 +927,7 @@ Design UI för Fremantle: Krebber Jan Niemela Ulla
     </message>
     <message>
         <source>Cloudy, Light Snow and Rain</source>
-        <translation type="unfinished">Molnigt, lätt regn</translation>
+        <translation>Molnigt, lätt regn och snö</translation>
     </message>
     <message>
         <source>Cloudy, Rain</source>
@@ -1886,7 +1889,7 @@ Slovakiska - Roman Moravčík</translation>
     </message>
     <message>
         <source>Mainly cloudy, Wet snow</source>
-        <translation type="unfinished">Mestadels molnigt, regnskurar</translation>
+        <translation>Mest molnigt, blötsnö</translation>
     </message>
     <message>
         <source>Mainly cloudy, drizzle</source>

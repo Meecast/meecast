@@ -893,23 +893,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
   if (xpathObjUv)
     xmlXPathFreeObject(xpathObjUv);
 
-  /* fill current data */
-  utc_time = mktime(&current_tm);
-  if (utc_time != -1){
-      utc_time = utc_time - location_timezone*3600;
-      fprintf(file_out,"    <period start=\"%li\"", utc_time);
-      fprintf(file_out," end=\"%li\" current=\"true\">\n", utc_time + 4*3600); 
-
-      fprintf(file_out,"     <temperature>%s</temperature>\n", current_temperature); 
-      fprintf(file_out,"     <icon>%s</icon>\n",  current_icon);
-      fprintf(file_out,"     <description>%s</description>\n", current_title);
-      fprintf(file_out,"     <pressure>%s</pressure>\n", current_pressure);
-      fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", current_wind_direction);
-      fprintf(file_out,"     <humidity>%s</humidity>\n", current_humidity);
-      fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", current_wind_speed);
-      fprintf(file_out,"    </period>\n");
-  }
-// Sun rise  /html/body/div/*//div/div/div/div/div[2]/ul[@class='sun']/li[1]/text() 
+ // Sun rise  /html/body/div/*//div/div/div/div/div[2]/ul[@class='sun']/li[1]/text() 
 //
 ///html/body/div/*//div/div/div/div/div[2]/ul/@title
   //xpathObj = xmlXPathEvalExpression((const xmlChar*)" /html/body/div/*//div[@id='astronomy']/div//span/text()", xpathCtx);

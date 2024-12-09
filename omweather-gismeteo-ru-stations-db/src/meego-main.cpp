@@ -502,7 +502,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
     size_t index_0 = buffer_0.find("window.M.state = ", 0);
     if (index_0  != std::string::npos){
         std::string buffer_keys_and_values = buffer_0.substr(index_0 + 17, buffer_0.length());
-        std::cerr<<buffer_keys_and_values<<std::endl;
+        //std::cerr<<buffer_keys_and_values<<std::endl;
         bool parsingSuccessful = reader.parse(buffer_keys_and_values, root, false);
         if (parsingSuccessful){
             val = root["city"];

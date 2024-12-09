@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-07 21:31+0300\n"
+"POT-Creation-Date: 2024-12-09 21:11+0300\n"
 "PO-Revision-Date: 2012-04-16 13:52+0000\n"
 "Last-Translator: Åke Engelbrektson, 2015-2020,2024\n"
 "Language-Team: Swedish (http://app.transifex.com/vasvlad/meecast/language/"
@@ -230,6 +230,10 @@ msgid ""
 "     \tNiklas Åkerström, \n"
 "     \tTomislav Veleckovik"
 msgstr ""
+"    Swedish - Angela Nennebrandt,\n"
+"     \tÅke Engelbrektson, \n"
+"     \tNiklas Åkerström, \n"
+"     \tTomislav Veleckovik"
 
 #: meecast/qt-qml/qml/pages/AboutPage.qml:273
 msgid ""
@@ -729,9 +733,8 @@ msgid "Cloudy, Light Rain, Weak Heavy Rain"
 msgstr "Molnigt, Lätt regn, Ganska mycket regn"
 
 #: omweather/src/hash.data:65
-#, fuzzy
 msgid "Cloudy, Light Snow and Rain"
-msgstr "Molnigt, lätt regn"
+msgstr "Molnigt, lätt regn och snö"
 
 #: omweather/src/hash.data:66
 msgid "Cloudy, Rain"
@@ -1499,9 +1502,8 @@ msgid "Mainly cloudy, Slight shower of rain"
 msgstr "Huvudsakligen molnigt med sporadiska regnskurar"
 
 #: omweather/src/hash.data:418
-#, fuzzy
 msgid "Mainly cloudy, Wet snow"
-msgstr "Mestadels molnigt, regnskurar"
+msgstr "Mest molnigt, blötsnö"
 
 #: omweather/src/hash.data:162
 msgid "Mainly cloudy, drizzle"

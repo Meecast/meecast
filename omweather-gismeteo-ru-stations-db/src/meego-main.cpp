@@ -373,7 +373,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
                 setlocale(LC_TIME, "");
                 fprintf(file_out,"    <period start=\"%li\" current=\"true\"", utc_time + 3600*localtimezone);
      
-                fprintf(file_out," end=\"%li\">\n", utc_time + 3*3600) +3600*localtimezone; 
+                fprintf(file_out," end=\"%li\">\n", utc_time + 3*3600 + 3600*localtimezone;) 
                 std::cerr<<utc<<std::endl;
 
                 val = root["weather"]["cw"];

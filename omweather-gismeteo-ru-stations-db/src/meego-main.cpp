@@ -342,237 +342,92 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
    xmlXPathRegisterNs(xpathCtx, (const xmlChar*)"html",
                                 (const xmlChar*)"http://www.w3.org/1999/xhtml");
 
-   /* Current data */
-   xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div//span[@class='icon date']/text()", xpathCtx);
-
-#if 0
-   if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
-     /* fprintf(stderr, "Current date and time %s\n", (char*)xpathObj->nodesetval->nodeTab[0]->content); */
-      current_tm = get_date_for_current_weather((char*)xpathObj->nodesetval->nodeTab[0]->content);
-   }
-   if (xpathObj)
-      xmlXPathFreeObject(xpathObj);
-
-  memset(current_temperature, 0, sizeof(current_temperature));
-  xpathObj = xmlXPathEvalExpression((const xmlChar*)" /html/body/div/div/div/div/div//div/dd[@class='value m_temp c']/text()", xpathCtx);
-  if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
-        snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj->nodesetval->nodeTab[0]->content);
-             memset(temp_buffer, 0, sizeof(temp_buffer));
-             memset(temp_buffer2, 0, sizeof(temp_buffer2));
-             for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
-                 if ((char)buffer[j] == -30 || (uint)buffer[j] == 226 ||  buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9')) {
-                     if ((char)buffer[j] == -30 || (uint)buffer[j] == 226){
-                        sprintf(temp_buffer2,"%s",temp_buffer);
-                        sprintf(temp_buffer,"%s-",temp_buffer2);
-                     }else{
-                        sprintf(temp_buffer2,"%s",temp_buffer);
-                        sprintf(temp_buffer,"%s%c",temp_buffer2, buffer[j]);
-                     }
-                 }
-             }
-        snprintf(current_temperature, sizeof(current_temperature)-1,"%s", temp_buffer);
-  }
-  if (xpathObj)
-    xmlXPathFreeObject(xpathObj);
-
-  memset(current_icon, 0, sizeof(current_icon));
-  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div//dt[@class='png']/@style", xpathCtx);
-  if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->children->content){
-
-        if (xpathObj->nodesetval->nodeTab[0]->children->content){
-           temp_char = strrchr((char *)xpathObj->nodesetval->nodeTab[0]->children->content, '/');
-           temp_char ++;
-#ifdef GLIB
-           image = g_strdup(temp_char);
-#else
-           snprintf(image, buff_size-1,"%s", temp_char);
-#endif
-           i = 0;
-           memset(temp_buffer, 0, sizeof(temp_buffer));
-           memset(temp_buffer2, 0, sizeof(temp_buffer2));
-           while((image[i] != ')') && (i < strlen(image))){
-             sprintf(temp_buffer2,"%s",temp_buffer);
-             sprintf(temp_buffer,"%s%c",temp_buffer2, image[i]);
-             i++;
-            }
-        }
-#ifdef GLIB
-        if (image)
-            g_free(image);
-#endif
-       
-#ifdef GLIB
-       snprintf(current_icon, sizeof(current_icon)-1,"%s", choose_hour_weather_icon(hash_for_icons, temp_buffer));
-#else
-       snprintf(current_icon, sizeof(current_icon)-1,"%s",
-             (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer));
-
-#endif
-#ifdef QT 
-        snprintf(current_icon, sizeof(current_icon)-1,"%s", choose_hour_weather_icon(hash_for_icons, temp_buffer).toStdString().c_str());
-#endif
-  }
-  if (xpathObj)
-    xmlXPathFreeObject(xpathObj);
-
-  memset(current_title, 0, sizeof(current_title));
-  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div//dd/table/tr/td/text()", xpathCtx);
-  if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
-#ifdef GLIB
-    snprintf(current_title, sizeof(current_title)-1,"%s", hash_gismeteo_table_find(hash_for_translate, (char *)xpathObj->nodesetval->nodeTab[0]->content, FALSE));
-#endif
-#ifdef QT
-   snprintf(current_title, sizeof(current_title)-1,"%s", (char*)hash_gismeteo_description_table_find(hash_for_translate, (char *)xpathObj->nodesetval->nodeTab[0]->content).toStdString().c_str()); 
-#endif
-    snprintf(current_title, sizeof(current_title)-1,"%s", (char*)xmlHashLookup(hash_for_descriptions, (const xmlChar*)xpathObj->nodesetval->nodeTab[0]->content));
-
-  }
-  if (xpathObj)
-    xmlXPathFreeObject(xpathObj);
-  
-  memset(current_pressure, 0, sizeof(current_pressure));
-  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div[@class='wicon barp']/dd[@class='value m_press torr']/text()", xpathCtx);
-  if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
-      if (strlen((char *)xpathObj->nodesetval->nodeTab[0]->content) > 0){
-          pressure = atoi((char *)xpathObj->nodesetval->nodeTab[0]->content);
-          pressure = pressure * 1.333224;
-          snprintf(current_pressure, sizeof(current_pressure)-1,"%i", pressure);
-      }
-  }
-  if (xpathObj)
-    xmlXPathFreeObject(xpathObj);
-
-  memset(current_humidity, 0, sizeof(current_humidity));
-  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div[@class='wicon hum']/text()", xpathCtx);
-  if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
-     snprintf(current_humidity, sizeof(current_humidity)-1,"%s", xpathObj->nodesetval->nodeTab[0]->content);
-  }
-  if (xpathObj)
-    xmlXPathFreeObject(xpathObj);
-
-  memset(current_wind_direction, 0, sizeof(current_wind_direction));
-  xpathObj = xmlXPathEvalExpression((const xmlChar*)" /html/body/div/div/div/div//div[@class='wicon wind']//dt/text()", xpathCtx);
-  if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
-     snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj->nodesetval->nodeTab[0]->content);
-     /* Wind direction */
-     if (!strcoll(buffer, "З"))
-          sprintf(buffer,"%s","W");
-     if (!strcoll(buffer, "Ю"))
-          sprintf(buffer,"%s","S");
-     if (!strcoll(buffer, "В"))
-          sprintf(buffer,"%s","E");
-     if (!strcoll(buffer, "С"))
-          sprintf(buffer,"%s","N");
-     if (!strcoll(buffer, "ЮЗ"))
-          sprintf(buffer,"%s","SW");
-     if (!strcoll(buffer, "ЮВ"))
-          sprintf(buffer,"%s","SE");
-     if (!strcoll(buffer, "СЗ"))
-          sprintf(buffer,"%s","NW");
-     if (!strcoll(buffer, "СВ"))
-          sprintf(buffer,"%s","NE");
-     if (!strcoll(buffer, "безветрие"))
-          sprintf(buffer,"%s","CALM");
-     if (!strcoll(buffer, "Ш"))
-          sprintf(buffer,"%s","CALM");
- 
-     snprintf(current_wind_direction, sizeof(current_wind_direction)-1,"%s", buffer);
-  }
-  if (xpathObj)
-    xmlXPathFreeObject(xpathObj);
-
-  memset(current_wind_speed, 0, sizeof(current_wind_speed));
-  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div[@class='wicon wind']//dd[@class='value m_wind ms']/text()", xpathCtx);
-  if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
-      /* Normalize speed to km/h from m/s */
-      /* fprintf(stderr, "Wind  speed    %s\n", temp_buffer); */
-      speed = atoi ((char *)xpathObj->nodesetval->nodeTab[0]->content);
-      //speed = speed * 3600/1000;
-      snprintf(current_wind_speed, sizeof(current_wind_speed)-1,"%i", speed);
-  }
-  if (xpathObj)
-    xmlXPathFreeObject(xpathObj);
-#endif
 
   /* Current weather */
-  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/head/script[1]/text()", xpathCtx);
-  if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
-      temp_char = ((char *)xpathObj->nodesetval->nodeTab[0]->content);
-    std::string buffer_0(temp_char);
-    size_t index_0 = buffer_0.find("window.M.state = ", 0);
-    if (index_0  != std::string::npos){
-        std::string buffer_keys_and_values = buffer_0.substr(index_0 + 17, buffer_0.length());
-        //std::cerr<<buffer_keys_and_values<<std::endl;
-        bool parsingSuccessful = reader.parse(buffer_keys_and_values, root, false);
-        if (parsingSuccessful){
-            val = root["city"];
-            auto timezone_json = val["timeZone"].asInt();
-            std::cerr<<timezone_json<<std::endl;
-            fprintf(file_out,"    <timezone>%i</timezone>\n", timezone_json/60);
-            auto utc = val["dates"]["utc"].asString();
-            /* "2024-12-07T15:51:53.282Z" */
-            tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
-            tmp_tm.tm_isdst = time_tm2.tm_isdst;
-            setlocale(LC_TIME, "POSIX");
-            strptime((const char*)utc.c_str(), "%Y-%m-%dT%H:%M:%S", &tmp_tm);
-            utc_time = mktime(&tmp_tm); 
-            setlocale(LC_TIME, "");
-            fprintf(file_out,"    <period start=\"%li\" current=\"true\"", utc_time + 3600*localtimezone);
- 
-            fprintf(file_out," end=\"%li\">\n", utc_time + 3*3600) +3600*localtimezone; 
-            std::cerr<<utc<<std::endl;
+  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/head/script/text()", xpathCtx);
+  nodes   = xpathObj->nodesetval;
+  size = (nodes) ? nodes->nodeNr : 0;
 
-            val = root["weather"]["cw"];
-            auto description = val["description"][0].asString();
-            fprintf(file_out,"     <description>%s</description>\n", description.c_str());
-            auto humidity = val["humidity"][0].asInt();
-            fprintf(file_out,"     <humidity>%i</humidity>\n", humidity);
-            auto pressure = val["pressure"][0].asInt();
-            fprintf(file_out,"     <pressure>%i</pressure>\n", pressure);
-            auto precipitation = val["precipitation"][0].asDouble();
-            fprintf(file_out,"     <precipitation>%.1f</precipitation>\n", precipitation);
+  fprintf(stderr,"Count of scripts %i\n", size);
+  for(i = 0; i < size; ++i) {
+      if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[i]->content){
+        temp_char = ((char *)xpathObj->nodesetval->nodeTab[i]->content);
+        std::string buffer_0(temp_char);
+        size_t index_0 = buffer_0.find("window.M.state = ", 0);
+        if (index_0  != std::string::npos){
+            std::string buffer_keys_and_values = buffer_0.substr(index_0 + 17, buffer_0.length());
+            std::cerr<<buffer_keys_and_values<<std::endl;
+            bool parsingSuccessful = reader.parse(buffer_keys_and_values, root, false);
+            if (parsingSuccessful){
+                val = root["city"];
+                auto timezone_json = val["timeZone"].asInt();
+                std::cerr<<timezone_json<<std::endl;
+                fprintf(file_out,"    <timezone>%i</timezone>\n", timezone_json/60);
+                auto utc = val["dates"]["utc"].asString();
+                /* "2024-12-07T15:51:53.282Z" */
+                tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
+                tmp_tm.tm_isdst = time_tm2.tm_isdst;
+                setlocale(LC_TIME, "POSIX");
+                strptime((const char*)utc.c_str(), "%Y-%m-%dT%H:%M:%S", &tmp_tm);
+                utc_time = mktime(&tmp_tm); 
+                setlocale(LC_TIME, "");
+                fprintf(file_out,"    <period start=\"%li\" current=\"true\"", utc_time + 3600*localtimezone);
+     
+                fprintf(file_out," end=\"%li\">\n", utc_time + 3*3600 + 3600*localtimezone); 
+                std::cerr<<utc<<std::endl;
 
-            auto radiation = val["radiation"][0].asInt();
-            fprintf(file_out,"     <uv_index>%i</uv_index>\n", radiation);
+                val = root["weather"]["cw"];
+                auto description = val["description"][0].asString();
+                fprintf(file_out,"     <description>%s</description>\n", description.c_str());
+                auto humidity = val["humidity"][0].asInt();
+                fprintf(file_out,"     <humidity>%i</humidity>\n", humidity);
+                auto pressure = val["pressure"][0].asInt();
+                fprintf(file_out,"     <pressure>%i</pressure>\n", pressure);
+                auto precipitation = val["precipitation"][0].asDouble();
+                fprintf(file_out,"     <precipitation>%.1f</precipitation>\n", precipitation);
 
-            auto temperatureAir = val["temperatureAir"][0].asInt();
-            fprintf(file_out,"     <temperature>%i</temperature>\n", temperatureAir);
-            auto temperatureHeatIndex = val["temperatureHeatIndex"][0].asInt();
-            fprintf(file_out,"     <flike>%i</flike>\n", temperatureHeatIndex);
-            auto windDirection = val["windDirection"][0].asInt();
-            int wind_index = (int)round(windDirection/22.5) + 1;
-                    //std::cout<<"Wind_index "<<wind_index<<std::endl;
-                    if (wind_index > 16){
-                        wind_index = 16;
-                    }
-                    //std::cout<<"Wind_direction "<<wind_directions[wind_index].c_str()<<std::endl;
-            fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",wind_directions[wind_index].c_str());
+                auto radiation = val["radiation"][0].asInt();
+                fprintf(file_out,"     <uv_index>%i</uv_index>\n", radiation);
 
-            auto windSpeed = val["windSpeed"][0].asInt();
-            fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", windSpeed);
-            auto windGust = val["windGust"][0].asInt();
-            fprintf(file_out,"     <wind_gust>%i</wind_gust>\n", windGust);
-            auto iconWeather = val["iconWeather"][0].asString();
-            if (xmlHashLookup(hash_for_icons, (const xmlChar*)iconWeather.c_str())){
-               snprintf(current_icon, sizeof(current_icon)-1,"%s",
-                (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)iconWeather.c_str()));
-                fprintf(file_out,"     <icon>%s</icon>\n",  current_icon);
+                auto temperatureAir = val["temperatureAir"][0].asInt();
+                fprintf(file_out,"     <temperature>%i</temperature>\n", temperatureAir);
+                auto temperatureHeatIndex = val["temperatureHeatIndex"][0].asInt();
+                fprintf(file_out,"     <flike>%i</flike>\n", temperatureHeatIndex);
+                auto windDirection = val["windDirection"][0].asInt();
+                int wind_index = (int)round(windDirection/22.5) + 1;
+                        //std::cout<<"Wind_index "<<wind_index<<std::endl;
+                        if (wind_index > 16){
+                            wind_index = 16;
+                        }
+                        //std::cout<<"Wind_direction "<<wind_directions[wind_index].c_str()<<std::endl;
+                fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",wind_directions[wind_index].c_str());
+
+                auto windSpeed = val["windSpeed"][0].asInt();
+                fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", windSpeed);
+                auto windGust = val["windGust"][0].asInt();
+                fprintf(file_out,"     <wind_gust>%i</wind_gust>\n", windGust);
+                auto iconWeather = val["iconWeather"][0].asString();
+                if (xmlHashLookup(hash_for_icons, (const xmlChar*)iconWeather.c_str())){
+                   snprintf(current_icon, sizeof(current_icon)-1,"%s",
+                    (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)iconWeather.c_str()));
+                    fprintf(file_out,"     <icon>%s</icon>\n",  current_icon);
+                }else{
+                    fprintf(file_out,"     <icon>49</icon>\n");
+                    printf("Current icon name: %s not found\n", iconWeather.c_str());
+                }
+
+
+                fprintf(file_out, "    </period>\n");
             }else{
-                fprintf(file_out,"     <icon>49</icon>\n");
-                printf("Current icon name: %s not found\n", iconWeather.c_str());
+                std::cerr<<"Problem in parsingSuccessful";
             }
-
-
-            fprintf(file_out, "    </period>\n");
+            break; /* Exit from cycle */
         }else{
-            std::cerr<<"Problem in parsingSuccessful";
+            std::cerr<<"Error in index_0"<<std::endl;
+            continue;
         }
 
-
-    }else{
-        std::cerr<<"Error in index_0"<<std::endl;
-    }
-
+      }
   }
 
    /* Day weather forecast */
@@ -893,23 +748,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
   if (xpathObjUv)
     xmlXPathFreeObject(xpathObjUv);
 
-  /* fill current data */
-  utc_time = mktime(&current_tm);
-  if (utc_time != -1){
-      utc_time = utc_time - location_timezone*3600;
-      fprintf(file_out,"    <period start=\"%li\"", utc_time);
-      fprintf(file_out," end=\"%li\" current=\"true\">\n", utc_time + 4*3600); 
-
-      fprintf(file_out,"     <temperature>%s</temperature>\n", current_temperature); 
-      fprintf(file_out,"     <icon>%s</icon>\n",  current_icon);
-      fprintf(file_out,"     <description>%s</description>\n", current_title);
-      fprintf(file_out,"     <pressure>%s</pressure>\n", current_pressure);
-      fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", current_wind_direction);
-      fprintf(file_out,"     <humidity>%s</humidity>\n", current_humidity);
-      fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", current_wind_speed);
-      fprintf(file_out,"    </period>\n");
-  }
-// Sun rise  /html/body/div/*//div/div/div/div/div[2]/ul[@class='sun']/li[1]/text() 
+ // Sun rise  /html/body/div/*//div/div/div/div/div[2]/ul[@class='sun']/li[1]/text() 
 //
 ///html/body/div/*//div/div/div/div/div[2]/ul/@title
   //xpathObj = xmlXPathEvalExpression((const xmlChar*)" /html/body/div/*//div[@id='astronomy']/div//span/text()", xpathCtx);

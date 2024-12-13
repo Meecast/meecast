@@ -582,8 +582,10 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
          if (xpathObjMinTemp && !xmlXPathNodeSetIsEmpty(xpathObjMinTemp->nodesetval) &&
              xpathObjMinTemp->nodesetval->nodeTab[i]){
              // fprintf (stderr, "temperature %s\n",  xmlGetProp(xpathObjMinTemp->nodesetval->nodeTab[i], (xmlChar*) "value"));
-             snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(xpathObjMinTemp->nodesetval->nodeTab[i], (xmlChar*) "value"));
-			 fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", buffer); 
+             if (xmlGetProp(xpathObjMinTemp->nodesetval->nodeTab[i], (xmlChar*) "value")){
+                snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(xpathObjMinTemp->nodesetval->nodeTab[i], (xmlChar*) "value"));
+			    fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", buffer);
+             }
          }
 
          /* added icon */

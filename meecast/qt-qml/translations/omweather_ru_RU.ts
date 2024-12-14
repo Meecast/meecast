@@ -109,52 +109,43 @@ W: </source>
     <message>
         <source>    Albanian - Ilir Gjika
 </source>
-        <translation type="unfinished">Албанский - Ilir Gjika
-</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>    Arabic - Tarad Alfandi
 </source>
-        <translation type="unfinished">Арабский - Tarad Alfandi
-</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>    Bulgarian - Zlatko Enikov
 </source>
-        <translation type="unfinished">Болгарский - Zlatko Enikov
-</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>    Catalan - Agustí Clara
 </source>
-        <translation type="unfinished">Каталонский - Agustí Clara
-</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>    Chinese - Wong Man Kong, Michael,
      	gwmgdemj
 </source>
-        <translation type="unfinished">Китайский - Wong Man Kong, Michael,
-gwmgdemj
-</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>    Chinese(Taiwan) - osk2, 
 </source>
-        <translation type="unfinished">Китайский (Taiwan) - osk2,
-</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>    Czech - Jakub Kožíšek, Pavel Šrubař
 </source>
-        <translation type="unfinished">Чешский - Jakub Kožíšek, Pavel Šrubař
-</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>    Danish - Peter Jespersen
 </source>
-        <translation type="unfinished">Датский - Peter Jespersen
-</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>    Dutch - Tom Leenders, Michiel Pater
@@ -210,14 +201,12 @@ gwmgdemj
     <message>
         <source>    Polish - Tomasz Dominikowski
 </source>
-        <translation type="unfinished">Польский - Tomasz Dominikowski
-</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>    Portuguese - Jose Narciso,
 </source>
-        <translation type="unfinished">Португальский - Jose Narciso,
-</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>    Russian - Pavel Fialko, Vlad Vasilyeu, 
@@ -228,8 +217,7 @@ gwmgdemj
     <message>
         <source>    Serbian - Aleksandar Zaric
 </source>
-        <translation type="unfinished">Сербский - Aleksandar Zaric
-</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>    Slovak - Roman Moravčík
@@ -867,7 +855,7 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
     </message>
     <message>
         <source>Cloudy, Light Snow and Rain</source>
-        <translation type="unfinished">Облачно, Небольшой дождь</translation>
+        <translation>Пасмурно, небольшой снег с дождём</translation>
     </message>
     <message>
         <source>Cloudy, Rain</source>
@@ -895,11 +883,11 @@ Design UI for Fremantle: Krebber Jan Niemela Ulla
     </message>
     <message>
         <source>Co-administrator and contributor</source>
-        <translation type="unfinished"></translation>
+        <translation>Соадминистратор и участник</translation>
     </message>
     <message>
         <source>Co-administrator and contributor</source>
-        <translation type="unfinished"></translation>
+        <translation>Соадминистратор и участник</translation>
     </message>
     <message>
         <source>Could not connecting to Internet.
@@ -1564,11 +1552,11 @@ Slovak - Roman Moravčík</source>
     </message>
     <message>
         <source>Iconsets</source>
-        <translation>Наборы иконок:</translation>
+        <translation>Наборы иконок</translation>
     </message>
     <message>
         <source>Iconsets</source>
-        <translation>Наборы иконок:</translation>
+        <translation>Наборы иконок</translation>
     </message>
     <message>
         <source>Isolated T-Storms</source>
@@ -1828,7 +1816,7 @@ Slovak - Roman Moravčík</source>
     </message>
     <message>
         <source>Mainly cloudy, Wet snow</source>
-        <translation type="unfinished">Пасмурно, ливень</translation>
+        <translation>Пасмурно, мокрый снег</translation>
     </message>
     <message>
         <source>Mainly cloudy, drizzle</source>
@@ -1864,19 +1852,20 @@ Slovak - Roman Moravčík</source>
     </message>
     <message>
         <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2024</source>
-        <translation type="unfinished"></translation>
+        <translation>MeeCast - мультиплатформенный высоконастраиваемый
+ клиент прогноза погоды с открытым исходным кодом, основанный на коде OMWeather. Copyright (C) 2006-2024</translation>
     </message>
     <message>
         <source>MeeCast for AuroraOS</source>
-        <translation type="unfinished">MeeCast для Harmattan</translation>
+        <translation>MeeCast for ОС Аврора</translation>
     </message>
     <message>
         <source>MeeCast for AuroraOS</source>
-        <translation type="unfinished">MeeCast для Harmattan</translation>
+        <translation>MeeCast for ОС Аврора</translation>
     </message>
     <message>
         <source>MeeCast for SailfishOS</source>
-        <translation type="unfinished">MeeCast для Harmattan</translation>
+        <translation>MeeCast для SailfishOS</translation>
     </message>
     <message>
         <source>Meters</source>
@@ -2452,7 +2441,7 @@ Slovak - Roman Moravčík</source>
     </message>
     <message>
         <source>Pa</source>
-        <translation type="unfinished">кПа</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Partly Cloudy</source>
@@ -2676,7 +2665,7 @@ Slovak - Roman Moravčík</source>
     </message>
     <message>
         <source>Project administrator</source>
-        <translation type="unfinished">Администраторы проекта</translation>
+        <translation>Администратор проекта</translation>
     </message>
     <message>
         <source>Project manager</source>
@@ -3048,7 +3037,7 @@ Slovak - Roman Moravčík</source>
     </message>
     <message>
         <source>Show on Map</source>
-        <translation type="unfinished">Показать название станции</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show only current weather on first icon</source>

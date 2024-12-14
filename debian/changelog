@@ -5,7 +5,7 @@ meecast (1.11.9) unstable; urgency=low
   * Updated Slovak, Slovenian, Swedish, Russian translations
   * Removed tending to mix up languages in selecting region of fmi.fi source.
     Replaced all region's name to Finnish.
- -- Vlad Vasiliev <vlad@gas.by> Sun, 24 Nov 2024 19:02:23 +0300
+ -- Vlad Vasiliev <vlad@gas.by> Sat, 14 Dec 2024 12:02:23 +0300
 meecast (1.11.8) unstable; urgency=low
   * Added icons and description to fmi.fi 
   * Updated Norwegian translation

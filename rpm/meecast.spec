@@ -5,8 +5,8 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.11.8
-%define rlse 1
+%define vrsn 1.11.9
+%define rlse 2
 
 Name:       org.meecast.MeeCast
 Summary:    MeeCast for AuroraOS
@@ -349,6 +349,13 @@ desktop-file-install --delete-original  \
 
 
 %changelog
+* Sat Dec 14 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.9
+- Added Torzhok to weather.com and openweathermap.org
+- Added icons and description to fmi.fi 
+- Restored gismeteo.ru source
+- Updated Slovak, Slovenian, Swedish, Russian translations
+- Removed tending to mix up languages in selecting region of fmi.fi source. Replaced all region's name to Finnish.
+
 * Sun Nov 24 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.8
 - Added icons and description to fmi.fi 
 - Updated Norwegian translation

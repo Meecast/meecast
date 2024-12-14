@@ -266,9 +266,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
     xmlXPathObjectPtr xpathObj = NULL; 
     xmlXPathObjectPtr xpathObj_day = NULL; 
     xmlXPathObjectPtr xpathObj_date = NULL; 
-    xmlXPathObjectPtr xpathObj2 = NULL; 
-    xmlXPathObjectPtr xpathObjMaxTemp = NULL; 
-    xmlXPathObjectPtr xpathObjMinTemp = NULL; 
+    xmlXPathObjectPtr xpathObjTemp = NULL; 
     xmlXPathObjectPtr xpathObjIcons = NULL; 
     xmlXPathObjectPtr xpathObjDescription = NULL; 
     xmlXPathObjectPtr xpathObjMaxPressure = NULL; 
@@ -356,7 +354,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
         size_t index_0 = buffer_0.find("window.M.state = ", 0);
         if (index_0  != std::string::npos){
             std::string buffer_keys_and_values = buffer_0.substr(index_0 + 17, buffer_0.length());
-            std::cerr<<buffer_keys_and_values<<std::endl;
+            //std::cerr<<buffer_keys_and_values<<std::endl;
             bool parsingSuccessful = reader.parse(buffer_keys_and_values, root, false);
             if (parsingSuccessful){
                 val = root["city"];
@@ -443,10 +441,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
   nodes   = xpathObj_day->nodesetval;
   size = (nodes) ? nodes->nodeNr : 0;
    fprintf(stderr, "SIZE!!!!!!!!!!!!!!: %i\n", size); 
-  //xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody/tr/th[@title]/text()", xpathCtx);
-  xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/section/div/section/div/div/div/*//div[@class='date']/text()", xpathCtx);
-  xpathObjMaxTemp = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row-chart widget-row-chart-temperature-air row-with-caption']/div/div[@class='values']/div[@class='value']/div[@class='maxt']/temperature-value", xpathCtx);
-   xpathObjMinTemp = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row-chart widget-row-chart-temperature-air row-with-caption']/div/div[@class='values']/div[@class='value']/div[@class='mint']/temperature-value", xpathCtx);
+  xpathObjTemp = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row-chart widget-row-chart-temperature-air row-with-caption']/div/div[@class='values']/div[@class='value']", xpathCtx);
 
   xpathObjIcons = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[2]/div/div[@class='weather-icon-group']", xpathCtx);
   xpathObjDescription = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[2]/div[@data-tooltip]", xpathCtx);
@@ -556,38 +551,29 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
 #endif
  
          /* added temperature */
-         if (xpathObjMaxTemp && !xmlXPathNodeSetIsEmpty(xpathObjMaxTemp->nodesetval) &&
-             xpathObjMaxTemp->nodesetval->nodeTab[i]){
-             // fprintf (stderr, "temperature %s\n",  xmlGetProp(xpathObjMaxTemp->nodesetval->nodeTab[i], (xmlChar*) "value"));
-             snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(xpathObjMaxTemp->nodesetval->nodeTab[i], (xmlChar*) "value"));
-             /*             
-             memset(temp_buffer, 0, sizeof(temp_buffer));
-             memset(temp_buffer2, 0, sizeof(temp_buffer2));
-             for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
-                 if ((char)buffer[j] == -30 || (uint)buffer[j] == 226 || buffer[j] == '-' || buffer[j] == '&' || (buffer[j]>='0' && buffer[j]<='9')){
-                     if ((char)buffer[j] == -30 || buffer[j] == '&' || (uint)buffer[j] == 226){
-                        sprintf(temp_buffer2,"%s",temp_buffer);
-                        sprintf(temp_buffer,"%s-",temp_buffer2);
+         if (xpathObjTemp && !xmlXPathNodeSetIsEmpty(xpathObjTemp->nodesetval) &&
+             xpathObjTemp->nodesetval->nodeTab[i] && xpathObjTemp->nodesetval->nodeTab[i]->children){
+             for (xmlNodePtr iter_node = xpathObjTemp->nodesetval->nodeTab[i]->children; iter_node; iter_node = iter_node->next){
+                if (iter_node->type == XML_ELEMENT_NODE){
+                     if (strncmp((char *)xmlGetProp(iter_node, (xmlChar*) "class"), "maxt",  strlen((char *)xmlGetProp(iter_node, (xmlChar*) "class"))) == 0){
+                         if (strncmp( (char*)iter_node->children->name,"temperature-value", strlen((char *)iter_node->children->name)) == 0){
+                            if ( xmlGetProp(iter_node->children, (xmlChar*) "value")){
+                                snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(iter_node->children, (xmlChar*) "value"));
+			                    fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", buffer); 
+                            }
+                         }
                      }
-                     else{
-                        sprintf(temp_buffer2,"%s",temp_buffer);
-                        sprintf(temp_buffer,"%s%c",temp_buffer2, buffer[j]);
-                     }
-                 }
-             }
-			 fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", temp_buffer); 
-             */
-			 fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", buffer); 
-         }
-         if (xpathObjMinTemp && !xmlXPathNodeSetIsEmpty(xpathObjMinTemp->nodesetval) &&
-             xpathObjMinTemp->nodesetval->nodeTab[i]){
-             // fprintf (stderr, "temperature %s\n",  xmlGetProp(xpathObjMinTemp->nodesetval->nodeTab[i], (xmlChar*) "value"));
-             if (xmlGetProp(xpathObjMinTemp->nodesetval->nodeTab[i], (xmlChar*) "value")){
-                snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(xpathObjMinTemp->nodesetval->nodeTab[i], (xmlChar*) "value"));
-			    fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", buffer);
+                     if (strncmp((char *)xmlGetProp(iter_node, (xmlChar*) "class"), "mint",  strlen((char *)xmlGetProp(iter_node, (xmlChar*) "class"))) == 0){
+                         if (strncmp( (char*)iter_node->children->name,"temperature-value", strlen((char *)iter_node->children->name)) == 0){
+                            if ( xmlGetProp(iter_node->children, (xmlChar*) "value")){
+                                snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(iter_node->children, (xmlChar*) "value"));
+			                    fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", buffer);
+                            }
+                         }
+                     } 
+                }
              }
          }
-
          /* added icon */
          memset(temp_buffer, 0, sizeof(temp_buffer));
          xmlNodePtr _node = xpathObjIcons->nodesetval->nodeTab[i];
@@ -729,12 +715,8 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
     xmlXPathFreeObject(xpathObj_day);
   if (xpathObj_date)
     xmlXPathFreeObject(xpathObj_date);
-  if (xpathObj2)
-    xmlXPathFreeObject(xpathObj2);
-  if (xpathObjMaxTemp)
-    xmlXPathFreeObject(xpathObjMaxTemp);
-  if (xpathObjMinTemp)
-    xmlXPathFreeObject(xpathObjMinTemp);
+  if (xpathObjTemp)
+    xmlXPathFreeObject(xpathObjTemp);
   if (xpathObjIcons)
     xmlXPathFreeObject(xpathObjIcons);
   if (xpathObjDescription)
@@ -851,7 +833,7 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
     xmlXPathContextPtr xpathCtx; 
     xmlXPathObjectPtr xpathObj = NULL; 
     xmlXPathObjectPtr xpathObj2 = NULL; 
-    xmlXPathObjectPtr xpathObjMaxTemp = NULL; 
+    xmlXPathObjectPtr xpathObjTemp = NULL; 
     xmlXPathObjectPtr xpathObjIcons = NULL; 
     xmlXPathObjectPtr xpathObjDescription = NULL; 
     xmlXPathObjectPtr xpathObjMaxPressure = NULL; 
@@ -1001,7 +983,7 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
   xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div//div[@id='weather-hourly']//div[@class='wsection wdata']/table/tbody//th/@title", xpathCtx);
  // xpathObj2 = xmlXPathEvalExpression("/html/body/div/div/div//div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*[@class='clicon']/img/@src", xpathCtx);
   xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//div/table/tbody//td[@class='clicon']/img/@src", xpathCtx);
-  xpathObjMaxTemp = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//div/table/tbody/tr/th/following-sibling::*[@class='cltext']/text()", xpathCtx);
+  xpathObjTemp = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//div/table/tbody/tr/th/following-sibling::*[@class='cltext']/text()", xpathCtx);
   xpathObjIcons = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div/table/tbody/tr/td[@class='temp']/span[@class='value m_temp c']/text()", xpathCtx);
   xpathObjDescription = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div/table/tbody/tr/td/span[@class='value m_press torr']/text()", xpathCtx);
   //xpathObjMaxPressure = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//table/tbody/tr/td/dl[@class='wind']/dt/text()", xpathCtx);
@@ -1067,14 +1049,14 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
 #endif
    }
    /* added text */
-   if (xpathObjMaxTemp && !xmlXPathNodeSetIsEmpty(xpathObjMaxTemp->nodesetval) && i <= xpathObjMaxTemp->nodesetval->nodeNr && xpathObjMaxTemp->nodesetval->nodeTab[i]->content){
+   if (xpathObjTemp && !xmlXPathNodeSetIsEmpty(xpathObjTemp->nodesetval) && i <= xpathObjTemp->nodesetval->nodeNr && xpathObjTemp->nodesetval->nodeTab[i]->content){
 #ifdef GLIB
-      fprintf(file_out,"     <description>%s</description>\n", (char*)hash_gismeteo_table_find(hash_for_translate, (char *)xpathObjMaxTemp->nodesetval->nodeTab[i]->content, FALSE)); 
+      fprintf(file_out,"     <description>%s</description>\n", (char*)hash_gismeteo_table_find(hash_for_translate, (char *)xpathObjTemp->nodesetval->nodeTab[i]->content, FALSE)); 
 #endif
 #ifdef QT
-      fprintf(file_out,"     <description>%s</description>\n", (char*)hash_gismeteo_description_table_find(hash_for_translate, (char *)xpathObjMaxTemp->nodesetval->nodeTab[i]->content).toStdString().c_str()); 
+      fprintf(file_out,"     <description>%s</description>\n", (char*)hash_gismeteo_description_table_find(hash_for_translate, (char *)xpathObjTemp->nodesetval->nodeTab[i]->content).toStdString().c_str()); 
 #endif
-      fprintf(file_out,"     <description>%s</description>\n", (char*)xmlHashLookup(hash_for_descriptions, (const xmlChar*)xpathObjMaxTemp->nodesetval->nodeTab[i]->content)); 
+      fprintf(file_out,"     <description>%s</description>\n", (char*)xmlHashLookup(hash_for_descriptions, (const xmlChar*)xpathObjTemp->nodesetval->nodeTab[i]->content)); 
    }
    /* added temperature */
    if (xpathObjIcons && !xmlXPathNodeSetIsEmpty(xpathObjIcons->nodesetval) && xpathObjIcons->nodesetval->nodeTab[i]->content){
@@ -1167,8 +1149,8 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
     xmlXPathFreeObject(xpathObj);
   if (xpathObj2)
     xmlXPathFreeObject(xpathObj2);
-  if (xpathObjMaxTemp)
-    xmlXPathFreeObject(xpathObjMaxTemp);
+  if (xpathObjTemp)
+    xmlXPathFreeObject(xpathObjTemp);
   if (xpathObjIcons)
     xmlXPathFreeObject(xpathObjIcons);
   if (xpathObjDescription)

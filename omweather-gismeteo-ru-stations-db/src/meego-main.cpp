@@ -489,9 +489,11 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
         setlocale(LC_TIME, "POSIX");
         memset(temp_buffer, 0, sizeof(temp_buffer));
         snprintf(temp_buffer, sizeof(temp_buffer)-1,"%i  %i %i", day_of_month, month, year);
+        tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
         strptime(temp_buffer, "%d %m %Y", &tmp_tm);
         setlocale(LC_TIME, "");
-        utc_time = mktime(&tmp_tm) + localtimezone*3600 + 1;
+        //utc_time = mktime(&tmp_tm) + localtimezone*3600 + 1;
+        utc_time = mktime(&tmp_tm);
         fprintf(file_out,"    <period start=\"%li\"", utc_time);
         fprintf(file_out," end=\"%li\">\n", utc_time + 24*3600); 
 

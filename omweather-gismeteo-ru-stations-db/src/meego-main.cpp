@@ -489,14 +489,17 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
         setlocale(LC_TIME, "POSIX");
         memset(temp_buffer, 0, sizeof(temp_buffer));
         snprintf(temp_buffer, sizeof(temp_buffer)-1,"%i  %i %i", day_of_month, month, year);
+        tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
         strptime(temp_buffer, "%d %m %Y", &tmp_tm);
         setlocale(LC_TIME, "");
-        utc_time = mktime(&tmp_tm) + localtimezone*3600 + 1;
+        //utc_time = mktime(&tmp_tm) + localtimezone*3600 + 1;
+        utc_time = mktime(&tmp_tm);
         fprintf(file_out,"    <period start=\"%li\"", utc_time);
         fprintf(file_out," end=\"%li\">\n", utc_time + 24*3600); 
 
         memset(buffer, 0, sizeof(buffer));
         /* added temperature */
+        bool flag_mint = false;
         if (xpathObjTemp && !xmlXPathNodeSetIsEmpty(xpathObjTemp->nodesetval) &&
             xpathObjTemp->nodesetval->nodeTab[i] && xpathObjTemp->nodesetval->nodeTab[i]->children){
             for (xmlNodePtr iter_node = xpathObjTemp->nodesetval->nodeTab[i]->children; iter_node; iter_node = iter_node->next){
@@ -512,17 +515,17 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
                     if (strncmp((char *)xmlGetProp(iter_node, (xmlChar*) "class"), "mint",  strlen((char *)xmlGetProp(iter_node, (xmlChar*) "class"))) == 0){
                         if (strncmp( (char*)iter_node->children->name,"temperature-value", strlen((char *)iter_node->children->name)) == 0){
                            if ( xmlGetProp(iter_node->children, (xmlChar*) "value")){
+                               flag_mint = true;
                                snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(iter_node->children, (xmlChar*) "value"));
                                fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", buffer);
                            }
                         }
-                    }else{
-                       if (strlen(buffer)>0){
-                           fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", buffer);
-                       }
                     }
                 }
             }
+        }
+        if (!flag_mint && strlen(buffer)>0){
+            fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", buffer);
         }
         /* added icon */
         memset(temp_buffer, 0, sizeof(temp_buffer));

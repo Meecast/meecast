@@ -497,6 +497,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
 
         memset(buffer, 0, sizeof(buffer));
         /* added temperature */
+        bool flag_mint = false;
         if (xpathObjTemp && !xmlXPathNodeSetIsEmpty(xpathObjTemp->nodesetval) &&
             xpathObjTemp->nodesetval->nodeTab[i] && xpathObjTemp->nodesetval->nodeTab[i]->children){
             for (xmlNodePtr iter_node = xpathObjTemp->nodesetval->nodeTab[i]->children; iter_node; iter_node = iter_node->next){
@@ -512,17 +513,17 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
                     if (strncmp((char *)xmlGetProp(iter_node, (xmlChar*) "class"), "mint",  strlen((char *)xmlGetProp(iter_node, (xmlChar*) "class"))) == 0){
                         if (strncmp( (char*)iter_node->children->name,"temperature-value", strlen((char *)iter_node->children->name)) == 0){
                            if ( xmlGetProp(iter_node->children, (xmlChar*) "value")){
+                               flag_mint = true;
                                snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(iter_node->children, (xmlChar*) "value"));
                                fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", buffer);
                            }
                         }
-                    }else{
-                       if (strlen(buffer)>0){
-                           fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", buffer);
-                       }
                     }
                 }
             }
+        }
+        if (!flag_mint && strlen(buffer)>0){
+            fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", buffer);
         }
         /* added icon */
         memset(temp_buffer, 0, sizeof(temp_buffer));

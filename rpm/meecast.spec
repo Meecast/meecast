@@ -6,7 +6,7 @@
 %define _binary_payload w2.xzdio
 
 %define vrsn 1.11.9
-%define rlse 1
+%define rlse 2
 
 Name:       harbour-meecast
 Summary:    MeeCast for SailfishOS

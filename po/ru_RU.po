@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-07 21:31+0300\n"
+"POT-Creation-Date: 2024-12-14 09:48+0300\n"
 "PO-Revision-Date: 2012-04-16 13:52+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>, 2013-2020,2024\n"
 "Language-Team: Russian (http://app.transifex.com/vasvlad/meecast/language/"
@@ -101,48 +101,38 @@ msgstr ""
 "В: "
 
 #: meecast/qt-qml/qml/pages/AboutPage.qml:269
-#, fuzzy
 msgid "    Albanian - Ilir Gjika\n"
-msgstr "Албанский - Ilir Gjika\n"
+msgstr ""
 
 #: meecast/qt-qml/qml/pages/AboutPage.qml:277
-#, fuzzy
 msgid "    Arabic - Tarad Alfandi\n"
-msgstr "Арабский - Tarad Alfandi\n"
+msgstr ""
 
 #: meecast/qt-qml/qml/pages/AboutPage.qml:268
-#, fuzzy
 msgid "    Bulgarian - Zlatko Enikov\n"
-msgstr "Болгарский - Zlatko Enikov\n"
+msgstr ""
 
 #: meecast/qt-qml/qml/pages/AboutPage.qml:275
-#, fuzzy
 msgid "    Catalan - Agustí Clara\n"
-msgstr "Каталонский - Agustí Clara\n"
+msgstr ""
 
 #: meecast/qt-qml/qml/pages/AboutPage.qml:270
-#, fuzzy
 msgid ""
 "    Chinese - Wong Man Kong, Michael,\n"
 "     \tgwmgdemj\n"
 msgstr ""
-"Китайский - Wong Man Kong, Michael,\n"
-"gwmgdemj\n"
 
 #: meecast/qt-qml/qml/pages/AboutPage.qml:284
-#, fuzzy
 msgid "    Chinese(Taiwan) - osk2, \n"
-msgstr "Китайский (Taiwan) - osk2,\n"
+msgstr ""
 
 #: meecast/qt-qml/qml/pages/AboutPage.qml:283
-#, fuzzy
 msgid "    Czech - Jakub Kožíšek, Pavel Šrubař\n"
-msgstr "Чешский - Jakub Kožíšek, Pavel Šrubař\n"
+msgstr ""
 
 #: meecast/qt-qml/qml/pages/AboutPage.qml:278
-#, fuzzy
 msgid "    Danish - Peter Jespersen\n"
-msgstr "Датский - Peter Jespersen\n"
+msgstr ""
 
 #: meecast/qt-qml/qml/pages/AboutPage.qml:266
 msgid ""
@@ -194,14 +184,12 @@ msgid "    Norwegian - Peer-Atle Motland\n"
 msgstr ""
 
 #: meecast/qt-qml/qml/pages/AboutPage.qml:264
-#, fuzzy
 msgid "    Polish - Tomasz Dominikowski\n"
-msgstr "Польский - Tomasz Dominikowski\n"
+msgstr ""
 
 #: meecast/qt-qml/qml/pages/AboutPage.qml:272
-#, fuzzy
 msgid "    Portuguese - Jose Narciso,\n"
-msgstr "Португальский - Jose Narciso,\n"
+msgstr ""
 
 #: meecast/qt-qml/qml/pages/AboutPage.qml:251
 msgid ""
@@ -210,9 +198,8 @@ msgid ""
 msgstr ""
 
 #: meecast/qt-qml/qml/pages/AboutPage.qml:279
-#, fuzzy
 msgid "    Serbian - Aleksandar Zaric\n"
-msgstr "Сербский - Aleksandar Zaric\n"
+msgstr ""
 
 #: meecast/qt-qml/qml/pages/AboutPage.qml:265
 msgid "    Slovak - Roman Moravčík\n"
@@ -728,9 +715,8 @@ msgid "Cloudy, Light Rain, Weak Heavy Rain"
 msgstr "Облачно,Легкий дождь,Иногда ливни"
 
 #: omweather/src/hash.data:65
-#, fuzzy
 msgid "Cloudy, Light Snow and Rain"
-msgstr "Облачно, Небольшой дождь"
+msgstr "Пасмурно, небольшой снег с дождём"
 
 #: omweather/src/hash.data:66
 msgid "Cloudy, Rain"
@@ -758,7 +744,7 @@ msgstr "Облачно, гроза с дождем"
 
 #: omweather/src/hash.data:436 meecast/qt-qml/qml/pages/AboutPage.qml:224
 msgid "Co-administrator and contributor"
-msgstr ""
+msgstr "Соадминистратор и участник"
 
 #: omweather/src/weather-download.c:226
 msgid ""
@@ -1296,7 +1282,7 @@ msgstr "Набор иконок"
 
 #: omweather/src/hash.data:125 meecast/qt-qml/qml/pages/AboutPage.qml:297
 msgid "Iconsets"
-msgstr "Наборы иконок:"
+msgstr "Наборы иконок"
 
 #: omweather/src/hash.data:127
 msgid "Isolated T-Storms"
@@ -1519,9 +1505,8 @@ msgid "Mainly cloudy, Slight shower of rain"
 msgstr "Пасмурно, небольшой дождь"
 
 #: omweather/src/hash.data:418
-#, fuzzy
 msgid "Mainly cloudy, Wet snow"
-msgstr "Пасмурно, ливень"
+msgstr "Пасмурно, мокрый снег"
 
 #: omweather/src/hash.data:162
 msgid "Mainly cloudy, drizzle"
@@ -1553,16 +1538,17 @@ msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2024"
 msgstr ""
+"MeeCast - мультиплатформенный высоконастраиваемый\n"
+" клиент прогноза погоды с открытым исходным кодом, основанный на коде "
+"OMWeather. Copyright (C) 2006-2024"
 
 #: omweather/src/hash.data:435 meecast/qt-qml/qml/pages/AboutPage.qml:65
-#, fuzzy
 msgid "MeeCast for AuroraOS"
-msgstr "MeeCast для Harmattan"
+msgstr "MeeCast for ОС Аврора"
 
 #: omweather/src/hash.data:434
-#, fuzzy
 msgid "MeeCast for SailfishOS"
-msgstr "MeeCast для Harmattan"
+msgstr "MeeCast для SailfishOS"
 
 #: omweather/src/weather-settings.c:3901
 msgid "Meters"
@@ -2003,9 +1989,8 @@ msgid "PM T-Storms"
 msgstr "После обеда грозы"
 
 #: meecast/qt-qml/qml/pages/UnitsPage.qml:125
-#, fuzzy
 msgid "Pa"
-msgstr "кПа"
+msgstr ""
 
 #: omweather/src/hash.data:243
 msgid "Partly Cloudy"
@@ -2182,9 +2167,8 @@ msgid "Programmer"
 msgstr "Программист"
 
 #: meecast/qt-qml/qml/pages/AboutPage.qml:154
-#, fuzzy
 msgid "Project administrator"
-msgstr "Администраторы проекта"
+msgstr "Администратор проекта"
 
 #: meecast/qt-qml/qml/pages/AboutPage.qml:210
 msgid "Project manager"
@@ -2484,9 +2468,8 @@ msgid "Show last update time"
 msgstr "Показать время последнего обновления"
 
 #: meecast/qt-qml/qml/pages/FullWeatherPage.qml:594
-#, fuzzy
 msgid "Show on Map"
-msgstr "Показать название станции"
+msgstr ""
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
@@ -3362,150 +3345,3 @@ msgstr ""
 #: omweather/src/hash.data:444
 msgid "Ю-З"
 msgstr ""
-
-#~ msgid "12 hours"
-#~ msgstr "12 часов"
-
-#~ msgid "Adjust GPS station"
-#~ msgstr "Обновить GPS станцию"
-
-#~ msgid ""
-#~ "Application manager will now start\n"
-#~ "for installing package 'MeeCast applet'.\n"
-#~ "You should uninstall AccuWeather \n"
-#~ "before installing this package"
-#~ msgstr ""
-#~ "Сейчас будет запущена программа\n"
-#~ "'Управление Приложениями' для\n"
-#~ "того чтобы установить пакет\n"
-#~ "'MeeCast applet'.\n"
-#~ "Вы должны деинсталировать\n"
-#~ "пакет AccuWeather до\n"
-#~ "установки этой программы"
-
-#~ msgid "Author and maintenance: Vlad Vasilyeu, <vlad@gas.by>\n"
-#~ msgstr "Автор и поддержка: Влад Васильев, <vlad@gas.by>\n"
-
-#~ msgid "Cancel"
-#~ msgstr "Отменить"
-
-#~ msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
-#~ msgstr "Copyright(c) 2006-2011 Владислав Васильев, Павел Фиалко, "
-
-#~ msgid "Copyright(c) 2010-2011 by Tanya Makova\n"
-#~ msgstr "Copyright(c) 2010-2011 by Таня Макова\n"
-
-#~ msgid "Daily"
-#~ msgstr "Ежедневно"
-
-#~ msgid ""
-#~ "Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
-#~ "zhilin@ovi.com>\n"
-#~ msgstr ""
-#~ "Дизайн интерфейса и наборa иконок по-умолчанию: Copyright 2006-2011  "
-#~ "Андрей Жилин, <andrew.zhilin@ovi.com>\n"
-
-#~ msgid "Enter search"
-#~ msgstr "Поиск"
-
-#~ msgid ""
-#~ "Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - "
-#~ "Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
-#~ msgstr ""
-#~ "Финский - Marko Vertainen; German - Claudius Henrichs; Spanish - "
-#~ "Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
-
-#~ msgid ""
-#~ "For disabling MeeCast widget,\n"
-#~ "you should uninstall package\n"
-#~ "'Activating MeeCast Applet'\n"
-#~ "using Application manager"
-#~ msgstr ""
-#~ "Для отключения виджета MeeCast\n"
-#~ "Вы должны деинсталировать пакет\n"
-#~ "'Activating MeeCast Applet'\n"
-#~ "используя прогамму\n"
-#~ "'Управление Приложениями'"
-
-#~ msgid "Fullscreen mode"
-#~ msgstr "Полноэкранный режим"
-
-#~ msgid "Icons"
-#~ msgstr "Наборы иконок"
-
-#~ msgid "Information"
-#~ msgstr "Информация"
-
-#~ msgid "New location"
-#~ msgstr "Новое местоположение"
-
-#~ msgid "Ok"
-#~ msgstr "Ok"
-
-#~ msgid "Select city"
-#~ msgstr "Выберите город"
-
-#~ msgid "Select source"
-#~ msgstr "Выберите источник"
-
-#~ msgid "Select the X-position for left corner of widget"
-#~ msgstr "Выберите X-позицию для левого угла виджета"
-
-#~ msgid "Select the Y-position for left corner of widget"
-#~ msgstr "Выберите Y-позицию для левого угла виджета"
-
-#~ msgid "Select the color of font for station name"
-#~ msgstr "Выберите цвет шрифта для имени станции"
-
-#~ msgid "Settings for Lockscreen widget"
-#~ msgstr "Настройки для Lockscreen виджета"
-
-#~ msgid "Settings for standby widget"
-#~ msgstr "Настройки для StandbyScreen виджета"
-
-#~ msgid "Settings of LockScreen"
-#~ msgstr "Настройки для LockScreen экрана"
-
-#~ msgid "Settings of StandbyScreen"
-#~ msgstr "Настройки для StandbyScreen экрана"
-
-#~ msgid "Weather forecast for the Meego. Version "
-#~ msgstr "Прогоноз погоды для Meego. Версия "
-
-#~ msgid "Widget in LockScreen"
-#~ msgstr "Виджет на LockScreen экране"
-
-#~ msgid "Widget in StandbyScreen"
-#~ msgstr "Виджет на StandbyScreen экране"
-
-#~ msgid "Widget in events view"
-#~ msgstr "Виджет на экране событий"
-
-#~ msgid ""
-#~ "You should activate \n"
-#~ "'Widget in events view'\n"
-#~ " for using LockScreen widget"
-#~ msgstr ""
-#~ "Для использования \n"
-#~ "LockScreen виджета\n"
-#~ "Вы должны активировать \n"
-#~ "опцию 'Виджет на экране \n"
-#~ "событий'  "
-
-#~ msgid ""
-#~ "You should activate \n"
-#~ "'Widget in events view'\n"
-#~ " for using StandbyScreen widget"
-#~ msgstr ""
-#~ "Для использования \n"
-#~ "StandbyScreen виджета\n"
-#~ "Вы должны активировать \n"
-#~ "опцию 'Виджет на экране \n"
-#~ "событий'  "
-
-#~ msgid ""
-#~ "You should activate 'Widget in the events view' option in MeeCast "
-#~ "appearance settings for auto update."
-#~ msgstr ""
-#~ "Для автообновления Вы должны активировать опцию 'Виджет на экране "
-#~ "событий' в настройках внешнего вида MeeCast."

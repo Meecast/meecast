@@ -379,7 +379,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
                     auto humidity = val["humidity"][0].asInt();
                     fprintf(file_out,"     <humidity>%i</humidity>\n", humidity);
                     auto pressure = val["pressure"][0].asInt();
-                    fprintf(file_out,"     <pressure>%i</pressure>\n", pressure*1.333224);
+                    fprintf(file_out,"     <pressure>%0.f</pressure>\n", pressure*1.333224);
                     auto precipitation = val["precipitation"][0].asDouble();
                     fprintf(file_out,"     <precipitation>%.1f</precipitation>\n", precipitation);
 
@@ -578,9 +578,10 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
         memset(buffer, 0, sizeof(buffer));
         if (xpathObjMaxPressure && !xmlXPathNodeSetIsEmpty(xpathObjMaxPressure->nodesetval) &&
             xpathObjMaxPressure->nodesetval->nodeTab[i]){
-            //fprintf (stderr, "pressure %s\n",  xmlGetProp(xpathObjMaxPressure->nodesetval->nodeTab[i], (xmlChar*) "value"));
             snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(xpathObjMaxPressure->nodesetval->nodeTab[i], (xmlChar*) "value"));
-            fprintf(file_out,"     <pressure>%s</pressure>\n", atoi(buffer) * 1.333224); 
+            ///fprintf (stderr, "pressure %s %0.f\n",  xmlGetProp(xpathObjMaxPressure->nodesetval->nodeTab[i], (xmlChar*) "value"), atoi(buffer) * 1.33 );
+            fprintf(file_out,"     <pressure>%0.f</pressure>\n", (atoi(buffer)*1.333224)); 
+            //fprintf(file_out,"     <pressure>%i</pressure>\n", atoi(buffer) * 1.333224); 
         }
     /*
     if (xpathObjMaxPressure && !xmlXPathNodeSetIsEmpty(xpathObjMaxPressure->nodesetval) &&

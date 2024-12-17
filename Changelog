@@ -1,0 +1,997 @@
+meecast (1.11.11)
+  * Added icons and description to gismeteo.ru
+  * Fixed some problems in gismeteo.ru data (pressure and etc)
+
+meecast (1.11.10)
+  * Added Torzhok to weather.com and openweathermap.org
+  * Added icons and description to fmi.fi 
+  * Restored gismeteo.ru source
+  * Updated Slovak, Slovenian, Swedish, Russian translations
+  * Removed tending to mix up languages in selecting region of fmi.fi source.
+    Replaced all region's name to Finnish.
+
+meecast (1.11.8)
+  * Added icons and description to fmi.fi 
+  * Updated Norwegian translation
+  * Fixed segmentation fault
+  * Fixed hour's negative temperature problem 
+
+meecast (1.11.7)
+  * Added icons and description to fmi.fi 
+  * Fixed problem with symbol '=' and '?' in file name
+  * Updated Russian, Swedish translations
+
+meecast (1.11.6)
+  * Updated Russian,Swedish transltions
+
+meecast (1.11.5)
+  * Added icons and description to fmi.fi 
+
+meecast (1.11.3)
+  * Improved in settings UI
+
+meecast (1.11.2)
+  * Fixed sunrise and sunset for fmi.fi source
+
+meecast (1.11.1)
+  * Added icons and descriptions to fmi.fi source
+
+meecast (1.1.41)
+  * Fixed problem Segmentation fault while trying to load fmi.fi stations, see issue #62
+
+meecast (1.1.38)
+  * Added station Giulianova in Italy to weather.com, yr.no. Fixed Teramo
+     gps-coordinates
+  * Fixed problem hko.gov.hk source
+
+meecast (1.1.37)
+  * Fixed problem with yr.no stations. The reason is incorrect work with locales #44
+
+
+meecast (1.1.36)
+  * Restored source yr.no
+
+meecast (1.1.35)
+  * Updated Slovak translation. Thanks Ladislav Hodas aka holasl 
+  * Fixed - Bom.gov.au as weather source shows the previous day. #41
+    (@vasvlad)
+
+
+meecast (1.1.34)
+
+  * Trying to fix segmentation fault in openweathermap.org source
+  * Trying to fix segmentation fault in weather.com source
+
+
+
+meecast (1.1.33)
+
+  * Added station to foreca.com
+
+
+
+meecast (1.1.32)
+
+  * Added station to weather.com
+
+
+
+meecast (1.1.31)
+
+  * Nothing 
+
+
+
+meecast (1.1.30)
+
+  * Small fixes 
+
+
+
+meecast (1.1.29)
+
+  * Fixed problem with weather.com source again
+  * Disabled 'Show on maps" and support email
+
+
+
+meecast (1.1.28)
+
+  * Fixed problem with weather.com source
+
+
+meecast (1.1.26)
+
+  * Updated translations
+  * Fixed problem with weather.com source
+
+
+meecast (1.1.25)
+
+  * Updated translations
+  * Fixed problem with weather.com source
+
+
+meecast (1.1.22)
+
+  * Added string for translation
+
+
+meecast (1.1.20)
+
+  * Added station Nonoai in Brazilia to openweathermap.org
+  * Added icon for openweathermap.org source
+  * Added string for translation
+  * Updated Russian, Dutch, Slovenian, Swedish translations
+  * Fixed source gismeteo.ru
+
+
+meecast (1.1.19)
+
+  * Added string for translation
+  * Fixed the New Year bug for weather.com and foreca.mobi sources
+
+
+meecast (1.1.18)
+
+  * Added string for translation
+  * Added stations to Ukraine in gismeteo.ru source
+  * Fixed segmentation fault for Melbourne(Australia) in bom.gov.au source
+
+
+
+meecast (1.1.17)
+
+  * Added string for translation
+  * Added Iran and Georgia to foreca.com
+  * Updated Russian, Dutch, Norwegian, Slovenian, Swedish, Germany translations
+
+
+meecast (1.1.16)
+
+  * Added new translation strings for weather.com
+  * Added icon for foreca.com
+  * Disabled Map
+  * Added Innopolis city to gismeteo.ru, foreca.com sources
+  * Updated Russian, Danish, Dutch, Polish, Swedish, Slovenian, Galician,
+    Spanish, Catalan translations
+
+
+meecast (1.1.13)
+
+  * Updated Catalan, Spanish, Dutch, Slovenian tarnslations
+  * Added string for translation
+
+
+meecast (1.1.12)
+
+  * Added icon for gismeteo.ru 
+  * Added string for translation
+  * Fixed station Sankt-Peterburg in gismeteo.ru source
+  * Added station Daugavpils to weather.com source
+
+
+meecast (1.1.11)
+
+  * Fixed problem with sunrise and sunset in gismeteo.ru source 
+  * Added icon for gismeteo.ru 
+  * Added new translation string for gismeteo.ru 
+  * Disabled logging
+
+
+meecast (1.1.10)
+
+  * Added string for translation
+  * Fixed problem with gisemteo.ru source
+  * Updated Russian, Catalan, Germany, Serbian, Swedish,
+    Spanish, Russian, Danish, Norwegian, Dutch, Slovenian,
+    Czech tarnslations
+
+
+meecast (1.1.9)
+
+  * Added stations in Russia to Openweathermap.org (Sverdlovskaya oblast,
+    Krasnodarkiy Kray and Leningradskaya oblast) 
+  * Updated Russian, Swedish, Finnish, Norwegian tarnslations
+  * Fixed 12/24 clock viewing problem 
+
+
+meecast (1.1.7)
+
+  * Added new translation string for gismeteo.ru 
+  * Fixed problem in openweathermap.org source again
+  * Added Galician translation
+  * Updated Russian, Swedish tarnslations
+
+
+meecast (1.1.6)
+
+  * Fixed problem in openweathermap.org source  
+
+
+meecast (1.1.5)
+
+  * Fixed time format problem for sunrise and sunset time
+
+
+meecast (1.1.4)
+
+  * Added new translation string for gismeteo.ru and yr.no 
+  * Fixed time format problem for settings in Harmattan (12/24h) 
+
+
+meecast (1.1.3)
+
+  * Added new translation string for gismeteo.ru
+
+
+meecast (1.1.2)
+
+  * Added icon for openstreetmap.org
+
+
+meecast (1.1.1)
+
+  * Fixed problem with sunrise in fmi source again
+  * fixed problem with incorrect time in hourly forecast in fmi source
+  * Fixed crashing related zero size of config file
+  * Updated Germany, Danish translations
+
+
+meecast (1.0.4)
+
+  * Fixed problem with wind speed in gismeteo.ru  source
+
+
+
+meecast (1.0.3)
+
+  * Fixed problem with sunrise in fmi source 
+  * Fixed problem with incorrect text on standby widget
+  * Updated Catalan, Chinese, Czech, Dutch, Finnish, Germany,
+    Slovenian, Spanish, Swedish, Turkish, Italian
+
+
+meecast (1.0.3)
+
+  * Fixed problem with sunrise in fmi source 
+  * Fixed problem with incorrect text on standby widget
+  * Updated Catalan, Chinese, Czech, Dutch, Finnish, Germany,
+    Slovenian, Spanish, Swedish, Turkish, Italian
+
+
+meecast (1.0)
+
+  * Added Hungarian translator László Kara to About page
+  * Added Åke Engelbrektson as Swedish translator
+  * Fixed problem with weather.com source (all days show night weather forecast)
+  * Rewrote About page
+
+
+meecast (0.9.18)
+
+  *  Nothing  
+
+
+meecast (0.9.17)
+
+  * Optimised png images by OptiPNG and advpng. Thanks Alexander Self-Perfection  
+  * Updated Catalan, Chinese, Czech, Dutch, Finnish, French,
+    Germany, Norwegian, Slovenian, Spanish, Swedish,
+    Italian, Danish translations
+
+
+meecast (0.9.16)
+
+  * Added string for translation from gismeteo.ru source
+
+
+meecast (0.9.15)
+
+  * Added string for translation from openweathermap.org source 
+  * Fixed small problem in predaemon
+
+
+
+meecast (0.9.14)
+
+  * Added string for translation from openweathermap.org source 
+
+
+meecast (0.9.13)
+
+  * Added Durovka to gismeteo.ru and foreca.com sources 
+  * Added India to Openweathermap.org
+  * Fixed problem with Beaufort Wind unit
+  * Updated Catalan, Dutch, Finnish, Germany, Slovenian, Spanish, Italian,
+    Czech, Swedish, Russian, Danish translations
+
+
+meecast (0.9.12)
+
+  * Added Palanga(Lithuania) to weather.com, yr.no, openweathermap.org sources
+  * Removed donation link
+  * Added wake up internet connection for refresh weather forecast
+  * Added station Poselok rudnika Kupol to gismeteo.ru source
+  * Fixed problem with Denmark, Germany stations in openweathermap.org source
+  * Fixed incorrect name of pressure from "Pa" to "kPa"
+  * Updated Catalan, Dutch, Finnish, Germany, Norway, Slovenian, Spanish,
+    Italian, Czech, Danish translations
+
+
+meecast (0.9.10)
+
+  * Updated Slovenian, Italian, Swedish translations
+  * Changed unit mi/h to mph
+
+
+meecast (0.9.9)
+
+  * Fixed problem with USA like style time for last update, sunrise, sunset
+    and hourly information 
+  * Added stations Lignano Pineta, Lignano Riviera, Lignano Sabbiadoro (Italy) to
+    weather.com, foreca.com source  
+  * Added stations Lignano Sabbiadoro (Italy) to gismeteo.ru source  
+  * Added all stations from Regione Autonoma Friuli Venezia Giulia to
+    openwearthermap.org source
+  * Added station Cesena, ER, Italy to weather.com, openweathermap.com source  
+  * Added many stations from Italy to yr.no source
+  * Updated Finnish, Germany translations
+
+
+meecast (0.9.8)
+
+  * Added Sunrise and sunset for fmi.fi source
+  * Added Precipitation
+  * Added Precipitation rate
+  * Added Dewpoint
+  * Added dewpoint for weather.com source
+  * Updated Catalan, Spanish, Russian, Dannish translations
+
+
+meecast (0.9.7)
+
+  * Fixed sunrise and sunset time for weather.com source again :)
+  * Updated Itailian, Hungarian, Turkish translations
+
+
+meecast (0.9.6)
+
+  * Fixed donation link 
+  * Added translation string for gismeteo.ru
+  * Fixed sunrise and sunset time for weather.com source
+  * Added fmi.fi source
+  * Updated Catalan, Germany, Slovenian, Spanish,
+    Russian, Hungarian, Danish, Italian, Finnish translations
+  * Fixed problem with null wind direction on main form
+  * Added the new source fmi.fi
+
+
+meecast (0.9.5)
+
+  * Added translation string for gismeteo.ru
+  * Fixed problem with null data for day forecast in weather.com source  
+  * Updated Catalan, Finnish, Norwegian, Slovenian, Danish,
+    Spanish, Italian, Russian, Hungarian, French translations
+  * Fixed problem with data (humidity, feels like...) in current weather in foreca.com source 
+  * Added stations to Finland in yr.no source
+  * Added hourly weather forecast for yr.no source
+
+
+meecast (0.9.4)
+
+  * Fixed problem with current night forecsat
+  * Fixed memory leaks
+
+
+meecast (0.9.3)
+
+  * Added United Kingdom to foreca.com source
+  * Added Germany's stations to openweathermap.org source
+  * Fixed "N/A" wind direction
+  * Fixed problem with today data for weather.com source
+  * Fixed problem with n/a icon for Atmos iconset
+  * Added Danish translation
+  * Updated Catalan, Chinese (Taiwan), Czech, Finnish, 
+    German, Italian, Norwegian, Serbian, Slovenian,
+    Spanish, Russian, Hungarian, French translations
+
+
+meecast (0.9)
+
+  * Fixed problem with Units page 
+  * Added stations to Finland in source yr.no
+  * Fixed problem with converting map URLs
+  * Added icon for openstreetmap.org
+
+
+meecast (0.8.18)
+
+  * Fixed problem with current weather in foreca.com source 
+  * Updated Catalan, Serbian, Slovenian, Spanish, Russian translations
+
+
+meecast (0.8.17)
+
+  * Fixed problem with current weather in foreca.com source 
+  * Updated Catalan, Czech, Finnish, Slovenian, Spanish,
+    German, Italian, Arabic translations
+
+
+
+meecast (0.8.16)
+
+  * Updated German and Russian translations 
+  * Updated Denmark for openstreetmap.org 
+  * Fixed problem with crashing application with foreca.com data
+  * Updated Catalan, Czech, Finnish, Norwegian, Serbian, Slovenian, Spanish,
+    Turkish, German translations
+
+
+meecast (0.8.15)
+
+  * Nothing 
+
+
+meecast (0.8.14)
+
+  * Nothing 
+
+
+meecast (0.8.13)
+
+  * Nothing 
+
+
+meecast (0.8.12)
+
+  * Nothing 
+
+
+meecast (0.8.11)
+
+  * Nothing 
+
+
+meecast (0.8.10)
+
+  * Nothing 
+
+
+meecast (0.8.9)
+
+  * Updated Finnish, Norwegian, Arabic, Serbian, Turkish, Dutch, Hungarian translations
+  * Added Slovenian and Czech translations
+  * Fixed memory leaks
+  * Fixed problem with yr.no database for Belarus
+  * Added icon and descripion string for openweathermap.org source
+
+
+meecast (0.8.2)
+
+  * Added icon for openweathermap.com 
+  * Fixed problem with temporary moved http pages in gismeteo.ru source
+  * Updated Italian, Ukraine, Russian, Catalan, Finish, Spanish translations
+
+
+meecast (0.8.1)
+
+  * Updated Norwegian, Turkish, Italian, Ukraine, Russian translations
+  * Fixed problem with negative temperature in foreca.com source
+  * Fixed problem with page About
+  * Changed station source for Melbourne in source bom.gov.au 
+
+
+meecast (0.8)
+
+  * Added Perth to bom.gov.au source
+  * Fixed problem with long name of station in LockWallpaper widget 
+  * Added icons for openweathermap.com source
+  * Added new measure units for wind speed - Knots and Beaufort scale
+  * Updated Arabic, Serbian, Ukrain, Norwegian, Catalan, Finish, Spanish languages
+
+
+meecast (0.7.9)
+
+  * Added icon for openweathermap.com 
+  * Fixed problem with foreca.com
+  * Fixed problem with source weather.com
+  * Updated Russian, Dutch translations
+  * Added Ukraine translation
+
+
+meecast (0.7.6)
+
+  * Added icon for openweathermap.com and gismeteo.ru
+  * Added hourly forecast for openweathermap.org source 
+  * Fixed problem with hourly forecast
+  * Moved to new data structure in foreca.mobi converter
+  * Added South Korea to foreca.com database
+  * Added many stations to gismeteo.ru 
+  * Updated Arabic, Catalan, Chinese(Taiwan), Chinese, Dutch, Finnish, Norwegian, Serbian, Spanish, Finish, French, Swedish, German, Portuguese
+
+
+meecast (0.7.5)
+
+  * Added icon for openweathermap.com
+  * Fixed problem with current weather in foreca.com source
+  * Updated Russian translations
+  * Added Chinese(Taiwan), Chinese (Hong Kong) translations
+  * Fixed problem with Chinese translation
+  * Added translators of Spanish and Chines (Taiwan) 
+
+
+
+meecast (0.7.4)
+
+  * Added description strings and icon to gismeteo.ru 
+  * Added icon for foreca.com
+  * Fixed problem with updating
+  * Added icon for openweathermap.org 
+  * Added station Halikko, Finland to weather.com
+  * Updated Catalan, Finish, Italian, Serbian, Norwegain, Chinese (Hong Kong) translations
+  * Updated USA stations in foreca.com 
+
+
+meecast (0.7.3)
+
+  * Added new source Openwethermap.org
+  * Added description string for weather.com
+  * Fixed problem with Catalan language
+  * Added Llagostera, Spain to weather.com source
+  * Updated Arabic, Catalan, Finish, Italian, Serbian, Russian translations
+  * Added station Vittskovle (Sweden) to weather.com
+  * Fixed problem with Map  
+  * Fixed problem with Foreca.com source
+
+
+meecast (0.7.2)
+
+  * Added description strings and icon to gismeteo.ru 
+  * Added icon for hko.gov.hk
+  * Fixed problem with locale for date if language is System
+  * Added station Busteni, Eforie, Mangalia (Romania) to gismeteo.ru
+  * Updated Albanian, Catalan, Finish, Italian, Norwegian, Portuguese, Serbian translations
+  * Fixed problem with Serbian translation
+
+
+meecast (0.7.1)
+
+  * Added option Language to Settings menu
+  * Updated Italian translation. Thanks Lorenzo Facca
+  * Updated Serbian translation. Thanks Aleksandar Zaric aka Saleki 
+  * Added Hungarian translation. Thanks Salmi
+  * Updated Arabic, Catalan, Dutch, Finish, Norway, Portuguese translations
+  * Added description string to gismeteo.ru 
+  * Added city 'Hangu' - Pakistan to weather.com
+  * Updated Pakistan in yr.no and foreca.com databases
+  * Added Serbia to foreca.com database
+  * Added Serbia to yr.no database
+  * Added Kula(Serbia) to gismeteo.ru database
+
+
+meecast (0.7)
+
+  * Disabled debug for gismeteo.ru and foreca.com sources
+  * Fixed problem with big size of icon in lockscreen applet
+  * Fixed problem with Settings pages - Lockscreen and StandbyScreen
+  * Added icons for gismeteo.ru 
+  * Updated Catalan, Finish, Norway, Arabic, Russian translations
+
+
+meecast (0.6.10)
+
+  * Added icons for hko.gov.hk
+  * Added icons for foreca.com
+  * Updated Chinese, Bulgarian, Catalan, Turkish, Germany, Dutch, Slovak translations
+  * Added new iconset Atmos. Thanks Andrew Zhilin
+  * Fixed problem with feels like in source gismeteo.ru
+  * Fixed problem with timezone in source gismeto.ru
+  * Fixed problem with updating weather forecast data for new station 
+  * Added description string to gismeteo.ru 
+  * Fixed problem with first updating weather forecast in source yr.no
+  * Changed icon 'fog' for LockScreen. Thanks Red Verge
+  * Fixed menu bar position and behaviour. Thanks Nakram.
+
+
+meecast (0.6.9)
+
+  * Fixed icon ICY in Epona set 
+  * Fixed problem with current weather in gismeteo.ru source
+  * Added icon and description string to gismeteo.ru 
+  * Fixed problem with weather forecast in gismeteo.ru for Australia
+  * Changed splash. Thanks Andrew Zhilin (wazd)
+  * Added icon for hko.gov.hk
+  * Added icons for foreca.com
+  * Added UV-index to hko.gov.hk source
+  * Fixed problem with N/A UV-index
+  * Disabled label "Show on map" if case map isn't available
+  * Added new iconset Noun  - The Noun Project icons are designed by Adam
+    Whitcroft from The Noun Project. http://thenounproject.com"
+  * Moved station Townsville from Victoria to QLD and station Canberra 
+    from NSW  to ACT in bom.gov.au source
+  * Added checking internet connection before updating in Widget mode
+  * Fixed problem with switch off Updating parameter 
+  * Updated Russian, Finish, Norwegian, Albanian, Catalan, Portuguese translations
+
+
+meecast (0.6.8)
+
+  * Added icon and description string to gismeteo.ru 
+  * Added data UV-index and Visible for weather.com source
+  * Added visible units
+  * Decreased cycle count to 1 for Map
+  * Added Arabic translation. Thanks Tarad Alfandi aka ttt0600
+  * Adeed Norwegian translation. Thanks Peer-Atle Motland aka Pam
+  * Updated Albanian, Catalan, Swedish, Portuguese translations
+
+
+meecast (0.6.7)
+
+  * Added icon to hko.gov.hk
+  * Fixed segmentation fault after adding GPS-station in nil station list
+  * Added Malaysia to foreca.com database
+  * Added icon and description string to foreca
+  * Changed color for raindrops in standby screen icons from blue to cyan
+  * Added parameters for LockScreeni Widget
+  * Updated Russian translation
+
+
+meecast (0.6.6)
+
+  * Fixed problem Shiny and SimpelMee iconsets 
+  * Fixed problem with ContextKit (description and station text) for BillBoard
+    application
+
+
+meecast (0.6.5)
+
+  * Fixed problem with nil description 
+  * Returned station Brisbane (Qld) in the bom.gov.au source
+  * Updated icon pack "SimpelMee". Thanks Kim Venetvirta
+  * Moved station Broome to region Western Australia in bom.gov.au
+  * Removed first Sydney from bom.gov.au
+  * Fixed problem with coordinaties of Italy stations in source weather.com 
+  * Updated Albanian, Catalan, Vietnamese, Chinese, Dutch translations
+  * Disabled debug information for applet
+  * Added station Kouvola(Finland) to source weather.com
+  * Added Swiss to foreca.com database
+
+
+meecast (0.6.4)
+
+  * Fixed segmentation fault  
+  * Fixed problem with detail URL and map URL
+
+
+meecast (0.6.3)
+
+  * Fixed bug that crashed Meecast with nil config on launch  
+
+
+meecast (0.6.2)
+
+  * Updated Finish, Dutch, Portuguese, Turkish, Vietnamese translations
+  * Added icons for hko.gov.hk
+  * Added dbus method GetCurrentWeather to applet. For Lockscreen application
+  * Removed Adelaide, Brisbane, Cairns, Canberra, Darwin, Hobart, Newcastle,
+    Perth and Sydney from the Victoria entry in the bom.gov.au source.
+  * Added Map of Weather for weather.com source
+  * Added Catalan translation. Thanks Agustí Clara
+
+
+meecast (0.6.1)
+
+  * Added icons for hko.gov.hk
+  * Fixed problem with "Daily" and "15 minutes" updatings
+  * Fixed problem with splash's setting
+  * Added Contextkit for Billboard compatibility 
+  * Added item "12 hours" to Update period list
+  * Added new icon pack "SimpelMee". Thanks Kim Venetvirta for this work 
+  * Added setting for color of font in temperature on standby screen 
+  * Added Portuguese translation. Thanks Jose Narciso
+  * Added Turkish translation. Thanks Burak Kaan Kose
+  * Added Vietnamese translation. Thanks Hieu Nguyen, Anh Dương and truongnx
+  * Updated Bulgarian, Dutch, Finish, Polish translations
+
+
+meecast (0.6)
+
+  * Fixed problem with GPS 
+  * Fixed problem with green color for font in standby settings
+  * Added items "15 minutues" and "One day" to Update period list
+  * Added setting for Splash screen
+  * Fixed problem with temperature in current day
+  * Fixed problem with showing weather forecast for current day and next day
+
+
+meecast (0.5.9)
+
+  * Added icons for hko.gov.hk
+  * Fixed problem with day forecast in first start for hko.gov.hk
+  * Fixed problem with switching to next day if today was selected first 
+  * Increased speed for switching between stations
+  * Added Chinese translation. Thanks Wong Man Kong, Michael  
+  * Added splash for starting of application 
+  * Painted icons for standby widget
+  * Added icon and text description for foreca.com
+  * Added button Donation to window "About"
+  * Added short name for station Saint-Petersburg
+  * Added setting for color of font in station name on standby screen 
+
+
+meecast (0.5.8)
+
+  * Added United States(Kentucky, Lousiana,Maine,Maryland,Massachusetts,
+    Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire,
+    New Jersey, New Mexico,New York, North Carolina, North Dakota) to foreca.com database 	
+  * Added Slovenia to foreca.com database
+  * Added icons for hko.gov.hk
+  * Fixed problem with hko.gov.hk
+  * Updated Chile for yr.no and foreca.com sources
+  * Added icons for foreca.com 
+  * Updated Russian translation
+  * Removed region Australia in bom.gov.au source
+  * Fixed problem with Finish localization for date 
+  * Added current weather in second window
+ 
+
+meecast (0.5.7)
+
+  * Added hours weather forecast for foreca.com source  
+  * Fixed problem with temperature and icons in hours weather forecast in gismeteo.ru source
+  * Fixed problem with showing hours instead of day week name in main window
+  * Fixed problem with current temperature
+  * Added new source of weather forecast hko.gov.hk
+  * Added animation for string with weather forecast description
+  * Added United States(Alabama, Alaska,Arizona, Arkansas, Colorado, Connecticut, Delaware,Florida,Georgia,
+    Hawaii,Idaho,Illinois,Indiana,Iowa,Kansas) to foreca.com database
+  * Changed the name of city's-Hertogenbosch on Den Bosch (Netherlands) in foreca.com
+  * Added Europe (Portugal, Spain) to foreca.com database
+  * Added Hong Kong to yr.no
+  * Added descriptions of icons for foreca.com data
+  * Added more stations to bom.gov.au source
+  * Added Albanian translation. Thanks  Ilir Gjika aka illo1977
+  * Updated Bulgarian translation. Thanks Zlatko Enikov
+  * Updated Dutch translation. Thanks Michiel Pater aka curryfun
+  * Updated Polish translation. Thanks kubixmedrek
+  * Updated Italy translation. Thanks Ilir Gjika aka illo1977
+  * Updated Swedish translation. Thanks Niklas Åkerström aka Nille
+
+
+meecast (0.5.6)
+
+  * Added Belgium, Albabnia, Andorra, Czech Republic, Hungary, Iceland, Italy,United States to foreca.com database
+  * Changed the name of the location Vught on 's-Hertogenbosch
+  * Fixed problem with current weather for weather.com source
+  * Fixed problem with current weather for foreca.com source
+  * Fixed problem with weather forecast for current day for weather.com source
+  * Fixed problem with hour flike temperature for gismeteo.ru
+  * Improvement in widget for standby screen
+  * Added Dutch translation. Thanks Tom Leenders
+  * Added Bulgarian translation. Thanks Zlatko Enikov	 
+  * Updated Russian and Finish translations
+
+
+meecast (0.5.5)
+
+  * Added stations to foreca.com database (Austria)
+  * Fixed problem with negative temperature in gismeteo.ru
+  * Added icon for gismeteo.ru data
+  * Fixed problem with Ppcp
+  * Began adding the new source bom.fov.au
+
+
+meecast (0.5.4)
+
+  * Added stations to foreca.com database (Poland, Ukraine, Moldova, Latvia,
+    Lithuania, Estonia, Romania, Norway, Denmark, Netherlands, Greece)
+  * Added stations in yr.no database (Argentina)
+  * Added Villa Angela to weather.com database 
+  * Fixed problem with wind direction in source gismeteo.ru
+  * Added icons and descriptions for foreca.com data
+  * Updated Russian and Spain translations
+
+
+meecast (0.5.3)
+
+  * Fixed problem with gismeteo.ru
+  * Fixed problem with Current weather for weather.com
+  * Added stations to foreca.com database (Bulgaria)
+  * Updated Germany translation
+
+
+meecast (0.5.2)
+
+  * Added station Juankoski to yr.no database
+  * Fixed problem with long station name in events widget
+  * Updated Russian translation
+  * Added new source foreca.com
+
+
+meecast (0.5.1)
+
+  * Fixed problem with negative temperatures in source gismeteo.ru 
+  * Fixed problem with long station name in events, lockscreen and standby widget 
+
+
+meecast (0.5)
+
+  * Changed font to Nokia Pure for Lock Screen and StandbyScreen 
+  * Fixed problem with disabling Meecast widget in StandbyScreen
+  * Updated Russian translation
+
+
+meecast (0.4.9)
+
+  * Fixed problem with lockscreen widget and wallpaper images with various dpi 
+  * Fixed problem with temperature in Farenheit unit and autoupdating
+  * Updated Germany, Polish, Swedish translations
+  * Added hours forecast for source gismeteo.ru
+  * Rewrote events widget
+  * Added StandbyScreen widget
+
+
+meecast (0.4.8)
+
+  * Added stations in yr.no database (Mexico, Netherland, Bulgaria)
+  * Added stations in gismeteo.ru database (Bulgaria)
+  * Added LockScreen widget
+  * Decreased size of image files. Thanks Wolfgang Fürst
+  * Updated Russian, Finland translations
+  * Small improvement in hours view 
+
+
+meecast (0.4.7)
+
+  * Fixed problem with new stations in sources yr.no and gismeteo.ru 
+
+
+meecast (0.4.6)
+
+  * Added autoupdating function
+  * Updated Swedish, Finish and Russian translations
+  * Added trimming of whitespace in Search Field 
+  * Search Field has been made case-insensitive 
+  * Added hours forecast for source weather.com
+
+
+meecast (0.4.5)
+
+  * Changed date format in main window
+  * Added pressure units settings 
+  * Added Swedish translation. Thanks Angela Nennebrandt and Tomislav
+    Veleckovik 
+  * Fixed Bug #12480 - Title in info screen should be translatable 
+  * Changed algorithm for day/night time
+  * Updated Polish, Spain and Germany translations
+
+
+meecast (0.4.4)
+
+  * Added possibility to install events applet using MeeCast
+  * Fixed problem with autoupdating in events applet
+  * Fixed segmentation fault with nill GPS station 
+  * Fixed wrong wind speed values in yr.no and gismeteo.ru
+  * Small improvements in external view
+  * Added stations in yr.no database (China)
+  * Updated Russian and Finish translations 
+
+
+meecast (0.4.3)
+
+  * Added current weather for gismeteo.ru source 
+  * Added sunrise and sunset for current day in gismereo.ru source
+  * Added feels like for gismeteo.ru
+  * Fixed bug with automatic update of the GPS location 
+  * Fixed displaying of station name for non-Latin symbol in event applet 
+  * Limited time for autoupdating (about 1 hour)
+
+
+meecast (0.4.2)
+
+  * Fixed problem with first day of month for weather.com
+  * Updated Germany, French, Russian and Finish translations 
+  * Added stations in yr.no database (Poland, Australia)
+  * Enabled russian names for stations of source gismeteo.ru in locale RU
+  * Fixed bug #12482  Missing translation for 'Exit' menu item (Fremantle)
+  * Added search for location by GPS 
+  * Fixed bug #12479 - Missing translation "Enter search"
+  * Fixed bug #12481 - Confirmation dialog when deleting a station (added
+    confirmation dialog)
+
+
+meecast (0.4.1)
+
+  * Removed old code for Omweather(Fremantle) from postrm script
+  * Added details info for today weather (day and night)
+  * Fixed bug with wind speed units settings
+  * Added Russian, Finish, Spain, Polish and Germany description to package
+  * Updated Germany translation 
+  * Added stations in yr.no database (United Kingdom, Austria, Switzerland,
+    Russia)
+  * Added symbol '%' to string Ppcp
+  * Fixed term Fahrenheit 
+
+
+meecast (0.3.34)
+
+  * Improved in event widget
+  * Added stations in yr.no database (Belarus, Finland, Sweden, Germany, Greece,
+    Macedonia, France)
+  * Fixed problem with Macedonia in yr.no database
+
+
+meecast (0.3.33)
+
+  * removed qt-components-base-icons from dependences for fremantle version
+
+
+meecast (0.3.32)
+
+  * Changed wind icon to show actual wind direction
+  * Fixed problem for Fremantle with old version of QtComponents
+
+
+meecast (0.3.31)
+
+  * Updated Finish and Russian translations 
+  * Added new iconsets 
+  * Changed search system for countries, regions, cities lists
+  * Redesigned settings windows 
+  * Added new config option - fullscreen mode (saved in config file)
+  * Added License to About window
+  * Updated yr.no database (fixed problem with NonLatin letters)
+
+
+meecast (0.3.30)
+
+  * Added possibility to Active / Disable  Statusbar using settings
+  * Updated Spanish translation
+  * Added applet for Harmattan
+  * Added possibilty to show weather forecast in web browser after
+    tapping on picture of source weather forecast
+  * Redesigned setting windows
+
+
+meecast (0.3.29)
+
+  * fixed problem with refresh button for Fremantle
+  * fixed problem with wind_speed for value "N/A"
+  * added translators to window About
+
+
+meecast (0.3.28)
+
+  * Updated Finish translation 
+  * Adapted for new QTComponents
+  * Fixed problem with periodically crashing 
+
+
+meecast (0.3.27)
+
+  * Adapted for Fremantle (N900)
+  * Fixed wind speed units translation 
+  * Fixed bug with night description
+  * Changed copyright symbol in About window
+  * Fixed Russian translation
+  * changed icon for deb package
+
+
+meecast (0.3.26)
+
+  * Updated Finish and Russian translation 
+  * Improved in settings (added SectionScroller)
+
+
+meecast (0.3.25)
+
+  * Updated translation 
+
+
+meecast (0.3.24)
+
+  * began support MeeGo 1.2.0.90 on Tablet UX
+  * began support Harmattan 
+
+

@@ -504,23 +504,29 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
             xpathObjTemp->nodesetval->nodeTab[i] && xpathObjTemp->nodesetval->nodeTab[i]->children){
             for (xmlNodePtr iter_node = xpathObjTemp->nodesetval->nodeTab[i]->children; iter_node; iter_node = iter_node->next){
                if (iter_node->type == XML_ELEMENT_NODE){
-                    if (strncmp((char *)xmlGetProp(iter_node, (xmlChar*) "class"), "maxt",  strlen((char *)xmlGetProp(iter_node, (xmlChar*) "class"))) == 0){
+                    xmlChar *temp_xml = (xmlChar *)xmlGetProp(iter_node, (xmlChar*) "class");
+                    if (strncmp((char *)temp_xml, "maxt",  strlen((char *)temp_xml)) == 0){
                         if (strncmp( (char*)iter_node->children->name,"temperature-value", strlen((char *)iter_node->children->name)) == 0){
-                           if ( xmlGetProp(iter_node->children, (xmlChar*) "value")){
-                               snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(iter_node->children, (xmlChar*) "value"));
+                           xmlChar *temp_xml1 = xmlGetProp(iter_node->children, (xmlChar*) "value");
+                           if (temp_xml1){
+                               snprintf(buffer, sizeof(buffer)-1,"%s", temp_xml1);
                                fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", buffer); 
                            }
+                           xmlFree(temp_xml1);
                         }
                     }
-                    if (strncmp((char *)xmlGetProp(iter_node, (xmlChar*) "class"), "mint",  strlen((char *)xmlGetProp(iter_node, (xmlChar*) "class"))) == 0){
+                    if (strncmp((char *)temp_xml, "mint",  strlen((char *)temp_xml)) == 0){
                         if (strncmp( (char*)iter_node->children->name,"temperature-value", strlen((char *)iter_node->children->name)) == 0){
-                           if ( xmlGetProp(iter_node->children, (xmlChar*) "value")){
+                           xmlChar *temp_xml1 = xmlGetProp(iter_node->children, (xmlChar*) "value");
+                           if (temp_xml1){
                                flag_mint = true;
-                               snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(iter_node->children, (xmlChar*) "value"));
+                               snprintf(buffer, sizeof(buffer)-1,"%s", temp_xml1);
                                fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", buffer);
                            }
+                           xmlFree(temp_xml1);
                         }
                     }
+                    xmlFree(temp_xml);
                 }
             }
         }
@@ -537,15 +543,16 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
                     for (xmlNodePtr iter_node2 = iter_node->children; iter_node2; iter_node2 = iter_node2->next){
                         if (strncmp((char *)iter_node2->name, "use",  strlen((char *)iter_node2->name)) == 0){
                            //printf("node2 type: Element, name: %s\n", iter_node2->name);
-                           char const *namehref = (char *)xmlGetProp(iter_node2, (xmlChar*) "href");
+                           xmlChar *namehref = (xmlChar *)xmlGetProp(iter_node2, (xmlChar*) "href");
                            //printf("href name: %s\n", namehref);
                            if (strlen(temp_buffer) == 0) {
-                               strcat(temp_buffer, namehref + 1);
+                               strcat(temp_buffer, (char *)namehref + 1);
                            }else{
                                char additional[] = "_";
                                strcat(temp_buffer, additional);
-                               strcat(temp_buffer, namehref + 1);
+                               strcat(temp_buffer, (char *)namehref + 1);
                            }
+                           xmlFree(namehref);
                         }
                     }
                 }
@@ -565,23 +572,30 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
 
         /* added text */
         if (xpathObjDescription && !xmlXPathNodeSetIsEmpty(xpathObjDescription->nodesetval) &&
-            xpathObjDescription->nodesetval->nodeTab[i] && xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip")){
-            if (xmlHashLookup(hash_for_descriptions, (const xmlChar*)xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip"))){
-               fprintf(file_out,"     <description>%s</description>\n", (char*)xmlHashLookup(hash_for_descriptions, (const xmlChar*)xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip")));
+            xpathObjDescription->nodesetval->nodeTab[i]){
+            xmlChar *temp_xml_string = NULL;
+            temp_xml_string = (xmlChar*)xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip");
+            if (xmlHashLookup(hash_for_descriptions, (const xmlChar*)temp_xml_string)){
+
+               fprintf(file_out,"     <description>%s</description>\n", (char*)xmlHashLookup(hash_for_descriptions, (const xmlChar*)temp_xml_string));
             }else{
-                fprintf (stderr, "description %s not found\n", (char *)xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip"));
-                fprintf(file_out,"     <description>%s</description>\n", (const xmlChar*)xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip"));
+                fprintf (stderr, "description %s not found\n", (char *)temp_xml_string);
+                fprintf(file_out,"     <description>%s</description>\n", (const xmlChar*)temp_xml_string);
             }
+            xmlFree(temp_xml_string);
         }
 
         /* added pressure */
         memset(buffer, 0, sizeof(buffer));
         if (xpathObjMaxPressure && !xmlXPathNodeSetIsEmpty(xpathObjMaxPressure->nodesetval) &&
             xpathObjMaxPressure->nodesetval->nodeTab[i]){
-            snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(xpathObjMaxPressure->nodesetval->nodeTab[i], (xmlChar*) "value"));
+            xmlChar *temp_xml_string = NULL;
+            temp_xml_string = (xmlChar*)xmlGetProp(xpathObjMaxPressure->nodesetval->nodeTab[i], (xmlChar*) "value");
+            snprintf(buffer, sizeof(buffer)-1,"%s", temp_xml_string);
             ///fprintf (stderr, "pressure %s %0.f\n",  xmlGetProp(xpathObjMaxPressure->nodesetval->nodeTab[i], (xmlChar*) "value"), atoi(buffer) * 1.33 );
             fprintf(file_out,"     <pressure>%0.f</pressure>\n", (atoi(buffer)*1.333224)); 
             //fprintf(file_out,"     <pressure>%i</pressure>\n", atoi(buffer) * 1.333224); 
+            xmlFree(temp_xml_string);
         }
     /*
     if (xpathObjMaxPressure && !xmlXPathNodeSetIsEmpty(xpathObjMaxPressure->nodesetval) &&
@@ -596,11 +610,14 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
         memset(buffer, 0, sizeof(buffer));
         if (xpathObjWindSpeed && !xmlXPathNodeSetIsEmpty(xpathObjWindSpeed->nodesetval) &&
             xpathObjWindSpeed->nodesetval->nodeTab[i]){
+           xmlChar *temp_xml_string = NULL;
+           temp_xml_string = (xmlChar*)xmlGetProp(xpathObjWindSpeed->nodesetval->nodeTab[i], (xmlChar*) "value");
            /* Normalize speed to km/h from m/s */
            /* fprintf(stderr, "Wind  speed    \n"); */ 
-           snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(xpathObjWindSpeed->nodesetval->nodeTab[i], (xmlChar*) "value"));
+           snprintf(buffer, sizeof(buffer)-1,"%s", temp_xml_string);
            speed = atoi ((char *)buffer);
            fprintf(file_out,"     <wind_speed>%1.f</wind_speed>\n",  (double)(speed));
+           xmlFree(temp_xml_string);
         }
         /* added wind gust */
         memset(buffer, 0, sizeof(buffer));
@@ -608,9 +625,12 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
             xpathObjWindGust->nodesetval->nodeTab[i]){
            /* Normalize speed to km/h from m/s */
            /* fprintf(stderr, "Wind  speed    \n"); */ 
-           snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(xpathObjWindGust->nodesetval->nodeTab[i], (xmlChar*) "value"));
+           xmlChar *temp_xml_string = NULL;
+           temp_xml_string = (xmlChar*)xmlGetProp(xpathObjWindGust->nodesetval->nodeTab[i], (xmlChar*) "value");
+           snprintf(buffer, sizeof(buffer)-1,"%s", temp_xml_string);
            speed = atoi ((char *)buffer);
            fprintf(file_out,"     <wind_gust>%1.f</wind_gust>\n",  (double)(speed));
+           xmlFree(temp_xml_string);
         }
 
         /* added wind direction */
@@ -658,6 +678,8 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
     /* Cleanup */
     if (xpathObj_day)
       xmlXPathFreeObject(xpathObj_day);
+    if (xpathObj)
+      xmlXPathFreeObject(xpathObj);
     if (xpathObj_date)
       xmlXPathFreeObject(xpathObj_date);
     if (xpathObjTemp)
@@ -672,6 +694,8 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
       xmlXPathFreeObject(xpathObjWindSpeed);
     if (xpathObjWindDirection)
       xmlXPathFreeObject(xpathObjWindDirection);
+    if (xpathObjWindGust)
+      xmlXPathFreeObject(xpathObjWindGust);
     if (xpathObjHumidity)
       xmlXPathFreeObject(xpathObjHumidity);
     if (xpathObjUv)
@@ -781,9 +805,16 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
     size = (nodes) ? nodes->nodeNr : 0;
     fprintf(stderr, "size %i\n", size);
     for(i = 0; i < size; ++i) {
-        if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xmlGetProp(xpathObj->nodesetval->nodeTab[i], (xmlChar*) "title")){
+        if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval)){
             //fprintf(stderr, "sss %s\n", (char *)xmlGetProp(xpathObj->nodesetval->nodeTab[i], (xmlChar*) "title"));
-            std::string buffer_0((char *)xmlGetProp(xpathObj->nodesetval->nodeTab[i], (xmlChar*) "title"));
+            xmlChar *temp_xml_string = NULL;
+            temp_xml_string = xmlGetProp(xpathObj->nodesetval->nodeTab[i], (xmlChar*) "title");
+            if (!temp_xml_string){
+                continue;
+            }
+            std::string buffer_0((char *)temp_xml_string);
+            xmlFree(temp_xml_string);
+
             //fprintf(stderr, "buffer %s\n", buffer_0.c_str());
             size_t index_0 = buffer_0.find(", ", 0);
             if (index_0  != std::string::npos){
@@ -806,15 +837,16 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
                             for (xmlNodePtr iter_node2 = iter_node->children; iter_node2; iter_node2 = iter_node2->next){
                                 if (strncmp((char *)iter_node2->name, "use",  strlen((char *)iter_node2->name)) == 0){
                                    //printf("node2 type: Element, name: %s\n", iter_node2->name);
-                                   char const *namehref = (char *)xmlGetProp(iter_node2, (xmlChar*) "href");
+                                   xmlChar *namehref = (xmlChar *)xmlGetProp(iter_node2, (xmlChar*) "href");
                                    //printf("href name: %s\n", namehref);
                                    if (strlen(temp_buffer) == 0) {
-                                       strcat(temp_buffer, namehref + 1);
+                                       strcat(temp_buffer, (char *)namehref + 1);
                                    }else{
                                        char additional[] = "_";
                                        strcat(temp_buffer, additional);
-                                       strcat(temp_buffer, namehref + 1);
+                                       strcat(temp_buffer, (char *)namehref + 1);
                                    }
+                                   xmlFree(namehref);
                                 }
                             }
                         }
@@ -835,22 +867,29 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
 
         /* added text */
         if (xpathObjDescription && !xmlXPathNodeSetIsEmpty(xpathObjDescription->nodesetval) &&
-            xpathObjDescription->nodesetval->nodeTab[i] && xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip")){
-            if (xmlHashLookup(hash_for_descriptions, (const xmlChar*)xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip"))){
-               fprintf(file_out,"     <description>%s</description>\n", (char*)xmlHashLookup(hash_for_descriptions, (const xmlChar*)xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip")));
-            }else{
-                fprintf (stderr, "description %s not found\n", (char *)xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip"));
-                fprintf(file_out,"     <description>%s</description>\n", (const xmlChar*)xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip"));
+            xpathObjDescription->nodesetval->nodeTab[i]){
+            xmlChar *temp_xml_string = NULL;
+            temp_xml_string = xmlGetProp(xpathObjDescription->nodesetval->nodeTab[i], (xmlChar*) "data-tooltip");
+            if (temp_xml_string){
+                if (xmlHashLookup(hash_for_descriptions, (const xmlChar*)temp_xml_string)){
+                   fprintf(file_out,"     <description>%s</description>\n", (char*)xmlHashLookup(hash_for_descriptions, (const xmlChar*)temp_xml_string));
+                }else{
+                    fprintf (stderr, "description %s not found\n", (char *)temp_xml_string);
+                    fprintf(file_out,"     <description>%s</description>\n", (const xmlChar*)temp_xml_string);
+                }
+                xmlFree(temp_xml_string);
             }
         }
         /* added pressure */
         memset(buffer, 0, sizeof(buffer));
         if (xpathObjMaxPressure && !xmlXPathNodeSetIsEmpty(xpathObjMaxPressure->nodesetval) &&
             xpathObjMaxPressure->nodesetval->nodeTab[i]){
-            snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(xpathObjMaxPressure->nodesetval->nodeTab[i], (xmlChar*) "value"));
+            xmlChar* temp_xml_string = xmlGetProp(xpathObjMaxPressure->nodesetval->nodeTab[i], (xmlChar*) "value");
+            snprintf(buffer, sizeof(buffer)-1,"%s", (char *)temp_xml_string);
             ///fprintf (stderr, "pressure %s %0.f\n",  xmlGetProp(xpathObjMaxPressure->nodesetval->nodeTab[i], (xmlChar*) "value"), atoi(buffer) * 1.33 );
             fprintf(file_out,"     <pressure>%0.f</pressure>\n", (atoi(buffer)*1.333224)); 
             //fprintf(file_out,"     <pressure>%i</pressure>\n", atoi(buffer) * 1.333224); 
+            xmlFree(temp_xml_string);
         }
 
         /* added temperature */
@@ -859,10 +898,12 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
             iter_node = xpathObjTemp->nodesetval->nodeTab[i];
 
             if (strncmp( (char*)iter_node->children->name,"temperature-value", strlen((char *)iter_node->children->name)) == 0){
-               if ( xmlGetProp(iter_node->children, (xmlChar*) "value")){
-                   snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(iter_node->children, (xmlChar*) "value"));
+               xmlChar* temp_xml_string = xmlGetProp(iter_node->children, (xmlChar*) "value");
+               if (temp_xml_string){
+                   snprintf(buffer, sizeof(buffer)-1,"%s", temp_xml_string);
                    fprintf(file_out,"     <temperature>%s</temperature>\n", buffer); 
                }
+               xmlFree(temp_xml_string);
             }
         }
 
@@ -872,10 +913,12 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
             iter_node = xpathObjFlike->nodesetval->nodeTab[i];
 
             if (strncmp( (char*)iter_node->children->name,"temperature-value", strlen((char *)iter_node->children->name)) == 0){
-               if ( xmlGetProp(iter_node->children, (xmlChar*) "value")){
-                   snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(iter_node->children, (xmlChar*) "value"));
+               xmlChar* temp_xml_string = xmlGetProp(iter_node->children, (xmlChar*) "value");
+               if (temp_xml_string){
+                   snprintf(buffer, sizeof(buffer)-1,"%s", temp_xml_string);
                    fprintf(file_out,"     <flike>%s</flike>\n", buffer); 
                }
+               xmlFree(temp_xml_string);
             }
         }
 
@@ -885,9 +928,11 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
             xpathObjWindSpeed->nodesetval->nodeTab[i]){
            /* Normalize speed to km/h from m/s */
            /* fprintf(stderr, "Wind  speed    \n"); */ 
-           snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(xpathObjWindSpeed->nodesetval->nodeTab[i], (xmlChar*) "value"));
+           xmlChar* temp_xml_string = (xmlChar*)xmlGetProp(xpathObjWindGust->nodesetval->nodeTab[i], (xmlChar*) "value");
+           snprintf(buffer, sizeof(buffer)-1,"%s", temp_xml_string);
            speed = atoi ((char *)buffer);
            fprintf(file_out,"     <wind_speed>%1.f</wind_speed>\n",  (double)(speed));
+           xmlFree(temp_xml_string);
         }
         /* added wind gust */
         memset(buffer, 0, sizeof(buffer));
@@ -895,9 +940,11 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
             xpathObjWindGust->nodesetval->nodeTab[i]){
            /* Normalize speed to km/h from m/s */
            /* fprintf(stderr, "Wind  speed    \n"); */ 
-           snprintf(buffer, sizeof(buffer)-1,"%s", xmlGetProp(xpathObjWindGust->nodesetval->nodeTab[i], (xmlChar*) "value"));
+           xmlChar* temp_xml_string = (xmlChar*)xmlGetProp(xpathObjWindGust->nodesetval->nodeTab[i], (xmlChar*) "value");
+           snprintf(buffer, sizeof(buffer)-1,"%s", temp_xml_string);
            speed = atoi ((char *)buffer);
            fprintf(file_out,"     <wind_gust>%1.f</wind_gust>\n",  (double)(speed));
+           xmlFree(temp_xml_string);
         }
         /* added wind direction */
         memset(buffer, 0, sizeof(buffer));
@@ -964,6 +1011,10 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
     xmlXPathFreeObject(xpathObjHumidity);
   if (xpathObjUv)
     xmlXPathFreeObject(xpathObjUv);
+  if (xpathObjFlike)
+    xmlXPathFreeObject(xpathObjFlike);
+  if (xpathObjWindGust)
+    xmlXPathFreeObject(xpathObjWindGust);
   if (xpathCtx)
     xmlXPathFreeContext(xpathCtx); 
 

@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.11.10
+%define vrsn 1.11.11
 %define rlse 1
 
 Name:       harbour-meecast
@@ -347,6 +347,11 @@ fi
 
 
 %changelog
+* Fri Dec 20 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.11
+- Added icons and description to gismeteo.ru
+- Fixed some problems in gismeteo.ru data (pressure and etc)
+- Added hourly weather forecasts to gismeto source
+
 * Sat Dec 14 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.10
 - Added Torzhok to weather.com and openweathermap.org
 - Added icons and description to fmi.fi 

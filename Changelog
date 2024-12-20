@@ -1,148 +1,124 @@
-meecast (1.11.11) unstable; urgency=low
+meecast (1.11.11)
   * Added icons and description to gismeteo.ru
   * Fixed some problems in gismeteo.ru data (pressure and etc)
   * Added hourly weather forecasts to gismeto source
- -- Vlad Vasiliev <vlad@gas.by> Fri, 20 Dec 2024 12:02:23 +0300
 
-meecast (1.11.10) unstable; urgency=low
+meecast (1.11.10)
   * Added Torzhok to weather.com and openweathermap.org
   * Added icons and description to fmi.fi 
   * Restored gismeteo.ru source
   * Updated Slovak, Slovenian, Swedish, Russian translations
   * Removed tending to mix up languages in selecting region of fmi.fi source.
     Replaced all region's name to Finnish.
- -- Vlad Vasiliev <vlad@gas.by> Sat, 14 Dec 2024 12:02:23 +0300
 
-meecast (1.11.8) unstable; urgency=low
+meecast (1.11.8)
   * Added icons and description to fmi.fi 
   * Updated Norwegian translation
   * Fixed segmentation fault
   * Fixed hour's negative temperature problem 
- -- Vlad Vasiliev <vlad@gas.by> Sun, 24 Nov 2024 19:02:23 +0300
 
-meecast (1.11.7) unstable; urgency=low
+meecast (1.11.7)
   * Added icons and description to fmi.fi 
   * Fixed problem with symbol '=' and '?' in file name
   * Updated Russian, Swedish translations
- -- Vlad Vasiliev <vlad@gas.by> Sun, 03 Nov 2024 19:02:23 +0300
 
-meecast (1.11.6) unstable; urgency=low
+meecast (1.11.6)
   * Updated Russian,Swedish transltions
- -- Vlad Vasiliev <vlad@gas.by> Sat, 05 Oct 2024 09:02:23 +0300
 
-meecast (1.11.5) unstable; urgency=low
+meecast (1.11.5)
   * Added icons and description to fmi.fi 
- -- Vlad Vasiliev <vlad@gas.by> Sat, 05 Oct 2024 09:02:23 +0300
 
-meecast (1.11.3) unstable; urgency=low
+meecast (1.11.3)
   * Improved in settings UI
- -- Vlad Vasiliev <vlad@gas.by> Thu, 26 Sep 2024 06:02:23 +0300
 
-meecast (1.11.2) unstable; urgency=low
+meecast (1.11.2)
   * Fixed sunrise and sunset for fmi.fi source
- -- Vlad Vasiliev <vlad@gas.by> Mon, 16 Sep 2024 08:02:23 +0300
 
-meecast (1.11.1) unstable; urgency=low
+meecast (1.11.1)
   * Added icons and descriptions to fmi.fi source
- -- Vlad Vasiliev <vlad@gas.by> Thu, 12 Sep 2024 11:02:23 +0300
 
-meecast (1.1.41) unstable; urgency=low
+meecast (1.1.41)
   * Fixed problem Segmentation fault while trying to load fmi.fi stations, see issue #62
- -- Vlad Vasiliev <vlad@gas.by> Thu, 12 Sep 2024 11:02:23 +0300
 
-meecast (1.1.38) unstable; urgency=low
+meecast (1.1.38)
   * Added station Giulianova in Italy to weather.com, yr.no. Fixed Teramo
      gps-coordinates
   * Fixed problem hko.gov.hk source
- -- Vlad Vasiliev <vlad@gas.by> Wen, 11 Nov 2020 11:02:23 +0300
 
-meecast (1.1.37) unstable; urgency=low
+meecast (1.1.37)
   * Fixed problem with yr.no stations. The reason is incorrect work with locales #44
 
- -- Vlad Vasiliev <vlad@gas.by> Wen, 11 Nov 2020 11:02:23 +0300
 
-meecast (1.1.36) unstable; urgency=low
+meecast (1.1.36)
   * Restored source yr.no
- -- Vlad Vasiliev <vlad@gas.by> Wen, 11 Nov 2020 11:02:23 +0300
 
-meecast (1.1.35) unstable; urgency=low
+meecast (1.1.35)
   * Updated Slovak translation. Thanks Ladislav Hodas aka holasl 
   * Fixed - Bom.gov.au as weather source shows the previous day. #41
     (@vasvlad)
 
- -- Vlad Vasiliev <vlad@gas.by> Wen, 11 Nov 2020 11:02:23 +0300
 
-meecast (1.1.34) unstable; urgency=low
+meecast (1.1.34)
 
   * Trying to fix segmentation fault in openweathermap.org source
   * Trying to fix segmentation fault in weather.com source
 
- -- Vlad Vasiliev <vlad@gas.by> Wen, 11 Nov 2020 11:02:23 +0300
 
 
-meecast (1.1.33) unstable; urgency=low
+meecast (1.1.33)
 
-  * Fixed for SailfishOS 4. Many thanks for @carmenfdezb
-
- -- Vlad Vasiliev <vlad@gas.by> Thu, 31 Aug 2023 13:02:23 +0300
+  * Added station to foreca.com
 
 
-meecast (1.1.32) unstable; urgency=low
+
+meecast (1.1.32)
 
   * Added station to weather.com
 
- -- Vlad Vasiliev <vlad@gas.by> Sat, 07 Nov 2020 21:02:23 +0300
 
 
-meecast (1.1.31) unstable; urgency=low
+meecast (1.1.31)
 
   * Nothing 
 
- -- Vlad Vasiliev <vlad@gas.by> Tue, 25 Aug 2020 21:02:23 +0300
 
 
-meecast (1.1.30) unstable; urgency=low
+meecast (1.1.30)
 
   * Small fixes 
 
- -- Vlad Vasiliev <vlad@gas.by> Tue, 25 Aug 2020 21:02:23 +0300
 
 
-meecast (1.1.29) unstable; urgency=low
+meecast (1.1.29)
 
   * Fixed problem with weather.com source again
   * Disabled 'Show on maps" and support email
 
- -- Vlad Vasiliev <vlad@gas.by> Sat, 22 Aug 2020 11:02:23 +0300
 
 
-meecast (1.1.28) unstable; urgency=low
+meecast (1.1.28)
 
   * Fixed problem with weather.com source
 
- -- Vlad Vasiliev <vlad@gas.by> Tue, 11 Aug 2020 21:02:23 +0300
 
-meecast (1.1.26) unstable; urgency=low
+meecast (1.1.26)
 
   * Updated translations
   * Fixed problem with weather.com source
 
- -- Vlad Vasiliev <vlad@gas.by> Sun, 07 Jun 2020 18:02:23 +0300
 
-meecast (1.1.25) unstable; urgency=low
+meecast (1.1.25)
 
   * Updated translations
   * Fixed problem with weather.com source
 
- -- Vlad Vasiliev <vlad@gas.by> Sun, 01 Mar 2020 18:02:23 +0200
 
-meecast (1.1.22) unstable; urgency=low
+meecast (1.1.22)
 
   * Added string for translation
 
- -- Vlad Vasiliev <vlad@gas.by> Sun, 11 Nov 2018 23:02:23 +0200
 
-meecast (1.1.20) unstable; urgency=low
+meecast (1.1.20)
 
   * Added station Nonoai in Brazilia to openweathermap.org
   * Added icon for openweathermap.org source
@@ -150,33 +126,29 @@ meecast (1.1.20) unstable; urgency=low
   * Updated Russian, Dutch, Slovenian, Swedish translations
   * Fixed source gismeteo.ru
 
- -- Vlad Vasiliev <vlad@gas.by> Sun, 11 Nov 2018 23:02:23 +0200
 
-meecast (1.1.19) unstable; urgency=low
+meecast (1.1.19)
 
   * Added string for translation
   * Fixed the New Year bug for weather.com and foreca.mobi sources
 
- -- Vlad Vasiliev <vlad@gas.by> Sat, 26 Aug 2017 18:02:23 +0200
 
-meecast (1.1.18) unstable; urgency=low
+meecast (1.1.18)
 
   * Added string for translation
   * Added stations to Ukraine in gismeteo.ru source
   * Fixed segmentation fault for Melbourne(Australia) in bom.gov.au source
 
- -- Vlad Vasiliev <vlad@gas.by> Sat, 26 Aug 2017 18:02:23 +0200
 
 
-meecast (1.1.17) unstable; urgency=low
+meecast (1.1.17)
 
   * Added string for translation
   * Added Iran and Georgia to foreca.com
   * Updated Russian, Dutch, Norwegian, Slovenian, Swedish, Germany translations
 
- -- Vlad Vasiliev <vlad@gas.by> Sat, 26 Aug 2017 18:02:23 +0200
 
-meecast (1.1.16) unstable; urgency=low
+meecast (1.1.16)
 
   * Added new translation strings for weather.com
   * Added icon for foreca.com
@@ -185,34 +157,30 @@ meecast (1.1.16) unstable; urgency=low
   * Updated Russian, Danish, Dutch, Polish, Swedish, Slovenian, Galician,
     Spanish, Catalan translations
 
- -- Vlad Vasiliev <vlad@gas.by> Sat, 31 Dec 2016 10:01:23 +0200
 
-meecast (1.1.13) unstable; urgency=low
+meecast (1.1.13)
 
   * Updated Catalan, Spanish, Dutch, Slovenian tarnslations
   * Added string for translation
 
- -- Vlad Vasiliev <vlad@gas.by> Sun, 20 Mar 2016 16:01:23 +0200
 
-meecast (1.1.12) unstable; urgency=low
+meecast (1.1.12)
 
   * Added icon for gismeteo.ru 
   * Added string for translation
   * Fixed station Sankt-Peterburg in gismeteo.ru source
   * Added station Daugavpils to weather.com source
 
- -- Vlad Vasiliev <vlad@gas.by> Sun, 20 Mar 2016 16:01:23 +0200
 
-meecast (1.1.11) unstable; urgency=low
+meecast (1.1.11)
 
   * Fixed problem with sunrise and sunset in gismeteo.ru source 
   * Added icon for gismeteo.ru 
   * Added new translation string for gismeteo.ru 
   * Disabled logging
 
- -- Vlad Vasiliev <vlad@gas.by> Sun, 06 Mar 2016 18:01:23 +0200
 
-meecast (1.1.10) unstable; urgency=low
+meecast (1.1.10)
 
   * Added string for translation
   * Fixed problem with gisemteo.ru source
@@ -220,136 +188,118 @@ meecast (1.1.10) unstable; urgency=low
     Spanish, Russian, Danish, Norwegian, Dutch, Slovenian,
     Czech tarnslations
 
- -- Vlad Vasiliev <vlad@gas.by> Sun, 06 Mar 2016 18:01:23 +0200
 
-meecast (1.1.9) unstable; urgency=low
+meecast (1.1.9)
 
   * Added stations in Russia to Openweathermap.org (Sverdlovskaya oblast,
     Krasnodarkiy Kray and Leningradskaya oblast) 
   * Updated Russian, Swedish, Finnish, Norwegian tarnslations
   * Fixed 12/24 clock viewing problem 
 
- -- Vlad Vasiliev <vlad@gas.by> Tue, 17 Nov 2015 10:01:23 +0200
 
-meecast (1.1.7) unstable; urgency=low
+meecast (1.1.7)
 
   * Added new translation string for gismeteo.ru 
   * Fixed problem in openweathermap.org source again
   * Added Galician translation
   * Updated Russian, Swedish tarnslations
 
- -- Vlad Vasiliev <vlad@gas.by> Sun, 19 Oct 2015 10:01:23 +0200
 
-meecast (1.1.6) unstable; urgency=low
+meecast (1.1.6)
 
   * Fixed problem in openweathermap.org source  
 
- -- Vlad Vasiliev <vlad@gas.by> Sun, 19 Oct 2015 10:01:23 +0200
 
-meecast (1.1.5) unstable; urgency=low
+meecast (1.1.5)
 
   * Fixed time format problem for sunrise and sunset time
 
- -- Vlad Vasiliev <vlad@gas.by> Sun, 20 Sep 2015 10:01:23 +0200
 
-meecast (1.1.4) unstable; urgency=low
+meecast (1.1.4)
 
   * Added new translation string for gismeteo.ru and yr.no 
   * Fixed time format problem for settings in Harmattan (12/24h) 
 
- -- Vlad Vasiliev <vlad@gas.by> Thu, 17 Sep 2015 22:31:23 +0200
 
-meecast (1.1.3) unstable; urgency=low
+meecast (1.1.3)
 
   * Added new translation string for gismeteo.ru
 
- -- Vlad Vasiliev <vlad@gas.by> Wed, 03 Jun 2015 22:31:23 +0200
 
-meecast (1.1.2) unstable; urgency=low
+meecast (1.1.2)
 
   * Added icon for openstreetmap.org
 
- -- Vlad Vasiliev <vlad@gas.by> Wed, 03 Jun 2015 22:31:23 +0200
 
-meecast (1.1.1) unstable; urgency=low
+meecast (1.1.1)
 
   * Fixed problem with sunrise in fmi source again
   * fixed problem with incorrect time in hourly forecast in fmi source
   * Fixed crashing related zero size of config file
   * Updated Germany, Danish translations
 
- -- Vlad Vasiliev <vlad@gas.by> Wed, 03 Jun 2015 22:31:23 +0200
 
-meecast (1.0.4) unstable; urgency=low
+meecast (1.0.4)
 
   * Fixed problem with wind speed in gismeteo.ru  source
 
- -- Vlad Vasiliev <vlad@gas.by> Sun, 12 Apr 2015 10:31:23 +0200
 
 
-meecast (1.0.3) unstable; urgency=low
-
-  * Fixed problem with sunrise in fmi source 
-  * Fixed problem with incorrect text on standby widget
-  * Updated Catalan, Chinese, Czech, Dutch, Finnish, Germany,
-    Slovenian, Spanish, Swedish, Turkish, Italian
-
- -- Vlad Vasiliev <vlad@gas.by> Sun, 05 Mar 2015 11:31:23 +0200
-
-meecast (1.0.3) unstable; urgency=low
+meecast (1.0.3)
 
   * Fixed problem with sunrise in fmi source 
   * Fixed problem with incorrect text on standby widget
   * Updated Catalan, Chinese, Czech, Dutch, Finnish, Germany,
     Slovenian, Spanish, Swedish, Turkish, Italian
 
- -- Vlad Vasiliev <vlad@gas.by> Sun, 05 Mar 2015 11:31:23 +0200
 
-meecast (1.0) unstable; urgency=low
+meecast (1.0.3)
+
+  * Fixed problem with sunrise in fmi source 
+  * Fixed problem with incorrect text on standby widget
+  * Updated Catalan, Chinese, Czech, Dutch, Finnish, Germany,
+    Slovenian, Spanish, Swedish, Turkish, Italian
+
+
+meecast (1.0)
 
   * Added Hungarian translator László Kara to About page
   * Added Åke Engelbrektson as Swedish translator
   * Fixed problem with weather.com source (all days show night weather forecast)
   * Rewrote About page
 
- -- Vlad Vasiliev <vlad@gas.by> Tue, 17 Feb 2015 17:31:23 +0200
 
-meecast (0.9.18) unstable; urgency=low
+meecast (0.9.18)
 
   *  Nothing  
 
- -- Vlad Vasiliev <vlad@gas.by> Tue, 17 Feb 2015 17:31:23 +0200
 
-meecast (0.9.17) unstable; urgency=low
+meecast (0.9.17)
 
   * Optimised png images by OptiPNG and advpng. Thanks Alexander Self-Perfection  
   * Updated Catalan, Chinese, Czech, Dutch, Finnish, French,
     Germany, Norwegian, Slovenian, Spanish, Swedish,
     Italian, Danish translations
 
- -- Vlad Vasiliev <vlad@gas.by> Tue, 17 Feb 2015 17:31:23 +0200
 
-meecast (0.9.16) unstable; urgency=low
+meecast (0.9.16)
 
   * Added string for translation from gismeteo.ru source
 
- -- Vlad Vasiliev <vlad@gas.by> Fri, 12 Dec 2014 17:31:23 +0200
 
-meecast (0.9.15) unstable; urgency=low
+meecast (0.9.15)
 
   * Added string for translation from openweathermap.org source 
   * Fixed small problem in predaemon
 
- -- Vlad Vasiliev <vlad@gas.by> Fri, 12 Dec 2014 17:31:23 +0200
 
 
-meecast (0.9.14) unstable; urgency=low
+meecast (0.9.14)
 
   * Added string for translation from openweathermap.org source 
 
- -- Vlad Vasiliev <vlad@gas.by> Fri, 12 Dec 2014 17:31:23 +0200
 
-meecast (0.9.13) unstable; urgency=low
+meecast (0.9.13)
 
   * Added Durovka to gismeteo.ru and foreca.com sources 
   * Added India to Openweathermap.org
@@ -357,9 +307,8 @@ meecast (0.9.13) unstable; urgency=low
   * Updated Catalan, Dutch, Finnish, Germany, Slovenian, Spanish, Italian,
     Czech, Swedish, Russian, Danish translations
 
- -- Vlad Vasiliev <vlad@gas.by> Fri, 12 Dec 2014 17:31:23 +0200
 
-meecast (0.9.12) unstable; urgency=low
+meecast (0.9.12)
 
   * Added Palanga(Lithuania) to weather.com, yr.no, openweathermap.org sources
   * Removed donation link
@@ -370,16 +319,14 @@ meecast (0.9.12) unstable; urgency=low
   * Updated Catalan, Dutch, Finnish, Germany, Norway, Slovenian, Spanish,
     Italian, Czech, Danish translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Tue, 25 Nov 2014 19:31:23 +0200
 
-meecast (0.9.10) unstable; urgency=low
+meecast (0.9.10)
 
   * Updated Slovenian, Italian, Swedish translations
   * Changed unit mi/h to mph
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 27 Aug 2014 10:31:23 +0200 
 
-meecast (0.9.9) unstable; urgency=low
+meecast (0.9.9)
 
   * Fixed problem with USA like style time for last update, sunrise, sunset
     and hourly information 
@@ -392,9 +339,8 @@ meecast (0.9.9) unstable; urgency=low
   * Added many stations from Italy to yr.no source
   * Updated Finnish, Germany translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 27 Aug 2014 10:31:23 +0200
 
-meecast (0.9.8) unstable; urgency=low
+meecast (0.9.8)
 
   * Added Sunrise and sunset for fmi.fi source
   * Added Precipitation
@@ -403,16 +349,14 @@ meecast (0.9.8) unstable; urgency=low
   * Added dewpoint for weather.com source
   * Updated Catalan, Spanish, Russian, Dannish translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 13 Aug 2014 23:31:23 +0200
 
-meecast (0.9.7) unstable; urgency=low
+meecast (0.9.7)
 
   * Fixed sunrise and sunset time for weather.com source again :)
   * Updated Itailian, Hungarian, Turkish translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 03 Aug 2014 22:31:23 +0200
 
-meecast (0.9.6) unstable; urgency=low
+meecast (0.9.6)
 
   * Fixed donation link 
   * Added translation string for gismeteo.ru
@@ -423,9 +367,8 @@ meecast (0.9.6) unstable; urgency=low
   * Fixed problem with null wind direction on main form
   * Added the new source fmi.fi
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 08 Jul 2014 08:31:23 +0200
 
-meecast (0.9.5) unstable; urgency=low
+meecast (0.9.5)
 
   * Added translation string for gismeteo.ru
   * Fixed problem with null data for day forecast in weather.com source  
@@ -435,16 +378,14 @@ meecast (0.9.5) unstable; urgency=low
   * Added stations to Finland in yr.no source
   * Added hourly weather forecast for yr.no source
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 08 Jul 2014 08:31:23 +0200
 
-meecast (0.9.4) unstable; urgency=low
+meecast (0.9.4)
 
   * Fixed problem with current night forecsat
   * Fixed memory leaks
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 15 Jun 2014 06:31:23 +0200
 
-meecast (0.9.3) unstable; urgency=low
+meecast (0.9.3)
 
   * Added United Kingdom to foreca.com source
   * Added Germany's stations to openweathermap.org source
@@ -456,34 +397,30 @@ meecast (0.9.3) unstable; urgency=low
     German, Italian, Norwegian, Serbian, Slovenian,
     Spanish, Russian, Hungarian, French translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 15 Jun 2014 06:31:23 +0200
 
-meecast (0.9) unstable; urgency=low
+meecast (0.9)
 
   * Fixed problem with Units page 
   * Added stations to Finland in source yr.no
   * Fixed problem with converting map URLs
   * Added icon for openstreetmap.org
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 16 Apr 2014 22:31:23 +0200
 
-meecast (0.8.18) unstable; urgency=low
+meecast (0.8.18)
 
   * Fixed problem with current weather in foreca.com source 
   * Updated Catalan, Serbian, Slovenian, Spanish, Russian translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 16 Apr 2014 22:31:23 +0200
 
-meecast (0.8.17) unstable; urgency=low
+meecast (0.8.17)
 
   * Fixed problem with current weather in foreca.com source 
   * Updated Catalan, Czech, Finnish, Slovenian, Spanish,
     German, Italian, Arabic translations
 
 
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 11 Apr 2014 12:31:23 +0200
 
-meecast (0.8.16) unstable; urgency=low
+meecast (0.8.16)
 
   * Updated German and Russian translations 
   * Updated Denmark for openstreetmap.org 
@@ -491,45 +428,38 @@ meecast (0.8.16) unstable; urgency=low
   * Updated Catalan, Czech, Finnish, Norwegian, Serbian, Slovenian, Spanish,
     Turkish, German translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 30 Mar 2014 12:31:23 +0200
 
-meecast (0.8.15) unstable; urgency=low
-
-  * Nothing 
-
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 18 Feb 2014 12:31:23 +0200
-
-meecast (0.8.14) unstable; urgency=low
+meecast (0.8.15)
 
   * Nothing 
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 18 Feb 2014 12:31:23 +0200
 
-meecast (0.8.13) unstable; urgency=low
-
-  * Nothing 
-
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 18 Feb 2014 12:31:23 +0200
-
-meecast (0.8.12) unstable; urgency=low
+meecast (0.8.14)
 
   * Nothing 
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 18 Feb 2014 12:31:23 +0200
 
-meecast (0.8.11) unstable; urgency=low
-
-  * Nothing 
-
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 18 Feb 2014 12:31:23 +0200
-
-meecast (0.8.10) unstable; urgency=low
+meecast (0.8.13)
 
   * Nothing 
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 18 Feb 2014 12:31:23 +0200
 
-meecast (0.8.9) unstable; urgency=low
+meecast (0.8.12)
+
+  * Nothing 
+
+
+meecast (0.8.11)
+
+  * Nothing 
+
+
+meecast (0.8.10)
+
+  * Nothing 
+
+
+meecast (0.8.9)
 
   * Updated Finnish, Norwegian, Arabic, Serbian, Turkish, Dutch, Hungarian translations
   * Added Slovenian and Czech translations
@@ -537,26 +467,23 @@ meecast (0.8.9) unstable; urgency=low
   * Fixed problem with yr.no database for Belarus
   * Added icon and descripion string for openweathermap.org source
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 15 Feb 2014 12:31:23 +0200
 
-meecast (0.8.2) unstable; urgency=low
+meecast (0.8.2)
 
   * Added icon for openweathermap.com 
   * Fixed problem with temporary moved http pages in gismeteo.ru source
   * Updated Italian, Ukraine, Russian, Catalan, Finish, Spanish translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 04 Dec 2013 22:31:23 +0200
 
-meecast (0.8.1) unstable; urgency=low
+meecast (0.8.1)
 
   * Updated Norwegian, Turkish, Italian, Ukraine, Russian translations
   * Fixed problem with negative temperature in foreca.com source
   * Fixed problem with page About
   * Changed station source for Melbourne in source bom.gov.au 
 
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 29 Nov 2013 05:31:23 +0200
 
-meecast (0.8) unstable; urgency=low
+meecast (0.8)
 
   * Added Perth to bom.gov.au source
   * Fixed problem with long name of station in LockWallpaper widget 
@@ -564,9 +491,8 @@ meecast (0.8) unstable; urgency=low
   * Added new measure units for wind speed - Knots and Beaufort scale
   * Updated Arabic, Serbian, Ukrain, Norwegian, Catalan, Finish, Spanish languages
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 13 Nov 2013 20:31:23 +0200
 
-meecast (0.7.9) unstable; urgency=low
+meecast (0.7.9)
 
   * Added icon for openweathermap.com 
   * Fixed problem with foreca.com
@@ -574,9 +500,8 @@ meecast (0.7.9) unstable; urgency=low
   * Updated Russian, Dutch translations
   * Added Ukraine translation
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 27 Oct 2013 18:31:23 +0200
 
-meecast (0.7.6) unstable; urgency=low
+meecast (0.7.6)
 
   * Added icon for openweathermap.com and gismeteo.ru
   * Added hourly forecast for openweathermap.org source 
@@ -586,9 +511,8 @@ meecast (0.7.6) unstable; urgency=low
   * Added many stations to gismeteo.ru 
   * Updated Arabic, Catalan, Chinese(Taiwan), Chinese, Dutch, Finnish, Norwegian, Serbian, Spanish, Finish, French, Swedish, German, Portuguese
 
- -- Vlad Vasiliev <vlad@gas.by>  Mon, 16 Sep 2013 18:31:23 +0200
 
-meecast (0.7.5) unstable; urgency=low
+meecast (0.7.5)
 
   * Added icon for openweathermap.com
   * Fixed problem with current weather in foreca.com source
@@ -597,10 +521,9 @@ meecast (0.7.5) unstable; urgency=low
   * Fixed problem with Chinese translation
   * Added translators of Spanish and Chines (Taiwan) 
 
- -- Vlad Vasiliev <vlad@gas.by>  Mon, 12 Aug 2013 22:31:23 +0200
 
 
-meecast (0.7.4) unstable; urgency=low
+meecast (0.7.4)
 
   * Added description strings and icon to gismeteo.ru 
   * Added icon for foreca.com
@@ -610,9 +533,8 @@ meecast (0.7.4) unstable; urgency=low
   * Updated Catalan, Finish, Italian, Serbian, Norwegain, Chinese (Hong Kong) translations
   * Updated USA stations in foreca.com 
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 04 Aug 2013 15:31:23 +0200
 
-meecast (0.7.3) unstable; urgency=low
+meecast (0.7.3)
 
   * Added new source Openwethermap.org
   * Added description string for weather.com
@@ -623,9 +545,8 @@ meecast (0.7.3) unstable; urgency=low
   * Fixed problem with Map  
   * Fixed problem with Foreca.com source
 
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 21 Jun 2013 15:31:23 +0200
 
-meecast (0.7.2) unstable; urgency=low
+meecast (0.7.2)
 
   * Added description strings and icon to gismeteo.ru 
   * Added icon for hko.gov.hk
@@ -634,9 +555,8 @@ meecast (0.7.2) unstable; urgency=low
   * Updated Albanian, Catalan, Finish, Italian, Norwegian, Portuguese, Serbian translations
   * Fixed problem with Serbian translation
 
- -- Vlad Vasiliev <vlad@gas.by>  Thu, 09 May 2013 19:31:23 +0200
 
-meecast (0.7.1) unstable; urgency=low
+meecast (0.7.1)
 
   * Added option Language to Settings menu
   * Updated Italian translation. Thanks Lorenzo Facca
@@ -650,9 +570,8 @@ meecast (0.7.1) unstable; urgency=low
   * Added Serbia to yr.no database
   * Added Kula(Serbia) to gismeteo.ru database
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 12 Apr 2013 23:31:23 +0200
 
-meecast (0.7) unstable; urgency=low
+meecast (0.7)
 
   * Disabled debug for gismeteo.ru and foreca.com sources
   * Fixed problem with big size of icon in lockscreen applet
@@ -660,9 +579,8 @@ meecast (0.7) unstable; urgency=low
   * Added icons for gismeteo.ru 
   * Updated Catalan, Finish, Norway, Arabic, Russian translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 09 Mar 2013 16:31:23 +0200
 
-meecast (0.6.10) unstable; urgency=low
+meecast (0.6.10)
 
   * Added icons for hko.gov.hk
   * Added icons for foreca.com
@@ -676,9 +594,8 @@ meecast (0.6.10) unstable; urgency=low
   * Changed icon 'fog' for LockScreen. Thanks Red Verge
   * Fixed menu bar position and behaviour. Thanks Nakram.
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 20 Jan 2013 19:31:23 +0200
 
-meecast (0.6.9) unstable; urgency=low
+meecast (0.6.9)
 
   * Fixed icon ICY in Epona set 
   * Fixed problem with current weather in gismeteo.ru source
@@ -698,9 +615,8 @@ meecast (0.6.9) unstable; urgency=low
   * Fixed problem with switch off Updating parameter 
   * Updated Russian, Finish, Norwegian, Albanian, Catalan, Portuguese translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Wen, 19 Dec 2012 10:31:23 +0200
 
-meecast (0.6.8) unstable; urgency=low
+meecast (0.6.8)
 
   * Added icon and description string to gismeteo.ru 
   * Added data UV-index and Visible for weather.com source
@@ -710,9 +626,8 @@ meecast (0.6.8) unstable; urgency=low
   * Adeed Norwegian translation. Thanks Peer-Atle Motland aka Pam
   * Updated Albanian, Catalan, Swedish, Portuguese translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Mon, 19 Nov 2012 19:31:23 +0200
 
-meecast (0.6.7) unstable; urgency=low
+meecast (0.6.7)
 
   * Added icon to hko.gov.hk
   * Fixed segmentation fault after adding GPS-station in nil station list
@@ -722,17 +637,15 @@ meecast (0.6.7) unstable; urgency=low
   * Added parameters for LockScreeni Widget
   * Updated Russian translation
 
- -- Vlad Vasiliev <vlad@gas.by>  Thu, 29 Oct 2012 08:31:23 +0200
 
-meecast (0.6.6) unstable; urgency=low
+meecast (0.6.6)
 
   * Fixed problem Shiny and SimpelMee iconsets 
   * Fixed problem with ContextKit (description and station text) for BillBoard
     application
 
- -- Vlad Vasiliev <vlad@gas.by>  Thu, 09 Oct 2012 11:41:23 +0200
 
-meecast (0.6.5) unstable; urgency=low
+meecast (0.6.5)
 
   * Fixed problem with nil description 
   * Returned station Brisbane (Qld) in the bom.gov.au source
@@ -745,22 +658,19 @@ meecast (0.6.5) unstable; urgency=low
   * Added station Kouvola(Finland) to source weather.com
   * Added Swiss to foreca.com database
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 07 Oct 2012 15:41:23 +0200
 
-meecast (0.6.4) unstable; urgency=low
+meecast (0.6.4)
 
   * Fixed segmentation fault  
   * Fixed problem with detail URL and map URL
 
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 28 Sep 2012 09:41:23 +0200
 
-meecast (0.6.3) unstable; urgency=low
+meecast (0.6.3)
 
   * Fixed bug that crashed Meecast with nil config on launch  
 
- -- Vlad Vasiliev <vlad@gas.by>  Thu, 27 Sep 2012 14:42:23 +0200
 
-meecast (0.6.2) unstable; urgency=low
+meecast (0.6.2)
 
   * Updated Finish, Dutch, Portuguese, Turkish, Vietnamese translations
   * Added icons for hko.gov.hk
@@ -770,9 +680,8 @@ meecast (0.6.2) unstable; urgency=low
   * Added Map of Weather for weather.com source
   * Added Catalan translation. Thanks Agustí Clara
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 26 Sep 2012 22:42:23 +0200
 
-meecast (0.6.1) unstable; urgency=low
+meecast (0.6.1)
 
   * Added icons for hko.gov.hk
   * Fixed problem with "Daily" and "15 minutes" updatings
@@ -786,9 +695,8 @@ meecast (0.6.1) unstable; urgency=low
   * Added Vietnamese translation. Thanks Hieu Nguyen, Anh Dương and truongnx
   * Updated Bulgarian, Dutch, Finish, Polish translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 05 Sep 2012 10:42:23 +0200
 
-meecast (0.6) unstable; urgency=low
+meecast (0.6)
 
   * Fixed problem with GPS 
   * Fixed problem with green color for font in standby settings
@@ -797,9 +705,8 @@ meecast (0.6) unstable; urgency=low
   * Fixed problem with temperature in current day
   * Fixed problem with showing weather forecast for current day and next day
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 28 Jul 2012 00:42:23 +0200
 
-meecast (0.5.9) unstable; urgency=low
+meecast (0.5.9)
 
   * Added icons for hko.gov.hk
   * Fixed problem with day forecast in first start for hko.gov.hk
@@ -813,9 +720,8 @@ meecast (0.5.9) unstable; urgency=low
   * Added short name for station Saint-Petersburg
   * Added setting for color of font in station name on standby screen 
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 15 Jul 2012 15:42:23 +0200
 
-meecast (0.5.8) unstable; urgency=low
+meecast (0.5.8)
 
   * Added United States(Kentucky, Lousiana,Maine,Maryland,Massachusetts,
     Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire,
@@ -830,9 +736,8 @@ meecast (0.5.8) unstable; urgency=low
   * Fixed problem with Finish localization for date 
   * Added current weather in second window
  
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 30 May 2012 21:42:23 +0200
 
-meecast (0.5.7) unstable; urgency=low
+meecast (0.5.7)
 
   * Added hours weather forecast for foreca.com source  
   * Fixed problem with temperature and icons in hours weather forecast in gismeteo.ru source
@@ -854,9 +759,8 @@ meecast (0.5.7) unstable; urgency=low
   * Updated Italy translation. Thanks Ilir Gjika aka illo1977
   * Updated Swedish translation. Thanks Niklas Åkerström aka Nille
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2012 21:42:23 +0200
 
-meecast (0.5.6) unstable; urgency=low
+meecast (0.5.6)
 
   * Added Belgium, Albabnia, Andorra, Czech Republic, Hungary, Iceland, Italy,United States to foreca.com database
   * Changed the name of the location Vught on 's-Hertogenbosch
@@ -869,9 +773,8 @@ meecast (0.5.6) unstable; urgency=low
   * Added Bulgarian translation. Thanks Zlatko Enikov	 
   * Updated Russian and Finish translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2012 21:42:23 +0200
 
-meecast (0.5.5) unstable; urgency=low
+meecast (0.5.5)
 
   * Added stations to foreca.com database (Austria)
   * Fixed problem with negative temperature in gismeteo.ru
@@ -879,9 +782,8 @@ meecast (0.5.5) unstable; urgency=low
   * Fixed problem with Ppcp
   * Began adding the new source bom.fov.au
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2012 21:42:23 +0200
 
-meecast (0.5.4) unstable; urgency=low
+meecast (0.5.4)
 
   * Added stations to foreca.com database (Poland, Ukraine, Moldova, Latvia,
     Lithuania, Estonia, Romania, Norway, Denmark, Netherlands, Greece)
@@ -891,42 +793,37 @@ meecast (0.5.4) unstable; urgency=low
   * Added icons and descriptions for foreca.com data
   * Updated Russian and Spain translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 25 Mar 2012 22:42:23 +0200
 
-meecast (0.5.3) unstable; urgency=low
+meecast (0.5.3)
 
   * Fixed problem with gismeteo.ru
   * Fixed problem with Current weather for weather.com
   * Added stations to foreca.com database (Bulgaria)
   * Updated Germany translation
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 17 Mar 2012 22:42:23 +0200
 
-meecast (0.5.2) unstable; urgency=low
+meecast (0.5.2)
 
   * Added station Juankoski to yr.no database
   * Fixed problem with long station name in events widget
   * Updated Russian translation
   * Added new source foreca.com
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 3 Mar 2012 12:42:23 +0200
 
-meecast (0.5.1) unstable; urgency=low
+meecast (0.5.1)
 
   * Fixed problem with negative temperatures in source gismeteo.ru 
   * Fixed problem with long station name in events, lockscreen and standby widget 
 
- -- Vlad Vasiliev <vlad@gas.by>  Thu, 23 Feb 2012 22:42:23 +0200
 
-meecast (0.5) unstable; urgency=low
+meecast (0.5)
 
   * Changed font to Nokia Pure for Lock Screen and StandbyScreen 
   * Fixed problem with disabling Meecast widget in StandbyScreen
   * Updated Russian translation
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 22 Feb 2012 15:42:23 +0200
 
-meecast (0.4.9) unstable; urgency=low
+meecast (0.4.9)
 
   * Fixed problem with lockscreen widget and wallpaper images with various dpi 
   * Fixed problem with temperature in Farenheit unit and autoupdating
@@ -935,9 +832,8 @@ meecast (0.4.9) unstable; urgency=low
   * Rewrote events widget
   * Added StandbyScreen widget
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 18 Feb 2012 22:42:23 +0200
 
-meecast (0.4.8) unstable; urgency=low
+meecast (0.4.8)
 
   * Added stations in yr.no database (Mexico, Netherland, Bulgaria)
   * Added stations in gismeteo.ru database (Bulgaria)
@@ -946,15 +842,13 @@ meecast (0.4.8) unstable; urgency=low
   * Updated Russian, Finland translations
   * Small improvement in hours view 
 
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 10 Feb 2012 16:42:23 +0200
 
-meecast (0.4.7) unstable; urgency=low
+meecast (0.4.7)
 
   * Fixed problem with new stations in sources yr.no and gismeteo.ru 
 
- -- Vlad Vasiliev <vlad@gas.by>  Mon, 16 Jan 2012 18:42:23 +0200
 
-meecast (0.4.6) unstable; urgency=low
+meecast (0.4.6)
 
   * Added autoupdating function
   * Updated Swedish, Finish and Russian translations
@@ -962,9 +856,8 @@ meecast (0.4.6) unstable; urgency=low
   * Search Field has been made case-insensitive 
   * Added hours forecast for source weather.com
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 11 Jan 2012 22:42:23 +0200
 
-meecast (0.4.5) unstable; urgency=low
+meecast (0.4.5)
 
   * Changed date format in main window
   * Added pressure units settings 
@@ -974,9 +867,8 @@ meecast (0.4.5) unstable; urgency=low
   * Changed algorithm for day/night time
   * Updated Polish, Spain and Germany translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Mon, 12 Dec 2011 23:42:23 +0200
 
-meecast (0.4.4) unstable; urgency=low
+meecast (0.4.4)
 
   * Added possibility to install events applet using MeeCast
   * Fixed problem with autoupdating in events applet
@@ -986,9 +878,8 @@ meecast (0.4.4) unstable; urgency=low
   * Added stations in yr.no database (China)
   * Updated Russian and Finish translations 
 
- -- Vlad Vasiliev <vlad@gas.by>  Mon, 28 Nov 2011 12:42:23 +0200
 
-meecast (0.4.3) unstable; urgency=low
+meecast (0.4.3)
 
   * Added current weather for gismeteo.ru source 
   * Added sunrise and sunset for current day in gismereo.ru source
@@ -997,9 +888,8 @@ meecast (0.4.3) unstable; urgency=low
   * Fixed displaying of station name for non-Latin symbol in event applet 
   * Limited time for autoupdating (about 1 hour)
 
- -- Vlad Vasiliev <vlad@gas.by>  Tue, 8 Nov 2011 00:12:23 +0200
 
-meecast (0.4.2) unstable; urgency=low
+meecast (0.4.2)
 
   * Fixed problem with first day of month for weather.com
   * Updated Germany, French, Russian and Finish translations 
@@ -1011,9 +901,8 @@ meecast (0.4.2) unstable; urgency=low
   * Fixed bug #12481 - Confirmation dialog when deleting a station (added
     confirmation dialog)
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 5 Nov 2011 19:24:20 +0200
 
-meecast (0.4.1) unstable; urgency=low
+meecast (0.4.1)
 
   * Removed old code for Omweather(Fremantle) from postrm script
   * Added details info for today weather (day and night)
@@ -1025,31 +914,27 @@ meecast (0.4.1) unstable; urgency=low
   * Added symbol '%' to string Ppcp
   * Fixed term Fahrenheit 
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 23 Oct 2011 09:24:20 +0200
 
-meecast (0.3.34) unstable; urgency=low
+meecast (0.3.34)
 
   * Improved in event widget
   * Added stations in yr.no database (Belarus, Finland, Sweden, Germany, Greece,
     Macedonia, France)
   * Fixed problem with Macedonia in yr.no database
 
- -- Vlad Vasiliev <vlad@gas.by>  Tue, 18 Oct 2011 09:24:20 +0200
 
-meecast (0.3.33) unstable; urgency=low
+meecast (0.3.33)
 
   * removed qt-components-base-icons from dependences for fremantle version
 
- -- vlad vasiliev <vlad@gas.by>  Sun, 9 Oct 2011 09:24:20 +0200
 
-meecast (0.3.32) unstable; urgency=low
+meecast (0.3.32)
 
   * Changed wind icon to show actual wind direction
   * Fixed problem for Fremantle with old version of QtComponents
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 8 Oct 2011 09:24:20 +0200
 
-meecast (0.3.31) unstable; urgency=low
+meecast (0.3.31)
 
   * Updated Finish and Russian translations 
   * Added new iconsets 
@@ -1059,9 +944,8 @@ meecast (0.3.31) unstable; urgency=low
   * Added License to About window
   * Updated yr.no database (fixed problem with NonLatin letters)
 
- -- Vlad Vasiliev <vlad@gas.by>  Thu, 6 Oct 2011 09:24:20 +0200
 
-meecast (0.3.30) unstable; urgency=low
+meecast (0.3.30)
 
   * Added possibility to Active / Disable  Statusbar using settings
   * Updated Spanish translation
@@ -1070,25 +954,22 @@ meecast (0.3.30) unstable; urgency=low
     tapping on picture of source weather forecast
   * Redesigned setting windows
 
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 29 Sep 2011 19:24:20 +0200
 
-meecast (0.3.29) unstable; urgency=low
+meecast (0.3.29)
 
   * fixed problem with refresh button for Fremantle
   * fixed problem with wind_speed for value "N/A"
   * added translators to window About
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 21 Sep 2011 12:24:20 +0200
 
-meecast (0.3.28) unstable; urgency=low
+meecast (0.3.28)
 
   * Updated Finish translation 
   * Adapted for new QTComponents
   * Fixed problem with periodically crashing 
 
- -- Vlad Vasiliev <vlad@gas.by>  Tue, 20 Sep 2011 12:54:20 +0200
 
-meecast (0.3.27) unstable; urgency=low
+meecast (0.3.27)
 
   * Adapted for Fremantle (N900)
   * Fixed wind speed units translation 
@@ -1097,25 +978,21 @@ meecast (0.3.27) unstable; urgency=low
   * Fixed Russian translation
   * changed icon for deb package
 
- -- Vlad Vasiliev <vlad@gas.by>  Mon, 19 Sep 2011 12:54:20 +0200
 
-meecast (0.3.26) unstable; urgency=low
+meecast (0.3.26)
 
   * Updated Finish and Russian translation 
   * Improved in settings (added SectionScroller)
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 11 Sep 2011 13:04:20 +0200
 
-meecast (0.3.25) unstable; urgency=low
+meecast (0.3.25)
 
   * Updated translation 
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 04 Sep 2011 23:04:20 +0200
 
-meecast (0.3.24) unstable; urgency=low
+meecast (0.3.24)
 
   * began support MeeGo 1.2.0.90 on Tablet UX
   * began support Harmattan 
 
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 05 Aug 2011 20:44:20 +0200
 

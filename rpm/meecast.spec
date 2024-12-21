@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.11.12
+%define vrsn 1.11.13
 %define rlse 1
 
 Name:       org.meecast.MeeCast
@@ -349,6 +349,10 @@ desktop-file-install --delete-original  \
 
 
 %changelog
+* Fri Dec 21 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.13
+- Changed url for hourly weather forecast from gismeteo again
+- Fixed bug - Since version 1.11.8 of MeeCast, no clickable list for the forecast and Pulley-Menu broken #79
+
 * Fri Dec 21 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.12
 - Changed url for hourly weather forecast from gismeteo
 

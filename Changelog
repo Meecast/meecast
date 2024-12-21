@@ -1,7 +1,8 @@
-meecast (1.11.12)
+meecast (1.11.13)
   * Changed url for hourly weather forecast from gismeteo again
+  * Fixed bug - Since version 1.11.8 of MeeCast, no clickable list for the forecast and Pulley-Menu broken #79
 
-meecast (1.11.11)
+meecast (1.11.12)
   * Changed url for hourly weather forecast from gismeteo
 
 meecast (1.11.11)

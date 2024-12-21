@@ -1,4 +1,7 @@
 meecast (1.11.11)
+  * Changed url for hourly weather forecast from gismeteo
+
+meecast (1.11.11)
   * Added icons and description to gismeteo.ru
   * Fixed some problems in gismeteo.ru data (pressure and etc)
   * Added hourly weather forecasts to gismeto source

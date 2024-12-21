@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.11.11
+%define vrsn 1.11.12
 %define rlse 1
 
 Name:       org.meecast.MeeCast
@@ -349,6 +349,9 @@ desktop-file-install --delete-original  \
 
 
 %changelog
+* Fri Dec 21 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.12
+- Changed url for hourly weather forecast from gismeteo
+
 * Fri Dec 20 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.11
 - Added icons and description to gismeteo.ru
 - Fixed some problems in gismeteo.ru data (pressure and etc)

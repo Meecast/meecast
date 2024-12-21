@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.11.12
+%define vrsn 1.11.13
 %define rlse 1
 
 Name:       harbour-meecast
@@ -347,6 +347,9 @@ fi
 
 
 %changelog
+* Fri Dec 21 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.13
+- Changed url for hourly weather forecast from gismeteo again
+
 * Fri Dec 21 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.12
 - Changed url for hourly weather forecast from gismeteo
 

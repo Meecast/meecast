@@ -80,6 +80,7 @@
     hash_insert(hash, "d_c2", "28");
     hash_insert(hash, "d_c3", "26");
     hash_insert(hash, "d_c3_r1", "11");
+    hash_insert(hash, "d_c3_r1_fog", "11"); /* may be 20 - fog */
     hash_insert(hash, "d_c3_r2", "12");
     hash_insert(hash, "d_c3_r3", "12");
     hash_insert(hash, "d_c3_fog", "20");

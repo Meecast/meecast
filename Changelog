@@ -1,5 +1,6 @@
 meecast (1.11.14)
   * Fixed segmentation fault for gismeteo data
+  * Added icons to gismeteo.ru
 
 meecast (1.11.13)
   * Changed url for hourly weather forecast from gismeteo again

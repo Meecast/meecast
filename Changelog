@@ -1,3 +1,6 @@
+meecast (1.11.15)
+  * Changed url for weather forecast from gismeteo
+
 meecast (1.11.14)
   * Fixed segmentation fault for gismeteo data
   * Added icons to gismeteo.ru

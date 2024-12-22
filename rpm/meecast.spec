@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.11.13
+%define vrsn 1.11.14
 %define rlse 1
 
 Name:       harbour-meecast
@@ -347,7 +347,11 @@ fi
 
 
 %changelog
-* Fri Dec 21 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.13
+* Sun Dec 22 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.14
+- Added icons to gismeteo.ru
+- Fixed segmentation fault for gismeteo data
+
+* Sat Dec 21 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.13
 - Changed url for hourly weather forecast from gismeteo again
 - Fixed bug - Since version 1.11.8 of MeeCast, no clickable list for the forecast and Pulley-Menu broken #79
 

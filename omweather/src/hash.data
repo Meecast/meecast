@@ -133,6 +133,7 @@
     g_hash_table_insert(hash, (void*)"Light Freezing Drizzle", _("Light Freezing Drizzle"));
     g_hash_table_insert(hash, (void*)"Light Rain", _("Light Rain"));
     g_hash_table_insert(hash, (void*)"Light Rain / Fog", _("Light Rain / Fog"));    
+    g_hash_table_insert(hash, (void*)"Light Rain / Freezing Rain", _("Light Rain / Freezing Rain"));    
     g_hash_table_insert(hash, (void*)"Light Rain / Wind Late", _("Light Rain / Wind Late"));    
     g_hash_table_insert(hash, (void*)"Light Rain / Wind", _("Light Rain / Wind"));
     g_hash_table_insert(hash, (void*)"Light Rain / Windy", _("Light Rain / Windy"));

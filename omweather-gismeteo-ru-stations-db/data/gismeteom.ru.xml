@@ -8,6 +8,6 @@
 <search url="http://xoap.weather.com/search/search?where=%s"/>
 <binary>/opt/com.meecast.omweather/lib/gismeteoru</binary>
 <showurl url="http://www.gismeteo.ru/weather-%s/"/>
-<cookie>old=1</cookie>
+<user_agent>Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0</user_agent>
 </source>
 

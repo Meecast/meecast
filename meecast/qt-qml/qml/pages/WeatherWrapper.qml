@@ -328,7 +328,10 @@ Page {
             }
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
     SilicaListView {
         id: listview
         anchors.fill: parent
@@ -340,10 +343,17 @@ Page {
         snapMode: ListView.SnapOneItem
         model: listModel
         interactive: true
+<<<<<<< HEAD
         currentIndex: Config._current_station_id() 
         Component.onCompleted: {}
         onCurrentIndexChanged:{ }
         onFlickEnded: { 
+=======
+        currentIndex: Config._current_station_id()
+        Component.onCompleted: {}
+        onCurrentIndexChanged:{ }
+        onFlickEnded: {
+>>>>>>> master
             flipmoving = false
             //console.log("onFlickEnded")
             real_current_id = indexAt(contentX,contentY);
@@ -351,11 +361,21 @@ Page {
             Config.saveConfig();
            // Config.refreshconfig();
         }
+<<<<<<< HEAD
         onFlickStarted: { 
             flipmoving = true
         }
 
         delegate: WeatherStationDelegate { id: weatherStationDelegate } 
      }
+=======
+        onFlickStarted: {
+            flipmoving = true
+        }
+
+        delegate: WeatherStationDelegate { id: weatherStationDelegate }
+     }
+
+>>>>>>> master
 }
 

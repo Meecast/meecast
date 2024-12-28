@@ -230,35 +230,7 @@ Page {
         }
     }
     */
-    SilicaListView {
-        id: listview
-        anchors.fill: parent
-        height: screen_height
-        width: screen_width
-        visible: Config.stationname == "Unknown" ? false : true
-        orientation: Qt.Horizontal
-        highlightRangeMode: ListView.StrictlyEnforceRange
-        snapMode: ListView.SnapOneItem
-        model: listModel
-        interactive: true
-        currentIndex: Config._current_station_id() 
-        Component.onCompleted: {}
-        onCurrentIndexChanged:{ }
-        onFlickEnded: { 
-            flipmoving = false
-            //console.log("onFlickEnded")
-            real_current_id = indexAt(contentX,contentY);
-            Config._current_station_id(main.real_current_id)
-            Config.saveConfig();
-           // Config.refreshconfig();
-        }
-        onFlickStarted: { 
-            flipmoving = true
-        }
-
-        delegate: WeatherStationDelegate { id: weatherStationDelegate } 
-     }
-     SilicaFlickable {
+    SilicaFlickable {
         anchors.fill: parent
         contentHeight: screen_height
         id: startview
@@ -356,5 +328,34 @@ Page {
             }
         }
     }
+    SilicaListView {
+        id: listview
+        anchors.fill: parent
+        height: screen_height
+        width: screen_width
+        visible: Config.stationname == "Unknown" ? false : true
+        orientation: Qt.Horizontal
+        highlightRangeMode: ListView.StrictlyEnforceRange
+        snapMode: ListView.SnapOneItem
+        model: listModel
+        interactive: true
+        currentIndex: Config._current_station_id()
+        Component.onCompleted: {}
+        onCurrentIndexChanged:{ }
+        onFlickEnded: {
+            flipmoving = false
+            //console.log("onFlickEnded")
+            real_current_id = indexAt(contentX,contentY);
+            Config._current_station_id(main.real_current_id)
+            Config.saveConfig();
+           // Config.refreshconfig();
+        }
+        onFlickStarted: {
+            flipmoving = true
+        }
+
+        delegate: WeatherStationDelegate { id: weatherStationDelegate }
+     }
+
 }
 

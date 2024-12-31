@@ -136,7 +136,9 @@
     hash_insert(hash, "n_c3_s2", "14");
     hash_insert(hash, "n_c3_s3", "16");
     hash_insert(hash, "n_c3_rs1", "5");
+    hash_insert(hash, "n_c3_rs2", "5");
     hash_insert(hash, "n_c3_r1", "11");
+    hash_insert(hash, "n_c3_r2", "40");
     hash_insert(hash, "n_c3_fog", "20");
     hash_insert(hash, "n.moon.c3.s1.png", "46");
     hash_insert(hash, "n.moon.c3.s2.png", "46");

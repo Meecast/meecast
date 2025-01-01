@@ -1,4 +1,9 @@
 meecast (1.11.17)
+ * Added icons to gismeteo.ru
+ * Changed url for weather forecast from gismeteo again
+
+meecast (1.11.16)
+  * Changed url for weather forecast from gismeteo
 
 meecast (1.11.15)
   * Changed url for weather forecast from gismeteo

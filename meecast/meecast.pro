@@ -3,8 +3,14 @@ TEMPLATE = subdirs
 CONFIG += ordered
 
 #SUBDIRS += core qt-qml meego-mpl
-SUBDIRS += sqlite3 core qt-qml predeamon
+linux:!android {
+    message("* Using settings for Unix/Linux.")
+    SUBDIRS += sqlite3 core qt-qml predeamon
+}
 
+android {
+    SUBDIRS += sqlite3 core qt-qml
+}
 
 #CONFIG(meegopanel):SUBDIRS += netbook-UX
 #CONFIG(UXpanel):SUBDIRS += meego-UX-panel 

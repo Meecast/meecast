@@ -15,6 +15,7 @@
  * Implementation of interface class MeecastIf
  */
 
+#ifdef QDBUS
 MeecastIf::MeecastIf(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent)
     : QDBusAbstractInterface(service, path, staticInterfaceName(), connection, parent)
 {
@@ -23,4 +24,4 @@ MeecastIf::MeecastIf(const QString &service, const QString &path, const QDBusCon
 MeecastIf::~MeecastIf()
 {
 }
-
+#endif

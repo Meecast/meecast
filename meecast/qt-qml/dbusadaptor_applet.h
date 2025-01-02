@@ -11,6 +11,7 @@
 #ifndef DBUSADAPTOR_APPLET_H_1346525033
 #define DBUSADAPTOR_APPLET_H_1346525033
 
+#ifdef QDBUS
 #include <QtCore/QObject>
 #include <QtCore/QByteArray>
 #include <QtCore/QList>
@@ -51,4 +52,5 @@ namespace com {
     typedef ::MeecastIf applet;
   }
 }
+#endif
 #endif

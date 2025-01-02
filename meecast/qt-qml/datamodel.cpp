@@ -242,7 +242,9 @@ DataModel::update_model(int period)
 
                 /* Add to list */
                 this->appendRow(forecast_data);
+#ifdef QDBUS
                 MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
+#endif                
                 QString icon_string =  _config->iconspath();
                 icon_string.append("/") ;
                 icon_string.append(_config->iconSet().c_str());
@@ -264,6 +266,8 @@ DataModel::update_model(int period)
                 QDateTime t;
                 t.setTime_t(dp->LastUpdate());
                 QString description = forecast_data->Text().c_str();
+
+#ifdef QDBUS
                 dbusclient->SetCurrentData(_config->stationname(), 
                                            forecast_data->temperature(), 
                                            forecast_data->temperature_high(), 
@@ -275,6 +279,7 @@ DataModel::update_model(int period)
                                            t.toString("dd MMM h:mm")); 
                  if (dbusclient)
                     delete dbusclient;
+#endif                 
            }
             break;
         case current_night_period:

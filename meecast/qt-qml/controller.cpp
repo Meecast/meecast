@@ -218,7 +218,10 @@ Controller::load_data(){
       forecast_data->MapBackgroundPattern(basemapfilename);
 
       _current->appendRow(forecast_data);
+
+#ifdef QDBUS
       MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
+#endif
       /* Preparing time for updateing */
       uint result_time = 0;
       if (_config->UpdatePeriod() != INT_MAX){
@@ -235,6 +238,8 @@ Controller::load_data(){
       QDateTime t;
       t.setTime_t(_dp->LastUpdate());
       QString description = forecast_data->Text().c_str();
+
+#ifdef QDBUS
       dbusclient->SetCurrentData( _config->stationname(), forecast_data->temperature(),
                                   forecast_data->temperature_high(),
                                   forecast_data->temperature_low(), 
@@ -247,6 +252,7 @@ Controller::load_data(){
                                   t.toString("dd MMM h:mm"));
      if (dbusclient)
         delete dbusclient;
+#endif
   }
 
   /* fill current night */

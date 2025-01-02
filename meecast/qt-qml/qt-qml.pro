@@ -107,6 +107,7 @@ linux:!android {
     PKGCONFIG += glib-2.0
     CONFIG += dbus
     CONFIG += qdbus
+    DEFINES += QDBUS
 }
 android {
     DEFINES += INTERNALSQLITE3

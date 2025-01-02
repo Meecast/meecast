@@ -35,8 +35,10 @@
 #include <QVariant>
 #include <QtCore>
 
-#include <libintl.h>
-#include <locale.h>
+#ifndef Q_OS_ANDROID
+    #include <libintl.h>
+    #include <locale.h>
+#endif
 #include <fstream>
 #include <iostream>
 #if defined(MEEGO_EDITION_HARMATTAN)

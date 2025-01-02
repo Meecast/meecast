@@ -25,7 +25,6 @@
 #ifndef _main_h
 #define _main_h 1
 /*******************************************************************************/
-#include <glib.h>
 #include <libxml/parser.h>
 #include <libxml/HTMLparser.h>
 #include <libxml/xpath.h>
@@ -33,9 +32,5 @@
 #include <stdlib.h>
 #include <cctype>
 #include <fstream>
-/*******************************************************************************/
-int get_station_weather_data(const gchar *station_id_with_path, GHashTable *data, gboolean get_detail_data);
-int parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data);
-int parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *data);
 /*******************************************************************************/
 #endif

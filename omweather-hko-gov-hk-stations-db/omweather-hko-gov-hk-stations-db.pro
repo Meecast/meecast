@@ -38,8 +38,8 @@ LIBS += $$PWD/../meecast/libxml2/liblibxml2.a
 #    DEFINES += GLIB 
 #}else{
 #    message(GLIB-2.0 is not exist)
-    CONFIG += qt
-    QT += core
+#    CONFIG += qt
+#    QT += core
 #    DEFINES += QT
 #}
 

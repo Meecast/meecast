@@ -19,14 +19,12 @@ system(pkg-config --exists libxml++-2.6) {
 }
 
 
-system(pkg-config --exists libcurl) {
-    PKGCONFIG += libcurl
-    DEFINES += LIBCURL
-}
-
 linux:!android {
     message("* Using settings for Unix/Linux.")
     PKGCONFIG += sqlite3
+    PKGCONFIG += libcurl
+    DEFINES += LIBCURL
+
 }
 android {
     DEFINES += INTERNALSQLITE3

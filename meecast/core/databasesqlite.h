@@ -33,7 +33,11 @@
 #define DATABASESQLITE_H
 
 #include <iostream>
-#include <sqlite3.h>
+#ifdef INTERNALSQLITE3
+    #include "../sqlite3/sqlite3.h"
+#else
+    #include <sqlite3.h>
+#endif
 #include <string>
 #include <errno.h>
 #include <stdlib.h>

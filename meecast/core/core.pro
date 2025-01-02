@@ -28,6 +28,9 @@ linux:!android {
     message("* Using settings for Unix/Linux.")
     PKGCONFIG += sqlite3
 }
+android {
+    DEFINES += INTERNALSQLITE3
+}
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG
 

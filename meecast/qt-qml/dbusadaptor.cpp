@@ -8,6 +8,7 @@
  * Do not edit! All changes made to it will be lost.
  */
 
+#ifdef QDBUS
 #include "dbusadaptor.h"
 #include <QtCore/QMetaObject>
 #include <QtCore/QByteArray>
@@ -38,4 +39,5 @@ void DbusAdaptor::reload_config()
     // handle method call org.meego.omweather.reload_config
     QMetaObject::invokeMethod(parent(), "reload_config");
 }
+#endif
 

@@ -12,6 +12,7 @@
 #ifndef DBUSADAPTOR_H_1328120702
 #define DBUSADAPTOR_H_1328120702
 
+#ifdef QDBUS
 #include <QtCore/QObject>
 #include <QtDBus/QtDBus>
 class QByteArray;
@@ -43,4 +44,5 @@ public Q_SLOTS: // METHODS
 Q_SIGNALS: // SIGNALS
 };
 
+#endif
 #endif

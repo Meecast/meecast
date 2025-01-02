@@ -30,7 +30,7 @@ linux:!android {
 }
              
 INCLUDEPATH += ../meecast/libxml2/include
-LIBS += $$PWD/../libxml2/liblibxml2.a
+LIBS += $$PWD/../meecast/libxml2/liblibxml2.a
 
 db.files = data/weather.com.db
 db.path =  /opt/com.meecast.omweather/share/db/

@@ -1,7 +1,6 @@
 VERSION = 1.0
 TARGET = omweather-core
 TEMPLATE = lib
-PKGCONFIG += sqlite3
 CONFIG += link_pkgconfig staticlib
 
 CONFIG += qdeclarative-boostable
@@ -23,6 +22,7 @@ system(pkg-config --exists libxml++-2.6) {
 linux:!android {
     message("* Using settings for Unix/Linux.")
     PKGCONFIG += libcurl
+    PKGCONFIG += sqlite3
 }
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG

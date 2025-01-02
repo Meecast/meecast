@@ -51,8 +51,10 @@
 
 #include <QtDebug>
 
-#include <libintl.h>
-#include <locale.h>
+#ifndef Q_OS_ANDROID
+    #include <libintl.h>
+    #include <locale.h>
+#endif
 
 #include "selectmodel.h"
 #include "networkingcontrol.h"

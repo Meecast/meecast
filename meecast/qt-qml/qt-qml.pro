@@ -95,8 +95,6 @@ QMAKE_LFLAGS += -pie -rdynamic
 
 INCLUDEPATH += ../core                                                                                                        
 LIBS += -L ../core ../core/libomweather-core.a  
-CONFIG += dbus
-CONFIG += qdbus
 CONFIG += link_pkgconfig
 system(pkg-config --exists libcurl) {
     PKGCONFIG += libcurl
@@ -107,6 +105,8 @@ linux:!android {
     message("* Using settings for Unix/Linux.")
     PKGCONFIG += sqlite3
     PKGCONFIG += glib-2.0
+    CONFIG += dbus
+    CONFIG += qdbus
 }
 android {
     DEFINES += INTERNALSQLITE3

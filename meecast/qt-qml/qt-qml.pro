@@ -98,9 +98,20 @@ LIBS += -L ../core ../core/libomweather-core.a
 CONFIG += dbus
 CONFIG += qdbus
 CONFIG += link_pkgconfig
-PKGCONFIG += glib-2.0
-PKGCONFIG += sqlite3
-PKGCONFIG += libcurl
+system(pkg-config --exists libcurl) {
+    PKGCONFIG += libcurl
+    DEFINES += LIBCURL
+}
+
+linux:!android {
+    message("* Using settings for Unix/Linux.")
+    PKGCONFIG += sqlite3
+    PKGCONFIG += glib-2.0
+}
+android {
+    DEFINES += INTERNALSQLITE3
+}
+
 target.path = /opt/com.meecast.omweather/bin
 INSTALLS += target
 

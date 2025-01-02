@@ -25,7 +25,10 @@
 #ifndef _main_h
 #define _main_h 1
 /*******************************************************************************/
-#include <glib.h>
+
+#ifndef Q_OS_ANDROID
+    #include <glib.h>
+#endif
 #include <libxml/parser.h>
 #include <libxml/HTMLparser.h>
 #include <libxml/xpath.h>

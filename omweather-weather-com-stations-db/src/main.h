@@ -26,7 +26,7 @@
 #define _main_h 1
 /*******************************************************************************/
 
-#ifndef Q_OS_ANDROID
+#ifndef ANDROID
     #include <glib.h>
 #endif
 #include <libxml/parser.h>

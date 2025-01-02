@@ -45,6 +45,8 @@ Downloader::writedata(void *ptr, size_t size, size_t nmemb, FILE *stream)
 bool
 Downloader::downloadData(const std::string &filename, const std::string &url, const std::string &cookie, const std::string &user_agent)
 {
+
+#ifdef LIBCURL
     CURL *curl;
     CURLcode res;
     FILE *fp;
@@ -70,6 +72,9 @@ Downloader::downloadData(const std::string &filename, const std::string &url, co
         fclose(fp);
         return true;
     }else return false;
+#else
+    return false;
+#endif
 }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

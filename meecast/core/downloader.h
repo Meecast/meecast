@@ -31,8 +31,9 @@
 
 #ifndef DOWNLOADER_H
 #define DOWNLOADER_H
-
-#include "curl/curl.h"
+#ifdef LIBCURL
+    #include "curl/curl.h"
+#endif
 #include <stdio.h>
 #include <string>
 #include <iostream>

@@ -24,7 +24,7 @@ OTHER_FILES += \
 DEFINES += "USE_OS_TZDB=1"
 
 CONFIG = link_pkgconfig 
-PKGCONFIG += libcurl
+#PKGCONFIG += libcurl
 linux:!android {
     message("* Using settings for Unix/Linux.")
     PKGCONFIG += libxml-2.0

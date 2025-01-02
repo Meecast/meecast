@@ -1,7 +1,6 @@
 VERSION = 1.0
 TARGET = omweather-core
 TEMPLATE = lib
-PKGCONFIG += libcurl
 PKGCONFIG += sqlite3
 CONFIG += link_pkgconfig staticlib
 
@@ -20,6 +19,11 @@ system(pkg-config --exists libxml++-2.6) {
     QT += xml
 }
 
+
+linux:!android {
+    message("* Using settings for Unix/Linux.")
+    PKGCONFIG += libcurl
+}
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG
 

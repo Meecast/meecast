@@ -29,7 +29,7 @@ linux:!android {
                  glib-2.0
 }
              
-INCLUDEPATH += ../meecast/libxml2/include/libxml
+INCLUDEPATH += ../meecast/libxml2/include
 
 db.files = data/weather.com.db
 db.path =  /opt/com.meecast.omweather/share/db/

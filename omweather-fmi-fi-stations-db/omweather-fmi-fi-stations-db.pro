@@ -24,8 +24,15 @@ OTHER_FILES += \
 DEFINES += "USE_OS_TZDB=1"
 
 CONFIG = link_pkgconfig 
-PKGCONFIG += libxml-2.0 
 PKGCONFIG += libcurl
+linux:!android {
+    message("* Using settings for Unix/Linux.")
+    PKGCONFIG += libxml-2.0
+}
+             
+INCLUDEPATH += ../meecast/libxml2/include
+LIBS += $$PWD/../meecast/libxml2/liblibxml2.a
+
 #QMAKE_CXXFLAGS += -fPIC -std=c++20
 #QMAKE_CXXFLAGS += -fPIC -std=c++2a
 

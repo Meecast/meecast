@@ -22,7 +22,14 @@ OTHER_FILES += \
 
 
 CONFIG = link_pkgconfig -qt
-PKGCONFIG += libxml-2.0 
+
+linux:!android {
+    message("* Using settings for Unix/Linux.")
+    PKGCONFIG += libxml-2.0
+}
+             
+INCLUDEPATH += ../meecast/libxml2/include
+LIBS += $$PWD/../meecast/libxml2/liblibxml2.a
 
 #system(pkg-config --exists glib-2.0){
 #    PKGCONFIG += glib-2.0

@@ -133,15 +133,19 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
             QLocale::setDefault(QLocale(controller->config()->languagesList().at(i).second.c_str()));
         }
     }
+
+#ifndef Q_OS_ANDROID
     textdomain("omweather");
     bindtextdomain("omweather", "/opt/com.meecast.omweather/share/locale");
-
+#endif
+#ifdef QDBUS    
     /* D-BUS */
     DbusAdaptor* dadapt = new DbusAdaptor(controller);
 
     QDBusConnection connection = QDBusConnection::sessionBus();
     connection.registerService("org.meego.omweather");
     connection.registerObject("/org/meego/omweather", controller);
+#endif    
     QQuickView *qview;
 
     //config = controller->config();

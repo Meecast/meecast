@@ -111,6 +111,7 @@ linux:!android {
 }
 android {
     DEFINES += INTERNALSQLITE3
+    LIBS += $$PWD/../sqlite3/libsqlite3.a
 }
 
 target.path = /opt/com.meecast.omweather/bin

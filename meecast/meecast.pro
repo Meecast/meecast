@@ -9,7 +9,7 @@ linux:!android {
 }
 
 android {
-    SUBDIRS += sqlite3 core qt-qml
+    SUBDIRS += sqlite3 libxml2 core qt-qml
 }
 
 #CONFIG(meegopanel):SUBDIRS += netbook-UX

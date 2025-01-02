@@ -59,8 +59,14 @@
 #include "selectmodel.h"
 #include "networkingcontrol.h"
 
-#define _(String) gettext(String)
+#ifndef Q_OS_ANDROID
+    #define _(String) gettext(String)
+#endif
 
+#ifdef Q_OS_ANDROID
+    #define _(String) String
+#endif
+#endif
 
 
 //////////////////////////////////////////////////////////////////////////////

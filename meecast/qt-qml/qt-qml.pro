@@ -109,6 +109,7 @@ linux:!android {
 
 }
 android {
+    QT += androidextras
     DEFINES += INTERNALSQLITE3
     LIBS += $$PWD/../sqlite3/libsqlite3.a
 }

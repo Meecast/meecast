@@ -112,6 +112,9 @@ android {
     QT += androidextras
     DEFINES += INTERNALSQLITE3
     LIBS += $$PWD/../sqlite3/libsqlite3.a
+    ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
+    DISTFILES += \
+    android/AndroidManifest.xml
 }
 
 target.path = /opt/com.meecast.omweather/bin

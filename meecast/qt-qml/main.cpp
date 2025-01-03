@@ -160,9 +160,11 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     qview = controller->qview();
 
     std::cerr << "qml path = " << Core::AbstractConfig::layoutqml << std::endl;
-    qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::prefix +
-                                                                Core::AbstractConfig::sharePath +
-                                                                Core::AbstractConfig::layoutqml)));
+
+    qview->setSource(QUrl(QStringLiteral("assets:/main.qml")));
+//    qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::prefix +
+//                                                                Core::AbstractConfig::sharePath +
+//                                                                Core::AbstractConfig::layoutqml)));
     QObject::connect((QObject*)qview->engine(), SIGNAL(quit()), app, SLOT(quit()));
     qview->showFullScreen();
     /*This code provides Segmantation fault

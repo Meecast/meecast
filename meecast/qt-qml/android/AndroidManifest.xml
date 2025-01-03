@@ -1,9 +1,26 @@
-<?xml version="1.0"?>
-<manifest package="org.meecast.meecast" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0" android:versionCode="1" android:installLocation="preferExternal">
-    <application android:requestLegacyExternalStorage="true" android:hardwareAccelerated="true" android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="MeeCast-" android:icon="@drawable/icon">
-        <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation"
-                  android:name="org.meecast.meecast.MeeCastActivity"
-                  android:label="MeeCast"
+<?xml version='1.0' encoding='utf-8'?>
+<manifest package="org.qtproject.example.omweather_qml" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0" android:versionCode="1" android:installLocation="auto">
+    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="28"/>
+
+    <!-- The following comment will be replaced upon deployment with default permissions based on the dependencies of the application.
+         Remove the comment if you do not require these default permissions. -->
+        <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
+    <!-- The following comment will be replaced upon deployment with default features based on the dependencies of the application.
+         Remove the comment if you do not require these default features. -->
+        <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+
+    <supports-screens android:largeScreens="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true"/>
+
+    <application android:hardwareAccelerated="true" android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="omweather-qml">
+        <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density"
+                  android:name="org.qtproject.qt5.android.bindings.QtActivity"
+                  android:label="omweather-qml"
+                  android:screenOrientation="unspecified"
                   android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -14,20 +31,21 @@
             <!-- meta-data android:name="android.app.arguments" android:value="arg1 arg2 arg3"/ -->
             <!-- Application arguments -->
 
-            <meta-data android:name="android.app.lib_name" android:value="-- %%INSERT_APP_LIB_NAME%% --"/>
+            <meta-data android:name="android.app.lib_name" android:value="omweather-qml"/>
             <meta-data android:name="android.app.qt_sources_resource_id" android:resource="@array/qt_sources"/>
             <meta-data android:name="android.app.repository" android:value="default"/>
             <meta-data android:name="android.app.qt_libs_resource_id" android:resource="@array/qt_libs"/>
             <meta-data android:name="android.app.bundled_libs_resource_id" android:resource="@array/bundled_libs"/>
             <!-- Deploy Qt libs as part of package -->
             <meta-data android:name="android.app.bundle_local_qt_libs" android:value="1"/>
+            <meta-data android:name="android.app.bundled_in_lib_resource_id" android:resource="@array/bundled_in_lib"/>
+            <meta-data android:name="android.app.bundled_in_assets_resource_id" android:resource="@array/bundled_in_assets"/>
             <!-- Run with local libs -->
             <meta-data android:name="android.app.use_local_qt_libs" android:value="1"/>
             <meta-data android:name="android.app.libs_prefix" android:value="/data/local/tmp/qt/"/>
             <meta-data android:name="android.app.load_local_libs" android:value="plugins/platforms/android/libqtforandroid.so:plugins/bearer/libqandroidbearer.so:plugins/position/libqtposition_android.so:lib/libQt5QuickParticles.so"/>
-            <meta-data android:name="android.app.load_local_libs_resource_id" android:resource="@array/load_local_libs"/>
-            <meta-data android:name="android.app.load_local_jars" android:value="jar/QtAndroid.jar:jar/QtAndroidExtras.jar:jar/QtAndroidBluetooth.jar:jar/QtAndroidBearer.jar:jar/QtAndroidNetwork.jar:jar/QtPositioning.jar:jar/QtNfc.jar"/>
-            <meta-data android:name="android.app.static_init_classes" android:value="org.qtproject.qt5.android.bluetooth.QtBluetoothBroadcastReceiver:org.qtproject.qt5.android.positioning.QtPositioning:org.qtproject.qt5.android.nfc.QtNfc"/>
+            <meta-data android:name="android.app.load_local_jars" android:value="jar/QtAndroid.jar:jar/QtAndroidExtras.jar:jar/QtAndroidBearer.jar:jar/QtPositioning.jar"/>
+            <meta-data android:name="android.app.static_init_classes" android:value="org.qtproject.qt5.android.positioning.QtPositioning"/>
             <!-- Used to specify custom system library path to run with local system libs -->
             <!-- <meta-data android:name="android.app.system_libs_prefix" android:value="/system/lib/"/> -->
             <!--  Messages maps -->
@@ -35,10 +53,15 @@
             <meta-data android:value="@string/ministro_needed_msg" android:name="android.app.ministro_needed_msg"/>
             <meta-data android:value="@string/fatal_error_msg" android:name="android.app.fatal_error_msg"/>
             <meta-data android:value="@string/unsupported_android_version" android:name="android.app.unsupported_android_version"/>
-            <meta-data android:name="android.app.splash_screen_drawable" android:resource="@drawable/splash"/>
             <!--  Messages maps -->
 
             <!-- Splash screen -->
+            <!-- Orientation-specific (portrait/landscape) data is checked first. If not available for current orientation,
+                 then android.app.splash_screen_drawable. For best results, use together with splash_screen_sticky and
+                 use hideSplashScreen() with a fade-out animation from Qt Android Extras to hide the splash screen when you
+                 are done populating your window with content. -->
+            <!-- meta-data android:name="android.app.splash_screen_drawable_portrait" android:resource="@drawable/logo_portrait" / -->
+            <!-- meta-data android:name="android.app.splash_screen_drawable_landscape" android:resource="@drawable/logo_landscape" / -->
             <!-- meta-data android:name="android.app.splash_screen_drawable" android:resource="@drawable/logo"/ -->
             <!-- meta-data android:name="android.app.splash_screen_sticky" android:value="true"/ -->
             <!-- Splash screen -->
@@ -48,143 +71,26 @@
                           application still try to draw after
                           "applicationStateChanged(Qt::ApplicationSuspended)"
                           signal is sent! -->
-            <meta-data android:name="android.app.background_running" android:value="true"/>
-
-
+            <meta-data android:name="android.app.background_running" android:value="false"/>
             <!-- Background running -->
 
             <!-- auto screen scale factor -->
-            <!-- <meta-data android:name="android.app.auto_screen_scale_factor" android:value="false"/> -->
+            <meta-data android:name="android.app.auto_screen_scale_factor" android:value="false"/>
             <!-- auto screen scale factor -->
 
             <!-- extract android style -->
             <!-- available android:values :
+                * default - In most cases this will be the same as "full", but it can also be something else if needed, e.g., for compatibility reasons
                 * full - useful QWidget & Quick Controls 1 apps
                 * minimal - useful for Quick Controls 2 apps, it is much faster than "full"
                 * none - useful for apps that don't use any of the above Qt modules
                 -->
-            <!-- <meta-data android:name="android.app.extract_android_style" android:value="full"/> -->
-
+            <meta-data android:name="android.app.extract_android_style" android:value="default"/>
             <!-- extract android style -->
     </activity>
 
-    <activity android:name="ru.dublgis.androidhelpers.Camera" android:label="MeeCast" android:configChanges="orientation|screenSize">
-    <meta-data android:name="android.app.lib_name" android:value="-- %%INSERT_APP_LIB_NAME%% --"/>
-        </activity>
     <!-- For adding service(s) please check: https://wiki.qt.io/AndroidServices -->
 
-
-    <service android:process=":qt" android:enabled="true" android:name="org.meecast.meecast.MyCustomAppService" android:foregroundServiceType="location" android:exported="false">
-    <!--<service android:process=":qt" android:enabled="true" android:name="org.qtproject.qt5.android.bindings.QtService">-->
-        <!-- android:process=":qt" is needed to force the service to run on a separate process than the Activity -->
-
-        <!-- Application arguments -->
-        <meta-data android:name="android.app.arguments" android:value="-service"/>
-        <!-- Application arguments -->
-
-            <!-- If you are using the same application (.so file) for activity and also for service, then you
-                 need to use *android.app.arguments* to pass some arguments to your service in order to know which
-                 one is which
-             -->
-
-             <!-- Ministro -->
-             <meta-data android:name="android.app.lib_name" android:value="gpsservice"/>
-             <meta-data android:name="android.app.qt_sources_resource_id" android:resource="@array/qt_sources"/>
-             <meta-data android:name="android.app.repository" android:value="default"/>
-             <meta-data android:name="android.app.qt_libs_resource_id" android:resource="@array/qt_libs"/>
-             <meta-data android:name="android.app.bundled_libs_resource_id" android:resource="@array/bundled_libs"/>
-             <!-- Ministro -->
-
-             <!-- Deploy Qt libs as part of package -->
-             <meta-data android:name="android.app.bundle_local_qt_libs" android:value="1"/>
-             <!-- Deploy Qt libs as part of package -->
-
-             <!-- Run with local libs -->
-             <meta-data android:name="android.app.use_local_qt_libs" android:value="1"/>
-             <meta-data android:name="android.app.libs_prefix" android:value="/data/local/tmp/qt/"/>
-            <meta-data android:name="android.app.load_local_libs" android:value="plugins/platforms/android/libqtforandroid.so:plugins/bearer/libqandroidbearer.so:plugins/position/libqtposition_android.so:lib/libQt5QuickParticles.so"/>
-            <meta-data android:name="android.app.load_local_libs_resource_id" android:resource="@array/load_local_libs"/>
-
-            <meta-data android:name="android.app.load_local_jars" android:value="jar/QtAndroid.jar:jar/QtAndroidExtras.jar:jar/QtAndroidBluetooth.jar:jar/QtAndroidBearer.jar:jar/QtAndroidNetwork.jar:jar/QtPositioning.jar"/>
-            <meta-data android:name="android.app.static_init_classes" android:value="org.qtproject.qt5.android.bluetooth.QtBluetoothBroadcastReceiver:org.qtproject.qt5.android.positioning.QtPositioning"/>
-             <!-- Run with local libs -->
-
-             <!--  Messages maps -->
-             <meta-data android:value="@string/ministro_not_found_msg" android:name="android.app.ministro_not_found_msg"/>
-             <meta-data android:value="@string/ministro_needed_msg" android:name="android.app.ministro_needed_msg"/>
-             <meta-data android:value="@string/fatal_error_msg" android:name="android.app.fatal_error_msg"/>
-             <!--  Messages maps -->
-
-
-             <!-- Background running -->
-             <meta-data android:name="android.app.background_running" android:value="true"/>
-             <!-- Background running -->
-         </service>
-
-         <receiver android:name=".MyBroadcastReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-             </intent-filter>
-         </receiver>
-         <receiver android:name=".USBBroadcastReceiver">
-            <intent-filter>
-                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"/>
-                <action android:name="android.hardware.usb.action.USB_DEVICE_DETACHED"/>
-             </intent-filter>
-         </receiver>
-
-         <receiver android:name="ru.dublgis.androidhelpers.mobility.ScannerListener" android:enabled="true" android:permission="com.example.vendor.permission.SCANNER_RESULT_RECEIVER" android:priority="0">
-            <intent-filter>
-                <action android:name="device.common.USERMSG"/>
-            </intent-filter>
-        </receiver>
-
-        <provider android:name="android.support.v4.content.FileProvider" android:authorities="org.meecast.meecast.provider" android:exported="false" android:grantUriPermissions="true">
-            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
-        </provider>
-
     </application>
-    <uses-sdk android:minSdkVersion="25" android:targetSdkVersion="29"/>
-    <supports-screens android:largeScreens="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true"/>
-
-
-    <!-- The following comment will be replaced upon deployment with default permissions based on the dependencies of the application.
-         Remove the comment if you do not require these default permissions. -->
-
-
-    <!-- The following comment will be replaced upon deployment with default features based on the dependencies of the application.
-         Remove the comment if you do not require these default features. -->
-    <!-- %%INSERT_FEATURES -->
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="com.honeywell.decode.permission.DECODE"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.TETHER_PRIVILEGED"/>
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
-    <uses-permission android:name="android.permission.MANAGE_USERS"/>
-
-    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
-
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.NFC"/>
-    <uses-feature android:name="android.hardware.usb.host"/>
 
 </manifest>

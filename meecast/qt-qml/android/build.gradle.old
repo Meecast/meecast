@@ -1,3 +1,26 @@
+def readVarFile() {
+    def filepath = "../VARIABLES.txt"
+    if (!project.file(filepath).exists()){ 
+        filepath= "../src/VARIABLES.txt"
+    }
+    File varFile = file(filepath)
+    def qtVars = [:]
+    varFile.eachLine { line ->
+        if (line.trim()) {
+          def eq = line.indexOf('=')
+          if (eq > 0) {
+              def key = line.substring(0, eq)
+              def value = line.substring(eq+1)
+              qtVars."$key" = value
+          }
+        }
+    }
+    return qtVars
+}
+
+def QtApp = readVarFile()
+
+
 buildscript {
     repositories {
         google()
@@ -19,6 +42,10 @@ apply plugin: 'com.android.application'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 }
+def versionMajor = QtApp.VERSION_MAJOR.toInteger()
+def versionMinor = QtApp.VERSION_MINOR.toInteger()
+def versionBuild = QtApp.VERSION_BUILD.toInteger()
+
 
 android {
     /*******************************************************
@@ -36,7 +63,7 @@ android {
 
     compileSdkVersion androidCompileSdkVersion.toInteger()
 
-    buildToolsVersion '28.0.3'
+    buildToolsVersion androidBuildToolsVersion
 
     sourceSets {
         main {
@@ -54,4 +81,9 @@ android {
     lintOptions {
         abortOnError false
     }
+    defaultConfig {
+        versionCode versionMajor * 100000 + versionMinor * 1000 + versionBuild * 100
+        versionName QtApp.VERSION_STR
+    }
+
 }

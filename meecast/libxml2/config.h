@@ -154,7 +154,8 @@
 #define HAVE_RAND 1
 
 /* Define to 1 if you have the `rand_r' function. */
-#define HAVE_RAND_R 1
+//#define HAVE_RAND_R 1
+#undef HAVE_RAND_R
 
 /* Define to 1 if you have the <resolv.h> header file. */
 #define HAVE_RESOLV_H 1

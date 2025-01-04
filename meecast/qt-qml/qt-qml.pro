@@ -131,6 +131,48 @@ android {
     qml.path = /assets/qml
     qml2.files = pureqml/pages/*
     qml2.path = /assets/qml/pages
+
+    DATAPATH = "/assets"
+
+databeginning.files += ../core/data/icons/Beginning/*.png
+databeginning.path = $$DATAPATH/share/iconsets/Beginning
+datacontour.files += ../core/data/icons/Contour/*.png
+datacontour.path = $$DATAPATH/iconsets/Contour
+dataepona.files += ../core/data/icons/Epona/*.png
+dataepona.path = $$DATAPATH/iconsets/Epona
+dataglance.files += ../core/data/icons/Glance/*.png
+dataglance.path = $$DATAPATH/iconsets/Glance
+datameecast.files += ../core/data/icons/Meecast/*.png
+datameecast.path = $$DATAPATH/iconsets/Meecast
+datagrzankas.files += ../core/data/icons/Grzankas/*.png
+datagrzankas.path = $$DATAPATH/iconsets/Grzankas
+datashiny.files += ../core/data/icons/Shiny/*.png
+datashiny.path = $$DATAPATH/iconsets/Shiny
+datatango.files += ../core/data/icons/Tango/*.png
+datatango.path = $$DATAPATH/iconsets/Tango
+datasimpelmee.files += ../core/data/icons/SimpelMee/*.png
+datasimpelmee.path = $$DATAPATH/iconsets/SimpelMee
+datanoun.files += ../core/data/icons/Noun/*.png
+datanoun.path = $$DATAPATH/iconsets/Noun
+dataatmos.files += ../core/data/icons/Atmos/*.png
+dataatmos.path = $$DATAPATH/iconsets/Atmos
+
+donation.files += ../core/data/donation.html
+donation.path = $$DATAPATH/html
+
+
+#data.path = $$DATAPATH
+xsd.files += ../core/data/config.xsd
+xsd.files += ../core/data/data.xsd
+xsd.files += ../core/data/source.xsd
+xsd.path = $$DATAPATH/xsd
+buttonicons.path = $$DATAPATH/buttons_icons
+buttonicons.files += ../core/data/button_icons/*.png
+images.path = $$DATAPATH/images
+images.files += ../core/data/images/*.png
+
+INSTALLS += databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee datanoun dataatmos xsd buttonicons images donation 
+
 }
 
 target.path = /opt/com.meecast.omweather/bin

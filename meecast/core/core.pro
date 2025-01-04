@@ -24,10 +24,11 @@ linux:!android {
     PKGCONFIG += sqlite3
     PKGCONFIG += libcurl
     DEFINES += LIBCURL
-
+    DATAPATH = "/opt/com.meecast.omweather/share"
 }
 android {
     DEFINES += INTERNALSQLITE3
+    DATAPATH = "/assets"
 }
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG
@@ -81,7 +82,6 @@ HEADERS = \
     pressure.h
 
 
-DATAPATH = "/opt/com.meecast.omweather/share"
 
 
 

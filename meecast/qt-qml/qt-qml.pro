@@ -107,6 +107,18 @@ linux:!android {
     PKGCONFIG += libcurl
     DEFINES += LIBCURL
 
+    desktop.files = meecast.desktop
+    desktop.path = /usr/share/applications
+    icon64.path = /usr/share/pixmaps
+    icon64.files += omweather.png
+    qml.files = pureqml/*.qml *.js
+    qml.path = /opt/com.meecast.omweather/share/omweather/qml
+    qml2.files = pureqml/pages/*
+    qml2.path = /opt/com.meecast.omweather/share/omweather/qml/pages
+    
+    searchicon.files += gfx/*.png
+    searchicon.path += /opt/com.meecast.omweather/share/omweather/qml/gfx
+
 }
 android {
     QT += androidextras
@@ -115,22 +127,15 @@ android {
     ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
     DISTFILES += \
     android/AndroidManifest.xml
+    qml.files = pureqml/*.qml *.js
+    qml.path = /assets/qml
+    qml2.files = pureqml/pages/*
+    qml2.path = /assets/qml/pages
 }
 
 target.path = /opt/com.meecast.omweather/bin
 INSTALLS += target
 
-desktop.files = meecast.desktop
-desktop.path = /usr/share/applications
-icon64.path = /usr/share/pixmaps
-icon64.files += omweather.png
-qml.files = pureqml/*.qml *.js
-qml.path = /opt/com.meecast.omweather/share/omweather/qml
-qml2.files = pureqml/pages/*
-qml2.path = /opt/com.meecast.omweather/share/omweather/qml/pages
-
-searchicon.files += gfx/*.png
-searchicon.path += /opt/com.meecast.omweather/share/omweather/qml/gfx
 
 #INSTALLS += desktop qml icon64
 INSTALLS += desktop qml qml2 searchicon

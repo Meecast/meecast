@@ -52,12 +52,12 @@ namespace Core {
     //std::string AbstractConfig::configPath = "~/.config/omweather/";
     */
 #ifdef ANDROID
-    std::string AbstractConfig::prefix = "/";
+    std::string AbstractConfig::prefix = "assets:";
     std::string AbstractConfig::sharePath = "";
     std::string AbstractConfig::schemaPath = "/share/xsd/";
     std::string AbstractConfig::iconsPath = "/share/icons/";
     std::string AbstractConfig::libPath = "/lib/";
-    std::string AbstractConfig::sourcesPath = "/";
+    std::string AbstractConfig::sourcesPath = "/sources/";
     std::string AbstractConfig::layoutqml = "/qml/main.qml";
  #else
     std::string AbstractConfig::prefix = "/opt/com.meecast.omweather";

@@ -822,6 +822,15 @@ ConfigQml::Sources(){
     return l;
 }
 
+QString appdir(){
+        QStringList dirs = QStandardPaths::standardLocations(QStandardPaths::AppDataLocation);
+        if (dirs.length() >= 2)
+            return dirs[1];
+        if (dirs.length() == 1)
+            return dirs[0];
+        return "";
+}
+
 QStringList
 ConfigQml::Countries(QString source){
     QStringList l;
@@ -832,12 +841,7 @@ ConfigQml::Countries(QString source){
     QString filename(source);
     filename.append(".db");
     filename.prepend(path.c_str());
-    if (!this->db) {
-        this->db->set_databasename(filename.toStdString());
-    }else {
-        this->db->set_databasename(filename.toStdString());
-
-    }
+    this->db->set_databasename(filename.toStdString());
     if (!this->db->open_database()){
         l << "error open db";
         return l;

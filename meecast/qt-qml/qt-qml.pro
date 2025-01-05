@@ -171,7 +171,13 @@ buttonicons.files += ../core/data/button_icons/*.png
 images.path = $$DATAPATH/images
 images.files += ../core/data/images/*.png
 
-INSTALLS += databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee datanoun dataatmos xsd buttonicons images donation 
+db_gismeteo.files = ../../omweather-gismeteo-ru-stations-db/data/gismeteo.ru.db
+db_gismeteo.path = $$DATAPATH/db
+source_gismeteo.files = ../../omweather-gismeteo-ru-stations-db/data/gismeteom.ru.xml
+source_gismeteo.path = $$DATAPATH/sources/
+
+
+INSTALLS += databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee datanoun dataatmos xsd buttonicons images donation db_gismeteo source_gismeteo
 
 }
 

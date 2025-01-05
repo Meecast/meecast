@@ -30,13 +30,19 @@
 
 #include "databasesqlite.h"
 
+#include <QString>
+#include <QStandardPaths>
+#include <QFileInfo>
+#include <QDir>
+#include <QDateTime>
+#include <QDebug>
 namespace Core {
 
 DatabaseSqlite::DatabaseSqlite(const std::string& filename)
 {
     db = NULL;
     databasename = new std::string;
-    databasename->assign(filename);
+    this->set_databasename(filename);
 }
 
 DatabaseSqlite::~DatabaseSqlite()
@@ -45,10 +51,53 @@ DatabaseSqlite::~DatabaseSqlite()
     if (!db) sqlite3_close(db);
 }
 
+QString appdir(){
+    QStringList dirs = QStandardPaths::standardLocations(QStandardPaths::AppDataLocation);
+    if (dirs.length() >= 2)
+        return dirs[1];
+    if (dirs.length() == 1)
+        return dirs[0];
+    return "";
+}
+
 void
 DatabaseSqlite::set_databasename(const std::string& filename)
 {
+#ifdef ANDROID
+    QString dbSourcePath(filename.c_str());
+    QFileInfo dbSourceInfo(dbSourcePath);
+    QString const _filename(dbSourceInfo.fileName());
+
+    // determine destination path
+    QDir writableLocation(appdir() + "/OfflineStorage/Databases/");
+    if (!writableLocation.exists()) {
+        writableLocation.mkpath(".");
+    }
+    QString dbDestPath = writableLocation.filePath(_filename);
+    QFileInfo dbDestInfo(dbDestPath);
+
+    // determine if the source db has changed
+    bool dbSourceUpdated = false;
+    if (dbSourceInfo.lastModified() > dbDestInfo.lastModified()){
+        dbSourceUpdated = dbSourceInfo.lastModified() > dbDestInfo.lastModified();
+    }
+
+    // copy or replace db if needed
+    if ((!dbDestInfo.exists()) || dbSourceUpdated) {
+        QFile::remove(dbDestPath);
+        if (!QFile::copy(dbSourcePath, dbDestPath)) {
+            qCritical() << "ERROR: source db " << dbSourcePath << " not copied to "<< dbDestPath;
+        } else {
+            qDebug() << "db successfully copied or replaced to " << dbDestPath;
+        }
+
+    } else {
+        qDebug() << "dest db " << dbDestPath << " already exists";
+    }
+    databasename->assign(dbDestPath.toStdString());
+#else 
     databasename->assign(filename);
+#endif
 }
 
 std::string&
@@ -64,7 +113,6 @@ DatabaseSqlite::open_database()
     int rc;
     char * msg;
     std::string key ("gismeteo.ru.db");
-//    std::cerr << (databasename->length() - databasename->rfind(key)) << " " << key.length() << std::endl;
     if (sqlite3_open(databasename->c_str(), &db)){
         std::cerr << "error open " << *databasename << std::endl;
         return false;

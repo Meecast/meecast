@@ -30,11 +30,34 @@
 
 
 #include "sourcelist.h"
+#include <QDebug>
+#include <QDir>
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     SourceList::SourceList(const std::string path){
         std::cerr<<"SourceList::SourceList()"<<std::endl;
+        QDir dir(path.c_str());
+        for (const QString &filename : dir.entryList(QDir::Files)){
+                    try{
+                        std::string file = path + filename.toStdString();
+                        std::string schemafile = AbstractConfig::prefix;
+                        schemafile += AbstractConfig::schemaPath;
+                        schemafile += "source.xsd";
+                        Source *s = new Source(file, schemafile);
+                        this->push_back(s);
+                    }
+                    catch(std::string& err){
+                        std::cerr << "error " << err << std::endl;
+                        continue;
+                    }
+                    catch(const char *err){
+                        std::cerr << "error " << err << std::endl;
+                        continue;
+                    }
+
+        }
+#if 0        
         Dirent *dp = 0;
         DIR *dir_fd = opendir(path.c_str());
         if(dir_fd){
@@ -64,6 +87,7 @@ namespace Core {
             }
             closedir(dir_fd);
         }
+#endif        
         _stations = new StationsList;
     }
 ////////////////////////////////////////////////////////////////////////////////

@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) and MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2025 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -29,6 +29,11 @@
 /*******************************************************************************/
 
 #include "abstractconfig.h"
+#ifdef ANDROID
+#include <QString>
+#include <QStandardPaths>
+#include <QDir>
+#endif
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 #ifdef LOCALDEBUG
@@ -52,12 +57,12 @@ namespace Core {
     //std::string AbstractConfig::configPath = "~/.config/omweather/";
     */
 #ifdef ANDROID
-    std::string AbstractConfig::prefix = "assets:";
+    std::string AbstractConfig::prefix = "assets:/";
     std::string AbstractConfig::sharePath = "";
     std::string AbstractConfig::schemaPath = "/share/xsd/";
     std::string AbstractConfig::iconsPath = "/share/icons/";
     std::string AbstractConfig::libPath = "/lib/";
-    std::string AbstractConfig::sourcesPath = "/sources/";
+    std::string AbstractConfig::sourcesPath = "sources/";
     std::string AbstractConfig::layoutqml = "/qml/main.qml";
  #else
     std::string AbstractConfig::prefix = "/opt/com.meecast.omweather";
@@ -77,6 +82,20 @@ namespace Core {
 #ifdef LOCALDEBUG
         return "../test/";
 #else
+    #ifdef ANDROID
+        QString appdir;
+        QStringList dirs = QStandardPaths::standardLocations(QStandardPaths::AppDataLocation);
+        if (dirs.length() >= 2)
+            appdir =dirs[1];
+        if (dirs.length() == 1)
+            appdir = dirs[0];
+        // determine destination path
+        QDir writableLocation(appdir + "/org.meecast.Meecast/config/");
+        if (!writableLocation.exists()) {
+            writableLocation.mkpath(".");
+        }
+        return  writableLocation.path().toStdString();
+    #else       
         struct passwd *pw = getpwuid(getuid());
         std::string path(pw->pw_dir);
         path += "/.config";
@@ -85,6 +104,7 @@ namespace Core {
         path += "/com.meecast.omweather/";
         mkdir(path.c_str(), 0755);
         return path;
+    #endif 
 #endif
     }
     std::string AbstractConfig::getCachePath()

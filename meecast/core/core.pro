@@ -29,6 +29,7 @@ linux:!android {
 android {
     DEFINES += INTERNALSQLITE3
     DATAPATH = "/assets"
+    QT += network
 }
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG

@@ -77,17 +77,24 @@ HEADERS = \
     visible.h \
     pressure.h
 
+
+#DATAPATH = "/opt/com.meecast.omweather/share"
+DATAPATH = "/usr/share/harbour-meecast"
+
+
+
+
 icon.files = data/desktop/Icon/meecast.svg
-icon.path =  /usr/share/icons/
+icon.path =  $$DATAPATH/icons/
 
 icon50.files = data/desktop/Icon/omweather.png
-icon50.path = /usr/share/icons/
+icon50.path = $$DATAPATH/icons/
 
 icon255.files = data/desktop/Icon/omweather255.png
-icon255.path = /usr/share/icons/
+icon255.path = $$DATAPATH/icons/
 
 iconpanel.files = data/desktop/Icon/pnl_icn_omweather.png
-iconpanel.path = /usr/share/icons/
+iconpanel.path = $$DATAPATH/icons/
 
 icon16.files = data/desktop/Icon/16/omweather.png
 icon16.path = /usr/share/icons/hicolor/16x16/apps/
@@ -117,40 +124,40 @@ icon256.path = /usr/share/icons/hicolor/256x256/apps/
 #target.path = /usr/share/harbour-meecast/lib
 #data.files = data/icons/
 databeginning.files += data/icons/Beginning/*.png
-databeginning.path = $$DEPLOYMENT_PATH/iconsets/Beginning
+databeginning.path = $$DATAPATH/share/iconsets/Beginning
 datacontour.files += data/icons/Contour/*.png
-datacontour.path = /usr/share/harbour-meecast/iconsets/Contour
+datacontour.path = $$DATAPATH/iconsets/Contour
 dataepona.files += data/icons/Epona/*.png
-dataepona.path = /usr/share/harbour-meecast/iconsets/Epona
+dataepona.path = $$DATAPATH/iconsets/Epona
 dataglance.files += data/icons/Glance/*.png
-dataglance.path = /usr/share/harbour-meecast/iconsets/Glance
+dataglance.path = $$DATAPATH/iconsets/Glance
 datameecast.files += data/icons/Meecast/*.png
-datameecast.path = /usr/share/harbour-meecast/iconsets/Meecast
+datameecast.path = $$DATAPATH/iconsets/Meecast
 datagrzankas.files += data/icons/Grzankas/*.png
-datagrzankas.path = /usr/share/harbour-meecast/iconsets/Grzankas
+datagrzankas.path = $$DATAPATH/iconsets/Grzankas
 datashiny.files += data/icons/Shiny/*.png
-datashiny.path = /usr/share/harbour-meecast/iconsets/Shiny
+datashiny.path = $$DATAPATH/iconsets/Shiny
 datatango.files += data/icons/Tango/*.png
-datatango.path = /usr/share/harbour-meecast/iconsets/Tango
+datatango.path = $$DATAPATH/iconsets/Tango
 datasimpelmee.files += data/icons/SimpelMee/*.png
-datasimpelmee.path = /usr/share/harbour-meecast/iconsets/SimpelMee
+datasimpelmee.path = $$DATAPATH/iconsets/SimpelMee
 datanoun.files += data/icons/Noun/*.png
-datanoun.path = /usr/share/harbour-meecast/iconsets/Noun
+datanoun.path = $$DATAPATH/iconsets/Noun
 dataatmos.files += data/icons/Atmos/*.png
-dataatmos.path = /usr/share/harbour-meecast/iconsets/Atmos
+dataatmos.path = $$DATAPATH/iconsets/Atmos
 
 donation.files += data/donation.html
-donation.path = /usr/share/harbour-meecast/html
+donation.path = $$DATAPATH/html
 
 
-#data.path = /usr/share
+#data.path = $$DATAPATH
 xsd.files += data/config.xsd
 xsd.files += data/data.xsd
 xsd.files += data/source.xsd
-xsd.path = /usr/share/harbour-meecast/xsd
-buttonicons.path = /usr/share/harbour-meecast/buttons_icons
+xsd.path = $$DATAPATH/xsd
+buttonicons.path = $$DATAPATH/buttons_icons
 buttonicons.files += data/button_icons/*.png
-images.path = /usr/share/harbour-meecast/images
+images.path = $$DATAPATH/images
 images.files += data/images/*.png
 #alib.files = libomweather-core.a
 #alib.path = /usr/share/harbour-meecast/lib

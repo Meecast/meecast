@@ -30,6 +30,12 @@
 
 
 #include "downloader.h"
+#ifndef LIBCURL
+    #include <QtCore>
+    #include <QEventLoop>
+    #include <QtNetwork>
+    #include <QObject>
+#endif
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
@@ -73,7 +79,28 @@ Downloader::downloadData(const std::string &filename, const std::string &url, co
         return true;
     }else return false;
 #else
-    return false;
+    //qDebug()<<"----"<<QSslSocket::sslLibraryBuildVersionString();
+    //qDebug()<<"----"<<QSslSocket::sslLibraryVersionString();
+    QEventLoop loop;
+    QNetworkAccessManager mgr;
+    QObject::connect(&mgr, &QNetworkAccessManager::finished, &loop, &QEventLoop::quit);
+    QUrl _url(url.c_str());
+    qDebug()<<url.c_str();
+    QNetworkRequest request(_url);
+    if (user_agent != ""){
+        qDebug()<<"Set User-Agent";
+        request.setRawHeader("User-Agent", user_agent.c_str());
+    }
+    request.setAttribute(QNetworkRequest::FollowRedirectsAttribute, true);
+    auto reply = mgr.get(request);
+    loop.exec();
+    QFile localFile(filename.c_str());
+    if (!localFile.open(QIODevice::WriteOnly))
+        return false;
+    localFile.write(reply->readAll());
+    localFile.close();
+    delete reply;
+    return true;
 #endif
 }
 ////////////////////////////////////////////////////////////////////////////////

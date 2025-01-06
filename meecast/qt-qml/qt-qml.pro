@@ -176,8 +176,13 @@ db_gismeteo.path = $$DATAPATH/db
 source_gismeteo.files = ../../omweather-gismeteo-ru-stations-db/data/gismeteom.ru.xml
 source_gismeteo.path = $$DATAPATH/sources/
 
+db_foreca.files = ../../omweather-foreca-com-stations-db/data/foreca.com.db
+db_foreca.path = $$DATAPATH/db
+source_foreca.files = ../../omweather-foreca-com-stations-db/data/foreca.com.xml
+source_foreca.path = $$DATAPATH/sources/
 
-INSTALLS += databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee datanoun dataatmos xsd buttonicons images donation db_gismeteo source_gismeteo
+
+INSTALLS += databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee datanoun dataatmos xsd buttonicons images donation db_gismeteo source_gismeteo db_foreca source_foreca
 
 }
 
@@ -400,5 +405,11 @@ else:message(No translation files in project)
 #transinstallukua.path = /opt/com.meecast.omweather/share/locale/uk_UA/LC_MESSAGES
 #transinstallukua.files = po/locale/uk_UA/omweather.mo
 #INSTALLS += transinstallukua
+
+contains(ANDROID_TARGET_ARCH,x86) {
+    ANDROID_EXTRA_LIBS = \
+    /home/vlad/work/meecast/meecast/qt-qml/../../../../android-sdk/android_openssl/latest/x86/libcrypto_1_1.so \
+    $$PWD/../../../../android-sdk/android_openssl/latest/x86/libssl_1_1.so
+}
 
 

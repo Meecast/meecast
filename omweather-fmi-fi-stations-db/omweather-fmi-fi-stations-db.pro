@@ -6,7 +6,8 @@
 
 
 TARGET = fmifi 
-TEMPLATE = app
+TEMPLATE = lib
+#TEMPLATE = app
 
 
 
@@ -19,6 +20,7 @@ SOURCES += src/meego-main.cpp \
 
 FORMS    +=
 
+DEFINES += "USE_OS_TZDB=1"
 OTHER_FILES += \
 
 DEFINES += "USE_OS_TZDB=1"
@@ -43,14 +45,16 @@ QMAKE_CXXFLAGS += -fPIC -std=c++14
 #}
 
 
+CONFIG += static
 db.files = data/fmi.fi.db
 db.path = /opt/com.meecast.omweather/share/db/
+
 
 source.files = data/fmi.fi.xml
 source.path = /opt/com.meecast.omweather/share/sources/
 
 #install
 target.path = /opt/com.meecast.omweather/lib
-INSTALLS += target db source
+INSTALLS += db source
 
 

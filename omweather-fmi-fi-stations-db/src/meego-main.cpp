@@ -449,6 +449,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             if (val[i].get("Temperature","").asString() == "nan" && SmartSymbol == "nan" ){
                 continue;
             }
+            
             if (first_day){
                 if (afternoon){
                     fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone - 3600*timezone);
@@ -954,7 +955,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
 #if 0
     /* Sun info */
     val = root["suninfo"].get(root["observations"].getMemberNames()[0], nullval);
-/*    std::cerr<<val<<std::endl;*/
+    /* std::cerr<<val<<std::endl; */
     time_t sunrise_time = 0;
     time_t sunset_time = 0;
     time_t day_begin = 0;
@@ -1163,7 +1164,7 @@ convert_station_fmi_fi_data(const char *days_data_path, const char *result_file,
 
 /*******************************************************************************/
 int
-main(int argc, char *argv[]){
+main_fmi_fi(int argc, char *argv[]){
     int result = -1; 
     if (argc < 2) {
         fprintf(stderr, "fmifi <input_days_file> <output_file> \n");

@@ -66,11 +66,17 @@ DatabaseSqlite::set_databasename(const std::string& filename)
 #ifdef ANDROID
     QString dbSourcePath(filename.c_str());
     QFileInfo dbSourceInfo(dbSourcePath);
-    QString const _filename(dbSourceInfo.fileName());
-
+    QString _filename = dbSourcePath.split("/").last();
+    QString appdir = "";
+    QStringList dirs = QStandardPaths::standardLocations(QStandardPaths::AppDataLocation);
+    if (dirs.length() >= 2)
+        appdir =dirs[1];
+    if (dirs.length() == 1)
+        appdir = dirs[0];
     // determine destination path
-    QDir writableLocation(appdir() + "/OfflineStorage/Databases/");
+    QDir writableLocation(appdir + "/databases/");
     if (!writableLocation.exists()) {
+        qDebug()<<"Directory is not exists";
         writableLocation.mkpath(".");
     }
     QString dbDestPath = writableLocation.filePath(_filename);
@@ -81,6 +87,18 @@ DatabaseSqlite::set_databasename(const std::string& filename)
     if (dbSourceInfo.lastModified() > dbDestInfo.lastModified()){
         dbSourceUpdated = dbSourceInfo.lastModified() > dbDestInfo.lastModified();
     }
+    /*
+    if (dbDestInfo.exists()){
+        qDebug()<<"dbDestInfo"<<dbDestInfo.lastModified();
+        qDebug()<<"dbDestInfo"<<dbDestInfo.size();
+    }
+    if (dbSourceInfo.exists()){
+        qDebug()<<"dbSourceInfo"<<dbSourceInfo.lastModified();
+        qDebug()<<"dbSourceInfo"<<dbSourceInfo.size();
+    }else{
+        qDebug()<<"dbSourceInfo.exists() not exists";
+    }
+    */
 
     // copy or replace db if needed
     if ((!dbDestInfo.exists()) || dbSourceUpdated) {

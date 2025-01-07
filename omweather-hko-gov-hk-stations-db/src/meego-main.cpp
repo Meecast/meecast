@@ -447,7 +447,7 @@ convert_station_hkogovhk_data(const char *station_id_with_path, const char *resu
 }
 /*******************************************************************************/
 int
-main(int argc, char *argv[]){
+main_hkogovhk(int argc, char *argv[]){
     int result; 
     if (argc < 3) {
         fprintf(stderr, "hkogovhk <input_file> <output_file> <input_detail_data>\n");

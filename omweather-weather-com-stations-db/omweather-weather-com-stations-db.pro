@@ -6,9 +6,10 @@
 
 
 TARGET = weathercom
-TEMPLATE = app
+#TEMPLATE = app
 
 
+TEMPLATE = lib
 
 HEADERS += src/main.h \
 	       src/json/json.h
@@ -30,7 +31,9 @@ linux:!android {
              
 INCLUDEPATH += ../meecast/libxml2/include
 LIBS += $$PWD/../meecast/libxml2/liblibxml2.a
+CONFIG += link_pkgconfig staticlib -qt
 
+LIBS += -L meecast/libxml2/liblibxml2.a
 db.files = data/weather.com.db
 db.path =  /opt/com.meecast.omweather/share/db/
 
@@ -42,6 +45,6 @@ source.path = /opt/com.meecast.omweather/share/sources/
 
 #install
 target.path = /opt/com.meecast.omweather/lib
-INSTALLS += target db icon source
+INSTALLS += db icon source
 
 

@@ -6,8 +6,9 @@
 
 
 TARGET = openweathermaporg 
-TEMPLATE = app
+#TEMPLATE = app
 
+TEMPLATE = lib
 
 
 HEADERS += src/meego-main.h \
@@ -25,6 +26,18 @@ CONFIG = link_pkgconfig
 linux:!android {
     message("* Using settings for Unix/Linux.")
     PKGCONFIG += libxml-2.0
+}
+CONFIG += link_pkgconfig staticlib
+system(pkg-config --exists glib-2.0){
+    PKGCONFIG += glib-2.0
+    message(GLIB-2.0 is exist)
+    CONFIG += -qt
+    DEFINES += GLIB 
+}else{
+    message(GLIB-2.0 is not exist)
+    CONFIG += qt
+    QT += core
+    DEFINES += QT
 }
              
 INCLUDEPATH += ../meecast/libxml2/include
@@ -53,6 +66,6 @@ source.path = /opt/com.meecast.omweather/share/sources/
 
 #install
 target.path = /opt/com.meecast.omweather/lib
-INSTALLS += target db icon source
+INSTALLS += db icon source
 
 

@@ -6,9 +6,10 @@
 
 
 TARGET = yrno 
-TEMPLATE = app
+#TEMPLATE = app
 
 
+TEMPLATE = lib
 
 HEADERS += src/meego-main.h \
            src/json/json.h \
@@ -32,7 +33,7 @@ linux:!android {
              
 INCLUDEPATH += ../meecast/libxml2/include
 LIBS += $$PWD/../meecast/libxml2/liblibxml2.a
-
+CONFIG += link_pkgconfig staticlib
 #system(pkg-config --exists glib-2.0){
 #    PKGCONFIG += glib-2.0
 #    message(GLIB-2.0 is exist)
@@ -45,6 +46,7 @@ LIBS += $$PWD/../meecast/libxml2/liblibxml2.a
 #    DEFINES += QT
 #}
 
+CONFIG += static
 db.files = data/yr.no.db
 db.path = /opt/com.meecast.omweather/share/db/
 
@@ -56,6 +58,6 @@ source.path = /opt/com.meecast.omweather/share/sources/
 
 #install
 target.path = /opt/com.meecast.omweather/lib
-INSTALLS += target db icon source
+INSTALLS += db icon source
 
 

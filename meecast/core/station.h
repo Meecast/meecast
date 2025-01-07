@@ -136,6 +136,8 @@ namespace Core{
             double longitude() const;
 
 
+            void run_converter();
+
     };
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

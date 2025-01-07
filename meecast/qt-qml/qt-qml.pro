@@ -95,6 +95,7 @@ QMAKE_LFLAGS += -pie -rdynamic
 
 INCLUDEPATH += ../core                                                                                                        
 
+LIBS += -L ../core ../core/libomweather-core.a  ../libxml2/liblibxml2.a 
 LIBS += ../../omweather-fmi-fi-stations-db/tz.o ../../omweather-fmi-fi-stations-db/meego-main.o ../../omweather-fmi-fi-stations-db/jsoncpp.o ../../omweather-openweathermap-org-stations-db/meego-main.o ../../omweather-openweathermap-org-stations-db/hash.o ../../omweather-gismeteo-ru-stations-db/meego-main.o ../../omweather-gismeteo-ru-stations-db/hash.o ../../omweather-foreca-com-stations-db/meego-main.o ../../omweather-foreca-com-stations-db/hash.o ../../omweather-hko-gov-hk-stations-db/meego-main.o ../../omweather-hko-gov-hk-stations-db/hash.o ../../omweather-bom-gov-au-stations-db/meego-main.o ../../omweather-bom-gov-au-stations-db/hash.o ../../omweather-yr-no-stations-db/meego-main.o ../../omweather-yr-no-stations-db/hash.o ../../omweather-weather-com-stations-db/main.o  ../sqlite3/sqlite3.o
 
 
@@ -103,7 +104,6 @@ LIBS += ../../omweather-fmi-fi-stations-db/tz.o ../../omweather-fmi-fi-stations-
 
 
 #LIBS += -L ../core ../core/libomweather-core.a  ../libxml2/liblibxml2.a ../../omweather-openweathermap-org-stations-db/libopenweathermaporg.a -lsailfishapp 
-LIBS += -L ../core ../core/libomweather-core.a  ../libxml2/liblibxml2.a 
 CONFIG += dbus
 CONFIG += qdbus
 CONFIG += link_pkgconfig

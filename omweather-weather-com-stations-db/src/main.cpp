@@ -20,7 +20,7 @@
  * License along with this software; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
-*/
+ */
 /*******************************************************************************/
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -68,6 +68,10 @@ parse_and_write_html_data(const char *station_id, htmlDocPtr doc, const char *re
     time_t local_time = 0;
 
 
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    //    file_out = fopen ("myfile.txt","w"); 
     file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
@@ -95,7 +99,6 @@ parse_and_write_html_data(const char *station_id, htmlDocPtr doc, const char *re
 
    /* Day weather forecast */
    /* Evaluate xpath expression */
-
     xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/script[contains(text(),'window.__data')]/text()", xpathCtx);
     if(xpathObj == NULL || xpathObj->nodesetval == NULL ||  xpathObj->nodesetval->nodeTab == NULL) {
         fprintf(stderr,"Error: unable to evaluate xpath expression \"%s\"\n", "/html/body/script[contains(text(),'window.__data')]/text()");
@@ -348,7 +351,7 @@ parse_and_write_html_data(const char *station_id, htmlDocPtr doc, const char *re
 
 /*******************************************************************************/
 int
-convert_station_weather_data(const char *station_id_with_path, const char *result_file,
+convert_station_weather_com_data(const char *station_id_with_path, const char *result_file,
 	                     const char *station_detail_id_with_path){
     xmlDoc  *doc = NULL;
     xmlNode *root_node = NULL;
@@ -413,16 +416,16 @@ convert_station_weather_data(const char *station_id_with_path, const char *resul
 }
 
 int
-main(int argc, char *argv[]){
+main_weather_com(int argc, char *argv[]){
     int result; 
     if (argc < 3) {
         fprintf(stderr, "weathercom <input_file> <output_file> <input_detail_fail>\n");
         return -1;
     }
     if (argc == 3) 
-    	result = convert_station_weather_data(argv[1], argv[2], "");
+    	result = convert_station_weather_com_data(argv[1], argv[2], "");
     if (argc == 4)
-    	result = convert_station_weather_data(argv[1], argv[2], argv[3]);
+    	result = convert_station_weather_com_data(argv[1], argv[2], argv[3]);
     fprintf(stderr, "\nresult = %d\n", result);
     return result;
 }

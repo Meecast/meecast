@@ -19,7 +19,7 @@
  * License along with this software; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
-*/
+ */
 /*******************************************************************************/
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -38,73 +38,73 @@
 static xmlHashTablePtr hash_for_icons;
 static xmlHashTablePtr hash_for_translate;
 #ifdef GLIB
-    static GHashTable *data = NULL;
+static GHashTable *data = NULL;
 #endif 
 /*******************************************************************************/
 #ifdef QT
-    static QHash<QString, QString> *hash_for_icons;
-    static QHash<QString, QString> *hash_for_translate;
-    QHash<QString, QString> *hash_icons_yrno_table_create(void);
+static QHash<QString, QString> *hash_for_icons;
+static QHash<QString, QString> *hash_for_translate;
+QHash<QString, QString> *hash_icons_yrno_table_create(void);
 #endif
 /*******************************************************************************/
 #ifdef GLIB
-    int
-    source_init(void){
-        data = g_hash_table_new(g_str_hash, g_str_equal);
-        if(!data)
-            return FALSE;
-        return TRUE;
-    }
+int
+source_init(void){
+    data = g_hash_table_new(g_str_hash, g_str_equal);
+    if(!data)
+        return FALSE;
+    return TRUE;
+}
 #endif
 /*******************************************************************************/
 #ifdef GLIB
-    void
-    source_destroy(void){
-        GHashTable  *hashtable1 = NULL;
-        void *hashtable = NULL;
-        void *tmp = NULL;
-        /* free station location data */
-        hashtable = g_hash_table_lookup(data, "location");
-        if(hashtable){
-            g_hash_table_foreach((GHashTable *)hashtable, free_fields, NULL);
-            g_hash_table_remove_all((GHashTable *)hashtable);
-            g_hash_table_unref((GHashTable *)hashtable);
-        }
-        /* free station current data */
-        hashtable = g_hash_table_lookup(data, "current");
-        if(hashtable){
-            g_hash_table_foreach((GHashTable *)hashtable, free_fields, NULL);
-            g_hash_table_remove_all((GHashTable *)hashtable);
-            g_hash_table_unref((GHashTable *)hashtable);
-        }
-        /* free station days data */
-        tmp = g_hash_table_lookup(data, "forecast");
-        while((GSList *)tmp){
-            hashtable1 = (GHashTable *)(((GSList *)tmp)->data);
-            g_hash_table_foreach((GHashTable *)hashtable1, free_fields, NULL);
-            g_hash_table_remove_all((GHashTable *)hashtable1);
-            g_hash_table_unref((GHashTable *)hashtable1);
-            tmp = g_slist_next(tmp);
-        }
-        tmp = g_hash_table_lookup(data, "forecast");
-        if(tmp)
-            g_slist_free((GSList *)tmp);
-        if(data){
-            g_hash_table_remove_all(data);
-            g_hash_table_destroy(data);
-        }
+void
+source_destroy(void){
+    GHashTable  *hashtable1 = NULL;
+    void *hashtable = NULL;
+    void *tmp = NULL;
+    /* free station location data */
+    hashtable = g_hash_table_lookup(data, "location");
+    if(hashtable){
+        g_hash_table_foreach((GHashTable *)hashtable, free_fields, NULL);
+        g_hash_table_remove_all((GHashTable *)hashtable);
+        g_hash_table_unref((GHashTable *)hashtable);
     }
+    /* free station current data */
+    hashtable = g_hash_table_lookup(data, "current");
+    if(hashtable){
+        g_hash_table_foreach((GHashTable *)hashtable, free_fields, NULL);
+        g_hash_table_remove_all((GHashTable *)hashtable);
+        g_hash_table_unref((GHashTable *)hashtable);
+    }
+    /* free station days data */
+    tmp = g_hash_table_lookup(data, "forecast");
+    while((GSList *)tmp){
+        hashtable1 = (GHashTable *)(((GSList *)tmp)->data);
+        g_hash_table_foreach((GHashTable *)hashtable1, free_fields, NULL);
+        g_hash_table_remove_all((GHashTable *)hashtable1);
+        g_hash_table_unref((GHashTable *)hashtable1);
+        tmp = g_slist_next(tmp);
+    }
+    tmp = g_hash_table_lookup(data, "forecast");
+    if(tmp)
+        g_slist_free((GSList *)tmp);
+    if(data){
+        g_hash_table_remove_all(data);
+        g_hash_table_destroy(data);
+    }
+}
 /*******************************************************************************/
-    void
-    free_fields(gpointer key, gpointer val, gpointer user_data){
-    #ifdef DEBUGFUNCTIONCALL
-        START_FUNCTION;
-    #endif
-        if(val){
-            g_free(val);
-            val = NULL;
-        }
+void
+free_fields(gpointer key, gpointer val, gpointer user_data){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if(val){
+        g_free(val);
+        val = NULL;
     }
+}
 #endif
 /*******************************************************************************/
 
@@ -501,13 +501,14 @@ convert_station_yrno_data(const char *station_id_with_path, const char *result_f
 }
 /*******************************************************************************/
 int
-main(int argc, char *argv[]){
+main_yr_no(int argc, char *argv[]){
     int result; 
     if (argc < 3) {
         fprintf(stderr, "yrno <input_file> <output_file> <input_detail_data>\n");
         return -1;
     }
     result = convert_station_yrno_data(argv[1], argv[2], argv[3]);
+    fprintf(stderr, "\nresult = %d\n", result);
     /* fprintf(stderr, "\nresult = %d\n", result); */
     return result;
 }

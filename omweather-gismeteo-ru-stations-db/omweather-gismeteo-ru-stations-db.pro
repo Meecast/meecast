@@ -6,9 +6,10 @@
 
 
 TARGET = gismeteoru 
-TEMPLATE = app
+#TEMPLATE = app
 
 
+TEMPLATE = lib
 
 HEADERS += src/meego-main.h \
            src/hash.h \
@@ -22,7 +23,7 @@ FORMS    +=
 
 OTHER_FILES += \
 
-CONFIG = link_pkgconfig 
+CONFIG += link_pkgconfig staticlib
 PKGCONFIG += libxml-2.0 
 
 QMAKE_CXXFLAGS += -fPIC -std=c++14 -g
@@ -50,6 +51,6 @@ source.path = /opt/com.meecast.omweather/share/sources/
 
 #install
 target.path = /opt/com.meecast.omweather/lib
-INSTALLS += target db icon source
+INSTALLS += db source
 
 

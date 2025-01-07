@@ -477,7 +477,7 @@ convert_station_bomgovau_data(const char *station_id_with_path, const char *resu
 }
 /*******************************************************************************/
 int
-main(int argc, char *argv[]){
+main_bom_gov_au(int argc, char *argv[]){
     int result; 
     if (argc < 3) {
         fprintf(stderr, "bomgovau <input_file> <output_file> <input_detail_data>\n");

@@ -93,7 +93,6 @@ QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
 QMAKE_LFLAGS += -pie -rdynamic
 
 
-PKGCONFIG += libxml-2.0
 
 INCLUDEPATH += ../core                                                                                                        
 
@@ -114,6 +113,7 @@ linux:!android {
     message("* Using settings for Unix/Linux.")
     PKGCONFIG += sqlite3
     PKGCONFIG += glib-2.0
+    PKGCONFIG += libxml-2.0
     CONFIG += dbus
     CONFIG += qdbus
     DEFINES += QDBUS

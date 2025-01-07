@@ -112,9 +112,10 @@ HEADERS = \
 #icon256.path = /usr/share/icons/hicolor/256x256/apps/
 
 #target.path = /usr/share/org.meecast.MeeCast/lib
+
 #data.files = data/icons/
 databeginning.files += data/icons/Beginning/*.png
-databeginning.path = $$DEPLOYMENT_PATH/iconsets/Beginning
+databeginning.path = $$DATAPATH/share/iconsets/Beginning
 datacontour.files += data/icons/Contour/*.png
 datacontour.path = /usr/share/org.meecast.MeeCast/iconsets/Contour
 dataepona.files += data/icons/Epona/*.png
@@ -140,7 +141,7 @@ donation.files += data/donation.html
 donation.path = /usr/share/org.meecast.MeeCast/html
 
 
-#data.path = /usr/share
+#data.path = $$DATAPATH
 xsd.files += data/config.xsd
 xsd.files += data/data.xsd
 xsd.files += data/source.xsd

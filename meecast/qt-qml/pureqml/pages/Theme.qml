@@ -4,6 +4,7 @@ import QtQml 2.0
       property variant primaryColor: "ghostwhite"
       property variant secondaryColor: "darkgrey"
       property int paddingLarge: 50
+      property int paddingSmall: 20
   }
 
 

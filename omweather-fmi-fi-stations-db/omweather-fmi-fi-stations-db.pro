@@ -50,6 +50,7 @@ db.files = data/fmi.fi.db
 db.path = /usr/share/org.meecast.MeeCast/db/
 
 
+
 source.files = data/fmi.fi.xml
 source.path = /usr/share/org.meecast.MeeCast/sources/
 

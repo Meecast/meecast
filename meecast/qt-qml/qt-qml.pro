@@ -102,7 +102,7 @@ LIBS += ../../omweather-fmi-fi-stations-db/tz.o ../../omweather-fmi-fi-stations-
 
 
 
-
+LIBS += ../libxml2/liblibxml2.a
 
 #LIBS += -L ../core ../core/libomweather-core.a  ../libxml2/liblibxml2.a ../../omweather-openweathermap-org-stations-db/libopenweathermaporg.a -lsailfishapp 
 #CONFIG += dbus

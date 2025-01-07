@@ -39,6 +39,7 @@ LIBS += -L ../core ../core/libomweather-core.a  ../libxml2/liblibxml2.a
 
 
 
+LIBS += -L ../core ../core/libomweather-core.a
 CONFIG += link_pkgconfig \
          dbus \
          qdbus
@@ -46,6 +47,7 @@ PKGCONFIG += libcurl
 PKGCONFIG += sqlite3
 PKGCONFIG += glib-2.0
 PKGCONFIG += zlib
+PKGCONFIG += libxml-2.0
 
 system(pkg-config --exists Qt5Core) {
  PKGCONFIG += Qt5Core

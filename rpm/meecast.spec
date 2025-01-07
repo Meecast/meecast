@@ -347,7 +347,7 @@ fi
 
 
 %changelog
-* Wen Jan 01 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.17
+* Wed Jan 01 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.17
 - Added icons to gismeteo.ru
 - Changed url for weather forecast from gismeteo again
 

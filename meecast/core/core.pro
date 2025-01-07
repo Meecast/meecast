@@ -11,7 +11,6 @@ CONFIG += qt-boostable
 DEPLOYMENT_PATH = /usr/share/org.meecast.MeeCast/
 
 
-
 DEFINES += AURORA 
 
 system(pkg-config --exists libxml++-2.6) {
@@ -74,6 +73,11 @@ HEADERS = \
     pressure.h
 
 
+#DATAPATH = "/opt/com.meecast.omweather/share"
+DATAPATH = "/usr/share/org.meecast.MeeCast"
+
+
+
 #icon.files = data/desktop/Icon/meecast.svg
 #icon.path =  /usr/share/icons/
 #
@@ -115,40 +119,40 @@ HEADERS = \
 
 #data.files = data/icons/
 databeginning.files += data/icons/Beginning/*.png
-databeginning.path = $$DATAPATH/share/iconsets/Beginning
+databeginning.path = $$DATAPATH/iconsets/Beginning
 datacontour.files += data/icons/Contour/*.png
-datacontour.path = /usr/share/org.meecast.MeeCast/iconsets/Contour
+datacontour.path = $$DATAPATH/iconsets/Contour
 dataepona.files += data/icons/Epona/*.png
-dataepona.path = /usr/share/org.meecast.MeeCast/iconsets/Epona
+dataepona.path = $$DATAPATH/iconsets/Epona
 dataglance.files += data/icons/Glance/*.png
-dataglance.path = /usr/share/org.meecast.MeeCast/iconsets/Glance
+dataglance.path = $$DATAPATH/iconsets/Glance
 datameecast.files += data/icons/Meecast/*.png
-datameecast.path = /usr/share/org.meecast.MeeCast/iconsets/Meecast
+datameecast.path = $$DATAPATH/iconsets/Meecast
 datagrzankas.files += data/icons/Grzankas/*.png
-datagrzankas.path = /usr/share/org.meecast.MeeCast/iconsets/Grzankas
+datagrzankas.path = $$DATAPATH/iconsets/Grzankas
 datashiny.files += data/icons/Shiny/*.png
-datashiny.path = /usr/share/org.meecast.MeeCast/iconsets/Shiny
+datashiny.path = $$DATAPATH/iconsets/Shiny
 datatango.files += data/icons/Tango/*.png
-datatango.path = /usr/share/org.meecast.MeeCast/iconsets/Tango
+datatango.path = $$DATAPATH/iconsets/Tango
 datasimpelmee.files += data/icons/SimpelMee/*.png
-datasimpelmee.path = /usr/share/org.meecast.MeeCast/iconsets/SimpelMee
+datasimpelmee.path = $$DATAPATH/iconsets/SimpelMee
 datanoun.files += data/icons/Noun/*.png
-datanoun.path = /usr/share/org.meecast.MeeCast/iconsets/Noun
+datanoun.path = $$DATAPATH/iconsets/Noun
 dataatmos.files += data/icons/Atmos/*.png
-dataatmos.path = /usr/share/org.meecast.MeeCast/iconsets/Atmos
+dataatmos.path = $$DATAPATH/iconsets/Atmos
 
 donation.files += data/donation.html
-donation.path = /usr/share/org.meecast.MeeCast/html
+donation.path = $$DATAPATH/html
 
 
 #data.path = $$DATAPATH
 xsd.files += data/config.xsd
 xsd.files += data/data.xsd
 xsd.files += data/source.xsd
-xsd.path = /usr/share/org.meecast.MeeCast/xsd
-buttonicons.path = /usr/share/org.meecast.MeeCast/buttons_icons
+xsd.path = $$DATAPATH/xsd
+buttonicons.path = $$DATAPATH/buttons_icons
 buttonicons.files += data/button_icons/*.png
-images.path = /usr/share/org.meecast.MeeCast/images
+images.path = $$DATAPATH/images
 images.files += data/images/*.png
 #alib.files = libomweather-core.a
 #alib.path = /usr/share/org.meecast.MeeCast/lib

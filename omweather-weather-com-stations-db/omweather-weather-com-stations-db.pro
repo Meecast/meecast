@@ -27,10 +27,6 @@ PKGCONFIG += libxml-2.0 \
              glib-2.0
 
 LIBS += -L meecast/libxml2/liblibxml2.a
-<<<<<<< HEAD
-#CONFIG += static
-=======
->>>>>>> master
 db.files = data/weather.com.db
 db.path =  /usr/share/harbour-meecast/db/
 

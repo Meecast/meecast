@@ -44,7 +44,7 @@ Config::Config()
     _pathPrefix = new std::string(AbstractConfig::prefix + AbstractConfig::sharePath);
     _iconspath  = new std::string("");
     _iconspath->assign(_pathPrefix->c_str());
-    _iconspath->append("/iconsets");
+    _iconspath->append("iconsets");
     _iconset = new std::string("Meecast");
     _temperature_unit = new std::string("C");
     _wind_speed_unit = new std::string("m/s");

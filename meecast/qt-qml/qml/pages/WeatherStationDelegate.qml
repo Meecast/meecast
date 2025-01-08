@@ -438,6 +438,7 @@ Component {
                             Image {
                                     id: pressure
                                     source: Config.imagespath + "/pressure.png"
+                                    source: (Theme.primaryColor == "#ffffff") ? Config.imagespath + "/pressure.png" : Config.imagespath + "/pressure_invert.png"
                                     anchors.top: humidity.bottom
                                     anchors.topMargin: small_box_rect_top_margin2 
                                     anchors.left: parent.left

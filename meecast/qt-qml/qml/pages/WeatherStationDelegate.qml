@@ -459,7 +459,7 @@ Component {
                             }
                             Image {
                                 id: wind_speed
-                                source: Config.imagespath + "/wind_speed.png"
+                                source: (Theme.primaryColor == "#ffffff") ? Config.imagespath + "/wind_speed.png" : Config.imagespath + "/wind_speed_invert.png"
                                 anchors.top: humidity.bottom
                                 anchors.topMargin: small_box_rect_top_margin2 
                                 anchors.left: parent.left

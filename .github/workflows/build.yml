@@ -31,7 +31,7 @@ jobs:
            sudo cp -r RPMS/*.rpm /share/output/' sh_mb2 $OS_VERSION ${{ matrix.arch }}
       
     - name: Upload RPM (${{ matrix.arch }})
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: rpm-${{ matrix.arch }}
         path: output
@@ -43,29 +43,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download armv7hl
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: rpm-armv7hl
         continue-on-error: true
       - name: Download aarch64
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: rpm-aarch64
         continue-on-error: true
       - name: Download i486
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: rpm-i486
         continue-on-error: true
       - name: Extract Version Name
         id: extract_name
-        uses: actions/github-script@v4
+        uses: actions/github-script@v7
         with:
           result-encoding: string
           script: |
             return context.payload.ref.replace(/refs\/tags\//, '');
       - name: Create a Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:

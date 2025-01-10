@@ -8,7 +8,17 @@ Page {
     property int margin: 16
     Rectangle {
         anchors.fill: parent
-        color: Config.transparency ? "transparent" : "black"
+        color: {
+            if (config.transparency == "transparent"){
+                return "transparent"
+            }else{
+                if (theme.primarycolor == "#000000"){
+                    return  theme.rgba(theme.highlightbackgroundcolor, theme.highlightbackgroundopacity)
+                }else{
+                    return "black"
+                }
+            }
+        }
     }
 
     PageHeader {

@@ -378,7 +378,18 @@ Page {
     Rectangle{
         width: screen_width
         height: screen_height 
-        color: Config.transparency ? "transparent" : "black"
+        color: {
+            if (Config.transparency == "transparent"){
+                return "transparent"
+            }else{
+                if (Theme.primaryColor == "#000000"){
+                    return  Theme.rgba(Theme.highlightBackgroundColor, Theme.highlightBackgroundOpacity)
+                }else{
+                    return "black"
+                }
+            }
+        }
+
         SilicaFlickable {
             id: flickable
             anchors.top: parent.top

@@ -7,6 +7,6 @@
 <detail url="https://www.gismeteo.ru/weather-%s/hourly/" />
 <search url="http://xoap.weather.com/search/search?where=%s" />
 <library>libomweather-gismeteo-ru-source.so</library>
-<showurl url="http://www.gismeteo.ru/weather-%s/"/>
+<showurl url="https://www.gismeteo.ru/weather-%s/"/>
 <user_agent>Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0</user_agent>
 </source>

@@ -512,7 +512,7 @@ Component {
                     interactive: false
                     clip: true
                     Component.onCompleted: {
-                       console.log("list onCompleted ", main_index, forecast_stub.count)
+                       console.log("list onCompleted ", main_index, forecast_stub.count, Config.iconspath + "/" + Config.iconset)
                        console.log("WeatherStationDelegate.qml - Config.stationname ", Config.stationname) 
                        main.station_name_text = main.stationname1_index(main_index)
                        list.height = row_rect_height * forecast_model_count(main_index) 

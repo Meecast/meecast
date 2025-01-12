@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2024 Vlad Vasilyeu
+ * Copyright (C) 2006-2025 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -364,7 +364,7 @@ QString
 ConfigQml::imagespath(){
     QString c;
     c = ConfigQml::Config::prefix_path().c_str();
-    c.append("/images");
+    c.append("images");
     return c;
 }
 
@@ -372,7 +372,7 @@ QString
 ConfigQml::iconsbutton(){
     QString c;
     c = ConfigQml::Config::prefix_path().c_str();
-    c.append("/buttons_icons");
+    c.append("buttons_icons");
     return c;
 }
 

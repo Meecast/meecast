@@ -9,11 +9,11 @@ Page {
     Rectangle {
         anchors.fill: parent
         color: {
-            if (config.transparency == "transparent"){
+            if (Config.transparency == "transparent"){
                 return "transparent"
             }else{
-                if (theme.primarycolor == "#000000"){
-                    return  theme.rgba(theme.highlightbackgroundcolor, theme.highlightbackgroundopacity)
+                if (Theme.primaryColor == "#000000"){
+                    return  Theme.rgba(Theme.highlightBackgroundColor, Theme.highlightBackgroundOpacity)
                 }else{
                     return "black"
                 }

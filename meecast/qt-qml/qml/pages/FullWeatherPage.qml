@@ -642,11 +642,33 @@ Page {
                         id: day
                         width: parent.width
                         height: row_rect_height 
-
                         Rectangle {
                             width: parent.width
                             height: row_rect_height 
-                            color: Config.transparency ? ((index % 2 != 0) ? "transparent" : "#10ffffff") : ((index % 2 != 0) ? "black" : "#0f0f0f")
+                            color: {
+                                 if (Config.transparency){
+                                    if (index % 2 != 0) {
+                                        return "transparent"
+                                    }else{
+                                        return "#10ffffff"
+                                    }
+                                 }else{
+                                    if (Theme.primaryColor == "#000000"){
+                                        if (index % 2 != 0) {
+                                           return  Theme.rgba(Theme.highlightBackgroundColor, Theme.highlightBackgroundOpacity)
+                                        }else{
+                                           return  Theme.rgba(Theme.overlayBackgroundColor, Theme.highlightBackgroundOpacity)
+                                        }
+                                    }else{
+                                        if (index % 2 != 0) {
+                                           return "black"
+                                        }else{
+                                           return "#0f0f0f"
+                                        }
+                                    }
+                                 }
+                            }
+
                             Text {
                                 id: txt_date
                                 text: model.fulldate
@@ -706,7 +728,17 @@ Page {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: flickable.botttom
-            color: Config.transparency ? Theme.secondaryHighlightColor : "black"
+            color: {
+                 if (Config.transparency){
+                    return Theme.secondaryHighlightColor
+                 }else{
+                    if (Theme.primaryColor == "#000000"){
+                        return  Theme.rgba(Theme.overlayBackgroundColor, Theme.highlightBackgroundOpacity)
+                    }else{
+                        return "black"
+                    }
+                 }
+            }
             opacity: 0.8
             id: toolbar
             height: toolbar_height 

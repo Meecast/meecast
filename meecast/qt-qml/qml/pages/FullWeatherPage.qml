@@ -749,7 +749,7 @@ Page {
                 Switch {
                     y: -0.028*screen_height 
                     id: "toolbarnow"
-                    icon.source: Config.imagespath + "/now.png" 
+                    icon.source: (Theme.primaryColor == "#ffffff") ? Config.imagespath + "/now.png" : Config.imagespath + "/now_invert.png"
                     visible: (current && day == 0) ? true : false
                     onClicked: {
                          day_period = "current";
@@ -759,7 +759,7 @@ Page {
                 Switch {
                     y: -0.028*screen_height 
                     id: "toolbarday"
-                    icon.source:  Config.imagespath + "/day.png"
+                    icon.source: (Theme.primaryColor == "#ffffff") ? Config.imagespath + "/day.png" : Config.imagespath + "/day_invert.png"
                     onClicked: {
                          day_period = "day";
                          updateperiod();
@@ -768,7 +768,7 @@ Page {
                 Switch {
                     y: -0.028*screen_height 
                     id: "toolbarnight"
-                    icon.source:  Config.imagespath + "/night.png"
+                    icon.source: (Theme.primaryColor == "#ffffff") ? Config.imagespath + "/night.png" : Config.imagespath + "/night_invert.png"
                     onClicked: {
                          day_period = "night";
                          updateperiod();
@@ -778,7 +778,7 @@ Page {
                     y: -0.028*screen_height 
                     id: "toolbarclock"
                     visible: check_hours()
-                    icon.source:  Config.imagespath + "/clock.png"
+                    icon.source: (Theme.primaryColor == "#ffffff") ? Config.imagespath + "/clock.png" : Config.imagespath + "/clock_invert.png"
                     onClicked: {
                          day_period = "hours";
                          updateperiod();

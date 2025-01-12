@@ -647,7 +647,17 @@ Component {
                 id: sourceicon
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source_index(index) + ".png"
+                source: {
+                    if (Config.stationname == "Unknown"){
+                        return ""
+                    }else{
+                        if (Theme.primaryColor == "#000000"){
+                            return Config.imagespath + "/" + Config.source_index(index) + "_invert.png"
+                        }else{
+                            return Config.imagespath + "/" + Config.source_index(index) + ".png"
+                        }
+                    }
+                }
                 smooth: true
 
                 Component.onCompleted: {

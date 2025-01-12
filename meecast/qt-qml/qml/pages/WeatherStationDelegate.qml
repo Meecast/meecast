@@ -376,7 +376,7 @@ Component {
                             }
                             Image {
                                 id: humidity
-                                source: Config.imagespath + "/humidity.png"
+                                source: (Theme.primaryColor == "#ffffff") ? Config.imagespath + "/humidity.png" : Config.imagespath + "/humidity_invert.png"
                                 anchors.top: desc.bottom
                                 anchors.topMargin: small_box_rect_top_margin 
                                 anchors.left: parent.left
@@ -398,7 +398,7 @@ Component {
                             }
                             Image {
                                 id: wind_direction_background
-                                source: Config.imagespath + "/wind_direction_background.png"
+                                source: (Theme.primaryColor == "#ffffff") ? Config.imagespath + "/wind_direction_background.png" : Config.imagespath + "/wind_direction_background_invert.png"
                                 anchors.top: desc.bottom
                                 anchors.topMargin: small_box_rect_top_margin
                                 anchors.left: parent.left
@@ -409,7 +409,7 @@ Component {
                             }
                             Image {
                                 id: wind_direction
-                                source: Config.imagespath + "/wind_direction_arrow.png"
+                                source: (Theme.primaryColor == "#ffffff") ? Config.imagespath + "/wind_direction_arrow.png" : Config.imagespath + "/wind_direction_arrow_invert.png"
                                 anchors.top: desc.bottom
                                 anchors.topMargin: small_box_rect_top_margin
                                 anchors.left: parent.left

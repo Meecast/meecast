@@ -2,8 +2,7 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 Component {
    id: weatherStationDelegate
-
-    Rectangle {
+   Rectangle {
         id: main_rectangle
         width: main.screen_width 
         height: main.screen_height
@@ -24,7 +23,7 @@ Component {
         property int huge_PixelSize: 54*ratio
         property int main_index : index
         property bool flipmoving : flipmoving 
-        color: Config.transparency ? "transparent" : "black"
+        color: getBackgroundColor()
         GlassItem {
             id: left_indicator
             visible: (main_index > 0 && flipmoving == false) ? true : false
@@ -108,7 +107,7 @@ Component {
                     anchors.top: parent.top
                     width: parent.width
                     height: 72
-                    color: Config.transparency ? "transparent" : "black"
+                    color: getBackgroundColor()
                 }
                 Text {
                     id: empty_text
@@ -135,7 +134,7 @@ Component {
                     anchors.top: empty_background1.bottom
                     width: parent.width
                     height: dataview.height - top_rect_height 
-                    color: Config.transparency ? "transparent" : "black"
+                    color: getBackgroundColor()
                 }
                 Label {
                     horizontalAlignment: Text.AlignHCenter
@@ -173,7 +172,7 @@ Component {
                     anchors.top: parent.top
                     width: parent.width
                     height: 92*ratio
-                    color: Config.transparency ? "transparent" : "black"
+                    color: getBackgroundColor()
                     visible: isUpdate ? true : false
 
                     Column {
@@ -207,7 +206,7 @@ Component {
                     anchors.top: station_rect.bottom
                     width: parent.width
                     height: main.screen_height - updateview.height
-                    color: Config.transparency ? "transparent" : "black"
+                    color: getBackgroundColor()
                     Loader {
                         id: empty_background
                         anchors.top: parent.top
@@ -220,7 +219,7 @@ Component {
                         anchors.top: empty_background.bottom
                         width: parent.width
                         height: dataview.height - top_rect_height 
-                        color: Config.transparency ? "transparent" : "black"
+                        color: getBackgroundColor()
                     }
                     Label {
                         horizontalAlignment: Text.AlignHCenter
@@ -329,7 +328,7 @@ Component {
                             Rectangle {
                                id: desc  
                                height: description_text_rect_height 
-                               color: Config.transparency ? "transparent" : "black"
+                               color: getBackgroundColor()
                                width: current_rect.width 
                                anchors.left: parent.left
                                anchors.top: now.bottom
@@ -377,7 +376,7 @@ Component {
                             }
                             Image {
                                 id: humidity
-                                source: Config.imagespath + "/humidity.png"
+                                source: (Theme.primaryColor == "#ffffff") ? Config.imagespath + "/humidity.png" : Config.imagespath + "/humidity_invert.png"
                                 anchors.top: desc.bottom
                                 anchors.topMargin: small_box_rect_top_margin 
                                 anchors.left: parent.left
@@ -399,7 +398,7 @@ Component {
                             }
                             Image {
                                 id: wind_direction_background
-                                source: Config.imagespath + "/wind_direction_background.png"
+                                source: (Theme.primaryColor == "#ffffff") ? Config.imagespath + "/wind_direction_background.png" : Config.imagespath + "/wind_direction_background_invert.png"
                                 anchors.top: desc.bottom
                                 anchors.topMargin: small_box_rect_top_margin
                                 anchors.left: parent.left
@@ -410,7 +409,7 @@ Component {
                             }
                             Image {
                                 id: wind_direction
-                                source: Config.imagespath + "/wind_direction_arrow.png"
+                                source: (Theme.primaryColor == "#ffffff") ? Config.imagespath + "/wind_direction_arrow.png" : Config.imagespath + "/wind_direction_arrow_invert.png"
                                 anchors.top: desc.bottom
                                 anchors.topMargin: small_box_rect_top_margin
                                 anchors.left: parent.left
@@ -437,7 +436,7 @@ Component {
                             }
                             Image {
                                     id: pressure
-                                    source: Config.imagespath + "/pressure.png"
+                                    source: (Theme.primaryColor == "#ffffff") ? Config.imagespath + "/pressure.png" : Config.imagespath + "/pressure_invert.png"
                                     anchors.top: humidity.bottom
                                     anchors.topMargin: small_box_rect_top_margin2 
                                     anchors.left: parent.left
@@ -459,7 +458,7 @@ Component {
                             }
                             Image {
                                 id: wind_speed
-                                source: Config.imagespath + "/wind_speed.png"
+                                source: (Theme.primaryColor == "#ffffff") ? Config.imagespath + "/wind_speed.png" : Config.imagespath + "/wind_speed_invert.png"
                                 anchors.top: humidity.bottom
                                 anchors.topMargin: small_box_rect_top_margin2 
                                 anchors.left: parent.left
@@ -531,7 +530,29 @@ Component {
                         Rectangle {
                             width: parent.width
                             height: row_rect_height
-                            color: Config.transparency ? ((index % 2 != 0) ? "transparent" : "#10ffffff") : ((index % 2 != 0) ? "black" : "#0f0f0f")
+                            color: {
+                                 if (Config.transparency){
+                                    if (index % 2 != 0) {
+                                        return "transparent"
+                                    }else{
+                                        return "#10ffffff"
+                                    }
+                                 }else{
+                                    if (Theme.primaryColor == "#000000"){
+                                        if (index % 2 != 0) {
+                                           return  Theme.rgba(Theme.highlightBackgroundColor, Theme.highlightBackgroundOpacity)
+                                        }else{
+                                           return  Theme.rgba(Theme.overlayBackgroundColor, Theme.highlightBackgroundOpacity)
+                                        }
+                                    }else{
+                                        if (index % 2 != 0) {
+                                           return "black"
+                                        }else{
+                                           return "#0f0f0f"
+                                        }
+                                    }
+                                 }
+                            }
                             Text {
                                 id: txt_date
                                 text: main.forecast_model(index, "fulldate", main_index) == undefined ? "" : main.forecast_model(index, "fulldate", main_index)
@@ -609,13 +630,34 @@ Component {
             anchors.left: parent.left
             anchors.right: parent.right
             height: 90*ratio
-            color: Config.transparency ? Theme.secondaryHighlightColor : "black"
+            color: {
+                 if (Config.transparency){
+                    return Theme.secondaryHighlightColor
+                 }else{
+                    if (Theme.primaryColor == "#000000"){
+                        return  Theme.rgba(Theme.overlayBackgroundColor, Theme.highlightBackgroundOpacity)
+                    }else{
+                        return "black"
+                    }
+                 }
+            }
+
             opacity: 0.8
             Image {
                 id: sourceicon
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source_index(index) + ".png"
+                source: {
+                    if (Config.stationname == "Unknown"){
+                        return ""
+                    }else{
+                        if (Theme.primaryColor == "#000000"){
+                            return Config.imagespath + "/" + Config.source_index(index) + "_invert.png"
+                        }else{
+                            return Config.imagespath + "/" + Config.source_index(index) + ".png"
+                        }
+                    }
+                }
                 smooth: true
 
                 Component.onCompleted: {

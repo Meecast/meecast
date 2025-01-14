@@ -6,7 +6,18 @@ Page {
     property int margin: Theme.paddingSmall
     Rectangle{
         anchors.fill: parent
-        color: Config.transparency ? "transparent" : "black"
+        color: {
+            if (Config.transparency == "transparent"){
+                return "transparent"
+            }else{
+                if (Theme.primaryColor == "#000000"){
+                    return  Theme.rgba(Theme.highlightBackgroundColor, Theme.highlightBackgroundOpacity)
+                }else{
+                    return "black"
+                }
+            }
+        }
+
         Rectangle {
             anchors.top: parent.top
             anchors.left: parent.left

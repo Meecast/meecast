@@ -10,7 +10,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     name: Build application
     strategy:
       matrix:
@@ -28,7 +28,7 @@ jobs:
            cd build
            cp -r /share/. .
            mb2 -t SailfishOS-$1-$2 build -d
-           sudo cp -r RPMS/*.rpm /share/output/' sh_mb2 $OS_VERSION ${{ matrix.arch }}
+           sudo cp -r RPMS/. /share/output/' sh_mb2 $OS_VERSION ${{ matrix.arch }}
       
     - name: Upload RPM (${{ matrix.arch }})
       uses: actions/upload-artifact@v4
@@ -40,7 +40,7 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/v')
     needs:
       - build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Download armv7hl
         uses: actions/download-artifact@v4

@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.11.17
+%define vrsn 1.11.18
 %define rlse 1
 
 Name:       org.meecast.MeeCast
@@ -349,6 +349,10 @@ desktop-file-install --delete-original  \
 
 
 %changelog
+* Tue Jan 14 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.18
+- Added icons to gismeteo.ru
+- Adapted MeeCast for Light Themes (Atmospheres)
+
 * Wed Jan 01 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.17
 - Added icons to gismeteo.ru
 - Changed url for weather forecast from gismeteo again

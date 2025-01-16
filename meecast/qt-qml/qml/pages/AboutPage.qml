@@ -8,7 +8,7 @@ Page {
     Rectangle {
         anchors.fill: parent
         color: {
-            if (Config.transparency == "transparent"){
+            if (Config.transparency){
                 return "transparent"
             }else{
                 if (Theme.primaryColor == "#000000"){

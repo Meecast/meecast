@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.11.18
+%define vrsn 1.11.19
 %define rlse 1
 
 Name:       harbour-meecast
@@ -347,6 +347,9 @@ fi
 
 
 %changelog
+* Thu Jan 16 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.19
+- Fixed an error after correcting view on Ligth Theme (Atmosphere)
+
 * Tue Jan 14 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.18
 - Added icons to gismeteo.ru
 - Adapted MeeCast for Light Themes (Atmospheres)

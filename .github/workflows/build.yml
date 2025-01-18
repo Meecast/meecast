@@ -10,14 +10,14 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     name: Build application
     strategy:
       matrix:
         arch: ['i486', 'armv7hl', 'aarch64']
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Build ${{ matrix.arch }} on ${{ env.OS_VERSION }}
       run: |
@@ -28,10 +28,10 @@ jobs:
            cd build
            cp -r /share/. .
            mb2 -t SailfishOS-$1-$2 build -d
-           sudo cp -r RPMS/*.rpm /share/output/' sh_mb2 $OS_VERSION ${{ matrix.arch }}
+           sudo cp -r RPMS/. /share/output/' sh_mb2 $OS_VERSION ${{ matrix.arch }}
       
     - name: Upload RPM (${{ matrix.arch }})
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: rpm-${{ matrix.arch }}
         path: output
@@ -40,32 +40,32 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/v')
     needs:
       - build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Download armv7hl
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: rpm-armv7hl
         continue-on-error: true
       - name: Download aarch64
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: rpm-aarch64
         continue-on-error: true
       - name: Download i486
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: rpm-i486
         continue-on-error: true
       - name: Extract Version Name
         id: extract_name
-        uses: actions/github-script@v4
+        uses: actions/github-script@v7
         with:
           result-encoding: string
           script: |
             return context.payload.ref.replace(/refs\/tags\//, '');
       - name: Create a Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:

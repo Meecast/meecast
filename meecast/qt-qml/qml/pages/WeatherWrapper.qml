@@ -53,6 +53,18 @@ Page {
         pageStack.push(Qt.resolvedUrl(file))
     }
 
+    function getBackgroundColor(){
+        if (Config.transparency){
+            return "transparent"
+        }else{
+            if (Theme.primaryColor == "#000000"){
+                return  Theme.rgba(Theme.highlightBackgroundColor, Theme.highlightBackgroundOpacity)
+            }else{
+                return "black"
+            }
+        }
+    }
+
     function getColor(t){
         var c1, c2, c3;
         if (Config.temperatureunit == "F"){
@@ -266,7 +278,7 @@ Page {
                 anchors.left: parent.left
                 anchors.top: parent.top
                 width: parent.width
-                color: Config.transparency ? "transparent" : "black"
+                color: getBackgroundColor()
                 height: column_rect_height 
             }
             Text {
@@ -285,7 +297,7 @@ Page {
                 anchors.top: empty_text.bottom
                 width: parent.width
                 height: top_rect_height 
-                color: Config.transparency ? "transparent" : "black"
+                color: getBackgroundColor()
             }
 
             Loader {
@@ -301,7 +313,7 @@ Page {
                 anchors.top: empty_background1.bottom
                 width: parent.width
                 height: 600*ratio 
-                color: Config.transparency ? "transparent" : "black"
+                color: getBackgroundColor()
             }
             Label {
                 horizontalAlignment: Text.AlignHCenter

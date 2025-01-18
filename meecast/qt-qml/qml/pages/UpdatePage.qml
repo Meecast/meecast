@@ -8,7 +8,17 @@ Page {
     property bool event_widget_status: Config.eventwidget
     Rectangle {
         anchors.fill: parent
-        color: Config.transparency ? "transparent" : "black"
+        color: {
+            if (Config.transparency){
+                return "transparent"
+            }else{
+                if (Theme.primaryColor == "#000000"){
+                    return  Theme.rgba(Theme.highlightBackgroundColor, Theme.highlightBackgroundOpacity)
+                }else{
+                    return "black"
+                }
+            }
+        }
     }
 
     Rectangle{

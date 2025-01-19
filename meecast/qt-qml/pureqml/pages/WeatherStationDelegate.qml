@@ -617,11 +617,16 @@ Component {
             Row {
                 width: parent.width
                 Label {
+                    anchors.leftMargin: small_box_rect_left_margin
                     anchors.verticalCenter: parent.verticalCenter
                     font.pixelSize: huge_PixelSize 
                     color: Theme.secondaryColor
                     font.family: faSolid.name
-                    text: "\u2630"
+                    text: "\uf0c9"
+                    onClicked: {
+                        console.log("click to menu")
+                    }
+
                 }
                 Image {
                     id: sourceicon

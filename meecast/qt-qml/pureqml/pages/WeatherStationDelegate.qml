@@ -623,10 +623,12 @@ Component {
                     color: Theme.secondaryColor
                     font.family: faSolid.name
                     text: "\uf0c9"
-                    onClicked: {
-                        console.log("click to menu")
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: {
+                            console.log("click to menu")
+                        }
                     }
-
                 }
                 Image {
                     id: sourceicon

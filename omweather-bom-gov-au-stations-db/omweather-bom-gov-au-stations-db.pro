@@ -29,7 +29,7 @@ linux:!android {
 }
              
 INCLUDEPATH += ../meecast/libxml2/include
-LIBS += $$PWD/../meecast/libxml2/liblibxml2.a
+LIBS += ../meecast/libxml2/liblibxml2.a
 #LIBS += -L ../meecast/libxml2/liblibxml2.a
 
 #system(pkg-config --exists glib-2.0){

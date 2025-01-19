@@ -379,7 +379,7 @@ Page {
         width: screen_width
         height: screen_height 
         color: {
-            if (Config.transparency == "transparent"){
+            if (Config.transparency){
                 return "transparent"
             }else{
                 if (Theme.primaryColor == "#000000"){

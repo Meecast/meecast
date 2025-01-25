@@ -73,18 +73,14 @@ create_and_fill_config(QGuiApplication *app){
 
 
 //Controller::Controller(QScopedPointer<QGuiApplication> app) : QObject()
-Controller::Controller(QGuiApplication *app) : QObject()
-{
+Controller::Controller(QGuiApplication *app, QQmlApplicationEngine *engine) : QObject(){
   std::cerr<<"Controller::Controller()"<<std::endl;
-  _qview = new QQuickView;
-  context = _qview->rootContext();
-  //_qview = Aurora::Application::createView();
+  context = engine->rootContext();
   _dp = NULL;
   _app = app;
  // _translator = translator;
   this->load_config();
   this->load_data();
-
 }
 
 Controller::~Controller(){

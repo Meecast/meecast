@@ -32,6 +32,7 @@
 //#include <QDeclarativeContext>
 #include <QQmlContext>
 #include <QtQuick/QQuickView>
+#include <QQmlApplicationEngine>
 #include "configqml.h"
 #include "datamodel.h"
 #include "dataitem.h"
@@ -51,7 +52,7 @@ class Controller : public QObject
     Q_OBJECT
 
 public:
-    Controller(QGuiApplication *app);
+    Controller(QGuiApplication *app, QQmlApplicationEngine *engine);
     ConfigQml* config();
     QQuickView *qview();
     virtual ~Controller();

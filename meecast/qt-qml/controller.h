@@ -51,6 +51,7 @@ class Controller : public QObject
     Q_OBJECT
 
 public:
+    //Controller(QGuiApplication *app, QQmlApplicationEngine *engine);
     Controller(QGuiApplication *app);
     ConfigQml* config();
     QQuickView *qview();
@@ -65,6 +66,7 @@ private:
     QGuiApplication *_app;
     ConfigQml *_config;
     QQuickView *_qview;
+    QQmlContext *context;
     Core::DataParser *_dp;
     DataModel *_model; 
     DataModel *_hours_model; 

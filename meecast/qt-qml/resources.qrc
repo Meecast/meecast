@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../core/data/fonts/fontawesome-free/fa-brands-400.ttf</file>
+        <file alias="/fonts/fa-solid-900.ttf">../core/data/fonts/fontawesome-free/fa-solid-900.ttf</file>
+        <file>../core/data/fonts/fontawesome-free/fa-regular-400.ttf</file>
+    </qresource>
+</RCC>

@@ -65,6 +65,7 @@ private:
     QGuiApplication *_app;
     ConfigQml *_config;
     QQuickView *_qview;
+    QQmlContext *context;
     Core::DataParser *_dp;
     DataModel *_model; 
     DataModel *_hours_model; 

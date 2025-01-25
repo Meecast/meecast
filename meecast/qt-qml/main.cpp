@@ -121,7 +121,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     translator.load("ru.qml", "i18n");
     app.installTranslator(&translator);
 */
-    controller = new Controller(app); 
+    controller = new Controller(app);
     
     /* Locale */
     for (unsigned int i=1; i<controller->config()->languagesList().size(); i++){

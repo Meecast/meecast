@@ -77,6 +77,7 @@ Controller::Controller(QGuiApplication *app) : QObject()
 {
   std::cerr<<"Controller::Controller()"<<std::endl;
   _qview = new QQuickView;
+  context = _qview->rootContext();
   //_qview = Aurora::Application::createView();
   _dp = NULL;
   _app = app;
@@ -366,11 +367,11 @@ Controller::load_data(){
     i = i + 3600;
   }
 
-  _qview->rootContext()->setContextProperty("Current", _current);
-  _qview->rootContext()->setContextProperty("Current_night", _current_night);
-  _qview->rootContext()->setContextProperty("Forecast_model", _model);
-  _qview->rootContext()->setContextProperty("Forecast_night_model", _night_model);
-  _qview->rootContext()->setContextProperty("Forecast_hours_model", _hours_model);
+  context->setContextProperty("Current", _current);
+  context->setContextProperty("Current_night", _current_night);
+  context->setContextProperty("Forecast_model", _model);
+  context->setContextProperty("Forecast_night_model", _night_model);
+  context->setContextProperty("Forecast_hours_model", _hours_model);
 
   std::cerr<<"End filling"<<std::endl;
 
@@ -386,10 +387,10 @@ Controller::load_data(){
       source_model->addData(new SelectData(str, "", str.left(1)));
       //qDebug() << countries.at(j) << str.left(1);
   }
-  _qview->rootContext()->setContextProperty("source_model", source_model);
-  _qview->rootContext()->setContextProperty("country_model", country_model);
-  _qview->rootContext()->setContextProperty("region_model", region_model);
-  _qview->rootContext()->setContextProperty("city_model", city_model);
+  context->setContextProperty("source_model", source_model);
+  context->setContextProperty("country_model", country_model);
+  context->setContextProperty("region_model", region_model);
+  context->setContextProperty("city_model", city_model);
   
 }
 
@@ -397,7 +398,7 @@ void
 Controller::load_config(){
    std::cout<<"Load"<<std::endl;
   _config = create_and_fill_config(_app);
-  _qview->rootContext()->setContextProperty("Config", _config);
+  context->setContextProperty("Config", _config);
 }
 
 void

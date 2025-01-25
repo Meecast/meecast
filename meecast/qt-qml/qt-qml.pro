@@ -59,7 +59,7 @@ HEADERS  += \
 
 
 FORMS    +=
-#RESOURCES += weatherlayoutitem.qrc
+RESOURCES += resources.qrc
 
 OTHER_FILES += \
     qml/layoutitem.qml \

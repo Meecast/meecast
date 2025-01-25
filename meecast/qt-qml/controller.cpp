@@ -72,8 +72,8 @@ create_and_fill_config(QGuiApplication *app){
 
 
 //Controller::Controller(QScopedPointer<QGuiApplication> app) : QObject()
-Controller::Controller(QGuiApplication *app) : QObject()
-{
+//Controller::Controller(QGuiApplication *app, QQmlApplicationEngine *engine) : QObject(){
+Controller::Controller(QGuiApplication *app) : QObject(){
   std::cerr<<"Controller::Controller()"<<std::endl;
   _qview = SailfishApp::createView();
   context = _qview->rootContext();
@@ -82,7 +82,6 @@ Controller::Controller(QGuiApplication *app) : QObject()
  // _translator = translator;
   this->load_config();
   this->load_data();
-
 }
 
 Controller::~Controller(){

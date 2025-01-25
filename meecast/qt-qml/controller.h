@@ -51,6 +51,7 @@ class Controller : public QObject
     Q_OBJECT
 
 public:
+    //Controller(QGuiApplication *app, QQmlApplicationEngine *engine);
     Controller(QGuiApplication *app);
     ConfigQml* config();
     QQuickView *qview();

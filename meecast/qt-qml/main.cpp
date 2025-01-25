@@ -94,7 +94,6 @@ update_weather_forecast(Core::Config *config){
 
 Q_DECL_EXPORT int main(int argc, char* argv[])
 {
-
      
     //QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
     QGuiApplication* app(SailfishApp::application(argc, argv));

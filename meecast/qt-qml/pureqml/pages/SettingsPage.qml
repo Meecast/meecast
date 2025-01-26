@@ -1,5 +1,6 @@
 import QtQuick 2.2
-import Sailfish.Silica 1.0
+//import Sailfish.Silica 1.0
+import QtQuick.Controls 2.12
 
 Page {
     id: settings
@@ -65,14 +66,17 @@ Page {
             color: "transparent"
         }
 
-        SilicaListView {
+        //SilicaListView {
+        ListView {
             id: listview
             //model: settingsModel
             model: silicalistview_model
             anchors.fill: parent
+            /*
             header: PageHeader { 
                 title: header_title
             }
+            */
             delegate: Item {
                 height: Theme.itemSizeSmall
                 width: parent.width
@@ -91,7 +95,7 @@ Page {
                     anchors.right: arrow.left
                     anchors.verticalCenter: parent.verticalCenter
                     text: Config.tr(model.title)
-                    font.pixelSize: Theme.fontSizeMedium
+                    font.pixelSize: Theme.huge_PixelSize
                 }
                 MouseArea {
                     anchors.fill: parent

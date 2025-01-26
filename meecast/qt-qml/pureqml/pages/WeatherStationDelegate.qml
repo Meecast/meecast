@@ -627,6 +627,7 @@ Component {
                         anchors.fill: parent
                         onClicked: {
                             console.log("click to menu")
+                            drawer.open()
                         }
                     }
                 }

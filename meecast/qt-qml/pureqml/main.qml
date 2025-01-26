@@ -4,6 +4,7 @@ import QtQuick.Window 2.12
 import "pages"
 
 ApplicationWindow {
+    id: main_window
     StackView {
         FontLoader {
             id: faSolid

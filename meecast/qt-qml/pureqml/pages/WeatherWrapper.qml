@@ -2,7 +2,8 @@ import QtQuick 2.12
 import "./"
 import QtQuick.Controls 2.12
 import QtQuick.Window 2.2
-import QtQuick.Layouts 1.12
+import QtQuick.Layouts 1.15
+import QtQuick.Controls.Styles 1.4
 //import Sailfish.Silica 1.0
 //import Nemo.Notifications 1.0
 import "./"
@@ -27,6 +28,7 @@ Page {
     property bool menuitemgps: Config.gps
     property bool flipmoving: false
     property string station_name_text: ""
+
 
     objectName: "WeatherPage"
 
@@ -261,6 +263,91 @@ Page {
         anchors.fill: parent
         contentHeight: screen_height
         id: startview
+        Drawer {
+            id: drawer
+            width: main_window.width
+            height: drawer_layout.height * 1.2
+            edge: Qt.TopEdge
+            dragMargin : Qt.styleHints.startDragDistance*2
+            ColumnLayout {
+                spacing: 20
+                id: drawer_layout
+                width: main_window.width
+                Rectangle{
+                    height: drawer_layout.spacing *1.5
+                }
+                Button {
+                    id: button_about
+                    Layout.fillWidth: true
+                    text: Config.tr("About")
+                    font.pointSize: large_FontPointSize 
+                    MouseArea {
+                        id: mouseArea_about
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        onReleased: {
+                            drawer.close()
+                            openFile("AboutPage.qml");
+                        }
+                    }
+                    background: Rectangle {
+                        implicitWidth: 200
+                        implicitHeight: 50
+                        border.width: button_about.activeFocus ? 2 : 0
+                        border.color: button_about.down ? "#17a81a" : "#21be2b"
+                        color: mouseArea_about.containsMouse ? Theme.secondaryColor : drawer.background.color
+                        radius: 4
+                    }
+                }
+                Button {
+                    id: button_settings
+                    Layout.fillWidth: true
+                    text: Config.tr("Settings")
+                    font.pointSize: large_FontPointSize 
+                    MouseArea {
+                        id: mouseArea_settings
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        onReleased: {
+                            drawer.close()
+                            openFile("SettingsPage.qml");
+                        }
+                    }
+                    background: Rectangle {
+                        implicitWidth: 200
+                        implicitHeight: 50
+                        border.width: button_settings.activeFocus ? 2 : 0
+                        border.color: button_settings.down ? "#17a81a" : "#21be2b"
+                        color: mouseArea_settings.containsMouse ? Theme.secondaryColor : drawer.background.color
+                        radius: 4
+                    }
+                }
+                Button {
+                    id: button_refresh
+                    Layout.fillWidth: true
+                    text: Config.tr("Refresh")
+                    font.pointSize: large_FontPointSize 
+                    MouseArea {
+                        id: mouseArea_refresh
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        onReleased: {
+                            drawer.close()
+                            if (!isUpdate) main.update();
+                        }
+                    }
+                    background: Rectangle {
+                        implicitWidth: 200
+                        implicitHeight: 50
+                        border.width: button_refresh.activeFocus ? 2 : 0
+                        border.color: button_refresh.down ? "#17a81a" : "#21be2b"
+                        color: mouseArea_refresh.containsMouse ? Theme.secondaryColor : drawer.background.color
+                        radius: 4
+                    }
+                }
+            }
+        }
+
         /*
         PullDownMenu {
             MenuItem {

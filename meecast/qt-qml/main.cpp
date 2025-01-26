@@ -28,6 +28,7 @@
 
 #include <QtCore/QtGlobal>
 #include <QApplication>
+#include <QQmlApplicationEngine>
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QGraphicsWidget>
@@ -93,6 +94,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     qputenv("QT_QUICK_CONTROLS_MATERIAL_THEME", QByteArray("Dark"));
 
     QGuiApplication* app = new QGuiApplication(argc, argv);
+    QQmlApplicationEngine engine;
     app->setOrganizationName(QStringLiteral("org.meecast"));
     app->setApplicationName(QStringLiteral("MeeCast"));
 
@@ -128,7 +130,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     translator.load("ru.qml", "i18n");
     app.installTranslator(&translator);
 */
-    controller = new Controller(app); 
+    controller = new Controller(app, &engine);
     
     /* Locale */
     for (unsigned int i=1; i<controller->config()->languagesList().size(); i++){
@@ -151,13 +153,11 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     connection.registerService("org.meego.omweather");
     connection.registerObject("/org/meego/omweather", controller);
 #endif    
-    QQuickView *qview;
 
     //config = controller->config();
     //std::cerr<<"iconpath = "<<config->imagespath().toStdString() << std::endl;
     //update_weather_forecast(config);
     
-    qview = controller->qview();
 
     std::cerr << "qml path = " << Core::AbstractConfig::layoutqml << std::endl;
 
@@ -170,12 +170,20 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
                                                                 Core::AbstractConfig::sharePath +
                                                                 Core::AbstractConfig::layoutqml)));
 #endif    
-    QObject::connect((QObject*)qview->engine(), SIGNAL(quit()), app, SLOT(quit()));
-    qview->showFullScreen();
+//    QObject::connect((QObject*)qview->engine(), SIGNAL(quit()), app, SLOT(quit()));
+//    qview->showFullScreen();
+    engine.load(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::prefix +
+                                                                Core::AbstractConfig::sharePath +
+                                                                Core::AbstractConfig::layoutqml)));
+    QObject *topLevel = engine.rootObjects().value(0);
+    QQuickWindow *window = qobject_cast<QQuickWindow *>(topLevel);
+    window->showFullScreen();
+    //window->show();
     /*This code provides Segmantation fault
     delete dadapt;
     delete controller;
     */
+    qDebug()<<"sssssssssssssssssssssssss";
     return app->exec();
    
 }

@@ -163,18 +163,14 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 
 //    qview->setSource(QUrl(QStringLiteral("assets:/qml/main.qml")));
 #ifdef ANDROID
-
-    qview->setSource(QUrl(QString::fromStdString(std::string("assets:") + Core::AbstractConfig::layoutqml)));
+    engine.load(QUrl(QString::fromStdString(std::string("assets:") + Core::AbstractConfig::layoutqml)));
 #else
-    qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::prefix +
-                                                                Core::AbstractConfig::sharePath +
-                                                                Core::AbstractConfig::layoutqml)));
-#endif    
 //    QObject::connect((QObject*)qview->engine(), SIGNAL(quit()), app, SLOT(quit()));
 //    qview->showFullScreen();
     engine.load(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::prefix +
                                                                 Core::AbstractConfig::sharePath +
                                                                 Core::AbstractConfig::layoutqml)));
+#endif    
     QObject *topLevel = engine.rootObjects().value(0);
     QQuickWindow *window = qobject_cast<QQuickWindow *>(topLevel);
     window->showFullScreen();

@@ -23,6 +23,7 @@ Page {
 
     objectName: "WeatherPage"
 
+    StackView.onActivated: pageStack.currentItem.forceActiveFocus()
     ListModel {
         id: listModel
         function update() {

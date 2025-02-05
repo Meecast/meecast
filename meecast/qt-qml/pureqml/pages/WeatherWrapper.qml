@@ -32,6 +32,8 @@ Page {
 
     objectName: "WeatherPage"
 
+
+    StackView.onActivated: pageStack.currentItem.forceActiveFocus()
     header: RowLayout {
         id: headerRowLayout
         Label {

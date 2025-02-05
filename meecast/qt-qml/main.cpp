@@ -173,8 +173,11 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 #endif    
     QObject *topLevel = engine.rootObjects().value(0);
     QQuickWindow *window = qobject_cast<QQuickWindow *>(topLevel);
+#ifdef ANDROID
+    window->show();
+#else
     window->showFullScreen();
-    //window->show();
+#endif
     /*This code provides Segmantation fault
     delete dadapt;
     delete controller;

@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-gismeteo-ru-stations-db MeeCast
  *
- * Copyright (C) 2009-2024 Vlad Vasilyeu
+ * Copyright (C) 2009-2025 Vlad Vasilyeu
  * 	for the code
  *
  * This software is free software; you can redistribute it and/or

@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2024 Vlad Vasilyeu
+ * Copyright (C) 2006-2025 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -46,6 +46,7 @@
 #include <QtGui/QGuiApplication>
 #include <QTranslator>
 #include <QDir>
+#include <QProcess>
 
 #include <libintl.h>
 #include <locale.h>
@@ -114,6 +115,7 @@ private:
     bool _updating;
     QGuiApplication *_app;
     QTranslator _translator;
+    QProcess process;
 protected:
     static ConfigQml* _self;
     static int _refcount_;
@@ -164,6 +166,7 @@ public:
     Q_INVOKABLE QStringList stations();
     Q_INVOKABLE void removeStation(int index);
     Q_INVOKABLE QStringList Sources();
+    Q_INVOKABLE void execPredaemon();
     Q_INVOKABLE QStringList Countries(QString source);
     Q_INVOKABLE QStringList Regions(int index);
     Q_INVOKABLE QStringList Cities(int country_index, int index);

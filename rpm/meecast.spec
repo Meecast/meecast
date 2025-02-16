@@ -347,6 +347,10 @@ fi
 
 
 %changelog
+* Sun Feb 16 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.20
+- Added icons to gismeteo.ru
+- Fixed problem show current location on EventView after changing station in standalone application
+
 * Thu Jan 16 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.19
 - Fixed an error after correcting view on Ligth Theme (Atmosphere)
 

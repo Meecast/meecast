@@ -513,7 +513,7 @@ Component {
                     clip: true
                     Component.onCompleted: {
                        console.log("list onCompleted ", main_index, forecast_stub.count, Config.iconspath + "/" + Config.iconset)
-                       console.log("WeatherStationDelegate.qml - Config.stationname ", Config.stationname) 
+                       console.log("WeatherStationDelegate.qml - Config.stationname ", Config.stationname, Screen.devicePixelRatio) 
                        main.station_name_text = main.stationname1_index(main_index)
                        list.height = row_rect_height * forecast_model_count(main_index) 
                     }

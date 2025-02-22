@@ -46,7 +46,6 @@
 #include <QtGui/QGuiApplication>
 #include <QTranslator>
 #include <QDir>
-#include <QProcess>
 
 #include <libintl.h>
 #include <locale.h>
@@ -166,7 +165,6 @@ public:
     Q_INVOKABLE QStringList stations();
     Q_INVOKABLE void removeStation(int index);
     Q_INVOKABLE QStringList Sources();
-    Q_INVOKABLE void execPredaemon();
     Q_INVOKABLE QStringList Countries(QString source);
     Q_INVOKABLE QStringList Regions(int index);
     Q_INVOKABLE QStringList Cities(int country_index, int index);

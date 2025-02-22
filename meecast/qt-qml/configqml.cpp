@@ -1337,16 +1337,3 @@ ConfigQml::check_and_update_station(){
 void ConfigQml::time_for_updating(uint _time){
     _time_for_updating = _time;
 }
-
-
-void ConfigQml::execPredaemon(){
-    std::cerr<<"ConfigQml::execPredaemon()"<< std::endl;
-    QString execFileName("/usr/bin/meecast_predaemon");
-    QFile file(execFileName);
-    if(QFileInfo::exists(execFileName)){
-        QString executable(execFileName);
-        process.startDetached(executable);
-    }else{
-        qDebug()<<"file does not exists" << execFileName;
-    }
-}

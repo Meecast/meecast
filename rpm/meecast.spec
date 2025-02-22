@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.11.19
+%define vrsn 1.11.21
 %define rlse 1
 
 Name:       harbour-meecast
@@ -347,7 +347,7 @@ fi
 
 
 %changelog
-* Sun Feb 16 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.20
+* Sat Feb 22 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.21
 - Added icons to gismeteo.ru
 - Fixed problem show current location on EventView after changing station in standalone application
 

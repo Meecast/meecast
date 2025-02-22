@@ -2,7 +2,7 @@
 /*
  * This file is part of MeeCast (Other Maemo Weather(omweather)) - MeeCast
  *
- * Copyright (C) 2006-2015 Vlad Vasilyeu
+ * Copyright (C) 2006-2025 Vlad Vasilyeu
  *     for the code
  *
  * Copyright (C) 2008 Andrew Zhilin
@@ -288,6 +288,21 @@ MyMWidget::MyMWidget(){
     connect(_watcher,SIGNAL(fileChanged(QString)),this,SLOT(currentfileChanged(QString)));
     updateIntervalChanged(15*60);
 
+    _watcher_config = new QFileSystemWatcher();
+
+    QFile watcher_config_file(QDir::homePath()+"/.config/harbour-meecast/config.xml");
+    if(!watcher_file.exists()){
+        QDir dir(QDir::homePath()+"/.config/harbour-meecast");
+        if (!dir.exists())
+            dir.mkpath(QDir::homePath()+"/.config/harbour-meecast");
+        //std::cerr<<"Create watcher file"<<std::endl;
+        if (watcher_config_file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            watcher_config_file.close();
+        }
+    }
+    _watcher_config->addPath(QDir::homePath()+"/.config/harbour-meecast/config.xml");
+    connect(_watcher_config,SIGNAL(fileChanged(QString)),this,SLOT(configfileChanged(QString)));
+
 
 #if 0
     // Debug begin
@@ -303,6 +318,7 @@ MyMWidget::~MyMWidget(){
 //    std::cerr<<"MyMWidget::~MyMWidget() stop"<<std::endl;
     delete keepalive;
     delete _watcher;
+    delete _watcher_config;
     delete manager;
     delete _lazyrenderingtimer;
     delete _lazyupdatedatatimer;
@@ -605,6 +621,7 @@ MyMWidget::checkActivity(){
     update_data();
     keepalive->wait();
 }
+
 void 
 MyMWidget::updateIntervalChanged(int interval){
 
@@ -625,8 +642,6 @@ MyMWidget::updateIntervalChanged(int interval){
         keepalive->run();
     }
 }
-
-
 
 void 
 MyMWidget::wakeupStopped(){
@@ -656,6 +671,14 @@ MyMWidget::setOriginalWallpaper(){
 #endif
 
     _wallpaperItem->set(QDir::homePath()+"/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
+}
+
+void
+MyMWidget::configfileChanged(QString path){
+
+    std::cerr<<"MyMWidget::configfileChanged"<<std::endl;
+    update_data();
+    keepalive->wait();
 }
 
 void 
@@ -955,7 +978,8 @@ signalhandler(int sig) {
     }
 }
 
-int main (int argc, char *argv[]) {
+int
+main (int argc, char *argv[]) {
     tempfile = NULL;
 
     QGuiApplication app(argc, argv);

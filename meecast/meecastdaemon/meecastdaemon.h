@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2015 Vlad Vasiliev
+ * Copyright (C) 2006-2025 Vlad Vasiliev
  *     for the code
  *
  * Copyright (C) 2008 Andrew Zhilin
@@ -86,6 +86,7 @@ private:
     bool _isOnline;
     uint _next_time_for_check;
     QFileSystemWatcher *_watcher;
+    QFileSystemWatcher *_watcher_config;
     void parsePeriod(QXmlStreamReader& xml, int itemnumber);
     bool _force_draw;
     bool _need_update;
@@ -200,6 +201,7 @@ public Q_SLOTS:
     void wakeupStopped();
     bool isNetworkAvailable();
     void currentfileChanged(QString path);
+    void configfileChanged(QString path);
 signals:
     void iconChanged();
     void stationChanged();

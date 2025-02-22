@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2015 Vlad Vasilyeu
+ * Copyright (C) 2006-2025 Vlad Vasilyeu
  *     for the code
  *
  * Copyright (C) 2008 Andrew Zhilin
@@ -96,90 +96,18 @@ current_data(std::string& str){
 }
 
 int
-main (int argc, char *argv[]){
-  time_t current_day;
-  struct tm   *tm = NULL;
-  int year, current_month;
-  Core::Data *temp_data = NULL;
-  Core::DataParser* dp = NULL;
-  int success = 0;
-  uint i = 0;
-  QString temp;
-  QString temp_high;
-  QString temp_low;
-  int localtimezone = 0;
-  int timezone = 0;
-  struct tm time_tm1;
-  struct tm time_tm2;
-
-
-#if 0
-      // Debug begin
-	QFile file("/tmp/1.log");
-	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-	    QTextStream out(&file);
-	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "Predeamon beginn";
-	    file.close();
-	}
-	// Debug end 
-#endif
-
-    QCoreApplication a(argc, argv);
-
-    config = create_and_fill_config();
-    if (!config){
-        std::cerr<<"Problem with config file"<<std::endl;
-        exit (-1);
-    }
-
-
-    /* Locale */
-    // Set up the translator.
-    QTranslator translator;
-    QString locale_string = QLocale().name();
-    QString filename = QString("omweather_%1").arg(locale_string);
-/*    std::cerr<<filename.toStdString().c_str()<<std::endl; */
-
-    QString localepath =QString::fromStdString(Core::AbstractConfig::prefix + "/share/harbour-meecast/locale");
-    if (translator.load(filename, localepath)) {
-        /* std::cerr<<"Success TR"<<std::endl; */
-        a.installTranslator(&translator);
-    }
-
-//    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
-    for (unsigned int i=1; i<config->languagesList().size(); i++){
-        if (config->languagesList().at(i).first == config->Language()){
-            QLocale::setDefault(QLocale(config->languagesList().at(i).second.c_str()));
-            filename = QString("omweather_%1").arg(config->languagesList().at(i).second.c_str());
-            std::cerr<<filename.toStdString().c_str()<<std::endl; 
-            QString localepath = QString::fromStdString(Core::AbstractConfig::prefix + "/share/harbour-meecast/locale");
-            if (translator.load(filename, localepath)) {
-                    std::cerr<<"Success TR"<<std::endl;
-                    a.installTranslator(&translator);
-            }
-        }
-    }
-
-
-
-    /* Check time for previous updating */
-    dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
-
-    /* 10*60 = 10 minutes - minimal time between updates */ 
-    if ((!dp) || (dp && (abs(time(NULL) - dp->LastUpdate()) > 10*60))){
-        /*update weather forecast*/
-        if (config->UpdatePeriod() != INT_MAX || config->UpdatePeriod() != 0){
-            if ((!dp) || (time(NULL) - dp->LastUpdate()) > config->UpdatePeriod()){
-                for (i=0; i < config->stationsList().size();i++){
-                    if (config->stationsList().at(i)->updateData(true)){
-                        success ++;
-                    }
-                }
-            }
-        }
-    }
-
-    dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
+create_current_xml_file(Core::DataParser* dp){
+    time_t current_day;
+    struct tm   *tm = NULL;
+    QString temp;
+    QString temp_high;
+    QString temp_low;
+    int localtimezone = 0;
+    int timezone = 0;
+    struct tm time_tm1;
+    struct tm time_tm2;
+    Core::Data *temp_data = NULL;
+    uint i = 0;
 
     if (dp){
         fprintf (stderr, "timezone!!!!! %i\n",dp->timezone());
@@ -222,7 +150,7 @@ main (int argc, char *argv[]){
 	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "Predeamon "<<"\n";
 	    file.close();
 	}
-	// Debug end 
+	// Debug end
 #endif
 
     /* fill current date */
@@ -235,7 +163,7 @@ main (int argc, char *argv[]){
 	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "Predeamon2 "<<"\n";
 	    file.close();
 	}
-	// Debug end 
+	// Debug end
 #endif
 
         QString icon_string =  config->iconspath().c_str();
@@ -411,4 +339,83 @@ main (int argc, char *argv[]){
       dp = NULL;
   }
   return 0;
+
+}
+
+int
+main (int argc, char *argv[]){
+  Core::DataParser* dp = NULL;
+  int success = 0;
+
+
+#if 0
+      // Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "Predeamon beginn";
+	    file.close();
+	}
+	// Debug end
+#endif
+
+    QCoreApplication a(argc, argv);
+
+    config = create_and_fill_config();
+    if (!config){
+        std::cerr<<"Problem with config file"<<std::endl;
+        exit (-1);
+    }
+
+
+    /* Locale */
+    // Set up the translator.
+    QTranslator translator;
+    QString locale_string = QLocale().name();
+    QString filename = QString("omweather_%1").arg(locale_string);
+/*    std::cerr<<filename.toStdString().c_str()<<std::endl; */
+
+    QString localepath =QString::fromStdString(Core::AbstractConfig::prefix + "/share/harbour-meecast/locale");
+    if (translator.load(filename, localepath)) {
+        /* std::cerr<<"Success TR"<<std::endl; */
+        a.installTranslator(&translator);
+    }
+
+//    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+    for (unsigned int i=1; i<config->languagesList().size(); i++){
+        if (config->languagesList().at(i).first == config->Language()){
+            QLocale::setDefault(QLocale(config->languagesList().at(i).second.c_str()));
+            filename = QString("omweather_%1").arg(config->languagesList().at(i).second.c_str());
+            std::cerr<<filename.toStdString().c_str()<<std::endl; 
+            QString localepath = QString::fromStdString(Core::AbstractConfig::prefix + "/share/harbour-meecast/locale");
+            if (translator.load(filename, localepath)) {
+                    std::cerr<<"Success TR"<<std::endl;
+                    a.installTranslator(&translator);
+            }
+        }
+    }
+
+
+
+    /* Check time for previous updating */
+    dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
+
+    /* 10*60 = 10 minutes - minimal time between updates */
+    if ((!dp) || (dp && (abs(time(NULL) - dp->LastUpdate()) > 10*60))){
+        /*update weather forecast*/
+        if (config->UpdatePeriod() != INT_MAX || config->UpdatePeriod() != 0){
+            if ((!dp) || (time(NULL) - dp->LastUpdate()) > config->UpdatePeriod()){
+                for (unsigned int i = 0; i < config->stationsList().size();i++){
+                    if (config->stationsList().at(i)->updateData(true)){
+                        success ++;
+                    }
+                }
+            }
+        }
+    }
+
+    dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
+
+    int result = create_current_xml_file(dp);
+  return result;
 }

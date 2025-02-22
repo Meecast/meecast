@@ -114,7 +114,6 @@ private:
     bool _updating;
     QGuiApplication *_app;
     QTranslator _translator;
-    QProcess process;
 protected:
     static ConfigQml* _self;
     static int _refcount_;

@@ -7,3 +7,5 @@ Comment=Weather forecast for Sailfish
 Exec=harbour-meecast
 [X-Sailjail]
 Permissions=Internet;Location
+OrganizationName=org.meecast
+ApplicationName=MeeCast

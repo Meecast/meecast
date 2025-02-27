@@ -79,7 +79,7 @@ drawwallpaper(QImage image, QHash <QString, QString> hash){
     int y = 195;
 
     QSettings *lockscreen_settings;
-    lockscreen_settings = new QSettings(QDir::homePath()+"/.config/harbour-meecast/lockscreen.conf",QSettings::NativeFormat);
+    lockscreen_settings = new QSettings(QDir::homePath()+"/.config/org.meecast/MeeCast/lockscreen.conf",QSettings::NativeFormat);
     QVariant v = lockscreen_settings->value("x_position", int(x));
     x = v.value<int>();
     v = lockscreen_settings->value("y_position", int(y));
@@ -150,7 +150,7 @@ drawwallpaper(QImage image, QHash <QString, QString> hash){
     if (tempfile)
         delete tempfile;
 
-    QString path = QDir::homePath()+"/.cache/harbour-meecast/meecast." + QString::number(QDateTime::currentMSecsSinceEpoch()) + ".XXXXXXX.png";
+    QString path = QDir::homePath()+"/.cache/org.meecast/MeeCast/meecast." + QString::number(QDateTime::currentMSecsSinceEpoch()) + ".XXXXXXX.png";
     tempfile = new QTemporaryFile(path);
     if (tempfile->open()){ 
         image.save(tempfile->fileName());
@@ -175,7 +175,7 @@ MyMWidget::MyMWidget(){
     _temperature = "";
     _temperature_low = "";
     _temperature_high = "";
-    _iconpath = "/usr/share/harbour-meecast/iconsets/Meecast/49.png";
+    _iconpath = "/usr/share/org.meecast/MeeCast/iconsets/Meecast/49.png";
     _current = false;
     _lockscreen = false;
     _standbyscreen = false;
@@ -192,7 +192,7 @@ MyMWidget::MyMWidget(){
     _wallpaperItem = new MDConfItem ("/desktop/jolla/background/portrait/home_picture_filename"); 
     connect(_wallpaperItem, SIGNAL(valueChanged()), this, SLOT(updateWallpaperPath()));
     if (!_wallpaperItem || _wallpaperItem->value() == QVariant::Invalid)
-        _wallpaper_path = QDir::homePath() + "/.cache/harbour-meecast/wallpaper_MeeCast_original.png";
+        _wallpaper_path = QDir::homePath() + "/.cache/org.meecast/MeeCast/wallpaper_MeeCast_original.png";
     else{
 #if 0
       // Debug begin
@@ -208,12 +208,12 @@ MyMWidget::MyMWidget(){
       // Debug begin
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
     QTextStream out(&file);
-    out <<  "Set wallpaper path to " + QDir::homePath() + "/.cache/harbour-meecast/wallpaper_MeeCast_original.png ."<<".\n";
+    out <<  "Set wallpaper path to " + QDir::homePath() + "/.cache/org.meecast/MeeCast/wallpaper_MeeCast_original.png ."<<".\n";
     file.close();
     }
 #endif
 
-            _wallpaper_path = QDir::homePath()+"/.cache/harbour-meecast/wallpaper_MeeCast_original.png";
+            _wallpaper_path = QDir::homePath()+"/.cache/org.meecast/MeeCast/wallpaper_MeeCast_original.png";
         }
     }
     _image = new QImage;
@@ -231,7 +231,7 @@ MyMWidget::MyMWidget(){
     file.close();
     }
 #endif
-        _image->save(QDir::homePath()+"/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
+        _image->save(QDir::homePath()+"/.cache/org.meecast/MeeCast/wallpaper_MeeCast_original.png");
     }
 
     connect(_lazyrenderingtimer, SIGNAL(timeout()), this, SLOT(refreshview()));
@@ -274,33 +274,33 @@ MyMWidget::MyMWidget(){
     keepalive->setWakeupFrequency(BackgroundActivity::Range);
     _watcher = new QFileSystemWatcher();
 
-    QFile watcher_file(QDir::homePath()+"/.cache/harbour-meecast/current.xml");
+    QFile watcher_file(QDir::homePath()+"/.cache/org.meecast/MeeCast/current.xml");
     if(!watcher_file.exists()){
-        QDir dir(QDir::homePath()+"/.cache/harbour-meecast");
+        QDir dir(QDir::homePath()+"/.cache/org.meecast/MeeCast");
         if (!dir.exists())
-            dir.mkpath(QDir::homePath()+"/.cache/harbour-meecast");
+            dir.mkpath(QDir::homePath()+"/.cache/org.meecast/MeeCast");
         //std::cerr<<"Create watcher file"<<std::endl;
         if (watcher_file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
             watcher_file.close();
         }
     }
-    _watcher->addPath(QDir::homePath()+"/.cache/harbour-meecast/current.xml");
+    _watcher->addPath(QDir::homePath()+"/.cache/org.meecast/MeeCast/current.xml");
     connect(_watcher,SIGNAL(fileChanged(QString)),this,SLOT(currentfileChanged(QString)));
     updateIntervalChanged(15*60);
 
     _watcher_config = new QFileSystemWatcher();
 
-    QFile watcher_config_file(QDir::homePath()+"/.config/harbour-meecast/config.xml");
+    QFile watcher_config_file(QDir::homePath()+"/.config/org.meecast/MeeCast/config.xml");
     if(!watcher_file.exists()){
-        QDir dir(QDir::homePath()+"/.config/harbour-meecast");
+        QDir dir(QDir::homePath()+"/.config/org.meecast/MeeCast");
         if (!dir.exists())
-            dir.mkpath(QDir::homePath()+"/.config/harbour-meecast");
+            dir.mkpath(QDir::homePath()+"/.config/org.meecast/MeeCast");
         //std::cerr<<"Create watcher file"<<std::endl;
         if (watcher_config_file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
             watcher_config_file.close();
         }
     }
-    _watcher_config->addPath(QDir::homePath()+"/.config/harbour-meecast/config.xml");
+    _watcher_config->addPath(QDir::homePath()+"/.config/org.meecast/MeeCast/config.xml");
     connect(_watcher_config,SIGNAL(fileChanged(QString)),this,SLOT(configfileChanged(QString)));
 
 
@@ -502,10 +502,10 @@ MyMWidget::refreshwallpaper(bool new_wallpaper){
             file.close();
         }
 #endif
-        QDir dir(QDir::homePath()+"/.cache/harbour-meecast");
+        QDir dir(QDir::homePath()+"/.cache/org.meecast/MeeCast");
         
         if (!dir.exists())
-            dir.mkpath(QDir::homePath()+"/.cache/harbour-meecast");
+            dir.mkpath(QDir::homePath()+"/.cache/org.meecast/MeeCast");
 
         if (new_wallpaper){
             //std::cerr<<"Save original file"<<std::endl;
@@ -517,7 +517,7 @@ MyMWidget::refreshwallpaper(bool new_wallpaper){
                 _image->setDotsPerMeterX(3780);
                 _image->setDotsPerMeterY(3780);
             }
-            _image->save(QDir::homePath()+"/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
+            _image->save(QDir::homePath()+"/.cache/org.meecast/MeeCast/wallpaper_MeeCast_original.png");
         }
 #if 0	    
 	    // Debug begin
@@ -670,7 +670,7 @@ MyMWidget::setOriginalWallpaper(){
 	// Debug end 
 #endif
 
-    _wallpaperItem->set(QDir::homePath()+"/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
+    _wallpaperItem->set(QDir::homePath()+"/.cache/org.meecast/MeeCast/wallpaper_MeeCast_original.png");
 }
 
 void
@@ -719,7 +719,7 @@ MyMWidget::currentfileChanged(QString path){
 	// Debug end 
 #endif
 
-    QFile current_file(QDir::homePath()+"/.cache/harbour-meecast/current.xml");
+    QFile current_file(QDir::homePath()+"/.cache/org.meecast/MeeCast/current.xml");
 
     if (current_file.size()<=0)
         return;
@@ -997,17 +997,17 @@ main (int argc, char *argv[]) {
     ret = connection.registerObject("/com/meecast/data", box);
  
     /* Copy wallpaper */
-    if (!(QFile::exists(QDir::homePath()+"/.cache/harbour-meecast/wallpaper_MeeCast_original.png"))){
-        QDir dir(QDir::homePath()+"/.cache/harbour-meecast");
+    if (!(QFile::exists(QDir::homePath()+"/.cache/org.meecast/MeeCast/wallpaper_MeeCast_original.png"))){
+        QDir dir(QDir::homePath()+"/.cache/org.meecast/MeeCast");
         if (!dir.exists())
-            dir.mkpath(QDir::homePath()+"/.cache/harbour-meecast");
+            dir.mkpath(QDir::homePath()+"/.cache/org.meecast/MeeCast");
  
         MGConfItem *wallpaperItem;
         wallpaperItem = new MGConfItem ("/desktop/jolla/background/portrait/home_picture_filename"); 
  
         if (QFile::exists(wallpaperItem->value().toString()))
             QFile::copy(wallpaperItem->value().toString(),
-                    QDir::homePath()+"/.cache/harbour-meecast/wallpaper_MeeCast_original.png");
+                    QDir::homePath()+"/.cache/org.meecast/MeeCast/wallpaper_MeeCast_original.png");
     }
     signal(SIGINT, signalhandler);
     signal(SIGTERM, signalhandler);

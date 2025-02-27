@@ -82,7 +82,7 @@ namespace Core {
         path += "/.config";
         /* TODO check directory exist */
         mkdir(path.c_str(), 0755);
-        path += "/harbour-meecast/";
+        path += "/org.meecast/MeeCast/";
         mkdir(path.c_str(), 0755);
         return path;
 #endif

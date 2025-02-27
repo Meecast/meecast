@@ -231,7 +231,7 @@ create_current_xml_file(Core::DataParser* dp){
                                    config->Standbyscreen(), 
                                    t.toString("dd MMM h:mm")); 
         */
-        QFile current_file(QDir::homePath() + "/.cache/harbour-meecast/current.xml");
+        QFile current_file(QDir::homePath() + "/.cache/org.meecast/MeeCast/current.xml");
 
         if (current_file.open(QIODevice::WriteOnly)){
             QXmlStreamWriter* xmlWriter = new QXmlStreamWriter();

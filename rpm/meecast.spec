@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.11.21
+%define vrsn 1.12.1
 %define rlse 1
 
 Name:       harbour-meecast
@@ -85,7 +85,7 @@ Release: %{rlse}
 Summary: MeeCast background daemon for SailfishOS
 Group:    Utility
 License:  LGPL-2.1-only
-Requires: %{name}
+Requires: %{name} >= 1.12
 Requires: systemd
 BuildRequires:  pkgconfig(contentaction5)
 
@@ -347,6 +347,9 @@ fi
 
 
 %changelog
+* Thu Feb 27 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.21
+ - Changed config path according https://github.com/sailfishos/sailjail-permissions
+
 * Sat Feb 22 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.21
 - Added icons to gismeteo.ru
 - Fixed problem show current location on EventView after changing station in standalone application

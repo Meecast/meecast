@@ -31,17 +31,17 @@ Meecastdata::Meecastdata(QObject *parent):
     _filemonitoring = NULL;
     _watcher = new QFileSystemWatcher();
 
-    QFile watcher_file(QDir::homePath()+"/.cache/harbour-meecast/current.xml");
+    QFile watcher_file(QDir::homePath()+"/.cache/org.meecast/MeeCast/current.xml");
     if(!watcher_file.exists()){
        std::cerr<<"Create watcher file"<<std::endl;
-        QDir dir(QDir::homePath()+"/.cache/harbour-meecast");
+        QDir dir(QDir::homePath()+"/.cache/org.meecast");
         if (!dir.exists())
-            dir.mkpath(QDir::homePath()+"/.cache/harbour-meecast");
+            dir.mkpath(QDir::homePath()+"/.cache/org.meecast/MeeCast");
         if (watcher_file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
             watcher_file.close();
         }
     }
-    _watcher->addPath(QDir::homePath()+"/.cache/harbour-meecast/current.xml");
+    _watcher->addPath(QDir::homePath()+"/.cache/org.meecast/MeeCast/current.xml");
     connect(_watcher,SIGNAL(fileChanged(QString)),this,SLOT(currentfileChanged(QString)));
 
     _lazyrenderingtimer = new QTimer(this);
@@ -103,9 +103,9 @@ void
 Meecastdata::updatefilemonitoring(){
 
     std::cerr<<"updatefilemonitoring()"<<std::endl;
-    QFile watcher_file(QDir::homePath()+"/.cache/harbour-meecast/current.xml");
+    QFile watcher_file(QDir::homePath()+"/.cache/org.meecast/MeeCast/current.xml");
     if(watcher_file.exists()){
-        _watcher->addPath(QDir::homePath()+"/.cache/harbour-meecast/current.xml");
+        _watcher->addPath(QDir::homePath()+"/.cache/org.meecast/MeeCast/current.xml");
         _lazyrenderingtimer->start(3000);
     }else{
         _filemonitoring->start(60*1000);
@@ -165,7 +165,7 @@ Meecastdata::getWeatherdata(){
 #endif
 
     //std::cerr<<" getWeatherData1"<<std::endl;
-    QFile current_file(QDir::homePath()+"/.cache/harbour-meecast/current.xml");
+    QFile current_file(QDir::homePath()+"/.cache/org.meecast/MeeCast/current.xml");
 
     /* Check file */
     if (current_file.open(QIODevice::ReadOnly | QIODevice::Text)) {

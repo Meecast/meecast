@@ -102,7 +102,51 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     QDir::setCurrent(app->applicationDirPath());
 
     
-    std::cerr<<app->applicationDirPath().toStdString().c_str()<<std::endl;
+    std::cerr<<"application binary path "<< app->applicationDirPath().toStdString().c_str()<<std::endl;
+    std::cerr<<"application config path "<< QStandardPaths::writableLocation(QStandardPaths::ConfigLocation).toStdString().c_str()<<std::endl;
+
+    /* For Sailfishos only. Remove after versiom 1.12.4 */
+    /* Move config from old versions path. For SailfishOS only */
+    const QString old_config_path_directory = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/harbour-meecast/";
+    const QString old_config_path = old_config_path_directory + "config.xml";
+    const QString new_config_path_directory = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/org.meecast/MeeCast/";
+    const QString new_config_path = new_config_path_directory + "config.xml";
+
+    if (!(QFile::exists(new_config_path))){
+        qDebug()<<"New config is not present";
+        QDir pathDir(new_config_path_directory);
+        bool new_pathdir_exist = pathDir.exists();
+        if (!new_pathdir_exist){
+            new_pathdir_exist = QDir().mkdir(new_config_path_directory);
+        }
+        if (new_pathdir_exist && (QFile::exists(old_config_path))){
+            qDebug()<<"Old config present";
+            QFile old_file(old_config_path);
+            QFile new_file(new_config_path);
+            if (old_file.open(QIODevice::ReadOnly | QIODevice::Text)){
+                qDebug()<<"Open old config file";
+                if (new_file.open(QIODevice::WriteOnly | QIODevice::Text)){
+                    qDebug()<<"copy old config to new file";
+                    QTextStream in(&old_file);
+                    QTextStream out(&new_file);
+                    while(!in.atEnd()) {
+                        QString line = in.readLine();
+                        line.replace(old_config_path_directory, new_config_path_directory);
+                        out<<line<<endl;
+                        qDebug()<<line;
+                    }
+                    new_file.close();
+                }else{
+                    qDebug()<<"Can't copy old config to new file1";
+                }
+                old_file.close();
+            }else{
+                qDebug()<<"Can't open old config file "<<old_config_path;
+            }
+        }
+    }else{
+        qDebug()<<"New config file is present";
+    }
 
 /*
     QString str = QDir::currentPath();

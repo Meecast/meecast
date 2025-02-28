@@ -349,7 +349,7 @@ desktop-file-install --delete-original  \
 
 
 %changelog
-* Thu Feb 27 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.21
+* Thu Feb 27 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.1
  - Changed config path according https://github.com/sailfishos/sailjail-permissions
 
 * Sat Feb 22 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.21

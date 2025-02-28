@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.11.19
+%define vrsn 1.12.1
 %define rlse 1
 
 Name:       org.meecast.MeeCast
@@ -349,6 +349,13 @@ desktop-file-install --delete-original  \
 
 
 %changelog
+* Thu Feb 27 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.21
+ - Changed config path according https://github.com/sailfishos/sailjail-permissions
+
+* Sat Feb 22 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.21
+- Added icons to gismeteo.ru
+- Fixed problem show current location on EventView after changing station in standalone application
+
 * Thu Jan 16 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.19
 - Fixed an error after correcting view on Ligth Theme (Atmosphere)
 

@@ -23,6 +23,7 @@ Page {
 
     objectName: "WeatherPage"
 
+//    StackView.onActivated: pageStack.currentItem.forceActiveFocus()
     ListModel {
         id: listModel
         function update() {
@@ -360,6 +361,7 @@ Page {
             real_current_id = indexAt(contentX,contentY);
             Config._current_station_id(main.real_current_id)
             Config.saveConfig();
+            Config.execPredaemon() /* for applet view updating */
            // Config.refreshconfig();
         }
         onFlickStarted: {

@@ -1337,4 +1337,3 @@ ConfigQml::check_and_update_station(){
 void ConfigQml::time_for_updating(uint _time){
     _time_for_updating = _time;
 }
-

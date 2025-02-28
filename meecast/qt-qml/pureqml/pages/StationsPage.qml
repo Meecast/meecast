@@ -1,5 +1,6 @@
 import QtQuick 2.2
-import Sailfish.Silica 1.0
+//import Sailfish.Silica 1.0
+import QtQuick.Controls 2.12
 
 Page {
     id: stations
@@ -11,9 +12,11 @@ Page {
     {
         pageStack.push(Qt.resolvedUrl(file))
     }
+    /*
     RemorsePopup {
         id: clearRemorse
     }
+    */
     Connections {
         target: Config
         onConfigChanged: {
@@ -53,10 +56,12 @@ Page {
             id: confirm
             Dialog{
                 Column{
+                    /*
                     DialogHeader {
                         title: removedStationName
                         acceptText: Config.tr("Yes")
                     }
+                    */
                     Label {
                         text: Config.tr("Delete location?")
                     }
@@ -72,9 +77,11 @@ Page {
         Column {
             anchors.fill: parent
             id: maincolumn
+            /*
             PageHeader {
                 title: Config.tr("Manage locations")
             }
+            */
             Item {
                 width: parent.width
                 height: Theme.itemSizeSmall
@@ -101,7 +108,8 @@ Page {
                     }
                 }
             }
-            SilicaListView {
+            //SilicaListView {
+            ListView {
                 id: stationslist
                 width: parent.width
                 height: parent.height - Theme.itemSizeSmall
@@ -117,6 +125,7 @@ Page {
                         anchors.leftMargin: margin
                         anchors.verticalCenter: parent.verticalCenter
                     }
+                    /*
                     IconButton {
                         icon.source: "image://theme/icon-m-delete"
                         anchors.right: parent.right
@@ -132,6 +141,7 @@ Page {
                             }, 4000)
                         }
                     }
+                    */
                 }
             }
         }

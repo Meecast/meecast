@@ -191,7 +191,7 @@ ConfigQml::setLanguage(){
     QString filename = QString("omweather_%1").arg(locale_string);
     //std::cerr<<"Filename0: "<<filename.toStdString().c_str()<<std::endl; 
 
-    QString localepath = QString::fromStdString(Core::AbstractConfig::prefix + "/data/locale");
+    QString localepath = QString::fromStdString(Core::AbstractConfig::prefix + "/share/org.meecast.MeeCast/locale");
     if (!_translator.isEmpty()){
           QCoreApplication::removeTranslator(&_translator);
     }
@@ -206,7 +206,7 @@ ConfigQml::setLanguage(){
             QLocale::setDefault(QLocale(languagesList().at(i).second.c_str()));
             filename = QString("omweather_%1").arg(languagesList().at(i).second.c_str());
             std::cerr<<filename.toStdString().c_str()<<std::endl;
-            QString localepath = QString::fromStdString(Core::AbstractConfig::prefix + "/data/locale");
+            QString localepath = QString::fromStdString(Core::AbstractConfig::prefix + "/share/org.meecast.MeeCast/locale");
             //std::cerr<<"Filename1: "<<localepath.toStdString().c_str()<<std::endl;
             if (_translator.load(filename, localepath)) {
                     std::cerr<<"Success TR"<<std::endl;

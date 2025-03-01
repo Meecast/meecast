@@ -54,11 +54,12 @@ namespace Core {
     */
 #ifdef AURORA
     std::string AbstractConfig::prefix = "/usr";
-    std::string AbstractConfig::sharePath = "/data/";
-    std::string AbstractConfig::schemaPath = "/data/xsd/";
-    std::string AbstractConfig::iconsPath = "/data/iconsets/";
+    //std::string AbstractConfig::sharePath = "/data/";
+    std::string AbstractConfig::sharePath = "/share/org.meecast.MeeCast/";
+    std::string AbstractConfig::schemaPath = "/share/org.meecast.MeeCast/xsd/";
+    std::string AbstractConfig::iconsPath = "/share/org.meecast.MeeCast/iconsets/";
     std::string AbstractConfig::libPath = "/data/lib/";
-    std::string AbstractConfig::sourcesPath = "/data/sources/";
+    std::string AbstractConfig::sourcesPath = "/share/org.meecast.MeeCast/sources/";
     std::string AbstractConfig::layoutqml = "qml/main.qml";
     //std::string AbstractConfig::configPath = "~/.config/omweather/";
 #else

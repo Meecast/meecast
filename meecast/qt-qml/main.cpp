@@ -189,6 +189,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     qview = controller->qview();
     //QUrl qmlPath(Aurora::Application::pathTo("qml/main.qml"));
     /* Hack for working in FingerTerminal for direct exec */
+    
     QString myurl = Core::AbstractConfig::prefix.c_str();
     myurl.append(Core::AbstractConfig::sharePath.c_str());
     myurl.append(Core::AbstractConfig::layoutqml.c_str());

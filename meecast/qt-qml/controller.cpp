@@ -80,6 +80,7 @@ create_and_fill_config(QGuiApplication *app){
 Controller::Controller(QGuiApplication *app) : QObject(){
   std::cerr<<"Controller::Controller()"<<std::endl;
   _qview = Aurora::Application::createView();
+  context = _qview->rootContext();
   _dp = NULL;
   _app = app;
  // _translator = translator;

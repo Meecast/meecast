@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.12.1
+%define vrsn 1.12.2
 %define rlse 1
 
 Name:       org.meecast.MeeCast
@@ -349,6 +349,10 @@ desktop-file-install --delete-original  \
 
 
 %changelog
+* Mon Apr 28 2025  Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.2
+ - Fixed broken current weather for gismeteo.ru
+ - Added icons to gismeteo.ru
+
 * Thu Feb 27 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.1
  - Changed config path according https://github.com/sailfishos/sailjail-permissions
 

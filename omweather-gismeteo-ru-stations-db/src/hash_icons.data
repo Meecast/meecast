@@ -61,9 +61,11 @@
     hash_insert(hash, "d_c1", "30");
     hash_insert(hash, "d_c1_fog", "30"); /* May be 20 - fog */
     hash_insert(hash, "d_c1_r1", "39");
+    hash_insert(hash, "d_c1_r2", "39");
     hash_insert(hash, "d_c1_s1", "13");
     hash_insert(hash, "d_c1_rs1", "5");
     hash_insert(hash, "d_c2_r1", "39");
+    hash_insert(hash, "d_c2_r2", "39");
     hash_insert(hash, "d_c2_rs1", "41");
     hash_insert(hash, "d_c2_rs2", "41");
     hash_insert(hash, "d_c2_s1", "13");

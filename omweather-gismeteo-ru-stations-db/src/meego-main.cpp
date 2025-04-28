@@ -360,7 +360,8 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
                     auto timezone_json = val["timeZone"].asInt();
                     std::cerr<<timezone_json<<std::endl;
                     fprintf(file_out,"    <timezone>%i</timezone>\n", timezone_json/60);
-                    auto utc = val["dates"]["utc"].asString();
+                    val = root["weather"]["cw"];
+                    auto utc = val["date"][0].asString();
                     /* "2024-12-07T15:51:53.282Z" */
                     tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
                     tmp_tm.tm_isdst = time_tm2.tm_isdst;
@@ -373,7 +374,6 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
                     fprintf(file_out," end=\"%li\">\n", utc_time + 3*3600 + 3600*localtimezone); 
                     std::cerr<<utc<<std::endl;
 
-                    val = root["weather"]["cw"];
                     auto description = val["description"][0].asString();
                     fprintf(file_out,"     <description>%s</description>\n", description.c_str());
                     auto humidity = val["humidity"][0].asInt();

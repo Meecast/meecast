@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.12.3
+%define vrsn 1.12.4
 %define rlse 1
 
 Name:       harbour-meecast
@@ -347,8 +347,12 @@ fi
 
 
 %changelog
+* Sun May 11 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.4
+ - Added icons to gismeteo.ru
+
 * Sun May 11 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.3
  - Fixed bug with config file path on older devices
+ - Changed url for bom.gov.au source
  - Added icons to gismeteo.ru
 
 * Mon Apr 28 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.2

@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.12.2
+%define vrsn 1.12.3
 %define rlse 1
 
 Name:       harbour-meecast
@@ -347,7 +347,10 @@ fi
 
 
 %changelog
-* Mon Apr 28 2025  Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.2
+* Sun May 11 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.3
+ - Fixed bug with config file path on older devices
+
+* Mon Apr 28 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.2
  - Fixed broken current weather for gismeteo.ru
  - Added icons to gismeteo.ru
 

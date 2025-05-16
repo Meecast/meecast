@@ -6,10 +6,10 @@
 
 
 TARGET = gismeteoru 
-#TEMPLATE = app
+TEMPLATE = app
 
 
-TEMPLATE = lib
+#TEMPLATE = lib
 
 HEADERS += src/meego-main.h \
            src/hash.h \

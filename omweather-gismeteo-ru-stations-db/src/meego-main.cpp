@@ -128,6 +128,8 @@ get_month(char *temp_string){
     std::size_t found;
     const char* months[12]
         = { "январь", "февраль", "март", "апрель", "май", "июнь", "июль","август", "сентябрь", "октябрь", "ноябрь", "декабрь" };
+     const char* months2[12]
+        = { "январь", "февраль", "март", "апрель", "мая", "июнь", "июль","август", "сентябрь", "октябрь", "ноябрь", "декабрь" };
 
     for (int i = 0; i < 12; i++){
         if (sizeof(temp_string) > sizeof(months[i]))
@@ -136,6 +138,15 @@ get_month(char *temp_string){
         if (strncmp(months[i], temp_string,  strlen(temp_string)) == 0)
             return i + 1;
     }
+    /* Second variant of month check */
+    for (int i = 0; i < 12; i++){
+        if (sizeof(temp_string) > sizeof(months2[i]))
+            continue;
+        //fprintf(stderr, "compare %s %s %i %i\n", months[i], temp_string, sizeof(temp_string), strncmp(months[i], temp_string,  strlen(temp_string)));
+        if (strncmp(months2[i], temp_string,  strlen(temp_string)) == 0)
+            return i + 1;
+    }
+   
     /* default negative result -1 */
     return -1;
 }

@@ -349,6 +349,7 @@ fi
 %changelog
 * Mon May 26 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.7
  - Fixed gismeteo.ru source
+ - Added icons to gismeteo.ru
 
 * Fri May 16 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.6
  - Fixed gismeteo.ru source

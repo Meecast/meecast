@@ -64,6 +64,7 @@
     hash_insert(hash, "d_c1_r1", "39");
     hash_insert(hash, "d_c1_r1_st", "38");
     hash_insert(hash, "d_c1_r2", "39");
+    hash_insert(hash, "d_c1_r2_st", "37");
     hash_insert(hash, "d_c1_s1", "13");
     hash_insert(hash, "d_c1_rs1", "5");
     hash_insert(hash, "d_c2_r1", "39");

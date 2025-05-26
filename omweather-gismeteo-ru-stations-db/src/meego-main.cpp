@@ -448,15 +448,17 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
     nodes   = xpathObj_day->nodesetval;
     size = (nodes) ? nodes->nodeNr : 0;
     fprintf(stderr, "SIZE!!!!!!!!!!!!!!: %i\n", size); 
-    xpathObjTemp = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row-chart widget-row-chart-temperature-air row-with-caption']/div/div[@class='values']/div[@class='value']", xpathCtx);
+    xpathObjTemp = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-chart widget-row-chart-temperature-air row-with-caption']/div/div[@class='values']/div[@class='value']", xpathCtx);
 
     xpathObjIcons = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[2]/div/div[@class='weather-icon-group']", xpathCtx);
     xpathObjDescription = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/div[1]/section[2]/div[1]/div/div/div[2]/div[@data-tooltip]", xpathCtx);
-    xpathObjMaxPressure = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row-chart widget-row-chart-pressure row-with-caption'  ]/div/div[@class='values']/div[@class='value']/div[@class='maxt']/pressure-value", xpathCtx);
-    xpathObjWindSpeed = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-wind row-wind-speed row-with-caption'  ]/div//speed-value", xpathCtx);
+    xpathObjMaxPressure = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-chart widget-row-chart-pressure row-with-caption'  ]/div/div[@class='values']/div[@class='value']/div[@class='maxt']/pressure-value", xpathCtx);
+    //xpathObjWindSpeed = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-wind row-wind-speed row-with-caption'  ]/div//speed-value", xpathCtx);
+    xpathObjWindSpeed = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-wind row-wind row-with-caption']//div[contains (@class, 'wind-value wind-speed')]//speed-value", xpathCtx);
     //xpathObjWindGust = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-wind row-wind-gust row-with-caption'  ]/div//speed-value", xpathCtx);
-    xpathObjWindGust = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-wind row-wind-gust row-with-caption'  ]/div[@class='row-item']", xpathCtx);
-    xpathObjWindDirection = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-wind row-wind-direction row-with-caption'  ]/div//div[@class='direction']/text()", xpathCtx);
+    //xpathObjWindGust = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-wind row-wind-gust row-with-caption'  ]/div[@class='row-item']", xpathCtx);
+    xpathObjWindGust  = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-wind row-wind row-with-caption']//div[contains(@class, 'wind-value wind-gust')]//speed-value", xpathCtx);
+    xpathObjWindDirection = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-wind row-wind row-with-caption'  ]//div[@class='wind-direction']/text()", xpathCtx);
     xpathObjHumidity = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-humidity row-with-caption']/div/text()", xpathCtx);
     xpathObjUv = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-radiation row-with-caption']/div/text()", xpathCtx);
     fprintf(stderr, "Result (%d nodes):\n", size); 
@@ -634,27 +636,19 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
         /* added wind gust */
         memset(buffer, 0, sizeof(buffer));
         if (xpathObjWindGust && !xmlXPathNodeSetIsEmpty(xpathObjWindGust->nodesetval) &&
-            xpathObjWindGust->nodesetval->nodeTab[i] && xpathObjWindGust->nodesetval->nodeTab[i]->children){
-            /* Normalize speed to km/h from m/s */
-            xmlChar *temp_xml_string = NULL;
-            temp_xml_string = xmlGetProp(xpathObjWindGust->nodesetval->nodeTab[i]->children, (xmlChar*) "class");
-            if (temp_xml_string && (strncmp((char *)temp_xml_string, "item-bg",  strlen((char *)temp_xml_string)) == 0)){
-               for (xmlNodePtr iter_node = xpathObjWindGust->nodesetval->nodeTab[i]->children; iter_node; iter_node = iter_node->next){
-                  if (iter_node->type == XML_ELEMENT_NODE){
-                    if ((strncmp((char *)iter_node->name, "speed-value",  strlen((char *)iter_node->name)) == 0)){
-                        xmlChar *temp_xml_string1 = (xmlChar*)xmlGetProp(iter_node, (xmlChar*) "value");
-                        snprintf(buffer, sizeof(buffer)-1,"%s", temp_xml_string1);
-                        speed = atoi ((char *)buffer);
-                        fprintf(file_out,"     <wind_gust>%1.f</wind_gust>\n",  (double)(speed));
-                        xmlFree(temp_xml_string1);
-                     }
-                  }
-               }
-           }
+            xpathObjWindGust->nodesetval->nodeTab[i]){
+           xmlChar *temp_xml_string = NULL;
+           temp_xml_string = (xmlChar*)xmlGetProp(xpathObjWindGust->nodesetval->nodeTab[i], (xmlChar*) "value");
+           /* Normalize speed to km/h from m/s */
+           /* fprintf(stderr, "Wind  speed    \n"); */ 
+           snprintf(buffer, sizeof(buffer)-1,"%s", temp_xml_string);
+           speed = atoi ((char *)buffer);
+           fprintf(file_out,"     <wind_gust>%1.f</wind_gust>\n",  (double)(speed));
            xmlFree(temp_xml_string);
+
         }
 
-        /* added wind direction */
+       /* added wind direction */
         memset(buffer, 0, sizeof(buffer));
         if (xpathObjWindDirection && !xmlXPathNodeSetIsEmpty(xpathObjWindDirection->nodesetval) &&
             xpathObjWindDirection->nodesetval->nodeTab[i] && xpathObjWindDirection->nodesetval->nodeTab[i]->content){

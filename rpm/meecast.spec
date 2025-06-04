@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.12.8
+%define vrsn 1.12.9
 %define rlse 1
 
 Name:       harbour-meecast
@@ -347,6 +347,9 @@ fi
 
 
 %changelog
+* Tue Jun 04 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.9
+ - Fixed gismeteo.ru source
+
 * Sun Jun 01 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.8
  - Fixed gismeteo.ru source
  - Added icons to gismeteo.ru

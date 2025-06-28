@@ -4,7 +4,7 @@
 <logo>gismeteo.ru.png</logo>
 <base>gismeteo.ru.db</base>
 <forecast url="https://www.gismeteo.ru/weather-%s/14-days/" />
-<detail url="https://www.gismeteo.ru/weather-%s/hourly/" />
+<detail url="https://www.gismeteo.ru/weather-%s/" />
 <search url="http://xoap.weather.com/search/search?where=%s" />
 <library>libomweather-gismeteo-ru-source.so</library>
 <showurl url="https://www.gismeteo.ru/weather-%s/"/>

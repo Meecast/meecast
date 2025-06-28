@@ -1,3 +1,7 @@
+meecast (1.12.10) unstable; urgency=low
+  * Changed hours forecast url for gismeteo.ru source
+ -- Vlad Vasiliev <vlad@gas.by>  Tue, 02 Jun 2025 21:02:23 +0300
+
 meecast (1.12.9) unstable; urgency=low
   * Fixed gismeteo.ru source
  -- Vlad Vasiliev <vlad@gas.by>  Tue, 02 Jun 2025 21:02:23 +0300

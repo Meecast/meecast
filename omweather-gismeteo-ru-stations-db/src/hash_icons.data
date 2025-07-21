@@ -74,6 +74,7 @@
     hash_insert(hash, "d_c2_r1_st", "38");
     hash_insert(hash, "d_c2_r2", "39");
     hash_insert(hash, "d_c2_r2_st", "37");
+    hash_insert(hash, "d_c2_r2_st_fog", "37"); /* May be 20 - fog */
     hash_insert(hash, "d_c2_r3_st", "17");
     hash_insert(hash, "d_c2_r3", "39");
     hash_insert(hash, "d_c2_rs1", "41");

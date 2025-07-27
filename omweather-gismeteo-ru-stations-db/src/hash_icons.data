@@ -59,6 +59,7 @@
     hash_insert(hash, "d.sun.c2.r1.st.png", "37");
     hash_insert(hash, "d", "32");
     hash_insert(hash, "d_c0", "32");
+    hash_insert(hash, "d_c0_fog", "20"); /* May be 32 - sun */
     hash_insert(hash, "d_c1", "30");
     hash_insert(hash, "d_c1_fog", "30"); /* May be 20 - fog */
     hash_insert(hash, "d_c1_r1", "39");
@@ -66,6 +67,7 @@
     hash_insert(hash, "d_c1_r1_st", "38");
     hash_insert(hash, "d_c1_r2", "39");
     hash_insert(hash, "d_c1_r2_st", "37");
+    hash_insert(hash, "d_c1_r3_st", "37");
     hash_insert(hash, "d_c1_s1", "13");
     hash_insert(hash, "d_c1_rs1", "5");
     hash_insert(hash, "d_c1_r3", "12");

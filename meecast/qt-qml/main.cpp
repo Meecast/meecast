@@ -28,6 +28,7 @@
 
 #include <QtCore/QtGlobal>
 #include <QApplication>
+#include <QQmlApplicationEngine>
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QGraphicsWidget>
@@ -93,6 +94,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     qputenv("QT_QUICK_CONTROLS_MATERIAL_THEME", QByteArray("Dark"));
 
     QGuiApplication* app = new QGuiApplication(argc, argv);
+    QQmlApplicationEngine engine;
     app->setOrganizationName(QStringLiteral("org.meecast"));
     app->setApplicationName(QStringLiteral("MeeCast"));
 
@@ -128,7 +130,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     translator.load("ru.qml", "i18n");
     app.installTranslator(&translator);
 */
-    controller = new Controller(app); 
+    controller = new Controller(app, &engine);
     
     /* Locale */
     for (unsigned int i=1; i<controller->config()->languagesList().size(); i++){
@@ -157,7 +159,6 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     //std::cerr<<"iconpath = "<<config->imagespath().toStdString() << std::endl;
     //update_weather_forecast(config);
     
-    qview = controller->qview();
 
     std::cerr << "qml path = " << Core::AbstractConfig::layoutqml << std::endl;
 
@@ -176,6 +177,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     delete dadapt;
     delete controller;
     */
+    qDebug()<<"sssssssssssssssssssssssss";
     return app->exec();
    
 }

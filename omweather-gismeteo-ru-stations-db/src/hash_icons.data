@@ -57,16 +57,33 @@
     hash_insert(hash, "d.sun.c2.s3.png", "39");
     hash_insert(hash, "d.sun.c2.st.png", "37");
     hash_insert(hash, "d.sun.c2.r1.st.png", "37");
+    hash_insert(hash, "d", "32");
     hash_insert(hash, "d_c0", "32");
+    hash_insert(hash, "d_c0_fog", "20"); /* May be 32 - sun */
     hash_insert(hash, "d_c1", "30");
+    hash_insert(hash, "d_c1_fog", "30"); /* May be 20 - fog */
     hash_insert(hash, "d_c1_r1", "39");
+    hash_insert(hash, "d_c1_r1_fog", "39"); /* May be 20 - fog */
+    hash_insert(hash, "d_c1_r1_st", "38");
+    hash_insert(hash, "d_c1_r2", "39");
+    hash_insert(hash, "d_c1_r2_st", "37");
+    hash_insert(hash, "d_c1_r3_st", "37");
     hash_insert(hash, "d_c1_s1", "13");
     hash_insert(hash, "d_c1_rs1", "5");
+    hash_insert(hash, "d_c1_r3", "12");
     hash_insert(hash, "d_c2_r1", "39");
+    hash_insert(hash, "d_c2_r1_fog", "39");/* May be 20 - fog */
+    hash_insert(hash, "d_c2_r1_st", "38");
+    hash_insert(hash, "d_c2_r2", "39");
+    hash_insert(hash, "d_c2_r2_st", "37");
+    hash_insert(hash, "d_c2_r2_st_fog", "37"); /* May be 20 - fog */
+    hash_insert(hash, "d_c2_r3_st", "17");
+    hash_insert(hash, "d_c2_r3", "39");
     hash_insert(hash, "d_c2_rs1", "41");
     hash_insert(hash, "d_c2_rs2", "41");
     hash_insert(hash, "d_c2_s1", "13");
     hash_insert(hash, "d_c2_s2", "14");
+    hash_insert(hash, "d_c2_fog", "28"); /* May be 20 - fog */
     hash_insert(hash, "d.sun.c2.r2.st.png", "37");
     hash_insert(hash, "d.sun.c3.png", "28");
     hash_insert(hash, "d_c3_s1", "13");
@@ -74,16 +91,19 @@
     hash_insert(hash, "d_c3_s2", "14");
     hash_insert(hash, "d_c3_s2_fog", "14"); /* May be 20 - fog */
     hash_insert(hash, "d_c3_s3", "16");
+    hash_insert(hash, "d_c3_s3_fog", "16"); /* May be 20 - fog */
     hash_insert(hash, "d_c3_rs1", "5");
     hash_insert(hash, "d_c3_rs1_fog", "5");
     hash_insert(hash, "d_c3_rs2_fog", "5");
     hash_insert(hash, "d_c3_rs2", "5");
     hash_insert(hash, "d_c3_rs3", "5");
+    hash_insert(hash, "d_c3_r2_st", "4");
     hash_insert(hash, "d_c2", "28");
     hash_insert(hash, "d_c3", "26");
     hash_insert(hash, "d_c3_r1", "11");
     hash_insert(hash, "d_c3_r1_fog", "11"); /* may be 20 - fog */
     hash_insert(hash, "d_c3_r2", "12");
+    hash_insert(hash, "d_c3_r2_fog", "12"); /* may be 20 - fog */
     hash_insert(hash, "d_c3_r3", "12");
     hash_insert(hash, "d_c3_fog", "20");
     hash_insert(hash, "d.sun.c3.r1.png", "39");

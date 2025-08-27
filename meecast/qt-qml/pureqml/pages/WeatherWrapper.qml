@@ -2,7 +2,7 @@ import QtQuick 2.12
 import "./"
 import QtQuick.Controls 2.12
 import QtQuick.Window 2.2
-import QtQuick.Layouts 1.15
+import QtQuick.Layouts 1.12
 import QtQuick.Controls.Styles 1.4
 //import Sailfish.Silica 1.0
 //import Nemo.Notifications 1.0

@@ -425,4 +425,16 @@ contains(ANDROID_TARGET_ARCH,x86) {
     $$PWD/../../../../android-sdk/android_openssl/latest/x86/libssl_1_1.so
 }
 
+contains(ANDROID_TARGET_ARCH,arm64-v8a) {
+    ANDROID_EXTRA_LIBS = \
+    /home/vlad/work/meecast/meecast/qt-qml/../../../../android-sdk/android_openssl/latest/arm64/libcrypto_1_1.so \
+    $$PWD/../../../../android-sdk/android_openssl/latest/arm64/libssl_1_1.so
+}
+
+contains(ANDROID_TARGET_ARCH,arm64) {
+    ANDROID_EXTRA_LIBS = \
+    /home/vlad/work/meecast/meecast/qt-qml/../../../../android-sdk/android_openssl/latest/arm64/libcrypto_1_1.so \
+    $$PWD/../../../../android-sdk/android_openssl/latest/arm64/libssl_1_1.so
+}
+
 

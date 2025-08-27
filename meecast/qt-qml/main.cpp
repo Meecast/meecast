@@ -153,7 +153,6 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     connection.registerService("org.meego.omweather");
     connection.registerObject("/org/meego/omweather", controller);
 #endif    
-    QQuickView *qview;
 
     //config = controller->config();
     //std::cerr<<"iconpath = "<<config->imagespath().toStdString() << std::endl;
@@ -164,15 +163,21 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 
 //    qview->setSource(QUrl(QStringLiteral("assets:/qml/main.qml")));
 #ifdef ANDROID
-
-    qview->setSource(QUrl(QString::fromStdString(std::string("assets:") + Core::AbstractConfig::layoutqml)));
+    engine.load(QUrl(QString::fromStdString(std::string("assets:") + Core::AbstractConfig::layoutqml)));
 #else
-    qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::prefix +
+//    QObject::connect((QObject*)qview->engine(), SIGNAL(quit()), app, SLOT(quit()));
+//    qview->showFullScreen();
+    engine.load(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::prefix +
                                                                 Core::AbstractConfig::sharePath +
                                                                 Core::AbstractConfig::layoutqml)));
 #endif    
-    QObject::connect((QObject*)qview->engine(), SIGNAL(quit()), app, SLOT(quit()));
-    qview->showFullScreen();
+    QObject *topLevel = engine.rootObjects().value(0);
+    QQuickWindow *window = qobject_cast<QQuickWindow *>(topLevel);
+#ifdef ANDROID
+    window->show();
+#else
+    window->showFullScreen();
+#endif
     /*This code provides Segmantation fault
     delete dadapt;
     delete controller;

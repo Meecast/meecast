@@ -16,10 +16,10 @@
 
     <supports-screens android:largeScreens="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true"/>
 
-    <application android:hardwareAccelerated="true" android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="omweather-qml">
+    <application android:hardwareAccelerated="true" android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="MeeCast" android:icon="@drawable/icon">
         <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc"
                   android:name="org.qtproject.qt5.android.bindings.QtActivity"
-                  android:label="omweather-qml"
+                  android:label="MeeCast"
                   android:screenOrientation="unspecified"
                   android:launchMode="singleTop">
             <intent-filter>

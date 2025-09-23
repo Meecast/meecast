@@ -62,6 +62,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(QString iconset READ iconset NOTIFY iconsetChanged)
     Q_PROPERTY(QString iconspath READ iconspath NOTIFY iconspathChanged)
     Q_PROPERTY(QString imagespath READ imagespath NOTIFY imagespathChanged)
+    Q_PROPERTY(QString screenorientation READ screenorientation NOTIFY screenorientationChanged)
     Q_PROPERTY(QString iconsbutton READ iconsbutton NOTIFY iconsbuttonChanged)
     Q_PROPERTY(QString temperatureunit READ temperatureunit NOTIFY temperatureunitChanged)
     Q_PROPERTY(QString windspeedunit READ windspeedunit NOTIFY windspeedunitChanged)
@@ -128,6 +129,7 @@ public:
     QString iconset();
     QString iconspath();
     QString imagespath();
+    QString screenorientation();
     QString iconsbutton();
     QString temperatureunit();
     QString windspeedunit();
@@ -239,6 +241,7 @@ signals:
     void iconsetChanged();
     void iconspathChanged();
     void imagespathChanged();
+    void screenorientationChanged();
     void iconsbuttonChanged();
     void temperatureunitChanged();
     void windspeedunitChanged();

@@ -1,8 +1,10 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "jsUtils.js" as Utils
 
 Page {
     id: languagespage
+    allowedOrientations: Utils.decideOrientation();
     property int screen_height : languagespage.height
     property int screen_width : languagespage.width 
     property int margin: Theme.paddingSmall

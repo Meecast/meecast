@@ -1,8 +1,10 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "jsUtils.js" as Utils
 
 Page {
     id: iconsetpage
+    allowedOrientations: Utils.decideOrientation();
     property int screen_height : iconsetpage.height
     property int screen_width : iconsetpage.width 
     property int margin: 16

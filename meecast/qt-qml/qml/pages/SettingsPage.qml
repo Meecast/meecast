@@ -1,8 +1,10 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
+import "jsUtils.js" as Utils
 
 Page {
     id: settings
+    allowedOrientations: Utils.decideOrientation();
     property int margin: Theme.paddingSmall
     property string header_title: Config.tr("Settings")
     property variant silicalistview_model: settingsModel

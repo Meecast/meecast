@@ -1,8 +1,10 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "jsUtils.js" as Utils
 
 Page {
     id: update 
+    allowedOrientations: Utils.decideOrientation();
     property int margin: Theme.paddingSmall
     property int screen_width : 854
     property bool event_widget_status: Config.eventwidget

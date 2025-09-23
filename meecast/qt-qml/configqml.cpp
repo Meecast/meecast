@@ -369,6 +369,11 @@ ConfigQml::imagespath(){
 }
 
 QString
+ConfigQml::screenorientation(){
+    return ConfigQml::Config::screenOrientation().c_str();
+}
+
+QString
 ConfigQml::iconsbutton(){
     QString c;
     c = ConfigQml::Config::prefix_path().c_str();

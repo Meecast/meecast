@@ -1,9 +1,11 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import Nemo.Configuration 1.0
+import "jsUtils.js" as Utils
 
 Page {
     id: fullweather
+    allowedOrientations: Utils.decideOrientation();
     property int screen_height : fullweather.height
     property int screen_width : fullweather.width 
 //    property int screen_height : (isPortrait) ? fullweather.height : fullweather.width

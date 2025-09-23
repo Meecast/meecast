@@ -1,9 +1,11 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
+import "jsUtils.js" as Utils
 
 
 Page {
     id: units
+    allowedOrientations: Utils.decideOrientation();
     property int margin: Theme.paddingSmall
 
     Rectangle {

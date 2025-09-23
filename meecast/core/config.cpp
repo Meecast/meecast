@@ -100,7 +100,7 @@ Config::saveConfig()
     root.appendChild(el);
 
     el = doc.createElement("screen_orienation");
-    t = doc.createTextNode(QString::fromStdString(*_screen_orienation));
+    t = doc.createTextNode(QString::fromStdString(*_screen_orientation));
     el.appendChild(t);
     root.appendChild(el);
 

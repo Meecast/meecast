@@ -454,7 +454,7 @@ Config::LoadConfig(){
             _iconset->assign(el.text().toStdString());
         el = root.firstChildElement("screen_orienation");
         if (!el.isNull())
-            _screen_orienation->assign(el.text().toStdString());
+            _screen_orientation->assign(el.text().toStdString());
         el = root.firstChildElement("current_station_id");
         if (!el.isNull()){
             _current_station_id = el.text().toInt();

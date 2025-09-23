@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2024 Vlad Vasilyeu
+ * Copyright (C) 2006-2025 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -63,6 +63,7 @@ Config::Config()
     _font_color = new std::string("#00ff00");
     _language = new std::string("System");
     _mod = new std::string("Digia");
+    _screen_orientation = new std::string("automatic");
     _nullname = new std::string("");
     _stations = new StationsList;
     _current_station_id = INT_MAX;
@@ -95,6 +96,11 @@ Config::saveConfig()
 
     el = doc.createElement("iconset");
     t = doc.createTextNode(QString::fromStdString(*_iconset));
+    el.appendChild(t);
+    root.appendChild(el);
+
+    el = doc.createElement("screen_orienation");
+    t = doc.createTextNode(QString::fromStdString(*_screen_orienation));
     el.appendChild(t);
     root.appendChild(el);
 
@@ -386,6 +392,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _visible_unit = new std::string("m");
     _language = new std::string("System");
     _mod = new std::string("Digia");
+    _screen_orientation = new std::string("automatic");
     _nullname = new std::string("");
     _update_connect = false;
     _fullscreen = false;
@@ -445,6 +452,9 @@ Config::LoadConfig(){
         el = root.firstChildElement("iconset");
         if (!el.isNull())
             _iconset->assign(el.text().toStdString());
+        el = root.firstChildElement("screen_orienation");
+        if (!el.isNull())
+            _screen_orienation->assign(el.text().toStdString());
         el = root.firstChildElement("current_station_id");
         if (!el.isNull()){
             _current_station_id = el.text().toInt();
@@ -677,6 +687,7 @@ Config::~Config(){
     delete _mod;
     delete _filename;
     delete _iconspath;
+    delete _screen_orientation;
     delete _font_color;
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -690,6 +701,16 @@ std::string&
 Config::iconSet(){
     /* std::cerr<<"Config::iconSet() "<<_iconset->c_str()<<std::endl; */
     return *_iconset;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::screenOrientationSet(const std::string& text){
+    _screen_orientation->assign(text);
+}
+
+std::string&
+Config::screenOrientation(){
+    return *_screen_orientation;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

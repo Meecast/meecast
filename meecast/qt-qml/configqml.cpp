@@ -373,6 +373,14 @@ ConfigQml::screenorientation(){
     return ConfigQml::Config::screenOrientation().c_str();
 }
 
+void
+ConfigQml::setscreenorientation(QString c){
+    ConfigQml::Config::screenOrientation(c.toStdString());
+    emit screenorientationChanged();
+    saveConfig();
+    refreshconfig();
+}
+
 QString
 ConfigQml::iconsbutton(){
     QString c;

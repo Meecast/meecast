@@ -204,6 +204,7 @@ public:
     Q_INVOKABLE void settransparency(bool c);
     Q_INVOKABLE void setwindcoverpage(bool c);
     Q_INVOKABLE void setlastupdatecoverpage(bool c);
+    Q_INVOKABLE void setscreenorientation(QString c);
     Q_INVOKABLE QStringList icon_list();
     Q_INVOKABLE QStringList languages_list();
     Q_INVOKABLE int index_of_current_language();

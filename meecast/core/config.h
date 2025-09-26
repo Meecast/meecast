@@ -91,7 +91,7 @@ namespace Core{
             void iconSet(const std::string& text);
             std::string& iconSet(void);
             void screenOrientation(const std::string& text);
-            std::string& screenOrientation();
+            std::string& screenOrientation(void);
             void current_station_id(int id_station);
             int current_station_id(void);
             void TemperatureUnit(const std::string& text);

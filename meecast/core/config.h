@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2014 Vlad Vasilyeu
+ * Copyright (C) 2006-2025 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -53,6 +53,7 @@ namespace Core{
             std::string *_language;
             std::string *_nullname;
             std::string *_mod;
+            std::string *_screen_orientation;
             bool         _update_connect;
             bool         _fullscreen;
             bool         _lockscreen;
@@ -128,6 +129,7 @@ namespace Core{
             std::string& nextstationname();
             std::string& prevstationname();
             std::string& iconspath();
+            std::string& screenorientation();
             //void stationsList(std::vector<Core::Station*> list);
             void stationsList(StationsList list);
             languages& languagesList();

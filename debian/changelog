@@ -1,3 +1,46 @@
+meecast (1.12.12) unstable; urgency=low
+  * Added screen orientation setting
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 13 Sep 2025 21:02:23 +0300
+
+meecast (1.12.11) unstable; urgency=low
+  * Added icons to gismeteo.ru
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 13 Sep 2025 21:02:23 +0300
+
+meecast (1.12.10) unstable; urgency=low
+  * Changed hours forecast url for gismeteo.ru source
+ -- Vlad Vasiliev <vlad@gas.by>  Tue, 02 Jun 2025 21:02:23 +0300
+
+meecast (1.12.9) unstable; urgency=low
+  * Fixed gismeteo.ru source
+ -- Vlad Vasiliev <vlad@gas.by>  Tue, 02 Jun 2025 21:02:23 +0300
+
+meecast (1.12.8) unstable; urgency=low
+  * Fixed hours forecasts in gismeteo.ru source
+  * Added icons to gismeteo.ru
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 01 Jun 2025 20:02:23 +0300
+
+meecast (1.12.7) unstable; urgency=low
+  * Fixed gismeteo.ru source
+  * Added icons to gismeteo.ru
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 26 May 2025 20:02:23 +0300
+
+meecast (1.12.6) unstable; urgency=low
+  * Fixed gismeteo.ru source
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 16 May 2025 20:02:23 +0300
+
+meecast (1.12.5) unstable; urgency=low
+  * Fixed gismeteo.ru source
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 16 May 2025 20:02:23 +0300
+
+meecast (1.12.4) unstable; urgency=low
+  * Added icons to gismeteo.ru
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 11 May 2025 20:02:23 +0300
+
+meecast (1.12.3) unstable; urgency=low
+  * Added icons to gismeteo.ru
+  * Changed url for bom.gov.au source
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 11 May 2025 19:02:23 +0300
+
 meecast (1.12.2) unstable; urgency=low
   * Fixed broken current weather for gismeteo.ru
   * Added icons to gismeteo.ru

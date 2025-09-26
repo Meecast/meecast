@@ -1,8 +1,10 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
+import "jsUtils.js" as Utils
 
 Page {
     id: visuals
+    allowedOrientations: Utils.decideOrientation();
     property int margin: Theme.paddingSmall
     Rectangle {
         anchors.fill: parent
@@ -106,6 +108,39 @@ Page {
                     }
                 }
             }
+            Row {
+                width: parent.width
+                ComboBox {
+                    label: Config.tr("Orientation")
+                    currentIndex: -1
+                    menu: ContextMenu {
+                        MenuItem { 
+                            text: Config.tr("All")
+                            onClicked: { Config.setscreenorientation("All") } 
+                        }
+                        MenuItem {
+                            text: Config.tr("Portrait")
+                            onClicked: { Config.setscreenorientation("Portrait") }
+                        }
+                        MenuItem {
+                            text: Config.tr("Landscape")
+                            onClicked: { Config.setscreenorientation("Landscape") }
+                        }
+                    }
+                    Component.onCompleted: {
+                         if(Config.screenorientation === "All" || Config.screenorientation === "automatic"){
+                            currentIndex = 0
+                            return Orientation.All
+                        }else if(Config.screenorientation === "Portrait"){
+                            currentIndex = 1
+                        }
+                        else if (Config.screenorientation === "Landscape"){
+                            currentIndex = 2
+                        }
+                    }
+                }
+            }
+
             /*
             Row {
                 width: parent.width

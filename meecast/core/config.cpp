@@ -704,7 +704,7 @@ Config::iconSet(){
 }
 ////////////////////////////////////////////////////////////////////////////////
 void
-Config::screenOrientationSet(const std::string& text){
+Config::screenOrientation(const std::string& text){
     _screen_orientation->assign(text);
 }
 

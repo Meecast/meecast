@@ -122,7 +122,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
         QDir pathDir(new_config_path_directory);
         bool new_pathdir_exist = pathDir.exists();
         if (!new_pathdir_exist){
-            new_pathdir_exist = QDir().mkdir(new_config_path_directory);
+            new_pathdir_exist = QDir().mkpath(new_config_path_directory);
         }
         if (new_pathdir_exist && (QFile::exists(old_config_path))){
             qDebug()<<"Old config present";

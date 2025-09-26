@@ -2,9 +2,11 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import Nemo.Notifications 1.0
 import "./"
+import "jsUtils.js" as Utils
 
 Page {
     id: main
+    allowedOrientations: Utils.decideOrientation();
     property int margin: 16
     property int screen_height : main.height 
     property int screen_width : main.width 
@@ -200,6 +202,7 @@ Page {
     function stationname1_index(i){
         return Config.stationname_index(i)
     }
+
 
     Notification {
          id: notification

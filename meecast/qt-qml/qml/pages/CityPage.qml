@@ -1,8 +1,10 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
+import "jsUtils.js" as Utils
 
 Page {
     id: citypage
+    allowedOrientations: Utils.decideOrientation();
     property int margin: Theme.paddingSmall
     property string source: ""
     property int source_id: -1

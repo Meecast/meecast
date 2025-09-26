@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.12.2
+%define vrsn 1.12.12
 %define rlse 1
 
 Name:       org.meecast.MeeCast
@@ -349,7 +349,41 @@ desktop-file-install --delete-original  \
 
 
 %changelog
-* Mon Apr 28 2025  Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.2
+* Thu Sep 25 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.12
+ - Added screen orientation setting
+
+* Sat Sep 13 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.11
+ - Added icons to gismeteo.ru
+
+* Sat Jun 28 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.10
+ - Changed hours forecast url for gismeteo.ru source
+
+* Wed Jun 04 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.9
+ - Fixed gismeteo.ru source
+
+* Sun Jun 01 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.8
+ - Fixed gismeteo.ru source
+ - Added icons to gismeteo.ru
+
+* Mon May 26 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.7
+ - Fixed gismeteo.ru source
+ - Added icons to gismeteo.ru
+
+* Fri May 16 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.6
+ - Fixed gismeteo.ru source
+
+* Fri May 16 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.5
+ - Fixed gismeteo.ru source
+
+* Sun May 11 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.4
+ - Added icons to gismeteo.ru
+
+* Sun May 11 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.3
+ - Fixed bug with config file path on older devices
+ - Changed url for bom.gov.au source
+ - Added icons to gismeteo.ru
+
+* Mon Apr 28 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.2
  - Fixed broken current weather for gismeteo.ru
  - Added icons to gismeteo.ru
 
@@ -371,7 +405,7 @@ desktop-file-install --delete-original  \
 - Added icons to gismeteo.ru
 - Changed url for weather forecast from gismeteo again
 
-* Sun Dec 23 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.15
+* Mon Dec 23 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.15
 - Changed url for weather forecast from gismeteo
 
 * Sun Dec 22 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.14
@@ -382,7 +416,7 @@ desktop-file-install --delete-original  \
 - Changed url for hourly weather forecast from gismeteo again
 - Fixed bug - Since version 1.11.8 of MeeCast, no clickable list for the forecast and Pulley-Menu broken #79
 
-* Fri Dec 21 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.12
+* Sat Dec 21 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.12
 - Changed url for hourly weather forecast from gismeteo
 
 * Fri Dec 20 2024 Vlad Vasilyeu <vasvlad@gmail.com> - 1.11.11

@@ -90,6 +90,7 @@ OTHER_FILES += \
     qml/LanguagesPage.qml \
     qml/wrapper.qml \
     qml/NeedDaemonDialog.qml \
+    qml/jsUtils.js \
     translations/omweather_ru_RU.qm
 
 

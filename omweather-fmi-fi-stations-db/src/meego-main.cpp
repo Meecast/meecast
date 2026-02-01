@@ -85,12 +85,12 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     htmlfile.seekg(0);
     htmlfile.read(&buffer_0[0], size_0);
     //size_t index_0 = buffer_0.find("__NUXT__=(function(", 0);
-    size_t index_0 = buffer_0.find("__NUXT__=(function(", 0);
+    size_t index_0 = buffer_0.find("__NUXT_DATA__>", 0);
     if (index_0  == std::string::npos){
         std::cerr<<"Error in index_0"<<std::endl;
         return -1;
     }
-    size_t index_1 = buffer_0.find("));</script>", index_0);
+    size_t index_1 = buffer_0.find("</script>", index_0);
     if (index_1  == std::string::npos){
         std::cerr<<"Error in index_1"<<std::endl;
         return -1;
@@ -141,7 +141,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         i++;
     }
 
-    //std::cout << "Elements of Dictionary:" << std::endl;
+    std::cout << "Elements of Dictionary:" << std::endl;
     //for (const auto& pair : dictionary) {
     //    std::cout << pair.first << ": " << pair.second << std::endl;
     //}

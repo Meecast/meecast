@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-gismeteo-ru-stations-db MeeCast
  *
- * Copyright (C) 2009-2025 Vlad Vasilyeu
+ * Copyright (C) 2009-2026 Vlad Vasilyeu
  * 	for the code
  *
  * This software is free software; you can redistribute it and/or
@@ -128,8 +128,10 @@ get_month(char *temp_string){
     std::size_t found;
     const char* months[12]
         = { "январь", "февраль", "март", "апрель", "май", "июнь", "июль","август", "сентябрь", "октябрь", "ноябрь", "декабрь" };
-     const char* months2[12]
+    const char* months2[12]
         = { "январь", "февраль", "март", "апрель", "мая", "июня", "июля","августа", "сентября", "октября", "ноября", "декабря" };
+    const char* months3[12]
+        = { "янв", "фев", "мар", "апр", "май", "июн", "июл","авг", "сен", "окт", "ноя", "дек" };
 
     for (int i = 0; i < 12; i++){
         if (sizeof(temp_string) > sizeof(months[i]))
@@ -147,6 +149,15 @@ get_month(char *temp_string){
             return i + 1;
     }
    
+    /* Thrid variant of month check */
+    for (int i = 0; i < 12; i++){
+        if (sizeof(temp_string) > sizeof(months3[i]))
+            continue;
+        fprintf(stderr, "compare %s- %s- %i %i\n", months3[i], temp_string, sizeof(temp_string), strncmp(months3[i], temp_string,  strlen(temp_string)));
+        if (strncmp(months3[i], temp_string,  strlen(temp_string)) == 0)
+            return i + 1;
+    }
+
     /* default negative result -1 */
     return -1;
 }
@@ -249,6 +260,27 @@ get_date_for_hour_weather(char *temp_string){
     return tmp_tm;
 }
 /*******************************************************************************/
+char* trimLeading(char* str) {
+    char* ptr = str;
+    while (isspace((unsigned char)*ptr)) {
+        ptr++;
+    }
+    if (ptr != str) {
+        memmove(str, ptr, strlen(ptr) + 1);
+    }
+    return str;
+}
+
+void TrimRight(char *str) {
+    if (str == NULL) return;
+    int len = strlen(str);
+    while (len > 0 && (isspace((unsigned char)str[len - 1]) || (unsigned char)str[len - 1] == 0x0A )) {
+        len--;
+    }
+    str[len] = '\0';
+}
+
+/*******************************************************************************/
 int
 gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *result_file){
     char        buffer[buff_size],
@@ -261,6 +293,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
                 current_wind_speed[15];
     char        temp_buffer[buff_size];
     char        temp_buffer2[buff_size];
+    char        temp_buffer3[buff_size];
     int         month = -1;
     int         day_of_month = -1;
     int         year = -1;
@@ -458,7 +491,8 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
     //xpathObjWindGust = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-wind row-wind-gust row-with-caption'  ]/div//speed-value", xpathCtx);
     //xpathObjWindGust = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-wind row-wind-gust row-with-caption'  ]/div[@class='row-item']", xpathCtx);
     xpathObjWindGust  = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-wind row-wind row-with-caption']//div[contains(@class, 'wind-value wind-gust')]//speed-value", xpathCtx);
-    xpathObjWindDirection = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-wind row-wind row-with-caption'  ]//div[@class='wind-direction']/text()", xpathCtx);
+    //xpathObjWindDirection = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-wind row-wind row-with-caption'  ]//div[@class='wind-direction']/text()", xpathCtx);
+    xpathObjWindDirection = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-wind row-wind row-with-caption'  ]//div[@class='wind-direction']/text()[2]", xpathCtx);
     xpathObjHumidity = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-humidity row-with-caption']/div/text()", xpathCtx);
     xpathObjUv = xmlXPathEvalExpression((const xmlChar*)"/html/body/main/*//div[@class='widget-row widget-row-radiation row-with-caption']/div/text()", xpathCtx);
     fprintf(stderr, "Result (%d nodes):\n", size); 
@@ -480,7 +514,13 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
                 if (temp_point){
                     snprintf(temp_buffer, strlen(temp_point),"%s", temp_point + 1);
                 }
-                month = get_month(temp_buffer);
+                char *temp_new_buffer = trimLeading((char *)temp_buffer);
+                TrimRight(temp_new_buffer);
+                memset(temp_buffer3, 0, sizeof(temp_buffer3));
+                snprintf(temp_buffer3, strlen(temp_new_buffer),"%s", temp_new_buffer);
+                fprintf(stderr, "Month %s;\n",temp_buffer3);
+                
+                month = get_month(temp_buffer3);
                 /* Current year */
                 time_t seconds=time(NULL);
                 struct tm* current_time=localtime(&seconds);
@@ -654,28 +694,30 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
             xpathObjWindDirection->nodesetval->nodeTab[i] && xpathObjWindDirection->nodesetval->nodeTab[i]->content){
             /* fprintf (stderr, "Wind direction: %s\n", xpathObjWindDirection->nodesetval->nodeTab[i]->content);  */
             snprintf(buffer, sizeof(buffer)-1,"%s", xpathObjWindDirection->nodesetval->nodeTab[i]->content);
+            char *temp_new_buffer = trimLeading((char *)buffer);
+            TrimRight(temp_new_buffer);
             /* Wind direction */
-            if (!strcoll(buffer, "З"))
+            if (!strcoll(temp_new_buffer, "З"))
                  sprintf(buffer,"%s","W");
-            if (!strcoll(buffer, "Ю"))
+            if (!strcoll(temp_new_buffer, "Ю"))
                  sprintf(buffer,"%s","S");
-            if (!strcoll(buffer, "В"))
+            if (!strcoll(temp_new_buffer, "В"))
                  sprintf(buffer,"%s","E");
-            if (!strcoll(buffer, "С"))
+            if (!strcoll(temp_new_buffer, "С"))
                  sprintf(buffer,"%s","N");
-            if (!strcoll(buffer, "ЮЗ"))
+            if (!strcoll(temp_new_buffer, "ЮЗ"))
                  sprintf(buffer,"%s","SW");
-            if (!strcoll(buffer, "ЮВ"))
+            if (!strcoll(temp_new_buffer, "ЮВ"))
                  sprintf(buffer,"%s","SE");
-            if (!strcoll(buffer, "СЗ"))
+            if (!strcoll(temp_new_buffer, "СЗ"))
                  sprintf(buffer,"%s","NW");
-            if (!strcoll(buffer, "СВ"))
+            if (!strcoll(temp_new_buffer, "СВ"))
                  sprintf(buffer,"%s","NE");
-            if (!strcoll(buffer, "безветрие"))
+            if (!strcoll(temp_new_buffer, "безветрие"))
                  sprintf(buffer,"%s","CALM");
-            if (!strcoll(buffer, "—"))
+            if (!strcoll(temp_new_buffer, "—"))
                  sprintf(buffer,"%s","CALM");
-            if (!strcoll(buffer, "Ш"))
+            if (!strcoll(temp_new_buffer, "Ш"))
                  sprintf(buffer,"%s","CALM");
             fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", buffer); 
         }

@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.12.12
+%define vrsn 1.12.13
 %define rlse 1
 
 Name:       harbour-meecast
@@ -347,6 +347,9 @@ fi
 
 
 %changelog
+* Sun Feb 02 2026 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.13
+ - Fixed gismeteo.ru source
+
 * Thu Sep 25 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.12
  - Added screen orientation setting
 

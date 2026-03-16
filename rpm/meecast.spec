@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.12.14
+%define vrsn 1.12.15
 %define rlse 1
 
 Name:       harbour-meecast
@@ -347,6 +347,9 @@ fi
 
 
 %changelog
+* Mon Mar 16 2026 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.15
+ - Added stations to yr.no
+
 * Fri Mar 06 2026 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.14
  - Fixed gismeteo.ru source
 

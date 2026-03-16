@@ -1,3 +1,7 @@
+meecast (1.12.15) unstable; urgency=low
+  * Added stations to yr.no
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 16 Mar 2026 10:42:23 +0300
+
 meecast (1.12.14) unstable; urgency=low
   * Fixed gismeteo.ru source
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 06 Mar 2026 19:42:23 +0300

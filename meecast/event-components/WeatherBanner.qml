@@ -233,7 +233,7 @@ BackgroundItem {
                     Row{
                         Image {
                             id: icon2
-                            height: Screen.sizeCategory >= Screen.Large ? Theme.itemSizeLarge : Theme.itemSizeSmall
+                            height: Screen.sizeCategory >= Screen.Large ? Theme.itemSizeLarge : (isPortrait ? Theme.itemSizeSmall * 0.7 : Theme.itemSizeSmall)
                             width: height
                             source: weatherData.meecastData.forecastdata["item2_icon"]
                         }
@@ -277,7 +277,7 @@ BackgroundItem {
                     Row{
                         Image {
                             id: icon3
-                            height: Screen.sizeCategory >= Screen.Large ? Theme.itemSizeLarge : Theme.itemSizeSmall
+                            height: Screen.sizeCategory >= Screen.Large ? Theme.itemSizeLarge : (isPortrait ? Theme.itemSizeSmall * 0.7 : Theme.itemSizeSmall)
                             width: height
                             source: weatherData.meecastData.forecastdata["item3_icon"]
                         }
@@ -320,7 +320,7 @@ BackgroundItem {
                     Row {
                         Image {
                             id: icon4
-                            height: Screen.sizeCategory >= Screen.Large ? Theme.itemSizeLarge : Theme.itemSizeSmall
+                            height: Screen.sizeCategory >= Screen.Large ? Theme.itemSizeLarge : (isPortrait ? Theme.itemSizeSmall * 0.7 : Theme.itemSizeSmall)
                             width: height
                             source: weatherData.meecastData.forecastdata["item4_icon"]
                         }
@@ -362,7 +362,7 @@ BackgroundItem {
                     Row {
                         Image {
                             id: icon5
-                            height: Screen.sizeCategory >= Screen.Large ? Theme.itemSizeLarge : Theme.itemSizeSmall
+                            height: Screen.sizeCategory >= Screen.Large ? Theme.itemSizeLarge : (isPortrait ? Theme.itemSizeSmall * 0.7 : Theme.itemSizeSmall)
                             width: height
                             source: weatherData.meecastData.forecastdata["item5_icon"]
                         }
@@ -390,8 +390,8 @@ BackgroundItem {
             }
             Row {
                 id: forecast6_row
-                visible: isPortrait ? false : true
-                enabled: isPortrait ? false : true
+                visible: true
+                enabled: true
                 Column {
                     id: icon_day_column6
                     Label {
@@ -407,7 +407,7 @@ BackgroundItem {
                     Row {
                         Image {
                             id: icon6
-                            height: Screen.sizeCategory >= Screen.Large ? Theme.itemSizeLarge : Theme.itemSizeSmall
+                            height: Screen.sizeCategory >= Screen.Large ? Theme.itemSizeLarge : (isPortrait ? Theme.itemSizeSmall * 0.7 : Theme.itemSizeSmall)
                             width: height
                             source: weatherData.meecastData.forecastdata["item6_icon"]
                         }
@@ -453,7 +453,7 @@ BackgroundItem {
                     Row {
                         Image {
                             id: icon7
-                            height: Screen.sizeCategory >= Screen.Large ? Theme.itemSizeLarge : Theme.itemSizeSmall
+                            height: Screen.sizeCategory >= Screen.Large ? Theme.itemSizeLarge : (isPortrait ? Theme.itemSizeSmall * 0.7 : Theme.itemSizeSmall)
                             width: height
                             source: weatherData.meecastData.forecastdata["item7_icon"]
                         }
@@ -498,7 +498,7 @@ BackgroundItem {
                     Row {
                         Image {
                             id: icon8
-                            height: Screen.sizeCategory >= Screen.Large ? Theme.itemSizeLarge : Theme.itemSizeSmall
+                            height: Screen.sizeCategory >= Screen.Large ? Theme.itemSizeLarge : (isPortrait ? Theme.itemSizeSmall * 0.7 : Theme.itemSizeSmall)
                             width: height
                             source: weatherData.meecastData.forecastdata["item8_icon"]
                         }

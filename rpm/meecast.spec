@@ -347,6 +347,9 @@ fi
 
 
 %changelog
+* Mon Mar 16 2026 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.16
+ - Improved in evenview. Patch from Rdomschk.
+
 * Mon Mar 16 2026 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.15
  - Added stations to yr.no
 

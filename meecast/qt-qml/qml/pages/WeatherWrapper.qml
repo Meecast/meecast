@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import Nemo.Notifications 1.0
+import Nemo.DBus 2.0
 import "./"
 import "jsUtils.js" as Utils
 
@@ -373,5 +374,16 @@ Page {
 
         delegate: WeatherStationDelegate { id: weatherStationDelegate }
      }
+    DBusAdaptor {
+        service: "org.meecast.meecast"
+        path: "/org/meecast/meecast"
+        iface: "org.meecast.meecast"
+
+        function activateWindow(arg) {
+            console.log("Dbus activateWindow")
+            app.activate()
+        }
+    }
+
 }
 

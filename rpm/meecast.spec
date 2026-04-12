@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.12.15
+%define vrsn 1.12.16
 %define rlse 1
 
 Name:       harbour-meecast
@@ -318,6 +318,7 @@ fi
 /usr/share/%{name}
 #%%{_datadir}/iconsets
 %{_datadir}/icons/hicolor
+%{_datadir}/dbus-1/services/org.meecast.meecast.service
 #/opt/com.meecast.omweather/share
 
 %files daemon
@@ -349,6 +350,7 @@ fi
 %changelog
 * Mon Mar 16 2026 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.16
  - Improved in evenview. Patch from Rdomschk.
+ - Fixed bug - Tapping MeeCast from the eventsview starts another instance if opened before via launcher #84
 
 * Mon Mar 16 2026 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.15
  - Added stations to yr.no
@@ -356,7 +358,7 @@ fi
 * Fri Mar 06 2026 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.14
  - Fixed gismeteo.ru source
 
-* Sun Feb 02 2026 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.13
+* Mon Feb 02 2026 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.13
  - Fixed gismeteo.ru source
 
 * Thu Sep 25 2025 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.12

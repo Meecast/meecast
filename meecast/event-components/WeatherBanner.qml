@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import Sailfish.Weather 1.0
+import Nemo.DBus 2.0
 
 BackgroundItem {
 
@@ -11,7 +12,10 @@ BackgroundItem {
     property bool expanded
 
     onClicked: {expanded = !expanded; weatherData.refresh()}
-    onPressAndHold: { weatherData.meecastData.startMeeCast()}
+    onPressAndHold: { 
+        //weatherData.meecastData.startMeeCast()
+        weatherApp.call("activateWindow", [""])
+        }
 
     Component.onCompleted: {
         meecastData = Qt.createQmlObject('import QtQuick 2.0; import org.meecast.data 1.0 as Meecast; Meecast.Data {}', weatherData)
@@ -119,6 +123,13 @@ BackgroundItem {
     visible: enabled
     enabled: enabled
     height: enabled ? column.height : 0
+
+    DBusInterface {
+        id: weatherApp
+        service: "org.meecast.meecast"
+        path: "/org/meecast/meecast"
+        iface: "org.meecast.meecast"
+    }
 
     Column {
         id: column

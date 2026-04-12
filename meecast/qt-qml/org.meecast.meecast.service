@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2015 - 2023 Jolla Ltd.
+# SPDX-FileCopyrightText: 2024 - 2025 Jolla Mobile Ltd
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+[D-BUS Service]
+Name=org.meecast.meecast
+Exec=/usr/bin/invoker -s --type=generic /usr/bin/sailjail -p harbour-meecast.desktop /usr/bin/harbour-meecast

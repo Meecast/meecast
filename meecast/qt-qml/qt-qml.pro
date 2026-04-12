@@ -142,6 +142,10 @@ translations.path = $$DEPLOYMENT_PATH/locale/
 # Please do not modify the following line.
 #include(sailfishapplication/sailfishapplication.pri)
 
+dbus_service.files = org.meecast.meecast.service
+dbus_service.path = /usr/share/dbus-1/services
+
+
 #INSTALLS += desktop qml icon64
-INSTALLS += target desktop_ translations qml
+INSTALLS += target desktop_ translations qml dbus_service
 

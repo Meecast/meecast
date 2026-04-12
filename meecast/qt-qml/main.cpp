@@ -137,7 +137,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
                     QTextStream out(&new_file);
                     while(!in.atEnd()) {
                         QString line = in.readLine();
-                        line.replace(old_config_path_directory, new_config_path_directory);
+                        line.replace(old_config_path_directory2, new_config_path_directory);
                         out<<line<<endl;
                         qDebug()<<line;
                     }
@@ -145,9 +145,9 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
                 }else{
                     qDebug()<<"Can't copy old config2 to new file";
                 }
-                old_file.close();
+                old_file2.close();
             }else{
-                qDebug()<<"Can't open old config2  file "<<old_config_path;
+                qDebug()<<"Can't open old config2  file "<<old_config_path2;
             }
         }else{
             if (new_pathdir_exist && (QFile::exists(old_config_path))){

@@ -348,9 +348,10 @@ fi
 
 
 %changelog
-* Mon Mar 16 2026 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.16
+* Sun Apr 12 2026 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.16
  - Improved in evenview. Patch from Rdomschk.
  - Fixed bug - Tapping MeeCast from the eventsview starts another instance if opened before via launcher #84
+ - Added stations for Netherland in openstreetmap database
 
 * Mon Mar 16 2026 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.15
  - Added stations to yr.no

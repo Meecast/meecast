@@ -2,16 +2,22 @@
 # -*- coding: UTF-8 -*-
 # vim: expandtab sw=4 ts=4 sts=4:
 #from urllib import urlopen
-import urllib2
+from urllib.request import urlretrieve
+from urllib.parse import quote
+import urllib3
 import urllib
+import json
 import sqlite3 as db
 import libxml2, sys
 import os
 import re
 import string
 import zipfile
-country = "Russia"
-country_code = "RU"
+import gzip
+country = "Netherlands"
+country_code = "NL"
+url_all_cities_in_openweather="http://bulk.openweathermap.org/sample/"
+file_all_cities = "city.list.json.gz" 
                 
 
 def normalizing4 (source):
@@ -44,7 +50,7 @@ cu = c.cursor()
 #checking country name
 cur = cu.execute("select id from countries where name='%s'" %(country))
 if (cur.fetchone() == None ):
-    print "Country " + country + " is absent in the database yr.no.db"
+    print ("Country " + country + " is absent in the database openweathermap.org.db")
     exit (-1);
 
 cur = cu.execute("select id from countries where name='%s'" %(country))
@@ -55,8 +61,13 @@ for row in cur:
 myzipfile = country_code + ".zip"
 #downloading the dump file
 url = baseurl + myzipfile
-urllib.urlretrieve (url, myzipfile)
+urlretrieve (url, myzipfile)
 
+urlretrieve(url_all_cities_in_openweather + file_all_cities, file_all_cities)
+# Read as text
+with gzip.open(file_all_cities, 'rt', encoding='utf-8') as f:
+#    file_content = f.read()
+    all_cities_json = json.load(f)
 
 #unzip file
 fh = open(myzipfile, 'rb')
@@ -88,7 +99,7 @@ fh.close
 
 regions_name["00"] = "Other/" + country
 regions_name_second["00"] = "Other/" + country
-print country_id
+print (country_id)
 #checking regions name
 for key in regions_name.keys():
     cur = cu.execute("select name, id from regions where country_id='%i' and name = '%s'" %(country_id,normalizing3(regions_name[key])))
@@ -107,8 +118,8 @@ for key in regions_name.keys():
 #            regions_name[key] = replacing_dict[regions_name[key]]
             flag = 1
         if (flag == 0):
-            print "Error in " + key + " " + regions_name[key]
-    print regions_name[key]  + ' '  + key
+            print ("Error in " + key + " " + regions_name[key])
+    print (regions_name[key]  + ' '  + key)
 
 #filling stations
 fh = open(country_code + ".txt")
@@ -118,15 +129,16 @@ for line in fh.readlines():
 #    print "Pattern %s" %(pattern[20])
 #    if (pattern[14] == "PPLA" or pattern[14] == "PPLA2" or pattern[14] == "PPLC" or pattern[14] == "PPL"):    
 #    if ((pattern[14] == "PPLA" or pattern[14] == "PPLA2" or pattern[14] == "PPLA3" or pattern[14] == "PPLC" or pattern[14] == "PPL") and (pattern[20] == "42")):
-    if (pattern[14] == "PPLA" or pattern[14] == "PPLA2" or pattern[14] == "PPLC" or pattern[14] == "PPL"):    
-#        print "%s %s" %(pattern[4], pattern[28]) 
+    if (pattern[14] == "PPLA" or pattern[14] == "PPLA2" or pattern[14] == "PPLC" or pattern[14] == "PPL" or pattern[14] == "PPLX"):    
+        print ("%s %s" %(pattern[4], pattern[28]))
         if (pattern[20] != "" and int(pattern[28]) >= 80000):
+        # if (pattern[20] != "" and int(pattern[28]) >= 0):
             if (regions_name.get(pattern[20]) == None):
                 continue
-            fixed_regions_name = urllib.quote(regions_name[pattern[20]])
+            fixed_regions_name = quote(regions_name[pattern[20]])
 
             cur = cu.execute("select id from regions where country_id='%i' and name = '%s'" %(country_id, regions_name[pattern[20]]))
-            print "select id from regions where country_id='%i' and name = '%s'" %(country_id, regions_name[pattern[20]])
+            print ("select id from regions where country_id='%i' and name = '%s'" %(country_id, regions_name[pattern[20]]))
             region_id = None
             for row in cur:
                 region_id = row[0]
@@ -143,20 +155,24 @@ for line in fh.readlines():
 #            print region_id 
 #            print "Station %s" %(normalizing(pattern[4]))
 
-            url = openweathrmapurl  +  pattern[0] 
-            print url
+            #url = openweathrmapurl  +  pattern[0] 
+            #print (url)
 
-            req = urllib2.Request(url, None, {'User-agent': 'Mozilla/5.0', 'Accept-Language':'ru'})
-            page = urllib2.urlopen(req)
+            #headers = {'User-agent': 'Mozilla/5.0', 'Accept-Language':'ru'}
+            #resp = urllib3.request('GET', url, None, headers=headers)
+            #page = urllib3.urlopen(req)
+            print (pattern[0])
+            #for item in all_cities_json:
+            #    print(item["id"])
+            #    exit(0)
+            results = [item for item in all_cities_json if item["id"] == int(pattern[0])]
             error_flag = False
-            for line2 in page.readlines():
-                if (line2.find("of London") != -1):
-                    error_flag = True
-                    print ("Error %s", url)
-
+            if results == []:
+                error_flag = True
             if (error_flag):
+                print("Error" + pattern[0])
                 continue
-            print "select id from stations where region_id='%i' and name = '%s'" %(region_id, normalizing(pattern[4]));
+            print ("select id from stations where region_id='%i' and name = '%s'" %(region_id, normalizing(pattern[4])));
             cur = cu.execute("select id from stations where region_id='%i' and name = '%s'" %(region_id, normalizing4(pattern[4])))
             station_id= None
             for row in cur:

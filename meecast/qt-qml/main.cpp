@@ -112,7 +112,10 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     /* Move config from old versions path. For SailfishOS only */
     const QString old_config_path_directory = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/harbour-meecast/";
     const QString old_config_path = old_config_path_directory + "config.xml";
-    const QString new_config_path_directory = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/org.meecast/MeeCast/";
+    const QString old_config_path_directory2 = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/org.meecast/MeeCast/";
+    const QString old_config_path2 = old_config_path_directory2 + "config.xml";
+ 
+    const QString new_config_path_directory = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/org.meecast/meecast/";
     const QString new_config_path = new_config_path_directory + "config.xml";
 
     if (!(QFile::exists(new_config_path))){
@@ -122,15 +125,15 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
         if (!new_pathdir_exist){
             new_pathdir_exist = QDir().mkpath(new_config_path_directory);
         }
-        if (new_pathdir_exist && (QFile::exists(old_config_path))){
-            qDebug()<<"Old config present";
-            QFile old_file(old_config_path);
+        if (new_pathdir_exist && (QFile::exists(old_config_path2))){
+            qDebug()<<"Old 2 config present";
+            QFile old_file2(old_config_path2);
             QFile new_file(new_config_path);
-            if (old_file.open(QIODevice::ReadOnly | QIODevice::Text)){
-                qDebug()<<"Open old config file";
+            if (old_file2.open(QIODevice::ReadOnly | QIODevice::Text)){
+                qDebug()<<"Open 2 old config file";
                 if (new_file.open(QIODevice::WriteOnly | QIODevice::Text)){
-                    qDebug()<<"copy old config to new file";
-                    QTextStream in(&old_file);
+                    qDebug()<<"copy 2 old config to new file";
+                    QTextStream in(&old_file2);
                     QTextStream out(&new_file);
                     while(!in.atEnd()) {
                         QString line = in.readLine();
@@ -140,11 +143,37 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
                     }
                     new_file.close();
                 }else{
-                    qDebug()<<"Can't copy old config to new file1";
+                    qDebug()<<"Can't copy old config2 to new file";
                 }
                 old_file.close();
             }else{
-                qDebug()<<"Can't open old config file "<<old_config_path;
+                qDebug()<<"Can't open old config2  file "<<old_config_path;
+            }
+        }else{
+            if (new_pathdir_exist && (QFile::exists(old_config_path))){
+                qDebug()<<"Old config present";
+                QFile old_file(old_config_path);
+                QFile new_file(new_config_path);
+                if (old_file.open(QIODevice::ReadOnly | QIODevice::Text)){
+                    qDebug()<<"Open old config file";
+                    if (new_file.open(QIODevice::WriteOnly | QIODevice::Text)){
+                        qDebug()<<"copy old config to new file";
+                        QTextStream in(&old_file);
+                        QTextStream out(&new_file);
+                        while(!in.atEnd()) {
+                            QString line = in.readLine();
+                            line.replace(old_config_path_directory, new_config_path_directory);
+                            out<<line<<endl;
+                            qDebug()<<line;
+                        }
+                        new_file.close();
+                    }else{
+                        qDebug()<<"Can't copy old config to new file1";
+                    }
+                    old_file.close();
+                }else{
+                    qDebug()<<"Can't open old config file "<<old_config_path;
+                }
             }
         }
     }else{

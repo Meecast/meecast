@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.12.16
+%define vrsn 1.12.17
 %define rlse 1
 
 Name:       harbour-meecast
@@ -348,6 +348,9 @@ fi
 
 
 %changelog
+* Sun Apr 12 2026 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.17
+ - Bug fix release
+
 * Sun Apr 12 2026 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.16
  - Improved in evenview. Patch from Rdomschk.
  - Fixed bug - Tapping MeeCast from the eventsview starts another instance if opened before via launcher #84

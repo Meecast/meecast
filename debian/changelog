@@ -1,3 +1,7 @@
+meecast (1.12.17) unstable; urgency=low
+  * Nothing
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 12 Apr 2026 10:42:23 +0300
+
 meecast (1.12.16) unstable; urgency=low
   * Added stations for Netherland in openstreetmap database
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 12 Apr 2026 10:42:23 +0300

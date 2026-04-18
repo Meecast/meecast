@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-bom-gov-au-stations-db
  *
- * Copyright (C) 2012-2023 Vlad Vasilyeu
+ * Copyright (C) 2012-2026 Vlad Vasilyeu
  * 	for the code
  *
  * This software is free software; you can redistribute it and/or
@@ -154,6 +154,10 @@ parse_and_write_bom_gov_au_detail_data(const char *station_name, htmlDocPtr doc,
             xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-tmp')]/text()", xpathCtx);
             fprintf(file_out,"     <temperature>%s</temperature>\n", (const char*)xpathObj2->nodesetval->nodeTab[i]->content);				                
             xmlFree(xpathObj2);
+            xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-apptmp')]/text()", xpathCtx);
+            fprintf(file_out,"     <flike>%s</flike>\n", (const char*)xpathObj2->nodesetval->nodeTab[i]->content);
+            xmlFree(xpathObj2);
+
             xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-relhum')]/text()", xpathCtx);
             fprintf(file_out,"     <humidity>%s</humidity>\n", (const char*)xpathObj2->nodesetval->nodeTab[i]->content);				                
             xmlFree(xpathObj2);
@@ -478,6 +482,7 @@ convert_station_bomgovau_data(const char *station_id_with_path, const char *resu
 /*******************************************************************************/
 int
 main_bom_gov_au(int argc, char *argv[]){
+//main(int argc, char *argv[]){
     int result; 
     if (argc < 3) {
         fprintf(stderr, "bomgovau <input_file> <output_file> <input_detail_data>\n");

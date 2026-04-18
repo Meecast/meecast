@@ -346,7 +346,6 @@ fi
 %{_libdir}/qt5/qml/Sailfish/Weather
 %endif
 
-
 %changelog
 * Sat Apr 18 2026 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.18
  - Added flike to bom.gov.au source

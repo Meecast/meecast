@@ -41,7 +41,7 @@ Meecastdata::Meecastdata(QObject *parent):
             watcher_file.close();
         }
     }
-    _watcher->addPath(QDir::homePath()+"/.cache/org.meecast/meeCast/current.xml");
+    _watcher->addPath(QDir::homePath()+"/.cache/org.meecast/meecast/current.xml");
     connect(_watcher,SIGNAL(fileChanged(QString)),this,SLOT(currentfileChanged(QString)));
 
     _lazyrenderingtimer = new QTimer(this);

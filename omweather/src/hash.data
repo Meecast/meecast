@@ -68,6 +68,7 @@
     g_hash_table_insert(hash, (void*)"Cloudy, Smoke", _("Cloudy, Smoke"));
     g_hash_table_insert(hash, (void*)"Cloudy, thunderstorms with rain", _("Cloudy, thunderstorms with rain"));
     g_hash_table_insert(hash, (void*)"Cloudy, Snow", _("Cloudy, Snow"));
+    g_hash_table_insert(hash, (void*)"Cloudy Early / Clearing Late / Wind", _("Cloudy Early / Clearing Late / Wind"));
     g_hash_table_insert(hash, (void*)"Day length:", _("Day length:"));
     g_hash_table_insert(hash, (void*)"Drifting Snow", _("Drifting Snow"));
     g_hash_table_insert(hash, (void*)"Drizzle", _("Drizzle"));

@@ -144,7 +144,7 @@ get_month(char *temp_string){
     for (int i = 0; i < 12; i++){
         if (sizeof(temp_string) > sizeof(months2[i]))
             continue;
-        //fprintf(stderr, "compare %s %s %i %i\n", months[i], temp_string, sizeof(temp_string), strncmp(months[i], temp_string,  strlen(temp_string)));
+        //fprintf(stderr, "2 compare %s %s %i %i\n", months2[i], temp_string, sizeof(temp_string), strncmp(months2[i], temp_string,  strlen(temp_string)));
         if (strncmp(months2[i], temp_string,  strlen(temp_string)) == 0)
             return i + 1;
     }
@@ -153,7 +153,7 @@ get_month(char *temp_string){
     for (int i = 0; i < 12; i++){
         if (sizeof(temp_string) > sizeof(months3[i]))
             continue;
-        fprintf(stderr, "compare %s- %s- %i %i\n", months3[i], temp_string, sizeof(temp_string), strncmp(months3[i], temp_string,  strlen(temp_string)));
+        //fprintf(stderr, "3 compare %s- %s- %i %i\n", months3[i], temp_string, sizeof(temp_string), strncmp(months3[i], temp_string,  strlen(temp_string)));
         if (strncmp(months3[i], temp_string,  strlen(temp_string)) == 0)
             return i + 1;
     }
@@ -278,6 +278,17 @@ void TrimRight(char *str) {
         len--;
     }
     str[len] = '\0';
+}
+
+void TrimRight2(char *str) {
+    if (str == NULL) return;
+    int len = strlen(str);
+    while (len > 0 && (isspace((unsigned char)str[len - 1]) || (unsigned char)str[len - 1] == 0x0A )) {
+        len--;
+    }
+    if (len != strlen(str)){
+        str[len+1] = '\0';
+    }
 }
 
 /*******************************************************************************/
@@ -522,12 +533,13 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
                     snprintf(temp_buffer, strlen(temp_point),"%s", temp_point + 1);
                 }
                 char *temp_new_buffer = trimLeading((char *)temp_buffer);
-                TrimRight(temp_new_buffer);
+                TrimRight2(temp_new_buffer);
                 memset(temp_buffer3, 0, sizeof(temp_buffer3));
                 snprintf(temp_buffer3, strlen(temp_new_buffer),"%s", temp_new_buffer);
                 fprintf(stderr, "Month %s;\n",temp_buffer3);
                 
                 month = get_month(temp_buffer3);
+                fprintf(stderr, "Month %i;\n",month);
                 /* Current year */
                 time_t seconds=time(NULL);
                 struct tm* current_time=localtime(&seconds);
@@ -743,7 +755,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
             snprintf(buffer, sizeof(buffer)-1,"%s", (char *)xpathObjUv->nodesetval->nodeTab[i]->content);
             char *temp_new_buffer = trimLeading((char *)buffer);
             TrimRight(temp_new_buffer);
-           fprintf(file_out,"     <uv_index>%s</uv_index>\n", (char *)temp_new_buffer);
+            fprintf(file_out,"     <uv_index>%s</uv_index>\n", (char *)temp_new_buffer);
         }
         fprintf(file_out,"    </period>\n");
     }	
@@ -1065,7 +1077,10 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
         /* added uv-index */
         if (xpathObjUv && !xmlXPathNodeSetIsEmpty(xpathObjUv->nodesetval) &&
             xpathObjUv->nodesetval->nodeTab[i] && xpathObjUv->nodesetval->nodeTab[i]->content){
-           fprintf(file_out,"     <uv_index>%s</uv_index>\n", (char *)xpathObjUv->nodesetval->nodeTab[i]->content);
+            snprintf(buffer, sizeof(buffer)-1,"%s", (char *)xpathObjUv->nodesetval->nodeTab[i]->content);
+            char *temp_new_buffer = trimLeading((char *)buffer);
+            TrimRight(temp_new_buffer);
+            fprintf(file_out,"     <uv_index>%s</uv_index>\n", (char *)temp_new_buffer);
         }
 
         fprintf(file_out,"    </period>\n");

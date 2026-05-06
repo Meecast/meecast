@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.12.18
+%define vrsn 1.12.19
 %define rlse 1
 
 Name:       harbour-meecast
@@ -347,6 +347,9 @@ fi
 %endif
 
 %changelog
+* Wed May 06 2026 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.19
+ - Fixed bug in gismeteo.ru source
+
 * Sat Apr 18 2026 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.18
  - Added flike to bom.gov.au source
  - Fixed bug in Eventview - After changing the station or updating the weather forecast, it is not displayed on Evenview

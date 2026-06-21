@@ -35,16 +35,11 @@
 #include "json/json.h"
 /*******************************************************************************/
 int
-parse_and_write_html_data(const char *station_id, Json::Value root, const char *result_file){
+parse_and_write_json_forecast_data(Json::Value root, const char *result_file){
 
-    struct tm   current_tm = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    time_t      current_time = 0;
     FILE        *file_out;
-    struct tm time_tm1;
-    struct tm time_tm2;
 
     #define MAX_BUFF_SIZE 1024000
-    char buffer[MAX_BUFF_SIZE];
     Json::Reader reader;
     Json::Value val;
     Json::Value node;
@@ -55,32 +50,15 @@ parse_and_write_html_data(const char *station_id, Json::Value root, const char *
 
     int check_timezone = false;
     int timezone = 0;
-    int localtimezone = 0;
-    int first_day = false;
-    int afternoon = false;
-    int dark = false;
-
-    struct tm tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
-    time_t local_time = 0;
-
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     //    file_out = fopen ("myfile.txt","w"); 
-    file_out = fopen(result_file, "w");
+    file_out = fopen(result_file, "a");
     if (!file_out)
         return -1;
 
-    /* Set localtimezone */
-    current_time = time(NULL);
-    gmtime_r(&current_time, &time_tm1);
-    localtime_r(&current_time, &time_tm2);
-    localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
-
-    fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", station_id);
-    fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
-    fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
     const Json::Value validtimeutc = root["validTimeUtc"];
     for (uint i = 0; i < validtimeutc.size(); i++){
         std::string utc_time_string;
@@ -137,9 +115,8 @@ parse_and_write_html_data(const char *station_id, Json::Value root, const char *
             memset(buffer_zone, 0, sizeof(buffer_zone));
             snprintf(buffer_zone, sizeof(buffer_zone), "%s", utc_time_string.c_str() + 19);
             timezone = atoi(buffer_zone);
-            fprintf(file_out,"  <timezone>%i</timezone>\n", timezone);
+            fprintf(file_out,"  <timezone>%i</timezone>\n", (int)timezone);
             check_timezone = true;
-            first_day = true;
         }    
 
         if (desc_night_string != "" && icon_night_string != ""){
@@ -360,8 +337,6 @@ parse_and_write_html_data(const char *station_id, Json::Value root, const char *
                 timezone = atoi(buffer_zone);
                 fprintf(file_out,"  <timezone>%i</timezone>\n", timezone);
                 check_timezone = true;
-                first_day = true;
-                
             }    
 
             if (desc_night_string != "" && icon_night_string != ""){
@@ -480,16 +455,117 @@ parse_and_write_html_data(const char *station_id, Json::Value root, const char *
     fclose(file_out);
     return validtimeutc.size();
 }
+int
+parse_and_write_json_current_weather_data(Json::Value root, const char *result_file, bool need_timezone){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    FILE        *file_out;
+    std::string utc_time_string;
+    std::string sunrise_time_string;
+    std::string sunset_time_string;
+    std::string temp_hi_string;
+    std::string temp_low_string;
+    std::string temperature;
+    std::string icon_string;
+    std::string desc_string;
+    std::string wind_direct_string;
+    std::string wind_speed_string;
+    std::string wind_gust_string;
+    std::string humidity_string;
+    std::string ppcp_string;
+    std::string uv_index_string;
+    std::string pressure_string;
+    std::string pressuretendencytrend_string;
+    std::string dewpoint_string;
+    std::string flike_string;
+    std::string visibility_string;
+    time_t valid_utc_time = 0;
+//    time_t expiration_utc_time = 0;
+    time_t sunrise_time = 0;
+    time_t sunset_time = 0;
+
+    file_out = fopen(result_file, "a");
+    if (!file_out)
+        return -1;
+
+
+
+    fprintf(stderr,"ssss\n");
+    valid_utc_time = root["validTimeUtc"].asInt();
+//    expiration_utc_time = root["expirationTimeUtc"].asInt();
+    sunrise_time = root["sunriseTimeUtc"].asInt();
+    sunset_time = root["sunsetTimeUtc"].asInt();
+    temp_hi_string = root["temperatureMax24Hour"].asString();
+    temp_low_string = root["temperatureMin24Hour"].asString();
+    temperature = root["temperature"].asString();
+
+    icon_string = root["iconCode"].asString();
+    desc_string = root["wxPhraseLong"].asString();
+    wind_direct_string = root["windDirectionCardinal"].asString();
+    wind_speed_string = root["windSpeed"].asString();
+    wind_gust_string = root["windGust"].asString();
+    humidity_string = root["relativeHumidity"].asString();
+    ppcp_string = root["precip1Hour"].asString();
+    pressure_string = root["pressureAltimeter"].asString();
+    pressuretendencytrend_string = root["pressureTendencyTrend"].asString();
+    dewpoint_string = root["temperatureDewPoint"].asString();
+    flike_string = root["temperatureFeelsLike"].asString();
+    visibility_string = root["visibility"].asString();
+
+    uv_index_string = root["uvIndex"].asString();
+    valid_utc_time = root["validTimeUtc"].asInt() ; 
+
+    if (need_timezone){
+        char buffer_zone[4];
+        utc_time_string = root["validTimeLocal"].asString();
+        memset(buffer_zone, 0, sizeof(buffer_zone));
+        snprintf(buffer_zone, sizeof(buffer_zone), "%s", utc_time_string.c_str() + 19);
+        timezone = atoi(buffer_zone);
+        fprintf(file_out,"  <timezone>%i</timezone>\n", (int)timezone);
+    }
+
+    fprintf(file_out,"    <period start=\"%li\"", valid_utc_time - 3600);
+    fprintf(file_out," end=\"%li\" current=\"true\">\n", valid_utc_time + 3*3600); 
+    fprintf(file_out,"      <sunrise>%li</sunrise>\n", sunrise_time);
+    fprintf(file_out,"      <sunset>%li</sunset>\n", sunset_time);
+    if (temp_hi_string != ""){
+        fprintf(file_out,"      <temperature_hi>%s</temperature_hi>\n", temp_hi_string.c_str());
+    }else{
+        fprintf(file_out,"      <temperature_hi>%s</temperature_hi>\n", temp_low_string.c_str());
+    }
+    fprintf(file_out,"      <temperature_low>%s</temperature_low>\n", temp_low_string.c_str());
+
+    fprintf(file_out,"      <temperature>%s</temperature>\n", temperature.c_str());
+    fprintf(file_out,"      <icon>%s</icon>\n", icon_string.c_str());
+    fprintf(file_out,"      <description>%s</description>\n", desc_string.c_str());
+    fprintf(file_out,"      <wind_direction>%s</wind_direction>\n", wind_direct_string.c_str());
+    fprintf(file_out,"      <wind_speed>%1.f</wind_speed>\n", (double)( atoi(wind_speed_string.c_str()) * 1000/3600));
+    fprintf(file_out,"      <wind_gust>%1.f</wind_gust>\n", (double)(atoi(wind_gust_string.c_str())) * 1000/3600);
+    fprintf(file_out,"      <pressure>%s</pressure>\n", pressure_string.c_str());
+    fprintf(file_out,"      <pressure_direction>%s</pressure_direction>\n", pressuretendencytrend_string.c_str());
+    fprintf(file_out,"      <dewpoint>%s</dewpoint>\n", dewpoint_string.c_str());
+    fprintf(file_out,"      <humidity>%s</humidity>\n", humidity_string.c_str());
+    fprintf(file_out,"      <ppcp>%s</ppcp>\n", ppcp_string.c_str());
+    fprintf(file_out,"      <uv_index>%s</uv_index>\n", uv_index_string.c_str());
+    fprintf(file_out,"      <flike>%s</flike>\n", flike_string.c_str());
+    fprintf(file_out,"      <visible>%i</visible>\n",(int)(atoi(visibility_string.c_str())*1000));
+
+    fprintf(file_out,"    </period>\n");
+
+    fclose(file_out);
+    return 1;
+
+}
 
 /*******************************************************************************/
 int
 convert_station_weather_com_data(const char *station_id_with_path, const char *result_file,
-	                     const char *station_detail_id_with_path){
+	                     const char *station_current_id_with_path){
     int     days_number = -1;
     char    buffer[1024],
             buffer2[1024],
             *delimiter = NULL;
-    struct stat file_info;
     FILE        *file_out;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -525,8 +601,37 @@ convert_station_weather_com_data(const char *station_id_with_path, const char *r
                 return -1;
             }
             *delimiter = 0;
-            days_number = parse_and_write_html_data(buffer, root, result_file);
-            if (days_number > 0){
+            file_out = fopen(result_file, "w");
+            if (!file_out)
+                return -1;
+
+            fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", buffer);
+            fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
+            fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
+            fclose(file_out);
+
+            days_number = parse_and_write_json_forecast_data(root, result_file);
+            int result_current_weather = -1;
+            if(!access(station_current_id_with_path, R_OK)){
+                std::ifstream file(station_current_id_with_path, std::ifstream::binary);
+
+                bool parsingSuccessful = Json::parseFromStream(readerBuilder, file, &root, &errs);
+                file.close(); // Close the file immediately after reading
+                if (parsingSuccessful) {
+                    if (days_number > 0){
+                        result_current_weather = parse_and_write_json_current_weather_data(root, result_file, false);
+                    }else{
+                        result_current_weather = parse_and_write_json_current_weather_data(root, result_file, true);
+                    }
+                }else{
+                    std::cerr << "Failed to parse JSON in current weather: " << errs << std::endl;
+                }
+
+            }else{
+                fprintf(stderr, "The current weather file for weather.com is not available\n");
+            }
+
+            if (days_number > 0 ||result_current_weather >0){
                 file_out = fopen(result_file, "a");
                 if (file_out){
                     fprintf(file_out,"</station>");
@@ -543,9 +648,9 @@ convert_station_weather_com_data(const char *station_id_with_path, const char *r
 int
 main_weather_com(int argc, char *argv[]){
 //main(int argc, char *argv[]){
-    int result; 
+    int result = -1; 
     if (argc < 3) {
-        fprintf(stderr, "weathercom <input_file> <output_file> <input_detail_fail>\n");
+        fprintf(stderr, "weathercom <input_file> <output_file> <input_current_file>\n");
         return -1;
     }
     if (argc == 3) 

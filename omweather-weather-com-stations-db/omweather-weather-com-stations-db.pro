@@ -6,10 +6,10 @@
 
 
 TARGET = weathercom
-TEMPLATE = app
+#TEMPLATE = app
 
 
-#TEMPLATE = lib
+TEMPLATE = lib
 
 HEADERS += src/main.h \
 	       src/json/json.h

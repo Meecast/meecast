@@ -768,8 +768,8 @@ convert_station_weather_com_data(const char *station_id_with_path,
 }
 
 int
-//main_weather_com(int argc, char *argv[]){
-main(int argc, char *argv[]){
+main_weather_com(int argc, char *argv[]){
+//main(int argc, char *argv[]){
     int result = -1; 
     if (argc < 3) {
         fprintf(stderr, "weathercom <input_file> <output_file> <input_current_file> <input_hours_file>\n");

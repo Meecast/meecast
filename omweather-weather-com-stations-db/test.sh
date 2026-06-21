@@ -5,4 +5,4 @@
 #./weathercom ./examples/forecast.xml ./examples/out.xml ./examples/forecast_detail.xml 
 #./weathercom ./examples/BUG.newYear/weather.com_BOXX0014.orig ./examples/BUG.newYear/out.xml ./examples/BUG.newYear/weather.com_BOXX0014.detail.orig 
 #wget  -O examples/BOXX0014.html "https://weather.com/en-GB/weather/today/l/BOXX0014"
-./weathercom ./examples/15days.json ./examples/out.xml ./examples/current.json
+./weathercom ./examples/15days.json ./examples/out.xml ./examples/current.json ./examples/hourly.json

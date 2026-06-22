@@ -5,7 +5,8 @@
 <base>weather.com.db</base>
 <forecast url="https://api.weather.com/v3/wx/forecast/daily/15day?geocode=%s&amp;units=m&amp;language=en-GB&amp;format=json%s" />
 <forecast_backup url="http://www.weather.com/weather/tenday/%s" />
-<detail url="http://wxdata.weather.com/wxdata/weather/local/%s?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;hbhf=12" />
+<detail url="https://api.weather.com/v3/wx/observations/current?geocode=%s&amp;units=m&amp;language=en-GB&amp;format=json%s" />
+<hours url="https://api.weather.com/v3/wx/forecast/hourly/3day?geocode=%s&amp;units=m&amp;language=en-GB&amp;format=json%s" />
 <search url="http://xml.weather.com/search/search?where=%s" />
 <library>libomweather-weather-com-source.so</library>
 <binary>weathercom</binary>

@@ -133,7 +133,7 @@ Station::Station(const std::string& source_name, const std::string& id,
             }else{
                 snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), id.c_str());
             }
-
+        }
         char forecast_detail_url[4096];
         /* For detail url for fmi.fi */
 

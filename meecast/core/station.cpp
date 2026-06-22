@@ -108,7 +108,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         std::string user_agent = sourcelist->at(source_id)->user_agent();
 
         char forecast_url[4096];
-        /* From 2023 Yr.no using lat lon in URL */
+        /* Since 2023 Yr.no using lat lon in URL */
         if (source_name=="yr.no"){
             std::string part_of_url;
             setlocale(LC_NUMERIC, "POSIX");
@@ -116,8 +116,24 @@ Station::Station(const std::string& source_name, const std::string& id,
             snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), part_of_url.c_str());
             setlocale(LC_NUMERIC, "");
         }else{
-            snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), id.c_str());
-        }
+            /* Since 2026 weather.com using lat lon in URL */
+            if (source_name=="weather.com"){
+                std::string part_of_url;
+                setlocale(LC_NUMERIC, "POSIX");
+                //https://api.weather.com/v3/wx/forecast/daily/15day?geocode=55.17%2C30.23
+                part_of_url = std::to_string(latitude) + "%2C" + std::to_string(longitude);
+                setlocale(LC_NUMERIC, "");
+                uint8_t hexArray[] ={0x26,0x61,0x70,0x69,0x4B,0x65,0x79,0x3D,0x37,0x31,0x66,0x39,0x32,0x65,0x61,0x39,0x64,0x64,0x32,0x66,0x34,0x37,0x39,0x30,0x62,0x39,0x32,0x65,0x61,0x39,0x64,0x64,0x32,0x66,0x37,0x37,0x39,0x30,0x36,0x31};
+                size_t length = sizeof(hexArray) / sizeof(hexArray[0]);
+                // Cast the pointer to const char* and pass the length
+                std::string textString(reinterpret_cast<const char*>(hexArray), length);
+                snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), part_of_url.c_str(), textString.c_str());
+
+
+            }else{
+                snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), id.c_str());
+            }
+
         char forecast_detail_url[4096];
         /* For detail url for fmi.fi */
 

@@ -39,7 +39,7 @@ int convert_station_forecacom_data(const char *station_id_with_path, const char 
 int convert_station_hkogovhk_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data );
 int convert_station_bomgovau_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data );
 int convert_station_yrno_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data );
-int convert_station_weather_com_data(const char *station_id_with_path, const char *result_file, const char *station_detail_id_with_path);
+int convert_station_weather_com_data(const char *station_id_with_path, const char *result_file, const char *station_detail_id_with_path, const char *hours_file_string);
 int convert_station_fmi_fi_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data);
 
 ////////////////////////////////////////////////////////////////////////////////

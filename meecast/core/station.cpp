@@ -714,7 +714,7 @@ Station::run_converter(){
         convert_station_weather_com_data(
             (const char *)forecast_file_string.c_str(), 
             (const char *)result_file_string.c_str(), 
-            (const char *)current_file_string.c_str(), 
+            (const char *)detail_file_string.c_str(), 
             (const char *)hours_file_string.c_str());
     }
     if (*_sourceName =="fmi.fi"){

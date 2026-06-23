@@ -580,6 +580,30 @@ Config::LoadConfig(){
                     std::cerr<<"New Gismeteo DetailURl new "<< detailURL.toStdString()<<std::endl;
                 }
             }
+            /* Hack for weather.com */
+            uint8_t sechexArray0[] ={0x5D, 0x1A, 0x0B, 0x12, 0x30, 0x1E, 0x02, 0x46, 0x4C, 0x4A, 0x1D, 0x42, 0x49, 0x1E, 0x1A, 0x42, 0x1F, 0x1F, 0x49, 0x1D, 0x4F, 0x4C, 0x42, 0x4B, 0x19, 0x42, 0x49, 0x1E, 0x1A, 0x42, 0x1F, 0x1F, 0x49, 0x1D, 0x4C, 0x4C, 0x42, 0x4B, 0x4D, 0x4A};
+            int size_of_array = sizeof(sechexArray0) / sizeof(sechexArray0[0]);
+            uint8_t sechexArray[size_of_array];
+            for (int i= 0;i<size_of_array; i++){
+                sechexArray[i] = sechexArray0[i]^0x7b;
+            }
+            size_t length = sizeof(sechexArray) / sizeof(sechexArray[0]);
+            // Cast the pointer to const char* and pass the length
+            std::string textString(reinterpret_cast<const char*>(sechexArray), length);
+            if  (source_name=="wetaher.com" && (forecastURL.indexOf("https://weather.com/",0) != -1)){
+                std::string part_of_url;
+                setlocale(LC_NUMERIC, "POSIX");
+                part_of_url = std::to_string(latitude.toDouble()) + "%2C" + std::to_string(longitude.toDouble());
+                setlocale(LC_NUMERIC, "");
+                char forecast_url[4096];
+                snprintf(forecast_url, sizeof(forecast_url)-1, "https://api.weather.com/v3/wx/forecast/daily/15day?geocode=%s&amp;units=m&amp;language=en-GB&amp;format=json%s", part_of_url.c_str(), textString.c_str());
+                forecastURL = forecast_url;
+                snprintf(forecast_url, sizeof(forecast_url)-1, "https://api.weather.com/v3/wx/observations/current?geocode=%s&amp;units=m&amp;language=en-GB&amp;format=json%s", part_of_url.c_str(), textString.c_str());
+                detailURL = forecast_url;
+                snprintf(forecast_url, sizeof(forecast_url)-1, "https://api.weather.com/v3/wx/forecast/hourly/3day?geocode=%s&amp;units=m&amp;language=en-GB&amp;format=json%s", part_of_url.c_str(), textString.c_str());
+                hoursURL = forecast_url;
+            }
+
 
             std::cerr<<"SOurce name "<<source_name.toStdString()<<std::endl;
             Station *st = new Station(source_name.toStdString(),

@@ -1,3 +1,7 @@
+meecast (1.12.20) unstable; urgency=low
+  * Fixed broken source - weather.com
+ -- Vlad Vasiliev <vlad@gas.by>  Wen, 24 Jun 2026 21:42:23 +0300
+
 meecast (1.12.19) unstable; urgency=low
   * Fixed bug in gismeteo.ru source 
  -- Vlad Vasiliev <vlad@gas.by>  Wen, 06 May 2026 21:42:23 +0300

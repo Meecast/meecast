@@ -596,11 +596,11 @@ Config::LoadConfig(){
                 part_of_url = std::to_string(latitude.toDouble()) + "%2C" + std::to_string(longitude.toDouble());
                 setlocale(LC_NUMERIC, "");
                 char forecast_url[4096];
-                snprintf(forecast_url, sizeof(forecast_url)-1, "https://api.weather.com/v3/wx/forecast/daily/15day?geocode=%s&amp;units=m&amp;language=en-GB&amp;format=json%s", part_of_url.c_str(), textString.c_str());
+                snprintf(forecast_url, sizeof(forecast_url)-1, "https://api.weather.com/v3/wx/forecast/daily/15day?geocode=%s&units=m&language=en-GB&format=json%s", part_of_url.c_str(), textString.c_str());
                 forecastURL = forecast_url;
-                snprintf(forecast_url, sizeof(forecast_url)-1, "https://api.weather.com/v3/wx/observations/current?geocode=%s&amp;units=m&amp;language=en-GB&amp;format=json%s", part_of_url.c_str(), textString.c_str());
+                snprintf(forecast_url, sizeof(forecast_url)-1, "https://api.weather.com/v3/wx/observations/current?geocode=%s&units=m&language=en-GB&format=json%s", part_of_url.c_str(), textString.c_str());
                 detailURL = forecast_url;
-                snprintf(forecast_url, sizeof(forecast_url)-1, "https://api.weather.com/v3/wx/forecast/hourly/3day?geocode=%s&amp;units=m&amp;language=en-GB&amp;format=json%s", part_of_url.c_str(), textString.c_str());
+                snprintf(forecast_url, sizeof(forecast_url)-1, "https://api.weather.com/v3/wx/forecast/hourly/3day?geocode=%s&units=m&language=en-GB&format=json%s", part_of_url.c_str(), textString.c_str());
                 hoursURL = forecast_url;
             }
 

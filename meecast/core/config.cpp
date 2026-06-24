@@ -590,7 +590,7 @@ Config::LoadConfig(){
             size_t length = sizeof(sechexArray) / sizeof(sechexArray[0]);
             // Cast the pointer to const char* and pass the length
             std::string textString(reinterpret_cast<const char*>(sechexArray), length);
-            if  (source_name=="wetaher.com" && (forecastURL.indexOf("https://weather.com/",0) != -1)){
+            if  (source_name=="weather.com" && (forecastURL.indexOf("https://weather.com/",0) != -1)){
                 std::string part_of_url;
                 setlocale(LC_NUMERIC, "POSIX");
                 part_of_url = std::to_string(latitude.toDouble()) + "%2C" + std::to_string(longitude.toDouble());

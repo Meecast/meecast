@@ -5,7 +5,7 @@
 
 %define _binary_payload w2.xzdio
 
-%define vrsn 1.12.21
+%define vrsn 1.12.22
 %define rlse 1
 
 Name:       harbour-meecast
@@ -347,6 +347,9 @@ fi
 %endif
 
 %changelog
+* Sun Aug 16 2026 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.22
+ - Fixed current weather and hourly forecasts for gismeteo.ru source
+
 * Wed Jun 24 2026 Vlad Vasilyeu <vasvlad@gmail.com> - 1.12.21
  - Fixed broken source - weather.com
 

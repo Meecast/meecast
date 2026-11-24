@@ -3783,8 +3783,11 @@ tzdb::locate_zone(std::string_view tz_name) const
 tzdb::locate_zone(const std::string& tz_name) const
 #endif
 {
-    // If a link-to-link chain exceeds this limit, give up
-    thread_local recursion_limiter rc{10};
+    // If a link-to-link chain exceeds this limit, give up.
+    // Not thread_local on purpose: an executable PT_TLS segment breaks
+    // libhybris' TLS padding on aarch64 (libhybris#559) and crashes droid
+    // EGL init; a shared depth counter is harmless here.
+    static recursion_limiter rc{10};
     auto restore_count = rc.count();
 
     auto zi = std::lower_bound(zones.begin(), zones.end(), tz_name,
